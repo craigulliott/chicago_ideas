@@ -51,6 +51,9 @@ a:hover {
     position:absolute;
     top: 10px;
     background-image: asset-url('admin/logo.png', image);
+    display: block;
+    width: 126px;
+    height: 29px;
   }
 
   // the admin main menu
