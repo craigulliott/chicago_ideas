@@ -21,9 +21,6 @@ GOOGLE_ANALYTICS_ACCOUNT_ID = ENV['GOOGLE_ANALYTICS_ACCOUNT_ID'].freeze
 AWS_ACCESS_KEY_ID = ENV['AWS_ACCESS_KEY_ID'].freeze
 AWS_SECRET_ACCESS_KEY = ENV['AWS_SECRET_ACCESS_KEY'].freeze
 
-# use this is you want to version the API
-API_VERSION = ENV['API_VERSION'].freeze
-
 # for onmiauth with facebook and facebook connect/widgets etc
 FACEBOOK_CLIENT_ID = ENV['FACEBOOK_CLIENT_ID'].freeze
 FACEBOOK_SECRET = ENV['FACEBOOK_SECRET'].freeze

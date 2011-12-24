@@ -52,30 +52,44 @@ use this .rvmrc template when doing local development
 
     rvm default
     
-    export BASE_DOMAIN_NAME=yourdomain.com
+    # The name of this business, as displayed to your users throughout the application
     export BUSINESS_NAME="Your Business"
+    # the from address used when sending email to customers, and also the email address we send admin emali to (e.g. from the conact form)
     export BUSINESS_EMAIL=support@yourdomain.com
     
-    export DEVELOPER_EMAIL=you@yourdomain.com
+    # used for facebook connect, google analytics, emails and other places where a master domain name is used to represent the business
+    export BASE_DOMAIN_NAME=yourdomain.com
     
-    export AWS_ACCESS_KEY_ID=
-    export AWS_SECRET_ACCESS_KEY=
-    
-    export FACEBOOK_CLIENT_ID=
-    export FACEBOOK_SECRET=
-    export FACEBOOK_FAN_PAGE_NAME= 
-    export FACEBOOK_FAN_PAGE_ID= 
-    
-    export TWITTER_CONSUMER_KEY=
-    export TWITTER_CONSUMER_SECRET=
-    export TWITTER_SCREEN_NAME=
-    
-    export GOOGLE_ANALYTICS_ACCOUNT_ID=123456789-1
-    export API_VERSION=1.0.0
-    
+    # the database namespace used in database.yml, "foobar" will create foobar_development and foobar_test databases for MySQL and MongoDB
+    export DATABASE_NAMESPACE=craigs_admin
+    # mysql usernme and password
     export MYSQL_USERNAME=root
     export MYSQL_PASSWORD=
     
+    # emails sent in development are intercepted and delivered to the developer, so we dont bombard customers by accident
+    export DEVELOPER_EMAIL=you@yourdomain.com
+    
+    # we use AWS as a backend for fog and paperclip
+    export AWS_ACCESS_KEY_ID=
+    export AWS_SECRET_ACCESS_KEY=
+    
+    # for onmiauth with facebook and facebook connect/widgets etc
+    export FACEBOOK_CLIENT_ID=
+    export FACEBOOK_SECRET=
+    # for displaying to your customers
+    export FACEBOOK_FAN_PAGE_NAME= 
+    export FACEBOOK_FAN_PAGE_ID= 
+    
+    # for omniauth with twitter
+    export TWITTER_CONSUMER_KEY=
+    export TWITTER_CONSUMER_SECRET=
+    # for displaying to your customers
+    export TWITTER_SCREEN_NAME=
+    
+    # urchin code for google analytics
+    export GOOGLE_ANALYTICS_ACCOUNT_ID=123456789-1
+    
+    # emails generated in development will be delivered through gmail 
     export GMAIL_DOMAIN=gmail.com
     export GMAIL_USER_NAME=you@gmail.com
     export GMAIL_PASSWORD=your_password

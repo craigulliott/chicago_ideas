@@ -1,10 +1,10 @@
 development:
   host: localhost
-  database: chicagoideas_development
+  database: <%= ENV['DATABASE_NAMESPACE'] %>_development
 
 test:
   host: localhost
-  database: chicagoideas_test
+  database: <%= ENV['DATABASE_NAMESPACE'] %>_test
 
 # set these environment variables on your prod server
 production:
