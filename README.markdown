@@ -4,6 +4,7 @@ craigs_admin
 This is a DRY, well documented (inline) Rails (3.1) project which is suited as a basis to rapidly developing business application software.  In laymen terms, it is a simple front end website with some common pages like 'contact' and 'about us'.  But it has a powerful admin tool and an very clean REST/JSON API.
 
 Out of the box, it has:
+
 * Users
 ** Registration, Login, password reset etc. (through Devise)
 ** Welcome email
@@ -46,7 +47,8 @@ Copyright
 Copyright (c) 2011 Craig Ulliott. See LICENSE.txt for
 further details.
 
-=== use this .rvmrc template when doing local development
+use this .rvmrc template when doing local development
+-----------------------------------------------------
 
 Please look in config/initializers/craigs_admin.rb for more details
 
