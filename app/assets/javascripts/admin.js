@@ -5,5 +5,3 @@
 
 // =require general/searchable_sortable_pagination
 
-// =require admin/date_time_pickers
-
