@@ -1,0 +1,161 @@
+#page table {
+  margin-bottom:10px;
+  font-size:12px;
+  tr.deleted {
+    td {
+      text-decoration: line-through;
+      background-color:#FCE0E2;
+    }
+    span.deleted { 
+      color:red;
+      font-weight:bold;
+    }
+  }
+  width: 100%;
+  th {
+    font-weight: bold;
+    padding: 4px 4px 4px 6px;
+    background-color: #326276;
+    color: #FFFFFF;
+    border: 1px solid #888888;
+    text-align:left;
+    a, a:link, a:visited, a:active {
+      color:#FFF;
+    }
+    a:hover {
+      text-decoration:underline;
+    }
+  }
+
+  td {
+    padding: 2px 2px 2px 6px;
+    border: 1px solid #888888;
+  }
+
+  // some widths we can be certain about
+  td.options {
+    width:128px;
+    padding:0px;
+  }
+  td.id {
+    width:60px;
+  }
+  td.created_at {
+    width:140px;
+  }
+}
+
+// tables in section containers
+#page .table_section {
+  
+  &.height_restricted {
+    height:400px;
+    .table_wrapper {
+      height:368px;
+      overflow-y:scroll;
+    }
+  }
+  &.height_restricted.short {
+    height:120px;
+    .table_wrapper {
+      height:88px;
+      overflow-y:scroll;
+    }
+  }
+  
+  &.warning {
+    border: 1px solid #B00000;
+    margin-bottom: 20px;
+    @include box-shadow(3px 3px 6px #FCE0E2);
+    h3 {
+      background-color: #FCE0E2;
+      color:#B00000;
+    }
+  } 
+   
+  margin-bottom: 14px;
+  border: 1px solid #CCCCCC;
+  border-radius: 3px 3px 3px 3px;
+  margin: 6px;
+  width: 886px;
+  h3 {
+    line-height: 28px;
+    height: 28px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #222222;
+    background-color:#EEEEEE;
+    border-top:1px solid #FFF;
+    border-bottom:1px solid #AAAAAA;
+    padding:2px 0 0 5px;
+    margin:0;
+    border-radius: 3px 3px 0 0;
+    a.icon {
+      margin: 3px 5px 0 0;
+    }
+  }
+  
+  .table_wrapper {
+    margin:0;
+    table {
+      margin: 0;
+      tr {
+        border-top: 1px solid #EEEEEE;
+        &:first-child {
+          border-top: 0;
+        }
+      }
+      th {
+        background-color: #DDDDDD;
+        color: #444444;
+        a, a:link, a:visited, a:active {
+          color: #444444;
+        }
+        a:hover {
+          color:#000000;
+        }
+        
+        border:0;
+        border-left:1px solid #AAAAAA;
+        border-bottom:1px solid #AAAAAA;
+        &:first-child {
+          border-left: 0;
+        }
+      }
+      td {
+        border:0;
+        border-left:1px solid #AAAAAA;
+        &:first-child {
+          border: 0;
+        }
+      }
+    }
+  }
+  
+  &.half_page {
+    width:436px;
+    float:left;
+    &.height_restricted {
+      height:300px;
+      .table_wrapper {
+        height:268px;
+      }
+    }
+    &.height_restricted.short {
+      height:120px;
+      .table_wrapper {
+        height:88px;
+      }
+    }
+  }
+  
+  .pagination {
+    border-top: 1px solid #AAAAAA;
+    margin: 5px 0 0;
+    padding: 5px 0 3px 4px;
+    // these are unnessesary and cause clutter
+    .next, .prev {
+      display:none;
+    }
+  }
+}

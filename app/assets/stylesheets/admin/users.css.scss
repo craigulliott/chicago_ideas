@@ -1,0 +1,24 @@
+body#admin_users_page {
+
+  // specific pages
+  // ------------------------------------------------
+  
+  &.show {
+    
+    #staff_bio {
+      border-top:1px solid #DDDDDD;
+    }
+    
+    // a box describing the connectivity for this user account
+    #connectivity {
+      border: 1px solid #EEEEEE;
+      @include box-shadow(2px 2px 6px #EEEEEE);
+      float: right;
+      padding: 8px;
+      text-align: center;
+      width: 250px;
+    }
+    
+  }
+
+}

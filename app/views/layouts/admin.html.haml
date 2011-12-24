@@ -1,0 +1,54 @@
+!!! 5
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
+    %title= page_title
+    = stylesheet_link_tag :admin
+    = javascript_include_tag :admin
+    = csrf_meta_tag
+ 
+  %body.admin{:id => body_id, :class => body_class}
+  
+    #header_container
+      #header
+        %a#logo{:href => "/"}= image_tag 'admin/logo.png', :alt => 'Admin'
+
+        #main_menu
+          = link_to 'home', admin_root_path, :class => active_for_controller('admin/index')
+        
+        #account_links
+          - if current_user.connected_to_facebook?
+            %a.facebook_connected_account{:href => admin_user_path(current_user)}
+              = image_tag current_user.facebook_profile_pic_src
+              my account
+          - else
+            = icon_link_to 'my account', admin_user_path(current_user), 'person', :icon_set => 'light'
+          = icon_link_to 'sign out', destroy_user_session_path, 'extlink', :icon_set => 'light'
+  
+    #content_container
+      #content_navigation
+        = yield(:content_navigation)
+        .clr
+      #content
+        #content_head
+          #breadcrumbs
+            = yield(:breadcrumbs)
+            .clr
+          #top_links
+            = yield(:top_links)
+            .clr
+          .clr
+        #page
+          = yield
+          .clr
+      .clr
+  
+    #flash_helper= flash_helper  
+  
+    #dialog_loading{:style => "display:none"}= image_tag 'admin/loader.gif', :id => 'dialog_loading'
+    #dialog{:style => "display:none"}
+      .backdrop
+      .dialog_position
+        .dialog_container
+          .dialog_contents
+    

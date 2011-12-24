@@ -1,0 +1,19 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @user
+  .crumb.end= section_title   
+
+- content_for :top_links do
+  = new_model_link Note, @user
+
+- @active_tab = 'users'
+
+- content_for :content_navigation do
+  - if @user.admin?
+    %h3 Admin Options
+    %ul
+      %li{:class => active_for('log_entries')}= icon_link_to "Access Log", log_entries_admin_user_path(@user), 'script'
+    %h3 User Options
+    
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "User Detail", admin_user_path(@user), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_user_path(@user), 'comment'

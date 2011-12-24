@@ -1,0 +1,54 @@
+%h1 API Documentation
+%p 
+  The test forms bellow will open their results in a new browser window (or tab).  As they return JSON it is strongly recommend that you use FireFox and the 
+  = link_to "JSONView 'add-on'", 'https://addons.mozilla.org/en-US/firefox/addon/jsonview/', :target => '_blank'
+  It will make the JSON much easier to read.  Methods that use POST, PUT or DELETE will not show their params in the browser address bar.  
+  Use FireBug and open the 'Net' panel,  you can see the params and their values from there.
+
+%h2 Errors
+%p Errors are returned as a JSON hash with a code and a message key.  Any request which does not return an error, is assumed to have succeeded.
+%h4 These are the current possible errors:
+%table
+  %tr
+    %th Code
+    %th Message
+    - @api_errors.each do |code, message|
+      %tr
+        %td= code
+        %td= message
+
+- @api_documentation.each do |controller, actions|
+  .controller
+    %h2= controller.titlecase
+    - actions.each do |action, docs|
+      .action
+        %h3= action.titlecase
+        .path= docs['method'].upcase+' '+send(docs['path']+'_url', docs['path_params'])
+        %p= docs['description']
+        - unless docs['params']
+          %h4 This action does not accept any params
+        - if docs['params']
+          %h4 Params
+          %table
+            %tr
+              %th Param
+              %th Required
+              %th Description
+            - docs['params'].each do |param_name, param_details|
+              - next if param_details['type'] == 'path'
+              %tr
+                %td= param_name
+                %td= param_details['required'] ? 'yes' : 'no'
+                %td= param_details['description']
+        %h4 Responses
+        %p= 'On success returns '+docs['on_success']
+        %p= 'On failure returns '+docs['on_failure']
+        - if docs['params']
+          = semantic_form_for "#{controller}_#{action}", :url => send(docs['path']+'_url', docs['path_params']), :html => {:target => "_blank", :method => docs['method'].upcase} do |f|
+            = f.inputs 'Test this API method' do
+              - docs['params'].each do |param_name, param_details|
+                = f.input param_name, :label => param_name, :required => param_details['required'], :hint => param_details['description'], :input_html => {:name => param_name}
+              %a.submit= docs['method'].upcase+' this'
+            
+
+        

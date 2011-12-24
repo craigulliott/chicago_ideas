@@ -1,0 +1,17 @@
+%tr{:log_entry => log_entry.id}
+  %td.created_at= log_entry.created_at.to_s(:pretty)
+  %td.user= log_entry.user.name
+  %td.action
+    = log_entry.action
+    %br
+    %br
+    host:
+    = log_entry.host
+    %br
+    referrer:
+    = log_entry.referrer
+    %br
+    user_agent:
+    %a{:href => '#none', :onclick => 'alert("hold your mouse pointer over the user agent link to get more information"); return false;', :title => log_entry.user_agent}= log_entry.user_agent_main
+  %td.params
+    %pre= PP.pp(log_entry.params, '').html_safe

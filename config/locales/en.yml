@@ -1,0 +1,18 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  formtastic:
+    submit: Submit
+    
+  activerecord:
+    errors:
+      models:
+        business:
+          attributes:
+            email:
+              invalid_email: The provided email is an invalid format
+  api: 
+    errors:
+      missing_param:                "Missing a required parameter, please check the documentation"                               
+      missing_model:                "Could not find a model with this ID"      

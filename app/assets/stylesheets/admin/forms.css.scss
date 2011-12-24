@@ -1,0 +1,35 @@
+body.admin {
+  form.formtastic fieldset {
+    
+    // active states for the form inputs
+    &.inputs input {
+      color: #222;
+      .active {
+        border-color: #820035;
+      }
+    }
+    
+    // admin colours on the buttons
+    &.buttons {
+      a.button, 
+      a:link.button, 
+      a:visited.button,
+      input[type="submit"],
+      input[type="button"] {
+        background-color: #1A1A1A;
+        @include linear-gradient(top, #000000 0%, #262626 60%);
+        color: #FFFFFF;
+      }
+
+      a.button.hover, 
+      a:hover.button,
+      input[type="submit"]:hover,
+      input[type="button"]:hover {
+        background-color: #DF0D79;
+        @include linear-gradient(top, #B40048 0%, #DF0D79 60%);
+      }
+
+    }
+  
+  }
+}

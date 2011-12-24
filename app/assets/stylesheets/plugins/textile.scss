@@ -1,0 +1,37 @@
+body .textile {
+  h1, h2, h3, h4, h5, h6 {
+    border: 0;
+    margin: 10px 0 2px 0;
+    padding: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+  h5 {
+    font-size: 14px;
+  }
+
+  p {
+    border: 0;
+    margin: 4px 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  ul, ol {
+    list-style-type: disc;
+    list-style-position: outside;
+    ul, ol {
+      list-style-type: square;
+    }
+  }
+}

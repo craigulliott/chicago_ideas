@@ -1,0 +1,20 @@
+#flash_helper {
+  top:0;
+  width:100%;
+  z-index:9999;
+  position:fixed;
+  cursor:pointer;
+}
+#flash_helper div {
+  background-color: #000000;
+  background-color: rgba(0,0,0,0.8);
+  color:#FFFFFF;
+  font-weight:bold;
+  padding:20px;
+  font-size:20px;
+  text-align:center;
+  margin:0 auto;
+  @include box_shadow('0 0 36px #111111');
+  text-shadow: 0 1px 0 #000;
+}
+ 

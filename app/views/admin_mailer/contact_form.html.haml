@@ -1,0 +1,14 @@
+= email_h3 "Hi Admin, somebody filled out the contact form."
+%br/
+
+%strong Name:
+= @name || 'no name was provided'
+%br/
+
+%strong Email:
+= @email || 'no email address was provided'
+%br/
+
+%br/
+= email_h4 "They added the following message"
+= @message || 'no message was added'

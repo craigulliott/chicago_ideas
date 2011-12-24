@@ -1,0 +1,8 @@
+%table{:style => "width:100%; background-color: #eeeeee; font-family:sans-serif;"}
+  %tr
+    %td Welcome!
+  - if @user.temporary_password.present?
+    %tr
+      %td Your temporary password is #{@user.temporary_password}
+  %tr
+    %td= link_to 'Login to your account', account_url(:auth_token => @user.authentication_token)

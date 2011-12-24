@@ -1,0 +1,7 @@
+- if base_model.kind_of? User
+  .crumb
+    = link_to 'Users', admin_users_path
+  .crumb
+    = link_to base_model.name, admin_user_path(base_model)
+    
+    

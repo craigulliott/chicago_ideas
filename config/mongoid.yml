@@ -1,0 +1,11 @@
+development:
+  host: localhost
+  database: chicagoideas_development
+
+test:
+  host: localhost
+  database: chicagoideas_test
+
+# set these environment variables on your prod server
+production:
+  uri: <%= ENV['MONGOLAB_URI'] %>

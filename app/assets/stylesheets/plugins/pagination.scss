@@ -1,0 +1,23 @@
+.pagination {
+  height: 20px;
+  margin: 10px 0;
+  a:link, a:visited, a:active, span {
+    color: #999;
+    display: block;
+    float: left;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: bold;
+    padding: 0 5px;
+  }
+
+  a:link, a:visited, a:active {
+    color: #222;
+    text-decoration: none;
+  }
+
+  a:hover {
+    background: #79673D;
+    color: #EEEEEE;
+  }
+}

@@ -1,0 +1,7 @@
+%table#api_log_entries
+  %tr
+    %th.created_at Created
+    %th.host Host
+    %th.action Action
+    %th.params Params
+  = render :partial => 'admin/api_log_entries/api_log_entry.html.haml', :collection => api_log_entries

@@ -1,0 +1,9 @@
+= render 'member_controls'
+
+=# ssp_search_form(LogEntry, @user)
+
+.table_section
+  %h3 Log Entries
+  .table_wrapper
+    = render 'admin/log_entries/table.html.haml', :log_entries => @log_entries
+  = paginate @log_entries

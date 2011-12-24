@@ -1,0 +1,18 @@
+$site_width: 950px;
+$radii: 6px;
+
+$title_font: Helvetica, arial, serif;
+$body_font: arial, sans-serif;
+
+// bourbon is a library containing lots of useful css3 mixins
+@import "bourbon";
+// bourbon doesnt include opacity - they made a design decision not too, which i disagree with so i write my own
+@import "header/css3_opacity";
+@import "header/normalize";
+@import "header/forms";
+
+// some utility css
+.clr {
+  clear: both;
+  display: block;
+}

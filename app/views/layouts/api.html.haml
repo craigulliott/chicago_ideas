@@ -1,0 +1,23 @@
+!!! 5
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
+    %title= page_title
+    = stylesheet_link_tag :admin
+    = stylesheet_link_tag :api
+    = javascript_include_tag :api
+    = csrf_meta_tag
+  %body.admin{:id => body_id, :class => body_class}
+
+  #header_container
+    #header
+      %a#logo{:href => root_path}
+        = image_tag 'logo.png', :alt => 'API'
+      .clr
+  
+  #content_container
+    #content
+      = yield
+      .clr
+
+  #flash_helper= flash_helper

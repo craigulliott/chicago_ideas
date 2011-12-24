@@ -1,0 +1,319 @@
+// buttons styles, which are used very commonly
+
+a.button, 
+a:link.button, 
+a:visited.button,
+input[type="submit"],
+input[type="button"] {
+  @include border-radius(.5em);
+  @include transition(background-color .25s linear);
+  background-color: rgb(48,60,61);
+  border: 0px;
+  color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 0.8em 2em;
+  color: #76BBBE;
+  text-decoration:none;
+}
+
+a.button.active, 
+a:active.button,
+input[type="submit"]:active,
+input[type="button"]:active {
+  position: relative;
+  top: 1px;
+}
+
+
+a.button.hover, 
+a:hover.button,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color:rgb(68,113,115);
+}
+
+form.formtastic {
+  margin: 0;
+  padding: 0;
+
+  // hide iframes used to upload images (form target="some iframe"")
+  iframe {
+    display:none;
+  }
+  
+  fieldset {
+    border: 0;
+
+    ol, ul {
+      list-style: none outside none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  fieldset.inputs {
+    padding: 14px 0 0 0;
+    margin-bottom: 10px;
+
+    fieldset {
+      margin: 0;
+    }
+
+    .error {
+      input, textarea, select {
+        border: 2px solid #AF0011;
+        @include transition(border-color .25s linear);
+      }
+      label {
+        color: #AF0011;
+        @include transition(color .25s linear);
+      }
+    }
+
+    input, textarea, select {
+      @include border-radius(3px);
+      @include box_shadow(1px 2px 4px #DEDEDE inset);
+      border: 2px solid #D2D2D2;
+      color: #326276;
+      font: 14px arial,sans-serif;
+      padding: 8px;
+      @include transition(border-color .25s linear);
+    }
+
+    .active {
+      border-color: #222222;
+    }
+
+    input.click_clear_active {
+      color: #999;
+    }
+
+    textarea {
+      height: 100px;
+      width: 572px;
+    }
+
+    select {
+      min-width: 240px;
+    }
+
+    input[type="text"], input[type="email"], input[type="url"] {
+      width: 500px;
+    }
+    input[type="password"], input[type="tel"] {
+      width: 300px;
+    }
+
+    legend {
+      color: #000000;
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 0;
+      margin-bottom:5px;
+      width: 100%;
+      border-bottom: 2px solid #CCCCCC;
+
+      span {
+        background-color: #FFFFFF;
+        display: block;
+        float: left;
+        margin-bottom: -5px;
+        padding-right: 10px;
+      }
+    }
+
+    > ol > li, > ol > li > ol > li {
+      padding: 0;
+      margin: 0 0 12px;
+
+      > label {
+        display: block;
+        font-size: 1em;
+        color: #111;
+        font-weight: bold;
+        padding: 3px 0 10px;
+      }
+
+      p.inline-hints {
+        margin: 0;
+        color: #AAAAAA;
+        clear: left;
+        font-size: .82em;
+        padding: 5px 2px;
+      }
+
+      p.inline-errors {
+        margin: 0;
+        padding: 6px 0 12px 0;
+        color: #AF0011;
+        clear: left;
+        font-weight: bold;
+        font-size: 12px;
+      }
+    }
+
+    > ol > li.nested {
+      @include border-radius;
+      background: #F5F5F5;
+      padding: 8px 6px 4px;
+      position: relative;
+
+      a.remove_fields {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+    }
+
+    ol > li.hidden {
+      display: none;
+    }
+
+    ol > li.boolean {
+      label {
+        line-height: 21px;
+        .ez-checkbox {
+          float: left;
+        }
+      }
+    }
+
+    ol > li.info {
+      margin-top: -6px;
+      margin-bottom: 24px;
+      color: #333;
+
+      p {
+        margin: 0 0 6px 0;
+      }
+    }
+
+    ol > li.card_expiration_date {
+      legend {
+        label {
+          display: block;
+          float: left;
+          margin-left: 8px;
+          padding-top: 0.2em;
+        }
+      }
+      ol {
+        width: 540px;
+        float: right;
+        li {
+          line-height: 20px;
+          float: left;
+          width: 174px;
+          margin: 0;
+          padding: 0;
+          label {
+            display: none;
+          }
+          select {
+            width: 150px;
+            min-width: 150px;
+          }
+        }
+      }
+    }
+
+    a.button, 
+    a:link.button, 
+    a:visited.button,
+    input[type="submit"],
+    input[type="button"] {
+      @include border-radius(.5em);
+      @include box_shadow(none);
+      @include transition(background-color .25s linear);
+      background-color: rgb(48,60,61);
+      border: 0px;
+      color: #fff;
+      font-size: 17px;
+      font-weight: bold;
+      padding: 0.8em 2em;
+      color: #76BBBE;
+    }
+
+    a.button.active, 
+    a:active.button,
+    input[type="submit"]:active,
+    input[type="button"]:active {
+      background-color:rgb(0,0,0);
+      position: relative;
+      top: 1px;
+    }
+
+
+    a.button.hover, 
+    a:hover.button,
+    input[type="submit"]:hover,
+    input[type="button"]:hover {
+      @include transition(background-color .25s linear);
+      background-color:rgb(68,113,115);
+    }
+
+
+  }
+
+  fieldset.nested_models {
+    position: relative;
+    li.add_nested_model {
+      position: absolute;
+      right: 0;
+      top: -38px;
+    }
+  }
+    
+}
+
+form.formtastic fieldset.buttons, .fake_buttons {
+  padding:0;
+  margin:2px;
+  li {
+    float: left;
+    margin-right: 10px;
+  }
+
+  li.cancel {
+    line-height: 46px;
+    margin-left: 10px;
+  }
+  li.loading {
+    margin-left: 10px;
+    img {
+      float:left;
+      margin-top: 5px; 
+      display:none;
+    }
+  }
+}
+
+#content p.inline-hints {
+  margin: 0;
+  color: #AAAAAA;
+  clear: left;
+  font-size: .82em;
+  padding: 5px 2px;
+}
+
+form.formtastic #devise_links {
+  margin-top: 20px;
+  font-size: .92em;
+
+  a {
+    display: block;
+    float: left;
+    margin-right: 20px;
+    color: #222222;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  a:hover {
+    color: #000000;
+    text-decoration: underline;
+  }
+}
+
+

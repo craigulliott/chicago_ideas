@@ -1,0 +1,8 @@
+%table#staff_bios
+  %tr
+    %th.user= ssp_sort_link :user
+    %th.sort= ssp_sort_link :sort
+    %th.sort= ssp_sort_link :title
+    %th.about Bio
+    %th 
+  = render :partial => 'admin/staff_bios/staff_bio.html.haml', :collection => staff_bios

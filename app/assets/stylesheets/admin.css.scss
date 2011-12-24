@@ -1,0 +1,306 @@
+@import "header";
+
+// the basic page layout of the admin tool
+body.admin {
+  background-color: #DDDDDD;
+  font-family: arial;
+
+  // we have these additional jquery-ui icon sets for the admin
+  .ui-icon-pink { 
+    background-image: image-url('admin/ui_icons_pink.png'); 
+  }
+  .ui-icon-light { 
+    background-image: image-url('admin/ui_icons_light.png'); 
+  }
+}
+
+
+//all links
+a, a:link, a:visited, a:active {
+  color: #326276;
+}
+a:hover {
+  color: #ce2402;
+}
+
+
+
+// admin header
+#header_container {
+  background-color: #1A1A1A;
+  @include linear-gradient(top, #000000 0%, #262626 60%);
+  border-bottom: 2px solid #DF0D79;
+  box-shadow: 0 0 14px 20px #EEEEEE;
+  height: 50px;
+  
+  #header {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  #header > #logo {
+    position:absolute;
+    top: 10px;
+  }
+
+  // the admin main menu
+  #main_menu {
+    position:absolute;
+    left: 180px;
+    top: 0;
+    a {
+      float: left;
+      font-size: 20px;
+      height: 50px;
+      line-height: 52px;
+      margin-right: 14px;
+      color: #FFF;
+      font-size: 20px;
+      display: block;
+      padding:0 10px;
+      @include transition(background-color .25s linear);
+      @include transition(line-height .25s linear);
+      text-decoration: none;
+      &:hover {
+        background-color: #DF0D79;
+        @include linear-gradient(top, #B40048 0%, #DF0D79 60%);
+        line-height: 60px;
+      }
+    }
+  }
+
+  // header account links
+  #account_links {
+    position:absolute;
+    right:0;
+
+    a {
+      float: left;
+      margin-left: 14px;
+      padding-top: 10px;
+      color: #FFF;
+      font-size: 14px;
+      display: block;
+      text-decoration: none;
+      margin-top: 6px;
+      
+      span {
+        margin-right: 4px;
+      }
+  
+      &:hover {
+        color: #DF0D79;
+  
+        span {
+          background-image: image-url('admin/ui_icons_pink.png');
+        }
+      }
+    
+      // the account link with a facebook image gets positioned differently
+      &.facebook_connected_account {
+        line-height: 36px;
+        padding-top: 0;
+        width: 116px;
+        text-align: right;
+      
+        // make the facebook profile picture artificially smaller
+        img {
+          width: 36px;
+          height: 36px;
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+
+
+// the page content
+#content_container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+// the side bar navigation
+#content_navigation {
+  @include box-shadow(3px 3px 6px #BBB);
+  background-color: #1A1A1A;
+  @include linear-gradient(right, #000000 0%, #262626 60%);
+  border-left: 2px solid #DF0D79;
+  
+  float: right;
+  margin-top: 40px;
+  width: 238px;
+  padding: 10px 10px 10px 0;
+  position: relative;
+  z-index: 2;
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style-type: none;
+    }
+  }
+  a {
+    color: #222222;
+    display: block;
+    @include transition(background-color .25s linear);
+  }
+  a span {
+    float: left;
+    margin-right: 4px;
+    background-image: image-url('admin/ui_icons_light.png');
+  }
+
+  a {
+    color: #FFF;
+    display: block;
+    @include transition(background-color .25s linear);
+    @include transition(padding .25s linear);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 6px 10px;
+    
+    &.active, &:hover {
+      padding-left: 2px;
+      background-color: #DF0D79;
+      @include linear-gradient(right, #B40048 0%, #DF0D79 60%);
+    }
+  }
+}
+
+
+#content {
+  @include box-shadow(3px 3px 10px #AAA);
+  background-color: #ffffff;
+  width: 950px;
+  float: left;
+  margin-top: 20px;
+  min-height: 750px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  
+}
+
+/*the header of the content*/
+#content_head {
+  position: relative;
+}
+/*breadcrumbs*/
+#breadcrumbs {
+  float: left;
+  margin: 8px 0 6px 25px;
+}
+/*action items, like edit or add buttons*/
+#top_links {
+    border-bottom: 1px solid #CCCCCC;
+    margin: 13px 25px 10px;
+    a {
+      border: 1px solid #DDDDDD;
+      color: #222222;
+      display: block;
+      float: right;
+      font-size: 12px;
+      line-height: 17px;
+      margin-left: 2px;
+      margin-top: 12px;
+      padding: 2px 8px 2px 4px;
+      @include transition(background-color .25s linear);
+      text-decoration: none;
+      
+      &:hover {
+        background-color: #DDDDDD;
+      }
+      span {
+        float: left;
+        margin-right: 4px;
+      }
+    }
+}
+
+/*the page itself*/
+#page {
+  margin: 0 25px 25px 25px;
+  color: #323232;
+  position: relative;
+  
+  p {
+    margin: 8px 0;
+  }
+  > h1, > h2 {
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 20px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    margin: 12px 0;
+    > img {
+      height: 48px;
+      margin-right: 8px;
+      margin-top: 1px;
+      float: left;
+    }
+    > span {
+      margin-left: 8px;
+      margin-top: 2px;
+      font-weight: normal;
+      font-style: oblique;
+      &.deleted {
+        color: red;
+      }
+      
+    }
+  }
+  > h2 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  /*links with sprite icons*/
+  a.icon {
+    color: #222222;
+    display: block;
+    float: right;
+    font-size: 12px;
+    line-height: 17px;
+    margin: 1px;
+    padding: 1px 8px 1px 0px;
+    font-weight: normal;
+    text-decoration: none;
+    @include transition(background-color .25s linear);
+    &:hover {
+      background-color: #DDDDDD;
+    }
+    span {
+      float: left;
+      margin: 0 4px;
+    }
+  }
+}
+.ui-icon {
+  display: block;
+  float: left;  
+}
+
+
+// specific pages/sections/overrides
+@import 'admin/forms';
+@import 'admin/notes';
+@import 'admin/users';
+@import 'admin/table';
+
+// plugins we are using or have created
+@import "plugins/ezmark.jquery";
+@import "plugins/flash_helpers";
+@import "plugins/pagination";
+@import "plugins/textile";
+@import "plugins/breadcrumbs";
+@import "plugins/searchable_sortable_pagination";
+@import "plugins/dialog";
+@import "plugins/jquery-ui-1.8.16.custom";
+@import "plugins/jquery_ui_timepicker";

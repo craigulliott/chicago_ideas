@@ -1,0 +1,7 @@
+%table#notes
+  %tr
+    %th.created_at= ssp_sort_link :created_at, :title => 'Created'
+    %th.author= ssp_sort_link :author_id, :title => 'Author'
+    %th.attachment Attachment
+    %th.body Note
+  = render :partial => 'admin/notes/note.html.haml', :collection => notes

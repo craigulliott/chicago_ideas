@@ -1,0 +1,54 @@
+= render 'member_controls'
+- content_for :top_links do
+  = edit_model_link @user, true
+  = delete_model_link @user, true
+
+%h1
+  = @user.name
+  - if @user.admin?
+    (ADMIN)
+  - if @user.deleted?
+    %span.deleted (deleted)
+
+#connectivity
+  %p
+    Connected to Facebook:
+    = @user.connected_to_facebook? ? 'yes' : 'no'
+  %p
+    Connected to Twitter:
+    = @user.connected_to_twitter? ? 'yes' : 'no'
+
+#account
+  %p
+    Signed in
+    = @user.sign_in_count
+    times
+
+  - if @user.current_sign_in_at.present?
+    %p
+      Current Sign in:
+      = @user.current_sign_in_at.to_s(:pretty)
+      from IP
+      = @user.current_sign_in_ip
+
+  - if @user.last_sign_in_at.present?
+    %p
+      Previous Sign in:
+      = @user.last_sign_in_at.to_s(:pretty)
+      from IP
+      = @user.last_sign_in_ip
+
+- if @user.admin?
+  #staff_bio
+    %p 
+      Staff Bio 
+      - if @user.staff_bio.present?
+        = edit_model_link @user.staff_bio, true
+        = destroy_model_link @user.staff_bio, true
+      - else
+        = new_model_link StaffBio, @user, true
+  
+    - if @user.staff_bio.present?
+      %p= @user.staff_bio.about
+  
+

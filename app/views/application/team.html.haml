@@ -1,0 +1,9 @@
+%h1 About Us!
+
+#staff_bios
+  - @staff_bios.each do |staff_bio|
+    .bio
+      = image_tag staff_bio.user.facebook_profile_pic_src
+      %h4= staff_bio.user.name
+      %h3= staff_bio.title
+      %div= staff_bio.about

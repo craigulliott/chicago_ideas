@@ -1,0 +1,20 @@
+%h2
+  = @model.id.present? ? "Edit this" : "Create a" 
+  = @model.class.name.titlecase
+  %a{:href => '#none', :class => 'close icon'}= icon('closethick', :light)
+
+- # is this a nested model?
+- if @parent.present?
+  - form_model = [:admin, @parent, @model]
+- else
+  - form_model = [:admin, @model]
+- file_upload = @model.respond_to?('accepts_file_upload?') && @model.accepts_file_upload?
+= semantic_form_for form_model, ( file_upload ? {:html => { :multipart => true, :target => 'iframe_upload' }} : {:remote => true}) do |f|
+  = render 'fields.html.haml', :f => f
+  = f.buttons do
+    = f.commit_button
+    %li.cancel= link_to 'Cancel', '#none', :class => 'cancel button'
+    %li.loading= image_tag 'admin/loader.gif'
+  - if file_upload
+    %iframe{:name => 'iframe_upload'}
+      

@@ -1,0 +1,51 @@
+.searchable-sortable-pagination-form
+  = semantic_form_for :searchable, :html => { :method => :get } do |f|
+    = f.inputs do
+      - search_fields.each_index do |i|
+        - field_name = search_fields[i][:name]
+        - from_field_name = (field_name.to_s+'_from').to_sym
+        - to_field_name = (field_name.to_s+'_to').to_sym
+        - current_value = params.key?('searchable') ? params['searchable'][field_name] : search_fields[i][:default]
+        // for ranges
+        - current_to_value = params.key?('searchable') ? params['searchable']["#{field_name}_to"] : search_fields[i][:default_to]
+        - current_from_value = params.key?('searchable') ? params['searchable']["#{field_name}_from"] : search_fields[i][:default_from]
+        .search-option{:style => (i>0 ? 'display:none;' : '')}
+          - if search_fields[i][:as] == :string
+            = text_field :searchable, field_name, :value => current_value
+            %label= search_fields[i][:label] || field_name.to_s.titlecase
+          - elsif search_fields[i][:as] == :range
+            .range
+              = text_field :searchable, to_field_name, :value => current_to_value, :class => 'numeric'
+              %label to
+              = text_field :searchable, from_field_name, :value => current_from_value, :class => 'numeric'
+              %label
+                = search_fields[i][:label] || field_name.to_s.titlecase
+                from
+          - elsif search_fields[i][:as] == :daterange
+            .range
+              = text_field :searchable, to_field_name, :value => current_to_value, :class => 'datepicker'
+              %label to
+              = text_field :searchable, from_field_name, :value => current_from_value, :class => 'datepicker'
+              %label
+                = search_fields[i][:label] || field_name.to_s.titlecase
+                from
+          - elsif search_fields[i][:as] == :datetimerange
+            .range
+              = text_field :searchable, to_field_name, :value => current_to_value, :class => 'datetimepicker'
+              %label to
+              = text_field :searchable, from_field_name, :value => current_from_value, :class => 'datetimepicker'
+              %label
+                = search_fields[i][:label] || field_name.to_s.titlecase
+                from
+          - elsif search_fields[i][:as] == :select
+            = select(:searchable, field_name, options_for_select(search_fields[i][:collection], current_value), {:include_blank => true})
+            %label= search_fields[i][:label] || field_name.to_s.titlecase
+          - elsif search_fields[i][:as] == :boolean
+            = select(:searchable, field_name, options_for_select([[search_fields[i][:true_label],1],[search_fields[i][:false_label],0]], (current_value)), {:include_blank => true})
+            %label= search_fields[i][:label] || field_name.to_s.titlecase
+      = hidden_field_tag :direction, params[:direction]
+      = hidden_field_tag :sort, params[:sort]
+      = hidden_field_tag :per_page, params[:per_page]
+      .actions{:style => "display:none"}
+        %input{:type => "submit", :value => 'Search'}
+        %a.cancel{:href => "#"} Cancel

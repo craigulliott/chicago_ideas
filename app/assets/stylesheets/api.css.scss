@@ -1,0 +1,76 @@
+#documentation_page.documentation {
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-top: 30px;
+  }
+  h3 { 
+    font-weight: bold;
+    border-bottom: 1px solid #DDDDDD;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+  }
+  h4 {
+    font-weight: bold;
+    line-height: 28px;
+    margin: 12px 0 6px;
+  }
+  .controller {
+    .action {
+      background-color: #E8E8E8;
+      @include border-radius(3px);
+      margin-bottom: 20px;
+      padding: 12px;
+      > p {
+        margin: 6px 0;
+        font-style: oblique;
+      }
+      div.path {
+        color: #666666;
+        font-size: 18px;
+        line-height: 33px;
+      }
+    }
+  }
+}
+
+form.formtastic fieldset.inputs  {
+  margin: 30px 93px 10px;
+  width: 750px;
+  border: 1px solid #111111;
+  padding:0;
+  legend {
+    background-color: #111111;
+    color: #FFFFFF;
+    display: block;
+    font-weight: bold;
+    line-height: 30px;
+    padding-left: 6px;
+    width: 744px;
+    height: 30px;
+    float: left;
+    border: 0;
+    span {
+      background-color: #111111;
+    }
+  }
+  ol, ul {
+    margin: 50px 30px 30px 30px;
+  }
+  a.submit {
+    @include border-radius(3px);
+    background-color: #EEEEEE;
+    border: 1px solid #777777;
+    color: #222222;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 8px;
+    padding: 4px 9px;
+    text-align: center;
+    width: 160px;
+  }
+  a.submit:hover {
+    background-color: #FFFFFF;
+  }
+}

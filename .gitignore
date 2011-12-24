@@ -1,0 +1,11 @@
+webrat.log
+log
+log/*
+tmp
+tmp/*
+.sass-cache
+.rvmrc
+.DS_Store
+.rvmrc
+.project
+*.tmproj

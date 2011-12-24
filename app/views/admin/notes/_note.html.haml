@@ -1,0 +1,14 @@
+%tr{:note => note.id}
+  %td.created_at= note.created_at.to_s(:pretty)
+  %td.author
+    - if note.author.present? 
+      = link_to note.author.name, admin_user_path(note.author)
+    - else
+      system message
+  %td.attachment
+    - if note.attachment?
+      = link_to note.attachment_file_name, attachment_admin_note_path(note), :target => '_blank'
+    - else
+      none
+  %td.body= simple_format note.body
+        

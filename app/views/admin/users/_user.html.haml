@@ -1,0 +1,9 @@
+%tr{:user => user.id}
+  %td.created_at= user.created_at.to_s(:pretty)
+  %td.email= link_to user.email, admin_user_path(user)
+  %td.name= user.name
+  %td.facebook= user.connected_to_facebook? ? 'yes' : 'no'
+  %td.twitter= user.connected_to_twitter? ? 'yes' : 'no'
+  %td.options
+    = edit_model_link user
+    = delete_model_link user
