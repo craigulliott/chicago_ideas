@@ -25,8 +25,8 @@ body.admin {
       a:hover.button,
       input[type="submit"]:hover,
       input[type="button"]:hover {
-        background-color: #DF0D79;
-        @include linear-gradient(top, #B40048 0%, #DF0D79 60%);
+        background-color: $navigation_highlight;
+        @include linear-gradient(top, $navigation_lowlight 0%, $navigation_highlight 60%);
       }
 
     }
