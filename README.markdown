@@ -1,4 +1,5 @@
-= craigs_admin
+craigs_admin
+============
 
 This is a DRY, well documented (inline) Rails (3.1) project which is suited as a basis to rapidly developing business application software.  In laymen terms, it is a simple front end website with some common pages like 'contact' and 'about us'.  But it has a powerful admin tool and an very clean REST/JSON API.
 
@@ -29,7 +30,8 @@ It was originally created (and is still used) as a basis for the SocialKaty plat
 
 Patches, comments and criticisms are extremely welcome.
 
-== Contributing to this project
+Contributing to this project
+----------------------------
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
@@ -38,12 +40,14 @@ Patches, comments and criticisms are extremely welcome.
 * Commit and push until you are happy with your contribution
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 
-== Copyright
+Copyright
+---------
 
 Copyright (c) 2011 Craig Ulliott. See LICENSE.txt for
 further details.
 
-== use this .rvmrc template when doing local development
+=== use this .rvmrc template when doing local development
+
 Please look in config/initializers/craigs_admin.rb for more details
 
 rvm default
