@@ -52,35 +52,35 @@ use this .rvmrc template when doing local development
 
 Please look in config/initializers/craigs_admin.rb for more details
 
-rvm default
-
-export BASE_DOMAIN_NAME=yourdomain.com
-export BUSINESS_NAME="Your Business"
-export BUSINESS_EMAIL=support@yourdomain.com
-
-export DEVELOPER_EMAIL=you@yourdomain.com
-
-export AWS_ACCESS_KEY_ID=
-export AWS_SECRET_ACCESS_KEY=
-
-export FACEBOOK_CLIENT_ID=
-export FACEBOOK_SECRET=
-export FACEBOOK_FAN_PAGE_NAME= 
-export FACEBOOK_FAN_PAGE_ID= 
-
-export TWITTER_CONSUMER_KEY=
-export TWITTER_CONSUMER_SECRET=
-export TWITTER_SCREEN_NAME=
-
-export GOOGLE_ANALYTICS_ACCOUNT_ID=123456789-1
-export API_VERSION=1.0.0
-
-export MYSQL_USERNAME=root
-export MYSQL_PASSWORD=
-
-export GMAIL_DOMAIN=gmail.com
-export GMAIL_USER_NAME=you@gmail.com
-export GMAIL_PASSWORD=your_password
+    rvm default
+    
+    export BASE_DOMAIN_NAME=yourdomain.com
+    export BUSINESS_NAME="Your Business"
+    export BUSINESS_EMAIL=support@yourdomain.com
+    
+    export DEVELOPER_EMAIL=you@yourdomain.com
+    
+    export AWS_ACCESS_KEY_ID=
+    export AWS_SECRET_ACCESS_KEY=
+    
+    export FACEBOOK_CLIENT_ID=
+    export FACEBOOK_SECRET=
+    export FACEBOOK_FAN_PAGE_NAME= 
+    export FACEBOOK_FAN_PAGE_ID= 
+    
+    export TWITTER_CONSUMER_KEY=
+    export TWITTER_CONSUMER_SECRET=
+    export TWITTER_SCREEN_NAME=
+    
+    export GOOGLE_ANALYTICS_ACCOUNT_ID=123456789-1
+    export API_VERSION=1.0.0
+    
+    export MYSQL_USERNAME=root
+    export MYSQL_PASSWORD=
+    
+    export GMAIL_DOMAIN=gmail.com
+    export GMAIL_USER_NAME=you@gmail.com
+    export GMAIL_PASSWORD=your_password
 
 
 
