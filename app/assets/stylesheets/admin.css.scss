@@ -1,13 +1,21 @@
 @import "header";
 
+// navigation menus
+$navigation_background_lowlight: #000000;
+$navigation_background_highlight: #262626;
+$navigation_lowlight: #B40048;
+$navigation_highlight: #DF0D79;
+
+
+
 // the basic page layout of the admin tool
 body.admin {
   background-color: #DDDDDD;
   font-family: arial;
 
   // we have these additional jquery-ui icon sets for the admin
-  .ui-icon-pink { 
-    background-image: image-url('admin/ui_icons_pink.png'); 
+  .ui-icon-highlight { 
+    background-image: image-url('admin/ui_icons_highlight.png'); 
   }
   .ui-icon-light { 
     background-image: image-url('admin/ui_icons_light.png'); 
@@ -28,8 +36,8 @@ a:hover {
 // admin header
 #header_container {
   background-color: #1A1A1A;
-  @include linear-gradient(top, #000000 0%, #262626 60%);
-  border-bottom: 2px solid #DF0D79;
+  @include linear-gradient(top, $navigation_background_lowlight 0%, $navigation_background_highlight 60%);
+  border-bottom: 2px solid $navigation_highlight;
   box-shadow: 0 0 14px 20px #EEEEEE;
   height: 50px;
   
@@ -63,8 +71,8 @@ a:hover {
       @include transition(line-height .25s linear);
       text-decoration: none;
       &:hover {
-        background-color: #DF0D79;
-        @include linear-gradient(top, #B40048 0%, #DF0D79 60%);
+        background-color: $navigation_highlight;
+        @include linear-gradient(top, $navigation_lowlight 0%, $navigation_highlight 60%);
         line-height: 60px;
       }
     }
@@ -90,10 +98,10 @@ a:hover {
       }
   
       &:hover {
-        color: #DF0D79;
+        color: $navigation_highlight;
   
         span {
-          background-image: image-url('admin/ui_icons_pink.png');
+          background-image: image-url('admin/ui_icons_highlight.png');
         }
       }
     
@@ -127,8 +135,8 @@ a:hover {
 #content_navigation {
   @include box-shadow(3px 3px 6px #BBB);
   background-color: #1A1A1A;
-  @include linear-gradient(right, #000000 0%, #262626 60%);
-  border-left: 2px solid #DF0D79;
+  @include linear-gradient(right, $navigation_background_lowlight 0%, $navigation_background_highlight 60%);
+  border-left: 2px solid $navigation_highlight;
   
   float: right;
   margin-top: 40px;
@@ -167,8 +175,8 @@ a:hover {
     
     &.active, &:hover {
       padding-left: 2px;
-      background-color: #DF0D79;
-      @include linear-gradient(right, #B40048 0%, #DF0D79 60%);
+      background-color: $navigation_highlight;
+      @include linear-gradient(right, $navigation_lowlight 0%, $navigation_highlight 60%);
     }
   }
 }
