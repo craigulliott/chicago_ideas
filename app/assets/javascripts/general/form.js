@@ -271,6 +271,27 @@ Forms = {
   // so we can create them at page load and after opening a dialog
   create_custom_controls: function(){
     
+    // date pickers
+    $(".datepicker:not(.hasDatepicker)").datepicker({
+      dateFormat:'yy-mm-dd', 
+      ampm: true,
+      changeMonth: true,
+      changeYear: true
+    });
+
+    // time pickers
+    $(".timepicker:not(.hasDatepicker)").timepicker({
+      ampm: true,
+    });
+
+    // date and time pickers
+    $(".datetimepicker:not(.hasDatepicker)").datetimepicker({
+      dateFormat:'yy-mm-dd', 
+      ampm: true,
+      changeMonth: true,
+      changeYear: true
+    });
+    
     // sexy looking check boxes and radio buttons
     $('input[type="radio"]:not(.control-activated), input[type="checkbox"]:not(.control-activated)').addClass('control-activated').ezMark();
 
