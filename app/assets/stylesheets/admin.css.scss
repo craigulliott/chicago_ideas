@@ -77,7 +77,7 @@ a:hover {
       @include transition(background-color .25s linear);
       @include transition(line-height .25s linear);
       text-decoration: none;
-      .active, &:hover {
+      &.active, &:hover {
         background-color: $navigation_highlight;
         @include linear-gradient(top, $navigation_lowlight 0%, $navigation_highlight 60%);
         line-height: 60px;
@@ -105,7 +105,7 @@ a:hover {
         margin-right: 4px;
       }
   
-      .active, &:hover {
+      &.active, &:hover {
         color: $navigation_highlight;
   
         span {
