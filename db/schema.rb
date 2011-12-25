@@ -68,7 +68,12 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
   add_index "notes", ["author_id"], :name => "index_notes_on_author_id"
 
   create_table "partners", :force => true do |t|
-    t.string   "name",       :limit => 100, :null => false
+    t.string   "name",              :limit => 100, :null => false
+    t.text     "description"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -229,6 +234,7 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
     t.string   "state",      :limit => 100, :null => false
     t.string   "zipcode",    :limit => 100, :null => false
     t.string   "country",    :limit => 100, :null => false
+    t.point    "lonlat",     :limit => nil, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

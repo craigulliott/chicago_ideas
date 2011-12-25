@@ -1,10 +1,10 @@
-class Admin::PartnersController < Admin::AdminController
+class Admin::SpeakersController < Admin::AdminController
 
   # COLLECTION ACTIONS
   # ---------------------------------------------------------------------------------------------------------
   def index
     @section_title = 'List'
-    @partners = Partner.search_sort_paginate(params)
+    @speakers = Speaker.search_sort_paginate(params)
   end
 
 end

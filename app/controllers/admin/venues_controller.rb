@@ -1,10 +1,10 @@
-class Admin::CategoriesController < Admin::AdminController
+class Admin::VenuesController < Admin::AdminController
 
   # COLLECTION ACTIONS
   # ---------------------------------------------------------------------------------------------------------
   def index
     @section_title = 'List'
-    @categories = Category.search_sort_paginate(params)
+    @venues = Venue.search_sort_paginate(params)
   end
 
 end

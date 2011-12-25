@@ -1,0 +1,6 @@
+%tr{:speaker => speaker.id}
+  %td.name= speaker.name
+  %td.title= speaker.title
+  %td.options
+    = edit_model_link speaker
+    = destroy_model_link speaker

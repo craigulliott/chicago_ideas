@@ -1,6 +1,5 @@
-%table#categories
+%table#partners
   %tr
-    %th.id= ssp_sort_link :id
     %th.name= ssp_sort_link :name
     %th 
-  = render :partial => 'admin/categories/category.html.haml', :collection => categories
+  = render :partial => 'admin/partners/partner.html.haml', :collection => partners

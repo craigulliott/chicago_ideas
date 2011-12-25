@@ -80,10 +80,10 @@ a:hover {
       &.active, &:hover {
         background-color: $navigation_highlight;
         @include linear-gradient(top, $navigation_lowlight 0%, $navigation_highlight 60%);
+        color: #000;
       }
       &:hover {
         line-height: 60px;
-        color: #000;
       }
     }
   }
