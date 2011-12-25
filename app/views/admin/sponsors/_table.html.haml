@@ -1,6 +1,6 @@
-%table#categories
+%table#sponsors
   %tr
-    %th.id= ssp_sort_link :id
     %th.name= ssp_sort_link :name
+    %th.name= ssp_sort_link :sponsorship_level, :title => 'Level'
     %th 
-  = render :partial => 'admin/categories/category.html.haml', :collection => categories
+  = render :partial => 'admin/sponsors/sponsor.html.haml', :collection => sponsors

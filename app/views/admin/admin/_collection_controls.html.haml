@@ -1,8 +1,13 @@
 - @active_tab = 'admin'
 - content_for :content_navigation do
+  %h2 Admin home
   %ul
     %li{:class => active_for_controller('admin/admin')}= icon_link_to 'Dashboard', admin_root_path, 'home'
     %li= icon_link_to 'My User', admin_user_path(current_user), 'person'
     %li{:class => active_for('administrators')}= icon_link_to "Administrators", administrators_admin_users_path, 'person'
     %li{:class => active_for_controller('admin/staff_bios')}= icon_link_to "Staff Bios", admin_staff_bios_path, 'check'
-
+  
+  %h2 Setup
+  %ul
+    %li{:class => active_for_controller('admin/staff_bios')}= icon_link_to "Topics (Categorization)", admin_topics_path, 'tag'
+    %li{:class => active_for_controller('admin/staff_bios')}= icon_link_to "Sponsorship Levels", admin_sponsorship_levels_path, 'signal'

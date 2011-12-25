@@ -51,7 +51,7 @@ CraigsAdmin::Application.routes.draw do
     resources :staff_bios, :only => [:index, :edit, :update, :destroy]
 
     # the level of sponsorship
-    resources :standings
+    resources :sponsorship_levels
 
     # categorization for talks
     resources :topics

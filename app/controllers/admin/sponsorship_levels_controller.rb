@@ -1,10 +1,10 @@
-class Admin::SponsorsController < Admin::AdminController
+class Admin::SponsorshipLevelsController < Admin::AdminController
 
   # COLLECTION ACTIONS
   # ---------------------------------------------------------------------------------------------------------
   def index
     @section_title = 'List'
-    @sponsors = Sponsor.search_sort_paginate(params)
+    @sponsorship_levels = SponsorshipLevel.by_name
   end
 
 end

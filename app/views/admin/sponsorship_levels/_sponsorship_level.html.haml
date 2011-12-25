@@ -1,4 +1,6 @@
-%tr{:standing => standing.id}
-  %td.name= standing.name
+%tr{:sponsorship_level => sponsorship_level.id}
+  %td.name= sponsorship_level.name
+  %td.sort= sponsorship_level.sort
   %td.options
-    = edit_model_link standing
+    = edit_model_link sponsorship_level
+    = destroy_model_link sponsorship_level

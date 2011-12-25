@@ -4,6 +4,8 @@ class CreateSponsors < ActiveRecord::Migration
       t.string :name, :null => false, :limit => 150
       t.text :description, :null => true
 
+      t.integer :sponsorship_level_id, :null => false
+      
       # allow a sponsor to have a logo
       t.string :logo_file_name, :null => true
       t.string :logo_content_type, :null => true
@@ -12,5 +14,9 @@ class CreateSponsors < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :sponsors, :sponsorship_level_id
+    add_foreign_key :sponsors, :sponsorship_levels
+
   end
 end

@@ -1,12 +1,12 @@
 = render '/admin/admin/collection_controls'
 
-= ssp_search_form(Category)
+= ssp_search_form(Sponsor)
 
 .table_section
   %h3 
-    Categories
-    = new_model_link Category
+    Sponsors
+    = new_model_link Sponsor
   .table_wrapper
-    = render 'admin/categories/table.html.haml', :categories => @categories
-  = paginate @categories
+    = render 'admin/sponsors/table.html.haml', :sponsors => @sponsors
+  = paginate @sponsors
 

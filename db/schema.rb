@@ -122,8 +122,9 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
   end
 
   create_table "sponsors", :force => true do |t|
-    t.string   "name",              :limit => 150, :null => false
+    t.string   "name",                 :limit => 150, :null => false
     t.text     "description"
+    t.integer  "sponsorship_level_id",                :null => false
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
@@ -131,6 +132,8 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "sponsors", ["sponsorship_level_id"], :name => "index_sponsors_on_sponsorship_level_id"
 
   create_table "sponsorship_levels", :force => true do |t|
     t.string   "name",       :limit => 150, :null => false
@@ -259,6 +262,8 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
 
   add_foreign_key "performances", "chapters", :name => "performances_chapter_id_fk"
   add_foreign_key "performances", "speakers", :name => "performances_speaker_id_fk"
+
+  add_foreign_key "sponsors", "sponsorship_levels", :name => "sponsors_sponsorship_level_id_fk"
 
   add_foreign_key "sponsorships", "sponsors", :name => "sponsorships_sponsor_id_fk"
   add_foreign_key "sponsorships", "sponsorship_levels", :name => "sponsorships_sponsorship_level_id_fk"
