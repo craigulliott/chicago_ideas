@@ -14,11 +14,11 @@
         = link_to '', admin_root_path, :id => :logo
 
         #main_menu
-          = link_to 'days', admin_days_path, :class => active_for_controller('admin/days/index')
-          = link_to 'venues', admin_venues_path, :class => active_for_controller('admin/venues/index')
-          = link_to 'speakers', admin_speakers_path, :class => active_for_controller('admin/speakers/index')
-          = link_to 'partners', admin_partners_path, :class => active_for_controller('admin/partners/index')
-          = link_to 'sponsors', admin_sponsors_path, :class => active_for_controller('admin/sponsors/index')
+          = link_to 'days', admin_days_path, :class => active_for_controller('admin/days')
+          = link_to 'venues', admin_venues_path, :class => active_for_controller('admin/venues')
+          = link_to 'speakers', admin_speakers_path, :class => active_for_controller('admin/speakers')
+          = link_to 'partners', admin_partners_path, :class => active_for_controller('admin/partners')
+          = link_to 'sponsors', admin_sponsors_path, :class => active_for_controller('admin/sponsors')
           = link_to 'users', admin_users_path, :class => active_for_controller('admin/users')
         
         #account_links

@@ -190,12 +190,19 @@ a:hover {
       padding-left: 2px;
       background-color: $navigation_highlight;
       @include linear-gradient(right, $navigation_lowlight 0%, $navigation_highlight 60%);
-      color: #000;
-      span {
-        background-image: image-url('admin/ui_icons_dark.png');
-      }
     }
   }
+
+  li.active a, a:hover {
+    padding-left: 2px;
+    background-color: $navigation_highlight;
+    @include linear-gradient(right, $navigation_lowlight 0%, $navigation_highlight 60%);
+    color: #000;
+    span {
+      background-image: image-url('admin/ui_icons_dark.png');
+    }
+  }
+
 }
 
 
