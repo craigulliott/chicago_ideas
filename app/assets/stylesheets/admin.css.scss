@@ -156,21 +156,20 @@ a:hover {
   ul {
     margin: 0;
     padding: 0;
+    
     li {
       list-style-type: none;
     }
   }
-  a {
-    color: #222222;
-    display: block;
-    @include transition(background-color .25s linear);
+  
+  h2 {
+    border-bottom: 1px solid #444444;
+    color: #FFFFFF;
+    font-size: 12px;
+    margin: 15px 12px 4px;
+    padding-bottom: 8px;
   }
-  a span {
-    float: left;
-    margin-right: 4px;
-    background-image: image-url('admin/ui_icons_light.png');
-  }
-
+  
   a {
     color: #FFF;
     display: block;
@@ -180,6 +179,12 @@ a:hover {
     font-size: 14px;
     line-height: 16px;
     padding: 6px 10px;
+
+    span {
+      float: left;
+      margin-right: 4px;
+      background-image: image-url('admin/ui_icons_light.png');
+    }
     
     &.active, &:hover {
       padding-left: 2px;

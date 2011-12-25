@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
   include DeleteByTime
   
   # we have a polymorphic relationship with notes
-  has_one :staff_bio
   has_many :notes, :as => :asset
+
+  has_one :staff_bio
 
   # useful scopes
   scope :admin, :conditions => { :admin => true }
