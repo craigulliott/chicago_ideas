@@ -77,6 +77,8 @@ a:hover {
       &.active, &:hover {
         background-color: $navigation_highlight;
         @include linear-gradient(top, $navigation_lowlight 0%, $navigation_highlight 60%);
+      }
+      &:hover {
         line-height: 60px;
       }
     }
@@ -185,9 +187,11 @@ a:hover {
   }
 
   li.active a, a:hover {
-    padding-left: 2px;
     background-color: $navigation_highlight;
     @include linear-gradient(right, $navigation_lowlight 0%, $navigation_highlight 60%);
+  }
+  a:hover {
+    padding-left: 2px;
   }
 
 }
