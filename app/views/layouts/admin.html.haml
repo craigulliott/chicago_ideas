@@ -11,7 +11,7 @@
   
     #header_container
       #header
-        %a#logo{:href => "/"}
+        = link_to '', admin_root_path, :id => :logo
 
         #main_menu
           = link_to 'home', admin_root_path, :class => active_for_controller('admin/index')
