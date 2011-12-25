@@ -1,0 +1,6 @@
+%table#days
+  %tr
+    %th.date= ssp_sort_link :date
+    %th.name= ssp_sort_link :name
+    %th 
+  = render :partial => 'admin/days/day.html.haml', :collection => days

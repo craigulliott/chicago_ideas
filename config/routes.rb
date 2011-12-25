@@ -32,13 +32,29 @@ CraigsAdmin::Application.routes.draw do
   
     # Resources (in alphabetical order)
     # -------------------------------------------------------------------------------------------------------
+    resources :days
+    
     resources :notes, :only => [] do
       member do
+        # notes have attachemts, which are passed through the application because the files are not publically availiable through the Internet
         get :attachment
       end
     end
     
+    resources :partners
+
+    resources :speakers
+
+    resources :sponsors
+    
+    # for the about us page
     resources :staff_bios, :only => [:index, :edit, :update, :destroy]
+
+    # the level of sponsorship
+    resources :standings
+
+    # categorization for talks
+    resources :topics
   
     resources :users do
       collection do
@@ -56,6 +72,8 @@ CraigsAdmin::Application.routes.draw do
       resources :notes, :only => [:new, :create]
       resources :staff_bios, :only => [:new, :create]
     end
+  
+    resources :venues
   
   end
   

@@ -14,7 +14,12 @@
         %a#logo{:href => "/"}
 
         #main_menu
-          = link_to 'home', admin_root_path, :class => active_for_controller('admin/index')
+          = link_to 'home', admin_root_path, :class => active_for_controller('admin/admin/index')
+          = link_to 'days', admin_days_path, :class => active_for_controller('admin/days/index')
+          = link_to 'venues', admin_venues_path, :class => active_for_controller('admin/venues/index')
+          = link_to 'speakers', admin_speakers_path, :class => active_for_controller('admin/speakers/index')
+          = link_to 'partners', admin_partners_path, :class => active_for_controller('admin/partners/index')
+          = link_to 'sponsors', admin_sponsors_path, :class => active_for_controller('admin/sponsors/index')
         
         #account_links
           - if current_user.connected_to_facebook?

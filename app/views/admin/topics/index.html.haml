@@ -1,0 +1,9 @@
+= render '/admin/admin/collection_controls'
+
+.table_section
+  %h3 
+    Topics
+    = new_model_link Topic
+  .table_wrapper
+    = render 'admin/topics/table.html.haml', :topics => @topics
+

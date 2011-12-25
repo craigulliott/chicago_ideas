@@ -1,0 +1,12 @@
+= render '/admin/admin/collection_controls'
+
+= ssp_search_form(Day)
+
+.table_section
+  %h3 
+    Days
+    = new_model_link Day
+  .table_wrapper
+    = render 'admin/days/table.html.haml', :days => @days
+  = paginate @days
+
