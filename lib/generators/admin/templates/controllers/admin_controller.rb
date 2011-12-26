@@ -12,6 +12,12 @@ class Admin::<%= controller_class_name %>Controller < Admin::AdminController
   
   # standard CRUD functionality exists in the base AdminController
 
+  # the detail page for this <%= singular_table_name %>
+  def show
+    @section_title = 'Detail'
+    @<%= singular_table_name %> = <%= model_class_name %>.find(params[:id])
+  end
+
 
   # MEMBER PAGES
   # ---------------------------------------------------------------------------------------------------------
