@@ -27,14 +27,14 @@
   - if @user.current_sign_in_at.present?
     %p
       Current Sign in:
-      = @user.current_sign_in_at.to_s(:pretty)
+      = @user.current_sign_in_at.to_s(:long)
       from IP
       = @user.current_sign_in_ip
 
   - if @user.last_sign_in_at.present?
     %p
       Previous Sign in:
-      = @user.last_sign_in_at.to_s(:pretty)
+      = @user.last_sign_in_at.to_s(:long)
       from IP
       = @user.last_sign_in_ip
 

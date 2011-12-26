@@ -1,5 +1,5 @@
 %tr{:note => note.id}
-  %td.created_at= note.created_at.to_s(:pretty)
+  %td.created_at= note.created_at.to_s(:long)
   %td.author
     - if note.author.present? 
       = link_to note.author.name, admin_user_path(note.author)

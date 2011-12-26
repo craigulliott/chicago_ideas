@@ -1,5 +1,5 @@
 %tr{:user => user.id}
-  %td.created_at= user.created_at.to_s(:pretty)
+  %td.created_at= user.created_at.to_s(:long)
   %td.email= link_to user.email, admin_user_path(user)
   %td.name= user.name
   %td.facebook= user.connected_to_facebook? ? 'yes' : 'no'
