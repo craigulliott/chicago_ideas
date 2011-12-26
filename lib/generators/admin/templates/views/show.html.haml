@@ -1,0 +1,32 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @<%= singular_table_name %>, true
+  = delete_model_link @<%= singular_table_name %>, true
+
+%h1
+  <%= has_name_attribute? ? "= @#{singular_table_name}.name" : "This #{model_class_name}" %>
+  <% if has_deleted_at_attribute? -%>
+  - if @<%= singular_table_name %>.deleted?
+    %span.deleted (deleted)
+  <% end -%>
+
+#model_detail
+<% attributes.each do |attribute| -%>
+<% next if attribute.name.to_sym == :deleted_at -%>
+  %h4 <%= attribute.name.titlecase %>
+<% if attribute.type == :date || attribute.type == :datetime -%>
+  %p= @<%= singular_table_name %>.<%= attribute.name %>.to_s(:wordy)
+
+<% elsif attribute.type == :boolean -%>
+  %p= @<%= singular_table_name %>.<%= attribute.name %>? ? 'yes' : 'no'
+
+<% elsif attribute.name[-3,3] == '_id' -%>
+  %p= @<%= singular_table_name %>.<%= attribute.name[1..-4] %>.name
+
+<% else -%>
+  %p= @<%= singular_table_name %>.<%= attribute.name %>
+
+<% end -%>
+<% end -%>
+

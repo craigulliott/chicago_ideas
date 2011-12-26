@@ -1,0 +1,8 @@
+- content_for :breadcrumbs do
+  .crumb.end <%= controller_class_name %>   
+
+- @active_tab = '<%= plural_table_name %>'
+
+- content_for :content_navigation do
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "All <%= controller_class_name %>", admin_<%= plural_table_name %>_path, 'search'

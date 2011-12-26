@@ -1,0 +1,5 @@
+Description:
+    Creates the model, migration, controller, route and views for a model within our admin
+
+Examples:
+    `rails generate admin sponsor name:string description:text logo:file deleted_at:datetime sponsorship_level_id`

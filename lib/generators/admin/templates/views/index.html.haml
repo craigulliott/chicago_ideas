@@ -1,0 +1,14 @@
+= render '/admin/<%= plural_table_name %>/collection_controls'
+
+- content_for :top_links do
+  = new_model_link <%= model_class_name %>
+
+= ssp_search_form <%= model_class_name %>
+
+.table_section
+  %h3 
+    <%= controller_class_name %>
+    = new_model_link <%= model_class_name %>
+  .table_wrapper
+    = render 'admin/<%= plural_table_name %>/table.html.haml', :<%= plural_table_name %> => @<%= plural_table_name %>
+

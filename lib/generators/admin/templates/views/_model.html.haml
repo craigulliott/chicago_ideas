@@ -1,0 +1,13 @@
+%tr{:<%= singular_table_name %> => <%= singular_table_name %>.id<%= has_deleted_at_attribute? ? ", :class => @#{singular_table_name}.deleted? ? 'deleted'" : '' %>}
+<% attributes.each do |attribute| -%>
+<% next if attribute.name.to_sym == :deleted_at -%>
+  %td.<%= attribute.name %>= <%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+  %td.options
+    = edit_model_link <%= singular_table_name %>
+<% if has_deleted_at_attribute? %>
+    = delete_model_link <%= singular_table_name %>
+<% else %>
+    = destroy_model_link <%= singular_table_name %>
+<% end -%>
+ 
