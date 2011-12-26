@@ -49,7 +49,7 @@ class <%= model_class_name %> < ActiveRecord::Base
 <% attributes.each do |attribute| -%>
 <% next if attribute.name.to_sym == :deleted_at -%>
 <% if attribute.name[-3,3] == '_id' -%>
-      :<%= attribute.name[1..-4] %> => <%= attribute.name[1..-4] %>.api_attributes,
+      :<%= attribute.name[0..-4] %> => <%= attribute.name[0..-4] %>.api_attributes,
 <% else -%>
       :<%= attribute.name %> => <%= attribute.name %>,
 <% end -%>
