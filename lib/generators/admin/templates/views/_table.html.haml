@@ -1,0 +1,8 @@
+%table#<%= plural_table_name %>
+  %tr
+<% attributes.each do |attribute| -%>
+<% next if attribute.name.to_sym == :deleted_at -%>
+    %th.<%= attribute.name %>= ssp_sort_link :<%= attribute.name %>
+<% end -%>
+    %th 
+  = render :partial => 'admin/<%= plural_table_name %>/<%= singular_table_name %>.html.haml', :collection => <%= plural_table_name %>

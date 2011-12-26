@@ -1,0 +1,17 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @<%= singular_table_name %>
+  .crumb.end= section_title   
+
+- content_for :top_links do
+  = new_model_link Note, @<%= singular_table_name %>
+
+- @active_tab = '<%= plural_table_name %>'
+
+- content_for :content_navigation do
+  %h2 <%= controller_class_name %>
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_<%= plural_table_name %>_path, 'search'
+  %h2<%= has_name_attribute? ? "= @#{singular_table_name}.name" : " This #{model_class_name}" %>
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_<%= singular_table_name %>_path(@<%= singular_table_name %>), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_<%= singular_table_name %>_path(@<%= singular_table_name %>), 'comment'
