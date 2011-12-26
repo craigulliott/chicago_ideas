@@ -41,7 +41,7 @@ module Rails
       end
 
       def add_breadcrumb
-        append_file "config/routes.rb", new_breadcrumb
+        append_file "app/views/shared/_breadcrumbs_item.html.haml", new_breadcrumb
       end
       
       private 
