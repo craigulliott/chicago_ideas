@@ -65,7 +65,7 @@ module Rails
           str = "\n"
           str += "- elsif base_model.kind_of? #{model_class_name}\n"
           str += "  .crumb\n"
-          str += "    = link_to '#{controller_class_name}', admin_#{controller_file_name}_path\n"
+          str += "    = link_to '#{controller_class_name.titlecase}', admin_#{controller_file_name}_path\n"
           str += "  .crumb\n"
           str += "    = link_to base_model.name, admin_#{file_name}_path(base_model)\n" if has_name_attribute?
           str += "    = link_to '#{model_class_name}', admin_#{file_name}_path(base_model)\n" unless has_name_attribute?
