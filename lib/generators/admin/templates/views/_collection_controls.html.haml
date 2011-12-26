@@ -4,5 +4,6 @@
 - @active_tab = '<%= plural_table_name %>'
 
 - content_for :content_navigation do
+  %h2 <%= controller_class_name %>
   %ul
-    %li{:class => active_for('index')}= icon_link_to "All <%= controller_class_name %>", admin_<%= plural_table_name %>_path, 'search'
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_<%= plural_table_name %>_path, 'search'

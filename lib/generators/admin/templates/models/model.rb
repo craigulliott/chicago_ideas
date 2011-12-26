@@ -1,4 +1,4 @@
-class <%= controller_class_name %> < ActiveRecord::Base
+class <%= model_class_name %> < ActiveRecord::Base
 
 <% if has_deleted_at_attribute? -%>  
   # chainable arel method and a boolean helper to determine if models are deleted or not
