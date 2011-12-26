@@ -26,6 +26,7 @@ module Rails
       def generate_views
         template "views/index.html.haml", "app/views/admin/#{controller_file_name}/index.html.haml"
         template "views/show.html.haml", "app/views/admin/#{controller_file_name}/show.html.haml"
+        template "views/notes.html.haml", "app/views/admin/#{controller_file_name}/notes.html.haml"
         
         template "views/_collection_controls.html.haml", "app/views/admin/#{controller_file_name}/_collection_controls.html.haml"
         template "views/_member_controls.html.haml", "app/views/admin/#{controller_file_name}/_member_controls.html.haml"

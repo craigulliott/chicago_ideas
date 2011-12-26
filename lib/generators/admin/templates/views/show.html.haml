@@ -3,9 +3,9 @@
 - content_for :top_links do
   = edit_model_link @<%= singular_table_name %>, true
 <% if has_deleted_at_attribute? -%>
-  = delete_model_link <%= singular_table_name %>, true
+  = delete_model_link @<%= singular_table_name %>, true
 <% else -%>
-  = destroy_model_link <%= singular_table_name %>, true
+  = destroy_model_link @<%= singular_table_name %>, true
 <% end -%>
 
 %h1
