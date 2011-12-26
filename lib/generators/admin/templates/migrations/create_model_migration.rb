@@ -10,7 +10,7 @@ class Create<%= controller_class_name %> < ActiveRecord::Migration
       t.datetime :logo_updated_at, :null => true
       
 <% else -%>
-      f.<%= attribute.type %> :<%= attribute.name %>, :null => true
+      t.<%= attribute.type %> :<%= attribute.name %>, :null => true
 <% end -%>
 <% end -%>
 
