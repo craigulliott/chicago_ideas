@@ -63,7 +63,7 @@ class <%= model_class_name %> < ActiveRecord::Base
     when 'foo'
     else
       [
-<% if has_name_attribute? -%>  
+<% if has_name_attribute? -%>
         { :name => :search, :as => :string, :fields => [:name], :wildcard => :both },
 <% end -%>
         { :name => :created_at, :as => :datetimerange }, 
