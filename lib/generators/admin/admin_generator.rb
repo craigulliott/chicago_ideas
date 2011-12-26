@@ -39,13 +39,16 @@ module Rails
       def add_route
         inject_into_file "config/routes.rb", new_route, :after => "root :to => 'admin#index'\n"
       end
+
+      def add_breadcrumb
+        append_file "config/routes.rb", new_breadcrumb
+      end
       
       private 
       
-        # this would have been better in the templates folder, but I ran out of time to research how
         def new_route
           str = "\n"
-          str += "    resources :#{plural_table_name} do\n";
+          str += "    resources :#{plural_table_name} do\n"
           str += "      member do\n"
           str += "        # pages\n"
           str += "        get :notes\n"
@@ -55,8 +58,20 @@ module Rails
           str += "      end\n"
           str += "      resources :notes, :only => [:new, :create]\n"
           str += "    end\n"
+          str
         end
       
+        def new_breadcrumb
+          str = "\n"
+          str += "- elsif base_model.kind_of? #{model_class_name}\n"
+          str += "  .crumb\n"
+          str += "    = link_to '#{controller_class_name}', admin_#{controller_file_name}_path\n"
+          str += "  .crumb\n"
+          str += "    = link_to base_model.name, admin_#{file_name}_path(base_model)\n" if has_name_attribute?
+          str += "    = link_to '#{model_class_name}', admin_#{file_name}_path(base_model)\n" unless has_name_attribute?
+          str
+        end
+
         def model_class_name
           file_name.camelize
         end
