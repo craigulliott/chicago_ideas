@@ -3,7 +3,9 @@
 = ssp_search_form Note
 
 .table_section
-  %h3 Notes
+  %h3 
+    Notes
+    = new_model_link Note, @<%= singular_table_name %>
   .table_wrapper
     = render 'admin/notes/table.html.haml', :notes => @notes
   = paginate @notes
