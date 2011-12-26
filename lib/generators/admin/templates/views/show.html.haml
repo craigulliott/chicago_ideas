@@ -26,7 +26,7 @@
   %p= @<%= singular_table_name %>.<%= attribute.name %>? ? 'yes' : 'no'
 
 <% elsif attribute.name[-3,3] == '_id' -%>
-  %p= @<%= singular_table_name %>.<%= attribute.name[1..-4] %>.name
+  %p= @<%= singular_table_name %>.<%= attribute.name[0..-4] %>.name
 
 <% else -%>
   %p= @<%= singular_table_name %>.<%= attribute.name %>
