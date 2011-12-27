@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::AdminController
 
   # if the password field is empty, allow the password to stay the same
-  before_filter :delete_empty_password_params
+  before_filter :delete_empty_password_params, :only => :update
 
   # COLLECTION ACTIONS
   # ---------------------------------------------------------------------------------------------------------
