@@ -165,11 +165,18 @@ a:hover {
   }
   
   h2 {
-    border-bottom: 1px solid #444444;
+    border-bottom: 1px solid #666;
     color: #FFFFFF;
     font-size: 12px;
     margin: 15px 12px 4px;
     padding-bottom: 8px;
+  }
+  
+  h3 {
+    color: #FFFFFF;
+    font-size: 12px;
+    font-style: oblique;
+    margin: 15px 12px 0;
   }
   
   a {

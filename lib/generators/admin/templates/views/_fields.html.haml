@@ -3,7 +3,7 @@
 <% next if attribute.name.to_sym == :deleted_at -%>
   = f.input :<%= attribute.name -%>
 <%= attribute.type == :file ? ', :as => :file' : '' -%>
-<%= attribute.type == :date ? ", :input_html => {:class => 'datepicker'}" : '' -%>
-<%= attribute.type == :datetime ? ", :input_html => {:class => 'datetimepicker'}" : '' -%>
-<%= attribute.type == :time ? ", :input_html => {:class => 'timepicker'}" : '' -%>
+<%= attribute.type == :date ? ", :input_html => {:class => 'datepicker'}, :as => :string" : '' -%>
+<%= attribute.type == :datetime ? ", :input_html => {:class => 'datetimepicker'}, :as => :string" : '' -%>
+<%= attribute.type == :time ? ", :input_html => {:class => 'timepicker'}, :as => :string" : '' -%> 
 <% end -%>

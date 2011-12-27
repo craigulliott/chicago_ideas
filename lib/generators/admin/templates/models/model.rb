@@ -36,7 +36,7 @@ class <%= model_class_name %> < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => true,
-    :fog_directory => "<%= ENV['DATABASE_NAMESPACE'] %>-<%= plural_table_name %>-<%= attribute.name %>",
+    :fog_directory => "<%= ENV['DATABASE_NAMESPACE'] %>-<%= singular_table_name %>-<%= attribute.name.pluralize %>",
     :path => ":id.:extension"
 
 <% end -%>
@@ -49,7 +49,7 @@ class <%= model_class_name %> < ActiveRecord::Base
 <% attributes.each do |attribute| -%>
 <% next if attribute.name.to_sym == :deleted_at -%>
 <% if attribute.name[-3,3] == '_id' -%>
-      :<%= attribute.name[1..-4] %> => <%= attribute.name[1..-4] %>.api_attributes,
+      :<%= attribute.name[0..-4] %> => <%= attribute.name[0..-4] %>.api_attributes,
 <% else -%>
       :<%= attribute.name %> => <%= attribute.name %>,
 <% end -%>
@@ -63,7 +63,7 @@ class <%= model_class_name %> < ActiveRecord::Base
     when 'foo'
     else
       [
-<% if has_name_attribute? -%>  
+<% if has_name_attribute? -%>
         { :name => :search, :as => :string, :fields => [:name], :wildcard => :both },
 <% end -%>
         { :name => :created_at, :as => :datetimerange }, 

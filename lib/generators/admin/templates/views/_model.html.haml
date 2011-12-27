@@ -1,4 +1,4 @@
-%tr{:<%= singular_table_name %> => <%= singular_table_name %>.id<%= has_deleted_at_attribute? ? ", :class => @#{singular_table_name}.deleted? ? 'deleted'" : '' %>}
+%tr{:<%= singular_table_name %> => <%= singular_table_name %>.id<%= has_deleted_at_attribute? ? ", :class => #{singular_table_name}.deleted? ? 'deleted'" : '' %>}
 <% first = true -%>
 <% attributes.each do |attribute| -%>
 <% next if attribute.name.to_sym == :deleted_at -%>

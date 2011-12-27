@@ -1,5 +1,5 @@
 %tr{:log_entry => log_entry.id}
-  %td.created_at= log_entry.created_at.to_s(:pretty)
+  %td.created_at= log_entry.created_at.to_s(:long)
   %td.user= log_entry.user.name
   %td.action
     = log_entry.action

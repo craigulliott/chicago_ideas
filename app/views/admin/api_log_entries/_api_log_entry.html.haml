@@ -1,5 +1,5 @@
 %tr{:api_log_entry => api_log_entry.id}
-  %td.created_at= api_log_entry.created_at.to_s(:pretty)
+  %td.created_at= api_log_entry.created_at.to_s(:long)
   %td.host= api_log_entry.host
   %td.action= api_log_entry.action
   %td.params
