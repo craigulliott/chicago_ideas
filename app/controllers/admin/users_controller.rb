@@ -1,5 +1,8 @@
 class Admin::UsersController < Admin::AdminController
 
+  # if the password field is empty, allow the password to stay the same
+  before_filter :delete_empty_password_params
+
   # COLLECTION ACTIONS
   # ---------------------------------------------------------------------------------------------------------
   def index
@@ -56,5 +59,15 @@ class Admin::UsersController < Admin::AdminController
     @user = User.find(params[:id])
     @log_entries = LogEntry.where(:user_id => @user.id).page(params[:page] || 1)
   end
+  
+  private 
+  
+    #if the password field is empty, allow the password to stay the same
+    # called from a before filter
+    def delete_empty_password_params
+      params[:user].delete :password if params[:user][:password].blank?
+      params[:user].delete :password_confirmation if params[:user][:password_confirmation].blank?
+    end
+    
   
 end
