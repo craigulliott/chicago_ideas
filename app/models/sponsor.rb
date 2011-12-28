@@ -8,6 +8,7 @@ class Sponsor < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
+  validates :sponsorship_level_id, :presence => true
   validates :name, :presence => true
   validates_uniqueness_of :name
   

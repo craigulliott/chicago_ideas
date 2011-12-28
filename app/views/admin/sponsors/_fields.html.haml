@@ -1,5 +1,5 @@
 = f.inputs do
   = f.input :name 
   = f.input :description 
-  = f.input :sponsorship_level_id 
+  = f.input :sponsorship_level, :include_blank => false
   = f.input :logo, :as => :file 

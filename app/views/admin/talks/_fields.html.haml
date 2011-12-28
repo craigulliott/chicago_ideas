@@ -1,10 +1,10 @@
 = f.inputs do
   = f.input :name 
   = f.input :description 
-  = f.input :topic_id 
-  = f.input :day_id 
-  = f.input :venue_id 
+  = f.input :topic, :include_blank => false
+  = f.input :day, :include_blank => false
+  = f.input :venue, :include_blank => false
   = f.input :start_time, :input_html => {:class => 'timepicker'}, :as => :string 
   = f.input :end_time, :input_html => {:class => 'timepicker'}, :as => :string 
-  = f.input :sponsor_id 
+  = f.input :sponsor
   = f.input :type 
