@@ -1,0 +1,5 @@
+%table#event_brands
+  %tr
+    %th.name= ssp_sort_link :name
+    %th 
+  = render :partial => 'admin/event_brands/event_brand.html.haml', :collection => event_brands

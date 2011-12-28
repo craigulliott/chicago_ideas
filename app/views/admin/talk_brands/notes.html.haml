@@ -1,0 +1,12 @@
+= render 'admin/admin/collection_controls'
+= render 'controls'
+
+= ssp_search_form Note
+
+.table_section
+  %h3 
+    Notes
+    = new_model_link Note, @talk_brand
+  .table_wrapper
+    = render 'admin/notes/table.html.haml', :notes => @notes
+  = paginate @notes

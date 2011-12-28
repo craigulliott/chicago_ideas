@@ -2,6 +2,12 @@ class Sponsor < ActiveRecord::Base
 
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
+  
+  BANNER_WIDTH = 300
+  BANNER_HEIGHT = 300
+  
+  LOGO_WIDTH = 300
+  LOGO_HEIGHT = 300
 
   belongs_to :sponsorship_level
   
@@ -9,8 +15,9 @@ class Sponsor < ActiveRecord::Base
   has_many :notes, :as => :asset
   
   validates :sponsorship_level_id, :presence => true
-  validates :name, :presence => true
-  validates_uniqueness_of :name
+  validates :name, :presence => true, :uniqueness => true
+  validate :validate_banner_dimensions, :unless => "errors.any?"
+  validate :validate_logo_dimensions, :unless => "errors.any?"
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
@@ -28,6 +35,19 @@ class Sponsor < ActiveRecord::Base
     },
     :fog_public => true,
     :fog_directory => "chicago-ideas-sponsor-logos",
+    :path => ":id.:extension"
+  
+  # large format blessed photo for the website
+  has_attached_file :banner,
+    :storage => :fog,
+    :fog_credentials => {
+      :aws_access_key_id => AWS_ACCESS_KEY_ID,
+      :aws_secret_access_key => AWS_SECRET_ACCESS_KEY,
+      provider: 'AWS',
+      region: 'us-east-1'
+    },
+    :fog_public => true,
+    :fog_directory => "chicago-ideas-sponsor-banners",
     :path => ":id.:extension"
 
   
@@ -55,4 +75,34 @@ class Sponsor < ActiveRecord::Base
     end
   end
   
+  # a string representation of the required dimensions for the banner image
+  def banner_dimensions_string
+    "#{BANNER_WIDTH}x#{BANNER_HEIGHT}"
+  end
+  
+  # a string representation of the required dimensions for the logo image
+  def logo_dimensions_string
+    "#{LOGO_WIDTH}x#{LOGO_HEIGHT}"
+  end
+  
+  # parses the description wih markdown and returns html
+  def description_html
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :no_links => true, :hard_wrap => true)
+    markdown.render(description).html_safe
+  end
+  
+  private 
+
+    # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
+    def validate_banner_dimensions
+      dimensions = Paperclip::Geometry.from_file(banner.to_file(:original))
+      errors.add(:banner, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{banner_dimensions_string}") unless dimensions.width == BANNER_WIDTH && dimensions.height == BANNER_HEIGHT
+    end
+
+    # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
+    def validate_logo_dimensions
+      dimensions = Paperclip::Geometry.from_file(logo.to_file(:original))
+      errors.add(:logo, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{logo_dimensions_string}") unless dimensions.width == LOGO_WIDTH && dimensions.height == LOGO_HEIGHT
+    end
+
 end

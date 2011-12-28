@@ -10,12 +10,16 @@ class CreateEvents < ActiveRecord::Migration
 
       t.integer :day_id, :null => false
       t.integer :venue_id, :null => false
+      t.integer :event_brand_id, :null => false
+      
+      # large format blessed photo for the website
+      t.string :banner_file_name, :null => true
+      t.string :banner_content_type, :null => true
+      t.integer :banner_file_size, :null => true
+      t.datetime :banner_updated_at, :null => true
 
       t.time :start_time, :null => false
       t.time :end_time, :null => false
-
-      # polymorphic (lab, party, partner_program, affiliate_event)
-      t.string :type, :null => false
 
       t.timestamps
     end
@@ -28,5 +32,8 @@ class CreateEvents < ActiveRecord::Migration
     
     add_index :events, :partner_id
     add_foreign_key :events, :partners
+    
+    add_index :events, :event_brand_id
+    add_foreign_key :events, :event_brands
   end
 end

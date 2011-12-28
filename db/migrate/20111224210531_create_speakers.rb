@@ -19,6 +19,12 @@ class CreateSpeakers < ActiveRecord::Migration
       t.string :portrait_content_type, :null => true
       t.integer :portrait_file_size, :null => true
       t.datetime :portrait_updated_at, :null => true
+      
+      # large format blessed photo for the website
+      t.string :banner_file_name, :null => true
+      t.string :banner_content_type, :null => true
+      t.integer :banner_file_size, :null => true
+      t.datetime :banner_updated_at, :null => true
 
       t.timestamps
     end

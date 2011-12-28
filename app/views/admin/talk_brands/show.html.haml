@@ -1,0 +1,17 @@
+= render 'admin/admin/collection_controls'
+= render 'controls'
+
+- content_for :top_links do
+  = edit_model_link @talk_brand, true
+  = destroy_model_link @talk_brand, true
+
+%h1
+  = @talk_brand.name
+  = icon_link_to 'notes', notes_admin_talk_brand_path(@talk_brand), 'script'
+  = new_model_link Note, @talk_brand
+  
+#model_detail
+  %h4 Name
+  %p= @talk_brand.name
+
+

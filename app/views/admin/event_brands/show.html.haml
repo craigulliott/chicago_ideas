@@ -1,0 +1,18 @@
+= render 'admin/admin/collection_controls'
+= render 'controls'
+
+- content_for :top_links do
+  = edit_model_link @event_brand, true
+  = destroy_model_link @event_brand, true
+
+%h1
+  = @event_brand.name
+    = icon_link_to 'notes', notes_admin_event_brand_path(@event_brand), 'script'
+  = new_model_link Note, @event_brand
+  
+
+#model_detail
+  %h4 Name
+  %p= @event_brand.name
+
+

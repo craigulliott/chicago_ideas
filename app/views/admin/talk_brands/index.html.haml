@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  = new_model_link TalkBrand
+
+= ssp_search_form TalkBrand
+
+.table_section
+  %h3 
+    Talk Brands
+    = new_model_link TalkBrand
+  .table_wrapper
+    = render 'admin/talk_brands/table.html.haml', :talk_brands => @talk_brands
+

@@ -6,8 +6,7 @@ class Day < ActiveRecord::Base
   has_many :notes, :as => :asset
   belongs_to :year
 
-  validates :date, :presence => true
-  validates_uniqueness_of :date
+  validates :date, :presence => true, :uniqueness => true
   validates :name, :presence => true
 
   # build and/or link the year model

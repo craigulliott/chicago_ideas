@@ -1,0 +1,6 @@
+%tr{:event_brand => event_brand.id}
+  %td.name= link_to event_brand.name, admin_event_brand_path(event_brand)
+  %td.options
+    = edit_model_link event_brand
+    = destroy_model_link event_brand
+ 

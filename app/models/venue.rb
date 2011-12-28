@@ -5,6 +5,9 @@ class Venue < ActiveRecord::Base
   
   require 'geocode'
   
+  BANNER_WIDTH = 667
+  BANNER_HEIGHT = 468
+  
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
@@ -15,12 +18,32 @@ class Venue < ActiveRecord::Base
   validates :zipcode, :presence => true, :format => {:with => /\d\d\d\d\d/, :message => 'should be in the format "12345"'}
   validates :country, :presence => true
   validates :lonlat, :presence => {:message => "Failed to geocode this business. Please check the whole address."}
+  validate :validate_banner_dimensions, :unless => "errors.any?"
 
   before_validation {|record|
     # attempt to geocode the address with google
     record.lonlat = record.address.geocode
     record.errors.add :address1, "Failed to geocode this business. Please check the whole address." unless record.lonlat.present?
   } 
+  
+  # tell the dynamic form that we need to post to an iframe to accept the file upload
+  # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
+  def accepts_file_upload?
+    true
+  end
+  
+  # large format blessed photo for the website
+  has_attached_file :banner,
+    :storage => :fog,
+    :fog_credentials => {
+      :aws_access_key_id => AWS_ACCESS_KEY_ID,
+      :aws_secret_access_key => AWS_SECRET_ACCESS_KEY,
+      provider: 'AWS',
+      region: 'us-east-1'
+    },
+    :fog_public => true,
+    :fog_directory => "chicago-ideas-venue-banners",
+    :path => ":id.:extension"
 
   # returns a single line representation of the address
   def address include_country = false, include_name = false
@@ -63,6 +86,11 @@ class Venue < ActiveRecord::Base
     end
   end
   
+  # a string representation of the required dimensions for the banner image
+  def banner_dimensions_string
+    "#{BANNER_WIDTH}x#{BANNER_HEIGHT}"
+  end
+  
   # google powered maps and geocoding
   def position
     "#{lonlat.y},#{lonlat.x}"
@@ -75,5 +103,12 @@ class Venue < ActiveRecord::Base
   def google_maps_url
     "http://maps.google.com/maps?hl=en&q=#{position}"
   end
+  
+  private 
+    # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
+    def validate_banner_dimensions
+      dimensions = Paperclip::Geometry.from_file(banner.to_file(:original))
+      errors.add(:banner, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{banner_dimensions_string}") unless dimensions.width == BANNER_WIDTH && dimensions.height == BANNER_HEIGHT
+    end
   
 end

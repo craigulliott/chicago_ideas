@@ -9,11 +9,8 @@ class SponsorshipLevel < ActiveRecord::Base
   
   scope :by_name, order('name asc')
   
-  validates :name, :presence => true
-  validates_uniqueness_of :name
-  
-  validates :sort, :presence => true
-  validates_uniqueness_of :sort
+  validates :name, :presence => true, :uniqueness => true
+  validates :sort, :presence => true, :uniqueness => true
   
   # when this model is created, set the sort order to the last in the current set (unless it was already set)
   before_validation {|record|

@@ -1,4 +1,5 @@
 = f.inputs do
+  = f.input :talk_brand, :include_blank => false 
   = f.input :name 
   = f.input :description 
   = f.input :topic, :include_blank => false
@@ -6,5 +7,5 @@
   = f.input :venue, :include_blank => false
   = f.input :start_time, :input_html => {:class => 'timepicker'}, :as => :string 
   = f.input :end_time, :input_html => {:class => 'timepicker'}, :as => :string 
-  = f.input :sponsor
-  = f.input :type 
+  = f.input :sponsor, :hint => "use this to assign this event with a specific sponsor"
+  = f.input :banner, :as => :file, :title => "Banner Photo", :hint => "a #{@model.banner_dimensions_string} blessed photo for displaying on the site"

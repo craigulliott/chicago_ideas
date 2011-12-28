@@ -2,14 +2,19 @@ class StaffBio < ActiveRecord::Base
 
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
+  
+  BANNER_WIDTH = 667
+  BANNER_HEIGHT = 468
+  
+  PORTRAIT_WIDTH = 234
+  PORTRAIT_HEIGHT = 234
 
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
 
-  validates :sort, :presence => true
+  validates :sort, :presence => true, :uniqueness => true
   validates :name, :presence => true
   validates :title, :presence => true
-  validates_uniqueness_of :sort
   validate :validate_portrait_dimensions, :unless => "errors.any?"
   
   # when this model is created, set the sort order to the last in the current set (unless it was already set)
@@ -34,6 +39,19 @@ class StaffBio < ActiveRecord::Base
     },
     :fog_public => true,
     :fog_directory => "chicago-ideas-staff-bio-portraits",
+    :path => ":id.:extension"
+  
+  # large format blessed photo for the website
+  has_attached_file :banner,
+    :storage => :fog,
+    :fog_credentials => {
+      :aws_access_key_id => AWS_ACCESS_KEY_ID,
+      :aws_secret_access_key => AWS_SECRET_ACCESS_KEY,
+      provider: 'AWS',
+      region: 'us-east-1'
+    },
+    :fog_public => true,
+    :fog_directory => "chicago-ideas-staff-bio-banners",
     :path => ":id.:extension"
   
   # the hash representing this model that is returned by the api
@@ -61,11 +79,34 @@ class StaffBio < ActiveRecord::Base
     end
   end
   
+  # a string representation of the required dimensions for the banner image
+  def banner_dimensions_string
+    "#{BANNER_WIDTH}x#{BANNER_HEIGHT}"
+  end
+  
+  # a string representation of the required dimensions for the portrait image
+  def portrait_dimensions_string
+    "#{PORTRAIT_WIDTH}x#{PORTRAIT_HEIGHT}"
+  end
+
+  # parses the description wih markdown and returns html
+  def about_html
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :no_links => true, :hard_wrap => true)
+    markdown.render(about).html_safe
+  end
+  
+  
   private 
+    # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
+    def validate_banner_dimensions
+      dimensions = Paperclip::Geometry.from_file(banner.to_file(:original))
+      errors.add(:banner, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{banner_dimensions_string}") unless dimensions.width == BANNER_WIDTH && dimensions.height == BANNER_HEIGHT
+    end
+
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_portrait_dimensions
       dimensions = Paperclip::Geometry.from_file(portrait.to_file(:original))
-      errors.add(:portrait, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly 234x234") unless dimensions.width == 234 && dimensions.height == 234
+      errors.add(:portrait, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait_dimensions_string}") unless dimensions.width == PORTRAIT_WIDTH && dimensions.height == PORTRAIT_HEIGHT
     end
   
 end

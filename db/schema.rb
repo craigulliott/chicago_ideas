@@ -34,20 +34,33 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
   add_index "days", ["date"], :name => "index_days_on_date"
   add_index "days", ["year_id"], :name => "index_days_on_year_id"
 
+  create_table "event_brands", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_brands", ["name"], :name => "index_event_brands_on_name"
+
   create_table "events", :force => true do |t|
-    t.string   "name",        :limit => 150, :null => false
+    t.string   "name",                :limit => 150, :null => false
     t.text     "description"
     t.integer  "partner_id"
-    t.integer  "day_id",                     :null => false
-    t.integer  "venue_id",                   :null => false
-    t.time     "start_time",                 :null => false
-    t.time     "end_time",                   :null => false
-    t.string   "type",                       :null => false
+    t.integer  "day_id",                             :null => false
+    t.integer  "venue_id",                           :null => false
+    t.integer  "event_brand_id",                     :null => false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.time     "start_time",                         :null => false
+    t.time     "end_time",                           :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "events", ["day_id"], :name => "index_events_on_day_id"
+  add_index "events", ["event_brand_id"], :name => "index_events_on_event_brand_id"
   add_index "events", ["partner_id"], :name => "index_events_on_partner_id"
   add_index "events", ["venue_id"], :name => "index_events_on_venue_id"
 
@@ -68,12 +81,16 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
   add_index "notes", ["author_id"], :name => "index_notes_on_author_id"
 
   create_table "partners", :force => true do |t|
-    t.string   "name",              :limit => 100, :null => false
+    t.string   "name",                :limit => 100, :null => false
     t.text     "description"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -114,17 +131,26 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
 
   create_table "speakers", :force => true do |t|
     t.string   "name",                  :limit => 150, :null => false
+    t.string   "email"
+    t.string   "phone"
     t.string   "title"
     t.text     "bio"
+    t.string   "permalink",             :limit => 150
     t.string   "twitter_screen_name"
     t.string   "facebook_page_id"
     t.string   "portrait_file_name"
     t.string   "portrait_content_type"
     t.integer  "portrait_file_size"
     t.datetime "portrait_updated_at"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "speakers", ["permalink"], :name => "index_speakers_on_permalink"
 
   create_table "sponsors", :force => true do |t|
     t.string   "name",                 :limit => 150, :null => false
@@ -134,6 +160,10 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -146,6 +176,8 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "sponsorship_levels", ["sort"], :name => "index_sponsorship_levels_on_sort"
 
   create_table "sponsorships", :force => true do |t|
     t.integer  "sponsor_id",           :null => false
@@ -162,25 +194,42 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
   create_table "staff_bios", :force => true do |t|
     t.string   "name"
     t.string   "title"
+    t.string   "twitter_screen_name"
     t.text     "about"
     t.string   "portrait_file_name"
     t.string   "portrait_content_type"
     t.integer  "portrait_file_size"
     t.datetime "portrait_updated_at"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
     t.integer  "sort"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "talk_brands", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "talk_brands", ["name"], :name => "index_talk_brands_on_name"
+
   create_table "talks", :force => true do |t|
-    t.string   "name",        :limit => 150, :null => false
+    t.string   "name",                :limit => 150, :null => false
     t.text     "description"
-    t.integer  "day_id",                     :null => false
-    t.integer  "venue_id",                   :null => false
-    t.integer  "topic_id",                   :null => false
-    t.time     "start_time",                 :null => false
-    t.time     "end_time",                   :null => false
-    t.string   "type",                       :null => false
+    t.integer  "day_id",                             :null => false
+    t.integer  "venue_id",                           :null => false
+    t.integer  "topic_id",                           :null => false
+    t.integer  "talk_brand_id",                      :null => false
+    t.time     "start_time",                         :null => false
+    t.time     "end_time",                           :null => false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
     t.integer  "sponsor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -188,6 +237,7 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
 
   add_index "talks", ["day_id"], :name => "index_talks_on_day_id"
   add_index "talks", ["sponsor_id"], :name => "index_talks_on_sponsor_id"
+  add_index "talks", ["talk_brand_id"], :name => "index_talks_on_talk_brand_id"
   add_index "talks", ["topic_id"], :name => "index_talks_on_topic_id"
   add_index "talks", ["venue_id"], :name => "index_talks_on_venue_id"
 
@@ -229,14 +279,18 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
 
   create_table "venues", :force => true do |t|
-    t.string   "name",       :limit => 100, :null => false
-    t.string   "address1",   :limit => 100, :null => false
-    t.string   "address2",   :limit => 100
-    t.string   "city",       :limit => 100, :null => false
-    t.string   "state",      :limit => 100, :null => false
-    t.string   "zipcode",    :limit => 100, :null => false
-    t.string   "country",    :limit => 100, :null => false
-    t.point    "lonlat",     :limit => nil, :null => false
+    t.string   "name",                :limit => 100,                   :null => false
+    t.string   "address1",            :limit => 100,                   :null => false
+    t.string   "address2",            :limit => 100
+    t.string   "city",                :limit => 100,                   :null => false
+    t.string   "state",               :limit => 100,                   :null => false
+    t.string   "zipcode",             :limit => 100,                   :null => false
+    t.string   "country",             :limit => 2,   :default => "US", :null => false
+    t.point    "lonlat",              :limit => nil,                   :null => false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -263,6 +317,7 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
   add_foreign_key "days", "years", :name => "days_year_id_fk"
 
   add_foreign_key "events", "days", :name => "events_day_id_fk"
+  add_foreign_key "events", "event_brands", :name => "events_event_brand_id_fk"
   add_foreign_key "events", "partners", :name => "events_partner_id_fk"
   add_foreign_key "events", "venues", :name => "events_venue_id_fk"
 
@@ -279,6 +334,7 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
 
   add_foreign_key "talks", "days", :name => "talks_day_id_fk"
   add_foreign_key "talks", "sponsors", :name => "talks_sponsor_id_fk"
+  add_foreign_key "talks", "talk_brands", :name => "talks_talk_brand_id_fk"
   add_foreign_key "talks", "topics", :name => "talks_topic_id_fk"
   add_foreign_key "talks", "venues", :name => "talks_venue_id_fk"
 

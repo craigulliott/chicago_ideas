@@ -23,12 +23,12 @@ class Admin::UsersController < Admin::AdminController
   # the admin area is allowed to update these protected attributes
   def pre_create(user)
     user.admin = params[:user][:admin]
-    return user
+    user
   end
 
   def pre_update(user)
     user.admin = params[:user][:admin]
-    return user
+    user
   end
 
   # COLLECTION PAGES

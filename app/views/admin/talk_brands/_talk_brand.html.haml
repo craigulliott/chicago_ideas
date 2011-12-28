@@ -1,0 +1,6 @@
+%tr{:talk_brand => talk_brand.id}
+  %td.name= link_to talk_brand.name, admin_talk_brand_path(talk_brand)
+  %td.options
+    = edit_model_link talk_brand
+    = destroy_model_link talk_brand
+ 

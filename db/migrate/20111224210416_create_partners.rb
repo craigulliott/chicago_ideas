@@ -9,6 +9,12 @@ class CreatePartners < ActiveRecord::Migration
       t.string :logo_content_type, :null => true
       t.integer :logo_file_size, :null => true
       t.datetime :logo_updated_at, :null => true
+      
+      # large format blessed photo for the website
+      t.string :banner_file_name, :null => true
+      t.string :banner_content_type, :null => true
+      t.integer :banner_file_size, :null => true
+      t.datetime :banner_updated_at, :null => true
 
       t.timestamps
     end

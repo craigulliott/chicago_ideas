@@ -1,7 +1,6 @@
 %table#sponsors
   %tr
     %th.name= ssp_sort_link :name
-    %th.description= ssp_sort_link :description
     %th.sponsorship_level_id= ssp_sort_link :sponsorship_level_id
     %th 
   = render :partial => 'admin/sponsors/sponsor.html.haml', :collection => sponsors

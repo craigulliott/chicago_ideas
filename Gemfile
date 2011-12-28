@@ -21,6 +21,7 @@ gem 'kaminari'
 gem 'paperclip'
 gem 'fog'
 gem 'carmen'
+gem 'redcarpet'
 
 # social
 gem 'koala'

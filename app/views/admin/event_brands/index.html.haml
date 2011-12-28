@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  = new_model_link EventBrand
+
+= ssp_search_form EventBrand
+
+.table_section
+  %h3 
+    Event Brands
+    = new_model_link EventBrand
+  .table_wrapper
+    = render 'admin/event_brands/table.html.haml', :event_brands => @event_brands
+

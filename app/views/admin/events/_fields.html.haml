@@ -1,9 +1,10 @@
 = f.inputs do
+  = f.input :event_brand, :include_blank => false 
   = f.input :name 
   = f.input :description 
-  = f.input :partner_id 
-  = f.input :day_id 
-  = f.input :venue_id 
+  = f.input :partner, :include_blank => true, :hint => "use this to assign this event with a specific partner"
+  = f.input :day, :include_blank => false 
+  = f.input :venue, :include_blank => false 
   = f.input :start_time, :input_html => {:class => 'timepicker'}, :as => :string 
   = f.input :end_time, :input_html => {:class => 'timepicker'}, :as => :string 
-  = f.input :type 
+  = f.input :banner, :as => :file, :title => "Banner Photo", :hint => "a #{@model.banner_dimensions_string} blessed photo for displaying on the site"
