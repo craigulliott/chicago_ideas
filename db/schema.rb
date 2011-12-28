@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111224210601) do
+ActiveRecord::Schema.define(:version => 20111228013408) do
 
   create_table "chapters", :force => true do |t|
     t.integer  "order",      :null => false
@@ -160,15 +160,17 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
   add_index "sponsorships", ["year_id", "sponsor_id"], :name => "index_sponsorships_on_year_id_and_sponsor_id"
 
   create_table "staff_bios", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "sort",       :null => false
-    t.string   "title",      :null => false
-    t.text     "about",      :null => false
+    t.string   "name"
+    t.string   "title"
+    t.text     "about"
+    t.string   "portrait_file_name"
+    t.string   "portrait_content_type"
+    t.integer  "portrait_file_size"
+    t.datetime "portrait_updated_at"
+    t.integer  "sort"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "staff_bios", ["user_id"], :name => "index_staff_bios_on_user_id"
 
   create_table "talks", :force => true do |t|
     t.string   "name",        :limit => 150, :null => false
@@ -274,8 +276,6 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
   add_foreign_key "sponsorships", "sponsors", :name => "sponsorships_sponsor_id_fk"
   add_foreign_key "sponsorships", "sponsorship_levels", :name => "sponsorships_sponsorship_level_id_fk"
   add_foreign_key "sponsorships", "years", :name => "sponsorships_year_id_fk"
-
-  add_foreign_key "staff_bios", "users", :name => "staff_bios_user_id_fk"
 
   add_foreign_key "talks", "days", :name => "talks_day_id_fk"
   add_foreign_key "talks", "sponsors", :name => "talks_sponsor_id_fk"

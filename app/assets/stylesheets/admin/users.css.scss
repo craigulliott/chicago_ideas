@@ -5,10 +5,6 @@ body#admin_users_page {
   
   &.show {
     
-    #staff_bio {
-      border-top:1px solid #DDDDDD;
-    }
-    
     // a box describing the connectivity for this user account
     #connectivity {
       border: 1px solid #EEEEEE;

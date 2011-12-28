@@ -38,17 +38,3 @@
       from IP
       = @user.last_sign_in_ip
 
-- if @user.admin?
-  #staff_bio
-    %p 
-      Staff Bio 
-      - if @user.staff_bio.present?
-        = edit_model_link @user.staff_bio, true
-        = destroy_model_link @user.staff_bio, true
-      - else
-        = new_model_link StaffBio, @user, true
-  
-    - if @user.staff_bio.present?
-      %p= @user.staff_bio.about
-  
-

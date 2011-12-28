@@ -87,6 +87,14 @@ CraigsAdmin::Application.routes.draw do
     end
 
     resources :speakers do
+        member do
+          # pages
+          get :notes
+        end
+        resources :notes, :only => [:new, :create]
+      end
+
+    resources :staff_bios do
       member do
         # pages
         get :notes
