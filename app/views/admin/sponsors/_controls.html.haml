@@ -1,0 +1,7 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @sponsor
+  .crumb.end= section_title   
+
+- content_for :top_links do
+  = new_model_link Note, @sponsor
+

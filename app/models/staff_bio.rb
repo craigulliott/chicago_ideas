@@ -10,6 +10,7 @@ class StaffBio < ActiveRecord::Base
   validates :name, :presence => true
   validates :title, :presence => true
   validates_uniqueness_of :sort
+  validate :validate_portrait_dimensions, :unless => "errors.any?"
   
   # when this model is created, set the sort order to the last in the current set (unless it was already set)
   before_validation {|record|
@@ -32,9 +33,8 @@ class StaffBio < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => true,
-    :fog_directory => "craigs-admin-staff_bio-portraits",
+    :fog_directory => "chicago-ideas-staff-bio-portraits",
     :path => ":id.:extension"
-
   
   # the hash representing this model that is returned by the api
   def api_attributes
@@ -60,5 +60,12 @@ class StaffBio < ActiveRecord::Base
       ]
     end
   end
+  
+  private 
+    # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
+    def validate_portrait_dimensions
+      dimensions = Paperclip::Geometry.from_file(portrait.to_file(:original))
+      errors.add(:portrait, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly 234x234") unless dimensions.width == 234 && dimensions.height == 234
+    end
   
 end

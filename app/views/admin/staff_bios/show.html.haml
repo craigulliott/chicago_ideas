@@ -1,4 +1,5 @@
-= render 'member_controls'
+= render 'admin/admin/collection_controls'
+= render 'controls'
 
 - content_for :top_links do
   = edit_model_link @staff_bio, true
@@ -6,6 +7,9 @@
 
 %h1
   = @staff_bio.name
+  = icon_link_to 'notes', notes_admin_staff_bio_path(@staff_bio), 'script'
+  = new_model_link Note, @staff_bio
+  
   
 #model_detail
   %h4 Name
@@ -18,7 +22,7 @@
   %p= @staff_bio.about
 
   %h4 Portrait
-  %p= @staff_bio.portrait
+  %p= image_tag @staff_bio.portrait.url
 
   %h4 Sort
   %p= @staff_bio.sort
