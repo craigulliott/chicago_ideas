@@ -1,6 +1,9 @@
 = f.inputs do
 <% attributes.each do |attribute| -%>
 <% next if attribute.name.to_sym == :deleted_at -%>
+<% if attribute.name[-3,3] == '_id' -%>
+  = f.input :<%= attribute.name[0..-4] %>
+<% else -%>
   = f.input :<%= attribute.name -%>
 <%= attribute.type == :file ? ', :as => :file' : '' -%>
 <%= attribute.type == :date ? ", :input_html => {:class => 'datepicker'}, :as => :string" : '' -%>
