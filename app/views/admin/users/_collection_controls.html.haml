@@ -1,9 +1,0 @@
-- content_for :breadcrumbs do
-  .crumb.end Users   
-
-- @active_tab = 'users'
-
-- content_for :content_navigation do
-  %ul
-    %li{:class => active_for('index')}= icon_link_to "All Users", admin_users_path, 'circle-zoomin'
-    %li= icon_link_to 'My User', admin_user_path(current_user), 'person'

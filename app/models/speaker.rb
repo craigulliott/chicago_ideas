@@ -2,12 +2,29 @@ class Speaker < ActiveRecord::Base
 
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
-
-  belongs_to :facebook_page
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
+  validates :name, :presence => true
+  validates_uniqueness_of :name
+  
+  validates :permalink, :presence => true
+  validates_uniqueness_of :permalink
+
+  # clean up/normalize the twitter handle
+  before_validation {|record|
+    # normalize the twitter name (some people enter @screenname and other just enter screenname - we strip the @)
+    record.twitter_screen_name = record.twitter_screen_name[1..9999] if record.twitter_screen_name.present? && record.twitter_screen_name[0] == '@'
+    
+    # generate an availiable permalink
+    permalink = name.underscore
+    i = nil
+    while Speaker.find_by_permalink("#{permalink}#{i}").count > 0
+      i = (i||0)+1
+    end
+    record.permalink = permalink
+  }
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?

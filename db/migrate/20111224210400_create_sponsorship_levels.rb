@@ -6,5 +6,6 @@ class CreateSponsorshipLevels < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :sponsorship_levels, :sort, :unique => true
   end
 end

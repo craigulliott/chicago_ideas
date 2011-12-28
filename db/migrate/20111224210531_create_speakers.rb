@@ -3,6 +3,9 @@ class CreateSpeakers < ActiveRecord::Migration
     create_table :speakers do |t|
 
       t.string :name, :null => false, :limit => 150
+      t.string :email, :null => true
+      t.string :phone, :null => true
+      
       t.string :title, :null => true
       t.text :bio, :null => true
 

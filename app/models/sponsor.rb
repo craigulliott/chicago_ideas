@@ -8,6 +8,8 @@ class Sponsor < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
+  validates :name, :presence => true
+  validates_uniqueness_of :name
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
