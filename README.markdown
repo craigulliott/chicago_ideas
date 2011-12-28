@@ -72,6 +72,7 @@ use this .rvmrc template when doing local development
     # we use AWS as a backend for fog and paperclip
     export AWS_ACCESS_KEY_ID=
     export AWS_SECRET_ACCESS_KEY=
+    export S3_NAMESPACE=
     
     # for onmiauth with facebook and facebook connect/widgets etc
     export FACEBOOK_CLIENT_ID=

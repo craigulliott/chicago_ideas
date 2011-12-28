@@ -36,7 +36,7 @@ class <%= model_class_name %> < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => true,
-    :fog_directory => "<%= ENV['DATABASE_NAMESPACE'] %>-<%= singular_table_name %>-<%= attribute.name.pluralize %>",
+    :fog_directory => "#{S3_NAMESPACE}-<%= ENV['DATABASE_NAMESPACE'] %>-<%= singular_table_name %>-<%= attribute.name.pluralize %>",
     :path => ":id.:extension"
 
 <% end -%>
