@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  = new_model_link Performance
+
+= ssp_search_form Performance
+
+.table_section
+  %h3 
+    Performances
+    = new_model_link Performance
+  .table_wrapper
+    = render 'admin/performances/table.html.haml', :performances => @performances
+

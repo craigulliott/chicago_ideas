@@ -1,0 +1,7 @@
+%tr{:performance => performance.id}
+  %td.speaker_id= link_to performance.speaker_id, admin_performance_path(performance)
+  %td.chapter_id= performance.chapter_id
+  %td.options
+    = edit_model_link performance
+    = destroy_model_link performance
+ 

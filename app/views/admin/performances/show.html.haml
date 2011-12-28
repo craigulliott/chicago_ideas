@@ -1,0 +1,19 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @performance, true
+  = destroy_model_link @performance, true
+
+%h1
+  This Performance
+  = icon_link_to 'notes', notes_admin_performance_path(@performance), 'script'
+  = new_model_link Note, @performance
+
+#model_detail
+  %h4 Speaker
+  %p= @performance.speaker.name
+
+  %h4 Chapter
+  %p= @performance.chapter.name
+
+

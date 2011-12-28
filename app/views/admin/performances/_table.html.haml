@@ -1,0 +1,6 @@
+%table#performances
+  %tr
+    %th.speaker_id= ssp_sort_link :speaker_id
+    %th.chapter_id= ssp_sort_link :chapter_id
+    %th 
+  = render :partial => 'admin/performances/performance.html.haml', :collection => performances
