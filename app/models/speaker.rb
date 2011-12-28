@@ -3,11 +3,11 @@ class Speaker < ActiveRecord::Base
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
   
-  BANNER_WIDTH = 300
-  BANNER_HEIGHT = 300
+  BANNER_WIDTH = 667
+  BANNER_HEIGHT = 468
   
-  PORTRAIT_WIDTH = 300
-  PORTRAIT_HEIGHT = 300
+  PORTRAIT_WIDTH = 234
+  PORTRAIT_HEIGHT = 234
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset

@@ -3,8 +3,8 @@ class Talk < ActiveRecord::Base
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
   
-  BANNER_WIDTH = 300
-  BANNER_HEIGHT = 300
+  BANNER_WIDTH = 667
+  BANNER_HEIGHT = 468
 
   belongs_to :topic
   belongs_to :day

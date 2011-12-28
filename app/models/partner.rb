@@ -3,12 +3,12 @@ class Partner < ActiveRecord::Base
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
   
-  BANNER_WIDTH = 300
-  BANNER_HEIGHT = 300
+  BANNER_WIDTH = 667
+  BANNER_HEIGHT = 468
   
-  LOGO_WIDTH = 300
-  LOGO_HEIGHT = 300
-  
+  LOGO_WIDTH = 234
+  LOGO_HEIGHT = 234
+
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   

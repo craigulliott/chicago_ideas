@@ -4,5 +4,5 @@
   = f.input :bio 
   = f.input :twitter_screen_name 
   = f.input :facebook_page_id 
-  = f.input :portrait, :as => :file 
+  = f.input :portrait, :as => :file, :title => "Portrait Photo", :hint => "portrait photo must be #{@model.portrait_dimensions_string}"
   = f.input :banner, :as => :file, :title => "Banner Photo", :hint => "a #{@model.banner_dimensions_string} blessed photo for displaying on the site"

@@ -10,7 +10,7 @@ class CreatePerformances < ActiveRecord::Migration
     end
 
     add_index :performances, [:speaker_id, :chapter_id], :unique => true
-    add_foreign_key :performances, :speakers
+    add_foreign_key :performances, :users, :column => :speaker_id
 
     add_index :performances, :chapter_id
     add_foreign_key :performances, :chapters
