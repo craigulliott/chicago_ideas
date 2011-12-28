@@ -1,0 +1,13 @@
+%tr{:event => event.id}
+  %td.name= link_to event.name, admin_event_path(event)
+  %td.description= event.description
+  %td.partner_id= event.partner_id
+  %td.day_id= event.day_id
+  %td.venue_id= event.venue_id
+  %td.start_time= event.start_time
+  %td.end_time= event.end_time
+  %td.type= event.type
+  %td.options
+    = edit_model_link event
+    = destroy_model_link event
+ 

@@ -23,7 +23,7 @@ class Note < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => false,
-    :fog_directory => "note-attachments",
+    :fog_directory => "chicago-ideas-note-attachments",
     :path => ":id.:extension"
 
 

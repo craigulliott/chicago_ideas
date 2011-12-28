@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do
+  .crumb.end Sponsors   
+
+- @active_tab = 'sponsors'
+
+- content_for :content_navigation do
+  %h2 Sponsors
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_sponsors_path, 'search'

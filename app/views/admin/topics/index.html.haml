@@ -1,4 +1,9 @@
-= render '/admin/admin/collection_controls'
+= render 'collection_controls'
+
+- content_for :top_links do
+  = new_model_link Topic
+
+= ssp_search_form Topic
 
 .table_section
   %h3 

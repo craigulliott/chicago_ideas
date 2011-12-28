@@ -1,0 +1,17 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @talk
+  .crumb.end= section_title   
+
+- content_for :top_links do
+  = new_model_link Note, @talk
+
+- @active_tab = 'talks'
+
+- content_for :content_navigation do
+  %h2 Talks
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_talks_path, 'search'
+  %h2= @talk.name
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_talk_path(@talk), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_talk_path(@talk), 'comment'

@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do
+  .crumb.end Topics   
+
+- @active_tab = 'topics'
+
+- content_for :content_navigation do
+  %h2 Topics
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_topics_path, 'search'

@@ -1,0 +1,28 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @speaker, true
+  = destroy_model_link @speaker, true
+
+%h1
+  = @speaker.name
+  
+#model_detail
+  %h4 Name
+  %p= @speaker.name
+
+  %h4 Title
+  %p= @speaker.title
+
+  %h4 Bio
+  %p= @speaker.bio
+
+  %h4 Twitter Screen Name
+  %p= @speaker.twitter_screen_name
+
+  %h4 Facebook Page
+  %p= @speaker.facebook_page_id
+
+  %h4 Portrait
+  %p= image_tag @speaker.portrait.url
+

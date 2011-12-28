@@ -1,0 +1,35 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @event, true
+  = destroy_model_link @event, true
+
+%h1
+  = @event.name
+  
+#model_detail
+  %h4 Name
+  %p= @event.name
+
+  %h4 Description
+  %p= @event.description
+
+  %h4 Partner
+  %p= @event.partner.name
+
+  %h4 Day
+  %p= @event.day.name
+
+  %h4 Venue
+  %p= @event.venue.name
+
+  %h4 Start Time
+  %p= @event.start_time
+
+  %h4 End Time
+  %p= @event.end_time
+
+  %h4 Type
+  %p= @event.type
+
+

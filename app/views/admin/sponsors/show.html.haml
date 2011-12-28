@@ -1,0 +1,23 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @sponsor, true
+  = destroy_model_link @sponsor, true
+
+%h1
+  = @sponsor.name
+  
+#model_detail
+  %h4 Name
+  %p= @sponsor.name
+
+  %h4 Description
+  %p= @sponsor.description
+
+  %h4 Sponsorship Level
+  %p= @sponsor.sponsorship_level.name
+
+  %h4 Logo
+  %p= @sponsor.logo
+
+

@@ -1,6 +1,6 @@
 %table#speakers
   %tr
     %th.name= ssp_sort_link :name
-    %th.name= ssp_sort_link :title
+    %th.title= ssp_sort_link :title
     %th 
   = render :partial => 'admin/speakers/speaker.html.haml', :collection => speakers

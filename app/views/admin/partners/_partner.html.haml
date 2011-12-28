@@ -1,5 +1,8 @@
 %tr{:partner => partner.id}
-  %td.name= partner.name
+  %td.name= link_to partner.name, admin_partner_path(partner)
+  %td.description= partner.description
+  %td.logo= partner.logo
   %td.options
     = edit_model_link partner
     = destroy_model_link partner
+ 

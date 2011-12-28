@@ -1,0 +1,38 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @talk, true
+  = destroy_model_link @talk, true
+
+%h1
+  = @talk.name
+  
+#model_detail
+  %h4 Name
+  %p= @talk.name
+
+  %h4 Description
+  %p= @talk.description
+
+  %h4 Topic
+  %p= @talk.topic.name
+
+  %h4 Day
+  %p= @talk.day.name
+
+  %h4 Venue
+  %p= @talk.venue.name
+
+  %h4 Start Time
+  %p= @talk.start_time
+
+  %h4 End Time
+  %p= @talk.end_time
+
+  %h4 Sponsor
+  %p= @talk.sponsor.name
+
+  %h4 Type
+  %p= @talk.type
+
+

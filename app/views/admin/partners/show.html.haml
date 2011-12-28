@@ -1,0 +1,20 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @partner, true
+  = destroy_model_link @partner, true
+
+%h1
+  = @partner.name
+  
+#model_detail
+  %h4 Name
+  %p= @partner.name
+
+  %h4 Description
+  %p= @partner.description
+
+  %h4 Logo
+  %p= @partner.logo
+
+

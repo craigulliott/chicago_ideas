@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do
+  .crumb.end Events   
+
+- @active_tab = 'events'
+
+- content_for :content_navigation do
+  %h2 Events
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_events_path, 'search'

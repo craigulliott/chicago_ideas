@@ -1,0 +1,9 @@
+= f.inputs do
+  = f.input :name 
+  = f.input :description 
+  = f.input :partner_id 
+  = f.input :day_id 
+  = f.input :venue_id 
+  = f.input :start_time, :input_html => {:class => 'timepicker'}, :as => :string 
+  = f.input :end_time, :input_html => {:class => 'timepicker'}, :as => :string 
+  = f.input :type 

@@ -29,6 +29,62 @@ CraigsAdmin::Application.routes.draw do
   namespace :admin do
   
     root :to => 'admin#index'
+
+    resources :talks do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
+    resources :topics do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
+    resources :events do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
+    resources :sponsors do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
+    resources :sponsorship_levels do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
+    resources :partners do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
+    resources :speakers do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
   
     # Resources (in alphabetical order)
     # -------------------------------------------------------------------------------------------------------

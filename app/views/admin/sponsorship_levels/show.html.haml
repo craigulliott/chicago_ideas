@@ -1,0 +1,17 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @sponsorship_level, true
+  = destroy_model_link @sponsorship_level, true
+
+%h1
+  = @sponsorship_level.name
+  
+#model_detail
+  %h4 Name
+  %p= @sponsorship_level.name
+
+  %h4 Sort
+  %p= @sponsorship_level.sort
+
+

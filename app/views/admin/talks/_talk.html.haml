@@ -1,0 +1,14 @@
+%tr{:talk => talk.id}
+  %td.name= link_to talk.name, admin_talk_path(talk)
+  %td.description= talk.description
+  %td.topic_id= talk.topic_id
+  %td.day_id= talk.day_id
+  %td.venue_id= talk.venue_id
+  %td.start_time= talk.start_time
+  %td.end_time= talk.end_time
+  %td.sponsor_id= talk.sponsor_id
+  %td.type= talk.type
+  %td.options
+    = edit_model_link talk
+    = destroy_model_link talk
+ 

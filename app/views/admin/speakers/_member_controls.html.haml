@@ -1,0 +1,17 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @speaker
+  .crumb.end= section_title   
+
+- content_for :top_links do
+  = new_model_link Note, @speaker
+
+- @active_tab = 'speakers'
+
+- content_for :content_navigation do
+  %h2 Speakers
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_speakers_path, 'search'
+  %h2= @speaker.name
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_speaker_path(@speaker), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_speaker_path(@speaker), 'comment'

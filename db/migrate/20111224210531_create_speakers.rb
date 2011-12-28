@@ -6,6 +6,8 @@ class CreateSpeakers < ActiveRecord::Migration
       t.string :title, :null => true
       t.text :bio, :null => true
 
+      t.string :permalink, :null => true, :limit => 150
+
       t.string :twitter_screen_name, :null => true
       t.string :facebook_page_id, :null => true
       
@@ -17,5 +19,7 @@ class CreateSpeakers < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :speakers, :permalink, :unique => true
   end
 end

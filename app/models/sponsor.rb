@@ -1,5 +1,5 @@
 class Sponsor < ActiveRecord::Base
-  
+
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
 
@@ -7,17 +7,14 @@ class Sponsor < ActiveRecord::Base
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
-
-  validates :name, :presence => true
-  validates_uniqueness_of :name
+  
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
   def accepts_file_upload?
     true
   end
-
-  # note can have attachments
+  
   has_attached_file :logo,
     :storage => :fog,
     :fog_credentials => {
@@ -26,9 +23,10 @@ class Sponsor < ActiveRecord::Base
       provider: 'AWS',
       region: 'us-east-1'
     },
-    :fog_public => false,
-    :fog_directory => "ciw-sponsor-logos",
+    :fog_public => true,
+    :fog_directory => "chicago-ideas-sponsor-logos",
     :path => ":id.:extension"
+
   
   # the hash representing this model that is returned by the api
   def api_attributes
@@ -37,8 +35,8 @@ class Sponsor < ActiveRecord::Base
       :type => self.class.name.downcase,
       :name => name,
       :description => description,
+      :sponsorship_level => sponsorship_level.api_attributes,
       :logo => logo,
-      :level => sponsorship_level.api_attributes,
     }
   end
 
@@ -48,7 +46,7 @@ class Sponsor < ActiveRecord::Base
     when 'foo'
     else
       [
-        { :name => :search, :as => :string, :fields => [:description, :name], :wildcard => :both },
+        { :name => :search, :as => :string, :fields => [:name], :wildcard => :both },
         { :name => :created_at, :as => :datetimerange }, 
       ]
     end

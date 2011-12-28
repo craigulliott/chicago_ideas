@@ -1,0 +1,12 @@
+%table#events
+  %tr
+    %th.name= ssp_sort_link :name
+    %th.description= ssp_sort_link :description
+    %th.partner_id= ssp_sort_link :partner_id
+    %th.day_id= ssp_sort_link :day_id
+    %th.venue_id= ssp_sort_link :venue_id
+    %th.start_time= ssp_sort_link :start_time
+    %th.end_time= ssp_sort_link :end_time
+    %th.type= ssp_sort_link :type
+    %th 
+  = render :partial => 'admin/events/event.html.haml', :collection => events

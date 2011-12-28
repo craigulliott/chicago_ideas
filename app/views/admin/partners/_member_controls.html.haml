@@ -1,0 +1,17 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @partner
+  .crumb.end= section_title   
+
+- content_for :top_links do
+  = new_model_link Note, @partner
+
+- @active_tab = 'partners'
+
+- content_for :content_navigation do
+  %h2 Partners
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_partners_path, 'search'
+  %h2= @partner.name
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_partner_path(@partner), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_partner_path(@partner), 'comment'

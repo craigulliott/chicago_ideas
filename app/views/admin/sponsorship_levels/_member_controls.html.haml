@@ -1,0 +1,17 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @sponsorship_level
+  .crumb.end= section_title   
+
+- content_for :top_links do
+  = new_model_link Note, @sponsorship_level
+
+- @active_tab = 'sponsorship_levels'
+
+- content_for :content_navigation do
+  %h2 SponsorshipLevels
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_sponsorship_levels_path, 'search'
+  %h2= @sponsorship_level.name
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_sponsorship_level_path(@sponsorship_level), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_sponsorship_level_path(@sponsorship_level), 'comment'

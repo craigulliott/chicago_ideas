@@ -1,0 +1,17 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @topic, true
+  = destroy_model_link @topic, true
+
+%h1
+  = @topic.name
+  
+#model_detail
+  %h4 Name
+  %p= @topic.name
+
+  %h4 Description
+  %p= @topic.description
+
+
