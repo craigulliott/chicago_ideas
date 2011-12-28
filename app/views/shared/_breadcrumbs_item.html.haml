@@ -69,3 +69,9 @@
     = link_to 'Chapters', admin_chapters_path
   .crumb
     = link_to 'Chapter', admin_chapter_path(base_model)
+
+- elsif base_model.kind_of? Performance
+  .crumb
+    = link_to 'Performances', admin_performances_path
+  .crumb
+    = link_to 'Performance', admin_performance_path(base_model)
