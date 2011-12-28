@@ -27,4 +27,8 @@ class Day < ActiveRecord::Base
     ]
   end
 
+  def full_name
+    "#{date.to_s(:wordy)} (#{name})"
+  end
+  
 end

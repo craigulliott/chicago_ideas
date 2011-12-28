@@ -105,6 +105,12 @@ form.formtastic {
     input[type="password"], input[type="tel"] {
       width: 300px;
     }
+    input.datepicker, input.timepicker {
+      width: 100px;
+    }
+    input.datetimepicker {
+      width: 150px;
+    }
 
     legend {
       color: #000000;

@@ -1,0 +1,12 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @chapter
+  .crumb.end= section_title   
+
+- content_for :content_navigation do
+  %h2 Chapters
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_chapters_path, 'search'
+  %h2 This Chapter
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_chapter_path(@chapter), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_chapter_path(@chapter), 'comment'

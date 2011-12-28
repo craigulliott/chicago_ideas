@@ -26,12 +26,12 @@
   %p= @event.venue.name
 
   %h4 Start Time
-  %p= @event.start_time
+  %p= @event.start_time.to_s(:time)
 
   %h4 End Time
-  %p= @event.end_time
+  %p= @event.end_time.to_s(:time)
 
-  %h4 Type
-  %p= @event.type
+  %h4 Banner
+  %p= image_tag @event.banner
 
 

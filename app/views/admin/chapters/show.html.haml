@@ -1,0 +1,25 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @chapter, true
+  = destroy_model_link @chapter, true
+
+%h1
+  This Chapter
+  = icon_link_to 'notes', notes_admin_chapter_path(@chapter), 'script'
+  = new_model_link Note, @chapter
+
+#model_detail
+  %h4 Sort
+  %p= @chapter.sort
+
+  %h4 Title
+  %p= @chapter.title
+
+  %h4 Description
+  %p= @chapter.description
+
+  %h4 Talk
+  %p= @chapter.talk.name
+
+

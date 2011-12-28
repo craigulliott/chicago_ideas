@@ -1,13 +1,11 @@
 %table#talks
   %tr
     %th.name= ssp_sort_link :name
-    %th.description= ssp_sort_link :description
     %th.topic_id= ssp_sort_link :topic_id
     %th.day_id= ssp_sort_link :day_id
     %th.venue_id= ssp_sort_link :venue_id
     %th.start_time= ssp_sort_link :start_time
     %th.end_time= ssp_sort_link :end_time
     %th.sponsor_id= ssp_sort_link :sponsor_id
-    %th.type= ssp_sort_link :type
     %th 
   = render :partial => 'admin/talks/talk.html.haml', :collection => talks
