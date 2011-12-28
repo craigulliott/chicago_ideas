@@ -36,6 +36,11 @@ class User < ActiveRecord::Base
     true # always return true, as false from the above conditional will cause validation to fail
   end
   
+  # if the email address is the DEVELOPER_EMAIL then make them the admin (very useful for the creation of the first user)
+  before_validation {|record|
+    record.admin = true if record.email == ENV['DEVELOPER_EMAIL']
+  }
+  
   # send out the welcome email
   after_create {|user|
     ApplicationMailer.welcome(user).deliver unless Rails.env == 'test'
