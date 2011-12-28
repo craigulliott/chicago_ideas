@@ -32,7 +32,7 @@ class StaffBio < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => true,
-    :fog_directory => "craigs-admin-staff_bio-portraits",
+    :fog_directory => "#{S3_NAMESPACE}-craigs-admin-staff_bio-portraits",
     :path => ":id.:extension"
 
   
