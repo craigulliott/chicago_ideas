@@ -10,13 +10,12 @@
 
 %h1
   <%= has_name_attribute? ? "= @#{singular_table_name}.name" : "This #{model_class_name}" %>
-  <% if has_deleted_at_attribute? -%>
+<% if has_deleted_at_attribute? -%>
   - if @<%= singular_table_name %>.deleted?
     %span.deleted (deleted)
-  <% end -%>
-  = icon_link_to 'notes', notes_admin_#{singular_table_name}_path(@#{singular_table_name}), 'script'
-  = new_model_link Note, @#{singular_table_name}
-  
+<% end -%>
+  = icon_link_to 'notes', notes_admin_<%= singular_table_name %>_path(@<%= singular_table_name %>), 'script'
+  = new_model_link Note, @<%= singular_table_name %>
 
 #model_detail
 <% attributes.each do |attribute| -%>
