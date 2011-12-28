@@ -2,11 +2,6 @@
   = breadcrumbs @<%= singular_table_name %>
   .crumb.end= section_title   
 
-- content_for :top_links do
-  = new_model_link Note, @<%= singular_table_name %>
-
-- @active_tab = '<%= plural_table_name %>'
-
 - content_for :content_navigation do
   %h2 <%= controller_class_name %>
   %ul
