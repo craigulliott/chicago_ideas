@@ -30,6 +30,14 @@ CraigsAdmin::Application.routes.draw do
   
     root :to => 'admin#index'
 
+    resources :chapters do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
     resources :event_brands do
       member do
         # pages

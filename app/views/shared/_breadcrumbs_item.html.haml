@@ -63,3 +63,9 @@
     = link_to 'Event Brands', admin_event_brands_path
   .crumb
     = link_to base_model.name, admin_event_brand_path(base_model)
+
+- elsif base_model.kind_of? Chapter
+  .crumb
+    = link_to 'Chapters', admin_chapters_path
+  .crumb
+    = link_to 'Chapter', admin_chapter_path(base_model)
