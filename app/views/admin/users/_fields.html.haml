@@ -1,6 +1,14 @@
 = f.inputs do
   = f.input :email
   = f.input :name
-  = f.input :password
-  = f.input :password_confirmation
-  = f.input :admin
+  - if @model.id.present?
+    = f.input :password
+    = f.input :password_confirmation
+  = f.input :admin, :hint => "administrators have access to the website backend"
+  = f.input :speaker, :hint => "speakers can be associated with talks"
+  = f.input :staff, :hint => "staff will appear on the about us page"
+  = f.input :title 
+  = f.input :bio, :hint => "bios accept basic markdown formatting"
+  = f.input :twitter_screen_name 
+  = f.input :portrait, :as => :file, :label => "Portrait Photo (for staff and speakers)", :hint => "portrait photo must be #{@model.portrait_dimensions_string}"
+  = f.input :banner, :as => :file, :label => "Banner Photo (for staff and speakers)", :hint => "a #{@model.banner_dimensions_string} blessed photo for displaying on the site"

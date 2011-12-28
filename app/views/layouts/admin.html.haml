@@ -15,10 +15,10 @@
 
         #main_menu
           = link_to 'admin', admin_root_path, :class => active_for_controller('admin/admin')
-          = link_to 'days', admin_days_path, :class => active_for_controller('admin/days')
           = link_to 'venues', admin_venues_path, :class => active_for_controller('admin/venues')
-          = link_to 'speakers', admin_speakers_path, :class => active_for_controller('admin/speakers')
+          = link_to 'people', admin_users_path, :class => active_for_controller('admin/users')
           = link_to 'partners', admin_partners_path, :class => active_for_controller('admin/partners')
+          = link_to 'sponsors', admin_sponsors_path, :class => active_for_controller('admin/sponsors')
           = link_to 'talks', admin_talks_path, :class => active_for_controller('admin/talks')
           = link_to 'events', admin_events_path, :class => active_for_controller('admin/events')
         

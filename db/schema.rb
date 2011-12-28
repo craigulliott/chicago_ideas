@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111228013408) do
+ActiveRecord::Schema.define(:version => 20111224210601) do
 
   create_table "chapters", :force => true do |t|
     t.integer  "order",      :null => false
@@ -129,29 +129,6 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
-  create_table "speakers", :force => true do |t|
-    t.string   "name",                  :limit => 150, :null => false
-    t.string   "email"
-    t.string   "phone"
-    t.string   "title"
-    t.text     "bio"
-    t.string   "permalink",             :limit => 150
-    t.string   "twitter_screen_name"
-    t.string   "facebook_page_id"
-    t.string   "portrait_file_name"
-    t.string   "portrait_content_type"
-    t.integer  "portrait_file_size"
-    t.datetime "portrait_updated_at"
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.datetime "banner_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "speakers", ["permalink"], :name => "index_speakers_on_permalink"
-
   create_table "sponsors", :force => true do |t|
     t.string   "name",                 :limit => 150, :null => false
     t.text     "description"
@@ -190,24 +167,6 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
   add_index "sponsorships", ["sponsor_id"], :name => "index_sponsorships_on_sponsor_id"
   add_index "sponsorships", ["sponsorship_level_id"], :name => "index_sponsorships_on_sponsorship_level_id"
   add_index "sponsorships", ["year_id", "sponsor_id"], :name => "index_sponsorships_on_year_id_and_sponsor_id"
-
-  create_table "staff_bios", :force => true do |t|
-    t.string   "name"
-    t.string   "title"
-    t.string   "twitter_screen_name"
-    t.text     "about"
-    t.string   "portrait_file_name"
-    t.string   "portrait_content_type"
-    t.integer  "portrait_file_size"
-    t.datetime "portrait_updated_at"
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.datetime "banner_updated_at"
-    t.integer  "sort"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "talk_brands", :force => true do |t|
     t.string   "name"
@@ -249,34 +208,55 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "",    :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
+    t.string   "email",                                :default => "",    :null => false
+    t.string   "encrypted_password",    :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",                        :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "authentication_token",                                   :null => false
-    t.boolean  "admin",                               :default => false, :null => false
+    t.string   "authentication_token",                                    :null => false
+    t.boolean  "admin",                                :default => false, :null => false
+    t.boolean  "speaker",                              :default => false, :null => false
+    t.boolean  "staff",                                :default => false, :null => false
+    t.boolean  "volunteer",                            :default => false, :null => false
     t.string   "name"
+    t.string   "phone"
     t.integer  "fb_uid"
     t.string   "fb_access_token"
     t.string   "twitter_token"
     t.string   "twitter_secret"
+    t.string   "title"
+    t.text     "bio"
+    t.string   "twitter_screen_name"
+    t.string   "permalink",             :limit => 150
+    t.string   "portrait_file_name"
+    t.string   "portrait_content_type"
+    t.integer  "portrait_file_size"
+    t.datetime "portrait_updated_at"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
   end
 
+  add_index "users", ["admin"], :name => "index_users_on_admin"
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token"
   add_index "users", ["deleted_at"], :name => "index_users_on_deleted_at"
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["fb_access_token"], :name => "index_users_on_fb_access_token"
   add_index "users", ["fb_uid"], :name => "index_users_on_fb_uid"
+  add_index "users", ["permalink"], :name => "index_users_on_permalink"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
+  add_index "users", ["speaker"], :name => "index_users_on_speaker"
+  add_index "users", ["staff"], :name => "index_users_on_staff"
+  add_index "users", ["volunteer"], :name => "index_users_on_volunteer"
 
   create_table "venues", :force => true do |t|
     t.string   "name",                :limit => 100,                   :null => false
@@ -324,7 +304,7 @@ ActiveRecord::Schema.define(:version => 20111228013408) do
   add_foreign_key "notes", "users", :name => "notes_author_id_fk", :column => "author_id"
 
   add_foreign_key "performances", "chapters", :name => "performances_chapter_id_fk"
-  add_foreign_key "performances", "speakers", :name => "performances_speaker_id_fk"
+  add_foreign_key "performances", "users", :name => "performances_speaker_id_fk", :column => "speaker_id"
 
   add_foreign_key "sponsors", "sponsorship_levels", :name => "sponsors_sponsorship_level_id_fk"
 

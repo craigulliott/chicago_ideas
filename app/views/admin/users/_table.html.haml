@@ -1,9 +1,10 @@
 %table#users
   %tr
-    %th.created_at= ssp_sort_link :created_at
     %th.name= ssp_sort_link :name
     %th.email= ssp_sort_link :email
-    %th.facebook= ssp_sort_link :fb_uid, :title => 'Facebook'
-    %th.twitter= ssp_sort_link :twitter_token, :title => 'Twitter'
+    %th.title= ssp_sort_link :title
+    %th.admin= ssp_sort_link :admin
+    %th.speaker= ssp_sort_link :speaker
+    %th.staff= ssp_sort_link :staff
     %th.options 
   = render :partial => 'admin/users/user.html.haml', :collection => users

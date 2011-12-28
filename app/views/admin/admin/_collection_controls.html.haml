@@ -3,22 +3,11 @@
   %ul
     %li{:class => active_for_controller('admin/admin')}= icon_link_to 'Dashboard', admin_root_path, 'home'
 
-  %h2 User Accounts
-  %ul
-    %li{:class => active_for_controller_and_action('admin/users', 'administrators')}= icon_link_to "Administrators", administrators_admin_users_path, 'key'
-    %li{:class => active_for_controller('admin/staff_bios')}= icon_link_to "Staff Bios", admin_staff_bios_path, 'script'
-    %li{:class => active_for_controller_and_action('admin/users', 'index')}= icon_link_to "All Users", admin_users_path, 'person'
-
   %h2 Content
   %ul
     %li{:class => active_for_controller('admin/topics')}= icon_link_to "Topics (Categorization)", admin_topics_path, 'tag'
     %li{:class => active_for_controller('admin/days')}= icon_link_to "Days (of the week)", admin_days_path, 'clock'
   
-  %h2 Sponsors
-  %ul
-    %li{:class => active_for_controller('admin/sponsorship_levels')}= icon_link_to "Sponsorship Levels", admin_sponsorship_levels_path, 'signal'
-    %li{:class => active_for_controller('admin/sponsors')}= icon_link_to "Sponsors", admin_sponsors_path, 'heart'
-
   %h2 Advanced
   %ul
     %li{:class => active_for_controller('admin/talk_brands')}= icon_link_to "Talk Types", admin_talk_brands_path, 'gear'

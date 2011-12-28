@@ -1,12 +1,13 @@
 = render 'member_controls'
+
 - content_for :top_links do
   = edit_model_link @user, true
   = delete_model_link @user, true
 
 %h1
   = @user.name
-  - if @user.admin?
-    (ADMIN)
+  - unless @user.access_tags.empty?
+    = "(#{@user.access_tags.join(', ')})"
   - if @user.deleted?
     %span.deleted (deleted)
   = icon_link_to 'notes', notes_admin_user_path(@user), 'script'
@@ -20,7 +21,7 @@
     Connected to Twitter:
     = @user.connected_to_twitter? ? 'yes' : 'no'
 
-#account
+#model_detail
   %p
     Signed in
     = @user.sign_in_count
@@ -39,4 +40,19 @@
       = @user.last_sign_in_at.to_s(:long)
       from IP
       = @user.last_sign_in_ip
+
+  %h4 Title
+  %p= @user.title
+
+  %h4 Bio
+  %p= @user.bio_html
+
+  %h4 Twitter Screen Name
+  %p= @user.twitter_screen_name
+
+  %h4 Portrait
+  %p= image_tag @user.portrait.url
+
+  %h4 Banner Image
+  %p= image_tag @user.banner.url
 

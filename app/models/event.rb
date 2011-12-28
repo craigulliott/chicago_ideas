@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   validates :event_brand_id, :presence => true
   validates :start_time, :presence => true
   validates :end_time, :presence => true
-  validate :validate_banner_dimensions, :unless => "errors.any?"
+  validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
   
   # ensure end time is after start time
   before_validation {|record|

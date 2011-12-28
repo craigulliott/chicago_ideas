@@ -19,7 +19,7 @@ class Admin::NotesController < Admin::AdminController
   def attachment
     @note = Note.find(params[:id])
     storage = Fog::Storage.new({:provider => 'AWS', :aws_access_key_id => AWS_ACCESS_KEY_ID, :aws_secret_access_key => AWS_SECRET_ACCESS_KEY})
-    redirect_to storage.get_object_url('socialkaty-note-attachments', @note.attachment.path, Time.now+120.seconds)
+    redirect_to storage.get_object_https_url('socialkaty-note-attachments', @note.attachment.path, Time.now+120.seconds)
   end
 
 end

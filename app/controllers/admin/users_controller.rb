@@ -23,11 +23,17 @@ class Admin::UsersController < Admin::AdminController
   # the admin area is allowed to update these protected attributes
   def pre_create(user)
     user.admin = params[:user][:admin]
+    user.speaker = params[:user][:speaker]
+    user.staff = params[:user][:staff]
+    # when creating users, we assign them a temporary password and send it to them
+    user.temporary_password = Devise.friendly_token[0,8]
     user
   end
 
   def pre_update(user)
     user.admin = params[:user][:admin]
+    user.speaker = params[:user][:speaker]
+    user.staff = params[:user][:staff]
     user
   end
 
@@ -37,6 +43,16 @@ class Admin::UsersController < Admin::AdminController
   # a list of users who are also administrators
   def administrators
     @users = User.admin.search_sort_paginate(params)
+  end
+
+  # a list of users who are also staff members
+  def staff
+    @users = User.staff.search_sort_paginate(params)
+  end
+
+  # a list of users who are also speakers
+  def speakers
+    @users = User.speaker.search_sort_paginate(params)
   end
   
 

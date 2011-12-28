@@ -102,22 +102,6 @@ CraigsAdmin::Application.routes.draw do
       resources :notes, :only => [:new, :create]
     end
 
-    resources :speakers do
-        member do
-          # pages
-          get :notes
-        end
-        resources :notes, :only => [:new, :create]
-      end
-
-    resources :staff_bios do
-      member do
-        # pages
-        get :notes
-      end
-      resources :notes, :only => [:new, :create]
-    end
-  
     resources :days do
       member do
         # pages
@@ -137,6 +121,8 @@ CraigsAdmin::Application.routes.draw do
       collection do
         # pages
         get :administrators
+        get :staff
+        get :speakers
       end
       member do
         # pages

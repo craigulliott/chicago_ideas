@@ -1,0 +1,10 @@
+- content_for :breadcrumbs do
+  .crumb= link_to 'Users', admin_users_path
+
+- content_for :content_navigation do
+  %h2 People
+  %ul
+    %li{:class => active_for_controller_and_action('admin/users', 'administrators')}= icon_link_to "Administrators", administrators_admin_users_path, 'key'
+    %li{:class => active_for_controller_and_action('admin/users', 'staff')}= icon_link_to "Staff (for the about page)", staff_admin_users_path, 'person'
+    %li{:class => active_for_controller_and_action('admin/users', 'speakers')}= icon_link_to "Speakers", speakers_admin_users_path, 'person'
+    %li{:class => active_for_controller_and_action('admin/users', 'index')}= icon_link_to "All Users", admin_users_path, 'person'

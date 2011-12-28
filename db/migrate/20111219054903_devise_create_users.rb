@@ -10,6 +10,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       
       t.boolean :admin, :null => false, :default => 0
       t.boolean :speaker, :null => false, :default => 0
+      t.boolean :staff, :null => false, :default => 0
+      t.boolean :volunteer, :null => false, :default => 0
       
       t.string :name, :null => true
       t.string :phone, :null => true
@@ -57,6 +59,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
     add_index :users, :authentication_token, :unique => true
     
     add_index :users, :permalink, :unique => true
+    
+    add_index :users, :admin
+    add_index :users, :speaker
+    add_index :users, :staff
+    add_index :users, :volunteer
     
   end
 

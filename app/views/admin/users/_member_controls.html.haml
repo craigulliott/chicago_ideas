@@ -3,12 +3,10 @@
   .crumb.end= section_title   
 
 - content_for :content_navigation do
-  - if @user.admin?
-    %h2 Admin Options
-    %ul
-      %li{:class => active_for('log_entries')}= icon_link_to "Access Log", log_entries_admin_user_path(@user), 'script'
-    %h2 User Options
-    
+  %h2 Events
   %ul
-    %li{:class => active_for('show')}= icon_link_to "User Detail", admin_user_path(@user), 'circle-zoomin'
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_users_path, 'search'
+  %h2= @user.name
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_user_path(@user), 'circle-zoomin'
     %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_user_path(@user), 'comment'

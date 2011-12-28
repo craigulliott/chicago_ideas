@@ -1,12 +1,15 @@
 = render 'collection_controls'
 
+- content_for :breadcrumbs do
+  .crumb.end Speakers
+
 - content_for :top_links do
   = new_model_link User
 
 = ssp_search_form(User)
 
 .table_section
-  %h3 Users
+  %h3 Speakers
   .table_wrapper
     = render 'admin/users/table.html.haml', :users => @users
   = paginate @users

@@ -1,0 +1,13 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @sponsor
+  .crumb.end= section_title   
+
+- content_for :content_navigation do
+  %h2 Sponsorship
+  %ul
+    %li{:class => active_for_controller('admin/sponsorship_levels')}= icon_link_to "Sponsorship Levels", admin_sponsorship_levels_path, 'signal'
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_sponsors_path, 'search'
+  %h2= @sponsor.name
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_sponsor_path(@sponsor), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_sponsor_path(@sponsor), 'comment'

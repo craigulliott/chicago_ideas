@@ -1,0 +1,10 @@
+- content_for :breadcrumbs do
+  .crumb= link_to 'Sponsors', admin_sponsors_path
+
+- content_for :content_navigation do
+  %h2 Configuration
+  %ul
+    %li{:class => active_for_controller('admin/sponsorship_levels')}= icon_link_to "Sponsorship Levels", admin_sponsorship_levels_path, 'signal'
+  %h2 Sponsors
+  %ul
+    %li{:class => active_for_controller_and_action('admin/sponsors','index')}= icon_link_to "Search", admin_sponsors_path, 'search'

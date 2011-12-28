@@ -16,8 +16,8 @@ class Sponsor < ActiveRecord::Base
   
   validates :sponsorship_level_id, :presence => true
   validates :name, :presence => true, :uniqueness => true
-  validate :validate_banner_dimensions, :unless => "errors.any?"
-  validate :validate_logo_dimensions, :unless => "errors.any?"
+  validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
+  validate :validate_logo_dimensions, :if => "logo.present?", :unless => "errors.any?"
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
