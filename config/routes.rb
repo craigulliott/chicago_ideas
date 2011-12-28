@@ -102,9 +102,13 @@ CraigsAdmin::Application.routes.draw do
       resources :notes, :only => [:new, :create]
     end
   
-    # Resources (in alphabetical order)
-    # -------------------------------------------------------------------------------------------------------
-    resources :days
+    resources :days do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
     
     resources :notes, :only => [] do
       member do
@@ -112,18 +116,6 @@ CraigsAdmin::Application.routes.draw do
         get :attachment
       end
     end
-    
-    resources :partners
-
-    resources :speakers
-
-    resources :sponsors
-
-    # the level of sponsorship
-    resources :sponsorship_levels
-
-    # categorization for talks
-    resources :topics
   
     resources :users do
       collection do

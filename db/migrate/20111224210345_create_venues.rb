@@ -8,7 +8,7 @@ class CreateVenues < ActiveRecord::Migration
       t.string :city, :null => false, :limit => 100
       t.string :state, :null => false, :limit => 100
       t.string :zipcode, :null => false, :limit => 100
-      t.string :country, :null => false, :limit => 100
+      t.string :country, :null => false, :limit => 2, :default => 'US'
       t.point :lonlat, :null => false
 
       t.timestamps

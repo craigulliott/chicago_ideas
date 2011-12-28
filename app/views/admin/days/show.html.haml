@@ -1,0 +1,19 @@
+= render 'admin/admin/collection_controls'
+= render 'controls'
+
+- content_for :top_links do
+  = edit_model_link @day, true
+  = destroy_model_link @day, true
+
+%h1
+  = @day.name
+  = icon_link_to 'notes', notes_admin_day_path(@day), 'script'
+  = new_model_link Note, @day
+  
+#model_detail
+  %h4 Date
+  %p= @day.date.to_s(:wordy)
+
+  %h4 Name
+  %p= @day.name
+

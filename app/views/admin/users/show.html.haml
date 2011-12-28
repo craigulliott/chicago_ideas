@@ -9,6 +9,8 @@
     (ADMIN)
   - if @user.deleted?
     %span.deleted (deleted)
+  = icon_link_to 'notes', notes_admin_user_path(@user), 'script'
+  = new_model_link Note, @user
 
 #connectivity
   %p

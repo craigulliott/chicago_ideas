@@ -8,6 +8,12 @@ body.admin {
         border-color: #820035;
       }
     }
+    &.inputs input[type="submit"]{
+      color: #EEE;
+      &:hover {
+        color: #222;
+      }
+    }
     
     // admin colours on the buttons
     &.buttons {
@@ -25,6 +31,7 @@ body.admin {
       a:hover.button,
       input[type="submit"]:hover,
       input[type="button"]:hover {
+        color: #222;
         background-color: $navigation_highlight;
         @include linear-gradient(top, $navigation_lowlight 0%, $navigation_highlight 60%);
       }

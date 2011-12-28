@@ -17,8 +17,6 @@ class Venue < ActiveRecord::Base
   validates :lonlat, :presence => {:message => "Failed to geocode this business. Please check the whole address."}
 
   before_validation {|record|
-    # this is the default country, remove it once we go international
-    self.country = 'United States'
     # attempt to geocode the address with google
     record.lonlat = record.address.geocode
     record.errors.add :address1, "Failed to geocode this business. Please check the whole address." unless record.lonlat.present?
@@ -63,6 +61,19 @@ class Venue < ActiveRecord::Base
         { :name => :created_at, :as => :datetimerange }, 
       ]
     end
+  end
+  
+  # google powered maps and geocoding
+  def position
+    "#{lonlat.y},#{lonlat.x}"
+  end
+  
+  def google_maps_src width=280, height=280, maptype=:roadmap, zoom=12
+    "http://maps.google.com/maps/api/staticmap?center=#{position}&zoom=#{zoom}&size=#{width}x#{height}&maptype=#{maptype}&markers=color:blue%7Clabel:A%7C#{position}&sensor=false"
+  end
+  
+  def google_maps_url
+    "http://maps.google.com/maps?hl=en&q=#{position}"
   end
   
 end

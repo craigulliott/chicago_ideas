@@ -6,6 +6,8 @@
 
 %h1
   = @talk.name
+  = icon_link_to 'notes', notes_admin_talk_path(@talk), 'script'
+  = new_model_link Note, @talk
   
 #model_detail
   %h4 Name

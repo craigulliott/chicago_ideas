@@ -6,6 +6,8 @@
 
 %h1
   = @event.name
+  = icon_link_to 'notes', notes_admin_event_path(@event), 'script'
+  = new_model_link Note, @event
   
 #model_detail
   %h4 Name

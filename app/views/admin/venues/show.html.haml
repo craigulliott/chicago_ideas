@@ -6,6 +6,8 @@
 
 %h1
   = @venue.name
+  = icon_link_to 'notes', notes_admin_venue_path(@venue), 'script'
+  = new_model_link Note, @venue
   
 #model_detail
   %h4 Name
@@ -29,7 +31,7 @@
   %h4 Country
   %p= @venue.country
 
-  %h4 Lonlat
-  %p= @venue.lonlat
+  %h4 Map
+  %p= image_tag @venue.google_maps_src
 
 

@@ -7,7 +7,8 @@
 
 %h1
   = @sponsor.name
-  = link_to 'Notes', notes_admin_sponsor_path(@sponsor)
+  = icon_link_to 'notes', notes_admin_sponsor_path(@sponsor), 'script'
+  = new_model_link Note, @sponsor
   
 #model_detail
   %h4 Name

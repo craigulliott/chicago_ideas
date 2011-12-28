@@ -6,7 +6,7 @@
 .table_section
   %h3 
     Notes
-    = new_model_link Note, @topic
+    = new_model_link Note, @day
   .table_wrapper
     = render 'admin/notes/table.html.haml', :notes => @notes
   = paginate @notes

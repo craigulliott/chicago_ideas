@@ -1,4 +1,5 @@
-= render 'member_controls'
+= render 'admin/admin/collection_controls'
+= render 'controls'
 
 - content_for :top_links do
   = edit_model_link @sponsorship_level, true
@@ -6,6 +7,8 @@
 
 %h1
   = @sponsorship_level.name
+  = icon_link_to 'notes', notes_admin_sponsorship_level_path(@sponsorship_level), 'script'
+  = new_model_link Note, @sponsorship_level
   
 #model_detail
   %h4 Name

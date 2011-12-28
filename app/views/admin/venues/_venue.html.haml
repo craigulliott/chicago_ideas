@@ -1,12 +1,6 @@
 %tr{:venue => venue.id}
   %td.name= link_to venue.name, admin_venue_path(venue)
-  %td.address1= venue.address1
-  %td.address2= venue.address2
-  %td.city= venue.city
-  %td.state= venue.state
-  %td.zipcode= venue.zipcode
-  %td.country= venue.country
-  %td.lonlat= venue.lonlat
+  %td.address= venue.address
   %td.options
     = edit_model_link venue
     = destroy_model_link venue

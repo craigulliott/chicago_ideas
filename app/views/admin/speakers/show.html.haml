@@ -6,7 +6,8 @@
 
 %h1
   = @speaker.name
-  = link_to 'Notes', notes_admin_speaker_path(@speaker)
+  = icon_link_to 'notes', notes_admin_speaker_path(@speaker), 'script'
+  = new_model_link Note, @speaker
   
 #model_detail
   %h4 Name

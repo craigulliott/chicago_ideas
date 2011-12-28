@@ -2,10 +2,6 @@
   = breadcrumbs @user
   .crumb.end= section_title   
 
-- content_for :top_links do
-  = new_model_link Note, @user
-
-
 - content_for :content_navigation do
   - if @user.admin?
     %h2 Admin Options

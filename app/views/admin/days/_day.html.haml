@@ -1,5 +1,6 @@
 %tr{:day => day.id}
-  %td.date= day.date.to_s(:wordy)
+  %td.date= link_to day.date.to_s(:wordy), admin_day_path(day)
+  %td.year= day.year_id
   %td.name= day.name
   %td.options
     = edit_model_link day

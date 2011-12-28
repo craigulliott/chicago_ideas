@@ -6,6 +6,8 @@
 
 %h1
   = @partner.name
+  = icon_link_to 'notes', notes_admin_partner_path(@partner), 'script'
+  = new_model_link Note, @partner
   
 #model_detail
   %h4 Name
@@ -15,6 +17,6 @@
   %p= @partner.description
 
   %h4 Logo
-  %p= @partner.logo
+  %p= image_tag @partner.logo
 
 

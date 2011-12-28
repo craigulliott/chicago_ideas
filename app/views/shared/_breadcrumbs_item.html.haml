@@ -57,3 +57,9 @@
     = link_to 'Staff Bios', admin_staff_bios_path
   .crumb
     = link_to base_model.name, admin_staff_bio_path(base_model)
+    
+- elsif base_model.kind_of? Day
+  .crumb
+    = link_to 'Days', admin_days_path
+  .crumb
+    = link_to base_model.name, admin_day_path(base_model)

@@ -7,13 +7,13 @@ input[type="submit"],
 input[type="button"] {
   @include border-radius(.5em);
   @include transition(background-color .25s linear);
-  background-color: rgb(48,60,61);
+  background-color: #111;
   border: 0px;
   color: #fff;
   font-size: 17px;
   font-weight: bold;
   padding: 0.8em 2em;
-  color: #76BBBE;
+  color: #eeeeee;
   text-decoration:none;
 }
 
@@ -30,7 +30,8 @@ a.button.hover,
 a:hover.button,
 input[type="submit"]:hover,
 input[type="button"]:hover {
-  background-color:rgb(68,113,115);
+  background-color: $navigation_highlight;
+  @include linear-gradient(top, $navigation_lowlight 0%, $navigation_highlight 60%);
 }
 
 form.formtastic {
@@ -228,20 +229,18 @@ form.formtastic {
       @include border-radius(.5em);
       @include box_shadow(none);
       @include transition(background-color .25s linear);
-      background-color: rgb(48,60,61);
+      background-color: #111;
       border: 0px;
       color: #fff;
       font-size: 17px;
       font-weight: bold;
       padding: 0.8em 2em;
-      color: #76BBBE;
     }
 
     a.button.active, 
     a:active.button,
     input[type="submit"]:active,
     input[type="button"]:active {
-      background-color:rgb(0,0,0);
       position: relative;
       top: 1px;
     }
@@ -252,7 +251,8 @@ form.formtastic {
     input[type="submit"]:hover,
     input[type="button"]:hover {
       @include transition(background-color .25s linear);
-      background-color:rgb(68,113,115);
+      background-color: $navigation_highlight;
+      @include linear-gradient(top, $navigation_lowlight 0%, $navigation_highlight 60%);
     }
 
 

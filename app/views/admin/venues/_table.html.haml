@@ -1,12 +1,6 @@
 %table#venues
   %tr
     %th.name= ssp_sort_link :name
-    %th.address1= ssp_sort_link :address1
-    %th.address2= ssp_sort_link :address2
-    %th.city= ssp_sort_link :city
-    %th.state= ssp_sort_link :state
-    %th.zipcode= ssp_sort_link :zipcode
-    %th.country= ssp_sort_link :country
-    %th.lonlat= ssp_sort_link :lonlat
+    %th.address1= ssp_sort_link :address1, :title => 'Address'
     %th 
   = render :partial => 'admin/venues/venue.html.haml', :collection => venues
