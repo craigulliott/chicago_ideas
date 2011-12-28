@@ -31,7 +31,7 @@ class Partner < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => true,
-    :fog_directory => "chicago-ideas-partner-logos",
+    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-partner-logos",
     :path => ":id.:extension"
 
   
@@ -45,7 +45,7 @@ class Partner < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => true,
-    :fog_directory => "chicago-ideas-partner-banners",
+    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-partner-banners",
     :path => ":id.:extension"
 
   

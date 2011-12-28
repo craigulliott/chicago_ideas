@@ -42,7 +42,7 @@ class Venue < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => true,
-    :fog_directory => "chicago-ideas-venue-banners",
+    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-venue-banners",
     :path => ":id.:extension"
 
   # returns a single line representation of the address

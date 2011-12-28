@@ -34,7 +34,7 @@ class Sponsor < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => true,
-    :fog_directory => "chicago-ideas-sponsor-logos",
+    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-sponsor-logos",
     :path => ":id.:extension"
   
   # large format blessed photo for the website
@@ -47,7 +47,7 @@ class Sponsor < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => true,
-    :fog_directory => "chicago-ideas-sponsor-banners",
+    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-sponsor-banners",
     :path => ":id.:extension"
 
   

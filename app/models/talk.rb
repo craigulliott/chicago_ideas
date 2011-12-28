@@ -45,7 +45,7 @@ class Talk < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => true,
-    :fog_directory => "chicago-ideas-talk-banners",
+    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-talk-banners",
     :path => ":id.:extension"
   
   # the hash representing this model that is returned by the api

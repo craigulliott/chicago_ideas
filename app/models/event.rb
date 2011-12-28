@@ -43,7 +43,7 @@ class Event < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => true,
-    :fog_directory => "chicago-ideas-event-banners",
+    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-event-banners",
     :path => ":id.:extension"
   
   # the hash representing this model that is returned by the api
