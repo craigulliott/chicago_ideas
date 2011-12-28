@@ -5,3 +5,8 @@
     = link_to base_model.name, admin_user_path(base_model)
     
     
+- elsif base_model.kind_of? StaffBio
+  .crumb
+    = link_to 'Staff Bios', admin_staff_bios_path
+  .crumb
+    = link_to base_model.name, admin_staff_bio_path(base_model)

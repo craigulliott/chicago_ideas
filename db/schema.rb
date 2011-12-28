@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219060754) do
+ActiveRecord::Schema.define(:version => 20111228013408) do
 
   create_table "notes", :force => true do |t|
     t.integer  "author_id"
@@ -40,15 +40,17 @@ ActiveRecord::Schema.define(:version => 20111219060754) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "staff_bios", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "sort",       :null => false
-    t.string   "title",      :null => false
-    t.text     "about",      :null => false
+    t.string   "name"
+    t.string   "title"
+    t.text     "about"
+    t.string   "portrait_file_name"
+    t.string   "portrait_content_type"
+    t.integer  "portrait_file_size"
+    t.datetime "portrait_updated_at"
+    t.integer  "sort"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "staff_bios", ["user_id"], :name => "index_staff_bios_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false
@@ -81,7 +83,5 @@ ActiveRecord::Schema.define(:version => 20111219060754) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
 
   add_foreign_key "notes", "users", :name => "notes_author_id_fk", :column => "author_id"
-
-  add_foreign_key "staff_bios", "users", :name => "staff_bios_user_id_fk"
 
 end

@@ -29,6 +29,14 @@ CraigsAdmin::Application.routes.draw do
   namespace :admin do
   
     root :to => 'admin#index'
+
+    resources :staff_bios do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
   
     # Resources (in alphabetical order)
     # -------------------------------------------------------------------------------------------------------

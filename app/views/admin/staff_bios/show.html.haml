@@ -1,0 +1,26 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @staff_bio, true
+  = destroy_model_link @staff_bio, true
+
+%h1
+  = @staff_bio.name
+  
+#model_detail
+  %h4 Name
+  %p= @staff_bio.name
+
+  %h4 Title
+  %p= @staff_bio.title
+
+  %h4 About
+  %p= @staff_bio.about
+
+  %h4 Portrait
+  %p= @staff_bio.portrait
+
+  %h4 Sort
+  %p= @staff_bio.sort
+
+

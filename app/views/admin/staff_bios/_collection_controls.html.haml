@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do
+  .crumb.end Staff Bios   
+
+- @active_tab = 'staff_bios'
+
+- content_for :content_navigation do
+  %h2 StaffBios
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_staff_bios_path, 'search'

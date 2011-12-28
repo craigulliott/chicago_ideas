@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
 
-  has_one :staff_bio
-
   # useful scopes
   scope :admin, :conditions => { :admin => true }
 
