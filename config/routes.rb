@@ -110,9 +110,6 @@ CraigsAdmin::Application.routes.draw do
     resources :speakers
 
     resources :sponsors
-    
-    # for the about us page
-    resources :staff_bios, :only => [:index, :edit, :update, :destroy]
 
     # the level of sponsorship
     resources :sponsorship_levels
@@ -134,7 +131,6 @@ CraigsAdmin::Application.routes.draw do
         get :delete
       end
       resources :notes, :only => [:new, :create]
-      resources :staff_bios, :only => [:new, :create]
     end
   
     resources :venues
