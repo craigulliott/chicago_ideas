@@ -38,8 +38,6 @@ CraigsAdmin::Application.routes.draw do
       end
     end
     
-    resources :staff_bios, :only => [:index, :edit, :update, :destroy]
-  
     resources :users do
       collection do
         # pages
@@ -54,7 +52,6 @@ CraigsAdmin::Application.routes.draw do
         get :delete
       end
       resources :notes, :only => [:new, :create]
-      resources :staff_bios, :only => [:new, :create]
     end
   
   end
