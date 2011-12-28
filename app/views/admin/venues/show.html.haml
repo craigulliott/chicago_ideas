@@ -1,0 +1,35 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @venue, true
+  = destroy_model_link @venue, true
+
+%h1
+  = @venue.name
+  
+#model_detail
+  %h4 Name
+  %p= @venue.name
+
+  %h4 Address1
+  %p= @venue.address1
+
+  %h4 Address2
+  %p= @venue.address2
+
+  %h4 City
+  %p= @venue.city
+
+  %h4 State
+  %p= @venue.state
+
+  %h4 Zipcode
+  %p= @venue.zipcode
+
+  %h4 Country
+  %p= @venue.country
+
+  %h4 Lonlat
+  %p= @venue.lonlat
+
+

@@ -46,3 +46,9 @@
     = link_to 'Talks', admin_talks_path
   .crumb
     = link_to base_model.name, admin_talk_path(base_model)
+
+- elsif base_model.kind_of? Venue
+  .crumb
+    = link_to 'Venues', admin_venues_path
+  .crumb
+    = link_to base_model.name, admin_venue_path(base_model)

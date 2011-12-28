@@ -1,5 +1,5 @@
 class Venue < ActiveRecord::Base
-  
+
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
   
@@ -36,16 +36,20 @@ class Venue < ActiveRecord::Base
     address = "#{name}, #{address}" if include_name
     address
   end
-
+  
   # the hash representing this model that is returned by the api
   def api_attributes
     {
       :id => id.to_s,
       :type => self.class.name.downcase,
       :name => name,
-      :description => description,
-      :logo => logo,
-      :level => sponsorship_level.api_attributes,
+      :address1 => address1,
+      :address2 => address2,
+      :city => city,
+      :state => state,
+      :zipcode => zipcode,
+      :country => country,
+      :lonlat => lonlat,
     }
   end
 
@@ -55,10 +59,10 @@ class Venue < ActiveRecord::Base
     when 'foo'
     else
       [
-        { :name => :search, :as => :string, :fields => [:description, :name], :wildcard => :both },
+        { :name => :search, :as => :string, :fields => [:name], :wildcard => :both },
         { :name => :created_at, :as => :datetimerange }, 
       ]
     end
   end
-
+  
 end
