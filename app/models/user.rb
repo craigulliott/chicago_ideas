@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
   
   # send out the welcome email
   after_create {|user|
-    ApplicationMailer.welcome(user).deliver unless Rails.env == 'test'
+    #ApplicationMailer.welcome(user).deliver unless Rails.env == 'test'
   }
 
   validates :permalink, :presence => true, :uniqueness => true, :format => {:with => /^[\w\d_]+$/}
