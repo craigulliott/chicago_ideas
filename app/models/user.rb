@@ -90,7 +90,7 @@ class User < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => true,
-    :fog_directory => "chicago-ideas-speaker-portraits",
+    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-portraits",
     :path => ":id.:extension"
   
   # large format blessed photo for the website
@@ -103,7 +103,7 @@ class User < ActiveRecord::Base
       region: 'us-east-1'
     },
     :fog_public => true,
-    :fog_directory => "chicago-ideas-speaker-banners",
+    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-banners",
     :path => ":id.:extension"
   
   # an array representing this users special permissiond (tags) used for display purposes
