@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
   # chainable arel method and a boolean helper to determine if models are deleted or not
   include DeleteByTime
   
-  BANNER_WIDTH = 667
-  BANNER_HEIGHT = 468
+  BANNER_WIDTH = 1400
+  BANNER_HEIGHT = 676
   
-  PORTRAIT_WIDTH = 234
-  PORTRAIT_HEIGHT = 234
+  PORTRAIT_WIDTH = 468
+  PORTRAIT_HEIGHT = 468
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
@@ -82,6 +82,10 @@ class User < ActiveRecord::Base
   end
   
   has_attached_file :portrait,
+    :styles => { 
+      :thumb => "117x117", 
+      :medium => "234x234",
+    }
     :storage => :fog,
     :fog_credentials => {
       :aws_access_key_id => AWS_ACCESS_KEY_ID,
@@ -92,7 +96,7 @@ class User < ActiveRecord::Base
     :fog_public => true,
     :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-portraits",
     :path => ":id.:extension"
-  
+
   # large format blessed photo for the website
   has_attached_file :banner,
     :storage => :fog,

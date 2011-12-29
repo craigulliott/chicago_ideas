@@ -3,11 +3,14 @@ class Partner < ActiveRecord::Base
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
   
-  BANNER_WIDTH = 667
-  BANNER_HEIGHT = 468
+  BANNER_WIDTH = 1400
+  BANNER_HEIGHT = 430
   
-  LOGO_WIDTH = 234
-  LOGO_HEIGHT = 234
+  LOGO_WIDTH_OPTION1 = 300
+  LOGO_HEIGHT_OPTION1 = 300
+  
+  LOGO_WIDTH_OPTION2 = 400
+  LOGO_HEIGHT_OPTION2 = 200
 
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
@@ -79,7 +82,7 @@ class Partner < ActiveRecord::Base
   
   # a string representation of the required dimensions for the logo image
   def logo_dimensions_string
-    "#{LOGO_WIDTH}x#{LOGO_HEIGHT}"
+    "#{LOGO_WIDTH_OPTION1}x#{LOGO_HEIGHT_OPTION1} or #{LOGO_WIDTH_OPTION2}x#{LOGO_HEIGHT_OPTION2}"
   end
   
   # parses the description wih markdown and returns html
@@ -99,7 +102,7 @@ class Partner < ActiveRecord::Base
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_logo_dimensions
       dimensions = Paperclip::Geometry.from_file(logo.to_file(:original))
-      errors.add(:logo, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{logo_dimensions_string}") unless dimensions.width == LOGO_WIDTH && dimensions.height == LOGO_HEIGHT
+      errors.add(:logo, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{logo_dimensions_string}") unless (dimensions.width == LOGO_WIDTH_OPTION1 && dimensions.height == LOGO_HEIGHT_OPTION1) or (dimensions.width == LOGO_WIDTH_OPTION2 && dimensions.height == LOGO_HEIGHT_OPTION2)
     end
 
 end

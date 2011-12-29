@@ -3,8 +3,8 @@ class Event < ActiveRecord::Base
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
   
-  BANNER_WIDTH = 667
-  BANNER_HEIGHT = 468
+  BANNER_WIDTH = 1400
+  BANNER_HEIGHT = 390
 
   belongs_to :partner
   belongs_to :day

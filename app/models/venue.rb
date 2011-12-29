@@ -5,8 +5,8 @@ class Venue < ActiveRecord::Base
   
   require 'geocode'
   
-  BANNER_WIDTH = 667
-  BANNER_HEIGHT = 468
+  BANNER_WIDTH = 1400
+  BANNER_HEIGHT = 430
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
