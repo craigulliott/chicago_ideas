@@ -27,6 +27,12 @@ class Admin::TalksController < Admin::AdminController
     @notes = @talk.notes.includes(:author).search_sort_paginate(params, :parent => @talk)
   end
 
+  # notes associated with this talk
+  def chapters
+    @talk = Talk.find(params[:id])
+    @chapters = @talk.chapters.search_sort_paginate(params, :parent => @talk)
+  end
+
 
   # MEMBER ACTIONS
   # ---------------------------------------------------------------------------------------------------------

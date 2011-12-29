@@ -14,13 +14,15 @@
 ActiveRecord::Schema.define(:version => 20111224210601) do
 
   create_table "chapters", :force => true do |t|
-    t.integer  "order",      :null => false
-    t.integer  "talk_id",    :null => false
+    t.integer  "sort",        :null => false
+    t.string   "title"
+    t.text     "description"
+    t.integer  "talk_id",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "chapters", ["talk_id", "order"], :name => "index_chapters_on_talk_id_and_order"
+  add_index "chapters", ["talk_id", "sort"], :name => "index_chapters_on_talk_id_and_sort"
   add_index "chapters", ["talk_id"], :name => "index_chapters_on_talk_id"
 
   create_table "days", :force => true do |t|

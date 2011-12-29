@@ -17,6 +17,7 @@
     = link_to base_model.name, admin_sponsorship_level_path(base_model)
 
 - elsif base_model.kind_of? Sponsor
+  = render "shared/breadcrumbs_item", :base_model => base_model.sponsorship_level
   .crumb
     = link_to 'Sponsors', admin_sponsors_path
   .crumb
@@ -65,6 +66,7 @@
     = link_to base_model.name, admin_event_brand_path(base_model)
 
 - elsif base_model.kind_of? Chapter
+  = render "shared/breadcrumbs_item", :base_model => base_model.talk
   .crumb
     = link_to 'Chapters', admin_chapters_path
   .crumb

@@ -1,8 +1,7 @@
 %table#chapters
   %tr
-    %th.sort= ssp_sort_link :sort
     %th.title= ssp_sort_link :title
     %th.description= ssp_sort_link :description
-    %th.talk_id= ssp_sort_link :talk_id
+    %th.sort= ssp_sort_link :sort
     %th 
   = render :partial => 'admin/chapters/chapter.html.haml', :collection => chapters

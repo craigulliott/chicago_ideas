@@ -74,8 +74,10 @@ CraigsAdmin::Application.routes.draw do
       member do
         # pages
         get :notes
+        get :chapters
       end
       resources :notes, :only => [:new, :create]
+      resources :chapters, :only => [:new, :create]
     end
 
     resources :topics do

@@ -1,8 +1,7 @@
 %tr{:chapter => chapter.id}
-  %td.sort= link_to chapter.sort, admin_chapter_path(chapter)
-  %td.title= chapter.title
+  %td.title= link_to chapter.title, admin_chapter_path(chapter)
   %td.description= chapter.description
-  %td.talk_id= chapter.talk_id
+  %td.sort= chapter.sort
   %td.options
     = edit_model_link chapter
     = destroy_model_link chapter

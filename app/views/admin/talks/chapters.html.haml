@@ -1,0 +1,11 @@
+= render 'member_controls'
+
+= ssp_search_form Chapter
+
+.table_section
+  %h3 
+    Chapters
+    = new_model_link Chapter, @talk
+  .table_wrapper
+    = render 'admin/chapters/table.html.haml', :chapters => @chapters
+  = paginate @chapters

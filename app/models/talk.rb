@@ -11,6 +11,7 @@ class Talk < ActiveRecord::Base
   belongs_to :venue
   belongs_to :sponsor
   belongs_to :talk_brand
+  has_many :chapters
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
