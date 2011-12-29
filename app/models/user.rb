@@ -85,7 +85,7 @@ class User < ActiveRecord::Base
     :styles => { 
       :thumb => "117x117", 
       :medium => "234x234",
-    }
+    },
     :storage => :fog,
     :fog_credentials => {
       :aws_access_key_id => AWS_ACCESS_KEY_ID,
