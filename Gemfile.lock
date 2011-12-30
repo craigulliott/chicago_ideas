@@ -32,7 +32,6 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.6)
     ansi (1.4.1)
-    archive-tar-minitar (0.5.2)
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
     bourbon (1.2.0)
@@ -59,7 +58,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
-    columnize (0.3.6)
     cucumber (1.1.4)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
@@ -89,7 +87,7 @@ GEM
     faraday (0.7.5)
       addressable (~> 2.2.6)
       multipart-post (~> 1.1.3)
-      rack (< 2, >= 1.1.0)
+      rack (>= 1.1.0, < 2)
     ffi (1.0.11)
     fog (1.1.2)
       builder
@@ -131,8 +129,6 @@ GEM
       multi_json (~> 1.0)
     launchy (2.0.5)
       addressable (~> 2.2.6)
-    linecache19 (0.5.12)
-      ruby_core_source (>= 0.1.4)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -220,17 +216,7 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.7.0)
-    ruby-debug-base19 (0.11.25)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby_core_source (>= 0.1.4)
-    ruby-debug19 (0.11.6)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby-debug-base19 (>= 0.11.19)
     ruby-hmac (0.4.0)
-    ruby_core_source (0.1.5)
-      archive-tar-minitar (>= 0.5.2)
     ruby_parser (2.3.1)
       sexp_processor (~> 3.0)
     rubyzip (0.9.5)
@@ -253,7 +239,7 @@ GEM
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
-      tilt (!= 1.3.0, ~> 1.1)
+      tilt (~> 1.1, != 1.3.0)
     term-ansicolor (1.0.7)
     thor (0.14.6)
     tilt (1.3.3)
@@ -263,7 +249,7 @@ GEM
     turn (0.8.3)
       ansi
     twitter (2.0.2)
-      activesupport (< 4, >= 2.3.9)
+      activesupport (>= 2.3.9, < 4)
       faraday (~> 0.7)
       multi_json (~> 1.0)
       simple_oauth (~> 0.1)
@@ -313,7 +299,6 @@ DEPENDENCIES
   rails_email_validator
   redcarpet
   rspec-rails
-  ruby-debug19
   ruby_parser
   sass-rails (~> 3.1.5)
   spatial_adapter

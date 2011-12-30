@@ -48,7 +48,7 @@ end
 # useful in development
 group :development do
   # the debugger
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  #gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 # Gems used only for assets and not required

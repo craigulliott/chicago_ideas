@@ -21,56 +21,49 @@
     = csrf_meta_tag
     
   %body{:id => body_id, :class => body_class}
-    #fb-root
-    :javascript
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '#{FACEBOOK_CLIENT_ID}',
-          status     : true,
-          cookie     : true,
-          oauth      : true,
-          xfbml      : false
-        });
-      };
-    
-    #main
 
-      #header
-        = link_to '', root_url, :id => "logo"
-        %ul#main_menu
-          %li= link_to 'Home', root_path
-          %li= link_to 'Contact', contact_path
+    %header{:id => "main_header", :class => "row full"}
+      %nav
+        %ul{:id => "global_nav"}
 
-        %ul#social_links
-          %li
-            %script{:src => "http://connect.facebook.net/en_US/all.js#xfbml=1"}
-            %fb:like{"data-href" => "http://www.facebook.com/#{FACEBOOK_FAN_PAGE_NAME}", :layout => "button_count", :show_faces => "false", :width => "80"} 
-          %li
-            %a.twitter-follow-button{:href => "https://twitter.com/#{TWITTER_SCREEN_NAME}", :class => "twitter-follow-button", 'data-width' => "300px", 'data-align' => "right"} Follow @#{TWITTER_SCREEN_NAME}
-            :javascript
-              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-              
-        %ul#account_links
-          - if user_signed_in?
-            %li= link_to 'My Account', account_path
-            %li= link_to 'Sign Out', destroy_user_session_path
-            - unless current_user.connected_to_facebook?
-              %li.facebook_connect= link_to "Link with Facebook", user_omniauth_authorize_path(:facebook)
-          - else
-            %li= link_to 'Sign In', new_user_session_path
-            %li= link_to "Create Account", new_user_registration_path
-            %li.facebook_connect= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
+          %li= link_to "Archives", "/archives", :id => "gn-archives"
+          %li{:id => "logo_container"}= link_to "Home", "/", :id => "gn-logo"
 
-      #page_content= yield
-      
-      #footer
-        &copy; #{BUSINESS_NAME}, #{Time.now.year}
-        = link_to 'About Us', team_path
-        = link_to 'Contact Us', contact_path
-        = link_to 'Terms', terms_path
-        - if current_user && current_user.admin?
-          = link_to 'Admin', admin_root_path
-  
-    #flash_helper= flash_helper
-    
-    = render 'shared/google_analytics'
+          %li{:class => "nav_section_end nav_parent"}
+            = link_to "2012 Event", "/upcoming", :id => "gn-upcoming"
+            .nav_children
+              %ul{:class => "n_column"}
+                %li 
+                  %span Talks
+                %li= link_to "Calendar", "/upcoming/calendar"
+                %li= link_to "All Themes", "/upcoming/themes"
+                %li= link_to "Venues", "upcoming/venues"
+                %li= link_to "see all", "upcoming/all", :class => "blue"
+              %ul{:class => "n_column"}
+                %li 
+                  %span Themes
+                %li= link_to "Technology", "/upcoming/calendar"
+                %li= link_to "Entrepreneuership", "/upcoming/themes"
+                %li= link_to "Kauffman", "upcoming/venues"
+                %li= link_to "see all", "upcoming/all", :class => "blue"
+              %ul{:class => "n_featured"}
+                %li
+                  = link_to image_tag("/images/test.png"), "/blah"
+                  %span{:class => "blue"} Titles goes here
+                  %span{:class => "small"} Author/subtext here
+                %li
+                  = link_to image_tag("/images/test.png"), "/blah"
+                  %span{:class => "blue"} Titles goes here
+                  %span{:class => "small"} Author/subtext here
+
+
+
+          %li= link_to "Speakers", "/speakers", :id => "gn-speakers"
+          %li= link_to "Talks", "/talks", :id => "gn-talks"
+          %li{:class => "nav_section_end"}= link_to "Videos", "/videos", :id => "gn-videos"
+          %li= link_to "About", "/about", :id => "gn-about"
+          %li= link_to "Community", "/community", :id => "gn-community"
+          %li{:class => "nav_section_end"}= link_to "Blog", "/blog", :id => "gn-blog"
+          %li= link_to "Register", "/register", :id => "gn-register"
+          %li{:class => "nav_section_end"}= link_to "Login", "/login", :id => "gn-login"
+          %li= link_to "Search", "/search", :id => "gn-search"
