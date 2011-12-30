@@ -308,7 +308,6 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-twitter
   paperclip
-  rack-cache
   rails (= 3.1.3)
   rails_email_validator
   rspec-rails
