@@ -1,0 +1,405 @@
+
+body {
+	background-color: $white;
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 18px;
+	color: $grey;
+}
+.container { 
+	width: 1000px;
+	margin: 0 auto;
+	position:relative;
+}
+.container-fluid {
+	position:relative;
+	min-width: 1000px;
+	zoom:1;
+}
+.container:before, .container:after, .container-fluid:before, .container-fluid:after {
+	display:table;
+	content: "";
+	zoom: 1;
+}
+.container:after, .container-fluid:after { 
+	clear:both;
+}
+.row {
+	zoom: 1;
+}
+.row:before, .row:after {
+	display: table;
+	content: "";
+	zoom: 1;
+}
+.row:after {
+	clear: both;
+}
+.row > [class*="span"] {
+	display: inline;
+	float: left;
+	margin-left: 20px;
+}
+.span1 {
+	width: 40px;
+}
+.span2 {
+	width: 100px;
+}
+.span3 {
+	width: 160px;
+}
+.span4 {
+	width: 220px;
+}
+.span5 {
+	width: 280px;
+}
+.span6 {
+	width: 340px;
+}
+.span7 {
+	width: 400px;
+}
+.span8 {
+	width: 460px;
+}
+.span9 {
+	width: 520px;
+}
+.span10 {
+	width: 580px;
+}
+.span11 {
+	width: 640px;
+}
+.span12 {
+	width: 700px;
+}
+.span13 {
+	width: 760px;
+}
+.span14 {
+	width: 820px;
+}
+.span15 {
+	width: 880px;
+}
+.span16 {
+	width: 940px;
+}
+.span17 {
+	width: 1000px;
+}
+.span18 {
+	width: 1060px;
+}
+.span19 {
+	width: 1120px;
+}
+.span20 {
+	width: 1180px;
+}
+.span21 {
+	width: 1240px;
+}
+.span22 {
+	width: 1300px;
+}
+.span23 {
+	width: 1360px;
+}
+.span24 {
+	width: 1420px;
+}
+.row > .offset1 {
+	margin-left: 80px;
+}
+.row > .offset2 {
+	margin-left: 140px;
+}
+.row > .offset3 {
+	margin-left: 200px;
+}
+.row > .offset4 {
+	margin-left: 260px;
+}
+.row > .offset5 {
+	margin-left: 320px;
+}
+.row > .offset6 {
+	margin-left: 380px;
+}
+.row > .offset7 {
+	margin-left: 440px;
+}
+.row > .offset8 {
+	margin-left: 500px;
+}
+.row > .offset9 {
+	margin-left: 560px;
+}
+.row > .offset10 {
+	margin-left: 620px;
+}
+.row > .offset11 {
+	margin-left: 680px;
+}
+.row > .offset12 {
+	margin-left: 740px;
+}
+.span-one-third {
+	width: 300px;
+}
+.span-two-thirds {
+	width: 620px;
+}
+.row > .offset-one-third {
+	margin-left: 340px;
+}
+.row > .offset-two-thirds {
+	margin-left: 660px;
+}
+
+
+// Header & Navigation
+#main_header {
+	height:170px;
+	background: asset-url('application/header_bg.png', image) top left repeat-x;
+	@include box-shadow(0px,1px,5px,#aeaeae);
+
+	#global_nav { 
+
+		display:block;
+		clear:both;
+		list-style:none;
+		margin:0;
+		padding:0;
+
+		> li { // standard nav list item
+			display:inline;
+			float:left;
+			
+			> a {
+				display:block;
+				padding:0 17px;
+				font-size: 13px;
+				color: #f0f0f0;
+				font-family: 'GothamMediumRegular', 'Helvetica Neue', Arial, sans-serif;
+				text-decoration:none;
+				line-height:48px;
+				@include box-shadow-inset(0px, 0px, 0px, #000);
+				@include transition(box-shadow, .4s);
+				@include transition(color, .8s);
+			}
+			> a:hover {
+				@include box-shadow-inset(0px, 5px, 10px, #000);
+				color:$yellow;
+			}
+			
+			> a#gn-archives { padding-left:0; } 
+			
+			// Dropdown Menus
+			> .nav_children { 
+				position:absolute;
+				display:none;
+				left:265px;
+				top:48px;
+				width: 710px;
+				height: 103px;
+				padding:10px 0 10px 15px;
+				opacity:0;
+				@include transition(opacity, 1s);
+				@include transition(display, 1s);
+				
+				> ul.n_column {
+					width: 115px;
+					display:inline;
+					float:left;
+					list-style:none;
+					border-right:1px solid #fff;
+					border-left: 1px solid #e2e2e2;
+					padding:0 10px 0 20px;
+					
+					> li {
+						font-size: 13px;
+						display:block;
+						text-shadow:1px 1px 1px #f3f3f3;						
+						
+						> a {
+							color:$grey;
+							line-height: 19px;
+							text-decoration:none;
+						}
+						> a:hover { color:$dark; }
+						
+						> span {
+							display:block;
+							font-size: 12px;
+							color:$dark;
+							text-transform:uppercase;
+							margin-bottom:13px;
+							font-weight:bold;
+						}
+					}
+					
+				} // end ul.n_column 
+				
+				ul.n_column:first-child {
+					border-left:0px;
+					padding-left:0;
+				}
+				
+				> ul.n_featured {
+					width: 415px;
+					border-right:0;
+					height: 103px;
+					padding-right:0;
+					 
+					> li {
+						width: 200px;
+						display:inline;
+						float:left;
+						padding:0;
+						
+						> .dd_img_container {
+							width: 90px;
+							height: 60px;
+							float:left;
+							overflow:hidden;
+							margin-right:10px;
+						}
+						
+						> a {
+							color:$blue;
+							display:block;
+							font-weight:500;
+							margin-bottom:5px; 
+						}
+						>span {
+							font-size:12px;
+							display:block;
+							text-transform:none;
+							font-weight:inherit;
+							color:$grey;
+						}
+					}
+					> li:first-child { margin-right:10px; }
+				} // end ul.n_featured
+				
+			} // end .dropdown
+			
+		} // end li
+		
+		> li.nav_parent:hover, li.nav_parent_active {
+			background: asset-url('application/nav_arrow.png', image) center bottom no-repeat;
+			
+			> .nav_children {
+				display:block;
+				opacity:1;
+			}
+			
+		} // end li.nav_parent
+				
+		> li.nav_section_end {	// nav section dividers
+			background: asset-url('application/nav_divider.png', image) top right no-repeat;
+		}
+		
+		// Logo Container
+		> li#logo_container {
+			width: 197px;
+			height:112px;
+			
+			a#gn-logo {
+				display:block;
+				background: $yellow asset-url('application/site_sprite.png', image) top left no-repeat;
+				width: 197px;
+				height:112px;
+				text-indent:-9999px;
+				@include box-shadow(1px,1px,3px,#777);
+			}
+			
+		} // end li#logo_container
+		
+		// Search Icon
+		> li#nav_search {
+			width: 33px;
+			height: 47px;
+
+			> a {
+				display:block;
+				padding:0;
+				width:33px;
+				height:47px;
+				background: asset-url('application/site_sprite.png', image) no-repeat;
+				background-position: 14px -123px;
+				text-indent:-9999px;
+			}
+		}
+			
+	} // end #global_nav
+	
+} // end #main_header
+
+
+
+
+
+/*
+<header class='container-fluid' id='main_header'>
+      <nav class='container row full'>
+        <ul class='span17' id='global_nav'>
+          <li><a href="/archives" id="gn-archives">Archives</a></li>
+          <li id='logo_container'>
+            <h1><a href="/" id="gn-logo">Chicago Ideas Week</a></h1>
+          </li>
+          <li class='nav_section_end nav_parent'>
+            <a href="/upcoming" id="gn-upcoming">2012 Event</a>
+            <div class='nav_children'>
+              <ul class='n_column'>
+                <li>
+                  <span>Talks</span>
+                </li>
+                <li><a href="/upcoming/calendar">Calendar</a></li>
+                <li><a href="/upcoming/themes">All Themes</a></li>
+                <li><a href="upcoming/venues">Venues</a></li>
+                <li><a href="upcoming/all" class="blue">see all</a></li>
+              </ul>
+              <ul class='n_column'>
+                <li>
+                  <span>Themes</span>
+                </li>
+                <li><a href="/upcoming/calendar">Technology</a></li>
+                <li><a href="/upcoming/themes">Entrepreneuership</a></li>
+                <li><a href="upcoming/venues">Kauffman</a></li>
+                <li><a href="upcoming/all" class="blue">see all</a></li>
+              </ul>
+              <ul class='n_featured'>
+                <li>
+                  <a href="/blah"><img alt="Test" src="/images/test.png" /></a>
+                  <span class='blue'>Titles goes here</span>
+                  <span class='small'>Author/subtext here</span>
+                </li>
+                <li>
+                  <a href="/blah"><img alt="Test" src="/images/test.png" /></a>
+                  <span class='blue'>Titles goes here</span>
+                  <span class='small'>Author/subtext here</span>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="/speakers" id="gn-speakers">Speakers</a></li>
+          <li><a href="/talks" id="gn-talks">Talks</a></li>
+          <li class='nav_section_end'><a href="/videos" id="gn-videos">Videos</a></li>
+          <li><a href="/about" id="gn-about">About</a></li>
+          <li><a href="/community" id="gn-community">Community</a></li>
+          <li class='nav_section_end'><a href="/blog" id="gn-blog">Blog</a></li>
+          <li><a href="/register" id="gn-register">Register</a></li>
+          <li class='nav_section_end'><a href="/login" id="gn-login">Login</a></li>
+          <li><a href="/search" id="gn-search">Search</a></li>
+        </ul>
+      </nav>
+    </header>*/
