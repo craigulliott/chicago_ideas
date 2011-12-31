@@ -1,69 +1,113 @@
+-################################################
+-#
+-# 		Project		Chicago Ideas Week
+-# 		Title		Application Front-End
+-# 		File		Application.html.haml
+-# 		Date		12/30/11
+-# 		Author		John Koht
+-#
+-################################################
+
 !!! 5
 %html{"xmlns:og" => "http://opengraphprotocol.org/schema/", 'xmlns:fb'  => "http://www.facebook.com/2008/fbml", "xmlns" => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", "lang" => "en"}
-  %head
-    %meta{'http-equiv' => 'Content-Type', :content => 'text/html;charset=utf-8'}
-    %link{:rel => 'shortcut icon', :href => '/favicon.ico', :type => 'image/x-icon'}
-    %meta{:name => 'description', :content => ""}
-    %meta{:name => 'keywords', :content => ""}
-    %meta{:property => "og:title", :content => ""}
-    %meta{:property => "og:description", :content => ""}
-    %meta{:property => "og:type", :content => "website"}
-    %meta{:property => "og:image", :content => image_url('logo.jpg')}
-    %meta{:property => "og:url", :content => root_url}
-    %meta{:property => "og:site_name", :content => "Site Name"}
-    %meta{:property => "fb:app_id", :content => FACEBOOK_CLIENT_ID}
-    %title=  page_title
-    - if Rails.env == 'production'
-      %script{:type => "text/javascript", :src => "http://js.getexceptional.com/exceptional.js"}
-      %script{:type => "text/javascript"} Exceptional.setKey('#{ENV['EXCEPTIONAL_API_KEY']}');
-    = stylesheet_link_tag :application
-    = javascript_include_tag :application
-    = csrf_meta_tag
-    
-  %body{:id => body_id, :class => body_class}
 
-    %header{:id => "main_header", :class => "row full"}
-      %nav
-        %ul{:id => "global_nav"}
-
-          %li= link_to "Archives", "/archives", :id => "gn-archives"
-          %li{:id => "logo_container"}= link_to "Home", "/", :id => "gn-logo"
-
-          %li{:class => "nav_section_end nav_parent"}
-            = link_to "2012 Event", "/upcoming", :id => "gn-upcoming"
-            .nav_children
-              %ul{:class => "n_column"}
-                %li 
-                  %span Talks
-                %li= link_to "Calendar", "/upcoming/calendar"
-                %li= link_to "All Themes", "/upcoming/themes"
-                %li= link_to "Venues", "upcoming/venues"
-                %li= link_to "see all", "upcoming/all", :class => "blue"
-              %ul{:class => "n_column"}
-                %li 
-                  %span Themes
-                %li= link_to "Technology", "/upcoming/calendar"
-                %li= link_to "Entrepreneuership", "/upcoming/themes"
-                %li= link_to "Kauffman", "upcoming/venues"
-                %li= link_to "see all", "upcoming/all", :class => "blue"
-              %ul{:class => "n_featured"}
-                %li
-                  = link_to image_tag("/images/test.png"), "/blah"
-                  %span{:class => "blue"} Titles goes here
-                  %span{:class => "small"} Author/subtext here
-                %li
-                  = link_to image_tag("/images/test.png"), "/blah"
-                  %span{:class => "blue"} Titles goes here
-                  %span{:class => "small"} Author/subtext here
+	%head
+		%meta{'http-equiv' => 'Content-Type', :content => 'text/html;charset=utf-8'}
+		%link{:rel => 'shortcut icon', :href => '/favicon.ico', :type => 'image/x-icon'}
+		%meta{:name => 'description', :content => ""}
+		%meta{:name => 'keywords', :content => ""}
+		%meta{:property => "og:title", :content => ""}
+		%meta{:property => "og:description", :content => ""}
+		%meta{:property => "og:type", :content => "website"}
+		%meta{:property => "og:image", :content => image_url('logo.jpg')}
+		%meta{:property => "og:url", :content => root_url}
+		%meta{:property => "og:site_name", :content => "Site Name"}
+		%meta{:property => "fb:app_id", :content => FACEBOOK_CLIENT_ID}
+		%title=  page_title
+		- if Rails.env == 'production'
+			%script{:type => "text/javascript", :src => "http://js.getexceptional.com/exceptional.js"}
+			%script{:type => "text/javascript"} Exceptional.setKey('#{ENV['EXCEPTIONAL_API_KEY']}');
+		= stylesheet_link_tag :application
+		= javascript_include_tag :application
+		= csrf_meta_tag
 
 
 
-          %li= link_to "Speakers", "/speakers", :id => "gn-speakers"
-          %li= link_to "Talks", "/talks", :id => "gn-talks"
-          %li{:class => "nav_section_end"}= link_to "Videos", "/videos", :id => "gn-videos"
-          %li= link_to "About", "/about", :id => "gn-about"
-          %li= link_to "Community", "/community", :id => "gn-community"
-          %li{:class => "nav_section_end"}= link_to "Blog", "/blog", :id => "gn-blog"
-          %li= link_to "Register", "/register", :id => "gn-register"
-          %li{:class => "nav_section_end"}= link_to "Login", "/login", :id => "gn-login"
-          %li= link_to "Search", "/search", :id => "gn-search"
+%body{:id => body_id, :class => body_class}
+
+	-# start the global header
+	%header{:id => "main_header", :class => "container-fluid"}
+
+		%nav{:class => "container row full"}
+			%ul{:id => "global_nav", :class => "span17"}
+
+				%li= link_to "Archives", "/archives", :id => "gn-archives" 
+				%li{:id => "logo_container"}
+					%h1= link_to "Chicago Ideas Week", "/", :id => "gn-logo"
+
+				%li{:class => "nav_section_end nav_parent"}
+					= link_to "2012 Event", "/upcoming", :id => "gn-upcoming"
+					.nav_children
+						%ul{:class => "n_column"}
+							%li 
+								%span Talks
+							%li= link_to "Calendar", "/upcoming/calendar"
+							%li= link_to "All Themes", "/upcoming/themes"
+							%li= link_to "Venues", "upcoming/venues"
+							%li= link_to "see all...", "upcoming/all", :class => "blue"
+						%ul{:class => "n_column"}
+							%li 
+								%span Themes
+							%li= link_to "Technology", "/upcoming/calendar"
+							%li= link_to "Entrepreneurship", "/upcoming/themes"
+							%li= link_to "Kauffman", "upcoming/venues"
+							%li= link_to "see all...", "upcoming/all", :class => "blue"
+						%ul{:class => "n_column n_featured"}
+							%li
+								.dd_img_container
+									= link_to image_tag("/assets/application/temp/dd_temp1.png"), "/blah"
+								= link_to "Titles goes here", "/blah"
+								%span{:class => "small"} Author/subtext here
+							%li
+								.dd_img_container 
+									= link_to image_tag("/assets/application/temp/dd_temp2.png"), "/blah"
+								= link_to "Titles goes here", "/blah"
+								%span{:class => "small"} Author/subtext here
+
+				%li{:class => "nav_parent"}
+					= link_to "Speakers", "/speakers", :id => "gn-speakers"
+					.nav_children
+						%ul{:class => "n_column"}
+							%li 
+								%span Talks
+							%li= link_to "Calendar", "/upcoming/calendar"
+							%li= link_to "All Themes", "/upcoming/themes"
+							%li= link_to "Venues", "upcoming/venues"
+							%li= link_to "see all...", "upcoming/all", :class => "blue"
+						%ul{:class => "n_column"}
+							%li 
+								%span Themes
+							%li= link_to "Technology", "/upcoming/calendar"
+							%li= link_to "Entrepreneurship", "/upcoming/themes"
+							%li= link_to "Kauffman", "upcoming/venues"
+							%li= link_to "see all...", "upcoming/all", :class => "blue"
+						%ul{:class => "n_column n_featured"}
+							%li
+								.dd_img_container
+									= link_to image_tag("/assets/application/temp/dd_temp1.png"), "/blah"
+								= link_to "Titles goes here", "/blah"
+								%span{:class => "small"} Author/subtext here
+							%li
+								.dd_img_container 
+									= link_to image_tag("/assets/application/temp/dd_temp2.png"), "/blah"
+								= link_to "Titles goes here", "/blah"
+								%span{:class => "small"} Author/subtext here
+				
+				%li= link_to "Talks", "/talks", :id => "gn-talks"
+				%li{:class => "nav_section_end"}= link_to "Videos", "/videos", :id => "gn-videos"
+				%li= link_to "About", "/about", :id => "gn-about"
+				%li= link_to "Community", "/community", :id => "gn-community"
+				%li{:class => "nav_section_end"}= link_to "Blog", "/blog", :id => "gn-blog"
+				%li= link_to "Register", "/register", :id => "gn-register"
+				%li{:class => "nav_section_end"}= link_to "Login", "/login", :id => "gn-login"
+				%li{:id => "nav_search"}= link_to "Search", "/search", :id => "gn-search"

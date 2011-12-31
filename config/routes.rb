@@ -24,6 +24,33 @@ CraigsAdmin::Application.routes.draw do
     end
   end
   
+  resources :speakers do
+  end
+  
+  resources :talks do
+  end
+  
+  resources :videos do
+  end
+  
+  resources :about do
+  end
+  
+  resources :community do
+  end
+  
+  resources :blog do
+  end
+  
+  resources :register do
+  end
+  
+  resources :login do
+  end
+  
+  resources :archives do
+  end
+  
   # the Admin                                                                   (http://www.domain.com/admin)
   # ---------------------------------------------------------------------------------------------------------
   namespace :admin do
