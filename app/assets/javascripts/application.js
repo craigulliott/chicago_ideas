@@ -1,3 +1,4 @@
 // =require common
 
-// =require application/contact
+// =require application/global.js
+// =require application/modernizr-1.7.min.js

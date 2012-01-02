@@ -5,6 +5,8 @@ CraigsAdmin::Application.routes.draw do
   root :to => 'application#index'
   # website pages
   match 'team', :to => 'application#team'
+  match 'search', :to => 'application#search'
+  match 'videos', :to => 'application#videos'
   # legalese 
   match 'privacy', :to => 'application#privacy'
   match 'terms', :to => 'application#terms'
@@ -24,32 +26,6 @@ CraigsAdmin::Application.routes.draw do
     end
   end
   
-  resources :speakers do
-  end
-  
-  resources :talks do
-  end
-  
-  resources :videos do
-  end
-  
-  resources :about do
-  end
-  
-  resources :community do
-  end
-  
-  resources :blog do
-  end
-  
-  resources :register do
-  end
-  
-  resources :login do
-  end
-  
-  resources :archives do
-  end
   
   # the Admin                                                                   (http://www.domain.com/admin)
   # ---------------------------------------------------------------------------------------------------------

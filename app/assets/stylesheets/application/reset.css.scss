@@ -1,22 +1,35 @@
-html,body{margin:0;padding:0}
-h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,cite,code,del,dfn,em,img,q,s,samp,small,strike,strong,sub,sup,tt,var,dd,dl,dt,li,ol,ul,fieldset,form,label,legend,button,table,caption,tbody,tfoot,thead,tr,th,td{border:0;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;margin:0;padding:0}
-table{border-collapse:collapse;border-spacing:0}
-ol,ul{list-style:none}
-q:before,q:after,blockquote:before,blockquote:after{content:""}
-html{overflow-y:scroll;font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
-a:focus{outline:thin dotted}
-a:hover,a:active{outline:0}
-article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}
-audio,canvas,video{display:inline;zoom:1}
-audio:not([controls]){display:none}
-sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+html,body,body div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,figure,footer,header,hgroup,menu,nav,section,time,mark,audio,video{border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0}
+article,aside,figure,footer,header,hgroup,nav,section{display:block}
+img,object,embed{max-width:100%}
+html{overflow-y:scroll}
+ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted #000;cursor:help}
+table{border-collapse:collapse;border-spacing:0;font-size:inherit;font:100%}
+th{font-weight:700;vertical-align:bottom}
+td{font-weight:400;vertical-align:top}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+pre{white-space:pre-line;word-wrap:break-word}
+input[type=checkbox]{vertical-align:baseline}
+select,input,textarea{font:99% sans-serif}
+a:hover,a:active{outline:none}
+small{font-size:85%}
+strong,th{font-weight:700}
+td,td img{vertical-align:top}
+sub,sup{font-size:75%;line-height:0;position:relative}
 sup{top:-.5em}
 sub{bottom:-.25em}
-img{border:0;-ms-interpolation-mode:bicubic}
-button,input,select,textarea{font-size:100%;vertical-align:middle;margin:0}
-button,input{line-height:normal;overflow:visible}
-button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
-button,input[type=button],input[type=reset],input[type=submit]{cursor:pointer;-webkit-appearance:button}
-input[type=search]{-webkit-appearance:textfield;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}
-input[type=search]::-webkit-search-decoration{-webkit-appearance:none}
-textarea{overflow:auto;vertical-align:top}
+pre,code,kbd,samp{font-family:monospace, sans-serif}
+.clickable,label,input[type=button],input[type=submit],button{cursor:pointer}
+button,input,select,textarea{margin:0}
+button{width:auto;overflow:visible}
+.ie7 img{-ms-interpolation-mode:bicubic}
+.ie6 html{filter:expression(document.execCommand("BackgroundImageCache",false,true))}
+.clearfix:before,.clearfix:after{content:"\0020";display:block;height:0;overflow:hidden}
+.clearfix:after{clear:both}
+.clearfix{zoom:1}
+input[type=radio],.ie6 input{vertical-align:text-bottom}

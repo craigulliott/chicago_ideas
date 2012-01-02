@@ -1,7 +1,20 @@
-%h1 Homepage
+-# 		Chicago Ideas Week
+-# 		Index.html.haml
+-# 		01/01/2012
 
-%p Welcome to this website.  We are glad you are here because:
 
-%ul
-  %li You're about to avoid writing a ton of code that almost every business application needs.
-  %li Life is good.
+-# Featured Section/Banner Area
+= render "application/partials/banner"
+
+
+= @talks.each do |d|
+	= d.name
+	
+	
+	
+	
+	
+	%br
+	%br
+	%br
+	%br

@@ -2,7 +2,40 @@ class ApplicationController < ActionController::Base
 
   # the application homepage
   def index
+    @talks = Talk.search_sort_paginate(params)
   end
+
+  def speakers
+  end
+  
+  def talks
+  end
+  
+  def videos
+  end
+  
+  def about
+  end
+  
+  def community
+  end
+  
+  def blog
+  end
+  
+  def register
+  end
+  
+  def login
+  end
+  
+  def archives
+  end
+  
+  def search
+  end
+  
+
 
   def contact
   end
