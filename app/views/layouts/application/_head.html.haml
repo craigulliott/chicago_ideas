@@ -1,0 +1,36 @@
+
+-# %meta{'http-equiv' => 'Content-Type', :content => 'text/html;charset=utf-8'}
+-# Always force latest IE rendering engine (even in intranet) & Chrome Frame
+-# Remove this if you use the .htaccess
+%meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }/
+%meta{ :charset => "utf-8" }/
+
+- if Rails.env == 'production'
+	%meta{:name => "robot", :content => "index,follow"}
+	%meta{:name => "googlebot", :content => "index,follow"}
+	%meta{:name => "Distribution", :content => "Global"}
+	%meta{:name => "revisit-after", :content => "1days"}
+
+%meta{:property => "og:title", :content => ""}
+%meta{:property => "og:description", :content => ""}
+%meta{:property => "og:type", :content => "website"}
+%meta{:property => "og:image", :content => image_url('logo.jpg')}
+%meta{:property => "og:url", :content => root_url}
+%meta{:property => "og:site_name", :content => "Site Name"}
+%meta{:property => "fb:app_id", :content => FACEBOOK_CLIENT_ID}
+
+%link{:rel => 'icon', :href => '/favicon.ico', :type => 'image/x-icon'}
+%link{:rel => 'shortcut icon', :href => '/favicon.ico', :type => 'image/x-icon'}
+%link{:rel => 'apple-touch-icon', :href => '/favicon.ico', :type => 'image/x-icon'}
+
+%meta{:name => 'description', :content => ""}
+%meta{:name => 'keywords', :content => ""}
+
+%title=  page_title
+- if Rails.env == 'production'
+	%script{:type => "text/javascript", :src => "http://js.getexceptional.com/exceptional.js"}
+	%script{:type => "text/javascript"} Exceptional.setKey('#{ENV['EXCEPTIONAL_API_KEY']}');
+	
+= stylesheet_link_tag :application
+= javascript_include_tag :application
+= csrf_meta_tag

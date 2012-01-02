@@ -1,0 +1,73 @@
+%nav{:class => "container row full"}
+	%ul{:id => "global_nav", :class => "span17"}
+
+		%li= link_to "Archives", "/archives", :id => "gn-archives" 
+		%li{:id => "logo_container"}
+			%h1= link_to "Chicago Ideas Week", "/", :id => "gn-logo"
+
+		%li{:class => "nav_section_end nav_parent"}
+			= link_to "2012 Event", "/upcoming", :id => "gn-upcoming"
+			.nav_children
+				%ul{:class => "n_column"}
+					%li 
+						%span Talks
+					%li= link_to "Calendar", "/upcoming/calendar"
+					%li= link_to "All Themes", "/upcoming/themes"
+					%li= link_to "Venues", "upcoming/venues"
+					%li= link_to "see all...", "upcoming/all", :class => "blue"
+				%ul{:class => "n_column"}
+					%li 
+						%span Themes
+					%li= link_to "Technology", "/upcoming/calendar"
+					%li= link_to "Entrepreneurship", "/upcoming/themes"
+					%li= link_to "Kauffman", "upcoming/venues"
+					%li= link_to "see all...", "upcoming/all", :class => "blue"
+				%ul{:class => "n_column n_featured"}
+					%li
+						.dd_img_container
+							= link_to image_tag("/assets/application/temp/dd_temp1.png"), "/blah"
+						= link_to "Titles goes here", "/blah"
+						%span{:class => "small"} Author/subtext here
+					%li
+						.dd_img_container 
+							= link_to image_tag("/assets/application/temp/dd_temp2.png"), "/blah"
+						= link_to "Titles goes here", "/blah"
+						%span{:class => "small"} Author/subtext here
+
+		%li{:class => "nav_parent"}
+			= link_to "Speakers", "/speakers", :id => "gn-speakers"
+			.nav_children
+				%ul{:class => "n_column"}
+					%li 
+						%span Talks
+					%li= link_to "Calendar", "/upcoming/calendar"
+					%li= link_to "All Themes", "/upcoming/themes"
+					%li= link_to "Venues", "upcoming/venues"
+					%li= link_to "see all...", "upcoming/all", :class => "blue"
+				%ul{:class => "n_column"}
+					%li 
+						%span Themes
+					%li= link_to "Technology", "/upcoming/calendar"
+					%li= link_to "Entrepreneurship", "/upcoming/themes"
+					%li= link_to "Kauffman", "upcoming/venues"
+					%li= link_to "see all...", "upcoming/all", :class => "blue"
+				%ul{:class => "n_column n_featured"}
+					%li
+						.dd_img_container
+							= link_to image_tag("/assets/application/temp/dd_temp1.png"), "/blah"
+						= link_to "Titles goes here", "/blah"
+						%span{:class => "small"} Author/subtext here
+					%li
+						.dd_img_container 
+							= link_to image_tag("/assets/application/temp/dd_temp2.png"), "/blah"
+						= link_to "Titles goes here", "/blah"
+						%span{:class => "small"} Author/subtext here
+		
+		%li= link_to "Talks", "/talks", :id => "gn-talks"
+		%li{:class => "nav_section_end"}= link_to "Videos", videos_path, :id => "gn-videos"
+		%li= link_to "About", "/about", :id => "gn-about"
+		%li= link_to "Community", "/community", :id => "gn-community"
+		%li{:class => "nav_section_end"}= link_to "Blog", "/blog", :id => "gn-blog"
+		%li= link_to "Register", "/register", :id => "gn-register"
+		%li{:class => "nav_section_end"}= link_to "Login", "/login", :id => "gn-login"
+		%li{:id => "nav_search"}= link_to "Search", search_path, :id => "gn-search"

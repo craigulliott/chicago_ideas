@@ -1,0 +1,144 @@
+// Homepage Featured Banner
+#featured {
+	width: 100%;
+	height:675px;
+	overflow:hidden;
+	
+	#banner_container { 
+		width: 100%;
+		height:675px;
+		position:relative; 
+		
+			.banner_item {
+				width:100%; 
+				height:675px;
+				display:table;
+				position:absolute;
+				left:0;
+				top:0;
+				
+				.banner_content {
+					width: 1000px;
+					display:table-cell;
+					vertical-align: middle;
+					
+					.banner_box {
+						width: 1000px;
+						margin:0 auto;
+					}
+					
+					.banner_top, .banner_bottom {
+						width:255px;
+						padding:10px;
+						left:0;
+						display:block;
+						clear:both;
+					}
+					
+					.banner_top {
+						background: rgba(0,0,0,.65);
+						
+						.banner_title {
+							display:block;
+							clear:both;
+							font-size: 40px;
+							line-height:45px;
+							font-weight: bold;
+							text-transform: uppercase;
+							color:$white;
+							text-shadow:1px 1px 1px #000;
+							margin-bottom:5px;
+						}
+						
+						.b_link {
+							font-size: 13px;
+							color:$white;
+							text-shadow:1px 1px 1px #000;
+						}
+						
+					} // end .banner_top
+					
+					.banner_bottom {
+						background: rgba(255,255,255,.45);
+						
+						.banner_dates {
+							font-size: 17px;
+							color:$dark;
+							font-weight:500;
+							display:block;
+							margin-bottom:5px;
+						}
+						
+						.banner_purchase {
+							font-size: 13px; 
+							color:$dark;
+						}
+						
+					} // end .banner_bottom
+					
+				} //end .banner_content
+			} // end .banner_item
+			
+	} // end #banner_container
+	
+	#banner_nav_wrapper {
+		background: rgba(0,0,0,.45);
+		width:100%;
+		height: 85px;
+		padding: 15px 0;
+		z-index:4001;
+		position: absolute;
+		bottom:0px;
+		
+		ul#banner_nav {
+			width: 1000px;
+			height:85px;
+			margin:0 auto;
+			display:block;
+			list-style:none;
+			padding:0;
+			
+			> li {
+				display:inline;
+				float:left;
+				width: 160px;
+				height: 85px;
+				overflow:hidden;
+				margin-right:8px;
+				@include box-shadow(1px,1px,3px,#111);
+				
+				> img {
+					filter:gray;
+				}
+			}
+			
+			ul#banner_nav:after, ul#banner_nav:before { display:table; content:""; zoom:1; }
+			ul#banner_nav:after { clear:both; }
+			
+			> li:last-child { margin-right:0; }
+			
+		} // #banner_nav
+		
+	} // end #banner_nav_wrapper
+
+}// end #featured
+
+
+/*
+<div class='container-fluid' id='banner_nav_wrapper'>
+      <div class='banner_link'>
+        <a href="#" class="b_thumb"><img alt="Banner_thumb" src="/assets/application/temp/banner_thumb.jpg" /></a>
+      </div>
+      <div class='banner_link'>
+        <a href="#" class="b_thumb"><img alt="Banner_thumb" src="/assets/application/temp/banner_thumb.jpg" /></a>
+      </div>
+      <div class='banner_link'></div>
+      <a href="#" class="b_thumb"><img alt="Banner_thumb" src="/assets/application/temp/banner_thumb.jpg" /></a>
+      <div class='banner_link'>
+        <a href="#" class="b_thumb"><img alt="Banner_thumb" src="/assets/application/temp/banner_thumb.jpg" /></a>
+      </div>
+      <div class='banner_link'>
+        <a href="#" class="b_thumb"><img alt="Banner_thumb" src="/assets/application/temp/banner_thumb.jpg" /></a>
+      </div>
+    </div>
+*/
