@@ -6,15 +6,121 @@
 -# Featured Section/Banner Area
 = render "application/partials/banner"
 
+-# Turning Ideas into action Section
+%section{:id => "intro", :class => "row full"}
+	.container
+		%h2 How is CIW <strong>Turning IDeas into Action</strong>?
+		%ul{:id => "intro_boxes"}
+			%li{:class => "yellow featured"}
+				%span{:class => "intro_regular"} Great Idea
+				%span{:class => "intro_large"} #153
+				%span{:class => "intro_regular"}= link_to "Clean Drinking Water Everywhere", "#"
+				%span{:class => "intro_link"}= link_to "Learn More +", "#"
 
-= @talks.each do |d|
-	= d.name
+			%li{:class => "yellow"}
+				%span{:class => "intro_regular"} By Connecting
+				%span{:class => "intro_regular"} People From Over
+				%span{:class => "intro_large"} Fifty
+				%span{:class => "intro_medium"} Countries
+				%span{:class => "intro_link"}= link_to "Learn More +", "#"
+			
+			%li{:class => "yellow"}
+				%span{:class => "intro_regular"} Our community
+				%span{:class => "intro_regular"} Has shared
+				%span{:class => "intro_large"} 157
+				%span{:class => "intro_medium"} Links
+				%span{:class => "intro_link"}= link_to "Learn More +", "#"
+			
+			%li{:class => "yellow"}
+				%span{:class => "intro_regular"} This Month
+				%span{:class => "intro_regular"} CIW Has Posted
+				%span{:class => "intro_large"} 267
+				%span{:class => "intro_medium"} Tweets
+				%span{:class => "intro_link"}= link_to "Learn More +", "#"
+		
+			%li{:class => "blue"}
+				%span{:class => "intro_regular"} 2012 Event
+				%span{:class => "intro_regular"} Begins in
+				%span{:class => "intro_large"} 195
+				%span{:class => "intro_medium"} Days
+				%span{:class => "intro_link"}= link_to "Register Now! +", "/register"
+	
+%section{:id => "main_content", :class => "row full"}
+	.container
+		
+		.span-one-third.entry_column#videos
+		
+			%h2 Videos
+			
+			%article{:class => "entry featured_video"}
+				.img_wrapper
+					= image_tag(asset_path "application/temp/thumb_large.jpg")
+					= link_to "", "#", :class => "play_btn"
+					
+				%h3= link_to "CIW Megatalk: International Mayor Evening", "#"
+				%p A star-powered evening featuring Mayor Emanuel and Richard Stengel of Time Magazine. The event will include innovative city leaders from around the country in a fascinating analysis of what makes our cities great.
+			
+			%article{:class => "entry"}
+				.img_wrapper= link_to image_tag(asset_path "application/temp/thumb_1.jpg"), "#"
+				%h3= link_to "6 Degrees of Kevin Bacon", "#"
+				%p Actor, Philosopher, Icon
+			
+			%article{:class => "entry"}
+				.img_wrapper= link_to image_tag(asset_path "application/temp/thumb_1.jpg"), "#"
+				%h3= link_to "6 Degrees of Kevin Bacon", "#"
+				%p Actor, Philosopher, Icon
+		
+		
+		
+		.span-one-third.entry_column#blog
+		
+			%h2 Blog
+			
+			%article{:class => "entry"}
+				%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
+				.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
+				%p
+					= link_to "Category", "#", :class => "category_" 
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
+				
+				%span{:class => "datestamp"}
+					3 hours ago by #{link_to "John Koht", "#"}
+				
+			%article{:class => "entry"}
+				%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
+				.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
+				%p
+					= link_to "Category", "#", :class => "category_" 
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
+
+				%span{:class => "datestamp"}
+					3 hours ago by #{link_to "John Koht", "#"}
+			
+			%article{:class => "entry"}
+				%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
+				.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
+				%p
+					= link_to "Category", "#", :class => "category_" 
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
+
+				%span{:class => "datestamp"}
+					3 hours ago by #{link_to "John Koht", "#"}
+			
+			
+			
+		.span-one-third.entry_column.sidebar#community
+			
+			%h2 Community
+			
+			= render "application/partials/sponsors"
+			= render "application/partials/newsletter_form"
+			= render "application/partials/volunteer_info"
+			= render "application/partials/social"
+			= render "application/partials/tweets"
+			
+			
+			
+			
 	
 	
 	
-	
-	
-	%br
-	%br
-	%br
-	%br

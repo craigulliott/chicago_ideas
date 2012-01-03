@@ -1,3 +1,9 @@
+-# 		Chicago Ideas Week
+-# 		Global Header & Navigation
+-# 		_header.html.haml
+-# 		12/31/2011
+
+
 %nav{:class => "container row full"}
 	%ul{:id => "global_nav", :class => "span17"}
 
@@ -47,10 +53,14 @@
 				%ul{:class => "n_column"}
 					%li 
 						%span Themes
-					%li= link_to "Technology", "/upcoming/calendar"
-					%li= link_to "Entrepreneurship", "/upcoming/themes"
-					%li= link_to "Kauffman", "upcoming/venues"
-					%li= link_to "see all...", "upcoming/all", :class => "blue"
+						
+					- @topics.first(3).each do |topic|
+						%li.name= link_to topic.name, topic_path(topic)
+						
+					%li= link_to "see all...", "upcoming/all", :class => "blue"	
+
+
+
 				%ul{:class => "n_column n_featured"}
 					%li
 						.dd_img_container

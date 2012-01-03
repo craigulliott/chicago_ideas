@@ -1,4 +1,6 @@
-
+/******************************************************
+ *	Main Scaffolding	
+******************************************************/
 body {
 	background-color: $white;
 	margin: 0;
@@ -41,7 +43,6 @@ body {
 .row > [class*="span"] {
 	display: inline;
 	float: left;
-	margin-left: 20px;
 }
 .span1 {
 	width: 40px;
@@ -163,9 +164,19 @@ body {
 .row > .offset-two-thirds {
 	margin-left: 660px;
 }
+.entry_column {
+	float:left;
+	margin-right:50px;
+}
+.entry_column:last-child { margin-right:0;}
 
 
-// Header & Navigation
+
+
+
+/******************************************************
+ *	Navigation & Header
+******************************************************/
 #main_header {
 	height:170px;
 	background: asset-url('application/header_bg.png', image) top left repeat-x;
@@ -343,3 +354,102 @@ body {
 	} // end #global_nav
 	
 } // end #main_header
+
+
+
+
+
+
+
+/******************************************************
+ *	Global Footer
+******************************************************/
+#footer {
+	background:#322f30;
+	padding-bottom:20px;
+	
+	#footer_top {
+		#footer_logo {
+			width: 115px;
+			height:68px;
+			background: asset-url("application/footer_logo.png", image) top left no-repeat;
+			text-indent:-9999px;
+			float:left;
+			margin-right: 20px;
+			margin-top:-5px;
+		}
+		span {
+			font-size: 17px;
+			color:$offwhite;
+			line-height: 68px;
+		}
+	}
+
+	#footer_nav {
+		margin: 30px 0 40px 0;
+		
+		.footer_item {
+			width: 140px;
+			display:inline;
+			float:left;
+			margin-right: 30px;
+			
+			> span.title {
+				font-size:13px;
+				color:$offwhite;
+				font-weight:800;
+				text-transform:uppercase;
+				display:block;
+				margin-bottom: 20px;
+			}
+			
+			> ul {
+				display:block;
+				list-style:none;
+				
+				li {
+					display:block;
+					clear:both;
+					padding: 2px 0;
+					
+					a {
+						color: $offwhite;
+						font-size:14px;
+						font-weight: 200;
+					}
+				}
+			} // end ul
+			
+		} // end footer_item
+		
+		.footer_item:last-child { margin-right:0;}
+	} // #end footer_nav
+	
+	#copyright {
+		display:block; 
+		
+		ul {
+			list-style:none;
+			
+			li {
+				display:inline;
+				float:left;
+				margin-right: 15px;
+				padding-right:15px;
+				color:#bebebe;
+				font-weight:lighter;
+				
+				a {
+					color:#bebebe;
+					text-decoration:none; 
+				}
+			}
+			li#copyright_notice {
+				border-right: 1px solid #bebebe;
+			}
+		}
+	} // end #copyright
+	
+} // end #footer
+
+

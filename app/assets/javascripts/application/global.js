@@ -10,6 +10,8 @@ $(window).load(function(){
 		itemId = $(this).attr('id').replace('thumb_',''); //capture the current item ID
 		$('#banner_' + itemId).css('z-index', '1001').fadeIn();
 	});
+
+	
 	
 	
 	/************************************************************************************

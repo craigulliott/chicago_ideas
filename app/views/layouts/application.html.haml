@@ -20,7 +20,10 @@
 	%header{:id => "main_header", :class => "container-fluid"}
 		= render "layouts/application/header"
 				
-	
+	-# Main Body Content
 	= yield
 	
+	
+	%footer{:id => "footer", :class => "container-fluid"}
+		= render "layouts/application/footer"
 	

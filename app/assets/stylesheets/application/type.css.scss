@@ -1,38 +1,54 @@
-@font-face {
-    font-family: 'GothamLightRegular';
-    src: url('/assets/fonts/gotham-light-webfont.eot');
-    src: url('/assets/fonts/gotham-light-webfont.eot?#iefix') format('eot'),
-         url('/assets/fonts/gotham-light-webfont.woff') format('woff'),
-         url('/assets/fonts/gotham-light-webfont.ttf') format('truetype'),
-         url('/assets/fonts/gotham-light-webfont.svg#webfontzZGxQDDP') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'GothamMediumRegular';
-    src: url('/assets/fonts/gotham-medium-webfont.eot');
-    src: url('/assets/fonts/gotham-medium-webfont.eot?#iefix') format('eot'),
-         url('/assets/fonts/gotham-medium-webfont.woff') format('woff'),
-         url('/assets/fonts/gotham-medium-webfont.ttf') format('truetype'),
-         url('/assets/fonts/gotham-medium-webfont.svg#webfontCGVLxYf3') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'GothamBoldRegular';
-    src: url('/assets/fonts/gotham-bold-webfont.eot');
-    src: url('/assets/fonts/gotham-bold-webfont.eot?#iefix') format('eot'),
-         url('/assets/fonts/gotham-bold-webfont.woff') format('woff'),
-         url('/assets/fonts/gotham-bold-webfont.ttf') format('truetype'),
-         url('/assets/fonts/gotham-bold-webfont.svg#webfontCGVLxYf3') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
+/******************************************************
+ *	General Typography
+******************************************************/
 
 .blue { color:$blue !important; }
 a.blue:hover { text-decoration:underline !important; }
 .small { font-size: 12px !important; }
+
+
+h2 {
+	font-size: 27px;
+	color:$dark;
+	font-weight:bold;
+	line-height: 35px;
+	margin-bottom: 20px;
+}
+h3 {
+	font-family: "Helvetica Neue", Helvetia, Arial, sans-serif;
+	font-size: 17px;
+	line-height: 22px;
+	margin-bottom: 8px;
+	color:$dark;
+	font-weight: 600;
+}
+
+p { 
+	font-family: "Helvetica Neue", Helvetia, Arial, sans-serif;
+	font-size: 15px;
+	color:$grey;
+	line-height: 21px;
+	margin-bottom:15px; 
+}
+p:last-child { margin-bottom:0; }
+
+section ul, section ol {
+	list-style: disc;
+	margin: 0 0 10px 10px;
+	padding:0;
+}
+section ol {
+	list-style: decimal;
+}
+section ul li {
+	padding-left: 10px; 
+	margin-left: 15px;
+}
+
+a, a:active, a:visited {
+	color:#2d77de;
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}

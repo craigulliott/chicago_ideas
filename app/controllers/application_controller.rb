@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # the application homepage
   def index
     @talks = Talk.search_sort_paginate(params)
+    @topics = Topic.search_sort_paginate(params)
   end
 
   def speakers

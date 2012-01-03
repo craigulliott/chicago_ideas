@@ -1,0 +1,6 @@
+%article{:class => "sidebar_item row full sidebar_form", :id => "volunteer"}
+	%form{:method => "POST", :action => "/", :id => "volunteer_inquiry"}
+		%label Request info about Volunteering
+		%input{:type => "email", :name => "email", :id => "email", :placeholder => "email address"}
+		%input{:type => "hidden", :name => "authenticity_token", :id => "authenticity_token"}
+		%input{:type => "submit", :value => "", :id => "volunteer_inquiry_submit"}

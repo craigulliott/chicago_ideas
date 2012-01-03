@@ -26,6 +26,10 @@ CraigsAdmin::Application.routes.draw do
     end
   end
   
+  resources :topics, :only => [:index, :show]
+  
+  
+  
   
   # the Admin                                                                   (http://www.domain.com/admin)
   # ---------------------------------------------------------------------------------------------------------
