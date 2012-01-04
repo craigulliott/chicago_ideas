@@ -50,14 +50,15 @@
 					%li= link_to "All Themes", "/upcoming/themes"
 					%li= link_to "Venues", "upcoming/venues"
 					%li= link_to "see all...", "upcoming/all", :class => "blue"
+					
 				%ul{:class => "n_column"}
 					%li 
 						%span Themes
-						
-					- @topics.first(3).each do |topic|
-						%li.name= link_to topic.name, topic_path(topic)
-						
-					%li= link_to "see all...", "upcoming/all", :class => "blue"	
+					%li= link_to "Calendar", "/upcoming/calendar"
+					%li= link_to "All Themes", "/upcoming/themes"
+					%li= link_to "Venues", "upcoming/venues"
+					%li= link_to "see all...", "upcoming/all", :class => "blue"
+					
 
 
 

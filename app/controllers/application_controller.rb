@@ -3,11 +3,14 @@ class ApplicationController < ActionController::Base
   # the application homepage
   def index
     @talks = Talk.search_sort_paginate(params)
-    @topics = Topic.search_sort_paginate(params)
+    #@topics = Topic.search_sort_paginate(params)
   end
 
   def speakers
+    @speaker = User.find(params[:id])
+    #render :layout => "cms"
   end
+  
   
   def talks
   end

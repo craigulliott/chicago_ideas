@@ -14,10 +14,15 @@ h2 {
 	line-height: 35px;
 	margin-bottom: 20px;
 }
+.content_column h2 {
+	border-bottom:1px solid #ccc;
+	padding-bottom:2px;
+	margin-bottom:10px;
+}
 h3 {
 	font-family: "Helvetica Neue", Helvetia, Arial, sans-serif;
-	font-size: 17px;
-	line-height: 22px;
+	font-size: 15px;
+	line-height: 19px;
 	margin-bottom: 8px;
 	color:$dark;
 	font-weight: 600;
@@ -27,7 +32,7 @@ p {
 	font-family: "Helvetica Neue", Helvetia, Arial, sans-serif;
 	font-size: 15px;
 	color:$grey;
-	line-height: 21px;
+	line-height: 25px;
 	margin-bottom:15px; 
 }
 p:last-child { margin-bottom:0; }

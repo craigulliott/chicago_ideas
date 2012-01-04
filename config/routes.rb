@@ -7,6 +7,8 @@ CraigsAdmin::Application.routes.draw do
   match 'team', :to => 'application#team'
   match 'search', :to => 'application#search'
   match 'videos', :to => 'application#videos'
+  match 'speakers/:id', :to => 'application#speakers'
+  
   # legalese 
   match 'privacy', :to => 'application#privacy'
   match 'terms', :to => 'application#terms'
@@ -27,7 +29,7 @@ CraigsAdmin::Application.routes.draw do
   end
   
   resources :topics, :only => [:index, :show]
-  
+  resources :speakers, :only => [:index, :show]
   
   
   
