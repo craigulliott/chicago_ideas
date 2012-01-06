@@ -79,6 +79,6 @@
 		%li= link_to "About", "/about", :id => "gn-about"
 		%li= link_to "Community", "/community", :id => "gn-community"
 		%li{:class => "nav_section_end"}= link_to "Blog", "/blog", :id => "gn-blog"
-		%li= link_to "Register", "/register", :id => "gn-register"
-		%li{:class => "nav_section_end"}= link_to "Login", "/login", :id => "gn-login"
+		%li= link_to "Register", "/users/sign_up", :id => "gn-register"
+		%li{:class => "nav_section_end"}= link_to "Login", "/users/sign_in", :id => "gn-login"
 		%li{:id => "nav_search"}= link_to "Search", search_path, :id => "gn-search"

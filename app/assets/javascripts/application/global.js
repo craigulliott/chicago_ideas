@@ -94,6 +94,16 @@ $(window).load(function(){
 		if ( $(this).is('.b_thumb_active')) { return false; }
 		$(this).find('.img_grayscale').stop().animate({opacity:0}, 500);
 	});	
+	
+	
+	
+	
+	
+	
+	$('.image_grid li').bind('hover', function(e) {
+		$(this).find('.grid_content').fadeToggle();
+	});
+	
 		
 });
 

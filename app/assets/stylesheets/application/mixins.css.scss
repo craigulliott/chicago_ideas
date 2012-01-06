@@ -30,3 +30,13 @@
 	-webkit-transition: $type $speed;
 	-o-transition: $type $speed;
 }
+
+@mixin gradient($color : blue, $topColor : blue, $bottomColor : blue) {
+   background-color: $color;
+   background-image: url(images/fallback-gradient.png);
+   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($topColor), to($bottomColor));
+   background-image: -webkit-linear-gradient(top, $topColor, $bottomColor);
+   background-image:    -moz-linear-gradient(top, $topColor, $bottomColor);
+   background-image:     -ms-linear-gradient(top, $topColor, $bottomColor);
+   background-image:      -o-linear-gradient(top, $topColor, $bottomColor);
+}

@@ -1,6 +1,7 @@
 /******************************************************
  *	Main Scaffolding	
 ******************************************************/
+html, body { height:100%; }
 body {
 	background-color: $white;
 	margin: 0;
@@ -10,6 +11,22 @@ body {
 	font-weight: normal;
 	line-height: 18px;
 	color: $grey;
+}
+#wrapper {
+	width:100%;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin-bottom: -$footerHeight;
+	
+	//.clearfix:last-child { height: $footerHeight; }
+}
+#wrapper:after {
+	display:table;
+	content: "";
+	zoom:1;
+	height: $footerHeight;
+	clear:both;
 }
 .container { 
 	width: 1000px;
@@ -29,6 +46,10 @@ body {
 .container:after, .container-fluid:after { 
 	clear:both;
 }
+.content_container {
+	padding:40px 0;
+}
+
 .row {
 	zoom: 1;
 }
@@ -170,6 +191,9 @@ body {
 }
 .entry_column:last-child { margin-right:0;}
 
+#main_content {
+	margin-top:20px;
+}
 
 
 
@@ -367,6 +391,7 @@ body {
 #footer {
 	background:#322f30;
 	padding-bottom:20px;
+	height: $footerHeight;
 	
 	#footer_top {
 		#footer_logo {

@@ -5,18 +5,18 @@
 
 %section{:class => "banner container-fluid"}
 	
-	.banner_wrapper{:style => "background: url(/assets/application/temp/speaker_banner.jpg) top center no-repeat;"}
-		
+	.banner_wrapper{:style => "background: url(#{asset_path @speaker.banner.url}) top center no-repeat;"}
+				
 		.container
 			.row.full#banner_linker
 				= link_to "back to speakers", "speakers", :class => "back_btn"
 			
 			.row.full
 				.span8.img_container
-					= image_tag("#{asset_path "application/temp/gilboa_main.jpg"}", :class => "main_image", :width => "460px", :alt => "David Gilboa")
+					= image_tag("#{asset_path @speaker.portrait.url}", :class => "main_image", :width => "460px", :alt => "David Gilboa")
 					
 				.span8.intro_
-					%span{:class => "name_"} David Gilboa
+					%span{:class => "name_"}= @speaker.name
 					%span{:class => "title_"} Co-Founder &amp; Co-CEO, Warby Parker
 					%span{:class => "location_"} Located in New York, NY
 					%span{:class => "intro_text"} THIS AREA CAN BE USED FOR DAVE’S FAVORITE QUOTE OR A QUESTION TO DAVE GILBOA.
@@ -29,11 +29,10 @@
 
 		.span-two-thirds.entry_column.content_column
 			
-			%h2 David Gilboa
-				
-			%p Bio contnet can be placed here. Lorem ipsum dolor sit amet consectetuer adipiscing elit. Duis iaculis tempus lacus. Maecenas scelerisque neque ac mauris. Duis eleifend vivamus lacus lorem euismod ultr ices fringilla molestie et quam. Nam eget nisl aliquam erat volutpat. Vestibulum ultrices consectetuer sapien. Phasellus sem velit aliquet sed condimentum id tempus sit amet orci. Morbi quis quam. Nulla augue velit dapibus nec bibendum id molestie velnisl. Phasellus nec libero etiam sed nisl.
-
-			%p Lorem ipsum dolor sit amet consectetuer adipiscing elit. Duis iaculis tempus lacus. Maecenas scelisque neque ac mauris. Duis eleifend vivamus lacus lorem euismod ultr ices fringilla molestie et quam. Nam eget nisl aliquam erat volutpat. Vestibulum ultrices consectetuer sapien. Phasellus sem velit aliquet sed condimentum id tempus sit amet orci. Morbi quis quam. Nulla augue velit dapibus nec bibendum id mol estie velnisl. Phasellus nec libero etiam sed nisl.
+			%h2= @speaker.name
+			
+			%p
+				=raw @speaker.bio
 				
 				
 			.row.speakers_extras

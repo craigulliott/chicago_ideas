@@ -1,0 +1,6 @@
+
+%ul
+
+	- @talks.each do |t| 
+		
+		%li= link_to t.name, talk_path(t)

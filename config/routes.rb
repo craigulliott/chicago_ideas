@@ -2,16 +2,18 @@ CraigsAdmin::Application.routes.draw do
   
   # the Site
   # ---------------------------------------------------------------------------------------------------------
+  
   root :to => 'application#index'
+  
   # website pages
   match 'team', :to => 'application#team'
   match 'search', :to => 'application#search'
   match 'videos', :to => 'application#videos'
-  match 'speakers/:id', :to => 'application#speakers'
   
   # legalese 
   match 'privacy', :to => 'application#privacy'
   match 'terms', :to => 'application#terms'
+  
   # contact form
   match 'contact', :to => 'application#contact'
   match 'send_contact', :to => 'application#send_contact'
@@ -29,10 +31,10 @@ CraigsAdmin::Application.routes.draw do
   end
   
   resources :topics, :only => [:index, :show]
-  resources :speakers, :only => [:index, :show]
-  
-  
-  
+  resources :speakers, :only => [:index, :show], :controller => 'Application::Speakers'
+  resources :talks, :only => [:index, :show], :controller => 'Application::Talks'
+  resources :volunteer, :only => [:index, :show], :controller => "Application::Volunteer"
+
   # the Admin                                                                   (http://www.domain.com/admin)
   # ---------------------------------------------------------------------------------------------------------
   namespace :admin do
