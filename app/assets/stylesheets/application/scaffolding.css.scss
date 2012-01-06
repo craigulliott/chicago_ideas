@@ -220,7 +220,7 @@ body {
 			
 			> a {
 				display:block;
-				padding:0 17px;
+				padding:0 23px;
 				font-size: 13px;
 				color: #f0f0f0;
 				font-family: 'GothamMediumRegular', 'Helvetica Neue', Arial, sans-serif;
@@ -241,7 +241,7 @@ body {
 			> .nav_children { 
 				position:absolute;
 				display:none;
-				left:265px;
+				left:200px;
 				top:48px;
 				width: 710px;
 				height: 103px;
@@ -251,13 +251,15 @@ body {
 				@include transition(display, 1s);
 				
 				> ul.n_column {
-					width: 115px;
+					width: auto;
+					min-width: 105px;
+					height:100%;
 					display:inline;
 					float:left;
 					list-style:none;
 					border-right:1px solid #fff;
 					border-left: 1px solid #e2e2e2;
-					padding:0 10px 0 20px;
+					padding:0 20px 0 20px;
 					
 					> li {
 						font-size: 13px;
@@ -265,8 +267,8 @@ body {
 						text-shadow:1px 1px 1px #f3f3f3;						
 						
 						> a {
-							color:$grey;
-							line-height: 19px;
+							color:$blue;
+							line-height: 23px;
 							text-decoration:none;
 						}
 						> a:hover { color:$dark; }
@@ -288,8 +290,12 @@ body {
 					padding-left:0;
 				}
 				
+				ul.n_column:last-child {
+					border-right:0px;
+				}
+				
 				> ul.n_featured {
-					width: 415px;
+					width: auto;
 					border-right:0;
 					height: 103px;
 					padding-right:0;
@@ -361,19 +367,83 @@ body {
 		
 		// Search Icon
 		> li#nav_search {
-			width: 33px;
-			height: 47px;
-
-			> a {
+			width: 110px;;
+			position:relative;
+			padding-top:8px;
+			float:right;
+			
+			#global_search_container {
 				display:block;
+				padding: 5px;
+				position:absolute;
+				right:0px !important;
+				width: 106px;
+				height: 20px;
+				background: #494445;
+				@include rounded(4px);
+				@include box-shadow-inset(0px,2px,4px,$dark);
+			}
+			
+			input[type="search"], input[type="text"] {
+				display:inline;
+				width: 60px;
+				padding:5px 0 5px 5px;
+				background-color: #494445 !important;
+				border:none;
+				font-size: 12px;
+				font-weight:300;
+				color:$greyLight;
+			}
+			input[type="text"]:focus {
+				outline:none;
+				color:$offwhite;
+			}
+			
+			input[type="submit"] {
+				float:right;
+				border:none;
 				padding:0;
-				width:33px;
-				height:47px;
+				width:20px !important;
+				height:20px !important;
 				background: asset-url('application/site_sprite.png', image) no-repeat;
-				background-position: 14px -123px;
+				background-position: 0px -135px;
 				text-indent:-9999px;
 			}
+		} // #nav_search
+		
+		
+		
+		li#nav_login {
+			
+			form {
+				padding:20px;
+				
+				input {
+					margin-bottom:10px;
+				}
+				
+				input[type="checkbox"] {
+					display:inline !important;
+					width:auto !important;
+					clear:none;
+					float:left;
+					margin:3px 5px 0 0;
+				}
+				
+			} // end form
+			
 		}
+		/*
+		<form accept-charset="UTF-8" action="/users/sign_in" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="6MHkZ1hLnTnQQ4s70vEXFGkqCY+2uM8QRwwUaXMZwwQ=" /></div>
+		              <input id="user_email" name="user[email]" type="text" />
+		              <input id="user_password" name="user[password]" type="password" />
+		              <input id="user_remember_me" name="user[remember_me]" type="checkbox" value="1" />
+		              <label for="user_remember_me">Remember me</label>
+		              <button>Sign in</button>
+		              <a href="/users/password/new">Forgot your password?</a>
+		            </form>
+		*/
+		
 			
 	} // end #global_nav
 	

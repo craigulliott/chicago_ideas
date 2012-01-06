@@ -98,8 +98,26 @@ $(window).load(function(){
 	
 	
 	
+	// Navigation Search box
+	$('#global_search').bind('focus', function(e) {
+		$('#global_search_container').width('300px');
+		$(this).css({
+			'width' : '250px', 
+			'left' : '0px'
+		});
+	});
+	
+	$('#global_search').bind('blur', function(e) {
+		$('#global_search_container').width('106px');
+		$(this).css({
+			'width' : '65px', 
+			'left' : '0px'
+		});
+	});
 	
 	
+	
+	// standard image grid
 	$('.image_grid li').bind('hover', function(e) {
 		$(this).find('.grid_content').fadeToggle();
 	});
