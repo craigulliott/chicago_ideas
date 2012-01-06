@@ -85,6 +85,7 @@ class User < ActiveRecord::Base
     :styles => { 
       :thumb => "117x117", 
       :medium => "234x234",
+      :full => "468x468",
     },
     :storage => :fog,
     :fog_credentials => {
@@ -193,7 +194,7 @@ class User < ActiveRecord::Base
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_portrait_dimensions
-      dimensions = Paperclip::Geometry.from_file(portrait.to_file(:original))
+      dimensions = Paperclip::Geometry.from_file(portrait.to_file(:full))
       errors.add(:portrait, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait_dimensions_string}") unless dimensions.width == PORTRAIT_WIDTH && dimensions.height == PORTRAIT_HEIGHT
     end
 

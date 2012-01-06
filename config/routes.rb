@@ -4,7 +4,10 @@ CraigsAdmin::Application.routes.draw do
   # ---------------------------------------------------------------------------------------------------------
   
   root :to => 'application#index'
-  
+
+  # we load in this dynamic content after the page loads, this allows us to cache the entire front end of the website
+  match 'account_links', :to => 'application#account_links'
+
   # website pages
   match 'team', :to => 'application#team'
   match 'search', :to => 'application#search'
@@ -17,6 +20,8 @@ CraigsAdmin::Application.routes.draw do
   # contact form
   match 'contact', :to => 'application#contact'
   match 'send_contact', :to => 'application#send_contact'
+  # users homepage
+  match 'dashboard' => 'application#dashboard', :as => 'user_root'
   
   # authentication for the website, uses Devise and Omniauth for facebook and twitter connect
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

@@ -8,7 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     fb_uid = env["omniauth.auth"]["uid"]
     fb_access_token = env["omniauth.auth"]["credentials"]["token"]
 
-    after_connect_goto = session[:after_facebook_connect_path] ? session[:after_facebook_connect_path] : root_path
+    after_connect_goto = session[:after_facebook_connect_path] ? session[:after_facebook_connect_path] : user_root_path
     
     # if we are currently signed in
     if user_signed_in?
