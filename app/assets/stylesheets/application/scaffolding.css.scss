@@ -235,8 +235,6 @@ body {
 				color:$yellow;
 			}
 			
-			> a#gn-archives { padding-left:0; } 
-			
 			// Dropdown Menus
 			> .nav_children { 
 				position:absolute;
@@ -335,7 +333,9 @@ body {
 			
 		} // end li
 		
-		> li.nav_parent:hover, li.nav_parent_active {
+		
+		//> li.nav_parent:hover, li.nav_parent_active {
+		> li.nav_parent_active {
 			background: asset-url('application/nav_arrow.png', image) center bottom no-repeat;
 			
 			> .nav_children {
@@ -344,7 +344,8 @@ body {
 			}
 			
 		} // end li.nav_parent
-				
+		
+			
 		> li.nav_section_end {	// nav section dividers
 			background: asset-url('application/nav_divider.png', image) top right no-repeat;
 		}

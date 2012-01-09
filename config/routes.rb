@@ -12,6 +12,10 @@ CraigsAdmin::Application.routes.draw do
   match 'team', :to => 'application#team'
   match 'search', :to => 'application#search'
   match 'videos', :to => 'application#videos'
+  match 'about', :to => 'Application::About#index'
+  match 'about/staff', :to => 'Application::About#staff'
+  match 'about/staff/:id', :to => 'Application::About#staff'
+  match 'about/volunteer', :to => 'Application::About#volunteer'
   
   # legalese 
   match 'privacy', :to => 'application#privacy'

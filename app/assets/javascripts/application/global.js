@@ -6,6 +6,16 @@ $(window).load(function(){
 	jQuery.easing.def = "easeOutExpo";
 	
 	
+	
+	
+	// Navigation and sub menus
+	$('li.nav_parent').bind('hover', function(e) {
+		$('li.nav_parent').removeClass('nav_parent_active').children().find('div.nav_children').hide();
+		$(this).stop().addClass('nav_parent_active');
+	});
+	
+	
+	
 	/************************************************************************************
 	 **		
 	 **		Homepage Featured Banner Rotator
@@ -100,19 +110,24 @@ $(window).load(function(){
 	
 	// Navigation Search box
 	$('#global_search').bind('focus', function(e) {
-		$('#global_search_container').width('300px');
-		$(this).css({
-			'width' : '250px', 
-			'left' : '0px'
+		//$('#global_search_container').width('300px');
+		$('#global_search_container').animate({
+			width : '300px',
+		});
+		$(this).animate({
+			width : '250px', 
+			left : '0px'
 		});
 	});
 	
 	$('#global_search').bind('blur', function(e) {
-		$('#global_search_container').width('106px');
-		$(this).css({
-			'width' : '65px', 
-			'left' : '0px'
-		});
+			$('#global_search_container').animate({
+				width : '106px',
+			});
+			$(this).animate({
+				width : '65px', 
+				left : '0px'
+			});
 	});
 	
 	
