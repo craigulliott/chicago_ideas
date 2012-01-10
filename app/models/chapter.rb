@@ -6,6 +6,9 @@ class Chapter < ActiveRecord::Base
   belongs_to :talk
   has_many :performances
   accepts_nested_attributes_for :performances, :allow_destroy => true
+
+  has_many :chapter_photos
+  accepts_nested_attributes_for :chapter_photos, :allow_destroy => true
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset

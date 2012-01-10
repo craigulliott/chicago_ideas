@@ -6,7 +6,7 @@ class Talk < ActiveRecord::Base
   BANNER_WIDTH = 1400
   BANNER_HEIGHT = 390
 
-  belongs_to :topic
+  belongs_to :track
   belongs_to :day
   belongs_to :venue
   belongs_to :sponsor
@@ -16,10 +16,12 @@ class Talk < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
 
+  has_many :talk_photos
+  accepts_nested_attributes_for :talk_photos, :allow_destroy => true
+
   validates :name, :presence => true
   validates :day_id, :presence => true
   validates :venue_id, :presence => true
-  validates :topic_id, :presence => true
   validates :talk_brand_id, :presence => true
   validates :start_time, :presence => true
   validates :end_time, :presence => true
@@ -56,7 +58,7 @@ class Talk < ActiveRecord::Base
       :type => self.class.name.downcase,
       :name => name,
       :description => description,
-      :topic => topic.api_attributes,
+      :track => track.api_attributes,
       :day => day.api_attributes,
       :venue => venue.api_attributes,
       :start_time => start_time,

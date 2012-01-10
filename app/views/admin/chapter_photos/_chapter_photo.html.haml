@@ -1,0 +1,8 @@
+%tr{:chapter_photo => chapter_photo.id}
+  %td.photo= link_to chapter_photo.photo, admin_chapter_photo_path(chapter_photo)
+  %td.chapter_id= chapter_photo.chapter_id
+  %td.caption= chapter_photo.caption
+  %td.options
+    = edit_model_link chapter_photo
+    = destroy_model_link chapter_photo
+ 

@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  = new_model_link TalkPhoto
+
+= ssp_search_form TalkPhoto
+
+.table_section
+  %h3 
+    Talk Photos
+    = new_model_link TalkPhoto
+  .table_wrapper
+    = render 'admin/talk_photos/table.html.haml', :talk_photos => @talk_photos
+

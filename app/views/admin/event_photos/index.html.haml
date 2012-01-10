@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  = new_model_link EventPhoto
+
+= ssp_search_form EventPhoto
+
+.table_section
+  %h3 
+    Event Photos
+    = new_model_link EventPhoto
+  .table_wrapper
+    = render 'admin/event_photos/table.html.haml', :event_photos => @event_photos
+

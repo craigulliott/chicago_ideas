@@ -1,0 +1,8 @@
+%tr{:talk_photo => talk_photo.id}
+  %td.photo= link_to talk_photo.photo, admin_talk_photo_path(talk_photo)
+  %td.talk_id= talk_photo.talk_id
+  %td.caption= talk_photo.caption
+  %td.options
+    = edit_model_link talk_photo
+    = destroy_model_link talk_photo
+ 

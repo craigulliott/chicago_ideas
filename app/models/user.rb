@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
 
+  has_many :quotes
+  accepts_nested_attributes_for :quotes, :allow_destroy => true
+
   # useful scopes
   scope :admin, :conditions => { :admin => true }
   scope :speaker, :conditions => { :speaker => true }
@@ -31,7 +34,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable 
          
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :title, :bio, :twitter_screen_name, :portrait, :banner
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :title, :bio, :twitter_screen_name, :portrait, :portrait2, :banner, :quotes_attributes
 
   # validators
   validates :email, :email => { :validate_mx => false }, :presence => true
@@ -198,6 +201,12 @@ class User < ActiveRecord::Base
     def validate_portrait_dimensions
       dimensions = Paperclip::Geometry.from_file(portrait.to_file(:full))
       errors.add(:portrait, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait_dimensions_string}") unless dimensions.width == PORTRAIT_WIDTH && dimensions.height == PORTRAIT_HEIGHT
+    end
+
+    # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
+    def validate_portrait2_dimensions
+      dimensions = Paperclip::Geometry.from_file(portrait2.to_file(:full))
+      errors.add(:portrait2, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait_dimensions_string}") unless dimensions.width == PORTRAIT_WIDTH && dimensions.height == PORTRAIT_HEIGHT
     end
 
 end

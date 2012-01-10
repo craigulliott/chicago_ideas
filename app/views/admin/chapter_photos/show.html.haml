@@ -1,0 +1,22 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @chapter_photo, true
+  = destroy_model_link @chapter_photo, true
+
+%h1
+  This ChapterPhoto
+  = icon_link_to 'notes', notes_admin_chapter_photo_path(@chapter_photo), 'script'
+  = new_model_link Note, @chapter_photo
+
+#model_detail
+  %h4 Photo
+  %p= @chapter_photo.photo
+
+  %h4 Chapter
+  %p= @chapter_photo.chapter.name
+
+  %h4 Caption
+  %p= @chapter_photo.caption
+
+

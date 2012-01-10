@@ -1,0 +1,22 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @talk_photo, true
+  = destroy_model_link @talk_photo, true
+
+%h1
+  This TalkPhoto
+  = icon_link_to 'notes', notes_admin_talk_photo_path(@talk_photo), 'script'
+  = new_model_link Note, @talk_photo
+
+#model_detail
+  %h4 Photo
+  %p= @talk_photo.photo
+
+  %h4 Talk
+  %p= @talk_photo.talk.name
+
+  %h4 Caption
+  %p= @talk_photo.caption
+
+

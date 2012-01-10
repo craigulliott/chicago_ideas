@@ -11,6 +11,9 @@ class Event < ActiveRecord::Base
   belongs_to :venue
   belongs_to :event_brand
   
+  has_many :event_photos
+  accepts_nested_attributes_for :event_photos, :allow_destroy => true
+
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   

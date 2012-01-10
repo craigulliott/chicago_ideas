@@ -1,0 +1,7 @@
+%table#talk_photos
+  %tr
+    %th.photo= ssp_sort_link :photo
+    %th.talk_id= ssp_sort_link :talk_id
+    %th.caption= ssp_sort_link :caption
+    %th 
+  = render :partial => 'admin/talk_photos/talk_photo.html.haml', :collection => talk_photos
