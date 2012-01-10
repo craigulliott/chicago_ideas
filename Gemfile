@@ -22,6 +22,7 @@ gem 'paperclip'
 gem 'fog'
 gem 'redcarpet'
 gem 'countries'
+gem 'memcache-client'
 
 # social
 gem 'koala'
