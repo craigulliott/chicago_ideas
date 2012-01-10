@@ -1,5 +1,4 @@
 // buttons styles, which are used very commonly
-
 a.button, 
 a:link.button, 
 a:visited.button,
@@ -7,14 +6,25 @@ input[type="submit"],
 input[type="button"] {
   @include border-radius(.5em);
   @include transition(background-color .25s linear);
-  background-color: rgb(48,60,61);
+  @include transition(color .25s linear);
   border: 0px;
-  color: #fff;
   font-size: 17px;
   font-weight: bold;
   padding: 0.8em 2em;
-  color: #76BBBE;
   text-decoration:none;
+  background-color: #1A1A1A;
+  @include linear-gradient(top, #000000 0%, #262626 60%);
+  @include linear-gradient(top, $navigation_lowlight 0%, $navigation_highlight 60%);
+  color: #FFFFFF;
+}
+
+a.button.hover, 
+a.button.active, 
+a:hover.button,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: $navigation_highlight;
+  @include linear-gradient(top, $navigation_highlight 0%, $navigation_highlight 60%);
 }
 
 a.button.active, 
@@ -23,14 +33,6 @@ input[type="submit"]:active,
 input[type="button"]:active {
   position: relative;
   top: 1px;
-}
-
-
-a.button.hover, 
-a:hover.button,
-input[type="submit"]:hover,
-input[type="button"]:hover {
-  background-color:rgb(68,113,115);
 }
 
 form.formtastic {
@@ -75,7 +77,6 @@ form.formtastic {
       @include border-radius(3px);
       @include box_shadow(1px 2px 4px #DEDEDE inset);
       border: 2px solid #D2D2D2;
-      color: #326276;
       font: 14px arial,sans-serif;
       padding: 8px;
       @include transition(border-color .25s linear);
@@ -91,7 +92,7 @@ form.formtastic {
 
     textarea {
       height: 100px;
-      width: 572px;
+      width: 600px;
     }
 
     select {
@@ -99,9 +100,9 @@ form.formtastic {
     }
 
     input[type="text"], input[type="email"], input[type="url"] {
-      width: 500px;
+      width: 452px;
     }
-    input[type="password"], input[type="tel"] {
+    input[type="password"], input[type="tel"], input[type="file"] {
       width: 300px;
     }
 
@@ -125,23 +126,32 @@ form.formtastic {
     }
 
     > ol > li, > ol > li > ol > li {
-      padding: 0;
-      margin: 0 0 12px;
+      background-color: #F7F7F7;
+      margin: 6px 0;
+      padding: 6px;
 
       > label {
+        color: #111111;
         display: block;
-        font-size: 1em;
-        color: #111;
+        float: left;
+        font-size: 14px;
         font-weight: bold;
-        padding: 3px 0 10px;
+        line-height: 37px;
+        width: 150px;
       }
-
+      &.text > label {
+        line-height: 25px;
+      }
+      
       p.inline-hints {
-        margin: 0;
+        margin: 0 0 0 150px;
         color: #AAAAAA;
         clear: left;
         font-size: .82em;
         padding: 5px 2px;
+      }
+      &.text p.inline-hints {
+        margin-left: 0;
       }
 
       p.inline-errors {
@@ -219,43 +229,6 @@ form.formtastic {
         }
       }
     }
-
-    a.button, 
-    a:link.button, 
-    a:visited.button,
-    input[type="submit"],
-    input[type="button"] {
-      @include border-radius(.5em);
-      @include box_shadow(none);
-      @include transition(background-color .25s linear);
-      background-color: rgb(48,60,61);
-      border: 0px;
-      color: #fff;
-      font-size: 17px;
-      font-weight: bold;
-      padding: 0.8em 2em;
-      color: #76BBBE;
-    }
-
-    a.button.active, 
-    a:active.button,
-    input[type="submit"]:active,
-    input[type="button"]:active {
-      background-color:rgb(0,0,0);
-      position: relative;
-      top: 1px;
-    }
-
-
-    a.button.hover, 
-    a:hover.button,
-    input[type="submit"]:hover,
-    input[type="button"]:hover {
-      @include transition(background-color .25s linear);
-      background-color:rgb(68,113,115);
-    }
-
-
   }
 
   fieldset.nested_models {
@@ -316,5 +289,4 @@ form.formtastic #devise_links {
     text-decoration: underline;
   }
 }
-
 

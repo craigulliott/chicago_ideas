@@ -1,5 +1,6 @@
 body.admin {
   form.formtastic fieldset {
+    position:relative;
     
     // active states for the form inputs
     &.inputs input {
@@ -9,27 +10,67 @@ body.admin {
       }
     }
     
-    // admin colours on the buttons
-    &.buttons {
-      a.button, 
-      a:link.button, 
-      a:visited.button,
-      input[type="submit"],
-      input[type="button"] {
-        background-color: #1A1A1A;
-        @include linear-gradient(top, #000000 0%, #262626 60%);
-        color: #FFFFFF;
+    // toggle on fieldsets, by clicking the legend
+    &.toggle {
+      > ol {
+        display: none;
       }
-
-      a.button.hover, 
-      a:hover.button,
-      input[type="submit"]:hover,
-      input[type="button"]:hover {
-        background-color: $navigation_highlight;
-        @include linear-gradient(top, $navigation_lowlight 0%, $navigation_highlight 60%);
+      > legend span {
+        text-decoration: underline;
+        cursor: pointer;
       }
-
     }
   
+    // nested forms
+    a.add {
+      background-color: #FFFFFF;
+      border: 1px solid #999999;
+      display: block;
+      font-size: 14px;
+      padding: 3px 6px;
+      position: absolute;
+      right: 10px;
+      text-decoration: none;
+      top: -34px;
+      z-index: 9;
+      font-weight: bold;
+      color: #000;
+    }
+
+    fieldset {
+      position: relative;
+      background: none repeat scroll 0 0 #EEEEEE;
+      padding: 10px;
+      border: 1px solid #CCCCCC;
+      margin-bottom: 10px;
+      
+      a.remove {
+        color: red;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 14px;
+        margin-left: 4px;
+      }
+
+      li {
+        margin: 0 0 6px 0;
+      }
+      
+      input, input[type="text"], input[type="email"], input[type="url"] {
+        padding: 6px;
+        width: 434px;
+      }
+      
+      textarea {
+        height: 60px;
+        width: 580px;
+      }
+      
+      label {
+        padding: 0;
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+    }
   }
 }
