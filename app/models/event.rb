@@ -21,11 +21,7 @@ class Event < ActiveRecord::Base
   validates :start_time, :presence => true
   validates :end_time, :presence => true
   validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
-  
-  # ensure end time is after start time
-  before_validation {|record|
-    record.errors.add :end_time, "Must be after Start Time." unless record.start_time < record.end_time
-  } 
+  validate :validate_temporal_sanity, :unless => "errors.any?"
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
@@ -80,10 +76,16 @@ class Event < ActiveRecord::Base
   end
   
   private 
+  
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_banner_dimensions
       dimensions = Paperclip::Geometry.from_file(banner.to_file(:original))
       errors.add(:banner, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{banner_dimensions_string}") unless dimensions.width == BANNER_WIDTH && dimensions.height == BANNER_HEIGHT
+    end
+  
+    # ensure end time is after start time
+    def validate_temporal_sanity
+      errors.add(:end_time, "Must be after Start Time.") unless self.start_time < self.end_time
     end
   
 end
