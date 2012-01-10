@@ -25,10 +25,20 @@ class Talk < ActiveRecord::Base
   validates :end_time, :presence => true
   validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
   
+  
   # ensure end time is after start time
   before_validation {|record|
     record.errors.add :end_time, "Must be after Start Time." unless record.start_time < record.end_time
   } 
+  
+  
+  def self.random
+    if (c = count) != 0
+      find(:first, :offset => rand(c))
+    end
+  end
+  
+  
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
@@ -65,6 +75,8 @@ class Talk < ActiveRecord::Base
       :type => type,
     }
   end
+  
+  
 
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil

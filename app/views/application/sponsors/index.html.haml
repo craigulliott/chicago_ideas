@@ -1,0 +1,37 @@
+-# 		Chicago Ideas Week
+-# 		about/volunteer.html.haml
+-# 		01/03/2012
+
+
+%section{:class => "banner container-fluid"}
+	
+	.banner_wrapper{:style => "background: url(#{asset_path "application/temp/sponsors_banner.jpg"}) top center no-repeat;"}
+	
+
+%section{:id => "main_content", :class => "row full"}
+	.container
+
+		.span-full.entry_column.content_column
+			
+			%h2 2012 CIW Sponsors
+			
+			%p Lorem ipsum dolor sit amet consectetuer adipiscing elit. Duis iaculis tempus lacus. Maecenas sceleri sque neque ac mauris. Duis eleifend vivamus lacus lorem euismod ultrices fringilla mol estie et quam. Nam eget nisl aliquam erat volutpat. Vestibulum ultrices consectetuer sapien. Lorem ipsum dolor sit amet consectetuer adipiscing elit. Duis iaculis tempus lacus maecenas scelerisque neque ac mauris. 
+				
+			%ul{:class => "sponsorshiplevel_list"}
+				
+				-# check to ensure it's not completely nil
+				- !@sponsorshipLevels.nil? 
+				
+				-# loop over the sponsorship levels
+				- @sponsorshipLevels.each do |sl|
+				
+					%li
+						%span= sl.name
+						
+						- !sl.sponsors.nil?
+						
+						%ul{:class => "sponsors_list"}
+							
+							- sl.sponsors.each do |s|
+								%li
+									= link_to image_tag(s.logo), s.url, :alt => s.name
