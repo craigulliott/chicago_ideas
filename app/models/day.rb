@@ -18,6 +18,8 @@ class Day < ActiveRecord::Base
   after_destroy {|record|
     record.year.delete if record.year.days.empty?
   }
+  
+  scope :by_date, order('date asc')
 
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil

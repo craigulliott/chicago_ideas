@@ -8,6 +8,7 @@ class SponsorshipLevel < ActiveRecord::Base
   has_many :notes, :as => :asset
   
   scope :by_name, order('name asc')
+  scope :by_sort, order('sort asc')
   
   validates :name, :presence => true, :uniqueness => true
   validates :sort, :presence => true, :uniqueness => true

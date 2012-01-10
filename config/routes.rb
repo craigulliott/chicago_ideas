@@ -153,6 +153,8 @@ CraigsAdmin::Application.routes.draw do
         # methods
         get :undelete
         get :delete
+        get :edit_password
+        put :update_password
       end
       resources :notes, :only => [:new, :create]
     end
