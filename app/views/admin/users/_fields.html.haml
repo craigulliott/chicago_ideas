@@ -1,14 +1,17 @@
 = f.inputs do
   = f.input :email
   = f.input :name
-  - if @model.id.present?
-    = f.input :password
-    = f.input :password_confirmation
   = f.input :admin, :hint => "administrators have access to the website backend"
   = f.input :speaker, :hint => "speakers can be associated with talks"
   = f.input :staff, :hint => "staff will appear on the about us page"
   = f.input :title 
   = f.input :bio, :hint => "bios accept basic markdown formatting"
   = f.input :twitter_screen_name 
-  = f.input :portrait, :as => :file, :label => "Portrait Photo (for staff and speakers)", :hint => "portrait photo must be #{@model.portrait_dimensions_string}"
-  = f.input :banner, :as => :file, :label => "Banner Photo (for staff and speakers)", :hint => "a #{@model.banner_dimensions_string} blessed photo for displaying on the site"
+  = f.input :portrait, :as => :file, :label => "Portrait Photo", :hint => "for staff and speakers, must be #{@model.portrait_dimensions_string}"
+  = f.input :portrait2, :as => :file, :label => "Portrait Photo 2", :hint => "for staff and speakers, must be #{@model.portrait_dimensions_string}"
+  = f.input :banner, :as => :file, :label => "Banner Photo", :hint => "this is a #{@model.banner_dimensions_string} blessed photo for staff and speakers"
+
+= f.inputs :name => 'Quotes' do
+  = link_to_add_fields "Add Quote", f, :quotes, :template => 'admin/quotes/nested_fields.html.haml'
+  = f.semantic_fields_for :quotes do |quote_form|
+    = render 'admin/quotes/nested_fields.html.haml', :f => quote_form

@@ -4,7 +4,7 @@
   %td.venue_id= link_to event.venue.name, admin_partner_path(event.venue)
   %td.start_time= event.start_time.to_s(:time)
   %td.end_time= event.end_time.to_s(:time)
-  %td.partner_id= link_to event.partner.name, admin_partner_path(event.partner)
+  %td.partner_id= event.partner.present? ? link_to(event.partner.name, admin_partner_path(event.partner)) : 'none'
   %td.options
     = edit_model_link event
     = destroy_model_link event

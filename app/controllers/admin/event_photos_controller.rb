@@ -1,9 +1,9 @@
-class Admin::TopicsController < Admin::AdminController
+class Admin::EventPhotosController < Admin::AdminController
 
   # COLLECTION ACTIONS
   # ---------------------------------------------------------------------------------------------------------
   def index
-    @topics = Topic.search_sort_paginate(params)
+    @event_photos = EventPhoto.search_sort_paginate(params)
   end
 
   # MEMBER ACTIONS
@@ -11,20 +11,20 @@ class Admin::TopicsController < Admin::AdminController
   
   # standard CRUD functionality exists in the base AdminController
 
-  # the detail page for this topic
+  # the detail page for this event_photo
   def show
     @section_title = 'Detail'
-    @topic = Topic.find(params[:id])
+    @event_photo = EventPhoto.find(params[:id])
   end
 
 
   # MEMBER PAGES
   # ---------------------------------------------------------------------------------------------------------
 
-  # notes associated with this topic
+  # notes associated with this event_photo
   def notes
-    @topic = Topic.find(params[:id])
-    @notes = @topic.notes.includes(:author).search_sort_paginate(params, :parent => @topic)
+    @event_photo = EventPhoto.find(params[:id])
+    @notes = @event_photo.notes.includes(:author).search_sort_paginate(params, :parent => @event_photo)
   end
 
 

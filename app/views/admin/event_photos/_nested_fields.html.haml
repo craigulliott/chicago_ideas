@@ -1,0 +1,4 @@
+= f.inputs :class => 'inputs event_photo' do
+  = f.input :photo, :as => :file, :label => "Photo", :hint => "photo should be #{EventPhoto.photo_dimensions_string}"
+  = f.input :caption 
+  = link_to_remove_fields "remove photo", f

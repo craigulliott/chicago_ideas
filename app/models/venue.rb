@@ -19,6 +19,8 @@ class Venue < ActiveRecord::Base
   validates :country, :presence => true
   validates :lonlat, :presence => {:message => "Failed to geocode this business. Please check the whole address."}
   validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
+  
+  scope :by_name, order('name asc')
 
   before_validation {|record|
     # attempt to geocode the address with google

@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do
+  .crumb.end Talk Photos   
+
+- @active_tab = 'talk_photos'
+
+- content_for :content_navigation do
+  %h2 Talk Photos
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_talk_photos_path, 'search'

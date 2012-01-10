@@ -26,3 +26,8 @@
   %p= @chapter.vimeo_id
 
 
+.table_section
+  %h3 
+    Speakers
+  .table_wrapper
+    = render 'admin/performances/table.html.haml', :performances => @chapter.performances

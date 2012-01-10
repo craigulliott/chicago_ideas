@@ -29,11 +29,11 @@
   .crumb
     = link_to base_model.name, admin_event_path(base_model)
 
-- elsif base_model.kind_of? Topic
+- elsif base_model.kind_of? Track
   .crumb
-    = link_to 'Topics', admin_topics_path
+    = link_to 'Tracks', admin_tracks_path
   .crumb
-    = link_to base_model.name, admin_topic_path(base_model)
+    = link_to base_model.name, admin_track_path(base_model)
 
 - elsif base_model.kind_of? Talk
   .crumb
@@ -77,3 +77,27 @@
     = link_to 'Performances', admin_performances_path
   .crumb
     = link_to 'Performance', admin_performance_path(base_model)
+
+- elsif base_model.kind_of? Quote
+  .crumb
+    = link_to 'Quotes', admin_quotes_path
+  .crumb
+    = link_to 'Quote', admin_quote_path(base_model)
+
+- elsif base_model.kind_of? EventPhoto
+  .crumb
+    = link_to 'Event Photos', admin_event_photos_path
+  .crumb
+    = link_to 'EventPhoto', admin_event_photo_path(base_model)
+
+- elsif base_model.kind_of? ChapterPhoto
+  .crumb
+    = link_to 'Chapter Photos', admin_chapter_photos_path
+  .crumb
+    = link_to 'ChapterPhoto', admin_chapter_photo_path(base_model)
+
+- elsif base_model.kind_of? TalkPhoto
+  .crumb
+    = link_to 'Talk Photos', admin_talk_photos_path
+  .crumb
+    = link_to 'TalkPhoto', admin_talk_photo_path(base_model)

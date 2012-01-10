@@ -1,0 +1,19 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @quote, true
+  = destroy_model_link @quote, true
+
+%h1
+  This Quote
+  = icon_link_to 'notes', notes_admin_quote_path(@quote), 'script'
+  = new_model_link Note, @quote
+
+#model_detail
+  %h4 Body
+  %p= @quote.body
+
+  %h4 User
+  %p= @quote.user.name
+
+

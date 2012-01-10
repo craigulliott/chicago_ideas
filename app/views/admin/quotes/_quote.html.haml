@@ -1,0 +1,7 @@
+%tr{:quote => quote.id}
+  %td.body= link_to quote.body, admin_quote_path(quote)
+  %td.user_id= quote.user_id
+  %td.options
+    = edit_model_link quote
+    = destroy_model_link quote
+ 
