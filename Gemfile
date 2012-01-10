@@ -8,6 +8,8 @@ gem 'foreigner'
 # mongodb is perfect for logging and analytics which we care less about
 gem "mongoid"
 gem "bson_ext"
+# memcache is usefu, because database queries are expensive
+gem 'memcache-client'
 
 # Bundle the extra gems:
 gem 'devise'
@@ -39,7 +41,7 @@ gem 'hot_body', '0.1.1'
 gem 'json_output_helper', '0.1.0'
 gem 'dynamic_models'
 
-# third parts SAS solution for monitoring performance
+# third party SAS solution for monitoring performance
 group :production do
   gem 'newrelic_rpm'
 end
