@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   scope :volunteer, :conditions => { :volunteer => true }
   scope :staff, :conditions => { :staff => true }
   
+  scope :by_name, order('name asc')
+  
   # if a temporary_password is provided, a random password will be generated
   # this random password will be sent to the welcome email, so we can notify the user of it
   attr_accessor :temporary_password

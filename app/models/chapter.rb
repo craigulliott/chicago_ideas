@@ -4,12 +4,16 @@ class Chapter < ActiveRecord::Base
   include SearchSortPaginate
 
   belongs_to :talk
+  has_many :performances
+  accepts_nested_attributes_for :performances, :allow_destroy => true
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
   validates :sort, :presence => true
   validates_uniqueness_of :sort, :scope => :talk_id
+  
+  scope :by_sort, order('sort asc')
   
   # when this model is created, set the sort order to the last in the current set (unless it was already set)
   before_validation {|record|
