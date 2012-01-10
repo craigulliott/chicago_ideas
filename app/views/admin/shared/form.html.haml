@@ -1,6 +1,9 @@
 %h2
-  = @model.id.present? ? "Edit this" : "Create a" 
-  = @model.class.name.titlecase
+  - if @form_title
+    = @form_title
+  - else
+    = @model.id.present? ? "Edit this" : "Create a" 
+    = @model.class.name.titlecase
   %a{:href => '#none', :class => 'close icon'}= icon('closethick', :light)
 
 - # is this a nested model?
@@ -8,9 +11,14 @@
   - form_model = [:admin, @parent, @model]
 - else
   - form_model = [:admin, @model]
+  
+- # if we are using a specific view and action to display and update a specific set of fields 
+- if @field_template
+  - form_model.insert 0, "update_#{@field_template}".to_sym
+  
 - file_upload = @model.respond_to?('accepts_file_upload?') && @model.accepts_file_upload?
 = semantic_form_for form_model, ( file_upload ? {:html => { :multipart => true, :target => 'iframe_upload' }} : {:remote => true}) do |f|
-  = render 'fields.html.haml', :f => f
+  = render (@field_template.present? ? "#{@field_template}_fields.html.haml" : 'fields.html.haml'), :f => f
   = f.buttons do
     = f.commit_button
     %li.cancel= link_to 'Cancel', '#none', :class => 'cancel button'

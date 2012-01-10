@@ -20,8 +20,8 @@ gem 'rails_email_validator'
 gem 'kaminari'
 gem 'paperclip'
 gem 'fog'
-gem 'carmen'
 gem 'redcarpet'
+gem 'countries'
 
 # social
 gem 'koala'
