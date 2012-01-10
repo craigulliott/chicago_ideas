@@ -8,3 +8,6 @@
 // =require general/form
 // =require general/scroll_to.jquery
 // =require general/ezmark.jquery
+
+// =require admin/content_navigation
+// =require admin/forms
