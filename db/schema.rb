@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111224210601) do
+ActiveRecord::Schema.define(:version => 20111229211540) do
 
   create_table "chapters", :force => true do |t|
     t.integer  "sort",        :null => false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
     t.integer  "talk_id",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "vimeo_id"
   end
 
   add_index "chapters", ["talk_id", "sort"], :name => "index_chapters_on_talk_id_and_sort"
@@ -145,6 +146,7 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
     t.datetime "banner_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "url"
   end
 
   add_index "sponsors", ["sponsorship_level_id"], :name => "index_sponsors_on_sponsorship_level_id"

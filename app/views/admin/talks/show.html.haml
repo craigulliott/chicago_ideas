@@ -32,7 +32,7 @@
   %p= @talk.end_time.to_s(:time)
 
   %h4 Sponsor
-  %p= @talk.sponsor.name
+  %p= @talk.sponsor.present? ? @talk.sponsor.name : 'none'
 
   %h4 Banner
   %p= image_tag @talk.banner
