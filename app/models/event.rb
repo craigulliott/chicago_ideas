@@ -43,7 +43,8 @@ class Event < ActiveRecord::Base
     },
     :fog_public => true,
     :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-event-banners",
-    :path => ":id.:extension"
+    :path => ":id.:extension",
+    :default_url => "public/"
   
   # the hash representing this model that is returned by the api
   def api_attributes

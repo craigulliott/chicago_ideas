@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # which pages are we caching
   before_filter :cache_rendered_page, :only => [:index, :contact, :team, :terms]
   
+  
   before_filter :authenticate_user!, :only => [:dashboard]
   
   # the application homepage
