@@ -1,6 +1,16 @@
 #page table {
   margin-bottom:10px;
   font-size:12px;
+  width: 100%;
+  
+  tr:nth-child(odd) {
+    background-color:#F5F5F5;
+  }
+  
+  tr:hover {
+    background-color:#ffe4f1;
+  }
+
   tr.deleted {
     td {
       text-decoration: line-through;
