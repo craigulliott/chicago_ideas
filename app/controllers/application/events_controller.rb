@@ -4,7 +4,6 @@ class Application::EventsController < ApplicationController
     
     @talks = TalkBrand.find_by_name("Talk").talks
     @megatalks = TalkBrand.find_by_name("Mega Talk").talks
-    
     @labs = EventBrand.find_by_name("Lab").events
     
   end
@@ -16,6 +15,7 @@ class Application::EventsController < ApplicationController
      @talks = TalkBrand.find_by_name("Talk").talks
     else
       @talk = Talk.find(params[:id])
+      @chapters = @talk.chapters.all
       render "application/events/talk_individual"
     end
   end # end def talks

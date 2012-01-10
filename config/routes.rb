@@ -20,17 +20,17 @@ CraigsAdmin::Application.routes.draw do
   match 'about/volunteer', :to => 'Application::About#volunteer'
   
   # community pages / sub-pages
-  match 'community', :to => 'Application::Community#index'
-  
+  match 'community', :to => 'Application::Community#index'  
   match 'partners', :to => 'Application::Partners#index'
   match 'partners/integrated-partnerships', :to => 'Application::Partners#integrated_partnerships'
-  
   match 'sponsors', :to => 'Application::Sponsors#index'
   
   # Events: Talks, Mega Talks, Labs, Partner Programs...
   match 'events', :to => 'Application::Events#index'
+
   match 'events/talks', :to => 'Application::Events#talks'
   match 'events/talks/:id', :to => 'Application::Events#talks', :as => "event_talk"
+
   match 'events/mega-talks', :to => 'Application::Events#mega_talks'
   match 'events/mega-talks/:id', :to => 'Application::Events#mega_talks', :as => "event_megatalk"
   match 'events/labs', :to => 'Application::Events#labs'
@@ -39,7 +39,10 @@ CraigsAdmin::Application.routes.draw do
   match 'events/partner-programs', :to => 'Application::Events#partner_programs'
   match 'events/partner-programs/:id', :to => 'Application::Events#partner_programs', :as => "event_partnerprogram"
 
-  
+  # legalese 
+  match 'privacy', :to => 'application#privacy'
+  match 'terms', :to => 'application#terms'
+    
   # users homepage
   match 'dashboard' => 'application#dashboard', :as => 'user_root'
   
@@ -57,7 +60,6 @@ CraigsAdmin::Application.routes.draw do
   
   resources :topics, :only => [:index, :show]
   resources :speakers, :only => [:index, :show], :controller => 'Application::Speakers'
-  #resources :talks, :only => [:index, :show], :controller => 'Application::Talks'
   resources :volunteer, :only => [:index, :show], :controller => "Application::Volunteer"
   resources :partner, :only => [:index, :show], :controller => "Application::Partner"
   resources :sponsors, :only => [:index, :show], :controller => "Application::Sponsors"

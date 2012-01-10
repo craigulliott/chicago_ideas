@@ -1,2 +1,8 @@
 = @talk.name
 = @talk.id
+%br
+%br
+%br
+- @chapters.each do |chapter|
+	= chapter.title
+	= chapter.vimeo_id
