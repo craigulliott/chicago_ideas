@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do
+  .crumb.end Press Clippings   
+
+- @active_tab = 'press_clippings'
+
+- content_for :content_navigation do
+  %h2 Press Clippings
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_press_clippings_path, 'search'

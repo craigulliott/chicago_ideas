@@ -1,0 +1,12 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @press_clipping
+  .crumb.end= section_title   
+
+- content_for :content_navigation do
+  %h2 PressClippings
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_press_clippings_path, 'search'
+  %h2 This Press Clipping
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_press_clipping_path(@press_clipping), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_press_clipping_path(@press_clipping), 'comment'

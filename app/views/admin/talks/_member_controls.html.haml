@@ -11,3 +11,4 @@
     %li{:class => active_for('show')}= icon_link_to "Detail", admin_talk_path(@talk), 'circle-zoomin'
     %li{:class => active_for('chapters')}= icon_link_to "Chapters", chapters_admin_talk_path(@talk), 'bookmark'
     %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_talk_path(@talk), 'comment'
+    %li{:class => active_for('talk_photos')}= icon_link_to "Photos", talk_photos_admin_talk_path(@talk), 'image'

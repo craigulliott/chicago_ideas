@@ -8,7 +8,7 @@ class Application::SpeakersController < ApplicationController
   
   # show and individual speaker
   def show
-    if params[:id].is_number?
+    if params[:id].is_number? # check if an ID or permalink is passed
       @speaker = User.find(params[:id])
     else
       @speaker = User.find_by_permalink(params[:id])

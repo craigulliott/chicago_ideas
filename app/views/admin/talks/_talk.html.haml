@@ -1,6 +1,6 @@
 %tr{:talk => talk.id}
   %td.name= link_to talk.name, admin_talk_path(talk)
-  %td.track_id= talk.track.name
+  %td.track_id= talk.track.present? ? talk.track.name : 'none'
   %td.day_id= talk.day.full_name
   %td.venue_id= link_to talk.venue.name, admin_venue_path(talk.venue)
   %td.start_time= talk.start_time.to_s(:time)

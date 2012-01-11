@@ -1,6 +1,6 @@
 %tr{:event_photo => event_photo.id}
-  %td.photo= link_to event_photo.photo, admin_event_photo_path(event_photo)
-  %td.event_id= event_photo.event_id
+  %td.photo
+    %a{:href => URI.decode(event_photo.photo.url(:full)), :target => '_blank'}= image_tag URI.decode(event_photo.photo.url(:thumb))
   %td.caption= event_photo.caption
   %td.options
     = edit_model_link event_photo

@@ -51,7 +51,10 @@
   %p= @user.twitter_screen_name
 
   %h4 Portrait
-  %p= image_tag @user.portrait.url
+  %p= image_tag URI.decode @user.portrait.url
+
+  %h4 Portrait2
+  %p= image_tag URI.decode @user.portrait2.url
 
   %h4 Banner Image
   %p= image_tag @user.banner.url

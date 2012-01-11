@@ -1,7 +1,6 @@
 %table#chapter_photos
   %tr
     %th.photo= ssp_sort_link :photo
-    %th.chapter_id= ssp_sort_link :chapter_id
     %th.caption= ssp_sort_link :caption
     %th 
   = render :partial => 'admin/chapter_photos/chapter_photo.html.haml', :collection => chapter_photos

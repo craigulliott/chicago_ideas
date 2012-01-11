@@ -73,6 +73,14 @@ CraigsAdmin::Application.routes.draw do
   
     root :to => 'admin#index'
 
+    resources :press_clippings do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
     resources :talk_photos do
       member do
         # pages
@@ -117,8 +125,10 @@ CraigsAdmin::Application.routes.draw do
       member do
         # pages
         get :notes
+        get :chapter_photos
       end
       resources :notes, :only => [:new, :create]
+      resources :chapter_photos, :only => [:new, :create]
     end
 
     resources :event_brands do
@@ -150,9 +160,11 @@ CraigsAdmin::Application.routes.draw do
         # pages
         get :notes
         get :chapters
+        get :talk_photos
       end
       resources :notes, :only => [:new, :create]
       resources :chapters, :only => [:new, :create]
+      resources :talk_photos, :only => [:new, :create]
     end
 
     resources :tracks do
@@ -167,8 +179,10 @@ CraigsAdmin::Application.routes.draw do
       member do
         # pages
         get :notes
+        get :event_photos
       end
       resources :notes, :only => [:new, :create]
+      resources :event_photos, :only => [:new, :create]
     end
 
     resources :sponsors do
