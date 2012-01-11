@@ -1,0 +1,17 @@
+= @talk.name
+= @talk.id
+%br
+%br
+%br
+- @chapters.each do |chapter|
+	= chapter.title
+	= chapter.vimeo_id
+	= chapter.description
+	%br
+	%br
+	- chapter.performances.each do |p|
+		= p.speaker.name
+		%br
+		%br
+		
+		

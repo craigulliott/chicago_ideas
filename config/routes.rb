@@ -28,11 +28,12 @@ CraigsAdmin::Application.routes.draw do
   # Events: Talks, Mega Talks, Labs, Partner Programs...
   match 'events', :to => 'Application::Events#index'
 
-  match 'events/talks', :to => 'Application::Events#talks'
-  match 'events/talks/:id', :to => 'Application::Events#talks', :as => "event_talk"
+  match 'events/talks', :to => 'Application::Talks#talks'
+  match 'events/talks/:id', :to => 'Application::Talks#talks', :as => "talk"
 
-  match 'events/mega-talks', :to => 'Application::Events#mega_talks'
-  match 'events/mega-talks/:id', :to => 'Application::Events#mega_talks', :as => "event_megatalk"
+  match 'events/mega-talks', :to => 'Application::Talks#mega_talks'
+  match 'events/mega-talks/:id', :to => 'Application::Talks#mega_talks', :as => "megatalk"
+  
   match 'events/labs', :to => 'Application::Events#labs'
   match 'events/labs/:id', :to => 'Application::Events#labs', :as => "event_lab"
 

@@ -299,6 +299,8 @@ ul.entry_list {
 ul.entry_featured {
 
 	li {
+		border:none;
+			
 		.img_wrapper {
 			height: 145px !important;
 			width: 300px !important;
@@ -310,7 +312,9 @@ ul.entry_featured {
 			display:block;
 		}
 		h3 {
-			font-size: 16px;
+			font-size: 15px;
+			line-height: 21px;
+			font-weight: 600;
 			margin-bottom: 4px !important;
 		}
 		span {

@@ -28,7 +28,7 @@
 				
 					%li{:class => "entry", :id => "entry_#{talk.id}"}
 						.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg", :width => "300"), "#"
-						%h3= link_to talk.name, event_talk_path(talk)
+						%h3= link_to talk.name, talk_path(talk)
 						%p= talk.track.name
 			
 					%li{:class => "entry"}
@@ -63,7 +63,7 @@
 			
 				
 					%li{:class => "entry", :id => "entry_#{megatalk.id}"}
-						%h3= link_to megatalk.name, event_megatalk_path(megatalk)
+						%h3= link_to megatalk.name, talk_path(megatalk)
 						.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
 						%p= megatalk.description[0..105]
 				
