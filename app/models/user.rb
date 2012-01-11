@@ -92,27 +92,20 @@ class User < ActiveRecord::Base
       :medium => "234x234",
       :full => "468x468",
     },
-    :storage => :fog,
-    :fog_credentials => {
-      :aws_access_key_id => AWS_ACCESS_KEY_ID,
-      :aws_secret_access_key => AWS_SECRET_ACCESS_KEY,
-      provider: 'AWS',
-      region: 'us-east-1'
-    },
-    :fog_public => true,
     :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-portraits",
-    :path => ":id.:extension"
+    :path => ":style/:id.:extension"
+  
+  has_attached_file :portrait2,
+    :styles => { 
+      :thumb => "117x117", 
+      :medium => "234x234",
+      :full => "468x468",
+    },
+    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-alternative-portraits",
+    :path => ":style/:id.:extension"
 
   # large format blessed photo for the website
   has_attached_file :banner,
-    :storage => :fog,
-    :fog_credentials => {
-      :aws_access_key_id => AWS_ACCESS_KEY_ID,
-      :aws_secret_access_key => AWS_SECRET_ACCESS_KEY,
-      provider: 'AWS',
-      region: 'us-east-1'
-    },
-    :fog_public => true,
     :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-banners",
     :path => ":id.:extension"
   

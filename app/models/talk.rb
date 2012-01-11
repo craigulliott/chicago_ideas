@@ -26,12 +26,8 @@ class Talk < ActiveRecord::Base
   validates :start_time, :presence => true
   validates :end_time, :presence => true
   validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
-  
-  # ensure end time is after start time
-  before_validation {|record|
-    record.errors.add :end_time, "Must be after Start Time." unless record.start_time < record.end_time
-  } 
-  
+  validate :validate_temporal_constraints, :unless => "errors.any?"
+    
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
   def accepts_file_upload?
@@ -40,14 +36,6 @@ class Talk < ActiveRecord::Base
   
   # large format blessed photo for the website
   has_attached_file :banner,
-    :storage => :fog,
-    :fog_credentials => {
-      :aws_access_key_id => AWS_ACCESS_KEY_ID,
-      :aws_secret_access_key => AWS_SECRET_ACCESS_KEY,
-      provider: 'AWS',
-      region: 'us-east-1'
-    },
-    :fog_public => true,
     :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-talk-banners",
     :path => ":id.:extension"
   
@@ -92,4 +80,9 @@ class Talk < ActiveRecord::Base
       errors.add(:banner, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{banner_dimensions_string}") unless dimensions.width == BANNER_WIDTH && dimensions.height == BANNER_HEIGHT
     end
   
+    def validate_temporal_constraints
+      # ensure end time is after start time
+      errors.add(:end_time, "Must be after Start Time.") unless self.start_time < self.end_time
+    end
+    
 end

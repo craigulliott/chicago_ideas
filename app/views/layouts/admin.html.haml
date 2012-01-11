@@ -21,6 +21,7 @@
           = link_to 'sponsors', admin_sponsors_path, :class => active_for_controller('admin/sponsors')
           = link_to 'talks', admin_talks_path, :class => active_for_controller('admin/talks')
           = link_to 'events', admin_events_path, :class => active_for_controller('admin/events')
+          = link_to 'news', admin_press_clippings_path, :class => active_for_controller('admin/press_clippings')
         
         #account_links
           - if current_user.connected_to_facebook?

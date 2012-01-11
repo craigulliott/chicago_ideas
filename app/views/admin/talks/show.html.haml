@@ -17,8 +17,7 @@
   %p= @talk.description
 
   %h4 Track
-  %p= @talk.track.name
-
+  %p= @talk.track.present? ? @talk.track.name : 'none'
   %h4 Day
   %p= @talk.day.name
 

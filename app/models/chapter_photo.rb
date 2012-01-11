@@ -20,16 +20,12 @@ class ChapterPhoto < ActiveRecord::Base
   end
   
   has_attached_file :photo,
-    :storage => :fog,
-    :fog_credentials => {
-      :aws_access_key_id => AWS_ACCESS_KEY_ID,
-      :aws_secret_access_key => AWS_SECRET_ACCESS_KEY,
-      provider: 'AWS',
-      region: 'us-east-1'
+    :styles => { 
+      :thumb => "140x105", 
+      :full => "1000x750",
     },
-    :fog_public => true,
-    :fog_directory => "#{S3_NAMESPACE}-chicago_ideas-chapter-photo-photos",
-    :path => ":id.:extension"
+    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-chapter-photo-photos",
+    :path => ":style/:id.:extension"
 
   
   # the hash representing this model that is returned by the api

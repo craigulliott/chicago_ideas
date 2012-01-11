@@ -1,6 +1,6 @@
 %tr{:chapter_photo => chapter_photo.id}
-  %td.photo= link_to chapter_photo.photo, admin_chapter_photo_path(chapter_photo)
-  %td.chapter_id= chapter_photo.chapter_id
+  %td.photo
+    %a{:href => URI.decode(chapter_photo.photo.url(:full)), :target => '_blank'}= image_tag URI.decode(chapter_photo.photo.url(:thumb))
   %td.caption= chapter_photo.caption
   %td.options
     = edit_model_link chapter_photo
