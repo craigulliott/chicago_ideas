@@ -10,7 +10,7 @@
 	%br
 	%br
 	- chapter.performances.each do |p|
-		= p.speaker.name
+		= link_to p.speaker.name, speaker_path(p.speaker.permalink)
 		%br
 		%br
 		

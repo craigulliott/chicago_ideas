@@ -8,8 +8,14 @@ class Application::SpeakersController < ApplicationController
   
   # show and individual speaker
   def show
-    @speaker = User.find(params[:id])
+    if params[:id].is_number?
+      @speaker = User.find(params[:id])
+    else
+      @speaker = User.find_by_permalink(params[:id])
+    end
+    
   end
+  
   
   # Filter speakers
   def filter
