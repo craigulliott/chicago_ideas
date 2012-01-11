@@ -2,8 +2,14 @@
 -# 		events/index.html.haml
 -# 		01/10/2012
 
--# Featured Section/Banner Area
-= render "application/partials/banner"
+
+%section{:class => "banner container-fluid"}	
+	.banner_wrapper{:style => "background: url(#{asset_path "application/events_banner.jpg"}) top center no-repeat;"}
+		.container.banner_table
+			.row.full
+				.banner_shoutout
+					%span{:class => "banner_title"}= "Welcome to the"
+					%span{:class => "banner_hero"}= "Ideasphere"
 
 
 %section{:id => "main_content", :class => "row full"}
@@ -15,32 +21,32 @@
 			
 			- !@talks.nil?
 				
-				%ul{:class => "entry_list"}
+				%ul{:class => "entry_list entry_featured"}
 				
-				- @talks.limit(3).each do |talk|
+					- @talks.limit(3).each do |talk|
 				
 				
-				%li{:class => "entry", :id => "entry_#{talk.id}"}
-					%h3= link_to talk.name, event_talk_path(talk)
-					.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
-					%p= talk.description[0..105]
-				
-			%li{:class => "entry"}
-				%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
-				.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
-				%p
-					= link_to "Category", "#", :class => "category_" 
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
+					%li{:class => "entry", :id => "entry_#{talk.id}"}
+						.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg", :width => "300"), "#"
+						%h3= link_to talk.name, event_talk_path(talk)
+						%p= talk.track.name
 			
-			%li{:class => "entry"}
-				%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
-				.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
-				%p
-					= link_to "Category", "#", :class => "category_" 
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
+					%li{:class => "entry"}
+						%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
+						.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg", :width => "300"), "#"
+						%p
+							= link_to "Category", "#", :class => "category_" 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
+			
+					%li{:class => "entry"}
+						%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
+						.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
+						%p
+							= link_to "Category", "#", :class => "category_" 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
 					
-			%li{:class => "entry entry_readmore"}
-				= link_to "view all talks", "/events/talks"
+					%li{:class => "entry entry_readmore"}
+						= link_to "view all talks", "/events/talks"
 
 		
 		
@@ -50,34 +56,34 @@
 			
 			- !@megatalks.nil?
 			
-				%ul{:class => "entry_list"}
+				%ul{:class => "entry_list entry_featured"}
 			
 			
-				- @megatalks.limit(3).each do |megatalk|
+					- @megatalks.limit(3).each do |megatalk|
 			
 				
-				%li{:class => "entry", :id => "entry_#{megatalk.id}"}
-					%h3= link_to megatalk.name, event_megatalk_path(megatalk)
-					.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
-					%p= megatalk.description[0..105]
+					%li{:class => "entry", :id => "entry_#{megatalk.id}"}
+						%h3= link_to megatalk.name, event_megatalk_path(megatalk)
+						.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
+						%p= megatalk.description[0..105]
 				
-			%li{:class => "entry"}
-				%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
-				.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
-				%p
-					= link_to "Category", "#", :class => "category_" 
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
+					%li{:class => "entry"}
+						%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
+						.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
+						%p
+							= link_to "Category", "#", :class => "category_" 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
 
 			
-			%li{:class => "entry"}
-				%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
-				.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
-				%p
-					= link_to "Category", "#", :class => "category_" 
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
+					%li{:class => "entry"}
+						%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
+						.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
+						%p
+							= link_to "Category", "#", :class => "category_" 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
 			
-			%li{:class => "entry entry_readmore"}
-				= link_to "view all talks", "/events/talks"
+					%li{:class => "entry entry_readmore"}
+						= link_to "view all mega talks", "/events/talks"
 
 			
 			
@@ -88,32 +94,32 @@
 			
 			- !@labs.nil?
 			
-				%ul{:class => "entry_list"}
+				%ul{:class => "entry_list entry_featured"}
 
-				- @labs.limit(3).each do |lab|
+					- @labs.limit(3).each do |lab|
 			
 				
-				%li{:class => "entry", :id => "entry_#{lab.id}"}
-					%h3= link_to lab.name, event_lab_path(lab)
-					.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
-					%p= lab.description[0..105]
+					%li{:class => "entry", :id => "entry_#{lab.id}"}
+						%h3= link_to lab.name, event_lab_path(lab)
+						.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
+						%p= lab.description[0..105]
 							
-			%li{:class => "entry"}
-				%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
-				.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
-				%p
-					= link_to "Category", "#", :class => "category_" 
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
+					%li{:class => "entry"}
+						%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
+						.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
+						%p
+							= link_to "Category", "#", :class => "category_" 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
 			
-			%li{:class => "entry"}
-				%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
-				.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
-				%p
-					= link_to "Category", "#", :class => "category_" 
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
+					%li{:class => "entry"}
+						%h3= link_to "Chicago Ideas Week 2011 Recap, Review and Photos", "#"
+						.img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg"), "#"
+						%p
+							= link_to "Category", "#", :class => "category_" 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mauris quam, malesuada sit amet dapibus eget...
 			
-			%li{:class => "entry entry_readmore"}
-				= link_to "view all talks", "/events/talks"
+					%li{:class => "entry entry_readmore"}
+						= link_to "view all ciw labs", "/events/talks"
 
 <script type="text/javascript">
 $('#gn-event').addClass('nav_parent_active'); // show the 2012 CIW sub menu by default

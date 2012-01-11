@@ -265,7 +265,8 @@ body {
 						text-shadow:1px 1px 1px #f3f3f3;						
 						
 						> a {
-							color:$blue;
+							//color:$blue;
+							color:#555;
 							line-height: 23px;
 							text-decoration:none;
 						}
@@ -274,7 +275,7 @@ body {
 						> span {
 							display:block;
 							font-size: 12px;
-							color:$dark;
+							color:#555;
 							text-transform:uppercase;
 							margin-bottom:10px;
 							font-weight:bold;

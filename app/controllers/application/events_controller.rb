@@ -1,3 +1,11 @@
+#   Chicago Ideas Week
+#   Events Controller
+#   events_controller.rb
+#
+#   This controllers contains all the event like objects, including
+#   talks, mega talks, labs, partner programs, etc.
+
+
 class Application::EventsController < ApplicationController
 
   def index
