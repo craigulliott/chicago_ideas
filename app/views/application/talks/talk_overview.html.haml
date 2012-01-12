@@ -17,7 +17,7 @@
       %ul{:class => "entry_list"}
       - @talks.each do |talk|
         %li{:class => "entry", :id => "entry_#{talk.id}"}
-          .img_wrapper= link_to image_tag(asset_path "application/temp/thumb_temp.jpg"), talk_path(talk)
+          .img_wrapper= link_to image_tag( "application/temp/thumb_temp.jpg"), talk_path(talk)
           %h3= link_to talk.name, talk_path(talk)
           - if talk.track.present?
             %p= talk.track.name

@@ -26,7 +26,7 @@
             - @chapter.performances.each do |p|
               %li
                 .img_wrapper
-                  = link_to image_tag(asset_path "application/temp/speaker_thumb_1.jpg"), "#"
+                  = link_to image_tag( "application/temp/speaker_thumb_1.jpg"), "#"
                 = link_to p.speaker.name, speaker_path(p.speaker.permalink)
                 %span= p.speaker.title
 
@@ -35,13 +35,13 @@
           %span.row_header Photo Gallery
           %ul.list_reset
             %li
-              = link_to image_tag(asset_path "application/temp/gallery_4.jpg"), "#"
+              = link_to image_tag( "application/temp/gallery_4.jpg"), "#"
             %li
-              = link_to image_tag(asset_path "application/temp/gallery_3.jpg"), "#"
+              = link_to image_tag( "application/temp/gallery_3.jpg"), "#"
             %li
-              = link_to image_tag(asset_path "application/temp/gallery_2.jpg"), "#"
+              = link_to image_tag( "application/temp/gallery_2.jpg"), "#"
             %li
-              = link_to image_tag(asset_path "application/temp/gallery_1.jpg"), "#"
+              = link_to image_tag( "application/temp/gallery_1.jpg"), "#"
 
 
         .row.content_section#talk_description
