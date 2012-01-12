@@ -30,4 +30,4 @@
             - sl.sponsors.present?
             %ul.sponsors_list
             - sl.sponsors.each do |s|
-              %li= link_to image_tag(URI.decode s.logo), s.url, :alt => s.name
+              %li= link_to image_tag URI.decode(s.logo), s.url, :alt => s.name
