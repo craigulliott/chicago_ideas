@@ -18,7 +18,7 @@
       - @talks.limit(3).each do |talk|
 
         %li.entry{:id => "entry_#{talk.id}"}
-          .img_wrapper= link_to image_tag( "application/temp/blog_thumb.jpg", :width => "300"), "#"
+          .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg", :width => "300"), "#"
           %h3= link_to talk.name, talk_path(talk)
           - if talk.track.present?
             %p= talk.track.name
@@ -34,7 +34,7 @@
       - @megatalks.limit(3).each do |megatalk|
         %li.entry{:id => "entry_#{megatalk.id}"}
           %h3= link_to megatalk.name, talk_path(megatalk)
-          .img_wrapper= link_to image_tag( "application/temp/blog_thumb.jpg"), "#"
+          .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
           %p= megatalk.description[0..105]
 
 
@@ -48,7 +48,7 @@
       - @labs.limit(3).each do |lab|
         %li.entry{:id => "entry_#{lab.id}"}
           %h3= link_to lab.name, event_lab_path(lab)
-          .img_wrapper= link_to image_tag( "application/temp/blog_thumb.jpg"), "#"
+          .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
           %p= lab.description[0..105]
 
 

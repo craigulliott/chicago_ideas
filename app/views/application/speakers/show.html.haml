@@ -12,7 +12,7 @@
 
       .row.full
         .span8.img_container
-          = image_tag("#{asset_path @speaker.portrait.url}", :class => "main_image", :width => "460px", :alt => "#{@speaker.name}")
+          = image_tag(URI.decode @speaker.portrait.url, :class => "main_image", :width => "460px", :alt => "#{@speaker.name}")
 
         .span8.intro_
           %span{:class => "name_"}= @speaker.name
