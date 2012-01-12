@@ -1,57 +1,47 @@
--# 		Chicago Ideas Week
--# 		about/volunteer.html.haml
--# 		01/03/2012
+-#     Chicago Ideas Week
+-#     about/volunteer.html.haml
+-#     01/03/2012
 
 
-%section{:class => "banner container-fluid"}
-	
-	.banner_wrapper{:style => "background: url(#{asset_path "application/temp/sponsors_banner.jpg"}) top center no-repeat;"}
-	
+%section.banner.container-fluid
+  .banner_wrapper{:style => "background: url(#{asset_path "application/temp/sponsors_banner.jpg"}) top center no-repeat;"}
 
-%section{:id => "main_content", :class => "row full"}
-	.container
 
-		.span-two-thirds.entry_column.content_column
-			
-			%h2 Community Partners
-			
-			%p The CIW Community Partner program is designed to identify, develop, and sustain relationships that will bring fresh perspectives, leverage resources, and further the inclusiveness of the Chicago Ideas Week community.
 
-			%p The CIW Community Partner program is created to ensure that the Chicago Ideas Week network extends to all corners of our city and consists of as many diverse, unique, and engaged individuals possible.
+%section#main_content.row.full
+  .container
+    .span-two-thirds.entry_column.content_column
 
-			%p Participants include local businesses, foundations, funds, non-profit organizations, or community centers located in and around the city of Chicago.
-			
-			
-			%p 
-				
-				Local businesses, foundations, funds, non profit organizations, or community centers located in and around the city of Chicago
-			
-				%ul
-					%li Engaged in supporting the City of Chicago and its citizens
-					%li Committed to the goals and ideology of Chicago Ideas Week
-					%li Dedicated to exposing their audiences to Chicago Ideas Week events
+      %h2 Community Partners
 
-			%p If your organization is as passionate as we are about transformational ideas and building lasting connections, we’d love to hear from you! Chicago Ideas Week provides a unique promotional platform and, with your help, we can further extend the Chicago Ideas Week conversation around new ideas and innovation.
+      %p The CIW Community Partner program is designed to identify, develop, and sustain relationships that will bring fresh perspectives, leverage resources, and further the inclusiveness of the Chicago Ideas Week community.
+      %p The CIW Community Partner program is created to ensure that the Chicago Ideas Week network extends to all corners of our city and consists of as many diverse, unique, and engaged individuals possible.
+      %p Participants include local businesses, foundations, funds, non-profit organizations, or community centers located in and around the city of Chicago.
+      %p 
+        Local businesses, foundations, funds, non profit organizations, or community centers located in and around the city of Chicago
+        %ul
+          %li Engaged in supporting the City of Chicago and its citizens
+          %li Committed to the goals and ideology of Chicago Ideas Week
+          %li Dedicated to exposing their audiences to Chicago Ideas Week events
 
-			%p To apply to enroll in the CIW Community Partner program, please <a href="#">click here</a>. For more information, please email <a href="mailto:brooke@chicagoideas.com">brooke@chicagoideas.com.</a>
+      %p If your organization is as passionate as we are about transformational ideas and building lasting connections, we’d love to hear from you! Chicago Ideas Week provides a unique promotional platform and, with your help, we can further extend the Chicago Ideas Week conversation around new ideas and innovation.
+      %p To apply to enroll in the CIW Community Partner program, please <a href="#">click here</a>. For more information, please email <a href="mailto:brooke@chicagoideas.com">brooke@chicagoideas.com.</a>
+      %p All applications are subject to evaluation by the CIW executive committee.
 
-			%p All applications are subject to evaluation by the CIW executive committee.
-				
-		
 
-		.span-one-third.entry_column.sidebar.right#community
+    .span-one-third.entry_column.sidebar.right#community
 
-			%h2 Community
+      %h2 Community
 
-			= render "application/partials/sponsors"
-			= render "application/partials/newsletter_form"
-			= render "application/partials/volunteer_info"
-			= render "application/partials/social"
-			= render "application/partials/tweets"
-			
-			
-			
-			
+      = render "application/partials/sponsors"
+      = render "application/partials/newsletter_form"
+      = render "application/partials/volunteer_info"
+      = render "application/partials/social"
+      = render "application/partials/tweets"
+
+
+
+
 <script type="text/javascript">
 $('#gn-community').addClass('nav_parent_active'); // show the 2012 CIW sub menu by default
 </script>

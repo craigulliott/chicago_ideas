@@ -9,10 +9,10 @@
 %meta{ :charset => "utf-8" }/
 
 - if Rails.env == 'production'
-	%meta{:name => "robot", :content => "index,follow"}
-	%meta{:name => "googlebot", :content => "index,follow"}
-	%meta{:name => "Distribution", :content => "Global"}
-	%meta{:name => "revisit-after", :content => "1days"}
+  %meta{:name => "robot", :content => "index,follow"}
+  %meta{:name => "googlebot", :content => "index,follow"}
+  %meta{:name => "Distribution", :content => "Global"}
+  %meta{:name => "revisit-after", :content => "1days"}
 
 %meta{:property => "og:title", :content => ""}
 %meta{:property => "og:description", :content => ""}
@@ -31,9 +31,9 @@
 
 %title=  page_title
 - if Rails.env == 'production'
-	%script{:type => "text/javascript", :src => "http://js.getexceptional.com/exceptional.js"}
-	%script{:type => "text/javascript"} Exceptional.setKey('#{ENV['EXCEPTIONAL_API_KEY']}');
-	
+  %script{:type => "text/javascript", :src => "http://js.getexceptional.com/exceptional.js"}
+  %script{:type => "text/javascript"} Exceptional.setKey('#{ENV['EXCEPTIONAL_API_KEY']}');
+
 = stylesheet_link_tag :application
 = javascript_include_tag :application
 = csrf_meta_tag

@@ -12,17 +12,17 @@
 - conditional_html 'en'
 
 %head
-	= render "layouts/application/head"
+  = render "layouts/application/head"
 
 %body{:id => body_id, :class => body_class}
 
-	-# Global Header & Navigation
-	%header{:id => "main_header", :class => "container-fluid"}
-		= render "layouts/application/header"
-				
-	-# Main Body Content
-	= yield
-	
-	
-	%footer{:id => "footer", :class => "container-fluid"}
-		= render "layouts/application/footer"
+  -# Global Header & Navigation
+  %header{:id => "main_header", :class => "container-fluid"}
+    = render "layouts/application/header"
+
+  -# Main Body Content
+  = yield
+
+
+  %footer{:id => "footer", :class => "container-fluid"}
+    = render "layouts/application/footer"

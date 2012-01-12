@@ -1,23 +1,23 @@
 
 // rounded corner
 @mixin rounded($radius:10px) {
-	border-radius: $radius;
-	-moz-border-radius: $radius;
-	-webkit-border-radius: $radius;
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
 }
 
 // create a box shadow
 @mixin box-shadow($h:1px, $v:1px, $d:1px, $color:#fff) {
-	box-shadow: $h $v $d $color;
-	-moz-box-shadow: $h $v $d $color;
-	-webkit-box-shadow: $h $v $d $color;	
+  box-shadow: $h $v $d $color;
+  -moz-box-shadow: $h $v $d $color;
+  -webkit-box-shadow: $h $v $d $color;  
 }
 
 // inset box shadow
 @mixin box-shadow-inset($h:1, $v:1, $d:1, $color:#fff) {
-	box-shadow: inset $h $v $d $color;
-	-moz-box-shadow: inset $h $v $d $color;
-	-webkit-box-shadow: inset $h $v $d $color;
+  box-shadow: inset $h $v $d $color;
+  -moz-box-shadow: inset $h $v $d $color;
+  -webkit-box-shadow: inset $h $v $d $color;
 }
 
 //make items non selectable
@@ -25,10 +25,10 @@
 
 //transitions
 @mixin transition($type:width, $speed:1s) {
-	transition: $type $speed;
-	-moz-transition: $type $speed;
-	-webkit-transition: $type $speed;
-	-o-transition: $type $speed;
+  transition: $type $speed;
+  -moz-transition: $type $speed;
+  -webkit-transition: $type $speed;
+  -o-transition: $type $speed;
 }
 
 @mixin gradient($color : blue, $topColor : blue, $bottomColor : blue) {
