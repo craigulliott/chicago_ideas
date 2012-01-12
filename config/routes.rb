@@ -21,6 +21,7 @@ CraigsAdmin::Application.routes.draw do
   
   # community pages / sub-pages
   match 'community', :to => 'Application::Community#index'  
+
   match 'partners', :to => 'Application::Partners#index'
   match 'partners/integrated-partnerships', :to => 'Application::Partners#integrated_partnerships'
   match 'sponsors', :to => 'Application::Sponsors#index'
