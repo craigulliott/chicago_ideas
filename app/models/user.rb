@@ -93,8 +93,6 @@ class User < ActiveRecord::Base
       :full => "468x468",
     },
     :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-portraits",
-    :path => ":id.:extension",
-    :default_url => "public/"
     :path => ":style/:id.:extension"
   
   has_attached_file :portrait2,
@@ -106,12 +104,10 @@ class User < ActiveRecord::Base
     :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-alternative-portraits",
     :path => ":style/:id.:extension"
 
-
   # large format blessed photo for the website
   has_attached_file :banner,
     :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-banners",
-    :path => ":id.:extension",
-    :default_url => "public/"
+    :path => ":id.:extension"
   
   # an array representing this users special permissiond (tags) used for display purposes
   def access_tags

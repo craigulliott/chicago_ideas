@@ -3,13 +3,8 @@
 -# 		01/10/2012
 
 
-%section{:class => "banner container-fluid"}	
-	.banner_wrapper{:style => "background: url(#{asset_path "application/events_banner.jpg"}) top center no-repeat;"}
-		.container.banner_table
-			.row.full
-				.banner_shoutout
-					%span{:class => "banner_title"}= "Welcome to the"
-					%span{:class => "banner_hero"}= "Ideasphere"
+-# Featured Section/Banner Area
+= render "application/events/banner"
 
 
 %section{:id => "main_content", :class => "row full"}
@@ -21,7 +16,7 @@
 			
 			- !@talks.nil?
 				
-				%ul{:class => "entry_list entry_featured"}
+				%ul{:class => "entry_list"}
 				
 					- @talks.limit(3).each do |talk|
 				
@@ -56,7 +51,7 @@
 			
 			- !@megatalks.nil?
 			
-				%ul{:class => "entry_list entry_featured"}
+				%ul{:class => "entry_list"}
 			
 			
 					- @megatalks.limit(3).each do |megatalk|
@@ -94,7 +89,7 @@
 			
 			- !@labs.nil?
 			
-				%ul{:class => "entry_list entry_featured"}
+				%ul{:class => "entry_list"}
 
 					- @labs.limit(3).each do |lab|
 			

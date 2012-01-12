@@ -7,6 +7,13 @@ a.blue:hover { text-decoration:underline !important; }
 .small { font-size: 12px !important; }
 
 
+h1 {
+	font-size: 29px;
+	font-weight: 800;
+	color: $dark;
+	line-height: 37px;
+	margin-bottom: 15px;
+}
 h2 {
 	font-size: 27px;
 	color:$dark;
@@ -28,7 +35,7 @@ h3 {
 	font-weight: 600;
 }
 
-p { 
+p, pre { 
 	font-family: "Helvetica Neue", Helvetia, Arial, sans-serif;
 	font-size: 15px;
 	color:$grey;
@@ -56,4 +63,14 @@ a, a:active, a:visited {
 }
 a:hover {
 	text-decoration:underline;
+}
+
+span.row_header {
+	font-size: 12px;
+	color: $grey;
+	font-weight: bold;
+	text-transform: uppercase;
+	display:block;
+	line-height: 15px;
+	margin-bottom: 20px;
 }

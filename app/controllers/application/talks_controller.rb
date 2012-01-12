@@ -48,5 +48,13 @@ class Application::TalksController < ApplicationController
   end
   
   
+  def chapter
+    @talk = Talk.find(params[:id])
+    @chapters = @talk.chapters.all
+    @chapter = Chapter.find(params[:id])
+    render "application/talks/chapter_individual"
+  end
+  
+  
 
 end

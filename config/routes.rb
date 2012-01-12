@@ -29,7 +29,10 @@ CraigsAdmin::Application.routes.draw do
   match 'events', :to => 'Application::Events#index'
 
   match 'events/talks', :to => 'Application::Talks#talks'
-  match 'events/talks/:id', :to => 'Application::Talks#talks', :as => "talk"
+  
+  match 'talks/:id', :to => 'Application::Talks#talks', :as => "talk"
+  match 'talks/:id/chapter/:id', :to => 'Application::Talks#chapter', :as => "chapter"
+  
 
   match 'events/mega-talks', :to => 'Application::Talks#mega_talks'
   match 'events/mega-talks/:id', :to => 'Application::Talks#mega_talks', :as => "megatalk"

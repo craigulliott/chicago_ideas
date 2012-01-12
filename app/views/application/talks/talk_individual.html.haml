@@ -1,17 +1,100 @@
-= @talk.name
-= @talk.id
-%br
-%br
-%br
-- @chapters.each do |chapter|
-	= chapter.title
-	= chapter.vimeo_id
-	= chapter.description
-	%br
-	%br
-	- chapter.performances.each do |p|
-		= link_to p.speaker.name, speaker_path(p.speaker.permalink)
-		%br
-		%br
+-# 		Chicago Ideas Week
+-# 		talks/talk_individual.html.haml
+-# 		01/12/2012
+
+
+-#= @talk.name
+-#= @talk.id
+-#%br
+-#%br
+-#%br
+-#- @chapters.each do |chapter|
+-#	= chapter.title
+-#	= chapter.vimeo_id
+-#	= chapter.description
+-#	%br
+-#	%br
+-#	- chapter.performances.each do |p|
+-#		= link_to p.speaker.name, speaker_path(p.speaker.permalink)
+-#		%br
+-#		%br
+		
+
+%section{:class => "banner container-fluid"}
+	
+	.banner_wrapper{:style => "background: url(#{@talk.banner.url}) top center no-repeat;"}
+
+
+%section{:id => "main_content", :class => "row full"}
+	.container
+	
+		.row.talk_header#talk_header
+		
+			.span11.left
+				%h1= @talk.name
+				%span{:class => "sub_header"}= link_to @talk.track.name, "#"
+				
+			.span5.right
+				social goes here
+				
 		
 		
+		.row.talk_body
+			
+			.span11#talk_content
+				
+				.row.content_section#talk_description
+					%span{:class => "row_header"} About this Chapter
+					%pre= @talk.description
+
+				
+
+			.span5#chapter_list
+				%span{:class => "row_header"} Chapters
+				
+				%ul{:class => "list_reset styled_thumbs"}
+				
+					- @chapters.each do |chapter|
+						
+						%li
+							.img_wrapper
+								= link_to "", "#",  :class => "play_btn"
+								= image_tag URI.decode chapter.chapter_photos.first.photo.url(:thumb)
+							= link_to chapter.title, chapter_path(chapter)
+							%span= "#{chapter.performances.count} speakers"
+					
+					%li
+						.img_wrapper
+							= link_to "", "#", :class => "play_btn"
+							= link_to image_tag(asset_path "application/temp/chapter_thumb_1.jpg"), "#"
+						= link_to "How Social Media is Changing Business", "#"
+						%span 3 Speakers
+						
+					%li
+						.img_wrapper
+							= link_to "", "#", :class => "play_btn"
+							= link_to image_tag(asset_path "application/temp/chapter_thumb_1.jpg"), "#"
+						= link_to "How Social Media is Changing Business", "#"
+						%span 3 Speakers
+						
+					%li
+						.img_wrapper
+							= link_to "", "#", :class => "play_btn"
+							= link_to image_tag(asset_path "application/temp/chapter_thumb_1.jpg"), "#"
+						= link_to "How Social Media is Changing Business", "#"
+						%span 3 Speakers
+						
+					%li
+						.img_wrapper
+							= link_to "", "#", :class => "play_btn"
+							= link_to image_tag(asset_path "application/temp/chapter_thumb_1.jpg"), "#"
+						= link_to "How Social Media is Changing Business", "#"
+						%span 3 Speakers
+						
+					%li	
+						.img_wrapper
+							= link_to "", "#", :class => "play_btn"
+							= link_to image_tag(asset_path "application/temp/chapter_thumb_1.jpg"), "#"
+						= link_to "How Social Media is Changing Business", "#"
+						%span 3 Speakers
+						
