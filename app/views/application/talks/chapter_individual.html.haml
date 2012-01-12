@@ -9,11 +9,10 @@
     .row.talk_header#talk_header
       .span11.left
         %h1= @talk.name
-        %span{:class => "sub_header"}= link_to @talk.track.name, "#"
+        - if @talk.track.pesent?
+          %span{:class => "sub_header"}= link_to @talk.track.name, "#"
       .span5.right
         social goes here
-
-
 
     .row.talk_body
       .span11#talk_content
@@ -43,7 +42,6 @@
               = link_to image_tag(asset_path "application/temp/gallery_2.jpg"), "#"
             %li
               = link_to image_tag(asset_path "application/temp/gallery_1.jpg"), "#"
-
 
 
         .row.content_section#talk_description

@@ -20,7 +20,8 @@
         %li.entry{:id => "entry_#{talk.id}"}
           .img_wrapper= link_to image_tag(asset_path "application/temp/blog_thumb.jpg", :width => "300"), "#"
           %h3= link_to talk.name, talk_path(talk)
-          %p= talk.track.name
+          - if talk.track.present?
+            %p= talk.track.name
 
 
 

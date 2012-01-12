@@ -30,7 +30,8 @@
     .row.talk_header#talk_header
       .span11.left
         %h1= @talk.name
-        %span{:class => "sub_header"}= link_to @talk.track.name, "#"
+        - if @talk.track.present?
+          %span{:class => "sub_header"}= link_to @talk.track.name, "#"
       .span5.right
         social goes here
 
