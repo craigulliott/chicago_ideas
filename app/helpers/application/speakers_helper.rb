@@ -1,0 +1,2 @@
+module Application::SpeakersHelper
+end

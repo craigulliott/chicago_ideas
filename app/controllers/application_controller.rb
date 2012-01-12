@@ -3,11 +3,41 @@ class ApplicationController < ActionController::Base
   # which pages are we caching
   before_filter :cache_rendered_page, :only => [:index, :contact, :team, :terms]
   
+  
   before_filter :authenticate_user!, :only => [:dashboard]
   
   # the application homepage
   def index
+    @talks = Talk.search_sort_paginate(params)
+    #@topics = Topic.search_sort_paginate(params)
   end
+
+  def videos
+    
+  end
+  
+  def about
+  end
+  
+  def community
+  end
+  
+  def blog
+  end
+  
+  def register
+  end
+  
+  def login
+  end
+  
+  def archives
+  end
+  
+  def search
+  end
+  
+
 
   def contact
   end

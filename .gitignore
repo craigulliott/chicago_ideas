@@ -3,6 +3,8 @@ log
 log/*
 tmp
 tmp/*
+vendor/bundle/*
+vendor/bundle
 .sass-cache
 .rvmrc
 .DS_Store

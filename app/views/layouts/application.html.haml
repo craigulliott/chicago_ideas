@@ -1,64 +1,28 @@
+-################################################
+-#
+-# 		Project		Chicago Ideas Week
+-# 		Title		Application Front-End
+-# 		File		Application.html.haml
+-# 		Date		12/30/11
+-# 		Author		John Koht
+-#
+-################################################
+
 !!! 5
-%html{"xmlns:og" => "http://opengraphprotocol.org/schema/", 'xmlns:fb'  => "http://www.facebook.com/2008/fbml", "xmlns" => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", "lang" => "en"}
-  %head
-    %meta{'http-equiv' => 'Content-Type', :content => 'text/html;charset=utf-8'}
-    %link{:rel => 'shortcut icon', :href => '/favicon.ico', :type => 'image/x-icon'}
-    %meta{:name => 'description', :content => ""}
-    %meta{:name => 'keywords', :content => ""}
-    %meta{:property => "og:title", :content => ""}
-    %meta{:property => "og:description", :content => ""}
-    %meta{:property => "og:type", :content => "website"}
-    %meta{:property => "og:image", :content => image_url('logo.jpg')}
-    %meta{:property => "og:url", :content => root_url}
-    %meta{:property => "og:site_name", :content => "Site Name"}
-    %meta{:property => "fb:app_id", :content => FACEBOOK_CLIENT_ID}
-    %title=  page_title
-    - if Rails.env == 'production'
-      %script{:type => "text/javascript", :src => "http://js.getexceptional.com/exceptional.js"}
-      %script{:type => "text/javascript"} Exceptional.setKey('#{ENV['EXCEPTIONAL_API_KEY']}');
-    = stylesheet_link_tag :application
-    = javascript_include_tag :application
-    = csrf_meta_tag
-    
-  %body{:id => body_id, :class => body_class}
-    #fb-root
-    :javascript
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '#{FACEBOOK_CLIENT_ID}',
-          status     : true,
-          cookie     : true,
-          oauth      : true,
-          xfbml      : false
-        });
-      };
-    
-    #main
+- conditional_html 'en'
 
-      #header
-        = link_to '', root_url, :id => "logo"
-        %ul#main_menu
-          %li= link_to 'Home', root_path
-          %li= link_to 'Contact', contact_path
+%head
+  = render "layouts/application/head"
 
-        %ul#social_links
-          %li
-            %script{:src => "http://connect.facebook.net/en_US/all.js#xfbml=1"}
-            %fb:like{"data-href" => "http://www.facebook.com/#{FACEBOOK_FAN_PAGE_NAME}", :layout => "button_count", :show_faces => "false", :width => "80"} 
-          %li
-            %a.twitter-follow-button{:href => "https://twitter.com/#{TWITTER_SCREEN_NAME}", :class => "twitter-follow-button", 'data-width' => "300px", 'data-align' => "right"} Follow @#{TWITTER_SCREEN_NAME}
-            :javascript
-              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-        %ul#account_links
+%body{:id => body_id, :class => body_class}
 
-      #page_content= yield
-      
-      #footer
-        &copy; #{BUSINESS_NAME}, #{Time.now.year}
-        = link_to 'About Us', team_path
-        = link_to 'Contact Us', contact_path
-        = link_to 'Terms', terms_path
-  
-    #flash_helper= flash_helper
-    
-    = render 'shared/google_analytics'
+  -# Global Header & Navigation
+  %header{:id => "main_header", :class => "container-fluid"}
+    = render "layouts/application/header"
+
+  -# Main Body Content
+  = yield
+
+
+  %footer{:id => "footer", :class => "container-fluid"}
+    = render "layouts/application/footer"
