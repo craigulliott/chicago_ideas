@@ -1,0 +1,195 @@
+// Place all the styles related to the application/talks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// Individual Talk Page
+#talk_header { 
+  margin-bottom: 10px; 
+  padding: 10px 0 15px 0;
+  
+  h1 {
+    margin-bottom: 1px;
+  }
+  
+  span.sub_header a {
+    font-size: 13px;
+    color: $grey;
+  }
+  
+  .span5 { 
+    float:right;
+  }
+  
+} // end #talk_header
+
+
+#talk_content {
+//  background-color: #f6f6f5;
+//  @include box-shadow(1px,1px,1px,#ccc);
+  margin-bottom: 40px;
+  width: 680px;
+  
+  #player_container {
+    display:block;
+    clear:both;
+  }
+  .content_section {
+    display:block;
+    padding: 30px 0px;
+    border-bottom: 1px solid #e0dfdf;
+    border-top: 1px solid #fff;  
+  }
+  .content_section:before, .content_section:after {
+    display:table;
+    content:"";
+    zoom:1;
+  }
+  .content_section:after {
+    clear:both;
+  }
+  
+  #talk_speakers {
+    padding-bottom:15px;
+    ul {
+      
+      li {
+        display:inline;
+        float:left;
+        width: 215px;
+        margin:0 10px 10px 0;
+        
+        .img_wrapper {
+          width: 65px;
+          height: 45px;
+          margin: 0 10px 10px 0;
+          float:left;
+          border: 3px solid #fff;
+        }
+        
+        a {
+          font-size: 12px;
+          font-weight: bold;
+          display:block;
+          margin-bottom: 1px;
+        }
+        
+        span {
+          font-size: 12px;
+          color: $grey;
+          font-weight:  200;
+        }
+      }
+      li:nth-child(3n+3) {
+        margin-right:0;
+      }
+    }
+  } // end #talk_speakers
+  
+  #talk_gallery {
+    padding-bottom:5px;
+
+    ul {
+          
+      li {
+        display: inline; 
+        float: left;
+        margin: 0 10px 0 0;
+        width: 162px;
+        height: 125px;
+        overflow: hidden;
+      }
+      li:last-child {
+        margin-right: 0;
+      }
+    }
+  } // end #talk_gallery
+  
+  #talk_description {
+    > ul {
+      
+      > li {
+        display:inline;
+        width: 300px;
+        float:left;
+      }
+      > li:last-child {
+        float:right;
+      }
+    }
+  }
+  
+} // end #talk_body
+
+
+#chapter_list {
+  float:right;
+  
+  > ul {
+    display:block;
+    
+    li {
+      display: block;
+      clear: both;
+      margin-bottom: 35px;
+      
+      .img_wrapper {
+        width: 100px;
+        height: 58px;
+        float: left;
+        margin: 0 10px 10px 0;
+        position: relative;
+        
+        .play_btn {
+          display:block;
+          z-index:1005px;
+          position:absolute;
+          top:0;
+          left:0;
+          width: 100px;
+          height: 60px;
+          opacity:0;
+          background: asset-url("application/play_btn_small.png", image) center center no-repeat;
+          background-color: rgba(0,0,0,0);
+          @include transition(opacity,2s);
+          @include transition(background-color,1s);
+        }
+        .play_btn:hover {
+          opacity:1;
+          background-color: rgba(0,0,0,.55);
+        }
+      }
+      
+      a {
+        display: block;
+        font-weight: bold;
+        margin-bottom:1px; 
+      }
+      
+      a:hover {
+        text-decoration:none;
+      }
+      
+      span {
+        display:block;
+        font-weight: 200;
+        color: $grey;
+      }
+    }
+  }
+  
+  
+} // end #chapter_list
+
+/*
+<div class='span5' id='chapter_list'>
+         <span class='row_header'>Chapters</span>
+         <ul>
+           <li>
+             <div class='img_wrapper'>
+               <a href="#"><img alt="Chapter_thumb_1" src="/assets/application/temp/chapter_thumb_1.jpg" /></a>
+             </div>
+             <a href="#">How Social Media is Changing Business</a>
+             <span>3 Speakers</span>
+           </li>
+           <li>*/
