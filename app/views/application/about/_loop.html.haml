@@ -1,0 +1,13 @@
+%ul{:id => "staff_list", :class => "image_grid three_span"}
+
+  - @staff.present?
+  
+  - @staff.each do |staffmember| 
+
+    %li
+      = link_to speaker_path(staffmember) do
+        .grid_img_wrapper
+          = image_tag(asset_path staffmember.portrait.url)
+        .grid_content
+          %span.title_= staffmember.name
+          %span.desc_= staffmember.title

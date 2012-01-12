@@ -1,0 +1,6 @@
+
+%ul
+
+  - @partners.each do |t| 
+    
+    %li= link_to t.name, partner_path(t)

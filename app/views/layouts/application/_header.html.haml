@@ -1,0 +1,131 @@
+-# 		Chicago Ideas Week
+-# 		Global Header & Navigation
+-# 		_header.html.haml
+-# 		12/31/2011
+
+-# = Talk.random.name
+
+%nav{:class => "container row full"}
+  %ul{:id => "global_nav", :class => "span17"}
+
+    %li{:id => "logo_container"}
+      %h1= link_to "Chicago Ideas Week", "/", :id => "gn-logo"
+
+    %li{:class => "nav_section_end nav_parent", :id => "gn-event"}
+      = link_to "2012 CIW", "/upcoming", :id => "gn-upcoming"
+      .nav_children
+        %ul{:class => "n_column"}
+          %li= link_to "Calendar", "/upcoming/calendar"
+          %li= link_to "All Themes", "/upcoming/themes"
+          %li= link_to "Venues", "upcoming/venues"
+          %li= link_to "see all...", "upcoming/all", :class => "blue"
+
+        %ul{:class => "n_column"}
+          %li= link_to "Technology", "/upcoming/calendar"
+          %li= link_to "Entrepreneurship", "/upcoming/themes"
+          %li= link_to "Kauffman", "upcoming/venues"
+          %li= link_to "see all...", "upcoming/all", :class => "blue"
+
+        %ul{:class => "n_column n_featured"}
+          %li
+            .dd_img_container
+              = link_to image_tag("/assets/application/temp/dd_temp1.png"), "/blah"
+            = link_to "Titles goes here", "/blah"
+            %span{:class => "small"} Author/subtext here
+          %li
+            .dd_img_container 
+              = link_to image_tag("/assets/application/temp/dd_temp2.png"), "/blah"
+            = link_to "Titles goes here", "/blah"
+            %span{:class => "small"} Author/subtext here
+
+
+    %li{:class => "nav_parent"}
+      = link_to "Events", "/events", :id => "gn-events"
+      .nav_children
+        %ul{:class => "n_column"}
+          %li= link_to "All CIW Talks", "/events"
+          %li= link_to "Mega Talks", "/events/mega-talks"
+          %li= link_to "CIW Labs", "/events/labs"
+          %li= link_to "Partner Programs", "/events/partner-programs"
+
+        %ul{:class => "n_column n_featured"}
+          %li
+            .dd_img_container
+              = link_to image_tag("/assets/application/temp/dd_temp1.png"), "/blah"
+            = link_to "Titles goes here", "/blah"
+            %span{:class => "small"} Author/subtext here
+          %li
+            .dd_img_container 
+              = link_to image_tag("/assets/application/temp/dd_temp2.png"), "/blah"
+            = link_to "Titles goes here", "/blah"
+            %span{:class => "small"} Author/subtext here
+
+
+
+
+    %li{:class => "nav_parent"}
+      = link_to "Speakers", "/speakers", :id => "gn-speakers"
+      .nav_children
+        %ul{:class => "n_column"}
+          %li= link_to "All Speakers", "/speakers"
+          %li= link_to "2012 Speakers", "/speakers/upcoming"
+          %li= link_to "Previous Speakers", "speakers/all"
+          %li= link_to "see all...", "upcoming/all", :class => "blue"
+
+        %ul{:class => "n_column n_featured"}
+          %li
+            .dd_img_container
+              = link_to image_tag("/assets/application/temp/dd_temp1.png"), "/blah"
+            = link_to "Titles goes here", "/blah"
+            %span{:class => "small"} Author/subtext here
+          %li
+            .dd_img_container 
+              = link_to image_tag("/assets/application/temp/dd_temp2.png"), "/blah"
+            = link_to "Titles goes here", "/blah"
+            %span{:class => "small"} Author/subtext here
+
+
+
+    %li{:class => "nav_section_end nav_parent"}
+      = link_to "Community", "/community", :id => "gn-community"
+      .nav_children
+        %ul{:class => "n_column"}
+          %li= link_to "Integrated Partnerships", "/partners/integrated-partnerships"
+          %li= link_to "Community Partners", "/partners"
+          %li= link_to "Affiliate Events", "/events/affiliate-events"
+
+        %ul{:class => "n_column"}
+          %li= link_to "News", "/news"
+          %li= link_to "Blog", "/blog"
+          %li= link_to "Newsletter", "/newsletter"
+          %li= link_to "Volunteer", "/about/volunteer"
+
+
+
+    %li{:class => "nav_parent"}
+      = link_to "About", "/about", :id => "gn-community"
+      .nav_children
+        %ul{:class => "n_column"}
+          %li= link_to "About CIW", "/about"
+          %li= link_to "Staff", "/about/staff"
+          %li= link_to "Volunteer", "/about/volunteer"
+
+
+    %li= link_to "Register", "/users/sign_up", :id => "gn-register"
+
+    %li{:class => "nav_parent", :id => "nav_login"}
+      = link_to"Login", "/users/sign_in", :id => "gn-login"
+      .nav_children
+        = render "application/partials/login_form"
+
+
+    %li{:id => "nav_search"}
+      #global_search_container
+        %input{:type => "text", :id => "global_search", :placeholder => "search"}
+        %input{:type => "submit", :id => "global_search_btn", :value => ""}
+
+
+
+
+
+

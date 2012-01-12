@@ -1,0 +1,14 @@
+= form_tag user_session_path do
+  .row
+    .span4
+      = text_field_tag 'user[email]', "", {:placeholder => "Email address", :tabindex => 1}
+      = check_box_tag 'user[remember_me]'
+      = label_tag 'user[remember_me]', 'Remember me'
+
+    .span4
+      = password_field_tag 'user[password]', "", {:placeholder => "password", :tabindex => 2}
+      = link_to "Forgot your password?", new_password_path('user')
+
+    .span4
+      %button{:class => "blue_btn"} Sign in
+    

@@ -6,6 +6,7 @@ class EventBrand < ActiveRecord::Base
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
+  has_many :events
   
   
   # the hash representing this model that is returned by the api

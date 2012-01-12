@@ -1,144 +1,19 @@
-@import "header";
+// 		Project		Chicago Ideas Week
+// 		Title		Application Stylesheets
+// 		File		Application.css.scss
+// 		Date		12/30/11
+// 		Author		John Koht
 
-@import "plugins/ezmark.jquery";
-@import "plugins/flash_helpers";
 
-body {
-  background: #006A59;
-}
+@import "application/reset";
+@import "application/variables";
+@import "application/mixins";
+@import "application/type";
+@import "application/forms";
+@import "application/scaffolding";
+@import "application/patterns";
 
-a:link, a:visited, a:active {
-  text-decoration: none;
-  color: #006A59;
-}
-a:hover {
-  color: #006A59;
-}
 
-// main container
-#main {
-  background: #FFFFFF;
-  @include box-shadow(6px 6px 17px 5px #003A2D);
-  width: 980px;
-  margin: 0 auto;
-  padding-bottom: 20px;
-}
-
-// main menu
-#header {
-  
-  height: 86px;
-  position: relative;
-  
-  a#logo {
-    background-image: asset-url('logo.png', image);
-    display: block;
-    width: 280px;
-    height: 149px;
-    position: absolute;
-    top: 10px;
-    left: 20px;
-  }
-  
-  ul#main_menu {
-    position: absolute;
-    top: 20px;
-    margin: 0;
-    left: 150px;
-    li {
-      float: left;
-      display: block;
-      margin-right: 6px;
-      border: 1px solid #ccc;
-      margin-right: 8px;
-      a {
-        font-size: 14px;
-        display: block;
-        margin: 0;
-        padding: 0;
-        color: #777777;
-        padding: 16px 18px;
-      }
-      a:hover {
-        background-color: #EEEEEE;
-        color: #333;
-        text-decoration: none;
-      }
-    }
-  }
-  
-  ul#social_links {
-    position: absolute;
-    top: 20px;
-    margin: 0;
-    right: 10px;
-    li {
-      float: right;
-      display: block;
-      margin-left: 12px;
-    }
-  }
-  
-  ul#account_links {
-    position: absolute;
-    top: 60px;
-    margin: 0;
-    right: 24px;
-    li {
-      float: right;
-      display: block;
-      margin-left: 6px;
-      a {
-        font-size: 12px;
-        color: #000C87;
-      }
-    }
-  }
-}
-
-// page content
-#page_content {
-  margin: 10px 20px;
-  min-height: 600px;
-  border-top: 1px solid #777;
-  border-bottom: 1px solid #777;
-  padding-top: 20px;
-  
-  // home page headers
-  h1, h2, h3, h4 {
-    margin: 8px 0;
-    font-size: 30px;
-    font-weight: bold;
-    color: #333;
-    text-align: left;
-    text-shadow: 2px 2px 3px #D4D4D4;
-  }
-  h2 {
-    font-size: 24px;
-  }
-  h3 {
-    font-size: 20px;
-  }
-  h4 {
-    font-size: 16px;
-  }
-}
-
-//footer
-#footer {
-  font-size: 110%;
-  margin: 0 20px;
-  a {
-    float: right;
-    display: block;
-    margin-left:10px;
-    font-size: 16px;
-  }
-}
-
-// page specific CSS
 @import "application/home";
-@import "application/terms";
-@import "application/login_password_and_register";
-@import "application/contact";
-@import "application/team";
+@import "application/sponsors";
+@import "application/talks";

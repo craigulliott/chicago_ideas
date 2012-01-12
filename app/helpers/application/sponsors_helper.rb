@@ -1,0 +1,2 @@
+module Application::SponsorsHelper
+end
