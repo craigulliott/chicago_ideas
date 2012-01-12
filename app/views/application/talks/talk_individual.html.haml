@@ -44,7 +44,6 @@
 			.span11#talk_content
 				
 				.row.content_section#talk_description
-					%span{:class => "row_header"} About this Chapter
 					%pre= @talk.description
 
 				
@@ -59,7 +58,8 @@
 						%li
 							.img_wrapper
 								= link_to "", "#",  :class => "play_btn"
-								= image_tag URI.decode chapter.chapter_photos.first.photo.url(:thumb)
+								- if chapter.chapter_photos.first.present?
+									= image_tag URI.decode chapter.chapter_photos.first.photo.url(:thumb)
 							= link_to chapter.title, chapter_path(chapter)
 							%span= "#{chapter.performances.count} speakers"
 					
@@ -98,3 +98,7 @@
 						= link_to "How Social Media is Changing Business", "#"
 						%span 3 Speakers
 						
+						
+<script type="text/javascript">
+$('#gn-event').addClass('nav_parent_active'); // show the 2012 CIW sub menu by default
+</script>

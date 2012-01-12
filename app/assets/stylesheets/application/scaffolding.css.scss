@@ -192,7 +192,7 @@ body {
 .entry_column:last-child { margin-right:0;}
 
 #main_content {
-	margin-top:20px;
+	margin: 20px 0;
 }
 
 
@@ -337,11 +337,11 @@ body {
 		
 		//> li.nav_parent:hover, li.nav_parent_active {
 		> li.nav_parent_active {
-			background: asset-url('application/nav_arrow.png', image) center bottom no-repeat;
+			background: asset-url('application/nav_arrow.png', image) center bottom no-repeat !important;
 			
 			> .nav_children {
-				display:block;
-				opacity:1;
+				display:block !important;
+				opacity:1 !important;
 			}
 			
 		} // end li.nav_parent

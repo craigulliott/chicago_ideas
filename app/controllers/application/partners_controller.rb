@@ -6,7 +6,7 @@ class Application::PartnersController < ApplicationController
   
   
   def integrated_partnerships
-    
+    @sponsorshipLevels = SponsorshipLevel.order("sort").all
   end
 
 end

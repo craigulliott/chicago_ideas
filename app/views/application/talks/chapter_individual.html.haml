@@ -1,24 +1,6 @@
 -# 		Chicago Ideas Week
--# 		talks/talk_individual.html.haml
+-# 		talks/chapter_individual.html.haml
 -# 		01/12/2012
-
-
--#= @talk.name
--#= @talk.id
--#%br
--#%br
--#%br
--#- @chapters.each do |chapter|
--#	= chapter.title
--#	= chapter.vimeo_id
--#	= chapter.description
--#	%br
--#	%br
--#	- chapter.performances.each do |p|
--#		= link_to p.speaker.name, speaker_path(p.speaker.permalink)
--#		%br
--#		%br
-		
 		
 
 %section{:id => "main_content", :class => "row full"}
@@ -170,4 +152,8 @@
 							= link_to image_tag(asset_path "application/temp/chapter_thumb_1.jpg"), "#"
 						= link_to "How Social Media is Changing Business", "#"
 						%span 3 Speakers
-						
+
+
+<script type="text/javascript">
+$('#gn-event').addClass('nav_parent_active'); // show the 2012 CIW sub menu by default
+</script>
