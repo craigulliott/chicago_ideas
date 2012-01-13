@@ -32,7 +32,7 @@ CraigsAdmin::Application.routes.draw do
   match 'events/talks', :to => 'Application::Talks#talks'
   
   match 'talks/:id', :to => 'Application::Talks#talks', :as => "talk"
-  match 'talks/:id/chapter/:id', :to => 'Application::Talks#chapter', :as => "chapter"
+  match 'chapters/:id', :to => 'Application::Chapters#show', :as => "chapter"
   
 
   match 'events/mega-talks', :to => 'Application::Talks#mega_talks'
@@ -54,6 +54,7 @@ CraigsAdmin::Application.routes.draw do
   # authentication for the website, uses Devise and Omniauth for facebook and twitter connect
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   match 'account', :to => 'users#index'
+  
   
   resources :users do
     member do
