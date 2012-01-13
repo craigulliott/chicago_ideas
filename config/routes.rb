@@ -57,7 +57,7 @@ CraigsAdmin::Application.routes.draw do
     # home pages for the different event types
     collection do
       get :labs
-      get :mega_talks
+      get :partner_programs
       get :affiliate_event
     end
   end
@@ -72,8 +72,6 @@ CraigsAdmin::Application.routes.draw do
   
   # all videos are of chapters, so pass to the chapter controller
   match 'videos', :to => 'chapters#videos'
-
-
 
   
   # the Admin                                                                   (http://www.domain.com/admin)
