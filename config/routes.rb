@@ -11,8 +11,7 @@ CraigsAdmin::Application.routes.draw do
   # website pages
   # ----------------------------------------------------------------
   match 'search', :to => 'application#search'
-  match 'about', :to => 'application#about'
-  match 'community', :to => 'application#community'
+
   # legalese 
   match 'privacy', :to => 'application#privacy'
   match 'terms', :to => 'application#terms'
@@ -33,6 +32,7 @@ CraigsAdmin::Application.routes.draw do
   # authentication for the website, uses Devise and Omniauth for facebook and twitter connect
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   match 'account', :to => 'users#index'
+  
   
   resources :users do
     member do
