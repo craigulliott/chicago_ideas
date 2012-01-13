@@ -49,7 +49,7 @@ CraigsAdmin::Application.routes.draw do
   match 'team_members', :to => 'users#list_team_members'
   match 'team_members/:id', :to => 'users#team_member'
   match 'speakers', :to => 'users#list_speakers'
-  match 'speakers/:id', :to => 'users#speaker'
+  match 'speakers/:id', :to => 'users#speaker', :as => "speaker"
   
   # talks and events
   # ----------------------------------------------------------------
@@ -71,7 +71,8 @@ CraigsAdmin::Application.routes.draw do
   end
   
   # all videos are of chapters, so pass to the chapter controller
-  match 'videos', :to => 'chapters#videos'
+  match 'videos', :to => 'chapters#index'
+  match 'videos/:id', :to => 'chapters#show', :as => "video"
 
   
   # the Admin                                                                   (http://www.domain.com/admin)
