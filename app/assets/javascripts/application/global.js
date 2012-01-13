@@ -4,9 +4,10 @@ $(window).load(function(){
   jQuery.easing.def = "easeOutExpo";
   
   // Navigation and sub menus
-  $('li.nav_parent').bind('hover', function(e) {
+  $('li.nav_parent > a').click(function(e) {
     $('li.nav_parent').removeClass('nav_parent_active').children().find('div.nav_children').hide();
-    $(this).stop().addClass('nav_parent_active');
+    $(this).parent().stop().addClass('nav_parent_active');
+    e.preventDefault();
   });
   
   
