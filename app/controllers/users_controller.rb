@@ -23,4 +23,21 @@ class UsersController < ApplicationController
     redirect_to request.referer, notice: 'Disconnected from Twitter'
   end
   
+  
+  # Speakers landing page
+  def list_speakers
+    @speakers = User.find_all_by_speaker(1) # only grab the users flagged as speakers
+    render "speakers/index"
+  end
+  
+  # show and individual speaker
+  def speaker
+    if params[:id].is_number? # check if an ID or permalink is passed
+      @speaker = User.find(params[:id])
+    else
+      @speaker = User.find_by_permalink(params[:id])
+    end
+    render "speakers/show"
+  end
+  
 end

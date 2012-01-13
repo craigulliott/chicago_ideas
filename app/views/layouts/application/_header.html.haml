@@ -5,50 +5,35 @@
 
 -# = Talk.random.name
 
-%nav{:class => "container row full"}
-  %ul{:id => "global_nav", :class => "span17"}
+%nav.container.row.full
+  %ul#global_nav.span17
 
-    %li{:id => "logo_container"}
+    %li#logo_container
       %h1= link_to "Chicago Ideas Week", "/", :id => "gn-logo"
 
-    %li{:class => "nav_section_end nav_parent", :id => "gn-event"}
+    %li#gn-event.nav_section.nav_parent
       = link_to "2012 CIW", "/upcoming", :id => "gn-upcoming"
-      .nav_children
-        %ul{:class => "n_column"}
-          %li= link_to "Calendar", "/upcoming/calendar"
-          %li= link_to "All Themes", "/upcoming/themes"
-          %li= link_to "Venues", "upcoming/venues"
-          %li= link_to "see all...", "upcoming/all", :class => "blue"
-
-        %ul{:class => "n_column"}
-          %li= link_to "Technology", "/upcoming/calendar"
-          %li= link_to "Entrepreneurship", "/upcoming/themes"
-          %li= link_to "Kauffman", "upcoming/venues"
-          %li= link_to "see all...", "upcoming/all", :class => "blue"
-
-        %ul{:class => "n_column n_featured"}
+      .nav_children#temporary_
+        %ul.n_column.n_featured
           %li
-            .dd_img_container
-              = link_to image_tag("application/temp/dd_temp1.png"), "/blah"
-            = link_to "Titles goes here", "/blah"
-            %span{:class => "small"} Author/subtext here
-          %li
-            .dd_img_container 
-              = link_to image_tag("application/temp/dd_temp2.png"), "/blah"
-            = link_to "Titles goes here", "/blah"
-            %span{:class => "small"} Author/subtext here
+            2012 CIW Dates Announced: October 8 - 14, 2012
+            %br
+            Details coming soon
 
-
-    %li{:class => "nav_parent"}
+    %li.nav_parent
       = link_to "Events", "/events", :id => "gn-events"
       .nav_children
-        %ul{:class => "n_column"}
-          %li= link_to "All CIW Talks", "/events"
-          %li= link_to "Mega Talks", "/events/mega-talks"
-          %li= link_to "CIW Labs", "/events/labs"
+        %ul.n_column
+          %li= link_to "All CIW Talks", talks_path
+          %li= link_to "Mega Talks", "/talks/mega_talks"
+          %li= link_to "Videos", videos_path
+        
+        %ul.n_column
+          %li= link_to "CIW Labs", "/events/ciw-labs"
           %li= link_to "Partner Programs", "/events/partner-programs"
+          %li= link_to "Affiliate Events", "/events/affiliate-events"
 
-        %ul{:class => "n_column n_featured"}
+        %ul.n_column.n_featured
           %li
             .dd_img_container
               = link_to image_tag("application/temp/dd_temp1.png"), "/blah"
@@ -66,13 +51,13 @@
     %li{:class => "nav_parent"}
       = link_to "Speakers", "/speakers", :id => "gn-speakers"
       .nav_children
-        %ul{:class => "n_column"}
+        %ul.n_column
           %li= link_to "All Speakers", "/speakers"
           %li= link_to "2012 Speakers", "/speakers/upcoming"
           %li= link_to "Previous Speakers", "speakers/all"
           %li= link_to "see all...", "upcoming/all", :class => "blue"
 
-        %ul{:class => "n_column n_featured"}
+        %ul.n_column.n_featured
           %li
             .dd_img_container
               = link_to image_tag("application/temp/dd_temp1.png"), "/blah"
@@ -89,12 +74,12 @@
     %li{:class => "nav_section_end nav_parent"}
       = link_to "Community", "/community", :id => "gn-community"
       .nav_children
-        %ul{:class => "n_column"}
-          %li= link_to "Integrated Partnerships", "/partners/integrated-partnerships"
+        %ul.n_column
+          %li= link_to "Sponsors", sponsors_path
           %li= link_to "Community Partners", "/partners"
           %li= link_to "Affiliate Events", "/events/affiliate-events"
 
-        %ul{:class => "n_column"}
+        %ul.n_column
           %li= link_to "News", "/news"
           %li= link_to "Blog", "/blog"
           %li= link_to "Newsletter", "/newsletter"
@@ -105,7 +90,7 @@
     %li{:class => "nav_parent"}
       = link_to "About", "/about", :id => "gn-community"
       .nav_children
-        %ul{:class => "n_column"}
+        %ul.n_column
           %li= link_to "About CIW", "/about"
           %li= link_to "Staff", "/about/staff"
           %li= link_to "Volunteer", "/about/volunteer"
@@ -116,7 +101,7 @@
     %li{:class => "nav_parent", :id => "nav_login"}
       = link_to"Login", "/users/sign_in", :id => "gn-login"
       .nav_children
-        = render "application/partials/login_form"
+        = render "partials/login_form"
 
 
     %li{:id => "nav_search"}
