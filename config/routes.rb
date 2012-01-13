@@ -57,7 +57,7 @@ CraigsAdmin::Application.routes.draw do
     # home pages for the different event types
     collection do
       get :labs
-      get :mega_talks
+      get :partner_programs
       get :affiliate_event
     end
   end
