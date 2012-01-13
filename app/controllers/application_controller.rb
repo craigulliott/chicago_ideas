@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
   # which pages are we caching
   before_filter :cache_rendered_page, :only => [:index, :contact, :team, :terms]
-  
+  before_filter :get_sponsors
   
   before_filter :authenticate_user!, :only => [:dashboard]
   
@@ -11,25 +11,17 @@ class ApplicationController < ActionController::Base
     @talks = Talk.search_sort_paginate(params)
     #@topics = Topic.search_sort_paginate(params)
   end
-
   
-  def register
-  end
   
-  def login
-  end
-  
-  def archives
-  end
-  
-  def search
-  end
-  
-
-
-  def contact
+  def get_sponsors
+    @sponsors = Sponsor.all
   end
 
+  
+  def about
+    render "application/about"
+  end
+  
   def send_contact
     AdminMailer.contact_form(params[:contact]).deliver
     render_json_response :ok, :notice => "Your message has been sent."

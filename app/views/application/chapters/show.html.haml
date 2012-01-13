@@ -9,21 +9,17 @@
     .row.talk_header#talk_header
       .span11.left
         %h1= @talk.name
-        - if @talk.track.present?
-          %span{:class => "sub_header"}= link_to @talk.track.name, "#"
+        %span{:class => "sub_header"}= link_to @talk.track.name, "#"
       .span5.right
         social goes here
+
+
 
     .row.talk_body
       .span11#talk_content
 
         #player_container
           <iframe src="http://player.vimeo.com/video/#{@chapter.vimeo_id}?title=0&amp;byline=0&amp;portrait=0" width="680" height="383" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-        
-        .row.content_section#talk_description
-          %span.row_header About this Chapter
-          %h4= @chapter.title
-          %pre= @chapter.description
 
         .row.content_section#talk_speakers
           %span.row_header Speakers in this Chapter
@@ -31,7 +27,7 @@
             - @chapter.performances.each do |p|
               %li
                 .img_wrapper
-                  = link_to image_tag("application/temp/speaker_thumb_1.jpg"), "#"
+                  = link_to image_tag(asset_path "application/temp/speaker_thumb_1.jpg"), "#"
                 = link_to p.speaker.name, speaker_path(p.speaker.permalink)
                 %span= p.speaker.title
 
@@ -40,23 +36,31 @@
           %span.row_header Photo Gallery
           %ul.list_reset
             %li
-              = link_to image_tag("application/temp/gallery_4.jpg"), "/assets/images/application/asdf.jpg", :class => "popup_img"
+              = link_to image_tag(asset_path "application/temp/gallery_4.jpg"), "#"
             %li
-              = link_to image_tag("application/temp/gallery_3.jpg"), "#", :class => "popup_img"
+              = link_to image_tag(asset_path "application/temp/gallery_3.jpg"), "#"
             %li
-              = link_to image_tag("application/temp/gallery_2.jpg"), "#", :class => "popup_img"
+              = link_to image_tag(asset_path "application/temp/gallery_2.jpg"), "#"
             %li
-              = link_to image_tag("application/temp/gallery_1.jpg"), "#", :class => "popup_img"
+              = link_to image_tag(asset_path "application/temp/gallery_1.jpg"), "#"
+
 
 
         .row.content_section#talk_description
-          %span.row_header About this Chapter
-          %pre= @talk.description
+          %ul{:class => "list_reset"}
+            %li
+              %span{:class => "row_header"} About this Chapter
+              %h4= @chapter.title
+              %pre= @chapter.description
+
+            %li
+              %span{:class => "row_header"} About this Chapter
+              %pre= @talk.description
 
 
 
       .span5#chapter_list
-        %span.row_header Other Videos in this Talk
+        %span{:class => "row_header"} In this Talk
 
         %ul{:class => "list_reset styled_thumbs"}
           - @chapters.each do |chapter|
@@ -64,7 +68,8 @@
               .img_wrapper
                 = link_to "", "#",  :class => "play_btn"
                 -#= image_tag URI.decode chapter.chapter_photos.first.photo.url(:thumb)
-              = link_to chapter.title, video_path(chapter)
+                
+              = link_to chapter.title, chapter_path(chapter)
               %span= "#{chapter.performances.count} speakers"
 
 

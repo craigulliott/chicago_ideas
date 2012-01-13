@@ -13,7 +13,9 @@
         %ul.entry_list.entry_featured.styled_thumbs
           - @talks.limit(3).each do |talk|
             %li.entry{:id => "entry_#{talk.id}"}
-              .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
+              -#.img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
+              .img_wrapper= link_to (image_tag talk.banner), talk_path(talk)
+              
               %h3= link_to talk.name, talk_path(talk)
               - if talk.track.present?
                 %p= talk.track.name

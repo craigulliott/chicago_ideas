@@ -37,7 +37,18 @@ class UsersController < ApplicationController
     else
       @speaker = User.find_by_permalink(params[:id])
     end
-    render "speakers/show"
+    #@speakers = Talk.
   end
+  
+  
+  def list_team_members
+    @staff = User.staff
+  end  
+  
+  def team_member
+    @staff = User.staff # get all staff members
+    @staff_member = User.find(params[:id]) # individual staff item
+  end
+
   
 end
