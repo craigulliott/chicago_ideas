@@ -1,167 +1,153 @@
-
-
 $(window).load(function(){
-	
-	//setup easting
-	jQuery.easing.def = "easeOutExpo";
-	
-	
-	
-	
-	// Navigation and sub menus
-	$('li.nav_parent').bind('hover', function(e) {
-		$('li.nav_parent').removeClass('nav_parent_active').children().find('div.nav_children').hide();
-		$(this).stop().addClass('nav_parent_active');
-	});
-	
-	
-	
-	/************************************************************************************
-	 **		
-	 **		Homepage Featured Banner Rotator
-	 **
-	************************************************************************************/
-	
-	var currentBannerId = '';
-	var nextBannerId;
-	
-	
-	// when a thumbnail is clicked
-	$('.b_thumb').bind('click', function(e) {
+  
+  //setup easting
+  jQuery.easing.def = "easeOutExpo";
+  
+  // Navigation and sub menus
+  $('li.nav_parent').bind('hover', function(e) {
+    $('li.nav_parent').removeClass('nav_parent_active').children().find('div.nav_children').hide();
+    $(this).stop().addClass('nav_parent_active');
+  });
+  
+  
+  
+  /************************************************************************************
+   **    
+   **    Homepage Featured Banner Rotator
+   **
+  ************************************************************************************/
+  
+  var currentBannerId = '';
+  var nextBannerId;
+  
+  
+  // when a thumbnail is clicked
+  $('.b_thumb').bind('click', function(e) {
 
-		e.preventDefault();
-		nextBannerId = $(this).attr('id').replace('thumb_',''); //capture the current item ID
-		
-		if (nextBannerId == currentBannerId) {
-			return false //can't select same item
-		}
-		
-		updateThumbnails(nextBannerId);
-		transition(currentBannerId, nextBannerId); // call the transition function
-	});
-	
-	
-	// transition, fade and zoom the new image, hide the old
-	function transition(currentId, nextId) {
-		
-		var nextCss = {
-			'opacity' : '0',
-			'zoom' : 1.05,
-			'display' : 'table',
-			'z-index' : '1001',
-			'top' : '-15%',
-			'left' : '-5%'
-		}
-		
-		$('#banner_' + currentId).css('z-index', '999');
-		$('#banner_' + nextId).css(nextCss);
-		
-		
-		$('#banner_' + nextId).stop().animate({
-			opacity: 1,
-			zoom: 1,
-			left: 0,
-			top: 0		
-		}, 300, 'easeOutExpo', function() {
-			$('#banner_' + currentId).fadeOut();
-		});
-				
-		currentBannerId = nextId;
-	}
-	
-	
-	//update the thumbnails
-	function updateThumbnails(activeThumb) {
-		$('.b_thumb').each(function() {
-			$(this).removeClass('b_thumb_active');
-			$(this).find('.img_grayscale').stop().animate({opacity:0}, 500);
-		});
-		$('#thumb_' + activeThumb).addClass('b_thumb_active')
-		$('#thumb_' + activeThumb).find('.img_grayscale').stop().animate({opacity:1}, 500);
-	}
-	
-	
-	// click the first by default
-	$('.b_thumb:first-child').click();
+    e.preventDefault();
+    nextBannerId = $(this).attr('id').replace('thumb_',''); //capture the current item ID
+    
+    if (nextBannerId == currentBannerId) {
+      return false //can't select same item
+    }
+    
+    updateThumbnails(nextBannerId);
+    transition(currentBannerId, nextBannerId); // call the transition function
+  });
+  
+  
+  // transition, fade and zoom the new image, hide the old
+  function transition(currentId, nextId) {
+    
+    var nextCss = {
+      'opacity' : '0',
+      'zoom' : 1.05,
+      'display' : 'table',
+      'z-index' : '1001',
+      'top' : '-15%',
+      'left' : '-5%'
+    }
+    
+    $('#banner_' + currentId).css('z-index', '999');
+    $('#banner_' + nextId).css(nextCss);
+    
+    $('#banner_' + nextId).stop().animate({
+      opacity: 1,
+      zoom: 1,
+      left: 0,
+      top: 0    
+    }, 300, 'easeOutExpo', function() {
+      $('#banner_' + currentId).fadeOut();
+    });
+        
+    currentBannerId = nextId;
+  }
+  
+  //update the thumbnails
+  function updateThumbnails(activeThumb) {
+    $('.b_thumb').each(function() {
+      $(this).removeClass('b_thumb_active');
+      $(this).find('.img_grayscale').stop().animate({opacity:0}, 500);
+    });
+    $('#thumb_' + activeThumb).addClass('b_thumb_active')
+    $('#thumb_' + activeThumb).find('.img_grayscale').stop().animate({opacity:1}, 500);
+  }
+  
+  // click the first by default
+  $('.b_thumb:first-child').click();
 
-	
-		// clone image
-	$('.b_thumb img').each(function(){
-		var el = $(this);
-		el.css({"position":"absolute"}).wrap("<div class='img_wrapper' style='display: inline-block'>").clone().addClass('img_grayscale').css({"position":"absolute","z-index":"998","opacity":"0"}).insertBefore(el).queue(function(){
-			var el = $(this);
-			el.parent().css({"width":this.width,"height":this.height});
-			el.dequeue();
-		});
-		this.src = grayscale(this.src);
-	});
-	
-	// Fade image 
-	$('.b_thumb').mouseover(function(){
-		$(this).find('.img_grayscale').stop().animate({opacity:1}, 500);
-	})
-	$('.b_thumb').mouseout(function(){
-		if ( $(this).is('.b_thumb_active')) { return false; }
-		$(this).find('.img_grayscale').stop().animate({opacity:0}, 500);
-	});	
-	
-	
-	
-	
-	// Navigation Search box
-	$('#global_search').bind('focus', function(e) {
-		//$('#global_search_container').width('300px');
-		$('#global_search_container').animate({
-			width : '300px',
-		});
-		$(this).animate({
-			width : '250px', 
-			left : '0px'
-		});
-	});
-	
-	$('#global_search').bind('blur', function(e) {
-			$('#global_search_container').animate({
-				width : '106px',
-			});
-			$(this).animate({
-				width : '65px', 
-				left : '0px'
-			});
-	});
-	
-	
-	
-	// standard image grid
-	$('.image_grid li').bind('hover', function(e) {
-		$(this).find('.grid_content').fadeToggle();
-	});
-	
-		
+  // clone image
+  $('.b_thumb img').each(function(){
+    var el = $(this);
+    el.css({"position":"absolute"}).wrap("<div class='img_wrapper' style='display: inline-block'>").clone().addClass('img_grayscale').css({"position":"absolute","z-index":"998","opacity":"0"}).insertBefore(el).queue(function(){
+      var el = $(this);
+      el.parent().css({"width":this.width,"height":this.height});
+      el.dequeue();
+    });
+    this.src = grayscale(this.src);
+  });
+  
+  // Fade image 
+  $('.b_thumb').mouseover(function(){
+    $(this).find('.img_grayscale').stop().animate({opacity:1}, 500);
+  })
+  $('.b_thumb').mouseout(function(){
+    if ( $(this).is('.b_thumb_active')) { return false; }
+    $(this).find('.img_grayscale').stop().animate({opacity:0}, 500);
+  });  
+  
+  
+  // Navigation Search box
+  $('#global_search').bind('focus', function(e) {
+    //$('#global_search_container').width('300px');
+    $('#global_search_container').animate({
+      width : '300px',
+    });
+    $(this).animate({
+      width : '250px', 
+      left : '0px'
+    });
+  });
+  
+  $('#global_search').bind('blur', function(e) {
+      $('#global_search_container').animate({
+        width : '106px',
+      });
+      $(this).animate({
+        width : '65px', 
+        left : '0px'
+      });
+  });
+  
+  // standard image grid
+  $('.image_grid li').bind('hover', function(e) {
+    $(this).find('.grid_content').fadeToggle();
+  });
+  
 });
 
 
 // Grayscale w canvas method - Developed by Darcy Clarke - http://darcyclarke.me/
 function grayscale(src){
-	var canvas = document.createElement('canvas');
-	var ctx = canvas.getContext('2d');
-	var imgObj = new Image();
-	imgObj.src = src;
-	canvas.width = imgObj.width;
-	canvas.height = imgObj.height; 
-	ctx.drawImage(imgObj, 0, 0); 
-	var imgPixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
-	for(var y = 0; y < imgPixels.height; y++){
-		for(var x = 0; x < imgPixels.width; x++){
-			var i = (y * 4) * imgPixels.width + x * 4;
-			var avg = (imgPixels.data[i] + imgPixels.data[i + 1] + imgPixels.data[i + 2]) / 3;
-			imgPixels.data[i] = avg; 
-			imgPixels.data[i + 1] = avg; 
-			imgPixels.data[i + 2] = avg;
-		}
-	}
-	ctx.putImageData(imgPixels, 0, 0, 0, 0, imgPixels.width, imgPixels.height);
-	return canvas.toDataURL();
+  var canvas = document.createElement('canvas');
+  var ctx = canvas.getContext('2d');
+  var imgObj = new Image();
+  imgObj.src = src;
+  canvas.width = imgObj.width;
+  canvas.height = imgObj.height; 
+  ctx.drawImage(imgObj, 0, 0); 
+  var imgPixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  for(var y = 0; y < imgPixels.height; y++){
+    for(var x = 0; x < imgPixels.width; x++){
+      var i = (y * 4) * imgPixels.width + x * 4;
+      var avg = (imgPixels.data[i] + imgPixels.data[i + 1] + imgPixels.data[i + 2]) / 3;
+      imgPixels.data[i] = avg; 
+      imgPixels.data[i + 1] = avg; 
+      imgPixels.data[i + 2] = avg;
+    }
+  }
+  ctx.putImageData(imgPixels, 0, 0, 0, 0, imgPixels.width, imgPixels.height);
+  return canvas.toDataURL();
 }
 
 
