@@ -21,13 +21,12 @@
 
     .row.talk_body
      
-      .span11#talk_content.noborder
+      .span11#talk_content
       
-        .row.content_section#talk_photos
+        .row.content_section.noborder#talk_photos
           #slider
-            = image_tag("application/temp/asdf.jpg")
-            = image_tag("application/temp/asdfasdf.jpg")
-            = image_tag("application/temp/asdffff.jpg")
+            - @talk.talk_photos.each do |photo|
+              = image_tag(photo.photo_file_name)
                         
 
         .row.content_section#talk_description
@@ -43,8 +42,11 @@
               .img_wrapper
                 = link_to "", "#",  :class => "play_btn"
                 - if chapter.chapter_photos.first.present?
-                  = image_tag URI.decode chapter.chapter_photos.first.photo.url(:thumb)
-              = link_to chapter.title, chapter_path(chapter)
+                  -begin
+                    = image_tag URI.decode chapter.chapter_photos.first.photo.url(:thumb)
+                  -rescue
+                  
+              = link_to chapter.title, video_path(chapter)
               %span= "#{chapter.performances.count} speakers"
 
 

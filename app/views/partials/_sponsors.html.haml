@@ -4,11 +4,9 @@
 
 %article{:class => "sidebar_item row full"}
   %ul{:id => "sponsors_sidebar"}
-    %li
-      .img_wrapper= link_to image_tag("application/temp/walgreens.jpg"), "#"
-    %li
-      .img_wrapper= link_to image_tag("application/temp/macarthur.jpg"), "#"
-    %li
-      .img_wrapper= link_to image_tag("application/temp/mckinsey.jpg"), "#"
-    %li
-      .img_wrapper= link_to image_tag("application/temp/mccormick.jpg"), "#"
+    - @sponsors.each do |s|
+      %li
+        .img_wrapper
+          = link_to s.url, :target => "_blank" do
+            - image_tag s.logo, :alt => s.name
+            

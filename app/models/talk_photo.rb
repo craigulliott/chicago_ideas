@@ -8,8 +8,8 @@ class TalkPhoto < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
-  PHOTO_WIDTH = 1000 
-  PHOTO_HEIGHT = 750
+  PHOTO_WIDTH = 680 
+  PHOTO_HEIGHT = 400
   
   validate :validate_photo_dimensions, :unless => "errors.any?"
   
@@ -43,6 +43,10 @@ class TalkPhoto < ActiveRecord::Base
   def self.photo_dimensions_string
     "#{PHOTO_WIDTH}x#{PHOTO_HEIGHT}"
   end
+  
+  def photo_dimensions_string
+     "#{PHOTO_WIDTH}x#{PHOTO_HEIGHT}"
+   end
 
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil

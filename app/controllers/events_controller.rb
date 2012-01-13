@@ -9,13 +9,13 @@ class EventsController < ApplicationController
   
   
   # Labs landing and individual pages
-  def labs
-    if params[:id].nil? # if no paramter, then load the labs landing
-     @labs = EventBrand.find_by_name("Lab").events
-    else
-      @lab = Event.find(params[:id])
-      render "application/events/lab_individual"
-    end
+  def labs_list
+   @labs = EventBrand.find_by_name("Lab").events
+  end
+  
+  # Labs landing and individual pages
+  def lab
+    @lab = Event.find(params[:id])
   end
   
   

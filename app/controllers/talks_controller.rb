@@ -9,13 +9,8 @@ class TalksController < ApplicationController
   
   # Talks landing and individual pages
   def show
-    if params[:id].nil? # if no paramter, then load the talks landing
-     @talks = TalkBrand.find_by_name("Talk").talks
-    else
-      @talk = Talk.find(params[:id])
-      @chapters = @talk.chapters.all
-
-    end
+    @talk = Talk.find(params[:id])
+    @chapters = @talk.chapters.all
   end # end def talks
   
   

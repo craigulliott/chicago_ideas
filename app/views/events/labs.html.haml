@@ -1,2 +1,39 @@
-- @labs.each do |lab|
-  = link_to lab.name, event_lab_path(lab)
+-# - @labs.each do |lab|
+-#  = link_to lab.name, event_lab_path(lab)
+
+
+-#     Chicago Ideas Week
+-#     about/index.html.haml
+-#     01/03/2012
+
+
+
+%section#main_content.row.full
+  .container
+
+    .span-two-thirds.entry_column.content_column
+
+      %h2 LABS
+
+      %p Go Behind-the-Scenes in Chicago with Chicago Ideas Week Labs!
+
+      %p CIW Labs offer opportunities for participants to experience and explore the best of Chicago like never before. Exclusive, behind-the-scenes experiences give participants a unique glimpses into the inner workings of businesses and institutions that are otherwise unavailable to the public. Small groups will explore what it’s like for business leaders in the boardroom, go behind the curtain at leading theaters and venues, and discover “how-it-works” in hands-on workshops.
+
+
+
+    .span-one-third.entry_column.sidebar.right#community
+
+      %h2 Community
+
+      = render "partials/sponsors"
+      = render "partials/newsletter_form"
+      = render "partials/volunteer_info"
+      = render "partials/social"
+      = render "partials/tweets"
+
+
+
+
+
+
+
