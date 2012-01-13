@@ -12,18 +12,6 @@ class ApplicationController < ActionController::Base
     #@topics = Topic.search_sort_paginate(params)
   end
 
-  def videos
-    
-  end
-  
-  def about
-  end
-  
-  def community
-  end
-  
-  def blog
-  end
   
   def register
   end
