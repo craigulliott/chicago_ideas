@@ -9,49 +9,24 @@ CraigsAdmin::Application.routes.draw do
   match 'account_links', :to => 'application#account_links'
 
   # website pages
-  match 'team', :to => 'application#team'
+  # ----------------------------------------------------------------
   match 'search', :to => 'application#search'
-  match 'videos', :to => 'application#videos'
-  
-  # about pages / sug-pages
-  match 'about', :to => 'Application::About#index'
-  match 'about/staff', :to => 'Application::About#staff'
-  match 'about/staff/:id', :to => 'Application::About#staff'
-  match 'about/volunteer', :to => 'Application::About#volunteer'
-  
-  # community pages / sub-pages
-  match 'community', :to => 'Application::Community#index'  
-
-  match 'partners', :to => 'Application::Partners#index'
-  match 'partners/integrated-partnerships', :to => 'Application::Partners#integrated_partnerships'
-  match 'sponsors', :to => 'Application::Sponsors#index'
-  
-  # Events: Talks, Mega Talks, Labs, Partner Programs...
-  match 'events', :to => 'Application::Events#index'
-
-  match 'events/talks', :to => 'Application::Talks#talks'
-  
-  match 'talks/:id', :to => 'Application::Talks#talks', :as => "talk"
-  #match 'talks/:id/chapter/:id', :to => 'Application::Talks#chapter', :as => "chapter"
-  resources :talks do
-    resources :chapters
-  end
-  match 'chapters/:id', :to => 'Application::Chapters#show', :as => "chapter"
-
-  match 'events/mega-talks', :to => 'Application::Talks#mega_talks'
-  match 'events/mega-talks/:id', :to => 'Application::Talks#mega_talks', :as => "megatalk"
-  
-  match 'events/labs', :to => 'Application::Events#labs'
-  match 'events/labs/:id', :to => 'Application::Events#labs', :as => "event_lab"
-
-  match 'events/partner-programs', :to => 'Application::Events#partner_programs'
-  match 'events/partner-programs/:id', :to => 'Application::Events#partner_programs', :as => "event_partnerprogram"
 
   # legalese 
   match 'privacy', :to => 'application#privacy'
   match 'terms', :to => 'application#terms'
-    
-  # users homepage
+
+  # news about CIW
+  resources :press_clippings, :only => [:index]
+  
+  # sponsors and partners
+  # ----------------------------------------------------------------
+  resources :sponsors, :only => [:index]
+  resources :partners, :only => [:index]
+
+  # users
+  # ----------------------------------------------------------------
+  # user account page
   match 'dashboard' => 'application#dashboard', :as => 'user_root'
   
   # authentication for the website, uses Devise and Omniauth for facebook and twitter connect
@@ -61,19 +36,45 @@ CraigsAdmin::Application.routes.draw do
   
   resources :users do
     member do
+      # pages
+      get :volunteer # form to sign up to be a volunteer
+      # actions
       put :disconnect_facebook
       put :disconnect_twitter
       put :complete_account_update
     end
   end
   
-  resources :topics, :only => [:index, :show]
-  resources :speakers, :only => [:index, :show], :controller => 'Application::Speakers'
-  resources :volunteer, :only => [:index, :show], :controller => "Application::Volunteer"
-  resources :partner, :only => [:index, :show], :controller => "Application::Partner"
-  resources :sponsors, :only => [:index, :show], :controller => "Application::Sponsors"
-
+  # teams members and speakers are both a type of user, so are handled by the users controller
+  match 'team_members', :to => 'users#list_team_members'
+  match 'team_members/:id', :to => 'users#team_member'
+  match 'speakers', :to => 'users#list_speakers'
+  match 'speakers/:id', :to => 'users#speaker'
   
+  # talks and events
+  # ----------------------------------------------------------------
+  resources :events, :only => [:index, :show] do
+    # home pages for the different event types
+    collection do
+      get :labs
+      get :mega_talks
+      get :affiliate_event
+    end
+  end
+
+  resources :talks, :only => [:index, :show] do
+    # home pages for the different talk types
+    collection do
+      get :mega_talks
+      get :edison_talks
+    end
+  end
+  
+  # all videos are of chapters, so pass to the chapter controller
+  match 'videos', :to => 'chapters#videos'
+
+
+
   
   # the Admin                                                                   (http://www.domain.com/admin)
   # ---------------------------------------------------------------------------------------------------------
@@ -227,7 +228,8 @@ CraigsAdmin::Application.routes.draw do
     
     resources :notes, :only => [] do
       member do
-        # notes have attachemts, which are passed through the application because the files are not publically availiable through the Internet
+        # notes have attachemts, which are passed through the application because the 
+        # files are not publically availiable through the Internet
         get :attachment
       end
     end

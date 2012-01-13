@@ -9,11 +9,10 @@
     .row.talk_header#talk_header
       .span11.left
         %h1= @talk.name
-        %span{:class => "sub_header"}= link_to @talk.track.name, "#"
+        - if @talk.track.pesent?
+          %span{:class => "sub_header"}= link_to @talk.track.name, "#"
       .span5.right
         social goes here
-
-
 
     .row.talk_body
       .span11#talk_content
@@ -27,7 +26,7 @@
             - @chapter.performances.each do |p|
               %li
                 .img_wrapper
-                  = link_to image_tag(asset_path "application/temp/speaker_thumb_1.jpg"), "#"
+                  = link_to image_tag("application/temp/speaker_thumb_1.jpg"), "#"
                 = link_to p.speaker.name, speaker_path(p.speaker.permalink)
                 %span= p.speaker.title
 
@@ -36,14 +35,13 @@
           %span.row_header Photo Gallery
           %ul.list_reset
             %li
-              = link_to image_tag(asset_path "application/temp/gallery_4.jpg"), "#"
+              = link_to image_tag("application/temp/gallery_4.jpg"), "#"
             %li
-              = link_to image_tag(asset_path "application/temp/gallery_3.jpg"), "#"
+              = link_to image_tag("application/temp/gallery_3.jpg"), "#"
             %li
-              = link_to image_tag(asset_path "application/temp/gallery_2.jpg"), "#"
+              = link_to image_tag("application/temp/gallery_2.jpg"), "#"
             %li
-              = link_to image_tag(asset_path "application/temp/gallery_1.jpg"), "#"
-
+              = link_to image_tag("application/temp/gallery_1.jpg"), "#"
 
 
         .row.content_section#talk_description
@@ -60,7 +58,7 @@
 
 
       .span5#chapter_list
-        %span{:class => "row_header"} Chapters
+        %span{:class => "row_header"} In This Talk:
 
         %ul{:class => "list_reset styled_thumbs"}
           - @chapters.each do |chapter|
