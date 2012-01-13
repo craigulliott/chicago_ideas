@@ -1,12 +1,7 @@
-
-
 $(window).load(function(){
   
   //setup easting
   jQuery.easing.def = "easeOutExpo";
-  
-  
-  
   
   // Navigation and sub menus
   $('li.nav_parent').bind('hover', function(e) {
@@ -56,7 +51,6 @@ $(window).load(function(){
     $('#banner_' + currentId).css('z-index', '999');
     $('#banner_' + nextId).css(nextCss);
     
-    
     $('#banner_' + nextId).stop().animate({
       opacity: 1,
       zoom: 1,
@@ -69,7 +63,6 @@ $(window).load(function(){
     currentBannerId = nextId;
   }
   
-  
   //update the thumbnails
   function updateThumbnails(activeThumb) {
     $('.b_thumb').each(function() {
@@ -80,12 +73,10 @@ $(window).load(function(){
     $('#thumb_' + activeThumb).find('.img_grayscale').stop().animate({opacity:1}, 500);
   }
   
-  
   // click the first by default
   $('.b_thumb:first-child').click();
 
-  
-    // clone image
+  // clone image
   $('.b_thumb img').each(function(){
     var el = $(this);
     el.css({"position":"absolute"}).wrap("<div class='img_wrapper' style='display: inline-block'>").clone().addClass('img_grayscale').css({"position":"absolute","z-index":"998","opacity":"0"}).insertBefore(el).queue(function(){
@@ -104,8 +95,6 @@ $(window).load(function(){
     if ( $(this).is('.b_thumb_active')) { return false; }
     $(this).find('.img_grayscale').stop().animate({opacity:0}, 500);
   });  
-  
-  
   
   
   // Navigation Search box
@@ -130,14 +119,11 @@ $(window).load(function(){
       });
   });
   
-  
-  
   // standard image grid
   $('.image_grid li').bind('hover', function(e) {
     $(this).find('.grid_content').fadeToggle();
   });
   
-    
 });
 
 
