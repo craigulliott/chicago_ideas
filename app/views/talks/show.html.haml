@@ -25,8 +25,11 @@
       
         .row.content_section.noborder#talk_photos
           #slider
-            - @talk.talk_photos.each do |photo|
-              = image_tag(photo.photo_file_name)
+            -#- @talk.talk_photos.each do |photo|
+            -#  = image_tag(photo.photo_file_name)
+            = image_tag("application/temp/asdf.jpg")
+            = image_tag("application/temp/asdffff.jpg")
+            = image_tag("application/temp/asdfasdf.jpg")
                         
 
         .row.content_section#talk_description
