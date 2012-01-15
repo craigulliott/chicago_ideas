@@ -3,7 +3,9 @@ class TalksController < ApplicationController
   def index    
     @talks = TalkBrand.find_by_name("Talk").talks
     @megatalks = TalkBrand.find_by_name("Mega Talk").talks
-    @edisontalks = TalkBrand.find_by_name("Edison Talk").talks
+    #@edisontalks = TalkBrand.find_by_name("Edison Talk").talks
+    @tracks = Track.all
+    @speakers = User.find_all_by_speaker(1) # only grab the users flagged as speakers
   end
   
   

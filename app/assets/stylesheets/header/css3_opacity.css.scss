@@ -1,7 +1,0 @@
-// bourbon doesnt include this filter for religious reasons, but I think it's still useful
-@mixin opacity($val) {
-    opacity:$val;
-    -moz-opacity:$val;
-    -webkit-opacity:$val;
-    filter:alpha(opacity=($val * 100));
-}
