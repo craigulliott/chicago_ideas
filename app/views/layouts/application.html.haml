@@ -15,24 +15,16 @@
   = render "layouts/application/head"
 
 %body{:id => body_id, :class => body_class}
-
-  -# Global Header & Navigation
-  %header{:id => "main_header", :class => "container-fluid"}
-    = render "layouts/application/header"
-
-  -# Main Body Content
-  = yield
-
-
-  -# %footer{:id => "footer", :class => "container-fluid"}
-  -#  = render "layouts/application/footer"
   
-  #fb-root
-  %script
-    (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=142094415902106";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+  #wrapper
+    -# Global Header & Navigation
+    %header{:id => "main_header", :class => "container-fluid"}
+      = render "layouts/application/header"
+
+    -# Main Body Content
+    = yield
+
+
+  %footer{:id => "footer", :class => "container-fluid"}
+    = render "layouts/application/footer"
+  

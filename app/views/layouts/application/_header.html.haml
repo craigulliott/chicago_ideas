@@ -53,7 +53,7 @@
         %ul.dd_column
           %li= link_to "Sponsors", sponsors_path
           %li= link_to "Community Partners", partners_path
-          %li= link_to "Special Programs &amp; Awards", "community/special_programs"
+          %li= link_to "Special Programs & Awards", "community/special_programs"
           %li= link_to "Affiliate Events", affiliate_event_events_path
         %ul.dd_column
           %li= link_to "News", press_clippings_path
@@ -69,15 +69,35 @@
           %li= link_to "Team", team_members_path
           %li= link_to "Volunteer", "/volunteer"
     
-    %li#gn_register
-      = link_to "Register", user_registration_path
+    - if user_signed_in?
+      %li#nav_user.nav_parent
+        - if current_user.connected_to_facebook?
+          %a.facebook_connected_account{:href => user_path(current_user)}
+            = image_tag current_user.facebook_profile_pic_src
+            = current_user.name
+        - else
+          %a{:href => user_path(current_user)}
+            = current_user.name
+        .dropdown
+          %ul
+            %li= link_to "Edit my profile", edit_user_path(current_user)
+            %li= link_to "Logout", destroy_user_session_path
+    -else 
+      %li#gn_register
+        = link_to "Register", user_registration_path
     
-    %li#gn_login
-      = link_to "Login", new_user_session_path
-      .dropdown#dd_login_form
-        = render "partials/login_form"
+      %li#gn_login
+        = link_to "Login", new_user_session_path
+        .dropdown#dd_login_form
+          = render "partials/login_form"
+      
+        
     
     %li#gn_search
       #global_search_container
         %input{:type => "text", :id => "global_search", :placeholder => "search"}
         %input{:type => "submit", :id => "global_search_btn", :value => ""}
+        
+        
+        
+    

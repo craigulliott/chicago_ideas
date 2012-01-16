@@ -1,11 +1,13 @@
 class TalksController < ApplicationController
   
   def index    
-    @talks = TalkBrand.find_by_name("Talk").talks
+    #@talks = TalkBrand.find_by_name("Talk").talks
+    #@talks = TalkBrand.find_by_name("Talk").talks.search_sort_paginate(params)
+    @talks = Talk.search_sort_paginate(params)
     @megatalks = TalkBrand.find_by_name("Mega Talk").talks
     #@edisontalks = TalkBrand.find_by_name("Edison Talk").talks
     @tracks = Track.all
-    @speakers = User.find_all_by_speaker(1) # only grab the users flagged as speakers
+    @speakers = User.speaker.limit(12)
   end
   
   

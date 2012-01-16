@@ -1,13 +1,84 @@
 /******************************************************
- *  Rotating Banner Styles
+ *  Breadcrumbs and page toolbar
+******************************************************/
+#header_toolbar {
+  height: 30px;
+  padding: 10px 0;
+  background: #ebebeb asset-url('application/toolbar_divider.png', image) bottom left repeat-x;
+  margin-top: -32px;
+  
+  #breadcrumbs {
+    margin-left: 175px;
+    
+    ul {
+      width: 650px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+      li {
+        display: inline;
+        float: left;
+        padding-right: 20px;
+        background: asset-url('application/site_sprite.png', image) no-repeat;
+        background-position: right -109px;
+        margin-right: 20px;
+        
+        a {
+          color: $grey;
+          font-size: 13px;
+          line-height: 30px;
+          text-shadow: 1px 1px 1px #fff;
+          text-decoration: none;
+        }
+        a:hover {
+          color:$dark;
+        }
+      }
+      li:last-child {
+        background: none;
+        margin-right: 0;
+        padding-right: 0;
+      }
+    }
+  } // end #breadcrumbs
+  
+  a.explore_btn {
+    float: right;
+    color: $blue;
+    line-height: 30px;
+    font-size: 13px;
+    padding-right: 20px;
+    text-shadow: 1px 1px 1px #fff;
+    background: asset-url('application/site_sprite.png', image) no-repeat;
+    background-position: right -167px;
+    text-decoration: none;
+  }
+}
+
+/*
+<section id='header_toolbar'>
+    <div class='container'>
+      <div id='breadcrumbs'>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#">Talks</a></li>
+        </ul>
+      </div>
+      <a href="#" class="explore_btn" id="explore_talks">Explore Talks</a>
+    </div>
+  </section>
+*/   
+    
+/******************************************************
+ *  Homepage Rotating banner and main page banners
 ******************************************************/
 #featured {
   width: 100%;
   height:675px;
   overflow:hidden;
   background: #000;
-  margin-top: -27px;
-  margin-bottom: 55px;
+  margin-top: -32px;
   
   #banner_container { 
     width: 100%;
@@ -137,6 +208,140 @@
 
 
 
+// Main page banners
+.banner {
+  display: block;
+  height: 390px;
+  background-color: black;
+  margin-top: -32px;
+}
+.banner_wrapper {
+	width: 100%;
+	height: 330px;
+	padding: 30px 0;
+	
+	#banner_linker {
+		margin-bottom:10px;
+		a {
+			font-size: 11px;
+			color: #cccccc;
+			text-shadow:1px 1px 1px #000;
+			font-weight:light;
+		}
+	}
+	
+	.img_container {
+		overflow:hidden;
+		width: 460px;
+		height: 300px;
+		margin-right:20px;
+		border:1px solid #6b6639;
+		@include box-shadow(0px,0px,5px,#000);
+	}
+	
+	.intro_ {
+		
+		span {
+			display:block;
+			clear:both;
+			color:$white;
+			text-shadow:1px 1px 1px #000;
+			font-weight:600;
+			margin-bottom:5px;
+		}
+		
+		span.name_ {
+			font-size: 19px;
+		}
+		
+		span.title_, span.location_ {
+			font-size: 16px;
+			margin-bottom:2px;
+		}
+		
+		span.intro_text {
+			font-size: 35px;
+			line-height: 35px;
+			font-weight:bold;
+			margin-top: 15px;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.banner_table {
+	display: table;
+	width: 1000px;
+	height: 305px;
+	
+	.row {
+		display:table-cell;
+		vertical-align: middle;
+	}
+}
+
+.banner_shoutout {
+	width: 410px;
+	height: auto;
+	padding: 20px;
+	background: rgba(0,0,0,.65);
+	
+	span {
+		text-transform: uppercase; 
+		color:$white;
+	}
+	
+	.banner_title {
+		font-size: 37px;
+		font-weight: 500;
+		line-height: 41px;
+	}
+	
+	.banner_hero {
+		font-size: 65px;
+		line-height: 60px;
+		font-weight: bold;
+	}
+	
+} // end .banner_shoutout
+
+
+
+.slider {
+  width: 1000px;
+  height: 279px;
+  position: relative; 
+  margin-bottom: 65px;
+  
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.talk_gallery {
+  width: 680px;
+  height: 400px;
+  display: block;
+  clear: both;
+  position: relative;
+  margin-bottom: 45px;
+  
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    float: left;
+  }
+  
+  .nivo-controlNav {
+    top: 410px;
+  }
+}
+
+
+
 
 
 /******************************************************
@@ -166,6 +371,8 @@ ul.preview_list {
      font-size: 13px;
      font-weight: 300;
      color: $grey; 
+     display: block;
+     line-height: 17px;
     }
     
     .img_frame {
@@ -214,9 +421,18 @@ ul.double_rows {
   background: asset-url('application/site_sprite.png', image) no-repeat;
   background-position: -100px -120px;
 }
+.view_all {
+  display: block;
+  clear: both;
+}
 
 
 
+
+
+/******************************************************
+ *  Sidebar
+******************************************************/
 #sponsors ul {
   display: table;
   list-style: none;
@@ -237,17 +453,100 @@ ul.double_rows {
   }
 }
 
-/*
-<div class='box right' id='sponsors'>
-      <div class='column_row'>
-        <ul></ul>
-        <li><a href="http://www.accenture.com"><img alt="1" src="https://s3.amazonaws.com/chicago_ideas-chicago-ideas-sponsor-logos/1.jpg?1326231365" width="280px" /></a></li>
-        <li><a href="http://www.uc.edu/booth"><img alt="2" src="https://s3.amazonaws.com/chicago_ideas-chicago-ideas-sponsor-logos/2.jpg?1326231389" width="280px" /></a></li>
-        <li><a href="http://www.jpmorgan.com"><img alt="3" src="https://s3.amazonaws.com/chicago_ideas-chicago-ideas-sponsor-logos/3.jpg?1326231405" width="280px" /></a></li>
-        <li><a href="http://www.microsoft.com"><img alt="4" src="https://s3.amazonaws.com/chicago_ideas-chicago-ideas-sponsor-logos/4.jpg?1326231431" width="280px" /></a></li>
-      </div>
-    </div>
-*/
+
+// Column item headers
+.box_header {
+  display: block;
+  margin-bottom: 20px;
+  padding-top: 6px;
+  
+  span {
+    display: inline;
+    padding: 12px 22px;
+    margin: 0 0 0 20px;
+    font-size: 12px;
+    color: #e1e1e1;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #302d2d;
+    @include box-shadow(-1px,1px,2px,#777);
+  }
+}
+.box_header:before, .box_header:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+.box_header:after {
+  clear:both;
+}
+
+form#newsletter_signup {
+  input[type="email"] {
+    background-color: #f7f5f6;
+    width: 165px;
+    padding: 7px;
+    @include box-shadow-inset(0px,1px,3px,#aeaeae);
+    @include rounded(3px);
+    border: 1px solid #c1c1c1;
+  }
+}
+
+ul.filter_list {
+  display: block;
+  list-style: none;
+  margin: 0 0 20px 0;
+  padding: 0;
+  
+  li {
+    display: block;
+    a {
+      display: block;
+      line-height: 25px;
+      font-size: 14px;
+      font-weight: lighter;
+      color: #2d77de;
+    }
+  }
+}
+
+
+
+
+/******************************************************
+ *  Buttons
+******************************************************/
+.btn, input.submit, input.create {
+  @include rounded(3px);
+  line-height: 27px;
+  padding: 0 10px;
+  margin: 0;
+  font-weight: 700;
+  font-size: 12px; 
+}
+.grey_btn {
+  color: $grey;
+  text-shadow: 1px 1px 1px #fff;
+  border: 1px solid #c9c9c9; 
+  background-color: #dcdcdc;
+  background-image: asset-url('application/grey_btn.png', image);
+  background-repeat: repeat-x;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e4e4e4), to(#dcdcdc));
+  background-image: -webkit-linear-gradient(top, #e4e4e4, #dcdcdc);
+  background-image:    -moz-linear-gradient(top, #e4e4e4, #dcdcdc);
+  background-image:     -ms-linear-gradient(top, #e4e4e4, #dcdcdc);
+  background-image:      -o-linear-gradient(top, #e4e4e4, #dcdcdc);
+}
+.blue_btn, input.submit, input.create {
+  color:$white;
+  border:1px solid #0072bc;
+  text-shadow: 1px 1px 1px #00548a;
+  @include gradient(#0072bc, #1c91dc, #0072bc);
+  @include box-shadow-inset(0px, 1px, 0px, #45aef1);
+}
+input.submit, input.create {
+  padding: 0 25px;
+}
 
 
 

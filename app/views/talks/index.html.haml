@@ -1,58 +1,156 @@
 -#     Chicago Ideas Week
 -#     talks/index.html.haml
--#     01/10/2012
+-#     01/15/2012
 
-- @tracks.each do |t|
-  = t.name
-  
-- @speakers.each do |s|
-  = s.name
 
-%section#main_content.row.full
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
   .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Talks", talks_path
+    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
 
-    .span-one-third.entry_column.general_#ciw_talks
-      %h2 CIW Talks
+
+-# Begin Main Talk content
+%section.container#main_content
+  
+  -# Featured Talks slider
+  .slider
+    - @megatalks.each do |featured|
+      = link_to image_tag(featured.banner.url, :title => '<span class="banner_head">Web & Tech</span><span class="banner_type">Technology</span>'), talk_path(featured)
       
-      - if @talks.present?
-        %ul.entry_list.entry_featured.styled_thumbs
-          - @talks.limit(3).each do |talk|
-            %li.entry{:id => "entry_#{talk.id}"}
-              -#.img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
-              .img_wrapper= link_to (image_tag talk.banner), talk_path(talk)
-              
-              %h3= link_to talk.name, talk_path(talk)
-              - if talk.track.present?
-                %p= talk.track.name
+  
+  -# Left column, main content: Videos, speakers, etc.
+  .box.double.left
+
+    .column_row.divided_row#talks
+      .column.column_double
+        %span.column_header Talks
+        %ul.preview_list.double_rows
+
+          - @talks.each do |talk|
+            %li
+              .img_frame
+                = link_to "play", talk_path(talk), :class => "play_btn"
+                - begin
+                  = link_to image_tag(talk.banner.url), talk_path(talk)
+                - rescue
+              = link_to talk.name, talk_path(talk)
+              %span= talk.track.name
+              %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_2.jpg'), "#"
+            = link_to "Web & Tech", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_1.jpg'), "#"
+            = link_to "Innovation & Influence", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_2.jpg'), "#"
+            = link_to "Web & Tech", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_1.jpg'), "#"
+            = link_to "Innovation & Influence", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_2.jpg'), "#"
+            = link_to "Web & Tech", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_1.jpg'), "#"
+            = link_to "Innovation & Influence", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_2.jpg'), "#"
+            = link_to "Web & Tech", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_1.jpg'), "#"
+            = link_to "Innovation & Influence", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_2.jpg'), "#"
+            = link_to "Web & Tech", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_1.jpg'), "#"
+            = link_to "Innovation & Influence", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_2.jpg'), "#"
+            = link_to "Web & Tech", "#"
+            %span Technology
 
 
+    -# Speakers list
+    .column_row#speakers
+      .column.column_double
+        %span.column_header Speakers
+        %ul.preview_list.speaker_list.double_rows
+          - @speakers.each do |speaker|
+            %li
+              .img_frame
+                - begin
+                  = link_to image_tag(speaker.portrait.url), speaker_path(speaker)
+                - rescue
+              = link_to speaker.name, speaker_path(speaker)
+              %span= speaker.title
+            
+          %li
+            .img_frame
+              = link_to image_tag('application/temp/speaker_2.jpg'), "#"
+            = link_to "David Gilboa", "#"
+            %span Co-Founder and Co-CEO, Warby Parker
+          %li
+            .img_frame
+              = link_to image_tag('application/temp/speaker_3.jpg'), "#"
+            = link_to "David Gilboa", "#"
+            %span Co-Founder and Co-CEO, Warby Parker
 
-    .span-one-third.entry_column.general_#mega_talks
-
-      %h2 Mega Talks
-      - if @megatalks.present?
-        %ul.entry_list.styled_thumbs
-          - @megatalks.limit(3).each do |megatalk|
-            %li.entry{:id => "entry_#{megatalk.id}"}
-              %h3= link_to megatalk.name, talk_path(megatalk)
-              .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
-              %p= megatalk.description[0..105]
+        = link_to "view all speakers →", speakers_path, :class => "view_all blue"
 
 
+  -# Include Sidebar Items
+  = render "partials/track_filter"
+  = render "partials/sponsors"
+  = render "partials/social"
+  = render "partials/newsletter_form"
 
-    .span-one-third.entry_column.general_#ciw_labs
-
-      %h2 CIW Labs
-      - if @labs.present?
-        %ul.entry_list.styled_thumbs
-          - @labs.limit(3).each do |lab|
-            %li.entry{:id => "entry_#{lab.id}"}
-              %h3= link_to lab.name, event_lab_path(lab)
-              .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
-              %p= lab.description[0..105]
-
-
-
-<script type="text/javascript">
-$('#gn-event').addClass('nav_parent_active'); // show the 2012 CIW sub menu by default
-</script>

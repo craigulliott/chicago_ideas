@@ -1,0 +1,182 @@
+input, textarea {
+  font-size: 15px;
+  color:$grey;
+  padding: 8px;
+  border: 1px solid #ccc;
+  @include rounded(4px);
+
+}
+
+.input[type="text"], .input[type="password"], .input[type="email"] {
+  width:200px;
+}
+.extra-small { width: 55px; }
+
+.medium { width: 300px; }
+
+.medium-large { width: 425px; }
+ 
+.large { width: 500px; }
+
+.extra-large { width: 625px; }
+
+textarea {
+  width: 500px;
+  height: 75px;
+}
+
+label {
+  display:block;
+  font-family: "Helvetica Neue", Helvetia, Arial, sans-serif;
+  font-size: 15px;
+  color:$grey;
+  margin-bottom:5px;
+}
+
+input[type="checkbox"] {
+  display:inline;
+  margin:3px 5px 0 0;
+  padding:0px;
+  width:auto !important;
+}
+
+input[type="submit"] {
+  width:auto !important;
+}
+
+abbr { 
+  margin-left: 4px;
+  text-decoration: none !important; 
+  border: none !important;
+}
+
+.agreeing_to_terms {
+  font-size: 13px;
+  font-weight: 300;
+  color:$greyLight;
+  display: block; 
+  margin-bottom: 15px;
+}
+
+
+
+
+/******************************************************
+ *  Login / Register Pages
+******************************************************/
+
+// login
+#login_container {
+
+  ol {
+    diplay:block;
+    margin:0;
+    padding:0;
+    list-style:none;
+    
+    li {
+      display:block;
+      margin:0 0 20px 0;
+      padding:0;
+    }
+    
+    li.boolean {
+      
+      input#user_remember_me {
+
+      }
+      
+    }
+    
+  } // end ol
+  
+  abbr {
+    color:red;
+    text-decoration:none;
+    margin-right:3px;
+  }
+  
+  input {
+    width: 300px;
+  }
+  
+  #devise_links a {
+    margin-right: 10px;
+  }
+  
+}
+
+
+// Dropdown Login Form
+#dd_login_form {
+  padding: 20px 0 10px 0!important;
+  width: 240px !important; 
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: block;
+    margin-bottom: 13px; 
+    padding: 0 20px;
+  }
+  
+  label {
+    font-size: 12px;
+    color:$grey;
+    margin-bottom: 2px;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px #fff;
+  }
+  
+  input[type="text"], input[type="password"] {
+    width: 180px;
+  }
+  
+  #dd_submit {
+    padding-bottom: 13px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #ccc;
+    label {
+      display: inline; 
+      line-height: 30px;
+    }
+  }
+  #dd_forgot_pw {
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 0;
+    border-top: 1px solid #fff;
+    a {
+      font-size: 13px;
+      color: $grey;
+      text-shadow: 1px 1px 1px #fff;
+    }
+  }
+}
+/*
+<div class='dropdown' id='dd_login_form'>
+  <ul>
+    <form accept-charset="UTF-8" action="/users/sign_in" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="1SKEo2gjUwX9RMP3VVZZwtW4jdu8v2BqnlgaNena1qY=" /></div>
+      <li>
+        <label>Email address</label>
+        <input id="user_email" name="user[email]" placeholder="Email address" tabindex="1" type="text" value="" />
+      </li>
+      <li>
+        <label>Password</label>
+        <input id="user_password" name="user[password]" placeholder="password" tabindex="2" type="password" value="" />
+      </li>
+      <li>
+        <input id="user_remember_me" name="user[remember_me]" type="checkbox" value="1" />
+        <label for="user_remember_me">Remember me</label>
+        <button class='btn blue_btn'>Sign in</button>
+      </li>
+      <li class='divided'>
+        <a href="/users/password/new">Forgot your password?</a>
+      </li>
+    </form>
+  </ul>
+</div>
+*/
