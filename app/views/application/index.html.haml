@@ -6,3 +6,135 @@
 -# Featured Section/Banner Area
 = render "partials/banner"
 
+
+%section.container
+
+  -# Left column, main content: Videos, speakers, etc.
+  .box.double.left
+    
+    .column_row.divided_row#talks
+      .column
+        %span.column_header Talks
+        %ul.preview_list
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_1.jpg'), "#"
+            = link_to "Innovation & Influence", "#"
+            %span Technology
+          
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_2.jpg'), "#"
+            = link_to "Web & Tech", "#"
+            %span Technology
+        
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_1.jpg'), "#"
+            = link_to "Innovation & Influence", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_2.jpg'), "#"
+            = link_to "Web & Tech", "#"
+            %span Technology
+        
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_1.jpg'), "#"
+            = link_to "Innovation & Influence", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_2.jpg'), "#"
+            = link_to "Web & Tech", "#"
+            %span Technology
+          
+          
+      .column.right
+        %span.column_header Videos
+        %ul.preview_list
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_1.jpg'), "#"
+            = link_to "Innovation & Influence", "#"
+            %span Technology
+          
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_2.jpg'), "#"
+            = link_to "Web & Tech", "#"
+            %span Technology
+        
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_1.jpg'), "#"
+            = link_to "Innovation & Influence", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_2.jpg'), "#"
+            = link_to "Web & Tech", "#"
+            %span Technology
+        
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_1.jpg'), "#"
+            = link_to "Innovation & Influence", "#"
+            %span Technology
+
+          %li
+            .img_frame
+              = link_to "play", "#", :class => "play_btn"
+              = link_to image_tag('application/temp/temp_2.jpg'), "#"
+            = link_to "Web & Tech", "#"
+            %span Technology
+      
+    .column_row#speakers
+      .column.column_double
+        %span.column_header Speakers
+        %ul.preview_list.speaker_list.double_rows
+          %li
+            .img_frame
+              = link_to image_tag('application/temp/speaker_3.jpg'), "#"
+            = link_to "David Gilboa", "#"
+            %span Co-Founder and Co-CEO, Warby Parker
+          %li
+            .img_frame
+              = link_to image_tag('application/temp/speaker_2.jpg'), "#"
+            = link_to "David Gilboa", "#"
+            %span Co-Founder and Co-CEO, Warby Parker
+          %li
+            .img_frame
+              = link_to image_tag('application/temp/speaker_3.jpg'), "#"
+            = link_to "David Gilboa", "#"
+            %span Co-Founder and Co-CEO, Warby Parker
+            
+  
+  -# Sponsors Section
+  - if @sponsors.present?
+    .box.right#sponsors
+      %ul
+        - @sponsors.each do |sponsor|
+          %li= link_to image_tag(sponsor.logo), "#{sponsor.url}"
+      
+
+  .box.right#community
+    .column_header
+      %span community
+    .column_row
+      <div class="fb-like" data-href="http://www.facebook.com/ChicagoIdeasWeek" data-send="false" data-width="260" data-show-faces="true" data-font="arial"></div>

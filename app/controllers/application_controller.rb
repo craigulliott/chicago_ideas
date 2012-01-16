@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
   # the application homepage
   def index
     @talks = Talk.search_sort_paginate(params)
-    #@topics = Topic.search_sort_paginate(params)
+    @speakers = User.find_all_by_speaker(1) # only grab the users flagged as speakers
+    @sponsors = Sponsor.all
   end
   
   
