@@ -10,7 +10,19 @@ $(window).load(function(){
     pauseOnHover: false, // Stop animation while hovering
     manualAdvance: false, // Force manual transitions
     randomStart: false, // Start on a random slide
-});
+  });
+  
+  $('#sponsors ul').nivoSlider({
+    effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
+    animSpeed: 500, // Slide transition speed
+    pauseTime: 5000, // How long each slide will show
+    directionNav: false, // Next & Prev navigation
+    controlNav: false, // 1,2,3... navigation
+    keyboardNav: false, // Use left & right arrows
+    pauseOnHover: false, // Stop animation while hovering
+    manualAdvance: false, // Force manual transitions
+    randomStart: false, // Start on a random slide
+  });
   
   //setup easting
   jQuery.easing.def = "easeOutExpo";

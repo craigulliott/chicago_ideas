@@ -40,6 +40,53 @@ body {
   width: 1000px;
   margin: 0 auto;
 }
+.box {
+  width: 300px;
+  @include box-shadow(1px,1px,1px,#999);
+  background: $white;
+  @include rounded(2px);
+  margin-bottom: 30px;
+}
+.double {
+  width: 680px;
+}
+.row {
+  width: 100%;
+  clear: both;
+}
+.row:before, .row:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+.row:after {
+  clear: both;
+}
+.column {
+  width: 300px;
+  display: inline;
+  float: left;  
+}
+.column_double {
+  width: 640px;
+}
+.column_row {
+  display: block;
+  padding: 20px;
+}
+.column_row:before, .column_row:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+.column_row:after {
+  clear: both;
+}
+.divided_row {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
 
 
 
