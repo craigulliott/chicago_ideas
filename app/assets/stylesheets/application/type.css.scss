@@ -76,3 +76,13 @@ span.column_header {
   text-transform: uppercase;
   font-weight: bold;
 }
+
+span.expired_date {
+  font-size: 11px;
+  color: #fff;
+  background-color: #f36767;
+  @include rounded(2px);
+  padding: 2px 4px;
+  margin-left: 5px;
+}
+

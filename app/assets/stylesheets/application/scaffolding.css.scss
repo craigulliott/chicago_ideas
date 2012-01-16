@@ -6,10 +6,6 @@
 /******************************************************
  *  Main Scaffolding  
 ******************************************************/
-
-/******************************************************
- *  Main Scaffolding  
-******************************************************/
 html, body { 
   height:100%; 
 }
@@ -23,7 +19,21 @@ body {
   line-height: 19px;
   color: $grey;
 }
-.container-fluid { // wrappers are 100%, and wrap sections like the header, body and footer
+#wrapper {
+	width: 100%;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin-bottom: -$footerHeight;
+}
+#wrapper:after {
+	display:table;
+	content: "";
+	zoom:1;
+	height: $footerHeight;
+	clear:both;
+}
+.container-fluid {
   width: 100%;
   display: block;
   clear: both;
@@ -86,28 +96,33 @@ body {
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
 }
-
+#main_content {
+  display: block;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+#main_content:before, #main_content:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+#main_content:after {
+  clear: both;
+}
 
 
 
 
 // HEADER
 nav {
-  height: 60px;
+  height: 55px;
   position: relative;
   z-index: 4001;
-/*
-  background-color: #231f20;
+  @include gradient(#231f20,#333030,#231f20);
   background-image: asset-url('application/navigation_bg.png', image);
+  background-position: top left;
   background-repeat: repeat-x;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333030), to(#231f20));
-  background-image: -webkit-linear-gradient(top, #333030, #231f20);
-  background-image:    -moz-linear-gradient(top, #333030, #231f20);
-  background-image:     -ms-linear-gradient(top, #333030, #231f20);
-  background-image:      -o-linear-gradient(top, #333030, #231f20);
-*/
-  background: asset-url('application/navigation_bg.png', image) top left repeat-x;
-  @include box-shadow(0px,2px,5px,#000);
+  @include box-shadow(0px,2px,4px,#000);
 }
 ul#global_nav {
   display: block;
@@ -120,17 +135,15 @@ ul#global_nav {
     margin: 0;
     padding: 0 20px;
     @include box-shadow-inset(0px, 0px, 0px, #000);
-    @include transition(box-shadow, .4s);
     
     > a {
       display: block;
-      line-height: 60px;
+      line-height: 55px;
       font-size: 13px;
       font-family: Arial;
       font-weight: bold;
       color: $white;
       text-decoration: none;
-      @include transition(color, .8s);
     }
   } // end li
   
@@ -148,10 +161,14 @@ ul#global_nav {
       text-indent: -9999px;      
     }
   } // end li#gn_logo
+    
+  li#gn_logo:hover {
+    @include box-shadow-inset(0px,0px, 0px, #000);
+  }
   
   > li:hover {
-    @include box-shadow-inset(0px, 5px, 10px, #000);
-    
+    @include box-shadow-inset(0px, 3px, 5px, #000);
+    background-color:#1e1b1b;
     > .dropdown {
       display:block;
     }
@@ -159,14 +176,23 @@ ul#global_nav {
       color: $yellow;
     }
   }
+  
+  li.nav_parent:hover {
+    > a {
+      background-position: right -25px !important;
+    }
+  }
+  
   > li.nav_section_end {
-    background: asset-url('application/nav_divider.png', image) top right no-repeat;
+    background-image: asset-url('application/nav_divider.png', image);
+    background-position: top right;
+    background-repeat: no-repeat;
   }
   
   > .nav_parent {
     > a {
       background: asset-url('application/site_sprite.png', image) no-repeat;
-      background-position: right 27px;
+      background-position: right 24px;
       padding-right: 17px;
     }
   } // end .nav_parent
@@ -179,7 +205,7 @@ ul#global_nav {
   > li#gn_search {
     width: 110px;;
     position:relative;
-    padding:14px 0 0 0;
+    padding: 12px 0 0 0;
     float:right;
     
     #global_search_container {
@@ -217,14 +243,18 @@ ul#global_nav {
       height:20px !important;
       background: asset-url('application/site_sprite.png', image) no-repeat;
       background-position: 0px -117px;
-      text-indent: -9999px;
+      text-indent-color: -9999px;
     }
   } // #nav_search
   
+  li#gn_search:hover {
+    @include box-shadow-inset(0px,0px, 0px, #000);
+    background-color: transparent;
+  }
   
-  li.nav_parent:hover {
-    > a {
-      background-position: right -22px !important;
+  li#nav_user {
+    a {
+      //font-size: 12px;
     }
   }
   
@@ -232,23 +262,84 @@ ul#global_nav {
   .dropdown {
     display: none;
     position: absolute;
-    background: #f8f8f8;
+    background: #1e1b1b asset-url('application/dropdown_gradient.png', image) top left repeat-x;
     width: 200px;
-    @include box-shadow(0px,7px,15px,#999);
-    padding: 20px;
+    padding: 30px;
     margin-left: -20px;
-    z-index: 4000;
+    z-index: 3001 !important;
+//    @include box-shadow(0,5px,15px,#000);
+    border-bottom-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    
+    ul {
+      li {
+        display: block;
+        padding: 5px 20px 5px 0;
+        
+        a {
+          font-size: 13px;
+          font-family: arial;
+          font-weight: 400;
+          color: $offwhite;
+        }
+      }
+    }
     
     ul.dd_column {
-      width: 200px;
+      width: auto;
       display: inline;
       list-style: none;
       clear: none;
       float: left;
+      margin-right: 20px; 
+    }
+    
+    ul.featured {
+      width: 530px;
+      margin: 0;
+      
+      li {
+        display: inline;
+        width: 240px;
+        float: left;
+        margin-right: 20px;
+        padding: 0;
+        
+        .dd_img_container {
+          width: 110px;
+          height: 60px;
+          overflow: hidden;
+          margin-right: 10px;
+          float: left;
+          background: yellow;
+          @include box-shadow(0px,1px,3px,#000);
+          border: 2px solid #555;
+        }
+        a {
+          font-size: 13px;
+          font-weight: bold;
+          color: $white;
+          display: block;
+          margin-bottom: 2px;
+        }
+        span.small {
+          display: block;
+          font-size: 12px;
+          color: #ccc;
+        }
+      }
+      
+      li:last-child {
+        margin-right: none;
+      }
     }
     
   } // end .dropdown
-  
+
   .full_dropdown {
     width: 804px;
     left: 153px;
@@ -259,4 +350,102 @@ ul#global_nav {
   }
     
 } // end #global_nav
+
+
+
+
+
+
+
+/******************************************************
+ *	Global Footer
+******************************************************/
+#footer {
+	background:#322f30;
+	padding-bottom:20px;
+	height: $footerHeight;
+	
+	#footer_top {
+		#footer_logo {
+			width: 115px;
+			height:68px;
+			background: asset-url("application/footer_logo.png", image) top left no-repeat;
+			text-indent:-9999px;
+			float:left;
+			margin-right: 20px;
+			margin-top:-5px;
+		}
+		span {
+			font-size: 17px;
+			color:$offwhite;
+			line-height: 68px;
+		}
+	}
+
+	#footer_nav {
+		margin: 30px 0 40px 0;
+		
+		.footer_item {
+			width: 140px;
+			display:inline;
+			float:left;
+			margin-right: 30px;
+			
+			> span.title {
+				font-size:13px;
+				color:$offwhite;
+				font-weight:800;
+				text-transform:uppercase;
+				display:block;
+				margin-bottom: 20px;
+			}
+			
+			> ul {
+				display:block;
+				list-style:none;
+				
+				li {
+					display:block;
+					clear:both;
+					padding: 2px 0;
+					
+					a {
+						color: $offwhite;
+						font-size:14px;
+						font-weight: 200;
+					}
+				}
+			} // end ul
+			
+		} // end footer_item
+		
+		.footer_item:last-child { margin-right:0;}
+	} // #end footer_nav
+	
+	#copyright {
+		display:block; 
+		
+		ul {
+			list-style:none;
+			
+			li {
+				display:inline;
+				float:left;
+				margin-right: 15px;
+				padding-right:15px;
+				color:#bebebe;
+				font-weight:lighter;
+				
+				a {
+					color:#bebebe;
+					text-decoration:none; 
+				}
+			}
+			li#copyright_notice {
+				border-right: 1px solid #bebebe;
+			}
+		}
+	} // end #copyright
+	
+} // end #footer
 

@@ -7,7 +7,7 @@
 = render "partials/banner"
 
 
-%section.container
+%section.container#main_content
 
   -# Left column, main content: Videos, speakers, etc.
   .box.double.left
@@ -57,6 +57,8 @@
               = link_to image_tag('application/temp/temp_2.jpg'), "#"
             = link_to "Web & Tech", "#"
             %span Technology
+        
+        = link_to "view all talks →", talks_path, :class => "view_all blue"
           
           
       .column.right
@@ -103,7 +105,9 @@
               = link_to image_tag('application/temp/temp_2.jpg'), "#"
             = link_to "Web & Tech", "#"
             %span Technology
-      
+        
+        
+        
     .column_row#speakers
       .column.column_double
         %span.column_header Speakers
@@ -123,18 +127,13 @@
               = link_to image_tag('application/temp/speaker_3.jpg'), "#"
             = link_to "David Gilboa", "#"
             %span Co-Founder and Co-CEO, Warby Parker
-            
+
+        = link_to "view all speakers →", speakers_path, :class => "view_all blue"
   
-  -# Sponsors Section
-  - if @sponsors.present?
-    .box.right#sponsors
-      %ul
-        - @sponsors.each do |sponsor|
-          %li= link_to image_tag(sponsor.logo), "#{sponsor.url}"
+  -# Include Sidebar Items
+  = render "partials/sponsors"
+  = render "partials/social"
+  = render "partials/newsletter_form"
       
 
-  .box.right#community
-    .column_header
-      %span community
-    .column_row
-      <div class="fb-like" data-href="http://www.facebook.com/ChicagoIdeasWeek" data-send="false" data-width="260" data-show-faces="true" data-font="arial"></div>
+  

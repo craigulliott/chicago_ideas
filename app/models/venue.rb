@@ -91,7 +91,7 @@ class Venue < ActiveRecord::Base
   end
   
   def google_maps_src width=280, height=280, maptype=:roadmap, zoom=12
-    "http://maps.google.com/maps/api/staticmap?center=#{position}&zoom=#{zoom}&size=#{width}x#{height}&maptype=#{maptype}&markers=color:blue%7Clabel:A%7C#{position}&sensor=false"
+    "http://maps.google.com/maps/api/staticmap?center=#{position}&zoom=#{zoom}&size=#{width}x#{height}&maptype=#{maptype}&markers=color:blue%7Clabel:A%7C#{position}&sensor=false".html_safe
   end
   
   def google_maps_url

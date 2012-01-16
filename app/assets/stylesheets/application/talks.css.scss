@@ -1,0 +1,54 @@
+.talk_venue_details {
+  width: 325px;
+  border: none;
+  margin: 0;
+  padding: 0;
+  
+  tr {
+    display: table-row;
+  }
+  td {
+    font-size: 14px;
+    color: $greyDark;
+    line-height: 19px;
+    padding-bottom: 12px;
+  }
+  td.venue_label {
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  address {
+    margin-top: 4px;
+    font-size: 12px;
+    color: $grey;
+  }
+}
+
+/*<div class='column_row divided_row' id='talks_location'>
+         <div class='column column_double'>
+           <span class='column_header'>
+             Date &amp; Location
+             <span class='expired_date'>Event Passed</span>
+             <table class='talk_venue_details'>
+               <tr>
+                 <td class='venue_label'>Date</td>
+                 <td>Example Date</td>
+               </tr>
+               <tr>
+                 <td class='venue_label'>Time</td>
+                 <td>#{@talk.start_time} - #{@talk.end_time} PM</td>
+               </tr>
+               <tr>
+                 <td class='venue_label'>Venue</td>
+                 <td>
+                   kohactive
+                   <address>800 W. Huron St., Suite 3E, Chicago, IL 60642</address>
+                 </td>
+               </tr>
+             </table>
+           </span>
+         </div>
+       </div>
+     </div>
+     */

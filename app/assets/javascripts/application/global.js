@@ -1,17 +1,23 @@
 $(window).load(function(){
   
-  $('#slider').nivoSlider({
+  /************************************************************************************
+   **    
+   **    Sliders and Image Galleries
+   **
+  ************************************************************************************/
+  
+  $('.slider, .talk_gallery').nivoSlider({
     effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
     animSpeed: 500, // Slide transition speed
     pauseTime: 5000, // How long each slide will show
     directionNav: false, // Next & Prev navigation
-    controlNav: false, // 1,2,3... navigation
+    controlNav: true, // 1,2,3... navigation
     keyboardNav: false, // Use left & right arrows
     pauseOnHover: false, // Stop animation while hovering
     manualAdvance: false, // Force manual transitions
     randomStart: false, // Start on a random slide
   });
-  
+    
   $('#sponsors ul').nivoSlider({
     effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
     animSpeed: 500, // Slide transition speed
@@ -27,14 +33,7 @@ $(window).load(function(){
   //setup easting
   jQuery.easing.def = "easeOutExpo";
   
-  // Navigation and sub menus
-  $('li.nav_parent > a').click(function(e) {
-    $('li.nav_parent').removeClass('nav_parent_active').children().find('div.nav_children').hide();
-    $(this).parent().stop().addClass('nav_parent_active');
-    e.preventDefault();
-  });
-  
-  
+  // fancybox 
   $('.popup_img').fancybox();
   
   
@@ -126,13 +125,12 @@ $(window).load(function(){
   
   // Navigation Search box
   $('#global_search').bind('focus', function(e) {
-    //$('#global_search_container').width('300px');
     $('#global_search_container').animate({
       width : '300px',
     });
     $(this).animate({
       width : '250px', 
-      left : '0px'
+      left : '0px',
     });
   });
   

@@ -3,56 +3,51 @@
 -#     01/12/2012
 
 
-%section.banner.container-fluid.banner.container-fluid
-  .banner_wrapper{:style => "background: url(#{@talk.banner.url}) top center no-repeat;"}
-
-
-%section#main_content.row.full
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
   .container
-
-    .row.talk_header#talk_header
-      .span11.left
-        %h1= @talk.name
-        - if @talk.track.present?
-          %span.sub_header= link_to @talk.track.name, "#"
-      .span5.right
-        social goes here
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Talks", talks_path
+        %li= link_to @talk.name
+    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
 
 
-    .row.talk_body
-     
-      .span11#talk_content
-      
-        .row.content_section.noborder#talk_photos
-          #slider
-            -#- @talk.talk_photos.each do |photo|
-            -#  = image_tag(photo.photo_file_name)
-            = image_tag("application/temp/asdf.jpg")
-            = image_tag("application/temp/asdffff.jpg")
-            = image_tag("application/temp/asdfasdf.jpg")
-                        
+-# Main Talk content
+%section.container#main_content
 
-        .row.content_section#talk_description
-          %pre= @talk.description
+  -# Left column, main content: Gallery, details, speakers, etc.
+  .box.double.left
+    
+    .talk_gallery
+      -#- @talk.talk_photos.each do |photo|
+      -#  = image_tag(photo.photo_file_name)
+      = image_tag("application/temp/asdf.jpg")
+      = image_tag("application/temp/asdffff.jpg")
+      = image_tag("application/temp/asdfasdf.jpg")
 
-
-      .span5#chapter_list
-        %span.row_header In This Talk:
-
-        %ul.list_reset.styled_thumbs
-          - @chapters.each do |chapter|
-            %li
-              .img_wrapper
-                = link_to "", "#",  :class => "play_btn"
-                - if chapter.chapter_photos.first.present?
-                  -begin
-                    = image_tag URI.decode chapter.chapter_photos.first.photo.url(:thumb)
-                  -rescue
-                  
-              = link_to chapter.title, video_path(chapter)
-              %span= "#{chapter.performances.count} speakers"
-
-
-<script type="text/javascript">
-$('#gn-event').addClass('nav_parent_active'); // show the 2012 CIW sub menu by default
-</script>
+    .column_row.divided_row#talks_description
+      .column.column_double
+        %span.column_header About this Talk
+        %pre= @talk.description
+        
+    .column_row.divided_row#talks_location
+      .column.column_double
+        %span.column_header
+          Date &amp; Location
+          %span.expired_date Event Passed
+        %table.talk_venue_details
+          %tr
+            %td.venue_label{:width => "85"} Date
+            %td= @talk.day.name
+          %tr
+            %td.venue_label Time
+            %td= '#{@talk.start_time} - #{@talk.end_time} PM'
+          %tr
+            %td.venue_label Venue
+            %td
+              = @talk.venue.name
+              %address= @talk.venue.address
+      .venue_map
+        = image_tag venue.google_maps_src
