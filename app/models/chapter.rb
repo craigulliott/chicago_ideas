@@ -40,7 +40,7 @@ class Chapter < ActiveRecord::Base
     :styles => { 
       :large => "1400x676", 
       :medium => "1000x483#",
-      :thumbnail => "300x144#",
+      :thumb => "300x144#",
     },
    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-banners",
    :path => ":style/:id.:extension"

@@ -170,6 +170,10 @@ class User < ActiveRecord::Base
     markdown.render(bio).html_safe
   end
   
+  def bio_abbreviated
+    ( bio.present? && bio.length > 200 ) ? "#{bio[0..200]}..." : bio
+  end
+  
   private 
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio

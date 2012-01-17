@@ -46,7 +46,7 @@
 
       - @labs.limit(3).each do |lab|
         %li.entry{:id => "entry_#{lab.id}"}
-          %h3= link_to lab.name, event_lab_path(lab)
+          %h3= link_to lab.name, event_path(lab)
           .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
           %p= lab.description[0..105]
 

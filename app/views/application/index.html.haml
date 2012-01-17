@@ -25,7 +25,8 @@
                   = link_to image_tag(talk.banner.url), talk_path(talk)
                 - rescue
               = link_to talk.name, talk_path(talk)
-              %span= talk.track.name
+              - if talk.track.present?
+                %span= talk.track.name
               %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"
         
         = link_to "view all talks →", talks_path, :class => "view_all blue"
