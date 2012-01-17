@@ -5,6 +5,8 @@ class Performance < ActiveRecord::Base
 
   belongs_to :speaker, :class_name => 'User'
   belongs_to :chapter
+  has_many :speakers, :through => :performances
+  
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
