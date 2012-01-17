@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   include SearchSortPaginate
   
   BANNER_WIDTH = 1400
-  BANNER_HEIGHT = 390
+  BANNER_HEIGHT = 500
 
   belongs_to :partner
   belongs_to :day
@@ -34,10 +34,14 @@ class Event < ActiveRecord::Base
   
   # large format blessed photo for the website
   has_attached_file :banner,
+    :styles => { 
+      :large => "1400x500", 
+      :medium => "1000x357#",
+      :thumbnail => "300x107#",
+    },
     :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-event-banners",
-    :path => ":id.:extension",
-    :default_url => "public/"
-  
+    :path => ":style/:id.:extension"
+      
   # the hash representing this model that is returned by the api
   def api_attributes
     {

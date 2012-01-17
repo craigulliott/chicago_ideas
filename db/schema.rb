@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120111185943) do
+ActiveRecord::Schema.define(:version => 20120117165429) do
 
   create_table "chapter_photos", :force => true do |t|
     t.string   "photo_file_name",    :null => false
@@ -27,13 +27,20 @@ ActiveRecord::Schema.define(:version => 20120111185943) do
   add_index "chapter_photos", ["chapter_id"], :name => "index_chapter_photos_on_chapter_id"
 
   create_table "chapters", :force => true do |t|
-    t.integer  "sort",        :null => false
+    t.integer  "sort",                                    :null => false
     t.string   "title"
     t.text     "description"
-    t.integer  "talk_id",     :null => false
+    t.integer  "talk_id",                                 :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "vimeo_id"
+    t.boolean  "featured_on_talk",     :default => false, :null => false
+    t.boolean  "featured_on_homepage", :default => false, :null => false
+    t.text     "homepage_caption"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
   end
 
   add_index "chapters", ["talk_id", "sort"], :name => "index_chapters_on_talk_id_and_sort"
@@ -187,10 +194,6 @@ ActiveRecord::Schema.define(:version => 20120111185943) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.datetime "banner_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url"
@@ -241,18 +244,14 @@ ActiveRecord::Schema.define(:version => 20120111185943) do
   add_index "talk_photos", ["talk_id"], :name => "index_talk_photos_on_talk_id"
 
   create_table "talks", :force => true do |t|
-    t.string   "name",                :limit => 150, :null => false
+    t.string   "name",          :limit => 150, :null => false
     t.text     "description"
-    t.integer  "day_id",                             :null => false
-    t.integer  "venue_id",                           :null => false
+    t.integer  "day_id",                       :null => false
+    t.integer  "venue_id",                     :null => false
     t.integer  "track_id"
-    t.integer  "talk_brand_id",                      :null => false
-    t.time     "start_time",                         :null => false
-    t.time     "end_time",                           :null => false
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.datetime "banner_updated_at"
+    t.integer  "talk_brand_id",                :null => false
+    t.time     "start_time",                   :null => false
+    t.time     "end_time",                     :null => false
     t.integer  "sponsor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -301,10 +300,6 @@ ActiveRecord::Schema.define(:version => 20120111185943) do
     t.string   "portrait_content_type"
     t.integer  "portrait_file_size"
     t.datetime "portrait_updated_at"
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.datetime "banner_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"

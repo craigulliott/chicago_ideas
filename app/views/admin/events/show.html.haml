@@ -32,6 +32,6 @@
   %p= @event.end_time.to_s(:time)
 
   %h4 Banner
-  %p= image_tag @event.banner
+  %p= image_tag URI.decode @event.banner.url(:medium)
 
 
