@@ -2,6 +2,9 @@ class Chapter < ActiveRecord::Base
 
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
+  
+  BANNER_WIDTH = 1400
+  BANNER_HEIGHT = 676
 
   belongs_to :talk
   has_many :performances
@@ -15,6 +18,7 @@ class Chapter < ActiveRecord::Base
   
   validates :sort, :presence => true
   validates_uniqueness_of :sort, :scope => :talk_id
+  validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
   
   scope :by_sort, order('sort asc')
   
@@ -23,6 +27,27 @@ class Chapter < ActiveRecord::Base
     return true if record.sort.present?
     record.sort = Chapter.where(:talk_id => record.talk_id).maximum(:sort).to_i + 1
   }
+  
+  # tell the dynamic form that we need to post to an iframe to accept the file upload
+  # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
+  def accepts_file_upload?
+    true
+  end
+  
+  # large format blessed photo for the website
+  has_attached_file :banner,
+    :styles => { 
+      :large => "1400x676", 
+      :medium => "1000x483#",
+      :thumbnail => "300x144#",
+    },
+   :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-banners",
+   :path => ":style/:id.:extension"
+  
+  # a string representation of the required dimensions for the banner image
+  def banner_dimensions_string
+    "#{BANNER_WIDTH}x#{BANNER_HEIGHT}"
+  end
   
   # the hash representing this model that is returned by the api
   def api_attributes
@@ -46,5 +71,13 @@ class Chapter < ActiveRecord::Base
       ]
     end
   end
+  
+  private 
+
+    # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
+    def validate_banner_dimensions
+      dimensions = Paperclip::Geometry.from_file(banner.to_file(:original))
+      errors.add(:banner, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{banner_dimensions_string}") unless dimensions.width == BANNER_WIDTH && dimensions.height == BANNER_HEIGHT
+    end
   
 end

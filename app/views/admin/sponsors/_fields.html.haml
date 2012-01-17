@@ -4,4 +4,3 @@
   = f.input :url
   = f.input :sponsorship_level, :include_blank => false, :as => :select, :collection => SponsorshipLevel.by_sort.all
   = f.input :logo, :as => :file, :hint => "logo image must be #{@model.logo_dimensions_string}"
-  = f.input :banner, :as => :file, :title => "Banner Photo", :hint => "a #{@model.banner_dimensions_string} blessed photo for displaying on the site"
