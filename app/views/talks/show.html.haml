@@ -21,7 +21,7 @@
     #page_title.left
       %h1= @talk.name
       - if @talk.track.present?
-        %span{:class => "sub_header"}= link_to @talk.track.name, "#"
+        %span.sub_header= link_to @talk.track.name, "#"
     #page_share.right
       %ul
         %li#twitter_ <a href="https://twitter.com/share" class="twitter-share-button" data-via="chicagoideas" data-count="none" data-hashtags="ciwtalks">Tweet</a>
@@ -29,6 +29,7 @@
         %li#facebook_ <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
         %li#gplus_ <g:plusone size="medium" annotation="none"></g:plusone>
       
+
   -# Left column, main content: Gallery, details, speakers, etc.
   .box.double.left
     
@@ -45,7 +46,7 @@
         %pre= @talk.description
         
     .column_row.divided_row#talks_location
-      .column.column_double
+      .column
         %span.column_header
           Date &amp; Location
           %span.expired_date Event Passed
@@ -61,6 +62,7 @@
             %td
               = @talk.venue.name
               %address= @talk.venue.address
+      .column.right
         .venue_map
           = image_tag @talk.venue.google_maps_src(300,145,zoom=15)
   

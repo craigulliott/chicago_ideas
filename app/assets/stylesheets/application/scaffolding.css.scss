@@ -161,11 +161,7 @@ ul#global_nav {
       text-indent: -9999px;      
     }
   } // end li#gn_logo
-    
-  li#gn_logo:hover {
-    @include box-shadow-inset(0px,0px, 0px, #000);
-  }
-  
+      
   > li:hover {
     @include box-shadow-inset(0px, 3px, 5px, #000);
     background-color:#1e1b1b;
@@ -177,6 +173,11 @@ ul#global_nav {
     }
   }
   
+  li#gn_logo:hover {
+    @include box-shadow-inset(0px,0px, 0px, #000);
+    background-color: transparent;
+  }
+
   li.nav_parent:hover {
     > a {
       background-position: right -25px !important;

@@ -3,71 +3,86 @@
 -#     01/12/2012
 
 
-%section#main_content.row.full
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
   .container
-
-    .row.talk_header#talk_header
-      .span11.left
-        %h1= @talk.name
-        - if @talk.track.present?
-          %span{:class => "sub_header"}= link_to @talk.track.name, "#"
-      .span5.right
-        social goes here
-
-    .row.talk_body
-      .span11#talk_content
-
-        #player_container
-          <iframe src="http://player.vimeo.com/video/#{@chapter.vimeo_id}?title=0&amp;byline=0&amp;portrait=0" width="680" height="383" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-        
-        .row.content_section#talk_description
-          %span.row_header About this Chapter
-          %h4= @chapter.title
-          %pre= @chapter.description
-
-        .row.content_section#talk_speakers
-          %span.row_header Speakers in this Chapter
-          %ul.list_reset.styled_thumbs
-            - @chapter.performances.each do |p|
-              %li
-                .img_wrapper
-                  = link_to image_tag("application/temp/speaker_thumb_1.jpg"), "#"
-                = link_to p.speaker.name, speaker_path(p.speaker.permalink)
-                %span= p.speaker.title
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Talks", talks_path
+        %li= link_to @talk.name[0..75], talk_path(@talk)
+        %li= link_to @chapter.title, video_path(@chapter)
+    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
 
 
-        .row.content_section#talk_gallery
-          %span.row_header Photo Gallery
-          %ul.list_reset
-            %li
-              = link_to image_tag("application/temp/gallery_4.jpg"), "/assets/images/application/asdf.jpg", :class => "popup_img"
-            %li
-              = link_to image_tag("application/temp/gallery_3.jpg"), "#", :class => "popup_img"
-            %li
-              = link_to image_tag("application/temp/gallery_2.jpg"), "#", :class => "popup_img"
-            %li
-              = link_to image_tag("application/temp/gallery_1.jpg"), "#", :class => "popup_img"
+-# Main Talk content
+%section.container#main_content
 
+  #page_header
+    #page_title.left
+      %h1= @chapter.title
+      %span.sub_header= link_to @talk.name, "#"
+    #page_share.right
+      %ul
+        %li#twitter_ <a href="https://twitter.com/share" class="twitter-share-button" data-via="chicagoideas" data-count="none" data-hashtags="ciwtalks">Tweet</a>
+        -#%li#facebook_ <div class="fb-like" data-href="http://www.google.com" data-send="false" data-layout="button_count" data-show-faces="true"></div>
+        %li#facebook_ <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
+        %li#gplus_ <g:plusone size="medium" annotation="none"></g:plusone>
 
-        .row.content_section#talk_description
-          %span.row_header About this Chapter
-          %pre= @talk.description
+  -# Left column, main content: Gallery, details, speakers, etc.
+  .box.double.left
 
+    .video_container
+      <iframe src="http://player.vimeo.com/video/#{@chapter.vimeo_id}?title=0&amp;byline=0&amp;portrait=0" width="680" height="383" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
+    .column_row.divided_row#talks_description
+      .column.column_double
+        %span.column_header About this Video
+        %pre= @chapter.description
 
-      .span5#chapter_list
-        %span.row_header Other Videos in this Talk
-
-        %ul{:class => "list_reset styled_thumbs"}
-          - @chapters.each do |chapter|
+    .column_row.divided_row#photo_gallery
+      .column.column_double
+        %span.column_header Photo Gallery
+        %ul.photo_gallery
+          - @chapter.chapter_photos.each do |photo|
             %li
               .img_wrapper
-                = link_to "", "#",  :class => "play_btn"
-                -#= image_tag URI.decode chapter.chapter_photos.first.photo.url(:thumb)
-              = link_to chapter.title, video_path(chapter)
-              %span= "#{chapter.performances.count} speakers"
+                -begin
+                  = link_to image_tag(photo.photo), "#", :class => "popup_img"
+                -rescue
+          %li
+            = link_to image_tag("application/temp/gallery_3.jpg"), "#", :class => "popup_img"
+          %li
+            = link_to image_tag("application/temp/gallery_2.jpg"), "#", :class => "popup_img"
+          %li
+            = link_to image_tag("application/temp/gallery_1.jpg"), "#", :class => "popup_img"
+        
 
 
-<script type="text/javascript">
-$('#gn-event').addClass('nav_parent_active'); // show the 2012 CIW sub menu by default
-</script>
+      -#= render "partials/speakers_loop", :collection => @speakers
+
+    .column_row#talks_speakers
+      .column.column_double
+        %span.column_header= @chapter.performances.count > 1 ? "Speakers" : "Speaker"
+        %ul.chapter_speakers_list
+          - @chapter.performances.each do |performance|
+            %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
+              .img_frame
+                -begin
+                  = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker)
+                - rescue
+              .speaker_info
+                %h3= link_to performance.speaker.name, speaker_path(performance.speaker)
+                %span.speaker_title= performance.speaker.title
+                
+                %pre
+                  = "#{performance.speaker.bio[0..200]}..."
+                  = link_to "read more →", speaker_path(performance.speaker)
+              .clearfix
+              
+              
+  -# Include Sidebar Items
+  = render "partials/chapters", :locals => @chapters
+  = render "partials/sponsors"
+  = render "partials/social"
+  = render "partials/newsletter_form"

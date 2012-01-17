@@ -1,0 +1,2 @@
+module Application::TracksHelper
+end
