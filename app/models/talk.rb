@@ -73,6 +73,15 @@ class Talk < ActiveRecord::Base
     "#{BANNER_WIDTH}x#{BANNER_HEIGHT}"
   end
   
+  
+  # return formatted time for the front-end
+  def formatted_time
+    start_time = "#{self.start_time.strftime("%l")} #{self.start_time.strftime("%p")}"
+    end_time = "#{self.end_time.strftime("%l")} #{self.end_time.strftime("%p")}"
+    "#{start_time} - #{end_time}"
+  end
+
+  
   private 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_banner_dimensions

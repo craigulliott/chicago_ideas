@@ -90,8 +90,8 @@ class Venue < ActiveRecord::Base
     "#{lonlat.y},#{lonlat.x}"
   end
   
-  def google_maps_src width=280, height=280, maptype=:roadmap, zoom=12
-    "http://maps.google.com/maps/api/staticmap?center=#{position}&zoom=#{zoom}&size=#{width}x#{height}&maptype=#{maptype}&markers=color:blue%7Clabel:A%7C#{position}&sensor=false".html_safe
+  def google_maps_src width=280, height=280, zoom=12, maptype=:roadmap
+    "http://maps.google.com/maps/api/staticmap?center=#{position}&zoom=#{zoom}&size=#{width}x#{height}&maptype=#{maptype}&markers=color:blue%7Clabel:A%7C#{position}&sensor=false"
   end
   
   def google_maps_url
