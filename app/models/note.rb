@@ -17,7 +17,7 @@ class Note < ActiveRecord::Base
   has_attached_file :attachment,
     :fog_public => false,
     :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-note-attachments",
-    :path => ":id.:extension"
+    :path => ":style/:id.:extension"
 
 
   # a DRY approach to searching lists of these models

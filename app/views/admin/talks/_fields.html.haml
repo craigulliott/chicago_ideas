@@ -8,9 +8,9 @@
   = f.input :start_time, :input_html => {:class => 'timepicker', :value => @model.start_time.present? ? @model.start_time.to_s(:time) : nil}, :as => :string 
   = f.input :end_time, :input_html => {:class => 'timepicker', :value => @model.end_time.present? ? @model.end_time.to_s(:time) : nil}, :as => :string 
   = f.input :sponsor, :hint => "use this to assign this event with a specific sponsor", :as => :select, :collection => Sponsor.by_name.all
-  = f.input :banner, :as => :file, :title => "Banner Photo", :hint => "a #{@model.banner_dimensions_string} blessed photo for displaying on the site"
   
-= f.inputs :name => "Photos (which don't pertain to a specific chapter)" do
-  = link_to_add_fields "Add Photo", f, :talk_photos, :template => 'admin/talk_photos/nested_fields.html.haml'
-  = f.semantic_fields_for :talk_photos do |talk_photo_form|
-    = render 'admin/talk_photos/nested_fields.html.haml', :f => talk_photo_form
+- unless @model.id.present?
+  = f.inputs :name => "Photos (which don't pertain to a specific chapter)" do
+    = link_to_add_fields "Add Photo", f, :talk_photos, :template => 'admin/talk_photos/nested_fields.html.haml'
+    = f.semantic_fields_for :talk_photos do |talk_photo_form|
+      = render 'admin/talk_photos/nested_fields.html.haml', :f => talk_photo_form

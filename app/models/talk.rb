@@ -2,9 +2,6 @@ class Talk < ActiveRecord::Base
 
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
-  
-  BANNER_WIDTH = 1400
-  BANNER_HEIGHT = 390
 
   belongs_to :track
   belongs_to :day
@@ -26,7 +23,6 @@ class Talk < ActiveRecord::Base
   validates :talk_brand_id, :presence => true
   validates :start_time, :presence => true
   validates :end_time, :presence => true
-  validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
   validate :validate_temporal_constraints, :unless => "errors.any?"
     
   # tell the dynamic form that we need to post to an iframe to accept the file upload
@@ -34,11 +30,6 @@ class Talk < ActiveRecord::Base
   def accepts_file_upload?
     true
   end
-  
-  # large format blessed photo for the website
-  has_attached_file :banner,
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-talk-banners",
-    :path => ":id.:extension"
   
   # the hash representing this model that is returned by the api
   def api_attributes
@@ -68,13 +59,8 @@ class Talk < ActiveRecord::Base
       ]
     end
   end
-  
-  # a string representation of the required dimensions for the banner image
-  def banner_dimensions_string
-    "#{BANNER_WIDTH}x#{BANNER_HEIGHT}"
-  end
-  
-  
+
+
   # return formatted time for the front-end
   def formatted_time
     start_time = "#{self.start_time.strftime("%l")} #{self.start_time.strftime("%p")}"
@@ -82,13 +68,7 @@ class Talk < ActiveRecord::Base
     "#{start_time} - #{end_time}"
   end
 
-  
   private 
-    # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
-    def validate_banner_dimensions
-      dimensions = Paperclip::Geometry.from_file(banner.to_file(:original))
-      errors.add(:banner, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{banner_dimensions_string}") unless dimensions.width == BANNER_WIDTH && dimensions.height == BANNER_HEIGHT
-    end
   
     def validate_temporal_constraints
       # ensure end time is after start time
