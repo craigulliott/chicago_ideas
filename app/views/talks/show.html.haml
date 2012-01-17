@@ -1,0 +1,87 @@
+-#     Chicago Ideas Week
+-#     talks/show.html.haml
+-#     01/12/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Talks", talks_path
+        %li= link_to @talk.name
+    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1= @talk.name
+      - if @talk.track.present?
+        %span.sub_header= link_to @talk.track.name, "#"
+    #page_share.right
+      %ul
+        %li#twitter_ <a href="https://twitter.com/share" class="twitter-share-button" data-via="chicagoideas" data-count="none" data-hashtags="ciwtalks">Tweet</a>
+        -#%li#facebook_ <div class="fb-like" data-href="http://www.google.com" data-send="false" data-layout="button_count" data-show-faces="true"></div>
+        %li#facebook_ <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
+        %li#gplus_ <g:plusone size="medium" annotation="none"></g:plusone>
+      
+
+  -# Left column, main content: Gallery, details, speakers, etc.
+  .box.double.left
+    
+    .talk_gallery
+      - @talk.talk_photos.each do |photo|
+        = image_tag(photo.photo_file_name)
+
+    .column_row.divided_row#talks_description
+      .column.column_double
+        %span.column_header About this Talk
+        %pre= @talk.description
+        
+    .column_row.divided_row#talks_location
+      .column
+        %span.column_header
+          Date &amp; Location
+          %span.expired_date Event Passed
+        %table.talk_venue_details
+          %tr
+            %td.venue_label{:width => "85"} Date
+            %td= @talk.day.name
+          %tr
+            %td.venue_label Time
+            %td= @talk.formatted_time
+          %tr
+            %td.venue_label Venue
+            %td
+              = @talk.venue.name
+              %address= @talk.venue.address
+      .column.right
+        .venue_map
+          = image_tag @talk.venue.google_maps_src(300,145,zoom=15)
+  
+    
+    
+    .column_row#talks_speakers
+      .column.column_double
+        %span.column_header Speakers
+        %ul.preview_list.speaker_list.double_rows
+          - @chapters.each do |c|
+            - c.performances.each do |p|              
+              %li
+                .img_frame
+                  - begin
+                    = link_to image_tag(p.speaker.portrait.url), speaker_path(p.speaker)
+                  - rescue
+                = link_to p.speaker.name, speaker_path(p.speaker)
+                %span= p.speaker.title
+                
+
+  -# Include Sidebar Items
+  = render "partials/chapters", :locals => @chapters
+  = render "partials/sponsors"
+  = render "partials/social"
+  = render "partials/newsletter_form"

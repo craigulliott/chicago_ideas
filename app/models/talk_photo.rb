@@ -10,7 +10,7 @@ class TalkPhoto < ActiveRecord::Base
   
   PHOTO_WIDTH = 1360 
   PHOTO_HEIGHT = 800
-  
+
   validate :validate_photo_dimensions, :unless => "errors.any?"
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
@@ -44,6 +44,10 @@ class TalkPhoto < ActiveRecord::Base
   def self.photo_dimensions_string
     "#{PHOTO_WIDTH}x#{PHOTO_HEIGHT}"
   end
+  
+  def photo_dimensions_string
+     "#{PHOTO_WIDTH}x#{PHOTO_HEIGHT}"
+   end
 
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil

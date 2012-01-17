@@ -45,11 +45,19 @@ CraigsAdmin::Application.routes.draw do
     end
   end
   
+  
   # teams members and speakers are both a type of user, so are handled by the users controller
   match 'team_members', :to => 'users#list_team_members'
-  match 'team_members/:id', :to => 'users#team_member'
+  match 'team_members/:id', :to => 'users#team_member', :as => "team_member"
   match 'speakers', :to => 'users#list_speakers'
-  match 'speakers/:id', :to => 'users#speaker'
+  match 'speakers/:id', :to => 'users#speaker', :as => "speaker"
+  
+  
+  # Static Pages
+  match 'about', :to => 'application#about'
+  match 'volunteer', :to => 'application#volunteer'
+  match 'special_programs', :to => 'application#special_programs_awards'
+  
   
   # talks and events
   # ----------------------------------------------------------------
@@ -70,10 +78,11 @@ CraigsAdmin::Application.routes.draw do
     end
   end
   
-  # all videos are of chapters, so pass to the chapter controller
-  match 'videos', :to => 'chapters#videos'
 
-  
+  # all videos are of chapters, so pass to the chapter controller
+  match 'videos', :to => 'chapters#index'
+  match 'videos/:id', :to => 'chapters#show', :as => "video"
+
   # the Admin                                                                   (http://www.domain.com/admin)
   # ---------------------------------------------------------------------------------------------------------
   namespace :admin do

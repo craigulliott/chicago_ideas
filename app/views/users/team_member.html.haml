@@ -1,0 +1,56 @@
+-#     Chicago Ideas Week
+-#     application/staff_overview.html.haml
+-#     01/03/2012
+
+
+%section.banner.container-fluid
+  .banner_wrapper{:style => "background: url(#{asset_path "application/temp/speaker_landing_banner.jpg"}) top center no-repeat;"}
+
+
+%section#main_content.row.full
+  .container
+
+    .span-two-thirds.entry_column.content_column
+      
+      .row.content_section
+        %h2= @staff_member.name
+        %span.staff_title
+        - if @staff_member.title.present?
+          = @staff_member.title
+
+        %p= @staff_member.bio
+        
+      .row.content_section
+        -# Render the loop of all captured speakers
+        %ul{:id => "staff_list", :class => "image_grid three_span"}
+
+          - @staff.present?
+
+          - @staff.each do |staffmember| 
+
+            %li
+              = link_to speaker_path(staffmember) do
+                .grid_img_wrapper
+                  = image_tag URI.decode(staffmember.portrait.url)
+                .grid_content
+                  %span.title_= staffmember.name
+                  %span.desc_= staffmember.title
+
+
+
+    .span-one-third.entry_column.sidebar.right#community
+
+      %h2 Community
+
+      = render "partials/sponsors"
+      = render "partials/newsletter_form"
+      = render "partials/volunteer_info"
+      = render "partials/social"
+      = render "partials/tweets"
+
+
+
+
+
+
+
