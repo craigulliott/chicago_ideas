@@ -5,9 +5,6 @@ class User < ActiveRecord::Base
   # chainable arel method and a boolean helper to determine if models are deleted or not
   include DeleteByTime
   
-  BANNER_WIDTH = 1400
-  BANNER_HEIGHT = 676
-  
   PORTRAIT_WIDTH = 468
   PORTRAIT_HEIGHT = 468
   
@@ -34,7 +31,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable 
          
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :title, :bio, :twitter_screen_name, :portrait, :portrait2, :banner, :quotes_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :title, :bio, :twitter_screen_name, :portrait, :portrait2, :quotes_attributes
 
   # validators
   validates :email, :email => { :validate_mx => false }, :presence => true
@@ -77,7 +74,6 @@ class User < ActiveRecord::Base
   }
 
   validates :permalink, :presence => true, :uniqueness => true, :format => {:with => /^[\w\d_]+$/}
-  validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
   validate :validate_portrait_dimensions, :if => "portrait.present?", :unless => "errors.any?"
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
@@ -88,6 +84,7 @@ class User < ActiveRecord::Base
   
   has_attached_file :portrait,
     :styles => { 
+      :tiny_thumb => "60x60", 
       :thumb => "117x117", 
       :medium => "234x234",
       :full => "468x468",
@@ -97,6 +94,7 @@ class User < ActiveRecord::Base
   
   has_attached_file :portrait2,
     :styles => { 
+      :tiny_thumb => "60x60", 
       :thumb => "117x117", 
       :medium => "234x234",
       :full => "468x468",
@@ -104,11 +102,6 @@ class User < ActiveRecord::Base
     :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-alternative-portraits",
     :path => ":style/:id.:extension"
 
-  # large format blessed photo for the website
-  has_attached_file :banner,
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-banners",
-    :path => ":id.:extension"
-  
   # an array representing this users special permissiond (tags) used for display purposes
   def access_tags
     tags = []
@@ -165,11 +158,6 @@ class User < ActiveRecord::Base
     twitter_token && twitter_secret
   end
   
-  # a string representation of the required dimensions for the banner image
-  def banner_dimensions_string
-    "#{BANNER_WIDTH}x#{BANNER_HEIGHT}"
-  end
-  
   # a string representation of the required dimensions for the portrait image
   def portrait_dimensions_string
     "#{PORTRAIT_WIDTH}x#{PORTRAIT_HEIGHT}"
@@ -183,12 +171,6 @@ class User < ActiveRecord::Base
   end
   
   private 
-
-    # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
-    def validate_banner_dimensions
-      dimensions = Paperclip::Geometry.from_file(banner.to_file(:original))
-      errors.add(:banner, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{banner_dimensions_string}") unless dimensions.width == BANNER_WIDTH && dimensions.height == BANNER_HEIGHT
-    end
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_portrait_dimensions

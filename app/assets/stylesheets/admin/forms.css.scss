@@ -21,6 +21,18 @@ body.admin {
       }
     }
   
+    li.boolean {
+      height: 20px;
+      label {
+        width: 400px;
+      }
+      p.inline-hints {
+        text-align: right;
+        position: absolute;
+        right: 0;
+      }
+    }
+  
     // nested forms
     a.add {
       background-color: #FFFFFF;

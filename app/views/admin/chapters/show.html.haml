@@ -25,6 +25,18 @@
   %h4 Vimeo ID
   %p= @chapter.vimeo_id
 
+  %h4 Featured on Talk
+  %p= @chapter.featured_on_talk? ? 'yes' : 'no'
+
+  %h4 Featured on Homepage
+  %p= @chapter.featured_on_homepage? ? 'yes' : 'no'
+
+  %h4 Homepage CAPTION
+  %p= @chapter.homepage_caption
+
+  %h4 Banner
+  %p= image_tag URI.decode @chapter.banner.url(:medium)
+
 
 .table_section
   %h3 

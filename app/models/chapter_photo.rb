@@ -8,8 +8,8 @@ class ChapterPhoto < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
-  PHOTO_WIDTH = 1000 
-  PHOTO_HEIGHT = 750
+  PHOTO_WIDTH = 1360 
+  PHOTO_HEIGHT = 800
   
   validate :validate_photo_dimensions, :unless => "errors.any?"
   
@@ -21,8 +21,9 @@ class ChapterPhoto < ActiveRecord::Base
   
   has_attached_file :photo,
     :styles => { 
-      :thumb => "140x105", 
-      :full => "1000x750",
+      :thumb => "145x95#", 
+      :album => "680x400#",
+      :full => "1360x800#",
     },
     :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-chapter-photo-photos",
     :path => ":style/:id.:extension"
@@ -59,7 +60,7 @@ class ChapterPhoto < ActiveRecord::Base
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_photo_dimensions
       dimensions = Paperclip::Geometry.from_file(photo.to_file(:original))
-      errors.add(:photo, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{self.photo_dimensions_string}") unless dimensions.width == PHOTO_WIDTH && dimensions.height == PHOTO_HEIGHT
+      errors.add(:photo, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{self.photo_dimensions_string}") unless dimensions.width >= PHOTO_WIDTH && dimensions.height >= PHOTO_HEIGHT
     end
   
 end
