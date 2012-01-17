@@ -30,4 +30,10 @@ class EventsController < ApplicationController
     end
   end
   
+  
+  # Affiliate events landing
+  def affiliate_event
+    @events = EventBrand.find_by_name("Affiliate Event").events
+  end
+  
 end
