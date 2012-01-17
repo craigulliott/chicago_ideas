@@ -8,6 +8,7 @@ class Chapter < ActiveRecord::Base
 
   belongs_to :talk
   has_many :performances
+  has_many :speakers, :through => :performances
   accepts_nested_attributes_for :performances, :allow_destroy => true
 
   has_many :chapter_photos

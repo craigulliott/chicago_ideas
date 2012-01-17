@@ -1,0 +1,18 @@
+-#     Chicago Ideas Week
+-#     _chapters.html.haml
+-#     01/15/2012
+
+
+.box.right#community
+  .box_header.yellow_header
+    %span Videos in this Talk
+  .column_row
+    %ul.preview_list
+      -@chapters.each do |chapter|
+        %li
+          .img_frame
+            = link_to "play", "#", :class => "play_btn"
+            = link_to image_tag('application/temp/temp_1.jpg'), video_path(chapter)
+          = link_to chapter.title, video_path(chapter)
+          - chapter.performances.limit(2).each do |performance|
+            %span= performance.speaker.name

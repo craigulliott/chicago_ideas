@@ -1,0 +1,29 @@
+-#     Chicago Ideas Week
+-#     chapters/index.html.haml
+-#     01/13/2012
+
+
+%section#main_content.row.full
+  .container
+
+    .row.full.entry_column.general_#ciw_talks
+      %h2 Videos
+      
+      - if @chapters.present?
+        %ul.entry_list.entry_featured.styled_thumbs
+          - @chapters.each do |chapter|
+            %li.entry{:id => "entry_#{chapter.id}"}
+              .img_wrapper= link_to (image_tag chapter.chapter_photos.first.photo_file_name), video_path(chapter)
+              
+              %h3= link_to chapter.title, video_path(chapter)
+              %p 
+                - chapter.performances.each do |s|
+                  = s.speaker.name
+
+
+
+
+
+<script type="text/javascript">
+$('#gn-event').addClass('nav_parent_active'); // show the 2012 CIW sub menu by default
+</script>
