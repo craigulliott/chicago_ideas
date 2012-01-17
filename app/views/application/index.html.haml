@@ -16,47 +16,17 @@
       .column
         %span.column_header Talks
         %ul.preview_list
-          %li
-            .img_frame
-              = link_to "play", "#", :class => "play_btn"
-              = link_to image_tag('application/temp/temp_1.jpg'), "#"
-            = link_to "Innovation & Influence", "#"
-            %span Technology
-          
-          %li
-            .img_frame
-              = link_to "play", "#", :class => "play_btn"
-              = link_to image_tag('application/temp/temp_2.jpg'), "#"
-            = link_to "Web & Tech", "#"
-            %span Technology
         
-          %li
-            .img_frame
-              = link_to "play", "#", :class => "play_btn"
-              = link_to image_tag('application/temp/temp_1.jpg'), "#"
-            = link_to "Innovation & Influence", "#"
-            %span Technology
-
-          %li
-            .img_frame
-              = link_to "play", "#", :class => "play_btn"
-              = link_to image_tag('application/temp/temp_2.jpg'), "#"
-            = link_to "Web & Tech", "#"
-            %span Technology
-        
-          %li
-            .img_frame
-              = link_to "play", "#", :class => "play_btn"
-              = link_to image_tag('application/temp/temp_1.jpg'), "#"
-            = link_to "Innovation & Influence", "#"
-            %span Technology
-
-          %li
-            .img_frame
-              = link_to "play", "#", :class => "play_btn"
-              = link_to image_tag('application/temp/temp_2.jpg'), "#"
-            = link_to "Web & Tech", "#"
-            %span Technology
+          - @talks.each do |talk|
+            %li
+              .img_frame
+                = link_to "play", talk_path(talk), :class => "play_btn"
+                - begin
+                  = link_to image_tag(talk.banner.url), talk_path(talk)
+                - rescue
+              = link_to talk.name, talk_path(talk)
+              %span= talk.track.name
+              %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"
         
         = link_to "view all talks →", talks_path, :class => "view_all blue"
           
