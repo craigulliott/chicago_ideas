@@ -1,17 +1,19 @@
+%section.container#main_content
 
-%section{:id => "main_content", :class => "row full"}
-	.container.content_container#login_container
-	
-		%h2 Login
-		
-		= semantic_form_for resource, :as => resource_name, :url => session_path(resource_name) do |f|
-			
-			= f.inputs do
-				= f.input :email
-				= f.input :password
-				= f.input :remember_me, :as => :boolean
+  -# Left column with form
+  .box.double.left
 
-			= f.buttons do
-				= f.commit_button :label => "Sign In"
+    .column_row#login_container
+      %span.column_header Account Login
 
-				= render "devise/shared/links"
+      = semantic_form_for resource, :as => resource_name, :url => session_path(resource_name) do |f|
+
+        = f.inputs do
+          = f.input :email
+          = f.input :password
+          = f.input :remember_me, :as => :boolean
+
+        = f.buttons do
+          = f.commit_button :label => "Sign In"
+
+        = render "devise/shared/links"

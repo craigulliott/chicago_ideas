@@ -2,46 +2,28 @@ class ApplicationController < ActionController::Base
 
   # which pages are we caching
   before_filter :cache_rendered_page, :only => [:index, :contact, :team, :terms]
-  
+  before_filter :get_sponsors
   
   before_filter :authenticate_user!, :only => [:dashboard]
   
   # the application homepage
   def index
     @talks = Talk.search_sort_paginate(params)
-    #@topics = Topic.search_sort_paginate(params)
+    @speakers = User.speaker.limit(12).order(rand) # grab 12 speakers
+    @sponsors = Sponsor.all
+  end
+  
+  
+  def get_sponsors
+    @sponsors = Sponsor.all
   end
 
-  def videos
-    
-  end
   
   def about
+    @staff = User.staff
+    render "application/about"
   end
   
-  def community
-  end
-  
-  def blog
-  end
-  
-  def register
-  end
-  
-  def login
-  end
-  
-  def archives
-  end
-  
-  def search
-  end
-  
-
-
-  def contact
-  end
-
   def send_contact
     AdminMailer.contact_form(params[:contact]).deliver
     render_json_response :ok, :notice => "Your message has been sent."
@@ -50,9 +32,22 @@ class ApplicationController < ActionController::Base
   def team
     @staff_bios = StaffBio.by_sort_column
   end
+  
+  
+  def volunteer  
+  end
+  
+  
+  def special_programs_awards  
+  end
+  
 
   def terms
   end
+
+  def privacy
+  end
+  
 
   # users account page
   def dashboard

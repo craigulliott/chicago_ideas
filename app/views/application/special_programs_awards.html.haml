@@ -1,0 +1,45 @@
+-#     Chicago Ideas Week
+-#     application/special_programs_awards.html.haml
+-#     01/016/2012
+
+
+%section.banner.container-fluid
+  .banner_wrapper{:style => "background: url(#{asset_path "application/temp/speaker_landing_banner.jpg"}) top center no-repeat;"}
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Special Programs &amp; Awards
+    #page_share.right
+      %ul
+        %li#twitter_ <a href="https://twitter.com/share" class="twitter-share-button" data-via="chicagoideas" data-count="none" data-hashtags="ciwtalks">Tweet</a>
+        -#%li#facebook_ <div class="fb-like" data-href="http://www.google.com" data-send="false" data-layout="button_count" data-show-faces="true"></div>
+        %li#facebook_ <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
+        %li#gplus_ <g:plusone size="medium" annotation="none"></g:plusone>
+
+
+  -# Left column, main content: About Us information
+  .box.double.left
+
+    .column_row#about_description
+      .column.column_double
+        %p Chicago Ideas Week wants to provide extraordinary opportunities to extraordinary people. To accomplish this, CIW has developed Programs and Awards of Distinction for students, educators, and community leaders to develop, learn, and collaborate as participants of Chicago Ideas Week.
+
+        %h2 Bluhm/Helfand Social Innovation Fellowship
+        %p The Fellowship program hosts five young social entrepreneurs in Chicago for Chicago Ideas Week, all expenses paid, for the purposes of gaining exposure for their organization, encouraging the establishment of a stronger community of support, and providing $50,000 in financial grants to advance the Fellows’ social mission and goals. Read More [Separate Document]
+
+        %h2 The Idea Awards
+        %p The Idea Awards honors Chicago-area students, educators and community leaders. These awards were created to acknowledge some of Chicago’s most innovative individuals, as distinguished by their use of new ideas and the positive, measurable impact they have in the community. Winners will receive special recognition by community leaders during Chicago Ideas Week and the best seats in the house for the Edison Talks, a highlight of Chicago Ideas Week.
+
+        %h2 Heroes Prize
+        %p A hero is a person who risks something of his or her own to improve the life of another. Chicago Ideas Week honors heroes from our community and around the globe who inspire us to do better and be better doers.
+      
+      
+
+  -# Include Sidebar Items
+  = render "partials/sponsors"
+  = render "partials/social"
+  = render "partials/newsletter_form"

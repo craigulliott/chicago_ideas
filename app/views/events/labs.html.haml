@@ -1,0 +1,50 @@
+-# - @labs.each do |lab|
+-#  = link_to lab.name, event_lab_path(lab)
+
+
+-#     Chicago Ideas Week
+-#     events/labs.html.haml
+-#     01/03/2012
+
+
+-# Main Labs content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 CIW Labs
+    #page_share.right
+      %ul
+        %li#twitter_ <a href="https://twitter.com/share" class="twitter-share-button" data-via="chicagoideas" data-count="none" data-hashtags="ciwtalks">Tweet</a>
+        -#%li#facebook_ <div class="fb-like" data-href="http://www.google.com" data-send="false" data-layout="button_count" data-show-faces="true"></div>
+        %li#facebook_ <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
+        %li#gplus_ <g:plusone size="medium" annotation="none"></g:plusone>
+
+
+  -# Left column, main content: About Us information
+  .box.double.left
+  
+    .talk_gallery
+      -#- @talk.talk_photos.each do |photo|
+      -#  = image_tag(photo.photo_file_name)
+      = image_tag("application/temp/asdf.jpg")
+      = image_tag("application/temp/asdffff.jpg")
+      = image_tag("application/temp/asdfasdf.jpg")
+
+    .column_row.divided_row#about_description
+      .column.column_double
+        
+        - if @labs.present?
+          - @labs.each do |lab|
+            = lab.id
+            = lab.name
+            = lab.description
+            = lab.venue.id
+        
+        
+          
+
+  -# Include Sidebar Items
+  = render "partials/sponsors"
+  = render "partials/social"
+  = render "partials/newsletter_form"

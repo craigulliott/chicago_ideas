@@ -1,0 +1,13 @@
+%ul{:id => "speaker_list", :class => "image_grid three_span"}
+
+  - @speakers.each do |speaker| 
+    %li
+      = link_to speaker_path(speaker) do
+        .grid_img_wrapper
+          - begin
+            = image_tag URI.decode(speaker.portrait.url)
+          - rescue
+          
+        .grid_content
+          %span{:class => "title_"}= speaker.name
+          %span{:class => "desc_"} Title goes here

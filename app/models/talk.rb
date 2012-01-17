@@ -9,6 +9,7 @@ class Talk < ActiveRecord::Base
   belongs_to :sponsor
   belongs_to :talk_brand
   has_many :chapters
+  has_many :performances, :through => :chapters
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
@@ -58,7 +59,15 @@ class Talk < ActiveRecord::Base
       ]
     end
   end
-  
+
+
+  # return formatted time for the front-end
+  def formatted_time
+    start_time = "#{self.start_time.strftime("%l")} #{self.start_time.strftime("%p")}"
+    end_time = "#{self.end_time.strftime("%l")} #{self.end_time.strftime("%p")}"
+    "#{start_time} - #{end_time}"
+  end
+
   private 
   
     def validate_temporal_constraints

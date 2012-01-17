@@ -21,7 +21,7 @@ input, textarea {
 .extra-large { width: 625px; }
 
 textarea {
-  width: 500px;
+  width: 440px;
   height: 75px;
 }
 
@@ -43,21 +43,20 @@ input[type="checkbox"] {
 input[type="submit"] {
   width:auto !important;
 }
-input.submit, input.create, .blue_btn {
-  padding: 0 25px;
-  line-height: 30px;
-  color:$white;
-  border:1px solid #0072bc;
-  font-size: 14px;
-  font-weight: bold;
-  text-shadow: 1px 1px 1px #00548a;
-  @include gradient(#0072bc, #1c91dc, #0072bc);
-  @include rounded(4px);
-  @include box-shadow-inset(0px, 1px, 0px, #45aef1);
+
+abbr { 
+  margin-left: 4px;
+  text-decoration: none !important; 
+  border: none !important;
 }
 
-
-
+.agreeing_to_terms {
+  font-size: 13px;
+  font-weight: 300;
+  color:$greyLight;
+  display: block; 
+  margin-bottom: 15px;
+}
 
 
 
@@ -107,6 +106,8 @@ input.submit, input.create, .blue_btn {
   
 }
 
+
+
 /******************************************************
  *  Volunteer Form
 ******************************************************/
@@ -131,5 +132,59 @@ input.submit, input.create, .blue_btn {
   
   td.no_block label.block {
     display:block !important;
+  }
+}
+
+
+
+/******************************************************
+ *  Navigation Dropdown Login Form
+******************************************************/
+#dd_login_form {
+  padding: 20px 0 10px 0!important;
+  width: 240px !important; 
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: block;
+    margin-bottom: 13px; 
+    padding: 0 20px;
+  }
+  
+  label {
+    font-size: 12px;
+    color:$grey;
+    margin-bottom: 2px;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px #fff;
+  }
+  
+  input[type="text"], input[type="password"] {
+    width: 180px;
+  }
+  
+  #dd_submit {
+    padding-bottom: 13px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #ccc;
+    label {
+      display: inline; 
+      line-height: 30px;
+    }
+  }
+  #dd_forgot_pw {
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 0;
+    border-top: 1px solid #fff;
+    a {
+      font-size: 13px;
+      color: $grey;
+      text-shadow: 1px 1px 1px #fff;
+    }
   }
 }

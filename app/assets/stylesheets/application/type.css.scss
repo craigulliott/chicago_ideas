@@ -15,11 +15,11 @@ h1 {
   margin-bottom: 15px;
 }
 h2 {
-  font-size: 27px;
-  color:$dark;
+  font-size: 17px;
+  color:$grey;
   font-weight:bold;
-  line-height: 35px;
-  margin-bottom: 20px;
+  line-height: 23px;
+  margin: 15px 0 10px 0;
 }
 .content_column h2 {
   border-bottom:1px solid #ccc;
@@ -29,8 +29,8 @@ h2 {
 h3 {
   font-family: "Helvetica Neue", Helvetia, Arial, sans-serif;
   font-size: 15px;
-  line-height: 19px;
-  margin-bottom: 8px;
+  line-height: 21px;
+  margin-bottom: 0px;
   color:$dark;
   font-weight: 600;
 }
@@ -44,6 +44,7 @@ p, pre {
 }
 p:last-child { margin-bottom:0; }
 
+/*
 section ul, section ol {
   list-style: disc;
   margin: 0 0 10px 10px;
@@ -56,6 +57,7 @@ section ul li {
   padding-left: 10px; 
   margin-left: 15px;
 }
+*/
 
 a, a:active, a:visited {
   color:#2d77de;
@@ -65,12 +67,37 @@ a:hover {
   text-decoration:underline;
 }
 
-span.row_header {
-  font-size: 12px;
+span.column_header {
   color: $grey;
-  font-weight: bold;
-  text-transform: uppercase;
-  display:block;
-  line-height: 15px;
+  font-size: 12px;
+  display: block;
+  clear: both;
   margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+span.expired_date {
+  font-size: 11px;
+  color: #fff;
+  background-color: #f36767;
+  @include rounded(2px);
+  padding: 2px 4px;
+  margin-left: 5px;
+}
+
+.column ul, .column ol, p ul, p ol {
+  list-style: disc;
+  margin: 10px 0 10px 10px;
+  li {
+    margin: 0 0 5px 20px;
+    padding-left: 5px;
+    font-family: "Helvetica Neue", Helvetia, Arial, sans-serif;
+    font-size: 15px;
+    color:$grey;
+    line-height: 25px;
+  }
+}
+.column ol, p ol {
+  list-style: decimal;
 }
