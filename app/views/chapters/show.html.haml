@@ -47,16 +47,7 @@
           - @chapter.chapter_photos.each do |photo|
             %li
               .img_wrapper
-                -begin
-                  = link_to image_tag(photo.photo), "#", :class => "popup_img"
-                -rescue
-          %li
-            = link_to image_tag("application/temp/gallery_3.jpg"), "#", :class => "popup_img"
-          %li
-            = link_to image_tag("application/temp/gallery_2.jpg"), "#", :class => "popup_img"
-          %li
-            = link_to image_tag("application/temp/gallery_1.jpg"), "#", :class => "popup_img"
-        
+                = link_to image_tag(URI.decode photo.photo.url(:thumb)), "#", :class => "popup_img"
 
 
       -#= render "partials/speakers_loop", :collection => @speakers
@@ -76,7 +67,7 @@
                 %span.speaker_title= performance.speaker.title
                 
                 %pre
-                  = "#{performance.speaker.bio[0..200]}..."
+                  = "#{performance.speaker.bio_abbreviated}"
                   = link_to "read more →", speaker_path(performance.speaker)
               .clearfix
               

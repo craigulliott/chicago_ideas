@@ -37,7 +37,7 @@ class Event < ActiveRecord::Base
     :styles => { 
       :large => "1400x500", 
       :medium => "1000x357#",
-      :thumbnail => "300x107#",
+      :thumb => "300x107#",
     },
     :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-event-banners",
     :path => ":style/:id.:extension"
