@@ -1,5 +1,5 @@
 /******************************************************
- *  Breadcrumbs and page toolbar
+ *  Breadcrumbs, page toolbar and headers
 ******************************************************/
 #header_toolbar {
   height: 30px;
@@ -56,20 +56,80 @@
   }
 }
 
-/*
-<section id='header_toolbar'>
-    <div class='container'>
-      <div id='breadcrumbs'>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="#">Talks</a></li>
-        </ul>
-      </div>
-      <a href="#" class="explore_btn" id="explore_talks">Explore Talks</a>
-    </div>
-  </section>
-*/   
+
+
+
+#page_header {
+  display: block;
+  width: 100%;
+  margin-bottom: 30px;
+  
+  #page_title {
+    width: 680px;
+  
+    h1 {
+      font-size: 35px;
+      font-weight: 500;
+      color: $grey;
+      text-shadow: 1px 1px 1px #fff;
+      margin-bottom: 3px;
+      line-height: 39px;
+    }
+    span.sub_header {
+      position: relative;
+      font-size: 14px;
+      font-weight: 400;
+      text-shadow: 1px 1px 1px #fff;
+    }
+  }
+  #page_share {
+    width: 300px;
+    margin-top: 15px;
     
+    ul {
+      display: block;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      float: right;
+      
+      li {
+        display: inline;
+        float: left;
+        width: auto;
+      }
+      li#twitter_ {
+        margin-right: 10px;
+      }
+      li:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+#page_header:before, #page_header:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+#page_header:after {
+  clear: both;
+}
+
+/*
+<div id='talk_header'>
+        <div class='left' id='talk_title'>
+          <h1>Social Business</h1>
+          <span class='sub_header'><a href="#">Entrepreneurship</a></span>
+        </div>
+        <div class='right' id='talk_share'>
+          social goes here
+        </div>
+      </div>
+      */
+      
+      
+      
 /******************************************************
  *  Homepage Rotating banner and main page banners
 ******************************************************/
@@ -471,6 +531,12 @@ ul.double_rows {
     background: #302d2d;
     @include box-shadow(-1px,1px,2px,#777);
   }
+}
+.yellow_header span {
+  background: #faeb09;
+  color: #010101;
+  text-shadow: 1px 1px 1px #f6f2b1;
+  @include box-shadow (-1px,1px,2px,#c8c8c8);
 }
 .box_header:before, .box_header:after {
   display: table;

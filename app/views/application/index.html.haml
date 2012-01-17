@@ -108,27 +108,7 @@
         
         
         
-    .column_row#speakers
-      .column.column_double
-        %span.column_header Speakers
-        %ul.preview_list.speaker_list.double_rows
-          %li
-            .img_frame
-              = link_to image_tag('application/temp/speaker_3.jpg'), "#"
-            = link_to "David Gilboa", "#"
-            %span Co-Founder and Co-CEO, Warby Parker
-          %li
-            .img_frame
-              = link_to image_tag('application/temp/speaker_2.jpg'), "#"
-            = link_to "David Gilboa", "#"
-            %span Co-Founder and Co-CEO, Warby Parker
-          %li
-            .img_frame
-              = link_to image_tag('application/temp/speaker_3.jpg'), "#"
-            = link_to "David Gilboa", "#"
-            %span Co-Founder and Co-CEO, Warby Parker
-
-        = link_to "view all speakers →", speakers_path, :class => "view_all blue"
+    = render "partials/speakers_loop", :locals => @speakers
   
   -# Include Sidebar Items
   = render "partials/sponsors"
