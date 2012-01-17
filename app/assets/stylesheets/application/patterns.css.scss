@@ -417,7 +417,8 @@ ul.preview_list {
     display: block;
     clear: both;
     width: 300px;
-    margin-bottom: 30px;
+    margin: 0 0 30px 0;
+    padding: 0;
     
     a {
       display: block;

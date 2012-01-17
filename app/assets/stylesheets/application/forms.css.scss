@@ -21,7 +21,7 @@ input, textarea {
 .extra-large { width: 625px; }
 
 textarea {
-  width: 500px;
+  width: 440px;
   height: 75px;
 }
 
@@ -107,7 +107,39 @@ abbr {
 }
 
 
-// Dropdown Login Form
+
+/******************************************************
+ *  Volunteer Form
+******************************************************/
+
+#volunteer_form {
+  width: 100%;
+  padding:0;
+  margin:0;
+  
+  tr {
+    display:block;
+    width:100%;
+    margin-bottom:20px;
+  }
+  
+  tr td:first-child { text-align:right; padding-right: 20px; vertical-align:middle; }
+  
+  td.no_block label {
+    display:inline;
+    margin-right: 10px; 
+  }
+  
+  td.no_block label.block {
+    display:block !important;
+  }
+}
+
+
+
+/******************************************************
+ *  Navigation Dropdown Login Form
+******************************************************/
 #dd_login_form {
   padding: 20px 0 10px 0!important;
   width: 240px !important; 
@@ -156,27 +188,3 @@ abbr {
     }
   }
 }
-/*
-<div class='dropdown' id='dd_login_form'>
-  <ul>
-    <form accept-charset="UTF-8" action="/users/sign_in" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="1SKEo2gjUwX9RMP3VVZZwtW4jdu8v2BqnlgaNena1qY=" /></div>
-      <li>
-        <label>Email address</label>
-        <input id="user_email" name="user[email]" placeholder="Email address" tabindex="1" type="text" value="" />
-      </li>
-      <li>
-        <label>Password</label>
-        <input id="user_password" name="user[password]" placeholder="password" tabindex="2" type="password" value="" />
-      </li>
-      <li>
-        <input id="user_remember_me" name="user[remember_me]" type="checkbox" value="1" />
-        <label for="user_remember_me">Remember me</label>
-        <button class='btn blue_btn'>Sign in</button>
-      </li>
-      <li class='divided'>
-        <a href="/users/password/new">Forgot your password?</a>
-      </li>
-    </form>
-  </ul>
-</div>
-*/

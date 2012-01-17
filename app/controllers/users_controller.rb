@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     @user = current_user
   end
   
+  
+  def edit
+    @user = current_user
+  end
+  
   # remove the current users stored facebook credentials and redirect back to the page they came from 
   def disconnect_facebook
     current_user.fb_uid = nil

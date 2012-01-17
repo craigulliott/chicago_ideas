@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
 
   
   def about
+    @staff = User.staff
     render "application/about"
   end
   
@@ -31,9 +32,22 @@ class ApplicationController < ActionController::Base
   def team
     @staff_bios = StaffBio.by_sort_column
   end
+  
+  
+  def volunteer  
+  end
+  
+  
+  def special_programs_awards  
+  end
+  
 
   def terms
   end
+
+  def privacy
+  end
+  
 
   # users account page
   def dashboard
