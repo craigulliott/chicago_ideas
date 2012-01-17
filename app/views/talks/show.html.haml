@@ -67,8 +67,7 @@
           = image_tag @talk.venue.google_maps_src(300,145,zoom=15)
   
     
-      -#= render "partials/speakers_loop", :collection => @speakers
-      
+    
     .column_row#talks_speakers
       .column.column_double
         %span.column_header Speakers
@@ -85,7 +84,7 @@
                 
 
   -# Include Sidebar Items
-  = render "partials/chapters", :collection => @chapters
+  = render "partials/chapters", :locals => @chapters
   = render "partials/sponsors"
   = render "partials/social"
   = render "partials/newsletter_form"

@@ -55,6 +55,8 @@ CraigsAdmin::Application.routes.draw do
   
   # Static Pages
   match 'about', :to => 'application#about'
+  match 'volunteer', :to => 'application#volunteer'
+  match 'special_programs', :to => 'application#special_programs_awards'
   
   
   # talks and events
