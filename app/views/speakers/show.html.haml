@@ -1,70 +1,68 @@
 -#     Chicago Ideas Week
--#     Speaker.html.haml
--#     01/03/2012
+-#     speakers/show.html.haml
+-#     01/15/2012
 
 
-%section.banner.container-fluid
-  .banner_wrapper{:style => "background: url(#{asset_path @speaker.banner.url}) top center no-repeat;"}
-
-    .container
-      .row.full#banner_linker
-        = link_to "back to speakers", "speakers", :class => "back_btn"
-
-      .row.full
-        .span8.img_container
-          = image_tag URI.decode(@speaker.portrait.url), :class => "main_image", :width => "460px", :alt => "#{@speaker.name}"
-
-        .span8.intro_
-          %span{:class => "name_"}= @speaker.name
-          %span{:class => "title_"}= @speaker.title
-          %span{:class => "location_"} Location
-          %span{:class => "intro_text"} THIS AREA CAN BE USED FOR DAVE’S FAVORITE QUOTE OR A QUESTION TO DAVE GILBOA.
-
-
-
-
-%section{:id => "main_content", :class => "row full"}
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
   .container
-
-    .span-two-thirds.entry_column.content_column
-
-      %h2= @speaker.name
-      %p
-      =raw @speaker.bio
-
-
-      .row.speakers_extras
-        .span5
-          %ul{:class => "related_list"}
-            %li{:class => "list_title"} Related Speakers
-            %li= link_to "Bo Fishback", "#"
-            %li= link_to "Julie Novack", "#"
-            %li= link_to "Peter Barris", "#"
-            %li= link_to "Michelle Rhee", "#"
-
-          %ul{:class => "related_list"}
-            %li{:class => "list_title"} Related Speakers
-            %li= link_to "Bo Fishback", "#"
-            %li= link_to "Julie Novack", "#"
-            %li= link_to "Peter Barris", "#"
-            %li= link_to "Michelle Rhee", "#"
-
-        .span5.quoted_column
-          This can be a quote if available. Lorem ipsum dolor sit amet conse ctetuer adipiscing elitus duis iaculis tempus sgi lacus. Maecenas saceler isque neque ac mauris duis eleifen.
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Speakers", speakers_path
+        %li= link_to @speaker.name
+    = link_to "Explore Speakers", "#", :class => "explore_btn", :id => "explore_speakers"
 
 
-    .span-one-third.entry_column.sidebar.right#community
+-# Main Speaker content
+%section.container#main_content
 
-      %h2 Community
+  #page_header
+    #page_title.left
+      %h1= @speaker.name
+      - if @speaker.title.present?
+        %span.sub_header= @speaker.title
+    #page_share.right
+      %ul
+        %li#twitter_ <a href="https://twitter.com/share" class="twitter-share-button" data-via="chicagoideas" data-count="none" data-hashtags="ciwtalks">Tweet</a>
+        -#%li#facebook_ <div class="fb-like" data-href="http://www.google.com" data-send="false" data-layout="button_count" data-show-faces="true"></div>
+        %li#facebook_ <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
+        %li#gplus_ <g:plusone size="medium" annotation="none"></g:plusone>
+      
 
-      = render "partials/sponsors"
-      = render "partials/newsletter_form"
-      = render "partials/volunteer_info"
-      = render "partials/social"
-      = render "partials/tweets"
+  -# Left column, main content: Gallery, details, speakers, etc.
+  .box.double.left
+    
+    .talk_gallery
+      -#- @talk.talk_photos.each do |photo|
+      -#= image_tag(photo.photo_file_name)
+
+    .column_row.divided_row#speaker_bio
+      .column.column_double
+        %ul#speaker_overview
+          %li
+            .img_wrapper
+              - begin
+                = image_tag(@speaker.portrait)
+              - rescue
+          %li
+            %h3= @speaker.name
+            - if @speaker.title.present?
+              %span.title= @speaker.title
+          %li.divided
+            %ul.speaker_overview_talks
+              %li= link_to "Water Changes Everything", "#"
+              %li= link_to "Water Changes Everything", "#"
+              %li= link_to "Water Changes Everything", "#"
+          
+        %pre= @speaker.bio
 
 
+  -# Related speakers
+  
 
-
-
-
+  -# Include Sidebar Items
+  = render "partials/chapters", :locals => @chapters
+  = render "partials/sponsors"
+  = render "partials/social"
+  = render "partials/newsletter_form"

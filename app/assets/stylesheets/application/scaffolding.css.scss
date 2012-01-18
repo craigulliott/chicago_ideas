@@ -445,6 +445,9 @@ ul#global_nav {
 			li#copyright_notice {
 				border-right: 1px solid #bebebe;
 			}
+			li.right {
+			  float: right;
+			}
 		}
 	} // end #copyright
 	

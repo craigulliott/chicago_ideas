@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   
   # Speakers landing page
   def list_speakers
-    @speakers = User.find_all_by_speaker(1) # only grab the users flagged as speakers
+    @speakers = User.speaker
     render "speakers/index"
   end
   
@@ -43,6 +43,7 @@ class UsersController < ApplicationController
       @speaker = User.find_by_permalink(params[:id])
     end
     #@speakers = Talk.
+    render "speakers/show"
   end
   
   

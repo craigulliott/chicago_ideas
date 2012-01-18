@@ -47,33 +47,35 @@
           - @chapter.chapter_photos.each do |photo|
             %li
               .img_wrapper
-                = link_to image_tag(URI.decode photo.photo.url(:thumb)), "#", :class => "popup_img"
+                - begin
+                  = link_to image_tag(URI.decode photo.photo.url(:thumb)), "#", :class => "popup_img"
+                - rescue
 
 
-      -#= render "partials/speakers_loop", :collection => @speakers
-
+    -# Speakers in this chapter
     .column_row#talks_speakers
       .column.column_double
         %span.column_header= @chapter.performances.count > 1 ? "Speakers" : "Speaker"
         %ul.chapter_speakers_list
           - @chapter.performances.each do |performance|
-            %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
-              .img_frame
-                -begin
-                  = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker)
-                - rescue
-              .speaker_info
-                %h3= link_to performance.speaker.name, speaker_path(performance.speaker)
-                %span.speaker_title= performance.speaker.title
-                
-                %pre
-                  = "#{performance.speaker.bio_abbreviated}"
-                  = link_to "read more →", speaker_path(performance.speaker)
-              .clearfix
+            - if performance.speaker.present?
+              %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
+                .img_frame
+                  -begin
+                    = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker)
+                  - rescue
+                .speaker_info
+                  %h3= link_to performance.speaker.name, speaker_path(performance.speaker)
+                  %span.speaker_title= performance.speaker.title
+              
+                  %pre
+                    = "#{performance.speaker.bio_abbreviated}"
+                    = link_to "read more →", speaker_path(performance.speaker)
+                .clearfix
               
               
   -# Include Sidebar Items
-  = render "partials/chapters", :locals => @chapters
+  -#= render "partials/chapters", :locals => @chapters
   = render "partials/sponsors"
   = render "partials/social"
   = render "partials/newsletter_form"

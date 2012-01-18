@@ -152,25 +152,26 @@ abbr {
   li {
     display: block;
     margin-bottom: 13px; 
-    padding: 0 20px;
+    padding: 0 20px !important;
   }
   
   label {
     font-size: 12px;
-    color:$grey;
+    color:$greyLight;
     margin-bottom: 2px;
     font-weight: 500;
-    text-shadow: 1px 1px 1px #fff;
   }
   
   input[type="text"], input[type="password"] {
-    width: 180px;
+    width: 185px;
+    padding: 6px;
+    font-size: 13px;
   }
   
   #dd_submit {
-    padding-bottom: 13px;
+    padding-bottom: 13px !important;
     margin-bottom: 0px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #000;
     label {
       display: inline; 
       line-height: 30px;
@@ -178,13 +179,12 @@ abbr {
   }
   #dd_forgot_pw {
     margin-bottom: 0;
-    padding-top: 10px;
-    padding-bottom: 0;
-    border-top: 1px solid #fff;
+    padding-top: 10px !important;
+    padding-bottom: 5px !important;
+    border-top: 1px solid #333;
     a {
       font-size: 13px;
       color: $grey;
-      text-shadow: 1px 1px 1px #fff;
     }
   }
 }
