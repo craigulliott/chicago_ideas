@@ -18,29 +18,32 @@
 %section.container#main_content
   
   -# Featured Talks slider
-  .slider
-    - @megatalks.each do |featured|
-      = link_to image_tag(featured.banner.url, :title => '<span class="banner_head">Web & Tech</span><span class="banner_type">Technology</span>'), talk_path(featured)
+  - if @megatalks.present?
+    .slider
+      - @megatalks.each do |featured|
+        - begin
+          = link_to image_tag(featured.banner.url, :title => '<span class="banner_head">featured.name</span><span class="banner_type">featured.track.name</span>'), talk_path(featured)
+        - rescue
       
   
-  -# Left column, main content: Videos, speakers, etc.
+  -# Left column, main content
   .box.double.left
-
     .column_row.divided_row#talks
       .column.column_double
         %span.column_header Talks
         %ul.preview_list.double_rows
-
           - @talks.each do |talk|
-            %li
+            %li{:id => "talk_#{talk.id}"}
               .img_frame
                 = link_to "play", talk_path(talk), :class => "play_btn"
                 - begin
                   = link_to image_tag(talk.banner.url), talk_path(talk)
                 - rescue
               = link_to talk.name, talk_path(talk)
-              %span= talk.track.name
-              %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"
+              - if talk.track.present?
+                %span= talk.track.name
+              - if talk.chapters.present?
+                %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"
 
     -# Speakers list
     = render "partials/speakers_loop", :locals => @speakers
@@ -48,6 +51,6 @@
   -# Include Sidebar Items
   = render "partials/track_filter"
   = render "partials/sponsors"
-  = render "partials/social"
   = render "partials/newsletter_form"
+  = render "partials/social"
 

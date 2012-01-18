@@ -21,9 +21,9 @@
         %li#gplus_ <g:plusone size="medium" annotation="none"></g:plusone>
 
 
-  -# Left column, main content: About Us information
+  -# Left column, main content
   .box.double.left
-  
+
     .talk_gallery
       -#- @talk.talk_photos.each do |photo|
       -#  = image_tag(photo.photo_file_name)
@@ -31,18 +31,31 @@
       = image_tag("application/temp/asdffff.jpg")
       = image_tag("application/temp/asdfasdf.jpg")
 
-    .column_row.divided_row#about_description
-      .column.column_double
-        
-        - if @labs.present?
-          - @labs.each do |lab|
-            = lab.id
-            = lab.name
-            = lab.description
-            = lab.venue.id
+
+
+    - if @labs.present?
+      #labs_list
+        - @labs.each do |lab|
+          .column_row.divided_row{:id => "lab_#{lab.id}"}
+            %a{:name => "lab_#{lab.id}"}
+            .column.column_double
+              %h3= lab.name
+              %pre= lab.description
+              %a{:class => "back_top", :href => "javascript:scroll(0,0)"} back top
         
         
           
+  .box.right#labs_list
+    .box_header
+      %span Labs Quicklinks
+    .column_row
+      %ul.filter_list.labs_filter
+        -#%li= %a.lab_top "Top"
+        - @labs.each do |lab|
+          %li
+            %a{:class => "lab_#{lab.id}", :href => "#lab_#{lab.id}"}= lab.name
+
+
 
   -# Include Sidebar Items
   = render "partials/sponsors"

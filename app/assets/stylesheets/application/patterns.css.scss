@@ -486,8 +486,16 @@ ul.double_rows {
   display: block;
   clear: both;
 }
-
-
+.sidebar {
+  ul.preview_list {
+    li {
+      width: 260px;
+    }
+    li:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
 
 
 
@@ -578,6 +586,31 @@ ul.filter_list {
 }
 
 
+ul.labs_filter {
+  li {
+    margin-bottom: 4px;
+    a {
+      font-size: 12px;
+      line-height: 19px;
+    }
+  }
+}
+#labs_list {
+  h3 {
+    font-size: 16px;
+    color: $grey;
+    margin-bottom: 10px;
+  }
+  .back_top {
+    font-size: 12px;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .divided_row:last-child {
+    border-bottom: none !important;
+  }
+}
 
 
 /******************************************************

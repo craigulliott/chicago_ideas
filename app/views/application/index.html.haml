@@ -11,73 +11,46 @@
 
   -# Left column, main content: Videos, speakers, etc.
   .box.double.left
-    
     .column_row.divided_row#talks
-      .column
-        %span.column_header Talks
-        %ul.preview_list
+    
+      - if @talks.present?
+        .column#homepage_talks
+          %span.column_header Talks
+          %ul.preview_list
+            - @talks.each do |talk|
+              %li{:id => "talk_#{talk.id}"}
+                .img_frame
+                  = link_to "play", talk_path(talk), :class => "play_btn"
+                  - begin
+                    = link_to image_tag(talk.banner.url), talk_path(talk)
+                  - rescue
+                = link_to talk.name, talk_path(talk)
+                - if talk.track.present?
+                  %span= talk.track.name
+                %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"
         
-          - @talks.each do |talk|
-            %li
-              .img_frame
-                = link_to "play", talk_path(talk), :class => "play_btn"
-                - begin
-                  = link_to image_tag(talk.banner.url), talk_path(talk)
-                - rescue
-              = link_to talk.name, talk_path(talk)
-              - if talk.track.present?
-                %span= talk.track.name
-              %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"
-        
-        = link_to "view all talks →", talks_path, :class => "view_all blue"
+          = link_to "view all talks →", talks_path, :class => "view_all blue"
           
-          
-      .column.right
-        %span.column_header Videos
-        %ul.preview_list
-          %li
-            .img_frame
-              = link_to "play", "#", :class => "play_btn"
-              = link_to image_tag('application/temp/temp_1.jpg'), "#"
-            = link_to "Innovation & Influence", "#"
-            %span Technology
-          
-          %li
-            .img_frame
-              = link_to "play", "#", :class => "play_btn"
-              = link_to image_tag('application/temp/temp_2.jpg'), "#"
-            = link_to "Web & Tech", "#"
-            %span Technology
-        
-          %li
-            .img_frame
-              = link_to "play", "#", :class => "play_btn"
-              = link_to image_tag('application/temp/temp_1.jpg'), "#"
-            = link_to "Innovation & Influence", "#"
-            %span Technology
+      - if @chapters.present?
+        .column.right#homepage_videos
+          %span.column_header Videos
+          %ul.preview_list
+            - @chapters.each do |video|
+              - if video.present?
+                %li{:id => "video_#{video.id}"}
+                  .img_frame
+                    = link_to "play", video_path(video), :class => "play_btn"
+                    - begin
+                      = link_to image_tag(talk.banner.url), video_path(video)
+                    - rescue
+                  = link_to video.title, video_path(video)
+                  - if video.performances.present?
+                    - video.performances.limit(2).each do |performance|
+                      - if performance.speaker.present?
+                        %span= performance.speaker.name
+                    
+          = link_to "view all videos →", videos_path, :class => "view_all blue"
 
-          %li
-            .img_frame
-              = link_to "play", "#", :class => "play_btn"
-              = link_to image_tag('application/temp/temp_2.jpg'), "#"
-            = link_to "Web & Tech", "#"
-            %span Technology
-        
-          %li
-            .img_frame
-              = link_to "play", "#", :class => "play_btn"
-              = link_to image_tag('application/temp/temp_1.jpg'), "#"
-            = link_to "Innovation & Influence", "#"
-            %span Technology
-
-          %li
-            .img_frame
-              = link_to "play", "#", :class => "play_btn"
-              = link_to image_tag('application/temp/temp_2.jpg'), "#"
-            = link_to "Web & Tech", "#"
-            %span Technology
-        
-        
         
     = render "partials/speakers_loop", :locals => @speakers
   

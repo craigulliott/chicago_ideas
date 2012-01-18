@@ -1,0 +1,19 @@
+ul.filter_ {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+  li {
+    display: inline;
+    float: left;
+    font-size: 13px;
+    color: $grey;
+    padding: 2px 5px;
+    margin: 0;
+    
+    a {
+      display: block;
+    }
+  }
+}

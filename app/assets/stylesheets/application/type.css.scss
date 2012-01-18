@@ -86,7 +86,7 @@ span.expired_date {
   margin-left: 5px;
 }
 
-.column ul, .column ol, p ul, p ol {
+.column ul, .column ol, p ul, p ol, pre ul, pre ol {
   list-style: disc;
   margin: 10px 0 10px 10px;
   li {
@@ -98,6 +98,6 @@ span.expired_date {
     line-height: 25px;
   }
 }
-.column ol, p ol {
+.column ol, p ol, pre ol {
   list-style: decimal;
 }
