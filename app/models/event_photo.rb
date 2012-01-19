@@ -25,8 +25,7 @@ class EventPhoto < ActiveRecord::Base
       :album => "680x400#",
       :full => "1360x800#",
     },
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-event-photo-photos",
-    :path => ':style/:id.:extension'
+    :path => 'event-photos/:style/:id.:extension'
 
   
   # the hash representing this model that is returned by the api

@@ -61,7 +61,7 @@ class ApplicationController < ActionController::Base
   # This allows us to cache fully rendered versions of the entire front end of the website.
   # This makes for an extremely fast experience for all our visitors
   def account_links
-    render 'account_links', :layout => false
+    render :json => {:admin => true}
   end
   
   private

@@ -25,8 +25,7 @@ class TalkPhoto < ActiveRecord::Base
       :album => "680x400#",
       :full => "1360x800#",
     },
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-talk-photo-photos",
-    :path => ':style/:id.:extension'
+    :path => 'talk-photos/:style/:id.:extension'
 
   
   # the hash representing this model that is returned by the api
@@ -44,10 +43,6 @@ class TalkPhoto < ActiveRecord::Base
   def self.photo_dimensions_string
     "#{PHOTO_WIDTH}x#{PHOTO_HEIGHT}"
   end
-  
-  def photo_dimensions_string
-     "#{PHOTO_WIDTH}x#{PHOTO_HEIGHT}"
-   end
 
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil
