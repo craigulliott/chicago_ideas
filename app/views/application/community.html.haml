@@ -1,0 +1,32 @@
+-#     Chicago Ideas Week
+-#     application/community.html.haml
+-#     01/016/2012
+
+
+%section.banner.container-fluid
+  .banner_wrapper{:style => "background: url(#{asset_path "application/community.jpg"}) top center no-repeat;"}
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Join our Community
+    = render "partials/share"
+
+  -# Left column, main content: About Us information
+  .box.double.left
+
+    .column_row.divided_row#about_description
+      .column.column_double
+        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc convallis facilisis risus, et facilisis nisl fringilla sodales. Curabitur ut tincidunt quam. Suspendisse et nibh id nunc aliquet tempor. Integer adipiscing varius feugiat. Proin sollicitudin lorem et nisl feugiat fermentum. Nulla facilisi. Vivamus at tellus quis nunc vestibulum feugiat. Phasellus vel orci non quam lobortis blandit nec sed purus.
+        
+        
+      
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

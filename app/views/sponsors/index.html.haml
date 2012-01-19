@@ -4,30 +4,40 @@
 
 
 %section.banner.container-fluid
-  .banner_wrapper{:style => "background: url(#{asset_path "application/temp/sponsors_banner.jpg"}) top center no-repeat;"}
+  .banner_wrapper{:style => "background: url(#{asset_path "application/community.jpg"}) top center no-repeat;"}
 
 
-%section{:id => "main_content", :class => "row full"}
-  .container
+-# Main Talk content
+%section.container#main_content
 
-    .span-full.entry_column.content_column
+  #page_header
+    #page_title.left
+      %h1 CIW Sponsors
+    = render "partials/share"
 
-      %h2 Community Partners
-
-      %p The CIW Community Partner program is designed to identify, develop, and sustain relationships that will bring fresh perspectives, leverage resources, and further the inclusiveness of the Chicago Ideas Week community.
-
-      %p The CIW Community Partner program is created to ensure that the Chicago Ideas Week network extends to all corners of our city and consists of as many diverse, unique, and engaged individuals possible.
-
-      %p Participants include local businesses, foundations, funds, non-profit organizations, or community centers located in and around the city of Chicago.
-
-      
-      %ul.sponsorshiplevel_list
-        -# check to ensure it's not completely nil
-        - if @sponsorshipLevels.present?
-          - @sponsorshipLevels.each do |sl|
-            %li
-              %span= sl.name
-              - sl.sponsors.present?
+  -# Left column, main content: About Us information
+  .box.double.left#sponsors_list
+  
+    .column_row.divided_row
+      .column.column_double
+        %p The CIW Community Partner program is designed to identify, develop, and sustain relationships that will bring fresh perspectives, leverage resources, and further the inclusiveness of the Chicago Ideas Week community.
+        %p The CIW Community Partner program is created to ensure that the Chicago Ideas Week network extends to all corners of our city and consists of as many diverse, unique, and engaged individuals possible.
+        %p Participants include local businesses, foundations, funds, non-profit organizations, or community centers located in and around the city of Chicago.
+    
+    - if @sponsorshipLevels.present?
+      - @sponsorshipLevels.each do |sl|
+        - if sl.sponsors.present?
+          .column_row.divided_row
+            .column.column_double
               %ul.sponsors_list
-              - sl.sponsors.each do |s|
-                %li= link_to image_tag(s.logo), s.url, :alt => s.name
+                - sl.sponsors.each do |s|
+                  %li
+                    - begin
+                      = link_to image_tag URI.decode(s.logo), s.url, :alt => s.name
+                    - rescue
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/social"
+    = render "partials/newsletter_form"

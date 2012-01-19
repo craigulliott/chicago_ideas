@@ -1,53 +1,54 @@
 -#     Chicago Ideas Week
--#     application/staff_overview.html.haml
--#     01/03/2012
+-#     users/list_team_members.html.haml
+-#     01/17/2012
 
 
-%section.banner.container-fluid
-  .banner_wrapper{:style => "background: url(#{asset_path "application/temp/speaker_landing_banner.jpg"}) top center no-repeat;"}
-
-
-%section#main_content.row.full
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
   .container
 
-    .span-two-thirds.entry_column.content_column
-
-      %h2 CIW Team
-
-      %p Lorem ipsum dolor sit amet consectetuer adipiscing elit. Duis iaculis tempus lacus. Maecenas sceleri sque neque ac mauris. Duis eleifend vivamus lacus lorem euismod ultrices fringilla mol estie et quam. Nam eget nisl aliquam erat volutpat. Vestibulum ultrices consectetuer sapien.
-
-
-
-      -# Render the loop of all captured speakers
-      %ul{:id => "staff_list", :class => "image_grid three_span"}
-
-        - @staff.present?
-
-        - @staff.each do |staffmember| 
-
-          %li
-            = link_to team_member_path(staffmember) do
-              .grid_img_wrapper
-                = image_tag staffmember.portrait.url
-              .grid_content
-                %span.title_= staffmember.name
-                %span.desc_= staffmember.title
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Team", team_members_path
+    -#= link_to "Explore Speakers", "#", :class => "explore_btn", :id => "explore_speakers"
 
 
+-# Begin Main Speaker content
+%section.container#main_content
 
-    .span-one-third.entry_column.sidebar.right#community
-
-      %h2 Community
-
-      = render "partials/sponsors"
-      = render "partials/newsletter_form"
-      = render "partials/volunteer_info"
-      = render "partials/social"
-      = render "partials/tweets"
+  #page_header
+    #page_title.left
+      %h1 CIW Team
+    = render "partials/share"
 
 
-
-
+  -# Left column: Team List
+  .box.double.left
+    
+    .talk_gallery
+      = image_tag('application/team/team_1.jpg')
+      = image_tag('application/team/team_2.jpg')
+      = image_tag('application/team/team_3.jpg')
+      = image_tag('application/team/team_4.jpg')
+      = image_tag('application/team/team_5.jpg')
+      = image_tag('application/team/team_6.jpg')
+      = image_tag('application/team/team_7.jpg')
+      
+          
+          
+    .column_row#team
+      .column.column_double
+        %span.column_header Other CIW Team Members
+        - if @team.present?
+          %ul.preview_list.team_list.double_rows
+            = render "partials/team_loop", :team => @team
 
 
 
+  -# Include Sidebar Items
+  #sidebar
+    -#= render "partials/track_filter"
+    = render "partials/sponsors"
+    = render "partials/newsletter_form"
+    = render "partials/social"
