@@ -8,6 +8,11 @@
 
 
 %section.container#main_content
+  
+  -# Introduction
+  #intro
+    %h1 Welcome to the Ideasphere
+    %span For one week each October, CIW transforms Chicago into the global hub for new ideas, an ecosystem of innovation and a playgroud of intellectual recreation
 
   -# Left column, main content: Videos, speakers, etc.
   .box.double.left
@@ -17,37 +22,14 @@
         .column#homepage_talks
           %span.column_header Talks
           %ul.preview_list
-            - @talks.each do |talk|
-              %li{:id => "talk_#{talk.id}"}
-                .img_frame
-                  = link_to "play", talk_path(talk), :class => "play_btn"
-                  - begin
-                    = link_to image_tag(talk.banner.url), talk_path(talk)
-                  - rescue
-                = link_to talk.name, talk_path(talk)
-                - if talk.track.present?
-                  %span= talk.track.name
-                %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"
-        
+            = render "partials/talks_loop", :talks => @talks
           = link_to "view all talks →", talks_path, :class => "view_all blue"
           
       - if @chapters.present?
         .column.right#homepage_videos
           %span.column_header Videos
           %ul.preview_list
-            - @chapters.each do |video|
-              - if video.present?
-                %li{:id => "video_#{video.id}"}
-                  .img_frame
-                    = link_to "play", video_path(video), :class => "play_btn"
-                    - begin
-                      = link_to image_tag(talk.banner.url), video_path(video)
-                    - rescue
-                  = link_to video.title, video_path(video)
-                  - if video.performances.present?
-                    - video.performances.limit(2).each do |performance|
-                      - if performance.speaker.present?
-                        %span= performance.speaker.name
+            = render "partials/chapters_loop", :chapter => @chapters
                     
           = link_to "view all videos →", videos_path, :class => "view_all blue"
 

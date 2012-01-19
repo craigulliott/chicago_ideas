@@ -13,4 +13,8 @@
                       = link_to image_tag(p.speaker.portrait.url), speaker_path(p.speaker)
                     - rescue
                   = link_to p.speaker.name, speaker_path(p.speaker)
-                  %span= p.speaker.title
+                  -# Some titles were obnoxiously long, so let's limit to 75
+                  - if p.speaker.title.length < 75
+                    %span= p.speaker.title
+                  - else
+                    %span= "#{p.speaker.title[0..75]}..."

@@ -1,24 +1,24 @@
--#     Chicago Ideas Week
--#     partials/_talks.html.haml
--#     01/18/2012
+-#    Talks Loop
+-#
+-#    Standard template for an individual talk item
+-#    in the standard preview list
 
-.column_row.divided_row#talks
-  .column.column_double
-    %span.column_header Talks
-    %ul.preview_list.double_rows
-      - @talks.each do |talk|
-        %li{:id => "talk_#{talk.id}"}
-          .img_frame
-            = link_to "play", talk_path(talk), :class => "play_btn"
-            - begin
-              = link_to image_tag(talk.banner.url), talk_path(talk)
-            - rescue
-          = link_to talk.name, talk_path(talk)
-          - if talk.track.present?
-            %span= talk.track.name
-          - if talk.chapters.present?
-            %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"
+- @talks.each do |talk|
+  %li{:id => "talk_#{talk.id}"}
+  
+    -# Image frame: this will crop the photos if needed
+    .img_frame
+      = link_to "play", talk_path(talk), :class => "play_btn"
+      - begin
+        = link_to image_tag(talk.banner.url), talk_path(talk)
+      - rescue
+
+    = link_to talk.name, talk_path(talk)
+  
+    -# Some talks don't have tracks, so...
+    - if talk.track.present?
+      %span= talk.track.name
     
-    = paginate @talks
-
-      
+      -# Display the number o chapters in the talk
+    - if talk.chapters.present?
+      %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"

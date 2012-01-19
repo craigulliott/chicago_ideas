@@ -22,12 +22,7 @@
       %h1= @speaker.name
       - if @speaker.title.present?
         %span.sub_header= @speaker.title
-    #page_share.right
-      %ul
-        %li#twitter_ <a href="https://twitter.com/share" class="twitter-share-button" data-via="chicagoideas" data-count="none" data-hashtags="ciwtalks">Tweet</a>
-        -#%li#facebook_ <div class="fb-like" data-href="http://www.google.com" data-send="false" data-layout="button_count" data-show-faces="true"></div>
-        %li#facebook_ <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
-        %li#gplus_ <g:plusone size="medium" annotation="none"></g:plusone>
+    = render "partials/share"
       
 
   -# Left column, main content: Gallery, details, speakers, etc.
@@ -73,33 +68,13 @@
 
 
     -# Related speakers
-    - if @chapters.present?
-      .column_row#talks_speakers
-        .column.column_double
-          %span.column_header Speakers
-          %ul.preview_list.speaker_list.double_rows
-            - @chapters.each do |c|
-              - if c.present?
-                - c.performances.each do |p| 
-                  - if p.speaker.present?
-                    %li
-                      .img_frame
-                        - begin
-                          = link_to image_tag(p.speaker.portrait.url), speaker_path(p.speaker)
-                        - rescue
-                      = link_to p.speaker.name, speaker_path(p.speaker)
-                      %span= p.speaker.title
+    = render "partials/chapters_speakers", :chapters => @chapters
         
         
-        
-        
-    
-        
-  
 
   -# Include Sidebar Items
   #sidebar
-    = render "partials/chapters", :locals => @chapters
+    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Other videos"
     = render "speakers/speaker_tweets"
     = render "partials/sponsors"
     = render "partials/social"

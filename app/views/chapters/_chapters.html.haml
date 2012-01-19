@@ -1,0 +1,14 @@
+-#    Chapter List Template
+-#
+-#    Standard template for a list of chapters/vides. You can use
+-#    this to set some extra details before looping over
+-#    all the items, including column width, paginate...
+
+.box.double.left
+  .column_row.divided_row#chapters
+    .column.column_double
+      %span.column_header Videos
+      %ul.preview_list.double_rows
+        = render "partials/chapters_loop", :locals => @chapter
+    -if :do_paginate == true
+      paginate chapters
