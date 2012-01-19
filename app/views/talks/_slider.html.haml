@@ -2,4 +2,4 @@
 - if @megatalks.present?
   .slider
     - @megatalks.each do |featured|
-      = link_to image_tag(featured.banner.url, :title => '<span class="banner_head">featured.name</span><span class="banner_type">featured.track.name</span>'), talk_path(featured)
+      = link_to image_tag(featured.banner_src, :title => '<span class="banner_head">featured.name</span><span class="banner_type">featured.track.name</span>'), talk_path(featured)

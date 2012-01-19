@@ -9,6 +9,7 @@ class Talk < ActiveRecord::Base
   belongs_to :sponsor
   belongs_to :talk_brand
   has_many :chapters
+  has_many :featured_chapters, :class_name => 'Chapter', :conditions => {:featured_on_talk => true}
   has_many :performances, :through => :chapters
   
   # we have a polymorphic relationship with notes
@@ -60,7 +61,6 @@ class Talk < ActiveRecord::Base
     end
   end
 
-
   # return formatted time for the front-end
   def formatted_time
     start_time = "#{self.start_time.strftime("%l")} #{self.start_time.strftime("%p")}"
@@ -68,6 +68,12 @@ class Talk < ActiveRecord::Base
     "#{start_time} - #{end_time}"
   end
 
+  # return a banner, from a featured chapter (or nil)
+  def banner_src
+    chapter = featured_chapters.first
+    chapter.present? ? chapter.banner(:medium) : nil
+  end
+  
   private 
   
     def validate_temporal_constraints
