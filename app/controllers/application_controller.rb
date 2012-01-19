@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   
   # the application homepage
   def index
-    @talks = Talk.limit(10)
-    @chapters = Chapter.limit(10)
+    @talks = Talk.limit(8)
+    @chapters = Chapter.limit(8)
     @speakers = User.speaker.limit(12).order(rand) # grab 12 speakers
     @sponsors = Sponsor.all
   end
@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
   def get_sponsors
     @sponsors = Sponsor.all
   end
-
   
   def about
     @staff = User.staff
@@ -34,6 +33,9 @@ class ApplicationController < ActionController::Base
     @staff_bios = StaffBio.by_sort_column
   end
   
+  def community
+    
+  end
   
   def volunteer  
   end

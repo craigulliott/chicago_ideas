@@ -1,0 +1,17 @@
+-#    Team Loop
+-#
+-#    Standard template for an individual team item
+-#    in the standard preview list
+
+- @team.each do |team|
+  %li{:id => "team_#{team.id}", :class => "team_#{team.id}"}
+    .img_frame
+      - begin
+        = link_to image_tag(team.portrait.url), team_member_path(team)
+      - rescue
+    = link_to team.name, team_member_path(team)
+    -# Some titles were obnoxiously long, so let's limit to 75
+    - if team.title.length < 75
+      %span= team.title
+    - else
+      %span= "#{team.title[0..55]}..."
