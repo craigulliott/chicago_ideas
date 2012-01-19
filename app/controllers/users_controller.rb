@@ -55,12 +55,12 @@ class UsersController < ApplicationController
   
   
   def list_team_members
-    @staff = User.staff
+    @team = User.staff
   end  
   
   def team_member
-    @staff = User.staff # get all staff members
-    @staff_member = User.find(params[:id]) # individual staff item
+    @team = User.staff # get all staff members
+    @team_member = User.find(params[:id]) # individual staff item
   end
 
   
