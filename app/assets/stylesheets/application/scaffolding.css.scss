@@ -109,7 +109,10 @@ body {
 #main_content:after {
   clear: both;
 }
-
+#sidebar {
+  float: right;
+  width: 300px;
+}
 
 
 
@@ -141,7 +144,7 @@ ul#global_nav {
       line-height: 55px;
       font-size: 13px;
       font-family: Arial;
-      font-weight: bold;
+      font-weight: 800;
       color: $white;
       text-decoration: none;
     }

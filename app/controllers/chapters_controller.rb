@@ -1,7 +1,8 @@
 class ChaptersController < ApplicationController
   
   def index
-    @chapters = Chapter.find(:all)
+    @chapters = Chapter.search_sort_paginate(params)
+    @featured = Chapter.find_all_by_featured_on_talk('1')
   end
   
   

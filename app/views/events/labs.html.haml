@@ -56,8 +56,8 @@
             %a{:class => "lab_#{lab.id}", :href => "#lab_#{lab.id}"}= lab.name
 
 
-
   -# Include Sidebar Items
-  = render "partials/sponsors"
-  = render "partials/social"
-  = render "partials/newsletter_form"
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
