@@ -5,7 +5,7 @@
 - if @chapters.present?
   .box.sidebar.right#chapters
     .box_header.yellow_header
-      %span Videos in this Talk
+      %span= title
     .column_row
       %ul.preview_list
         -@chapters.each do |chapter|
@@ -20,3 +20,7 @@
               - chapter.performances.limit(2).each do |performance|
                 - if performance.speaker.present?
                   %span= performance.speaker.name
+                  
+                  
+                  
+                  

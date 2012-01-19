@@ -17,33 +17,10 @@
 %section.container#main_content
 
   -# Featured chapter slider
-  - if @featured.present?
-    .slider
-      - @featured.each do |featured|
-        - begin
-          = link_to image_tag(featured.banner.url, :title => "<span class='banner_head'>#{featured.title}</span>"), talk_path(featured)
-        - rescue
-
-
-  -# Left column, main content
-  .box.double.left
-    .column_row.divided_row#chapters
-      .column.column_double
-        %span.column_header Videos
-        %ul.preview_list.double_rows
-          - @chapters.each do |chapter|
-            %li{:id => "chapter_#{chapter.id}"}
-              .img_frame
-                = link_to "play", video_path(chapter), :class => "play_btn"
-                - begin
-                  = link_to image_tag(chapter.banner.url), video_path(chapter)
-                - rescue
-              = link_to chapter.title, video_path(chapter)
-              - chapter.performances.limit(2).each do |performance|
-                - if performance.speaker.present?
-                  %span= performance.speaker.name
-
-        = paginate @chapters
+  = render "partials/slider", :featured => @featured
+  
+  = render "chapters/chapters", :chapters => @chapters
+  -#= render "talks/talks", :talks => @talks
 
     -# Speakers list
     -#= render "partials/speakers_loop", :locals => @speakers

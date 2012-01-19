@@ -44,20 +44,6 @@ p, pre {
 }
 p:last-child { margin-bottom:0; }
 
-/*
-section ul, section ol {
-  list-style: disc;
-  margin: 0 0 10px 10px;
-  padding:0;
-}
-section ol {
-  list-style: decimal;
-}
-section ul li {
-  padding-left: 10px; 
-  margin-left: 15px;
-}
-*/
 
 a, a:active, a:visited {
   color:#2d77de;
@@ -101,3 +87,32 @@ span.expired_date {
 .column ol, p ol, pre ol {
   list-style: decimal;
 }
+
+
+
+/******************************************************
+ *  Homepage Introduction
+******************************************************/
+#intro {
+  display: block;
+  width: 100%;
+  margin: 0 0 35px 0;
+  text-align: center;
+  text-shadow: 1px 1px 1px #fff;
+
+  h1 {
+    font-size: 51px;
+    color: $dark;
+    display: block;
+    margin-bottom: 15px;
+  }
+  span {
+    font-size: 23px;
+    color: $grey;
+    display: block;
+    line-height: 31px;
+  }
+}
+
+
+

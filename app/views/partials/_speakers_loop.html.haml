@@ -1,23 +1,17 @@
--#     Chicago Ideas Week
--#     partials/_speakers.html.haml
--#     01/16/2012
+-#    Speaker Loop
+-#
+-#    Standard template for an individual speaker item
+-#    in the standard preview list
 
-
-.column_row#speakers
-  .column.column_double
-    %span.column_header Speakers
-    %ul.preview_list.speaker_list.double_rows
-      - @speakers.each do |speaker|
-        %li{:id => "speaker_#{speaker.id}", :class => "speaker_#{speaker.id}"}
-          .img_frame
-            - begin
-              = link_to image_tag(speaker.portrait.url), speaker_path(speaker)
-            - rescue
-          = link_to speaker.name, speaker_path(speaker)
-          -# Some titles were obnoxiously long, so let's limit to 75
-          - if speaker.title.length < 75
-            %span= speaker.title
-          - else
-            %span= speaker.title[0..55]
-
-    -#= paginate @speakers
+- @speakers.each do |speaker|
+  %li{:id => "speaker_#{speaker.id}", :class => "speaker_#{speaker.id}"}
+    .img_frame
+      - begin
+        = link_to image_tag(speaker.portrait.url), speaker_path(speaker)
+      - rescue
+    = link_to speaker.name, speaker_path(speaker)
+    -# Some titles were obnoxiously long, so let's limit to 75
+    - if speaker.title.length < 75
+      %span= speaker.title
+    - else
+      %span= "#{speaker.title[0..55]}..."

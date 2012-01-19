@@ -4,7 +4,7 @@
 
 
 %section.banner.container-fluid
-  .banner_wrapper{:style => "background: url(#{asset_path "application/temp/speaker_landing_banner.jpg"}) top center no-repeat;"}
+  .banner_wrapper{:style => "background: url(#{asset_path "application/about.jpg"}) top center no-repeat;"}
 
 
 -# Main Talk content
@@ -13,13 +13,7 @@
   #page_header
     #page_title.left
       %h1 Special Programs &amp; Awards
-    #page_share.right
-      %ul
-        %li#twitter_ <a href="https://twitter.com/share" class="twitter-share-button" data-via="chicagoideas" data-count="none" data-hashtags="ciwtalks">Tweet</a>
-        -#%li#facebook_ <div class="fb-like" data-href="http://www.google.com" data-send="false" data-layout="button_count" data-show-faces="true"></div>
-        %li#facebook_ <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
-        %li#gplus_ <g:plusone size="medium" annotation="none"></g:plusone>
-
+    = render "partials/share"
 
   -# Left column, main content: About Us information
   .box.double.left

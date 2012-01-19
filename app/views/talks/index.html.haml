@@ -18,14 +18,14 @@
 %section.container#main_content
   
   -# Featured Talks slider
-  = render "talks/slider"
+  = render "talks/slider", :featured => @megatalks
       
   
   -# Left column, main content
   .box.double.left
   
     -# Talks Loop
-    = render "partials/talks_loop", :locals => @talks
+    = render "talks/talks", :talks => @talks
 
     -# Speakers list
     = render "partials/speakers_loop", :locals => @speakers
