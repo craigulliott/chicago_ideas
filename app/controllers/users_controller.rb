@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
   
-  
   def edit
     @user = current_user
   end
@@ -34,7 +33,6 @@ class UsersController < ApplicationController
     redirect_to request.referer, notice: 'Disconnected from Twitter'
   end
   
-  
   # Speakers landing page
   def list_speakers
     @speakers = User.speaker.search_sort_paginate(params)
@@ -53,7 +51,6 @@ class UsersController < ApplicationController
     render "speakers/show"
   end
   
-  
   def list_team_members
     @staff = User.staff
   end  
@@ -63,5 +60,4 @@ class UsersController < ApplicationController
     @staff_member = User.find(params[:id]) # individual staff item
   end
 
-  
 end
