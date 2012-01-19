@@ -1,6 +1,6 @@
 -#     Chicago Ideas Week
 -#     talks/chapter_individual.html.haml
--#     01/12/2012
+-#     01/17/2012
 
 
 -# Breadcrumbs and Explore button
@@ -11,35 +11,37 @@
         %li= link_to "Home", "/"
         %li= link_to "Talks", talks_path
         %li= link_to @talk.name[0..75], talk_path(@talk)
-        %li= link_to @chapter.title, video_path(@chapter)
+        %li
+          %span= @chapter.title
+    -# Explore Button : Dropdown to come...
     = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
 
 
--# Main Talk content
+-# Main Content
 %section.container#main_content
 
+  -# Page Header: Title, sub-header, and social
   #page_header
     #page_title.left
       %h1= @chapter.title
       %span.sub_header= link_to @talk.name, "#"
-    #page_share.right
-      %ul
-        %li#twitter_ <a href="https://twitter.com/share" class="twitter-share-button" data-via="chicagoideas" data-count="none" data-hashtags="ciwtalks">Tweet</a>
-        -#%li#facebook_ <div class="fb-like" data-href="http://www.google.com" data-send="false" data-layout="button_count" data-show-faces="true"></div>
-        %li#facebook_ <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
-        %li#gplus_ <g:plusone size="medium" annotation="none"></g:plusone>
+    = render "partials/share"
 
-  -# Left column, main content: Gallery, details, speakers, etc.
+  -# Left column, main content: Video, details, speakers, etc.
   .box.double.left
-
-    .video_container
-      <iframe src="http://player.vimeo.com/video/#{@chapter.vimeo_id}?title=0&amp;byline=0&amp;portrait=0" width="680" height="383" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-
+    
+    -# Chapter Video
+    - if @chapter.vimeo_id.present?
+      .video_container
+        <iframe src="http://player.vimeo.com/video/#{@chapter.vimeo_id}?title=0&amp;byline=0&amp;portrait=0" width="680" height="383" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    
+    -# Chapter description
     .column_row.divided_row#talks_description
       .column.column_double
         %span.column_header About this Video
         %pre= @chapter.description
-
+    
+    -# Photo Gallery
     .column_row.divided_row#photo_gallery
       .column.column_double
         %span.column_header Photo Gallery
@@ -47,33 +49,36 @@
           - @chapter.chapter_photos.each do |photo|
             %li
               .img_wrapper
-                = link_to image_tag(URI.decode photo.photo.url(:thumb)), "#", :class => "popup_img"
+                - begin
+                  = link_to image_tag(URI.decode photo.photo.url(:thumb)), "#", :class => "popup_img"
+                - rescue
 
 
-      -#= render "partials/speakers_loop", :collection => @speakers
-
+    -# Speakers in this chapter
     .column_row#talks_speakers
       .column.column_double
         %span.column_header= @chapter.performances.count > 1 ? "Speakers" : "Speaker"
         %ul.chapter_speakers_list
           - @chapter.performances.each do |performance|
-            %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
-              .img_frame
-                -begin
-                  = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker)
-                - rescue
-              .speaker_info
-                %h3= link_to performance.speaker.name, speaker_path(performance.speaker)
-                %span.speaker_title= performance.speaker.title
-                
-                %pre
-                  = "#{performance.speaker.bio_abbreviated}"
-                  = link_to "read more →", speaker_path(performance.speaker)
-              .clearfix
+            - if performance.speaker.present?
+              %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
+                .img_frame
+                  -begin
+                    = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker)
+                  - rescue
+                .speaker_info
+                  %h3= link_to performance.speaker.name, speaker_path(performance.speaker)
+                  %span.speaker_title= performance.speaker.title
+                  %pre
+                    = "#{performance.speaker.bio_abbreviated}"
+                    = link_to "read more →", speaker_path(performance.speaker)
+                .clearfix
               
-              
+
+
   -# Include Sidebar Items
-  = render "partials/chapters", :locals => @chapters
-  = render "partials/sponsors"
-  = render "partials/social"
-  = render "partials/newsletter_form"
+  #sidebar
+    = render "partials/chapters", :locals => @chapters
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

@@ -18,36 +18,23 @@
 %section.container#main_content
   
   -# Featured Talks slider
-  .slider
-    - @megatalks.each do |featured|
-      = link_to image_tag(featured.banner.url, :title => '<span class="banner_head">Web & Tech</span><span class="banner_type">Technology</span>'), talk_path(featured)
+  = render "talks/slider"
       
   
-  -# Left column, main content: Videos, speakers, etc.
+  -# Left column, main content
   .box.double.left
-
-    .column_row.divided_row#talks
-      .column.column_double
-        %span.column_header Talks
-        %ul.preview_list.double_rows
-
-          - @talks.each do |talk|
-            %li
-              .img_frame
-                = link_to "play", talk_path(talk), :class => "play_btn"
-                - begin
-                  = link_to image_tag(talk.banner.url), talk_path(talk)
-                - rescue
-              = link_to talk.name, talk_path(talk)
-              %span= talk.track.name
-              %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"
+  
+    -# Talks Loop
+    = render "partials/talks_loop", :locals => @talks
 
     -# Speakers list
     = render "partials/speakers_loop", :locals => @speakers
 
+
   -# Include Sidebar Items
-  = render "partials/track_filter"
-  = render "partials/sponsors"
-  = render "partials/social"
-  = render "partials/newsletter_form"
+  #sidebar
+    = render "partials/track_filter"
+    = render "partials/sponsors"
+    = render "partials/newsletter_form"
+    = render "partials/social"
 

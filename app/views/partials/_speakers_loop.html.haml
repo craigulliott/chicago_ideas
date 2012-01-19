@@ -14,6 +14,10 @@
               = link_to image_tag(speaker.portrait.url), speaker_path(speaker)
             - rescue
           = link_to speaker.name, speaker_path(speaker)
-          %span= speaker.title
+          -# Some titles were obnoxiously long, so let's limit to 75
+          - if speaker.title.length < 75
+            %span= speaker.title
+          - else
+            %span= speaker.title[0..55]
 
-    = link_to "view all speakers →", speakers_path, :class => "view_all blue"
+    -#= paginate @speakers

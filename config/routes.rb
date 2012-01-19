@@ -50,6 +50,7 @@ CraigsAdmin::Application.routes.draw do
   match 'team_members', :to => 'users#list_team_members'
   match 'team_members/:id', :to => 'users#team_member', :as => "team_member"
   match 'speakers', :to => 'users#list_speakers'
+  match 'speakers/page/:page', :to => 'users#list_speakers'
   match 'speakers/:id', :to => 'users#speaker', :as => "speaker"
   
   

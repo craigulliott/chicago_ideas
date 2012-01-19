@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
+  before_filter :authenticate_user!, :only => [:index, :edit, :disconnect_facebook, :disconnect_twitter]
   
   # the users account homepage
   def index
@@ -31,7 +32,8 @@ class UsersController < ApplicationController
   
   # Speakers landing page
   def list_speakers
-    @speakers = User.find_all_by_speaker(1) # only grab the users flagged as speakers
+    @speakers = User.speaker.search_sort_paginate(params)
+    #@speakers = User.speaker
     render "speakers/index"
   end
   
@@ -42,7 +44,8 @@ class UsersController < ApplicationController
     else
       @speaker = User.find_by_permalink(params[:id])
     end
-    #@speakers = Talk.
+    @chapters = @speaker.chapters.all # Get all chapters that the speaker is part of
+    render "speakers/show"
   end
   
   

@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   
   
   # Labs landing and individual pages
-  def labs_list
+  def labs
    @labs = EventBrand.find_by_name("Lab").events
   end
   
