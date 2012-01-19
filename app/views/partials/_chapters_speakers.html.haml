@@ -1,0 +1,16 @@
+- if @chapters.present?
+  .column_row#talks_speakers
+    .column.column_double
+      %span.column_header Speakers
+      %ul.preview_list.speaker_list.double_rows
+        - @chapters.each do |c|
+          - if c.present?
+            - c.performances.each do |p| 
+              - if p.speaker.present?
+                %li
+                  .img_frame
+                    - begin
+                      = link_to image_tag(p.speaker.portrait.url), speaker_path(p.speaker)
+                    - rescue
+                  = link_to p.speaker.name, speaker_path(p.speaker)
+                  %span= p.speaker.title

@@ -33,15 +33,24 @@
   -# Left column, main content: Gallery, details, speakers, etc.
   .box.double.left
     
+    -# Speaker Photo Gallery
     .talk_gallery
       -#- @talk.talk_photos.each do |photo|
       -#= image_tag(photo.photo_file_name)
-
+      
+    -# Main Speaker Content Below
     .column_row.divided_row#speaker_bio
       .column.column_double
+      
+        -# Speaker Quote
+        -#- if @speaker.quote.present?
+        %blockquote.speaker_quote
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut sem quam, fermentum accumsan nisi. 
+          
+        -# Speaker Overview: Sidebar with headshot, info, talks, social
         %ul#speaker_overview
           %li
-            .img_wrapper
+            .img_frame
               - begin
                 = image_tag(@speaker.portrait)
               - rescue
@@ -49,20 +58,49 @@
             %h3= @speaker.name
             - if @speaker.title.present?
               %span.title= @speaker.title
-          %li.divided
-            %ul.speaker_overview_talks
-              %li= link_to "Water Changes Everything", "#"
-              %li= link_to "Water Changes Everything", "#"
-              %li= link_to "Water Changes Everything", "#"
           
+          -# If the speaker has available chapters/videos
+          - if @chapters.present?
+            %li.divided
+              %span.column_header Talks
+              %ul.speaker_overview_talks
+                - @chapters.each do |chapter|
+                  %li= link_to chapter.talk.name, talk_path(chapter.talk)
+          
+        -# Speaker Bio
         %pre= @speaker.bio
 
 
-  -# Related speakers
+
+    -# Related speakers
+    - if @chapters.present?
+      .column_row#talks_speakers
+        .column.column_double
+          %span.column_header Speakers
+          %ul.preview_list.speaker_list.double_rows
+            - @chapters.each do |c|
+              - if c.present?
+                - c.performances.each do |p| 
+                  - if p.speaker.present?
+                    %li
+                      .img_frame
+                        - begin
+                          = link_to image_tag(p.speaker.portrait.url), speaker_path(p.speaker)
+                        - rescue
+                      = link_to p.speaker.name, speaker_path(p.speaker)
+                      %span= p.speaker.title
+        
+        
+        
+        
+    
+        
   
 
   -# Include Sidebar Items
-  = render "partials/chapters", :locals => @chapters
-  = render "partials/sponsors"
-  = render "partials/social"
-  = render "partials/newsletter_form"
+  #sidebar
+    = render "partials/chapters", :locals => @chapters
+    = render "speakers/speaker_tweets"
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

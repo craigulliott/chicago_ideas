@@ -19,12 +19,7 @@
   #page_header
     #page_title.left
       %h1 Speakers
-    #page_share.right
-      %ul
-        %li#twitter_ <a href="https://twitter.com/share" class="twitter-share-button" data-via="chicagoideas" data-count="none" data-hashtags="ciwtalks">Tweet</a>
-        -#%li#facebook_ <div class="fb-like" data-href="http://www.google.com" data-send="false" data-layout="button_count" data-show-faces="true"></div>
-        %li#facebook_ <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
-        %li#gplus_ <g:plusone size="medium" annotation="none"></g:plusone>
+    = render "partials/share"
       
   
   -# Left column: Speakers List
@@ -59,22 +54,14 @@
           %li= link_to "Y", "#"
           %li= link_to "Z", "#"
           
-    .column_row#speakers
-      .column.column_double
-        %ul.preview_list.speaker_list.double_rows
-          - @speakers.each do |speaker|
-            %li{:id => "speaker_#{speaker.id}", :class => "speaker_#{speaker.id}"}
-              .img_frame
-                - begin
-                  = link_to image_tag(speaker.portrait.url), speaker_path(speaker)
-                - rescue
-              = link_to speaker.name, speaker_path(speaker)
-              %span= speaker.title
+    = render "partials/speakers_loop"
+                
 
   -# Include Sidebar Items
-  -#= render "partials/track_filter"
-  = render "partials/sponsors"
-  = render "partials/newsletter_form"
-  = render "partials/social"
+  #sidebar
+    -#= render "partials/track_filter"
+    = render "partials/sponsors"
+    = render "partials/newsletter_form"
+    = render "partials/social"
 
 
