@@ -24,8 +24,7 @@ class Sponsor < ActiveRecord::Base
   end
   
   has_attached_file :logo,
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-sponsor-logos",
-    :path => ":style/:id.:extension"
+    :path => "sponsor-logos/:style/:id.:extension"
 
   
   # the hash representing this model that is returned by the api

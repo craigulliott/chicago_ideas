@@ -4,9 +4,7 @@
     %li
       = link_to speaker_path(speaker) do
         .grid_img_wrapper
-          - begin
-            = image_tag URI.decode(speaker.portrait.url)
-          - rescue
+          = image_tag speaker.portrait.url
           
         .grid_content
           %span{:class => "title_"}= speaker.name

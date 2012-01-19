@@ -49,9 +49,7 @@
           - @chapter.chapter_photos.each do |photo|
             %li
               .img_wrapper
-                - begin
-                  = link_to image_tag(URI.decode photo.photo.url(:thumb)), "#", :class => "popup_img"
-                - rescue
+                = link_to image_tag(photo.photo.url(:thumb)), "#", :class => "popup_img"
 
 
     -# Speakers in this chapter

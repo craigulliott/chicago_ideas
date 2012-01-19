@@ -42,8 +42,7 @@ class Chapter < ActiveRecord::Base
       :medium => "1000x483#",
       :thumb => "300x144#",
     },
-   :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-banners",
-   :path => ":style/:id.:extension"
+    :path => "chapter-banners/:style/:id.:extension"
   
   # a string representation of the required dimensions for the banner image
   def banner_dimensions_string

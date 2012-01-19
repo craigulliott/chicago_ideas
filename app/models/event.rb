@@ -39,8 +39,7 @@ class Event < ActiveRecord::Base
       :medium => "1000x357#",
       :thumb => "300x107#",
     },
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-event-banners",
-    :path => ":style/:id.:extension"
+    :path => "event-banners/:style/:id.:extension"
       
   # the hash representing this model that is returned by the api
   def api_attributes
