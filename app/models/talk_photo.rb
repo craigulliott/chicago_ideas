@@ -44,10 +44,6 @@ class TalkPhoto < ActiveRecord::Base
   def self.photo_dimensions_string
     "#{PHOTO_WIDTH}x#{PHOTO_HEIGHT}"
   end
-  
-  def photo_dimensions_string
-     "#{PHOTO_WIDTH}x#{PHOTO_HEIGHT}"
-   end
 
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil
