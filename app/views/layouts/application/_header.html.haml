@@ -84,7 +84,7 @@
             %li= link_to "Logout", destroy_user_session_path
     -else 
       %li#gn_register
-        = link_to "Register", user_registration_path
+        = link_to "Register", new_user_registration_path
     
       %li#gn_login
         = link_to "Login", new_user_session_path

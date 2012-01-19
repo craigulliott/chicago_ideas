@@ -21,10 +21,10 @@
         float: left;
         padding-right: 20px;
         background: asset-url('application/site_sprite.png', image) no-repeat;
-        background-position: right -109px;
+        background-position: right -110px;
         margin-right: 20px;
         
-        a {
+        a, span {
           color: $grey;
           font-size: 13px;
           line-height: 30px;
@@ -33,6 +33,9 @@
         }
         a:hover {
           color:$dark;
+        }
+        span {
+          color: $greyDark;
         }
       }
       li:last-child {
@@ -116,18 +119,9 @@
   clear: both;
 }
 
-/*
-<div id='talk_header'>
-        <div class='left' id='talk_title'>
-          <h1>Social Business</h1>
-          <span class='sub_header'><a href="#">Entrepreneurship</a></span>
-        </div>
-        <div class='right' id='talk_share'>
-          social goes here
-        </div>
-      </div>
-      */
-      
+
+
+
       
       
 /******************************************************
@@ -369,7 +363,7 @@
 
 .slider {
   width: 1000px;
-  height: 279px;
+  height: 483px;
   position: relative; 
   margin-bottom: 65px;
   
@@ -486,6 +480,16 @@ ul.double_rows {
   display: block;
   clear: both;
 }
+.sidebar {
+  ul.preview_list {
+    li {
+      width: 260px;
+    }
+    li:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
 
 
 
@@ -578,6 +582,69 @@ ul.filter_list {
 }
 
 
+ul.labs_filter {
+  li {
+    margin-bottom: 4px;
+    a {
+      font-size: 12px;
+      line-height: 19px;
+    }
+  }
+}
+#labs_list {
+  h3 {
+    font-size: 16px;
+    color: $grey;
+    margin-bottom: 10px;
+  }
+  .back_top {
+    font-size: 12px;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .divided_row:last-child {
+    border-bottom: none !important;
+  }
+}
+
+
+
+
+
+
+/******************************************************
+ *  Pagination!
+******************************************************/
+.pagination {
+  display: block;
+  clear: both;
+  margin: 10px 0;
+  padding: 0;
+  background: none;
+  border: none;
+  @include box-shadow(0,0,0,#fff);
+  height: 20px !important;
+  
+  span {
+    float: left;
+    margin-right: 7px;
+    @include rounded(1px);
+    
+    a {
+      padding: 3px 7px;
+      text-decoration: none;
+      color: $grey;
+    } 
+  }
+  span.current {
+    padding: 0 7px;
+  }
+}
+
+
+
+
 
 
 /******************************************************
@@ -591,7 +658,7 @@ ul.filter_list {
   font-weight: 700;
   font-size: 12px; 
 }
-.grey_btn {
+.grey_btn, .pagination span {
   color: $grey;
   text-shadow: 1px 1px 1px #fff;
   border: 1px solid #c9c9c9; 
@@ -604,7 +671,7 @@ ul.filter_list {
   background-image:     -ms-linear-gradient(top, #e4e4e4, #dcdcdc);
   background-image:      -o-linear-gradient(top, #e4e4e4, #dcdcdc);
 }
-.blue_btn, input.submit, input.create {
+.blue_btn, input.submit, input.create, .pagination .current {
   color:$white;
   border:1px solid #0072bc;
   text-shadow: 1px 1px 1px #00548a;
