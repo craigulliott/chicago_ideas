@@ -21,8 +21,7 @@ class Partner < ActiveRecord::Base
   end
   
   has_attached_file :logo,
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-partner-logos",
-    :path => ":style/:id.:extension"
+    :path => "partner-logos/:style/:id.:extension"
   
   # the hash representing this model that is returned by the api
   def api_attributes

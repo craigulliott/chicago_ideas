@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
   
-  #before_filter :authenticate_user!
   before_filter :authenticate_user!, :only => [:index, :edit, :disconnect_facebook, :disconnect_twitter]
+  
+  # cache rendered versions of these pages
+  caches_action :list_speakers
+  caches_action :speaker
+  caches_action :list_team_members
+  caches_action :team_member
   
   # the users account homepage
   def index

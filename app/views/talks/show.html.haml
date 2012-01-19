@@ -31,7 +31,7 @@
     - if @talk.talk_photos.present?
       .talk_gallery
         - @talk.talk_photos.each do |photo|
-          = image_tag(URI.decode(photo.photo.url(:album)))
+          = image_tag photo.photo.url(:album)
         
 
     .column_row.divided_row#talks_description
