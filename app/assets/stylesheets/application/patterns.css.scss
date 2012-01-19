@@ -492,7 +492,35 @@ ul.double_rows {
 }
 
 
+// Sponsors List
+ul.sponsors_list {
+  width: 100%;
+  display: table;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+  li {
+    display: table-cell;
+    float: left;
+    margin: 0 15px 15px 0;
+    vertical-align: middle;
+  }
+}
+#sponsors_list .divided_row:last-child {
+  border: none;
+  margin-bottom: 0;
+}
 
+
+
+// Team Member
+.headshot_container {
+  width: 200px;
+  height: 200px;
+  float: left;
+  margin: 7px 15px 15px 0;
+}
 
 
 /******************************************************

@@ -13,13 +13,7 @@
   #page_header
     #page_title.left
       %h1 About CIW
-    #page_share.right
-      %ul
-        %li#twitter_ <a href="https://twitter.com/share" class="twitter-share-button" data-via="chicagoideas" data-count="none" data-hashtags="ciwtalks">Tweet</a>
-        -#%li#facebook_ <div class="fb-like" data-href="http://www.google.com" data-send="false" data-layout="button_count" data-show-faces="true"></div>
-        %li#facebook_ <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div>
-        %li#gplus_ <g:plusone size="medium" annotation="none"></g:plusone>
-
+    = render "partials/share"
 
   -# Left column, main content: About Us information
   .box.double.left
@@ -47,7 +41,9 @@
           - @staff.each do |teammember|
             %li{:id => "teammember_#{teammember.id}", :class => "teammember_#{teammember.id}"}
               .img_frame
-                = link_to image_tag(teammember.portrait.url), team_member_path(teammember)
+                - begin
+                  = link_to image_tag(teammember.portrait.url), team_member_path(teammember)
+                - rescue
               = link_to teammember.name, team_member_path(teammember);
               %span= teammember.title
       

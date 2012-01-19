@@ -1,5 +1,5 @@
 -#     Chicago Ideas Week
--#     talks/chapter_individual.html.haml
+-#     chapters/show.html.haml
 -#     01/17/2012
 
 
@@ -42,41 +42,44 @@
         %pre= @chapter.description
     
     -# Photo Gallery
-    .column_row.divided_row#photo_gallery
-      .column.column_double
-        %span.column_header Photo Gallery
-        %ul.photo_gallery
-          - @chapter.chapter_photos.each do |photo|
-            %li
-              .img_wrapper
-                = link_to image_tag(photo.photo.url(:thumb)), "#", :class => "popup_img"
+    - if @chapter.chapter_photos.present?
+      .column_row.divided_row#photo_gallery
+        .column.column_double
+          %span.column_header Photo Gallery
+          %ul.photo_gallery
+            - @chapter.chapter_photos.each do |photo|
+              %li
+                .img_wrapper
+                  - begin
+                    = link_to image_tag(URI.decode photo.photo.url(:thumb)), "#", :class => "popup_img"
+                  - rescue
 
 
-    -# Speakers in this chapter
+    -# Speakers in this chapter/video
     .column_row#talks_speakers
       .column.column_double
         %span.column_header= @chapter.performances.count > 1 ? "Speakers" : "Speaker"
         %ul.chapter_speakers_list
           - @chapter.performances.each do |performance|
-            - if performance.speaker.present?
-              %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
-                .img_frame
-                  -begin
-                    = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker)
-                  - rescue
-                .speaker_info
-                  %h3= link_to performance.speaker.name, speaker_path(performance.speaker)
-                  %span.speaker_title= performance.speaker.title
-                  %pre
-                    = "#{performance.speaker.bio_abbreviated}"
-                    = link_to "read more →", speaker_path(performance.speaker)
-                .clearfix
+            %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
+              .img_frame
+                -begin
+                  = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker)
+                - rescue
+              .speaker_info
+                %h3= link_to performance.speaker.name, speaker_path(performance.speaker)
+                %span.speaker_title= performance.speaker.title
+
+                %pre
+                  = "#{performance.speaker.bio[0..200]}..."
+                  = link_to "read more →", speaker_path(performance.speaker)
+              .clearfix
               
 
 
   -# Include Sidebar Items
   #sidebar
-    = render "partials/chapters", :locals => @chapters
+    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Other videos in this talk"
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"
