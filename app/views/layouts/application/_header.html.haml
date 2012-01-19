@@ -69,24 +69,18 @@
           %li= link_to "Team", team_members_path
           %li= link_to "Volunteer", "/volunteer"
     
-    - if user_signed_in?
-      %li#nav_user.nav_parent
-        - if current_user.connected_to_facebook?
-          %a.facebook_connected_account{:href => user_path(current_user)}
-            = image_tag current_user.facebook_profile_pic_src
-            = current_user.name
-        - else
-          %a{:href => user_path(current_user)}
-            = current_user.name
+      %li#nav_user.nav_parent{:style => 'display:none;'}
+        = link_to "My Account", account_path, :id => 'users_full_name'
         .dropdown
           %ul
-            %li= link_to "Edit my profile", edit_user_path(current_user)
+            %li#connect_to_facebook= link_to "Connect to Facebook", account_path
+            %li= link_to "Edit my profile", account_path
             %li= link_to "Logout", destroy_user_session_path
-    -else 
-      %li#gn_register
+
+      %li#gn_register{:style => 'display:none;'}
         = link_to "Register", new_user_registration_path
     
-      %li#gn_login
+      %li#gn_login{:style => 'display:none;'}
         = link_to "Login", new_user_session_path
         .dropdown#dd_login_form
           = render "partials/login_form"
