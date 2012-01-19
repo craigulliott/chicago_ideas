@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
   
   # the application homepage
   def index
-    @talks = Talk.search_sort_paginate(params)
+    @talks = Talk.limit(10)
+    @chapters = Chapter.limit(10)
     @speakers = User.speaker.limit(12).order(rand) # grab 12 speakers
     @sponsors = Sponsor.all
   end
