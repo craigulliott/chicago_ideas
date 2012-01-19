@@ -60,6 +60,9 @@ body {
 .double {
   width: 680px;
 }
+.full {
+  width: 1000px;
+}
 .row {
   width: 100%;
   clear: both;
@@ -79,6 +82,9 @@ body {
 }
 .column_double {
   width: 640px;
+}
+.column_full {
+  width: 960px;
 }
 .column_row {
   display: block;
