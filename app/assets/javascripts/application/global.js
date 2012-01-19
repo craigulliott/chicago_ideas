@@ -17,6 +17,16 @@ $(window).load(function(){
     pauseOnHover: false, // Stop animation while hovering
     manualAdvance: false, // Force manual transitions
     randomStart: false, // Start on a random slide
+    afterLoad: function(){
+      //var controlCount = $(this).children().find('.nivo-controlNav a').length();
+      var newWidth = ($('.nivo-controlNav a').length) * 20;
+      console.log('new Width: ' + newWidth);
+      $('.nivo-controlNav').css({
+        'width' : newWidth,
+        'left' : '50%',
+        'margin-left' : -1 * (newWidth / 2)
+      })
+    }
   });
     
   $('#sponsors ul').nivoSlider({
