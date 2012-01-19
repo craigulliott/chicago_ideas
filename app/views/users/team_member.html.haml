@@ -31,7 +31,7 @@
             %li
               = link_to speaker_path(staffmember) do
                 .grid_img_wrapper
-                  = image_tag URI.decode(staffmember.portrait.url)
+                  = image_tag staffmember.portrait.url
                 .grid_content
                   %span.title_= staffmember.name
                   %span.desc_= staffmember.title

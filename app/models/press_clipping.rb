@@ -20,8 +20,7 @@ class PressClipping < ActiveRecord::Base
   end
   
   has_attached_file :image,
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-press-clipping-images",
-    :path => ":style/:id.:extension"
+    :path => "press-clippings/:style/:id.:extension"
 
   
   # the hash representing this model that is returned by the api

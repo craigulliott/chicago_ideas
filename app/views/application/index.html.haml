@@ -21,9 +21,7 @@
               %li{:id => "talk_#{talk.id}"}
                 .img_frame
                   = link_to "play", talk_path(talk), :class => "play_btn"
-                  - begin
-                    = link_to image_tag(talk.banner.url), talk_path(talk)
-                  - rescue
+                  = link_to image_tag(talk.banner.url), talk_path(talk)
                 = link_to talk.name, talk_path(talk)
                 - if talk.track.present?
                   %span= talk.track.name
@@ -40,9 +38,7 @@
                 %li{:id => "video_#{video.id}"}
                   .img_frame
                     = link_to "play", video_path(video), :class => "play_btn"
-                    - begin
-                      = link_to image_tag(talk.banner.url), video_path(video)
-                    - rescue
+                    = link_to image_tag(talk.banner.url), video_path(video)
                   = link_to video.title, video_path(video)
                   - if video.performances.present?
                     - video.performances.limit(2).each do |performance|

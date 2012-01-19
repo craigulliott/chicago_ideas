@@ -51,9 +51,7 @@
         %ul#speaker_overview
           %li
             .img_frame
-              - begin
-                = image_tag(@speaker.portrait)
-              - rescue
+              = image_tag(@speaker.portrait)
           %li
             %h3= @speaker.name
             - if @speaker.title.present?
@@ -84,9 +82,7 @@
                   - if p.speaker.present?
                     %li
                       .img_frame
-                        - begin
-                          = link_to image_tag(p.speaker.portrait.url), speaker_path(p.speaker)
-                        - rescue
+                        = link_to image_tag(p.speaker.portrait.url), speaker_path(p.speaker)
                       = link_to p.speaker.name, speaker_path(p.speaker)
                       %span= p.speaker.title
         

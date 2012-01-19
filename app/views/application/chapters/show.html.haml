@@ -67,7 +67,7 @@
             %li
               .img_wrapper
                 = link_to "", "#",  :class => "play_btn"
-                -#= image_tag URI.decode chapter.chapter_photos.first.photo.url(:thumb)
+                -#= image_tag chapter.chapter_photos.first.photo.url(:thumb)
                 
               = link_to chapter.title, chapter_path(chapter)
               %span= "#{chapter.performances.count} speakers"

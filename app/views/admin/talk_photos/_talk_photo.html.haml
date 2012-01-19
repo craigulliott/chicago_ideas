@@ -1,6 +1,6 @@
 %tr{:talk_photo => talk_photo.id}
   %td.photo
-    %a{:href => URI.decode(talk_photo.photo.url(:full)), :target => '_blank'}= image_tag URI.decode(talk_photo.photo.url(:thumb))
+    %a{:href => talk_photo.photo.url(:full), :target => '_blank'}= image_tag talk_photo.photo.url(:thumb)
   %td.caption= talk_photo.caption
   %td.options
     = edit_model_link talk_photo

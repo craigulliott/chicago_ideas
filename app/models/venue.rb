@@ -36,8 +36,7 @@ class Venue < ActiveRecord::Base
   
   # large format blessed photo for the website
   has_attached_file :banner,
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-venue-banners",
-    :path => ":style/:id.:extension"
+    :path => "venue-banners/:style/:id.:extension"
 
   # returns a single line representation of the address
   def address include_country = false, include_name = false

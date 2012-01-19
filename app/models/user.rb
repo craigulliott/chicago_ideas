@@ -78,6 +78,7 @@ class User < ActiveRecord::Base
 
   validates :permalink, :presence => true, :uniqueness => true, :format => {:with => /^[\w\d_]+$/}
   validate :validate_portrait_dimensions, :if => "portrait.present?", :unless => "errors.any?"
+  validate :validate_portrait2_dimensions, :if => "portrait.present?", :unless => "errors.any?"
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
@@ -92,8 +93,7 @@ class User < ActiveRecord::Base
       :medium => "234x234",
       :full => "468x468",
     },
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-portraits",
-    :path => ":style/:id.:extension"
+    :path => "portraits/:style/:id.:extension"
   
   has_attached_file :portrait2,
     :styles => { 
@@ -102,8 +102,7 @@ class User < ActiveRecord::Base
       :medium => "234x234",
       :full => "468x468",
     },
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-alternative-portraits",
-    :path => ":style/:id.:extension"
+    :path => "alternative-portraits/:style/:id.:extension"
 
   # an array representing this users special permissiond (tags) used for display purposes
   def access_tags
@@ -174,7 +173,11 @@ class User < ActiveRecord::Base
   end
   
   def bio_abbreviated
-    ( bio.present? && bio.length > 200 ) ? "#{bio[0..200]}..." : bio
+    ( bio.present? && bio.length > 200 ) ? "#{bio[0..197]}..." : bio
+  end
+  
+  def title_abbreviated
+    ( title.present? && title.length > 75 ) ? "#{bio[0..72]}..." : title
   end
   
   private 
