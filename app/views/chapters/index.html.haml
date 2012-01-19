@@ -1,29 +1,57 @@
 -#     Chicago Ideas Week
 -#     chapters/index.html.haml
--#     01/13/2012
+-#     01/18/2012
 
 
-%section#main_content.row.full
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
   .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Videos", videos_path
+    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
 
-    .row.full.entry_column.general_#ciw_talks
-      %h2 Videos
-      
-      - if @chapters.present?
-        %ul.entry_list.entry_featured.styled_thumbs
+
+-# Begin Main content
+%section.container#main_content
+
+  -# Featured chapter slider
+  - if @featured.present?
+    .slider
+      - @featured.each do |featured|
+        - begin
+          = link_to image_tag(featured.banner.url, :title => "<span class='banner_head'>#{featured.title}</span>"), talk_path(featured)
+        - rescue
+
+
+  -# Left column, main content
+  .box.double.left
+    .column_row.divided_row#chapters
+      .column.column_double
+        %span.column_header Videos
+        %ul.preview_list.double_rows
           - @chapters.each do |chapter|
-            %li.entry{:id => "entry_#{chapter.id}"}
-              .img_wrapper= link_to (image_tag chapter.chapter_photos.first.photo_file_name), video_path(chapter)
-              
-              %h3= link_to chapter.title, video_path(chapter)
-              %p 
-                - chapter.performances.each do |s|
-                  = s.speaker.name
+            %li{:id => "chapter_#{chapter.id}"}
+              .img_frame
+                = link_to "play", video_path(chapter), :class => "play_btn"
+                - begin
+                  = link_to image_tag(chapter.banner.url), video_path(chapter)
+                - rescue
+              = link_to chapter.title, video_path(chapter)
+              - chapter.performances.limit(2).each do |performance|
+                - if performance.speaker.present?
+                  %span= performance.speaker.name
 
+        = paginate @chapters
 
+    -# Speakers list
+    -#= render "partials/speakers_loop", :locals => @speakers
 
+  -# Include Sidebar Items
+  #sidebar
+    -#= render "partials/track_filter"
+    = render "partials/sponsors"
+    = render "partials/newsletter_form"
+    = render "partials/social"
 
-
-<script type="text/javascript">
-$('#gn-event').addClass('nav_parent_active'); // show the 2012 CIW sub menu by default
-</script>
