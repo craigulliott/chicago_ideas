@@ -33,8 +33,14 @@
                     
           = link_to "view all videos →", videos_path, :class => "view_all blue"
 
-        
-    = render "partials/speakers_loop", :locals => @speakers
+    .column_row#speakers
+      .column.column_double
+        %span.column_header Speakers
+        %ul.preview_list.speaker_list.double_rows
+          = render "partials/speakers_loop", :locals => @speakers
+        = link_to "view all speakers →", speakers_path, :class => "view_all blue"
+
+    
   
   -# Include Sidebar Items
   #sidebar
