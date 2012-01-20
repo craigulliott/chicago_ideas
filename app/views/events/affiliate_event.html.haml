@@ -3,6 +3,19 @@
 -#     01/03/2012
 
 
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Events", events_path
+        %li
+          %span Affiliate Events
+    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
+    = render "partials/explore_dropdown"
+
+
 -# Main Labs content
 %section.container#main_content
 

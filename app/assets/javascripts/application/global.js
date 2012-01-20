@@ -1,6 +1,13 @@
 $(window).load(function(){
   
   
+  $('.explore_btn').bind('click', function(e) {
+    $('.explore_dropdown').fadeToggle('fast');
+  });
+  $('.close_explore_btn').bind('click', function(e) {
+    $('.explore_dropdown').fadeToggle('fast');
+  });
+  
   /************************************************************************************
    **    
    **    Sliders and Image Galleries
@@ -20,7 +27,6 @@ $(window).load(function(){
     afterLoad: function(){
       //var controlCount = $(this).children().find('.nivo-controlNav a').length();
       var newWidth = ($('.nivo-controlNav a').length) * 20;
-      console.log('new Width: ' + newWidth);
       $('.nivo-controlNav').css({
         'width' : newWidth,
         'left' : '50%',
