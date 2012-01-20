@@ -37,6 +37,7 @@ body {
   width: 100%;
   display: block;
   clear: both;
+  position: relative;
 }
 .container-fluid:before, .container-fluid:after {
   display: table;
@@ -106,6 +107,7 @@ body {
   display: block;
   margin-top: 40px;
   margin-bottom: 40px;
+  position: relative;
 }
 #main_content:before, #main_content:after {
   display: table;
@@ -123,15 +125,15 @@ body {
 
 
 // HEADER
-nav {
+nav#global_nav {
   height: 55px;
-  position: relative;
+  position: absolute;
   z-index: 4001;
   @include gradient(#231f20,#333030,#231f20);
   background-image: asset-url('application/navigation_bg.png', image);
   background-position: top left;
   background-repeat: repeat-x;
-  @include box-shadow(0px,2px,4px,#000);
+  @include box-shadow(0px,1px,4px,#000);
 }
 ul#global_nav {
   display: block;

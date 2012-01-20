@@ -79,7 +79,7 @@ $(window).load(function(){
 $(document).ready(function() {
   
   
-  $('.explore_btn').bind('click', function(e) {
+  $('.explore_').bind('hover', function(e) {
     $('.explore_dropdown').fadeToggle('fast');
   });
   $('.close_explore_btn').bind('click', function(e) {
