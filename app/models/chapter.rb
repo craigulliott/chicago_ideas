@@ -50,7 +50,7 @@ class Chapter < ActiveRecord::Base
       :medium => "-quality 70", 
       :small => "-quality 70",
       :thumb => "-quality 70",
-    }
+    },
     :path => "chapter-banners/:style/:id.:extension"
   
   # a string representation of the required dimensions for the banner image

@@ -113,7 +113,7 @@ class User < ActiveRecord::Base
       :thumb => "-quality 70", 
       :medium => "-quality 70",
       :full => "-quality 70",
-    }
+    },
     :path => "alternative-portraits/:style/:id.:extension"
 
   # an array representing this users special permissiond (tags) used for display purposes
