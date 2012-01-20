@@ -8,5 +8,5 @@ Paperclip::Attachment.default_options.update({
   },
   :fog_public => true,
   :fog_directory => S3_NAMESPACE,
-  :fog_host => 'https://'+S3_CLOUDFRONT_DOMAIN
+  :fog_host => "https://#{S3_CLOUDFRONT_DOMAIN}"
 })
