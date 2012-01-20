@@ -8,7 +8,7 @@
     .img_frame
       = link_to "play", talk_path(talk), :class => "play_btn"
       - begin
-        = link_to image_tag(talk.banner.url), talk_path(talk)
+        = link_to image_tag(talk.banner(:thumb)), talk_path(talk)
       - rescue
     = link_to talk.name, talk_path(talk)
     - if talk.track.present?

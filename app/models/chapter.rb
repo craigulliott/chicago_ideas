@@ -22,6 +22,8 @@ class Chapter < ActiveRecord::Base
   validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
   
   scope :by_sort, order('sort asc')
+  scope :talk_featured, :conditions => {:featured_on_talk => true}
+  scope :homepage_featured, :conditions => {:featured_on_homepage => true}
   
   # when this model is created, set the sort order to the last in the current set (unless it was already set)
   before_validation {|record|

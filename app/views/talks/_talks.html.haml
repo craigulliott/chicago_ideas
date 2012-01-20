@@ -9,5 +9,4 @@
     %span.column_header Talks
     %ul.preview_list.double_rows
       = render :partial => "partials/talks_loop", :talks => talks
-      -#= render :partial => 'admin/talks/talk.html.haml', :collection => talks
     = paginate talks
