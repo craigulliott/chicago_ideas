@@ -35,16 +35,11 @@
           - @nav_featured_chapters.each do |featured|          
             %li
               .dd_img_container
-                = link_to image_tag(chapter.banner.url(:thumb)), video_path(featured)
-              = link_to chapter.title, video_path(featured)
+                = link_to image_tag(featured.banner.url(:thumb)), video_path(featured)
+              = link_to featured.title, video_path(featured)
               - featured.performances.limit(2).each do |performance|
                 - if performance.speaker.present?
                   %span.small= performance.speaker.name
-          %li
-            .dd_img_container
-              = link_to image_tag("application/temp/dd_temp2.png"), "/blah"
-            = link_to "Titles goes here", "/blah"
-            %span{:class => "small"} Author/subtext here
     
     %li#gn_speakers
       = link_to "Speakers", speakers_path

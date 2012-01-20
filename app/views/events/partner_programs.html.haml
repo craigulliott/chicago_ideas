@@ -40,9 +40,7 @@
           - @partnerprograms.each do |partnerprograms|
             %li{:id => "partnerprograms_#{partnerprograms.id}"}
               .img_frame
-                - begin
-                  = link_to image_tag(partnerprograms.banner.url), partner_programs_events_path(partnerprograms)
-                - rescue
+                = link_to image_tag(partnerprograms.banner.url), partner_programs_events_path(partnerprograms)
               = link_to partnerprograms.name, partner_programs_events_path(partnerprograms)
           
 

@@ -16,7 +16,7 @@
         - @megatalks.each do |talks|
           %li
             .img_frame
-              = link_to image_tag(talks.banner_src), talk_path(talks)
+              = link_to image_tag(talks.banner_src(:thumb)), talk_path(talks)
             %h3= link_to talks.name, talk_path(talks)
         
 

@@ -42,7 +42,8 @@ class Chapter < ActiveRecord::Base
     :styles => { 
       :large => "1400x676", 
       :medium => "1000x483#",
-      :thumb => "300x144#",
+      :small => "300x144#",
+      :thumb => "100x65"
     },
     :path => "chapter-banners/:style/:id.:extension"
   

@@ -46,9 +46,7 @@
         %ul#speaker_overview
           %li
             .img_frame
-              - begin
-                = image_tag(@speaker.portrait)
-              - rescue
+              = image_tag(@speaker.portrait)
           %li
             %h3= @speaker.name
             - if @speaker.title.present?
