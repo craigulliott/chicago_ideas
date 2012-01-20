@@ -162,7 +162,7 @@
           }
           
           .banner_top, .banner_bottom {
-            width:255px;
+            width:285px;
             padding:10px;
             left:0;
             display:block;
@@ -182,11 +182,16 @@
               color:$white;
               text-shadow:1px 1px 1px #000;
               margin-bottom:5px;
+              
+              a {
+                color: $white;
+                text-decoration: none;
+              }
             }
             
-            .b_link {
+            a.b_link {
               font-size: 13px;
-              color:$white;
+              color:$white !important;
               text-shadow:1px 1px 1px #000;
             }
             

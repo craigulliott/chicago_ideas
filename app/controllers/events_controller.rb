@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   # Labs landing and individual pages
   def labs
    @labs = EventBrand.find_by_name("Lab").events
+   @event_photos = EventPhoto.order('RAND()').limit(10)
   end
   
   # Labs landing and individual pages
@@ -34,6 +35,7 @@ class EventsController < ApplicationController
   # Affiliate events landing
   def affiliate_event
     @events = EventBrand.find_by_name("Affiliate Event").events
+    @event_photos = EventPhoto.order('RAND()').limit(10)
   end
   
 end
