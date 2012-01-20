@@ -10,7 +10,7 @@
       = check_box_tag 'user[remember_me]'
       = label_tag 'user[remember_me]', 'Remember me'
       %button.btn.blue_btn.right Sign in
-    %li#facebook_connect
-    
+    %li#connect_to_facebook
+      = link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook), :class => 'facebook_connect'
     %li#dd_forgot_pw
       = link_to "Forgot your password?", new_password_path('user')
