@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   
   # the users account homepage
   def index
+    @page_title = "#{current_user.name} - Your Account"
     @user = current_user
   end
   
@@ -32,8 +33,8 @@ class UsersController < ApplicationController
   
   # Speakers landing page
   def list_speakers
+    @page_title = "Speakers"
     @speakers = User.speaker.search_sort_paginate(params)
-    Rails.logger.info 'hello'
     render "speakers/index"
   end
   
@@ -44,17 +45,21 @@ class UsersController < ApplicationController
     else
       @speaker = User.find_by_permalink(params[:id])
     end
-    @chapters = @speaker.chapters.all # Get all chapters that the speaker is part of
+    @page_title = "#{@speaker.name}"
+    # Get all chapters that the speaker is part of
+    @chapters = @speaker.chapters.all 
     render "speakers/show"
   end
   
   def list_team_members
+    @page_title = "Team Members"
     get_team_members
   end  
   
   def team_member
     get_team_members
-    @team_member = User.find(params[:id]) # individual staff item
+    @team_member = User.find(params[:id])
+    @page_title = "About #{@team_member.name}"
   end
 
   private 
