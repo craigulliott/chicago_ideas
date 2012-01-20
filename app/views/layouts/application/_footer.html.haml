@@ -15,16 +15,14 @@
     .footer_item
       %span{:class => "title"} 2012 Event
       %ul
-        %li= link_to "Calendar", "#"
-        %li= link_to "All Themes", "#"
-        %li= link_to "Venues", "#"
+        %li 2012 Event Details coming soon
 
     .footer_item
       %span{:class => "title"} Speakers
       %ul
         %li= link_to "All Speakers", speakers_path
-        %li= link_to "2012 Speakers", "#"
-        %li= link_to "2011 Speakers", "#"
+        %li.hide= link_to "2012 Speakers", "#"
+        %li.hide= link_to "2011 Speakers", "#"
 
     .footer_item
       %span{:class => "title"} Talks
@@ -51,7 +49,7 @@
       %span{:class => "title"} Social
       %ul
         %li= link_to "News", press_clippings_path
-        %li= link_to "Newsletter", "/newsletter"
+        %li.hide= link_to "Newsletter", "/newsletter"
 
 
   .row.full#copyright

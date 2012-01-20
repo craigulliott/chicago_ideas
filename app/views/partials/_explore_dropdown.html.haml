@@ -1,33 +1,35 @@
-.explore_dropdown
-  .explore_top
-    = link_to "×", "#", :class => "close_explore_btn"
-  .explore_content
-    .column
-      %span.column_header Mega Talks
-      %ul.preview_list
-        - @e_megatalks.each do |talk|
-          %li{:id => "talk_#{talk.id}"}
-            .img_frame
-              = link_to "play", talk_path(talk), :class => "play_btn"
-              = link_to image_tag(talk.banner.url), talk_path(talk)
-            = link_to talk.name, talk_path(talk)
-            - if talk.track.present?
-              %span= talk.track.name
-            - if talk.chapters.present?
-              %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"
+.explore_
+  = link_to "Explore Speakers", "#", :class => "explore_btn", :id => "explore_speakers"
+  .explore_dropdown
+    .explore_top
+      = link_to "×", "#", :class => "close_explore_btn"
+    .explore_content
+      .column
+        %span.column_header Mega Talks
+        %ul.preview_list
+          - @e_megatalks.each do |talk|
+            %li{:id => "talk_#{talk.id}"}
+              .img_frame
+                = link_to "play", talk_path(talk), :class => "play_btn"
+                = link_to image_tag(talk.banner_src), talk_path(talk)
+              = link_to talk.name, talk_path(talk)
+              - if talk.track.present?
+                %span= talk.track.name
+              - if talk.chapters.present?
+                %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"
       
-    .column
-      %span.column_header Talks
-      %ul.filter_list
-        - @e_talks.each do |talk|
-          %li{:id => "talk_#{talk.id}"}
-            = link_to talk.name, talk_path(talk)
-        %li= link_to "view all talks →", talks_path
+      .column
+        %span.column_header Talks
+        %ul.filter_list
+          - @e_talks.each do |talk|
+            %li{:id => "talk_#{talk.id}"}
+              = link_to talk.name, talk_path(talk)
+          %li= link_to "view all talks →", talks_path
       
-    .column.right
-      %span.column_header Speakers
-      %ul.filter_list
-        - @e_speakers.each do |speaker|
-          %li{:id => "speaker_#{speaker.id}"}
-            = link_to speaker.name, speaker_path(speaker)
-        %li= link_to "view all speaker →", speakers_path
+      .column.right
+        %span.column_header Speakers
+        %ul.filter_list
+          - @e_speakers.each do |speaker|
+            %li{:id => "speaker_#{speaker.id}"}
+              = link_to speaker.name, speaker_path(speaker)
+          %li= link_to "view all speaker →", speakers_path
