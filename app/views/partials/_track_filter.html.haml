@@ -9,7 +9,7 @@
     %ul.filter_list
       %li= link_to "All Talks", talks_path
       - @tracks.each do |track|
-        %li= link_to track.name, "#"
+        %li= link_to track.name, track_path(track)
   
   .column_row
     %ul.filter_list

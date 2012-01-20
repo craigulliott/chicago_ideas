@@ -24,6 +24,12 @@ class Sponsor < ActiveRecord::Base
   end
   
   has_attached_file :logo,
+    :styles => { 
+      :full => "260x260", 
+      :convert_options => { 
+        :full => "-quality 70", 
+      }
+    },
     :path => "sponsor-logos/:style/:id.:extension"
 
   

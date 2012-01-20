@@ -25,6 +25,11 @@ class TalkPhoto < ActiveRecord::Base
       :album => "680x400#",
       :full => "1360x800#",
     },
+    :convert_options => { 
+      :thumb => "-quality 70", 
+      :album => "-quality 70", 
+      :full => "-quality 70",
+    },
     :path => 'talk-photos/:style/:id.:extension'
 
   
