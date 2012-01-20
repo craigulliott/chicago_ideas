@@ -24,4 +24,4 @@
     .container-fluid#banner_nav_wrapper
       %ul#banner_nav
         - @featured.each do |featured_thumb|
-          %li= link_to image_tag(featured_thumb.banner.url(:thumb)), "#", :class => "b_thumb thumb_#{featured_thumb.id}", :id => "thumb_#{featured_thumb.id}"
+          %li= link_to image_tag(featured_thumb.banner(:thumb)), "#", :class => "b_thumb thumb_#{featured_thumb.id}", :id => "thumb_#{featured_thumb.id}"
