@@ -19,7 +19,8 @@ class TalksController < ApplicationController
   
   # Mega talks landing and individual pages
   def mega_talks
-     @talks = TalkBrand.find_by_name("Mega Talk").talks
+     @megatalks = TalkBrand.find_by_name("Mega Talk").talks
+     @talks = TalkBrand.find_by_name("Talk").talks
      render "talks/mega_talks"
   end
   
