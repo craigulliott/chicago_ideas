@@ -39,4 +39,7 @@ class Track < ActiveRecord::Base
     markdown.render(description).html_safe
   end
   
+  def to_param
+    name.downcase
+  end
 end
