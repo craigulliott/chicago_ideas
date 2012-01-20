@@ -28,7 +28,7 @@
     .column_row.divided_row#team_member
       .column.column_double
         .headshot_container.img_frame
-          = image_tag URI.decode(staffmember.portrait.url)
+          = image_tag URI.decode(staffmember.portrait(:thumb))
         %pre= @team_member.bio_html
     
     .column_row#team

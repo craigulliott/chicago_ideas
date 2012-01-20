@@ -16,7 +16,6 @@
         %li= link_to "Events", events_path
         %li
           %span Partner Programs
-    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
     = render "partials/explore_dropdown"
 
 -# Begin Main Talk content
@@ -37,7 +36,7 @@
           - @partnerprograms.each do |pp|
             %li{:id => "partnerprograms_#{pp.id}"}
               .img_frame
-                = link_to image_tag(pp.banner.url), events_path(pp)
+                = link_to image_tag(pp.banner), events_path(pp)
               = link_to pp.name, events_path(pp)
 
   -# Include Sidebar Items
