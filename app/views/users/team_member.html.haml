@@ -32,7 +32,7 @@
           - begin
             = image_tag URI.decode(staffmember.portrait.url)
           - rescue
-        %pre= @team_member.bio
+        %pre= @team_member.bio_html
     
     .column_row#team
       .column.column_double
