@@ -1,4 +1,8 @@
 class TalksController < ApplicationController
+
+  # cache rendered versions of these pages
+  before_filter :cache_rendered_page, :only => [:index, :show, :mega_talks, :edison_talks, :chapter]
+
   
   def index    
     @talks = Talk.search_sort_paginate(params)
@@ -6,6 +10,7 @@ class TalksController < ApplicationController
     #@edisontalks = TalkBrand.find_by_name("Edison Talk").talks
     @tracks = Track.all
     @speakers = User.speaker.limit(6)
+    @page_title = "CIW Talks"
   end
   
   
@@ -13,6 +18,7 @@ class TalksController < ApplicationController
   def show
     @talk = Talk.find(params[:id])
     @chapters = @talk.chapters.all
+    @page_title = "#{@talk.title}"
   end # end def talks
   
   
@@ -22,6 +28,7 @@ class TalksController < ApplicationController
      @megatalks = TalkBrand.find_by_name("Mega Talk").talks
      @talks = TalkBrand.find_by_name("Talk").talks
      render "talks/mega_talks"
+     @page_title = "CIW Mega Talks"
   end
   
   
