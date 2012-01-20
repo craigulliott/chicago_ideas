@@ -78,6 +78,7 @@ CraigsAdmin::Application.routes.draw do
       get :edison_talks
     end
   end
+  resources :tracks, :only => [:show]
   
 
   # all videos are of chapters, so pass to the chapter controller
