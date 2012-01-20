@@ -9,7 +9,26 @@
 $(document).ready(function(){
   
   $.get('/account_links', function(data) {
-    log(data)
+    
+    if( data.admin ) {
+      $('#admin_link').show();
+    }
+    
+    if( data.signed_in ) {
+      $('#nav_user').show();
+
+    } else {
+      $('#gn_register').show();
+      $('#gn_login').show();
+      $('#users_full_name').html(data.full_name);
+
+      if( data.connected_to_facebook ) {
+        $('#connect_to_facebook').hide();
+
+      }
+
+    }
+        
   }, 'JSON');
   
 });
