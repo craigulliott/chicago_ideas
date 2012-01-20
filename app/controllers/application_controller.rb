@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
     @chapters = Chapter.limit(8)
     @speakers = User.speaker.limit(12).order(rand) # grab 12 speakers
     @sponsors = Sponsor.all
+    @featured = Chapter.homepage_featured.order('RAND()').limit(6)
   end
   
   

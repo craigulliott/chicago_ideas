@@ -50,9 +50,7 @@
             - @chapter.chapter_photos.each do |photo|
               %li
                 .img_wrapper
-                  - begin
                     = link_to image_tag(photo.photo.url(:thumb)), "#{URI.decode photo.photo.url(:medium)}", :class => "popup_img"
-                  - rescue
 
 
     -# Speakers in this chapter/video
@@ -64,9 +62,7 @@
             - if performance.speaker.present?
               %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
                 .img_frame
-                  -begin
-                    = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker)
-                  - rescue
+                  = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker)
                 .speaker_info
                   %h3= link_to performance.speaker.name, speaker_path(performance.speaker)
                   %span.speaker_title= performance.speaker.title

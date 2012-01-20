@@ -6,8 +6,6 @@
 - @team.each do |team|
   %li{:id => "team_#{team.id}", :class => "team_#{team.id}"}
     .img_frame
-      - begin
-        = link_to image_tag(team.portraitd(:thumb)), team_member_path(team)
-      - rescue
+      = link_to image_tag(team.portraitd(:thumb)), team_member_path(team)
     = link_to team.name, team_member_path(team)
     %span= team.title_abbreviated
