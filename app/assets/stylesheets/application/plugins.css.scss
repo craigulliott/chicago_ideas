@@ -178,7 +178,7 @@
 	left: 0;
 	width: 40px;
 	height: 480px;
-	background-image: url('/assets/javascript/application/fancybox/fancybox.png');
+	background-image: asset-url('application/fancybox/fancybox.png', image);
 }
 
 #fancybox-overlay {
@@ -242,7 +242,7 @@
 	right: -15px;
 	width: 30px;
 	height: 30px;
-	background: transparent url('/assets/javascript/application/fancybox/fancybox.png') -40px 0px;
+	background: transparent asset-url('application/fancybox/fancybox.png', image) -40px 0px;
 	cursor: pointer;
 	z-index: 1103;
 	display: none;
@@ -280,7 +280,7 @@
 	width: 35%;
 	cursor: pointer;
 	outline: none;
-	background: transparent url('/assets/javascript/application/fancybox/blank.gif');
+	background: transparent asset-url('application/fancybox/blank.gif', image);
 	z-index: 1102;
 	display: none;
 }
@@ -306,12 +306,12 @@
 }
 
 #fancybox-left-ico {
-	background-image: url('/assets/javascript/application/fancybox/fancybox.png');
+	background-image: asset-url('application/fancybox/fancybox.png', image);
 	background-position: -40px -30px;
 }
 
 #fancybox-right-ico {
-	background-image: url('/assets/javascript/application/fancybox/fancybox.png');
+	background-image: asset-url('application/fancybox/fancybox.png', image);
 	background-position: -40px -60px;
 }
 
@@ -342,13 +342,13 @@
 	top: -20px;
 	left: 0;
 	width: 100%;
-	background-image: url('/assets/javascript/application/fancybox/fancybox-x.png');
+	background-image: asset-url('application/fancybox/fancybox-x.png', image);
 }
 
 #fancybox-bg-ne {
 	top: -20px;
 	right: -20px;
-	background-image: url('/assets/javascript/application/fancybox/fancybox.png');
+	background-image: asset-url('application/fancybox/fancybox.png', image);
 	background-position: -40px -162px;
 }
 
@@ -356,14 +356,14 @@
 	top: 0;
 	right: -20px;
 	height: 100%;
-	background-image: url('/assets/javascript/application/fancybox/fancybox-y.png');
+	background-image: asset-url('application/fancybox/fancybox-y.png', image);
 	background-position: -20px 0px;
 }
 
 #fancybox-bg-se {
 	bottom: -20px;
 	right: -20px;
-	background-image: url('/assets/javascript/application/fancybox/fancybox.png');
+	background-image: asset-url('application/fancybox/fancybox.png', image);
 	background-position: -40px -182px; 
 }
 
@@ -371,14 +371,14 @@
 	bottom: -20px;
 	left: 0;
 	width: 100%;
-	background-image: url('/assets/javascript/application/fancybox/fancybox-x.png');
+	background-image: asset-url('application/fancybox/fancybox-x.png', image);
 	background-position: 0px -20px;
 }
 
 #fancybox-bg-sw {
 	bottom: -20px;
 	left: -20px;
-	background-image: url('/assets/javascript/application/fancybox/fancybox.png');
+	background-image: asset-url('application/fancybox/fancybox.png', image);
 	background-position: -40px -142px;
 }
 
@@ -386,13 +386,13 @@
 	top: 0;
 	left: -20px;
 	height: 100%;
-	background-image: url('/assets/javascript/application/fancybox/fancybox-y.png');
+	background-image: asset-url('application/fancybox/fancybox-y.png', image);
 }
 
 #fancybox-bg-nw {
 	top: -20px;
 	left: -20px;
-	background-image: url('/assets/javascript/application/fancybox/fancybox.png');
+	background-image: asset-url('application/fancybox/fancybox.png', image);
 	background-position: -40px -122px;
 }
 
@@ -425,7 +425,7 @@
 
 #fancybox-title-over {
 	padding: 10px;
-	background-image: url('/assets/javascript/application/fancybox/fancy_title_over.png');
+	background-image: asset-url('application/fancybox/fancy_title_over.png', image);
 	display: block;
 }
 
@@ -449,7 +449,7 @@
 
 #fancybox-title-float-left {
 	padding: 0 0 0 15px;
-	background: url('/assets/javascript/application/fancybox/fancybox.png') -40px -90px no-repeat;
+	background: asset-url('application/fancybox/fancybox.png', image) -40px -90px no-repeat;
 }
 
 #fancybox-title-float-main {
@@ -457,12 +457,12 @@
 	line-height: 29px;
 	font-weight: bold;
 	padding: 0 0 3px 0;
-	background: url('/assets/javascript/application/fancybox/fancybox-x.png') 0px -40px;
+	background: asset-url('application/fancybox/fancybox-x.png', image) 0px -40px;
 }
 
 #fancybox-title-float-right {
 	padding: 0 0 0 15px;
-	background: url('/assets/javascript/application/fancybox/fancybox.png') -55px -90px no-repeat;
+	background: asset-url('application/fancybox/fancybox.png', image) -55px -90px no-repeat;
 }
 
 /* IE6 */

@@ -29,11 +29,8 @@
   .box.double.left
 
     .talk_gallery
-      -#- @talk.talk_photos.each do |photo|
-      -#  = image_tag(photo.photo_file_name)
-      = image_tag("application/temp/asdf.jpg")
-      = image_tag("application/temp/asdffff.jpg")
-      = image_tag("application/temp/asdfasdf.jpg")
+      - @event_photos.each do |photo|
+        = image_tag(photo.photo(:album))
 
 
 
