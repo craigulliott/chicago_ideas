@@ -39,6 +39,11 @@ class Event < ActiveRecord::Base
       :medium => "1000x357#",
       :thumb => "300x107#",
     },
+    :convert_options => { 
+      :large => "-quality 70", 
+      :medium => "-quality 70", 
+      :thumb => "-quality 70",
+    },
     :path => "event-banners/:style/:id.:extension"
       
   # the hash representing this model that is returned by the api

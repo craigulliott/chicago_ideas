@@ -93,6 +93,12 @@ class User < ActiveRecord::Base
       :medium => "234x234",
       :full => "468x468",
     },
+    :convert_options => { 
+      :tiny_thumb => "-quality 70", 
+      :thumb => "-quality 70", 
+      :medium => "-quality 70",
+      :full => "-quality 70",
+    },
     :path => "portraits/:style/:id.:extension"
   
   has_attached_file :portrait2,
@@ -101,6 +107,12 @@ class User < ActiveRecord::Base
       :thumb => "117x117", 
       :medium => "234x234",
       :full => "468x468",
+    },
+    :convert_options => { 
+      :tiny_thumb => "-quality 70", 
+      :thumb => "-quality 70", 
+      :medium => "-quality 70",
+      :full => "-quality 70",
     },
     :path => "alternative-portraits/:style/:id.:extension"
 

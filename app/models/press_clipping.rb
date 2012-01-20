@@ -20,6 +20,12 @@ class PressClipping < ActiveRecord::Base
   end
   
   has_attached_file :image,
+    :styles => { 
+      :full => "200x140", 
+      :convert_options => { 
+        :full => "-quality 70", 
+      }
+    },
     :path => "press-clippings/:style/:id.:extension"
 
   

@@ -5,6 +5,7 @@ class Track < ActiveRecord::Base
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
+  has_many :talks
   
   scope :by_name, order('name asc')
   
@@ -39,4 +40,7 @@ class Track < ActiveRecord::Base
     markdown.render(description).html_safe
   end
   
+  def to_param
+    name.downcase
+  end
 end

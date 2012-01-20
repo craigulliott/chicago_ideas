@@ -36,6 +36,18 @@ class Venue < ActiveRecord::Base
   
   # large format blessed photo for the website
   has_attached_file :banner,
+    :styles => { 
+      :large => "1400x430", 
+      :medium => "1000x300#",
+      :small => "300x144#",
+      :thumb => "110x65#",
+    },
+    :convert_options => { 
+      :large => "-quality 70", 
+      :medium => "-quality 70", 
+      :small => "-quality 70",
+      :thumb => "-quality 70",
+    },
     :path => "venue-banners/:style/:id.:extension"
 
   # returns a single line representation of the address
