@@ -83,6 +83,8 @@ CraigsAdmin::Application.routes.draw do
   # all videos are of chapters, so pass to the chapter controller
   match 'videos', :to => 'chapters#index'
   match 'videos/:id', :to => 'chapters#show', :as => "video"
+  
+  match 'events/partner_programs/:id', :to => 'events#partner_programs'
 
   # the Admin                                                                   (http://www.domain.com/admin)
   # ---------------------------------------------------------------------------------------------------------

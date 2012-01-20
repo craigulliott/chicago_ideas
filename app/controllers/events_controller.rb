@@ -1,9 +1,9 @@
 class EventsController < ApplicationController
 
   def index
-    @talks = TalkBrand.find_by_name("Talk").talks
-    @megatalks = TalkBrand.find_by_name("Mega Talk").talks
-    @labs = EventBrand.find_by_name("Lab").events
+    @talks = Talk.limit(8)
+    @chapters = Chapter.limit(8)
+    @speakers = User.speaker.limit(12).order(rand) # grab 12 speakers
   end
   
   

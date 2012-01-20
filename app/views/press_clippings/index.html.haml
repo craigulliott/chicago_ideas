@@ -1,6 +1,6 @@
 -#     Chicago Ideas Week
--#     events/affiliate_event.html.haml
--#     01/03/2012
+-#     press_clippings/index.html.haml
+-#     01/19/2012
 
 
 -# Breadcrumbs and Explore button
@@ -9,9 +9,7 @@
     #breadcrumbs
       %ul
         %li= link_to "Home", "/"
-        %li= link_to "Events", events_path
-        %li
-          %span Affiliate Events
+        %li= link_to "News", press_clippings_path
     = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
     = render "partials/explore_dropdown"
 
@@ -21,30 +19,21 @@
 
   #page_header
     #page_title.left
-      %h1 Affiliate Events
+      %h1 Press Clippings
     = render "partials/share"
     
   -# Left column, main content
   .box.double.left
 
-    .talk_gallery
-      -#- @talk.talk_photos.each do |photo|
-      -#  = image_tag(photo.photo_file_name)
-      = image_tag("application/temp/asdf.jpg")
-      = image_tag("application/temp/asdffff.jpg")
-      = image_tag("application/temp/asdfasdf.jpg")
-
-
-
-    - if @events.present?
-      #labs_list
-        - @events.each do |event|
-          .column_row.divided_row{:id => "event_#{event.id}"}
-            %a{:name => "event_#{event.id}"}
+    - if @press_clippings.present?
+      #news_list
+        - @press_clippings.each do |news|
+          .column_row.divided_row{:id => "news_#{news.id}"}
+            %a{:name => "news_#{news.id}"}
             .column.column_double
-              %h3= event.name
-              %pre= event.description
-              %a{:class => "back_top", :href => "javascript:scroll(0,0)"} back top
+              %h2= news.title
+              %span.timestamp= news.created_at
+              %pre= news.description
     - else
       .column_row
         .column.column_double

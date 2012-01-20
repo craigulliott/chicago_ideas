@@ -12,6 +12,7 @@
         %li= link_to "Talks", talks_path
         %li= link_to @talk.name
     = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
+    = render "partials/explore_dropdown"
 
 
 -# Main Talk content
@@ -31,7 +32,9 @@
     - if @talk.talk_photos.present?
       .talk_gallery
         - @talk.talk_photos.each do |photo|
-          = image_tag photo.photo.url(:album)
+          - begin
+            = image_tag photo.photo.url(:album)
+          - rescue
         
 
     .column_row.divided_row#talks_description
