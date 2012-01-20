@@ -85,6 +85,7 @@ CraigsAdmin::Application.routes.draw do
   match 'videos/:id', :to => 'chapters#show', :as => "video"
   
   match 'events/partner_programs/:id', :to => 'events#partner_programs'
+  
 
   # the Admin                                                                   (http://www.domain.com/admin)
   # ---------------------------------------------------------------------------------------------------------

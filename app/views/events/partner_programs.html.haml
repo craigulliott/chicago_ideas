@@ -37,9 +37,7 @@
           - @partnerprograms.each do |pp|
             %li{:id => "partnerprograms_#{pp.id}"}
               .img_frame
-                - begin
-                  = link_to image_tag(pp.banner.url), events_path(pp)
-                - rescue
+                = link_to image_tag(pp.banner.url), events_path(pp)
               = link_to pp.name, events_path(pp)
 
   -# Include Sidebar Items

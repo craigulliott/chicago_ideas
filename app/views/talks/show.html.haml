@@ -32,9 +32,7 @@
     - if @talk.talk_photos.present?
       .talk_gallery
         - @talk.talk_photos.each do |photo|
-          - begin
-            = image_tag photo.photo.url(:album)
-          - rescue
+          = image_tag photo.photo.url(:album)
         
 
     .column_row.divided_row#talks_description
@@ -61,7 +59,7 @@
               %address= @talk.venue.address
       .column.right
         .venue_map
-          -#= image_tag @talk.venue.google_maps_src(300,145,zoom=15)
+          = image_tag @talk.venue.google_maps_src(300,145,zoom=15)
   
     
     = render "partials/chapters_speakers", :locals => @chapters

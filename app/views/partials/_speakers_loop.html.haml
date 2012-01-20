@@ -6,8 +6,6 @@
 - @speakers.each do |speaker|
   %li{:id => "speaker_#{speaker.id}", :class => "speaker_#{speaker.id}"}
     .img_frame
-      - begin
-        = link_to image_tag(speaker.portrait.url), speaker_path(speaker)
-      - rescue
+      = link_to image_tag(speaker.portrait(:thumb)), speaker_path(speaker)
     = link_to speaker.name, speaker_path(speaker)
     %span= speaker.title_abbreviated
