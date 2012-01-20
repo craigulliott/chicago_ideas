@@ -93,7 +93,8 @@ ul.photo_gallery {
   display: block;
   width: 100%;
   list-style: none;
-  background: blue;
+  margin: 0 !important;
+  padding: 0 !important;
   
   li {
     display: inline;
@@ -104,6 +105,12 @@ ul.photo_gallery {
     height: 95px;
     overflow: hidden;
   }
+}
+ul.photo_gallery:after {
+  display: table;
+  content: "";
+  zoom: 1;
+  clear: both;
 }
 
 

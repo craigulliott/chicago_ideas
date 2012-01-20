@@ -9,8 +9,6 @@
               - if p.speaker.present?
                 %li
                   .img_frame 
-                    - begin
-                      = link_to image_tag(p.speaker.portrait.url), speaker_path(p.speaker)
-                    - rescue
+                    = link_to image_tag(p.speaker.portrait(:thumb)), speaker_path(p.speaker)
                   = link_to p.speaker.name, speaker_path(p.speaker)
                   %span= p.speaker.title_abbreviated

@@ -50,9 +50,7 @@
             - @chapter.chapter_photos.each do |photo|
               %li
                 .img_wrapper
-                  - begin
-                    = link_to image_tag(URI.decode photo.photo.url(:thumb)), "#", :class => "popup_img"
-                  - rescue
+                    = link_to image_tag(photo.photo.url(:thumb)), "#{URI.decode photo.photo.url(:medium)}", :class => "popup_img"
 
 
     -# Speakers in this chapter/video
@@ -61,19 +59,18 @@
         %span.column_header= @chapter.performances.count > 1 ? "Speakers" : "Speaker"
         %ul.chapter_speakers_list
           - @chapter.performances.each do |performance|
-            %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
-              .img_frame
-                -begin
+            - if performance.speaker.present?
+              %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
+                .img_frame
                   = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker)
-                - rescue
-              .speaker_info
-                %h3= link_to performance.speaker.name, speaker_path(performance.speaker)
-                %span.speaker_title= performance.speaker.title
+                .speaker_info
+                  %h3= link_to performance.speaker.name, speaker_path(performance.speaker)
+                  %span.speaker_title= performance.speaker.title
 
-                %pre
-                  = "#{performance.speaker.bio[0..200]}..."
-                  = link_to "read more →", speaker_path(performance.speaker)
-              .clearfix
+                  %pre
+                    = "#{performance.speaker.bio[0..200]}..."
+                    = link_to "read more →", speaker_path(performance.speaker)
+                .clearfix
               
 
 
