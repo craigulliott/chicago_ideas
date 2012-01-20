@@ -34,9 +34,9 @@ module ApplicationHelper
   # a page title which gracefully degrades
   def page_title
     if @page_title
-      "#{@page_title} | Admin"
+      "#{@page_title} | Chicago Ideas Week"
     elsif params[:page_title]
-      "#{params[:page_title]} | Admin"
+      "#{params[:page_title]} | Chicago Ideas Week"
     else
       "#{params[:controller].split('/').last.singularize.titlecase} #{section_title} | Admin"
     end
