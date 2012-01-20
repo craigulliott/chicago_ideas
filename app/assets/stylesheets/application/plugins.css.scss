@@ -61,6 +61,12 @@
   min-height: 60px;
   z-index:8;
 }
+.megatalk_slider .nivo-caption p {
+  display: block;
+  color: $white;
+  text-transform: uppercase;
+  font-size: 23px;
+}
 .banner_head, .banner_type {
   display: block;
   color: $white;
@@ -76,6 +82,15 @@
   padding:5px;
   margin:0;
 }
+.megatalk_slider .nivo-caption p {
+  display: block;
+  color: $white;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 33px;
+  font-size: 25px;
+}
+
 .nivo-caption a {
   display:inline !important;
 }
@@ -123,7 +138,9 @@
   background-position: -60px -120px;
 }
 
-
+.megatalk_slider .nivo-controlNav {
+  margin-top: 210px;
+}
 /*
  * FancyBox - jQuery Plugin
  * Simple and fancy lightbox alternative
