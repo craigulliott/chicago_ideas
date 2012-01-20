@@ -98,7 +98,7 @@ class User < ActiveRecord::Base
       :thumb => "-quality 70", 
       :medium => "-quality 70",
       :full => "-quality 70",
-    }
+    },
     :path => "portraits/:style/:id.:extension"
   
   has_attached_file :portrait2,
