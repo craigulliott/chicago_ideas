@@ -11,7 +11,7 @@
         %li= link_to "Home", "/"
         %li= link_to "Videos", videos_path
     = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
-
+    = render "partials/explore_dropdown"
 
 -# Begin Main content
 %section.container#main_content

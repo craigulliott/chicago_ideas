@@ -1,40 +1,39 @@
 -#     Chicago Ideas Week
 -#     talks/mega_talks.html.haml
--#     01/10/2012
+-#     01/018/2012
 
 
-%section#main_content.row.full
-  .container
+%section.banner.container-fluid
+  .banner_wrapper{:style => "background: url(#{asset_path "application/temp/speaker_landing_banner.jpg"}) top center no-repeat;"}
 
-    .row.entry_column.general_#ciw_talks
-      %h2 CIW Talks
-      
-      - if @talks.present?
-        %ul.entry_list.entry_featured.styled_thumbs
-          - @talks.limit(3).each do |talk|
-            %li.entry{:id => "entry_#{talk.id}"}
-              .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
-              %h3= link_to talk.name, talk_path(talk)
-              - if talk.track.present?
-                %p= talk.track.name
-          
-          %li.entry
-            .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
-            %h3= link_to "test item for shooo", "#"
-            %p talk.track.name
-            
-          %li.entry
-            .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
-            %h3= link_to "test item for shooo", "#"
-            %p talk.track.name
-            
+
+-# Main Talk content
+%section.container#main_content
+  
+  - if @megatalks.present?
+    #events_section
+      %ul
+        - @megatalks.each do |talks|
+          %li
+            .img_frame
+              -#= link_to image_tag(talks.banner.url), talk_path(talks)
+            %h3= link_to talks.name, talk_path(talks)
         
-          %li.entry
-            .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
-            %h3= link_to "test item for shooo", "#"
-            %p talk.track.name
+
+  -# Left column, main content
+  .box.double.left
+
+    .column_row#about_description
+      .column.column_double        
+        - if @talks.present?
+          %span.column_header Talks
+          %ul.preview_list.double_rows
+            = render "partials/talks_loop", :talks => @talks
 
 
-<script type="text/javascript">
-$('#gn-event').addClass('nav_parent_active'); // show the 2012 CIW sub menu by default
-</script>
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

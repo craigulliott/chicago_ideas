@@ -7,6 +7,10 @@
   background: #ebebeb asset-url('application/toolbar_divider.png', image) bottom left repeat-x;
   margin-top: -32px;
   
+  .container {
+    position: relative;
+  }
+  
   #breadcrumbs {
     margin-left: 175px;
     
@@ -523,6 +527,50 @@ ul.sponsors_list {
 }
 
 
+// Events landing page
+#events_section {
+  margin: 10px 0 60px 0;
+  
+  ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    li {
+      display: inline;
+      float: left;
+      width: 300px;
+      height: auto;
+      margin-right: 50px; 
+      
+      .img_frame {
+        width: 300px;
+        height: 160px;
+        margin-bottom: 10px;
+      }
+      h3 {
+        font-size: 19px;
+        text-shadow: 1px 1px 1px #fff;
+      }
+    }
+    li:last-child {
+      float: right;
+      margin-right: 0;
+    }
+  }
+}
+#events_section:before, #events_section:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+#events_section:after {
+  clear: both;
+}
+
+
+
 /******************************************************
  *  Sidebar
 ******************************************************/
@@ -709,6 +757,72 @@ ul.labs_filter {
 input.submit, input.create {
   padding: 0 25px;
 }
+
+
+
+
+
+
+// Explore Dropdown
+.explore_dropdown {
+  display: none;
+  width: 1000px;
+  min-height: 325px;
+  position: absolute;
+  margin: 0 auto;
+  top: 42px;
+  left: 0;
+  @include box-shadow(0px,0px,10px,#999);
+  z-index: 2000;
+  
+  .explore_top {
+    display: block;
+    height: 10px;
+    background: asset-url('application/explore_top.png', image) top left no-repeat;
+    margin-top: -13px;
+    text-align: right;
+    padding: 20px 20px 0 0;
+    
+    a.close_explore_btn {
+      font-size: 20px;
+      color: $grey;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+  
+  .explore_content {
+    background-color: #fff;
+    min-height: 325px;
+    padding: 20px;
+  }
+  
+  .column {
+    margin-right: 30px;
+  }
+  .column:last-child {
+    margin-right: 0;
+  }
+  
+  ul.filter_list {
+    margin: 0;
+    padding: 0;
+    
+    li {
+      display: block;
+      margin: 0 0 5px 0;
+      padding: 0;
+      a {
+        display: block;
+        line-height: 20px;
+        font-size: 14px;
+        font-weight: lighter;
+        color: #2d77de;
+      }
+    }
+  }
+}
+
 
 
 

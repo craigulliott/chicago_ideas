@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # which pages are we caching
   before_filter :cache_rendered_page, :only => [:index, :contact, :team, :terms]
   before_filter :get_sponsors
+  before_filter :get_talks
   
   before_filter :authenticate_user!, :only => [:dashboard]
   
@@ -17,6 +18,11 @@ class ApplicationController < ActionController::Base
   
   def get_sponsors
     @sponsors = Sponsor.all
+  end
+  def get_talks
+    @e_megatalks = TalkBrand.find_by_name("Mega Talk").talks.limit(3)
+    @e_talks = TalkBrand.find_by_name("Talk").talks.limit(10)
+    @e_speakers = User.speaker.limit(10).order(rand) # grab 12 speakers
   end
   
   def about
