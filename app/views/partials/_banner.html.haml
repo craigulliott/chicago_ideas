@@ -7,74 +7,21 @@
 %section#featured.container-fluid
 
   #banner_container
+    - @featured.each do |featured_item|
+      .banner_item{:id => "banner_#{featured_item.id}", :style => "background: url(#{featured_item.banner.url(:large)}) center center no-repeat;"}
+        .banner_content
+          .banner_box
+            .banner_top
+              %span.banner_title= link_to featured_item.title, video_path(featured_item)
+              - featured_item.performances.limit(2).each do |performance|
+                - if performance.speaker.present?
+                  %span.b_link= link_to performance.speaker.name, speaker_path(performance.speaker)
+            .banner_bottom
+              %span{:class => "banner_dates"}= "CIW 2012: October 8 - 14"
 
-    .banner_item#banner_1{:style => "background: url(#{asset_path "application/temp/banner_1.jpg"}) center center no-repeat;"}
-      .banner_content
-        .banner_box
-          .banner_top
-            %span{:class => "banner_title"}= "What Ideas Inspire Marc Ecko?"
-            %span{:class => "b_link video_link"}= "Watch the video"
-          .banner_bottom
-            %span{:class => "banner_dates"}= "CIW 2012: October 8 - 14"
-            %span{:class => "banner_purchase"}= "Buy Tickets"
-
-    .banner_item#banner_2{:style => "background: url(#{asset_path "application/temp/banner_2.jpg"}) center center no-repeat;"}
-      .banner_content
-        .banner_box
-          .banner_top
-            %span{:class => "banner_title"}= "Me gusta el front end development"
-            %span{:class => "b_link video_link"}= "Watch the video"
-          .banner_bottom
-            %span{:class => "banner_dates"}= "CIW 2012: October 8 - 14"
-            %span{:class => "banner_purchase"}= "Buy Tickets"
-
-    .banner_item#banner_3{:style => "background: url(#{asset_path "application/temp/banner_1.jpg"}) center center no-repeat;"}
-      .banner_content
-        .banner_box
-          .banner_top
-            %span{:class => "banner_title"}= "What Ideas Inspire Marc Ecko?"
-            %span{:class => "b_link video_link"}= "Watch the video"
-          .banner_bottom
-            %span{:class => "banner_dates"}= "CIW 2012: October 8 - 14"
-            %span{:class => "banner_purchase"}= "Buy Tickets"
-
-    .banner_item#banner_4{:style => "background: url(#{asset_path "application/temp/banner_1.jpg"}) center center no-repeat;"}
-      .banner_content
-        .banner_box
-          .banner_top
-            %span{:class => "banner_title"}= "What Ideas Inspire Marc Ecko?"
-            %span{:class => "b_link video_link"}= "Watch the video"
-          .banner_bottom
-            %span{:class => "banner_dates"}= "CIW 2012: October 8 - 14"
-            %span{:class => "banner_purchase"}= "Buy Tickets"
-
-    .banner_item#banner_5{:style => "background: url(#{asset_path "application/temp/banner_1.jpg"}) center center no-repeat;"}
-      .banner_content
-        .banner_box
-          .banner_top
-            %span{:class => "banner_title"}= "What Ideas Inspire Marc Ecko?"
-            %span{:class => "b_link video_link"}= "Watch the video"
-          .banner_bottom
-            %span{:class => "banner_dates"}= "CIW 2012: October 8 - 14"
-            %span{:class => "banner_purchase"}= "Buy Tickets"
-
-
-    .banner_item#banner_6{:style => "background: url(#{asset_path "application/temp/banner_1.jpg"}) center center no-repeat;"}
-      .banner_content
-        .banner_box
-          .banner_top
-            %span{:class => "banner_title"}= "What Ideas Inspire Marc Ecko?"
-            %span{:class => "b_link video_link"}= "Watch the video"
-          .banner_bottom
-            %span{:class => "banner_dates"}= "CIW 2012: October 8 - 14"
-            %span{:class => "banner_purchase"}= "Buy Tickets"
 
 
     .container-fluid#banner_nav_wrapper
       %ul#banner_nav
-        %li= link_to image_tag("application/temp/banner_thumb.jpg"), "#", :class => "b_thumb thumb_1", :id => "thumb_1"
-        %li= link_to image_tag("application/temp/banner_thumb_2.jpg"), "#", :class => "b_thumb thumb_2", :id => "thumb_2"
-        %li= link_to image_tag("application/temp/banner_thumb.jpg"), "#", :class => "b_thumb thumb_3", :id => "thumb_3"
-        %li= link_to image_tag("application/temp/banner_thumb.jpg"), "#", :class => "b_thumb thumb_4", :id => "thumb_4"
-        %li= link_to image_tag("application/temp/banner_thumb.jpg"), "#", :class => "b_thumb thumb_5", :id => "thumb_5"
-        %li= link_to image_tag("application/temp/banner_thumb.jpg"), "#", :class => "b_thumb thumb_6", :id => "thumb_6"
+        - @featured.each do |featured_thumb|
+          %li= link_to image_tag(featured_thumb.banner.url(:thumb)), "#", :class => "b_thumb thumb_#{featured_thumb.id}", :id => "thumb_#{featured_thumb.id}"

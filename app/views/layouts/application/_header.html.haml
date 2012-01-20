@@ -32,16 +32,14 @@
           %li= link_to "Partner Programs", partner_programs_events_path
           %li= link_to "Affiliate Events", affiliate_event_events_path
         %ul.dd_column.featured
-          %li
-            .dd_img_container
-              = link_to image_tag("application/temp/dd_temp1.png"), "/blah"
-            = link_to "Titles goes here", "/blah"
-            %span{:class => "small"} Author/subtext here
-          %li
-            .dd_img_container
-              = link_to image_tag("application/temp/dd_temp2.png"), "/blah"
-            = link_to "Titles goes here", "/blah"
-            %span{:class => "small"} Author/subtext here
+          - @nav_featured_chapters.each do |featured|          
+            %li
+              .dd_img_container
+                = link_to image_tag(featured.banner.url(:thumb)), video_path(featured)
+              = link_to featured.title, video_path(featured)
+              - featured.performances.limit(2).each do |performance|
+                - if performance.speaker.present?
+                  %span.small= performance.speaker.name
     
     %li#gn_speakers
       = link_to "Speakers", speakers_path
@@ -56,7 +54,6 @@
           %li= link_to "Affiliate Events", affiliate_event_events_path
         %ul.dd_column
           %li= link_to "News", press_clippings_path
-          %li= link_to "Blog", "/blog"
           %li= link_to "Newsletter", "/newsletter"
           %li= link_to "Volunteer", volunteer_path
 

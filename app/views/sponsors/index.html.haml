@@ -32,9 +32,7 @@
               %ul.sponsors_list
                 - sl.sponsors.each do |s|
                   %li
-                    - begin
-                      = link_to image_tag URI.decode(s.logo), s.url, :alt => s.name
-                    - rescue
+                    = link_to image_tag URI.decode(s.logo), s.url, :alt => s.name
 
 
   -# Include Sidebar Items
