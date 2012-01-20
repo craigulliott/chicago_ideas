@@ -45,6 +45,12 @@ class Chapter < ActiveRecord::Base
       :small => "300x144#",
       :thumb => "110x65#",
     },
+    :convert_options => { 
+      :large => "-quality 70", 
+      :medium => "-quality 70", 
+      :small => "-quality 70",
+      :thumb => "-quality 70",
+    }
     :path => "chapter-banners/:style/:id.:extension"
   
   # a string representation of the required dimensions for the banner image

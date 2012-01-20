@@ -21,6 +21,12 @@ class Partner < ActiveRecord::Base
   end
   
   has_attached_file :logo,
+    :styles => { 
+      :full => "260x260", 
+      :convert_options => { 
+        :full => "-quality 70", 
+      }
+    },
     :path => "partner-logos/:style/:id.:extension"
   
   # the hash representing this model that is returned by the api
