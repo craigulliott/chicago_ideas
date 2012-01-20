@@ -25,6 +25,11 @@ class ChapterPhoto < ActiveRecord::Base
       :album => "680x400#",
       :full => "1360x800#",
     },
+    :convert_options => { 
+      :thumb => "-quality 70", 
+      :album => "-quality 70", 
+      :full => "-quality 70",
+    }
     :path => 'chapter-photos/:style/:id.:extension'
 
   
