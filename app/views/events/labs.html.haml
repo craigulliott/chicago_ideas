@@ -1,10 +1,20 @@
--# - @labs.each do |lab|
--#  = link_to lab.name, event_lab_path(lab)
-
-
 -#     Chicago Ideas Week
 -#     events/labs.html.haml
 -#     01/03/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Events", events_path
+        %li
+          %span CIW Labs
+    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
+    = render "partials/explore_dropdown"
+
 
 
 -# Main Labs content

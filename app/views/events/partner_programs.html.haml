@@ -1,2 +1,54 @@
-- @partnerprograms.each do |p|
+-#- @partnerprograms.each do |p|
+-#= p.id
   -#= link_to p.name, event_partner_program_path(p)
+  
+-#     Chicago Ideas Week
+-#     talks/index.html.haml
+-#     01/15/2012
+
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Events", events_path
+        %li
+          %span Partner Programs
+    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
+    = render "partials/explore_dropdown"
+
+
+
+-# Begin Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Partner Programs
+    = render "partials/share"  
+  
+  -# Left column, main content
+  .box.double.left
+
+    -# Talks Loop
+    .column_row#talks
+      .column.column_double
+        %ul.preview_list.double_rows
+          - @partnerprograms.each do |partnerprograms|
+            %li{:id => "partnerprograms_#{partnerprograms.id}"}
+              .img_frame
+                - begin
+                  = link_to image_tag(partnerprograms.banner.url), partner_programs_events_path(partnerprograms)
+                - rescue
+              = link_to partnerprograms.name, partner_programs_events_path(partnerprograms)
+          
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/newsletter_form"
+    = render "partials/social"
+
