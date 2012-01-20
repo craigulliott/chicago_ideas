@@ -37,9 +37,7 @@ CraigsAdmin::Application.configure do
   # config.logger = SyslogLogger.new
 
   # Use a different cache store in production
-  config.cache_store = :mem_cache_store, Memcached::Rails.new
-  $cache = Memcache.new
-  config.middleware.use Rack::Cache, :metastore => $cache, :entitystore => 'file:tmp/cache/entity'
+  config.cache_store = :dalli_store
   
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
