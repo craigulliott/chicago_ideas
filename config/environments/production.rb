@@ -17,10 +17,7 @@ CraigsAdmin::Application.configure do
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true
 
-  # Enable the asset pipeline
-  config.assets.enabled = true
-  config.assets.initialize_on_precompile = false
-  config.action_controller.assets_dir = "#{File.dirname(File.dirname(__FILE__))}/public"
+  config.assets.initialize_on_precompile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
