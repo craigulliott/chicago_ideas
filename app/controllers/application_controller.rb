@@ -67,7 +67,13 @@ class ApplicationController < ActionController::Base
   # This allows us to cache fully rendered versions of the entire front end of the website.
   # This makes for an extremely fast experience for all our visitors
   def account_links
-    render :json => {:admin => true}
+    json = {}
+    json[:signed_in] = current_user ? true : false
+    json[:admin] = (current_user and current_user.admin?) ? true : false
+    json[:connected_to_twitter] = (current_user and current_user.connected_to_twitter?) ? true : false
+    json[:connected_to_facebook] = (current_user and current_user.connected_to_facebook?) ? true : false
+    json[:full_name] = (current_user ) ? current_user.name : nil
+    render :json => json
   end
   
   private
