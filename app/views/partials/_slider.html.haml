@@ -2,4 +2,4 @@
 - if @featured.present?
   .slider
     - @featured.take(10).each do |featured|
-      = link_to image_tag(featured.banner.url, :title => featured.title), video_path(featured)
+      = link_to image_tag(featured.banner(:medium), :title => featured.title), video_path(featured)
