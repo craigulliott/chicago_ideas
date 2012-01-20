@@ -11,7 +11,6 @@
         %li= link_to "Home", "/"
         %li= link_to "Speakers", speakers_path
         %li= link_to @speaker.name
-    = link_to "Explore Speakers", "#", :class => "explore_btn", :id => "explore_speakers"
     = render "partials/explore_dropdown"
 
 -# Main Speaker content
@@ -38,9 +37,10 @@
       .column.column_double
       
         -# Speaker Quote
-        -#- if @speaker.quote.present?
-        %blockquote.speaker_quote
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut sem quam, fermentum accumsan nisi. 
+        - if @speaker.quote.present?
+          %blockquote.speaker_quote
+            - @speaker.quotes.take(1).each do |quotes|
+              = quotes.body
           
         -# Speaker Overview: Sidebar with headshot, info, talks, social
         %ul#speaker_overview
