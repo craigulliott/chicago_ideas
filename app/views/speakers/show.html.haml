@@ -46,9 +46,7 @@
         %ul#speaker_overview
           %li
             .img_frame
-              - begin
-                = image_tag(@speaker.portrait)
-              - rescue
+              = image_tag(@speaker.portrait)
           %li
             %h3= @speaker.name
             - if @speaker.title.present?
@@ -74,7 +72,7 @@
   -# Include Sidebar Items
   #sidebar
     = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Videos"
-    = render "speakers/speaker_tweets"
+    -#= render "speakers/speaker_tweets"
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"
