@@ -3,13 +3,11 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :only => [:index, :edit, :disconnect_facebook, :disconnect_twitter]
   
   # cache rendered versions of these pages
-  caches_action :list_speakers
-  caches_action :speaker
-  caches_action :list_team_members
-  caches_action :team_member
+  before_filter :cache_rendered_page, :only => [:list_speakers, :speaker, :list_team_members, :team_member]
   
   # the users account homepage
   def index
+    @page_title = "#{current_user.name} - Your Account"
     @user = current_user
   end
   
@@ -35,8 +33,8 @@ class UsersController < ApplicationController
   
   # Speakers landing page
   def list_speakers
+    @page_title = "Speakers"
     @speakers = User.speaker.search_sort_paginate(params)
-    #@speakers = User.speaker
     render "speakers/index"
   end
   
@@ -47,17 +45,36 @@ class UsersController < ApplicationController
     else
       @speaker = User.find_by_permalink(params[:id])
     end
-    @chapters = @speaker.chapters.all # Get all chapters that the speaker is part of
+    @page_title = "#{@speaker.name}"
+    # Get all chapters that the speaker is part of
+    @chapters = @speaker.chapters.all 
     render "speakers/show"
   end
   
   def list_team_members
-    @team = User.staff
+    @page_title = "Team Members"
+    get_team_members
   end  
   
   def team_member
-    @team = User.staff # get all staff members
-    @team_member = User.find(params[:id]) # individual staff item
+    get_team_members
+    @team_member = User.find(params[:id])
+    @page_title = "About #{@team_member.name}"
   end
 
+  private 
+    # get all staff members, sorted by priority
+    def get_team_members
+      # TODO:  add a sort column
+      @team = []
+      @team << User.find(2)
+      @team << User.find(1)
+      @team << User.find(5)
+      @team << User.find(6)
+      @team << User.find(3)
+      User.staff.where('id not in (2,1,5,6,3)').all.each do |u|
+        @team << u
+      end
+      @team
+    end
 end

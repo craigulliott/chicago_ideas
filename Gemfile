@@ -22,7 +22,10 @@ gem 'paperclip'
 gem 'fog'
 gem 'redcarpet'
 gem 'countries'
-gem 'memcache-client'
+
+# cache in memcache - varnish isnt availiable on cedar apps
+gem 'rack-cache'
+gem 'dalli'
 
 # social
 gem 'koala'
