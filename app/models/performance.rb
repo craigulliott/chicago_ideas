@@ -3,11 +3,14 @@ class Performance < ActiveRecord::Base
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
 
-  belongs_to :speaker
+  belongs_to :speaker, :class_name => 'User'
   belongs_to :chapter
+  
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
+  
+  validates_uniqueness_of :speaker_id, :scope => :chapter_id
   
   
   # the hash representing this model that is returned by the api

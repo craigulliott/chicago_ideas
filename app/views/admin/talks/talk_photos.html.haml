@@ -1,0 +1,11 @@
+= render 'member_controls'
+
+= ssp_search_form TalkPhoto
+
+.table_section
+  %h3 
+    Talk Photos
+    = new_model_link TalkPhoto, @talk
+  .table_wrapper
+    = render 'admin/talk_photos/table.html.haml', :talk_photos => @talk_photos
+  = paginate @talk_photos

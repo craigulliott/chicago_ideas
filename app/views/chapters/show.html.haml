@@ -1,0 +1,85 @@
+-#     Chicago Ideas Week
+-#     chapters/show.html.haml
+-#     01/17/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Talks", talks_path
+        %li= link_to @talk.name[0..75], talk_path(@talk)
+        %li
+          %span= @chapter.title
+    -# Explore Button : Dropdown to come...
+    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
+
+
+-# Main Content
+%section.container#main_content
+
+  -# Page Header: Title, sub-header, and social
+  #page_header
+    #page_title.left
+      %h1= @chapter.title
+      %span.sub_header= link_to @talk.name, "#"
+    = render "partials/share"
+
+  -# Left column, main content: Video, details, speakers, etc.
+  .box.double.left
+    
+    -# Chapter Video
+    - if @chapter.vimeo_id.present?
+      .video_container
+        <iframe src="http://player.vimeo.com/video/#{@chapter.vimeo_id}?title=0&amp;byline=0&amp;portrait=0" width="680" height="383" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    
+    -# Chapter description
+    .column_row.divided_row#talks_description
+      .column.column_double
+        %span.column_header About this Video
+        %pre= @chapter.description
+    
+    -# Photo Gallery
+    - if @chapter.chapter_photos.present?
+      .column_row.divided_row#photo_gallery
+        .column.column_double
+          %span.column_header Photo Gallery
+          %ul.photo_gallery
+            - @chapter.chapter_photos.each do |photo|
+              %li
+                .img_wrapper
+                  - begin
+                    = link_to image_tag(URI.decode photo.photo.url(:thumb)), "#", :class => "popup_img"
+                  - rescue
+
+
+    -# Speakers in this chapter/video
+    .column_row#talks_speakers
+      .column.column_double
+        %span.column_header= @chapter.performances.count > 1 ? "Speakers" : "Speaker"
+        %ul.chapter_speakers_list
+          - @chapter.performances.each do |performance|
+            %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
+              .img_frame
+                -begin
+                  = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker)
+                - rescue
+              .speaker_info
+                %h3= link_to performance.speaker.name, speaker_path(performance.speaker)
+                %span.speaker_title= performance.speaker.title
+
+                %pre
+                  = "#{performance.speaker.bio[0..200]}..."
+                  = link_to "read more →", speaker_path(performance.speaker)
+              .clearfix
+              
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Other videos in this talk"
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

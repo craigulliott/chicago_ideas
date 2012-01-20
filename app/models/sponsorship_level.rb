@@ -6,8 +6,10 @@ class SponsorshipLevel < ActiveRecord::Base
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
+  has_many :sponsors
   
   scope :by_name, order('name asc')
+  scope :by_sort, order('sort asc')
   
   validates :name, :presence => true, :uniqueness => true
   validates :sort, :presence => true, :uniqueness => true

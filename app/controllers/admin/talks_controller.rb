@@ -33,6 +33,12 @@ class Admin::TalksController < Admin::AdminController
     @chapters = @talk.chapters.search_sort_paginate(params, :parent => @talk)
   end
 
+  # photos associated with this talk
+  def talk_photos
+    @talk = Talk.find(params[:id])
+    @talk_photos = @talk.talk_photos.search_sort_paginate(params, :parent => @talk)
+  end
+
 
   # MEMBER ACTIONS
   # ---------------------------------------------------------------------------------------------------------

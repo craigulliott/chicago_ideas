@@ -20,8 +20,9 @@ gem 'rails_email_validator'
 gem 'kaminari'
 gem 'paperclip'
 gem 'fog'
-gem 'carmen'
 gem 'redcarpet'
+gem 'countries'
+gem 'memcache-client'
 
 # social
 gem 'koala'
@@ -40,7 +41,7 @@ gem 'hot_body', '0.1.1'
 gem 'json_output_helper', '0.1.0'
 gem 'dynamic_models'
 
-# third parts SAS solution for monitoring performance
+# third party SAS solution for monitoring performance
 group :production do
   gem 'newrelic_rpm'
 end
@@ -48,7 +49,7 @@ end
 # useful in development
 group :development do
   # the debugger
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  #gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 # Gems used only for assets and not required

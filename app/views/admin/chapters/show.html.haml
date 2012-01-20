@@ -22,4 +22,24 @@
   %h4 Talk
   %p= @chapter.talk.name
 
+  %h4 Vimeo ID
+  %p= @chapter.vimeo_id
 
+  %h4 Featured on Talk
+  %p= @chapter.featured_on_talk? ? 'yes' : 'no'
+
+  %h4 Featured on Homepage
+  %p= @chapter.featured_on_homepage? ? 'yes' : 'no'
+
+  %h4 Homepage CAPTION
+  %p= @chapter.homepage_caption
+
+  %h4 Banner
+  %p= image_tag @chapter.banner.url(:medium)
+
+
+.table_section
+  %h3 
+    Speakers
+  .table_wrapper
+    = render 'admin/performances/table.html.haml', :performances => @chapter.performances

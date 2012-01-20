@@ -1,0 +1,8 @@
+%tr{:event_photo => event_photo.id}
+  %td.photo
+    %a{:href => event_photo.photo.url(:full), :target => '_blank'}= image_tag event_photo.photo.url(:thumb)
+  %td.caption= event_photo.caption
+  %td.options
+    = edit_model_link event_photo
+    = destroy_model_link event_photo
+ 

@@ -2,10 +2,15 @@
   = f.input :talk_brand, :include_blank => false 
   = f.input :name 
   = f.input :description 
-  = f.input :topic, :include_blank => false
-  = f.input :day, :include_blank => false
-  = f.input :venue, :include_blank => false
+  = f.input :track, :as => :select, :collection => Track.by_name.all
+  = f.input :day, :include_blank => false, :as => :select, :collection => Day.by_date.all
+  = f.input :venue, :include_blank => false, :as => :select, :collection => Venue.by_name.all
   = f.input :start_time, :input_html => {:class => 'timepicker', :value => @model.start_time.present? ? @model.start_time.to_s(:time) : nil}, :as => :string 
   = f.input :end_time, :input_html => {:class => 'timepicker', :value => @model.end_time.present? ? @model.end_time.to_s(:time) : nil}, :as => :string 
-  = f.input :sponsor, :hint => "use this to assign this event with a specific sponsor"
-  = f.input :banner, :as => :file, :title => "Banner Photo", :hint => "a #{@model.banner_dimensions_string} blessed photo for displaying on the site"
+  = f.input :sponsor, :hint => "use this to assign this event with a specific sponsor", :as => :select, :collection => Sponsor.by_name.all
+  
+- unless @model.id.present?
+  = f.inputs :name => "Photos (which don't pertain to a specific chapter)" do
+    = link_to_add_fields "Add Photo", f, :talk_photos, :template => 'admin/talk_photos/nested_fields.html.haml'
+    = f.semantic_fields_for :talk_photos do |talk_photo_form|
+      = render 'admin/talk_photos/nested_fields.html.haml', :f => talk_photo_form

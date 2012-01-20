@@ -1,0 +1,20 @@
+= render 'admin/admin/collection_controls'
+= render 'controls'
+
+- content_for :top_links do
+  = edit_model_link @track, true
+  = destroy_model_link @track, true
+
+%h1
+  = @track.name
+  = icon_link_to 'notes', notes_admin_track_path(@track), 'script'
+  = new_model_link Note, @track
+  
+#model_detail
+  %h4 Name
+  %p= @track.name
+
+  %h4 Description
+  %p= @track.description_html
+
+

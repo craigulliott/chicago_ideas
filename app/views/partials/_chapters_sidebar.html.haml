@@ -1,0 +1,22 @@
+-#     Chicago Ideas Week
+-#     _chapters.html.haml
+-#     01/15/2012
+
+- if @chapters.present?
+  .box.sidebar.right#chapters
+    .box_header.yellow_header
+      %span= title
+    .column_row
+      %ul.preview_list
+        -@chapters.each do |chapter|
+          - if chapter.present?
+            %li
+              .img_frame
+                = link_to "play", "#", :class => "play_btn"
+                - begin
+                  = link_to image_tag(@chapter.banner.url(:thumb)), video_path(chapter)
+                - rescue
+              = link_to chapter.title, video_path(chapter)
+              - chapter.performances.limit(2).each do |performance|
+                - if performance.speaker.present?
+                  %span= performance.speaker.name

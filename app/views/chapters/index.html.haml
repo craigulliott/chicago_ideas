@@ -1,0 +1,32 @@
+-#     Chicago Ideas Week
+-#     chapters/index.html.haml
+-#     01/18/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Videos", videos_path
+    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
+
+
+-# Begin Main content
+%section.container#main_content
+
+  -# Featured chapter slider
+  = render "partials/slider", :featured => @featured
+  
+  -# Render the chapter list
+  = render "chapters/chapters", :chapters => @chapters
+
+
+  -# Include Sidebar Items
+  #sidebar
+    -#= render "partials/track_filter"
+    = render "partials/sponsors"
+    = render "partials/newsletter_form"
+    = render "partials/social"
+

@@ -1,0 +1,3 @@
+= f.inputs do
+  = f.input :photo, :as => :file, :label => "Photo", :hint => "photo must be at least #{ChapterPhoto.photo_dimensions_string}"
+  = f.input :caption 

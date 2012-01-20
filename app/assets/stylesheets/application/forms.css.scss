@@ -1,0 +1,190 @@
+input, textarea {
+  font-size: 15px;
+  color:$grey;
+  padding: 8px;
+  border: 1px solid #ccc;
+  @include rounded(4px);
+
+}
+
+.input[type="text"], .input[type="password"], .input[type="email"] {
+  width:200px;
+}
+.extra-small { width: 55px; }
+
+.medium { width: 300px; }
+
+.medium-large { width: 425px; }
+ 
+.large { width: 500px; }
+
+.extra-large { width: 625px; }
+
+textarea {
+  width: 440px;
+  height: 75px;
+}
+
+label {
+  display:block;
+  font-family: "Helvetica Neue", Helvetia, Arial, sans-serif;
+  font-size: 15px;
+  color:$grey;
+  margin-bottom:5px;
+}
+
+input[type="checkbox"] {
+  display:inline;
+  margin:3px 5px 0 0;
+  padding:0px;
+  width:auto !important;
+}
+
+input[type="submit"] {
+  width:auto !important;
+}
+
+abbr { 
+  margin-left: 4px;
+  text-decoration: none !important; 
+  border: none !important;
+}
+
+.agreeing_to_terms {
+  font-size: 13px;
+  font-weight: 300;
+  color:$greyLight;
+  display: block; 
+  margin-bottom: 15px;
+}
+
+
+
+
+/******************************************************
+ *  Login / Register Pages
+******************************************************/
+
+// login
+#login_container {
+
+  ol {
+    diplay:block;
+    margin:0;
+    padding:0;
+    list-style:none;
+    
+    li {
+      display:block;
+      margin:0 0 20px 0;
+      padding:0;
+    }
+    
+    li.boolean {
+      
+      input#user_remember_me {
+
+      }
+      
+    }
+    
+  } // end ol
+  
+  abbr {
+    color:red;
+    text-decoration:none;
+    margin-right:3px;
+  }
+  
+  input {
+    width: 300px;
+  }
+  
+  #devise_links a {
+    margin-right: 10px;
+  }
+  
+}
+
+
+
+/******************************************************
+ *  Volunteer Form
+******************************************************/
+
+#volunteer_form {
+  width: 100%;
+  padding:0;
+  margin:0;
+  
+  tr {
+    display:block;
+    width:100%;
+    margin-bottom:20px;
+  }
+  
+  tr td:first-child { text-align:right; padding-right: 20px; vertical-align:middle; }
+  
+  td.no_block label {
+    display:inline;
+    margin-right: 10px; 
+  }
+  
+  td.no_block label.block {
+    display:block !important;
+  }
+}
+
+
+
+/******************************************************
+ *  Navigation Dropdown Login Form
+******************************************************/
+#dd_login_form {
+  padding: 20px 0 10px 0!important;
+  width: 240px !important; 
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: block;
+    margin-bottom: 13px; 
+    padding: 0 20px !important;
+  }
+  
+  label {
+    font-size: 12px;
+    color:$greyLight;
+    margin-bottom: 2px;
+    font-weight: 500;
+  }
+  
+  input[type="text"], input[type="password"] {
+    width: 185px;
+    padding: 6px;
+    font-size: 13px;
+  }
+  
+  #dd_submit {
+    padding-bottom: 13px !important;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #000;
+    label {
+      display: inline; 
+      line-height: 30px;
+    }
+  }
+  #dd_forgot_pw {
+    margin-bottom: 0;
+    padding-top: 10px !important;
+    padding-bottom: 5px !important;
+    border-top: 1px solid #333;
+    a {
+      font-size: 13px;
+      color: $grey;
+    }
+  }
+}

@@ -1,0 +1,114 @@
+.talk_venue_details {
+  width: 300px;
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+  float: left;
+  
+  tr {
+    display: table-row;
+  }
+  td {
+    font-size: 14px;
+    color: $grey;
+    line-height: 17px;
+    padding-bottom: 7px;
+  }
+  td.venue_label {
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  address {
+    margin-top: 4px;
+    font-size: 13px;
+    color: $greyLight;
+  }
+}
+
+.venue_map {
+  width: 300px;
+  height: 145px;
+  border: 1px solid #ccc;
+  float: right;
+  margin-bottom: 15px;
+}
+.venue_map:after {
+  display: table;
+  content: "";
+  zoom: 1;
+  clear: both;
+}
+
+.video_container {
+  margin-bottom: 20px;
+}
+
+
+ul.chapter_speakers_list {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  li {
+    display: block;
+    margin: 0 0 10px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #ccc;
+    
+    .img_frame {
+      width: 110px;
+      height: 110px;
+      float: left;
+    }
+    .speaker_info {
+      width: 500px;
+      float:right;
+      
+      span.speaker_title, pre {
+        color: $grey;
+        font-size: 13px;
+        font-weight: lighter;
+      }
+      span.speaker_title {
+        display: block;
+        margin-bottom: 6px;
+      }
+      pre {
+        line-height: 23px;
+        font-size: 14px;
+      }
+    }
+  }
+  li:last-child {
+    border: none;
+  }
+}
+
+
+       
+ul.photo_gallery {
+  display: block;
+  width: 100%;
+  list-style: none;
+  background: blue;
+  
+  li {
+    display: inline;
+    float: left;
+    margin: 0 5px 0 10px;
+    padding: 0;
+    width: 145px;
+    height: 95px;
+    overflow: hidden;
+  }
+}
+
+
+
+
+
+
+

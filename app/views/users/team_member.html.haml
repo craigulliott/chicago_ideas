@@ -1,0 +1,50 @@
+-#     Chicago Ideas Week
+-#     users/list_team_members.html.haml
+-#     01/17/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Team", team_members_path
+    -#= link_to "Explore Speakers", "#", :class => "explore_btn", :id => "explore_speakers"
+
+
+-# Begin Main Speaker content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1= @team_member.name
+      - if @team_member.title.present?
+        %span.sub_header= @team_member.title
+    = render "partials/share"
+
+
+  -# Left column: Team List
+  .box.double.left
+    .column_row.divided_row#team_member
+      .column.column_double
+        .headshot_container.img_frame
+          - begin
+            = image_tag URI.decode(staffmember.portrait.url)
+          - rescue
+        %pre= @team_member.bio
+    
+    .column_row#team
+      .column.column_double
+        - if @team.present?
+          %ul.preview_list.team_list.double_rows
+            = render "partials/team_loop", :team => @team
+
+
+
+  -# Include Sidebar Items
+  #sidebar
+    -#= render "partials/track_filter"
+    = render "partials/sponsors"
+    = render "partials/newsletter_form"
+    = render "partials/social"

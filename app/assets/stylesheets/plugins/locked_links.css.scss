@@ -1,0 +1,5 @@
+// locked links
+a.locked {
+  @include opacity(0.3);
+  cursor: wait;
+}

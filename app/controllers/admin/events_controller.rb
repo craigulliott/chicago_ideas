@@ -27,6 +27,12 @@ class Admin::EventsController < Admin::AdminController
     @notes = @event.notes.includes(:author).search_sort_paginate(params, :parent => @event)
   end
 
+  # photos associated with this event
+  def event_photos
+    @event = Event.find(params[:id])
+    @event_photos = @event.event_photos.search_sort_paginate(params, :parent => @event)
+  end
+
 
   # MEMBER ACTIONS
   # ---------------------------------------------------------------------------------------------------------

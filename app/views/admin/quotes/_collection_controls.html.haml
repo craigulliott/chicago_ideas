@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do
+  .crumb.end Quotes   
+
+- @active_tab = 'quotes'
+
+- content_for :content_navigation do
+  %h2 Quotes
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_quotes_path, 'search'

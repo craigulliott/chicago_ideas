@@ -1,0 +1,16 @@
+= render 'admin/admin/collection_controls'
+- content_for :breadcrumbs do
+  .crumb.end Tracks
+
+- content_for :top_links do
+  = new_model_link Track
+
+= ssp_search_form Track
+
+.table_section
+  %h3 
+    Tracks
+    = new_model_link Track
+  .table_wrapper
+    = render 'admin/tracks/table.html.haml', :tracks => @tracks
+

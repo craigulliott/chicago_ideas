@@ -1,0 +1,7 @@
+.box.right#newsletter_
+  .column_row
+    %form{:method => "POST", :action => "/", :id => "newsletter_signup"}
+      %span.column_header Register for the CIW Newsletter
+      %input{:type => "email", :name => "email", :id => "email", :placeholder => "email address"}
+      %input{:type => "hidden", :name => "authenticity_token", :id => "authenticity_token"}
+      %input{:type => "submit", :value => "submit", :id => "newsletter_submit", :class => "btn grey_btn right"}

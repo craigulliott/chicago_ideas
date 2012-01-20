@@ -1,0 +1,6 @@
+%table#quotes
+  %tr
+    %th.body= ssp_sort_link :body
+    %th.user_id= ssp_sort_link :user_id
+    %th 
+  = render :partial => 'admin/quotes/quote.html.haml', :collection => quotes

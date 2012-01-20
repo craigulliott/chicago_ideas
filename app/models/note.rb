@@ -15,16 +15,8 @@ class Note < ActiveRecord::Base
   
   # note can have attachments
   has_attached_file :attachment,
-    :storage => :fog,
-    :fog_credentials => {
-      :aws_access_key_id => AWS_ACCESS_KEY_ID,
-      :aws_secret_access_key => AWS_SECRET_ACCESS_KEY,
-      provider: 'AWS',
-      region: 'us-east-1'
-    },
     :fog_public => false,
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-note-attachments",
-    :path => ":id.:extension"
+    :path => "note-attachments/:style/:id.:extension"
 
 
   # a DRY approach to searching lists of these models

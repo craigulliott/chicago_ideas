@@ -19,6 +19,8 @@ class Venue < ActiveRecord::Base
   validates :country, :presence => true
   validates :lonlat, :presence => {:message => "Failed to geocode this business. Please check the whole address."}
   validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
+  
+  scope :by_name, order('name asc')
 
   before_validation {|record|
     # attempt to geocode the address with google
@@ -34,16 +36,7 @@ class Venue < ActiveRecord::Base
   
   # large format blessed photo for the website
   has_attached_file :banner,
-    :storage => :fog,
-    :fog_credentials => {
-      :aws_access_key_id => AWS_ACCESS_KEY_ID,
-      :aws_secret_access_key => AWS_SECRET_ACCESS_KEY,
-      provider: 'AWS',
-      region: 'us-east-1'
-    },
-    :fog_public => true,
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-venue-banners",
-    :path => ":id.:extension"
+    :path => "venue-banners/:style/:id.:extension"
 
   # returns a single line representation of the address
   def address include_country = false, include_name = false
@@ -96,7 +89,7 @@ class Venue < ActiveRecord::Base
     "#{lonlat.y},#{lonlat.x}"
   end
   
-  def google_maps_src width=280, height=280, maptype=:roadmap, zoom=12
+  def google_maps_src width=280, height=280, zoom=12, maptype=:roadmap
     "http://maps.google.com/maps/api/staticmap?center=#{position}&zoom=#{zoom}&size=#{width}x#{height}&maptype=#{maptype}&markers=color:blue%7Clabel:A%7C#{position}&sensor=false"
   end
   

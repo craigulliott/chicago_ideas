@@ -73,6 +73,7 @@ use this .rvmrc template when doing local development
     export AWS_ACCESS_KEY_ID=
     export AWS_SECRET_ACCESS_KEY=
     export S3_NAMESPACE=
+    export S3_CLOUDFRONT_DOMAIN=
     
     # for onmiauth with facebook and facebook connect/widgets etc
     export FACEBOOK_CLIENT_ID=

@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do
+  .crumb.end Chapter Photos   
+
+- @active_tab = 'chapter_photos'
+
+- content_for :content_navigation do
+  %h2 Chapter Photos
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_chapter_photos_path, 'search'

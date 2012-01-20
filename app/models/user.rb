@@ -5,20 +5,25 @@ class User < ActiveRecord::Base
   # chainable arel method and a boolean helper to determine if models are deleted or not
   include DeleteByTime
   
-  BANNER_WIDTH = 1400
-  BANNER_HEIGHT = 676
-  
   PORTRAIT_WIDTH = 468
   PORTRAIT_HEIGHT = 468
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
+  
+  has_many :performances, :foreign_key => :speaker_id
+  has_many :chapters, :through => :performances
+  
+  has_many :quotes
+  accepts_nested_attributes_for :quotes, :allow_destroy => true
 
   # useful scopes
   scope :admin, :conditions => { :admin => true }
   scope :speaker, :conditions => { :speaker => true }
   scope :volunteer, :conditions => { :volunteer => true }
   scope :staff, :conditions => { :staff => true }
+  
+  scope :by_name, order('name asc')
   
   # if a temporary_password is provided, a random password will be generated
   # this random password will be sent to the welcome email, so we can notify the user of it
@@ -29,7 +34,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable 
          
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :title, :bio, :twitter_screen_name, :portrait, :banner
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :title, :bio, :twitter_screen_name, :portrait, :portrait2, :quotes_attributes
 
   # validators
   validates :email, :email => { :validate_mx => false }, :presence => true
@@ -72,8 +77,8 @@ class User < ActiveRecord::Base
   }
 
   validates :permalink, :presence => true, :uniqueness => true, :format => {:with => /^[\w\d_]+$/}
-  validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
   validate :validate_portrait_dimensions, :if => "portrait.present?", :unless => "errors.any?"
+  validate :validate_portrait2_dimensions, :if => "portrait.present?", :unless => "errors.any?"
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
@@ -83,33 +88,22 @@ class User < ActiveRecord::Base
   
   has_attached_file :portrait,
     :styles => { 
+      :tiny_thumb => "60x60", 
       :thumb => "117x117", 
       :medium => "234x234",
+      :full => "468x468",
     },
-    :storage => :fog,
-    :fog_credentials => {
-      :aws_access_key_id => AWS_ACCESS_KEY_ID,
-      :aws_secret_access_key => AWS_SECRET_ACCESS_KEY,
-      provider: 'AWS',
-      region: 'us-east-1'
-    },
-    :fog_public => true,
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-portraits",
-    :path => ":id.:extension"
-
-  # large format blessed photo for the website
-  has_attached_file :banner,
-    :storage => :fog,
-    :fog_credentials => {
-      :aws_access_key_id => AWS_ACCESS_KEY_ID,
-      :aws_secret_access_key => AWS_SECRET_ACCESS_KEY,
-      provider: 'AWS',
-      region: 'us-east-1'
-    },
-    :fog_public => true,
-    :fog_directory => "#{S3_NAMESPACE}-chicago-ideas-speaker-banners",
-    :path => ":id.:extension"
+    :path => "portraits/:style/:id.:extension"
   
+  has_attached_file :portrait2,
+    :styles => { 
+      :tiny_thumb => "60x60", 
+      :thumb => "117x117", 
+      :medium => "234x234",
+      :full => "468x468",
+    },
+    :path => "alternative-portraits/:style/:id.:extension"
+
   # an array representing this users special permissiond (tags) used for display purposes
   def access_tags
     tags = []
@@ -166,11 +160,6 @@ class User < ActiveRecord::Base
     twitter_token && twitter_secret
   end
   
-  # a string representation of the required dimensions for the banner image
-  def banner_dimensions_string
-    "#{BANNER_WIDTH}x#{BANNER_HEIGHT}"
-  end
-  
   # a string representation of the required dimensions for the portrait image
   def portrait_dimensions_string
     "#{PORTRAIT_WIDTH}x#{PORTRAIT_HEIGHT}"
@@ -183,18 +172,26 @@ class User < ActiveRecord::Base
     markdown.render(bio).html_safe
   end
   
+  def bio_abbreviated
+    ( bio.present? && bio.length > 200 ) ? "#{bio[0..197]}..." : bio
+  end
+  
+  def title_abbreviated
+    ( title.present? && title.length > 75 ) ? "#{bio[0..72]}..." : title
+  end
+  
   private 
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
-    def validate_banner_dimensions
-      dimensions = Paperclip::Geometry.from_file(banner.to_file(:original))
-      errors.add(:banner, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{banner_dimensions_string}") unless dimensions.width == BANNER_WIDTH && dimensions.height == BANNER_HEIGHT
+    def validate_portrait_dimensions
+      dimensions = Paperclip::Geometry.from_file(portrait.to_file(:full))
+      errors.add(:portrait, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait_dimensions_string}") unless dimensions.width == PORTRAIT_WIDTH && dimensions.height == PORTRAIT_HEIGHT
     end
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
-    def validate_portrait_dimensions
-      dimensions = Paperclip::Geometry.from_file(portrait.to_file(:original))
-      errors.add(:portrait, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait_dimensions_string}") unless dimensions.width == PORTRAIT_WIDTH && dimensions.height == PORTRAIT_HEIGHT
+    def validate_portrait2_dimensions
+      dimensions = Paperclip::Geometry.from_file(portrait2.to_file(:full))
+      errors.add(:portrait2, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait_dimensions_string}") unless dimensions.width == PORTRAIT_WIDTH && dimensions.height == PORTRAIT_HEIGHT
     end
 
 end
