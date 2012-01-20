@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   # Speakers landing page
   def list_speakers
     @speakers = User.speaker.search_sort_paginate(params)
-    #@speakers = User.speaker
+    Rails.logger.info 'hello'
     render "speakers/index"
   end
   
