@@ -29,7 +29,7 @@ class ChapterPhoto < ActiveRecord::Base
       :thumb => "-quality 70", 
       :album => "-quality 70", 
       :full => "-quality 70",
-    }
+    },
     :path => 'chapter-photos/:style/:id.:extension'
 
   

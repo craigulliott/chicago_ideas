@@ -47,7 +47,7 @@ class Venue < ActiveRecord::Base
       :medium => "-quality 70", 
       :small => "-quality 70",
       :thumb => "-quality 70",
-    }
+    },
     :path => "venue-banners/:style/:id.:extension"
 
   # returns a single line representation of the address

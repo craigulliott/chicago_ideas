@@ -43,7 +43,7 @@ class Event < ActiveRecord::Base
       :large => "-quality 70", 
       :medium => "-quality 70", 
       :thumb => "-quality 70",
-    }
+    },
     :path => "event-banners/:style/:id.:extension"
       
   # the hash representing this model that is returned by the api

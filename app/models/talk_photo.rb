@@ -29,7 +29,7 @@ class TalkPhoto < ActiveRecord::Base
       :thumb => "-quality 70", 
       :album => "-quality 70", 
       :full => "-quality 70",
-    }
+    },
     :path => 'talk-photos/:style/:id.:extension'
 
   
