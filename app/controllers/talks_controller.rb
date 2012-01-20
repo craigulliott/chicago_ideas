@@ -18,7 +18,7 @@ class TalksController < ApplicationController
   def show
     @talk = Talk.find(params[:id])
     @chapters = @talk.chapters.all
-    @page_title = "#{@talk.title}"
+    @page_title = "#{@talk.name}"
   end # end def talks
   
   
