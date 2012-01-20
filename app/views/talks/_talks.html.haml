@@ -1,0 +1,13 @@
+-#    Talks List Template
+-#
+-#    Standard template for a list of talks. You can use
+-#    this to set some extra details before looping over
+-#    all the items, including column width, paginate...
+
+.column_row.divided_row#talks
+  .column.column_double
+    %span.column_header Talks
+    %ul.preview_list.double_rows
+      = render :partial => "partials/talks_loop", :talks => talks
+      -#= render :partial => 'admin/talks/talk.html.haml', :collection => talks
+    = paginate talks

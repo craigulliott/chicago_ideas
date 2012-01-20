@@ -1,0 +1,96 @@
+-# 		Chicago Ideas Week
+-# 		Global Header & Navigation
+-# 		_header.html.haml
+-# 		12/31/2011
+
+
+%nav.container-fluid
+  
+  %ul#global_nav.container
+  
+    %li#gn_logo
+      %h1= link_to "Chicago Ideas Week", "/"
+    
+    %li#gn_upcoming.nav_parent.nav_section_end
+      = link_to "2012 CIW", "/"
+      .dropdown.full_dropdown
+        %ul.dd_column.full
+          %li
+            2012 CIW Dates Announced: October 8 - 14, 2012
+            %br
+            Details coming soon
+        
+    %li#gn_events.nav_parent
+      = link_to "Events", events_path
+      .dropdown.full_dropdown
+        %ul.dd_column
+          %li= link_to "All CIW Talks", talks_path
+          %li= link_to "Mega Talks", mega_talks_talks_path
+          %li= link_to "Videos", videos_path
+        %ul.dd_column
+          %li= link_to "CIW Labs", labs_events_path
+          %li= link_to "Partner Programs", partner_programs_events_path
+          %li= link_to "Affiliate Events", affiliate_event_events_path
+        %ul.dd_column.featured
+          %li
+            .dd_img_container
+              = link_to image_tag("application/temp/dd_temp1.png"), "/blah"
+            = link_to "Titles goes here", "/blah"
+            %span{:class => "small"} Author/subtext here
+          %li
+            .dd_img_container
+              = link_to image_tag("application/temp/dd_temp2.png"), "/blah"
+            = link_to "Titles goes here", "/blah"
+            %span{:class => "small"} Author/subtext here
+    
+    %li#gn_speakers
+      = link_to "Speakers", speakers_path
+    
+    %li#gn_community.nav_parent
+      = link_to "Community", "/community"
+      .dropdown.double_dropdown
+        %ul.dd_column
+          %li= link_to "Sponsors", sponsors_path
+          %li= link_to "Community Partners", partners_path
+          %li= link_to "Special Programs & Awards", special_programs_path
+          %li= link_to "Affiliate Events", affiliate_event_events_path
+        %ul.dd_column
+          %li= link_to "News", press_clippings_path
+          %li= link_to "Blog", "/blog"
+          %li= link_to "Newsletter", "/newsletter"
+          %li= link_to "Volunteer", volunteer_path
+
+    %li#gn_about.nav_parent.nav_section_end
+      = link_to "About", about_path
+      .dropdown
+        %ul
+          %li= link_to "About CIW", about_path
+          %li= link_to "Team", team_members_path
+          %li= link_to "Volunteer", "/volunteer"
+    
+      %li#nav_user.nav_parent{:style => 'display:none;'}
+        = link_to "My Account", account_path, :id => 'users_full_name'
+        .dropdown
+          %ul
+            %li#connect_to_facebook= link_to "Connect to Facebook", account_path
+            %li= link_to "Edit my profile", account_path
+            %li= link_to "Logout", destroy_user_session_path
+
+      %li#gn_register{:style => 'display:none;'}
+        = link_to "Register", new_user_registration_path
+    
+      %li#gn_login{:style => 'display:none;'}
+        = link_to "Login", new_user_session_path
+        .dropdown#dd_login_form
+          = render "partials/login_form"
+      
+        
+    
+    %li#gn_search
+      #global_search_container
+        %input{:type => "text", :id => "global_search", :placeholder => "search"}
+        %input{:type => "submit", :id => "global_search_btn", :value => ""}
+        
+        
+        
+    

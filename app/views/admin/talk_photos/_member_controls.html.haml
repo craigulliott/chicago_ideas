@@ -1,0 +1,12 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @talk_photo
+  .crumb.end= section_title   
+
+- content_for :content_navigation do
+  %h2 TalkPhotos
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_talk_photos_path, 'search'
+  %h2 This Talk Photo
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_talk_photo_path(@talk_photo), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_talk_photo_path(@talk_photo), 'comment'

@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  = new_model_link PressClipping
+
+= ssp_search_form PressClipping
+
+.table_section
+  %h3 
+    Press Clippings
+    = new_model_link PressClipping
+  .table_wrapper
+    = render 'admin/press_clippings/table.html.haml', :press_clippings => @press_clippings
+

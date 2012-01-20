@@ -11,15 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111224210601) do
+ActiveRecord::Schema.define(:version => 20120117165429) do
 
-  create_table "chapters", :force => true do |t|
-    t.integer  "sort",        :null => false
-    t.string   "title"
-    t.text     "description"
-    t.integer  "talk_id",     :null => false
+  create_table "chapter_photos", :force => true do |t|
+    t.string   "photo_file_name",    :null => false
+    t.string   "photo_content_type", :null => false
+    t.integer  "photo_file_size",    :null => false
+    t.datetime "photo_updated_at",   :null => false
+    t.integer  "chapter_id",         :null => false
+    t.string   "caption"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  add_index "chapter_photos", ["chapter_id"], :name => "index_chapter_photos_on_chapter_id"
+
+  create_table "chapters", :force => true do |t|
+    t.integer  "sort",                                    :null => false
+    t.string   "title"
+    t.text     "description"
+    t.integer  "talk_id",                                 :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "vimeo_id"
+    t.boolean  "featured_on_talk",     :default => false, :null => false
+    t.boolean  "featured_on_homepage", :default => false, :null => false
+    t.text     "homepage_caption"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
   end
 
   add_index "chapters", ["talk_id", "sort"], :name => "index_chapters_on_talk_id_and_sort"
@@ -43,6 +64,19 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
   end
 
   add_index "event_brands", ["name"], :name => "index_event_brands_on_name"
+
+  create_table "event_photos", :force => true do |t|
+    t.string   "photo_file_name",    :null => false
+    t.string   "photo_content_type", :null => false
+    t.integer  "photo_file_size",    :null => false
+    t.datetime "photo_updated_at",   :null => false
+    t.integer  "event_id",           :null => false
+    t.string   "caption"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_photos", ["event_id"], :name => "index_event_photos_on_event_id"
 
   create_table "events", :force => true do |t|
     t.string   "name",                :limit => 150, :null => false
@@ -121,6 +155,27 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
 
   add_index "photos", ["asset_type", "asset_id"], :name => "index_photos_on_asset_type_and_asset_id"
 
+  create_table "press_clippings", :force => true do |t|
+    t.string   "title",              :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "url"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quotes", :force => true do |t|
+    t.text     "body",       :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "quotes", ["user_id"], :name => "index_quotes_on_user_id"
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -139,12 +194,9 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.datetime "banner_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "url"
   end
 
   add_index "sponsors", ["sponsorship_level_id"], :name => "index_sponsors_on_sponsorship_level_id"
@@ -178,19 +230,28 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
 
   add_index "talk_brands", ["name"], :name => "index_talk_brands_on_name"
 
+  create_table "talk_photos", :force => true do |t|
+    t.string   "photo_file_name",    :null => false
+    t.string   "photo_content_type", :null => false
+    t.integer  "photo_file_size",    :null => false
+    t.datetime "photo_updated_at",   :null => false
+    t.integer  "talk_id",            :null => false
+    t.string   "caption"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "talk_photos", ["talk_id"], :name => "index_talk_photos_on_talk_id"
+
   create_table "talks", :force => true do |t|
-    t.string   "name",                :limit => 150, :null => false
+    t.string   "name",          :limit => 150, :null => false
     t.text     "description"
-    t.integer  "day_id",                             :null => false
-    t.integer  "venue_id",                           :null => false
-    t.integer  "topic_id",                           :null => false
-    t.integer  "talk_brand_id",                      :null => false
-    t.time     "start_time",                         :null => false
-    t.time     "end_time",                           :null => false
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.datetime "banner_updated_at"
+    t.integer  "day_id",                       :null => false
+    t.integer  "venue_id",                     :null => false
+    t.integer  "track_id"
+    t.integer  "talk_brand_id",                :null => false
+    t.time     "start_time",                   :null => false
+    t.time     "end_time",                     :null => false
     t.integer  "sponsor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -199,10 +260,10 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
   add_index "talks", ["day_id"], :name => "index_talks_on_day_id"
   add_index "talks", ["sponsor_id"], :name => "index_talks_on_sponsor_id"
   add_index "talks", ["talk_brand_id"], :name => "index_talks_on_talk_brand_id"
-  add_index "talks", ["topic_id"], :name => "index_talks_on_topic_id"
+  add_index "talks", ["track_id"], :name => "index_talks_on_topic_id"
   add_index "talks", ["venue_id"], :name => "index_talks_on_venue_id"
 
-  create_table "topics", :force => true do |t|
+  create_table "tracks", :force => true do |t|
     t.string   "name",        :null => false
     t.text     "description", :null => false
     t.datetime "created_at"
@@ -210,21 +271,21 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                :default => "",    :null => false
-    t.string   "encrypted_password",    :limit => 128, :default => "",    :null => false
+    t.string   "email",                                 :default => "",    :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                        :default => 0
+    t.integer  "sign_in_count",                         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "authentication_token",                                    :null => false
-    t.boolean  "admin",                                :default => false, :null => false
-    t.boolean  "speaker",                              :default => false, :null => false
-    t.boolean  "staff",                                :default => false, :null => false
-    t.boolean  "volunteer",                            :default => false, :null => false
+    t.string   "authentication_token",                                     :null => false
+    t.boolean  "admin",                                 :default => false, :null => false
+    t.boolean  "speaker",                               :default => false, :null => false
+    t.boolean  "staff",                                 :default => false, :null => false
+    t.boolean  "volunteer",                             :default => false, :null => false
     t.string   "name"
     t.string   "phone"
     t.integer  "fb_uid"
@@ -234,18 +295,18 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
     t.string   "title"
     t.text     "bio"
     t.string   "twitter_screen_name"
-    t.string   "permalink",             :limit => 150
+    t.string   "permalink",              :limit => 150
     t.string   "portrait_file_name"
     t.string   "portrait_content_type"
     t.integer  "portrait_file_size"
     t.datetime "portrait_updated_at"
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.datetime "banner_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
+    t.string   "portrait2_file_name"
+    t.string   "portrait2_content_type"
+    t.integer  "portrait2_file_size"
+    t.datetime "portrait2_updated_at"
   end
 
   add_index "users", ["admin"], :name => "index_users_on_admin"
@@ -294,9 +355,13 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "chapter_photos", "chapters", :name => "chapter_photos_chapter_id_fk"
+
   add_foreign_key "chapters", "talks", :name => "chapters_talk_id_fk"
 
   add_foreign_key "days", "years", :name => "days_year_id_fk"
+
+  add_foreign_key "event_photos", "events", :name => "event_photos_event_id_fk"
 
   add_foreign_key "events", "days", :name => "events_day_id_fk"
   add_foreign_key "events", "event_brands", :name => "events_event_brand_id_fk"
@@ -308,16 +373,20 @@ ActiveRecord::Schema.define(:version => 20111224210601) do
   add_foreign_key "performances", "chapters", :name => "performances_chapter_id_fk"
   add_foreign_key "performances", "users", :name => "performances_speaker_id_fk", :column => "speaker_id"
 
+  add_foreign_key "quotes", "users", :name => "quotes_user_id_fk"
+
   add_foreign_key "sponsors", "sponsorship_levels", :name => "sponsors_sponsorship_level_id_fk"
 
   add_foreign_key "sponsorships", "sponsors", :name => "sponsorships_sponsor_id_fk"
   add_foreign_key "sponsorships", "sponsorship_levels", :name => "sponsorships_sponsorship_level_id_fk"
   add_foreign_key "sponsorships", "years", :name => "sponsorships_year_id_fk"
 
+  add_foreign_key "talk_photos", "talks", :name => "talk_photos_talk_id_fk"
+
   add_foreign_key "talks", "days", :name => "talks_day_id_fk"
   add_foreign_key "talks", "sponsors", :name => "talks_sponsor_id_fk"
   add_foreign_key "talks", "talk_brands", :name => "talks_talk_brand_id_fk"
-  add_foreign_key "talks", "topics", :name => "talks_topic_id_fk"
+  add_foreign_key "talks", "tracks", :name => "talks_track_id_fk"
   add_foreign_key "talks", "venues", :name => "talks_venue_id_fk"
 
 end

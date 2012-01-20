@@ -2,9 +2,15 @@
   = f.input :event_brand, :include_blank => false 
   = f.input :name 
   = f.input :description 
-  = f.input :partner, :include_blank => true, :hint => "use this to assign this event with a specific partner"
+  = f.input :partner, :include_blank => true, :hint => "use this to assign this event with a specific partner", :as => :select, :collection => Partner.by_name.all
   = f.input :day, :include_blank => false 
-  = f.input :venue, :include_blank => false 
+  = f.input :venue, :include_blank => false, :as => :select, :collection => Venue.by_name.all 
   = f.input :start_time, :input_html => {:class => 'timepicker', :value => @model.start_time.present? ? @model.start_time.to_s(:time) : nil}, :as => :string 
   = f.input :end_time, :input_html => {:class => 'timepicker', :value => @model.end_time.present? ? @model.end_time.to_s(:time) : nil}, :as => :string 
   = f.input :banner, :as => :file, :title => "Banner Photo", :hint => "a #{@model.banner_dimensions_string} blessed photo for displaying on the site"
+
+- unless @model.id.present?
+  = f.inputs :name => "Photos of this Event" do
+    = link_to_add_fields "Add Photo", f, :event_photos, :template => 'admin/event_photos/nested_fields.html.haml'
+    = f.semantic_fields_for :event_photos do |event_photo_form|
+      = render 'admin/event_photos/nested_fields.html.haml', :f => event_photo_form

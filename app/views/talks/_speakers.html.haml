@@ -1,0 +1,13 @@
+-#    Speaker List Template
+-#
+-#    Standard template for a list of speakers. You can use
+-#    this to set some extra details before looping over
+-#    all the items, including column width, paginate...
+
+
+.column_row#speakers
+  .column.column_double
+    %span.column_header Speakers
+    %ul.preview_list.speaker_list.double_rows
+      = render "partials/speakers_loop", :locals => speakers
+    = link_to "view all speakers →", speakers_path, :class => "view_all blue"

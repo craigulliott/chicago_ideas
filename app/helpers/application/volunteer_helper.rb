@@ -1,0 +1,2 @@
+module Application::VolunteerHelper
+end

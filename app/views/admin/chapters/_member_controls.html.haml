@@ -10,3 +10,4 @@
   %ul
     %li{:class => active_for('show')}= icon_link_to "Detail", admin_chapter_path(@chapter), 'circle-zoomin'
     %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_chapter_path(@chapter), 'comment'
+    %li{:class => active_for('chapter_photos')}= icon_link_to "Photos", chapter_photos_admin_chapter_path(@chapter), 'image'

@@ -1,0 +1,8 @@
+%tr{:chapter_photo => chapter_photo.id}
+  %td.photo
+    %a{:href => chapter_photo.photo.url(:full), :target => '_blank'}= image_tag chapter_photo.photo.url(:thumb)
+  %td.caption= chapter_photo.caption
+  %td.options
+    = edit_model_link chapter_photo
+    = destroy_model_link chapter_photo
+ 

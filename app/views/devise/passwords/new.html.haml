@@ -1,9 +1,15 @@
-%h1 Forgot your password
-= semantic_form_for resource, :as => resource_name, :url => password_path(resource_name) do |f|
-  = f.inputs do
-    = f.input :email
+%section.container#main_content
 
-  = f.buttons do
-    = f.commit_button :label => "Reset Password"
+  -# Left column with form
+  .box.double.left
 
-= render "devise/shared/links"
+    .column_row#login_container
+      %span.column_header Forgot your password
+      = semantic_form_for resource, :as => resource_name, :url => password_path(resource_name) do |f|
+        = f.inputs do
+          = f.input :email
+
+        = f.buttons do
+          = f.commit_button :label => "Reset Password"
+
+      = render "devise/shared/links"

@@ -1,0 +1,64 @@
+-# 		Chicago Ideas Week
+-# 		Global Footer Partial
+-# 		_footer.html.haml
+-# 		01/02/2012
+
+.container#footer_container
+
+  .row.full#footer_top
+    = link_to "Chicago Ideas Week", "/", :id => "footer_logo"
+    %span October 8 - 14, 2012
+
+
+  .row.full#footer_nav
+
+    .footer_item
+      %span{:class => "title"} 2012 Event
+      %ul
+        %li= link_to "Calendar", "#"
+        %li= link_to "All Themes", "#"
+        %li= link_to "Venues", "#"
+
+    .footer_item
+      %span{:class => "title"} Speakers
+      %ul
+        %li= link_to "All Speakers", speakers_path
+        %li= link_to "2012 Speakers", "#"
+        %li= link_to "2011 Speakers", "#"
+
+    .footer_item
+      %span{:class => "title"} Talks
+      %ul
+        %li= link_to "All CIW Talks", talks_path
+        %li= link_to "Mega Talks", mega_talks_talks_path
+        %li= link_to "Labs", labs_events_path
+
+    .footer_item
+      %span{:class => "title"} About
+      %ul
+        %li= link_to "Mission", about_path
+        %li= link_to "Team", team_members_path
+        %li= link_to "Special Programs & Awards", special_programs_path
+
+    .footer_item
+      %span{:class => "title"} Community
+      %ul
+        %li= link_to "Sponsors", sponsors_path
+        %li= link_to "Community Partners", partners_path
+        %li= link_to "Affiliate Events", affiliate_event_events_path
+
+    .footer_item
+      %span{:class => "title"} Social
+      %ul
+        %li= link_to "Blog", "#"
+        %li= link_to "News", press_clippings_path
+        %li= link_to "Newsletter", "/newsletter"
+
+
+  .row.full#copyright
+    %ul
+      %li{:id => "copyright_notice"} &copy; 2011 Chicago Ideas Week
+      %li= link_to "Privacy Policy", privacy_path
+      %li= link_to "Terms of Use", terms_path
+      %li#admin_link{:style => 'display:none;'}= link_to "Admin", admin_root_path
+      %li.right Lovingly created by <a href="http://www.craigulliott.com" target="_blank">Craig Ulliott</a>, <a href="http://www.kohactive.com" target="_blank">Justin McNally</a> &amp; <a href="http://www.johnkoht.com" target="_blank">John Koht</a>

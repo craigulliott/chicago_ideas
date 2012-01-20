@@ -19,7 +19,19 @@ class Admin::UsersController < Admin::AdminController
     @user = User.find(params[:id])
   end
 
-
+  # edit password form
+  def edit_password
+    @field_template = 'password'
+    edit
+  end
+  def update_password
+    @field_template = 'password'
+    update
+  end
+  
+  # admin controller callbacks
+  # ---------------------------------------------------------------------------------------------------------
+  
   # the admin area is allowed to update these protected attributes
   def pre_create(user)
     user.admin = params[:user][:admin]

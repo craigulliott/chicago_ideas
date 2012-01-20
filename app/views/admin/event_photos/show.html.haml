@@ -1,0 +1,22 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @event_photo, true
+  = destroy_model_link @event_photo, true
+
+%h1
+  This EventPhoto
+  = icon_link_to 'notes', notes_admin_event_photo_path(@event_photo), 'script'
+  = new_model_link Note, @event_photo
+
+#model_detail
+  %h4 Photo
+  %p= @event_photo.photo
+
+  %h4 Event
+  %p= @event_photo.event.name
+
+  %h4 Caption
+  %p= @event_photo.caption
+
+

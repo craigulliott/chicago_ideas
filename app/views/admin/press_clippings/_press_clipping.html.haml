@@ -1,0 +1,10 @@
+%tr{:press_clipping => press_clipping.id}
+  %td.created_at= press_clipping.created_at.to_s(:wordy)
+  %td.title= press_clipping.title
+  %td.image= image_tag press_clipping.image
+  %td.url= link_to press_clipping.url, press_clipping.url, :target => '_blank'
+  %td.description= press_clipping.description
+  %td.options
+    = edit_model_link press_clipping
+    = destroy_model_link press_clipping
+ 

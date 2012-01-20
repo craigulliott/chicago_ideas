@@ -1,0 +1,7 @@
+%tr{:track => track.id}
+  %td.name= link_to track.name, admin_track_path(track)
+  %td.description= track.description
+  %td.options
+    = edit_model_link track
+    = destroy_model_link track
+ 

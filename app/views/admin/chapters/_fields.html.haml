@@ -1,4 +1,19 @@
 = f.inputs do
-  = f.input :sort 
   = f.input :title 
+  = f.input :vimeo_id
   = f.input :description 
+  = f.input :banner, :as => :file, :title => "Banner Photo", :hint => "a #{@model.banner_dimensions_string} blessed photo for displaying on the site"
+  = f.input :featured_on_talk 
+  = f.input :featured_on_homepage 
+  = f.input :homepage_caption, :hint => 'If this is to be featured on the homepage, we will use this caption'
+
+= f.inputs :name => 'Speakers' do
+  = link_to_add_fields "Add Speaker", f, :performances, :template => 'admin/performances/nested_fields.html.haml'
+  = f.semantic_fields_for :performances do |contact_form|
+    = render 'admin/performances/nested_fields.html.haml', :f => contact_form
+
+- unless @model.id.present?
+  = f.inputs :name => "Photos of this Chapter" do
+    = link_to_add_fields "Add Photo", f, :chapter_photos, :template => 'admin/chapter_photos/nested_fields.html.haml'
+    = f.semantic_fields_for :chapter_photos do |chapter_photo_form|
+      = render 'admin/chapter_photos/nested_fields.html.haml', :f => chapter_photo_form

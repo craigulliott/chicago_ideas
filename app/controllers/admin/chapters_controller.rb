@@ -27,6 +27,11 @@ class Admin::ChaptersController < Admin::AdminController
     @notes = @chapter.notes.includes(:author).search_sort_paginate(params, :parent => @chapter)
   end
 
+  # photos associated with this chapter
+  def chapter_photos
+    @chapter = Chapter.find(params[:id])
+    @chapter_photos = @chapter.chapter_photos.search_sort_paginate(params, :parent => @chapter)
+  end
 
   # MEMBER ACTIONS
   # ---------------------------------------------------------------------------------------------------------

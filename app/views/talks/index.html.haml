@@ -1,0 +1,40 @@
+-#     Chicago Ideas Week
+-#     talks/index.html.haml
+-#     01/15/2012
+
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Talks", talks_path
+    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
+
+
+-# Begin Main Talk content
+%section.container#main_content
+  
+  -# Featured Talks slider
+  = render "talks/slider", :featured => @megatalks
+      
+  
+  -# Left column, main content
+  .box.double.left
+  
+    -# Talks Loop
+    = render "talks/talks", :talks => @talks
+
+    -# Speakers list
+    = render "talks/speakers", :locals => @speakers
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/track_filter"
+    = render "partials/sponsors"
+    = render "partials/newsletter_form"
+    = render "partials/social"
+

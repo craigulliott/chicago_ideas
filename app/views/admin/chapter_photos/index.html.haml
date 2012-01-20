@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  = new_model_link ChapterPhoto
+
+= ssp_search_form ChapterPhoto
+
+.table_section
+  %h3 
+    Chapter Photos
+    = new_model_link ChapterPhoto
+  .table_wrapper
+    = render 'admin/chapter_photos/table.html.haml', :chapter_photos => @chapter_photos
+

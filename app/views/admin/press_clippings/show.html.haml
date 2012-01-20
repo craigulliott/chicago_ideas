@@ -1,0 +1,25 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @press_clipping, true
+  = destroy_model_link @press_clipping, true
+
+%h1
+  This PressClipping
+  = icon_link_to 'notes', notes_admin_press_clipping_path(@press_clipping), 'script'
+  = new_model_link Note, @press_clipping
+
+#model_detail
+  %h4 Title
+  %p= @press_clipping.title
+
+  %h4 Image
+  %p= @press_clipping.image
+
+  %h4 Url
+  %p= @press_clipping.url
+
+  %h4 Description
+  %p= @press_clipping.description
+
+

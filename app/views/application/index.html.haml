@@ -1,7 +1,51 @@
-%h1 Homepage
+-#     Chicago Ideas Week
+-#     Index.html.haml
+-#     01/12/2012
 
-%p Welcome to this website.  We are glad you are here because:
 
-%ul
-  %li You're about to avoid writing a ton of code that almost every business application needs.
-  %li Life is good.
+-# Featured Section/Banner Area
+= render "partials/banner"
+
+
+%section.container#main_content
+  
+  -# Introduction
+  #intro
+    %h1 Welcome to the Ideasphere
+    %span For one week each October, CIW transforms Chicago into the global hub for new ideas, an ecosystem of innovation and a playgroud of intellectual recreation
+
+  -# Left column, main content: Videos, speakers, etc.
+  .box.double.left
+    .column_row.divided_row#talks
+    
+      - if @talks.present?
+        .column#homepage_talks
+          %span.column_header Talks
+          %ul.preview_list
+            = render "partials/talks_loop", :talks => @talks
+          = link_to "view all talks →", talks_path, :class => "view_all blue"
+          
+      - if @chapters.present?
+        .column.right#homepage_videos
+          %span.column_header Videos
+          %ul.preview_list
+            = render "partials/chapters_loop", :chapter => @chapters
+          = link_to "view all videos →", videos_path, :class => "view_all blue"
+          
+    .column_row#speakers
+      .column.column_double
+        %span.column_header Speakers
+        %ul.preview_list.speaker_list.double_rows
+          = render "partials/speakers_loop", :locals => @speakers
+        = link_to "view all speakers →", speakers_path, :class => "view_all blue"
+
+    
+  
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
+      
+
+  

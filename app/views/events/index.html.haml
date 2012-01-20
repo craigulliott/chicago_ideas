@@ -1,0 +1,57 @@
+-#     Chicago Ideas Week
+-#     events/index.html.haml
+-#     01/10/2012
+
+
+%section.banner.container-fluid
+  .banner_wrapper{:style => "background: url(#{asset_path "application/temp/speaker_landing_banner.jpg"}) top center no-repeat;"}
+
+%section#main_content.row.full
+  .container
+
+    .span-one-third.entry_column.general_#ciw_talks
+      %h2 CIW Talks
+      
+      - @talks.present?
+      %ul.entry_list
+      - @talks.limit(3).each do |talk|
+
+        %li.entry{:id => "entry_#{talk.id}"}
+          .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg", :width => "300"), "#"
+          %h3= link_to talk.name, talk_path(talk)
+          - if talk.track.present?
+            %p= talk.track.name
+
+
+
+    .span-one-third.entry_column.general_#mega_talks
+
+      %h2 Mega Talks
+      - @megatalks.present?
+      %ul.entry_list
+
+      - @megatalks.limit(3).each do |megatalk|
+        %li.entry{:id => "entry_#{megatalk.id}"}
+          %h3= link_to megatalk.name, talk_path(megatalk)
+          .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
+          %p= megatalk.description[0..105]
+
+
+
+    .span-one-third.entry_column.general_#ciw_labs
+
+      %h2 CIW Labs
+      - @labs.present?
+      %ul.entry_list
+
+      - @labs.limit(3).each do |lab|
+        %li.entry{:id => "entry_#{lab.id}"}
+          %h3= link_to lab.name, event_path(lab)
+          .img_wrapper= link_to image_tag("application/temp/blog_thumb.jpg"), "#"
+          %p= lab.description[0..105]
+
+
+
+<script type="text/javascript">
+$('#gn-event').addClass('nav_parent_active'); // show the 2012 CIW sub menu by default
+</script>
