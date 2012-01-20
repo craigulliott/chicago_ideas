@@ -1,168 +1,3 @@
-$(window).load(function(){
-  
-  
-  /************************************************************************************
-   **    
-   **    Sliders and Image Galleries
-   **
-  ************************************************************************************/
-  
-  $('.slider, .talk_gallery').nivoSlider({
-    effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
-    animSpeed: 500, // Slide transition speed
-    pauseTime: 5000, // How long each slide will show
-    directionNav: false, // Next & Prev navigation
-    controlNav: true, // 1,2,3... navigation
-    keyboardNav: false, // Use left & right arrows
-    pauseOnHover: false, // Stop animation while hovering
-    manualAdvance: false, // Force manual transitions
-    randomStart: false, // Start on a random slide
-    afterLoad: function(){
-      //var controlCount = $(this).children().find('.nivo-controlNav a').length();
-      var newWidth = ($('.nivo-controlNav a').length) * 20;
-      console.log('new Width: ' + newWidth);
-      $('.nivo-controlNav').css({
-        'width' : newWidth,
-        'left' : '50%',
-        'margin-left' : -1 * (newWidth / 2)
-      })
-    }
-  });
-    
-  $('#sponsors ul').nivoSlider({
-    effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
-    animSpeed: 500, // Slide transition speed
-    pauseTime: 5000, // How long each slide will show
-    directionNav: false, // Next & Prev navigation
-    controlNav: false, // 1,2,3... navigation
-    keyboardNav: false, // Use left & right arrows
-    pauseOnHover: false, // Stop animation while hovering
-    manualAdvance: false, // Force manual transitions
-    randomStart: false, // Start on a random slide
-  });
-  
-  //setup easting
-  jQuery.easing.def = "easeOutExpo";
-  
-  // fancybox 
-  $('.popup_img').fancybox();
-  
-  
-  /************************************************************************************
-   **    
-   **    Homepage Featured Banner Rotator
-   **
-  ************************************************************************************/
-  
-  var currentBannerId = '';
-  var nextBannerId;
-  
-  
-  // when a thumbnail is clicked
-  $('.b_thumb').bind('click', function(e) {
-
-    e.preventDefault();
-    nextBannerId = $(this).attr('id').replace('thumb_',''); //capture the current item ID
-    
-    if (nextBannerId == currentBannerId) {
-      return false //can't select same item
-    }
-    
-    updateThumbnails(nextBannerId);
-    transition(currentBannerId, nextBannerId); // call the transition function
-  });
-  
-  
-  // transition, fade and zoom the new image, hide the old
-  function transition(currentId, nextId) {
-    
-    var nextCss = {
-      'opacity' : '0',
-      'zoom' : 1.05,
-      'display' : 'table',
-      'z-index' : '1001',
-      'top' : '-15%',
-      'left' : '-5%'
-    }
-    
-    $('#banner_' + currentId).css('z-index', '999');
-    $('#banner_' + nextId).css(nextCss);
-    
-    $('#banner_' + nextId).stop().animate({
-      opacity: 1,
-      zoom: 1,
-      left: 0,
-      top: 0    
-    }, 300, 'easeOutExpo', function() {
-      $('#banner_' + currentId).fadeOut();
-    });
-        
-    currentBannerId = nextId;
-  }
-  
-  //update the thumbnails
-  function updateThumbnails(activeThumb) {
-    $('.b_thumb').each(function() {
-      $(this).removeClass('b_thumb_active');
-      $(this).find('.img_grayscale').stop().animate({opacity:0}, 500);
-    });
-    $('#thumb_' + activeThumb).addClass('b_thumb_active')
-    $('#thumb_' + activeThumb).find('.img_grayscale').stop().animate({opacity:1}, 500);
-  }
-  
-  // click the first by default
-  $('.b_thumb:first-child').click();
-
-  // clone image
-  $('.b_thumb img').each(function(){
-    var el = $(this);
-    el.css({"position":"absolute"}).wrap("<div class='img_wrapper' style='display: inline-block'>").clone().addClass('img_grayscale').css({"position":"absolute","z-index":"998","opacity":"0"}).insertBefore(el).queue(function(){
-      var el = $(this);
-      el.parent().css({"width":this.width,"height":this.height});
-      el.dequeue();
-    });
-    this.src = grayscale(this.src);
-  });
-  
-  // Fade image 
-  $('.b_thumb').mouseover(function(){
-    $(this).find('.img_grayscale').stop().animate({opacity:1}, 500);
-  })
-  $('.b_thumb').mouseout(function(){
-    if ( $(this).is('.b_thumb_active')) { return false; }
-    $(this).find('.img_grayscale').stop().animate({opacity:0}, 500);
-  });  
-  
-  
-  // Navigation Search box
-  $('#global_search').bind('focus', function(e) {
-    $('#global_search_container').animate({
-      width : '300px',
-    });
-    $(this).animate({
-      width : '250px', 
-      left : '0px',
-    });
-  });
-  
-  $('#global_search').bind('blur', function(e) {
-      $('#global_search_container').animate({
-        width : '106px',
-      });
-      $(this).animate({
-        width : '65px', 
-        left : '0px'
-      });
-  });
-  
-  // standard image grid
-  $('.image_grid li').bind('hover', function(e) {
-    $(this).find('.grid_content').fadeToggle();
-  });
-  
-});
-
-
 // Grayscale w canvas method - Developed by Darcy Clarke - http://darcyclarke.me/
 function grayscale(src){
   var canvas = document.createElement('canvas');
@@ -202,3 +37,194 @@ jQuery.easing['jswing']=jQuery.easing['swing'];jQuery.extend(jQuery.easing,{def:
    po.src = 'https://apis.google.com/js/plusone.js';
    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
  })();
+ 
+ 
+
+var nextBanner = function () {
+  if ( $('a.b_thumb_active').parent().next().find('a.b_thumb').length > 0 ) {
+    $('a.b_thumb_active').parent().next().find('a.b_thumb').click();
+  } else {
+    $('#banner_nav li:first-child a').click();
+  }
+}
+
+
+
+
+$(window).load(function(){
+  
+  // clone image
+  $('.b_thumb img').each(function(){
+    var el = $(this);
+    el.css({"position":"absolute"}).wrap("<div class='img_wrapper' style='display: inline-block'>").clone().addClass('img_grayscale').css({"position":"absolute","z-index":"998","opacity":"0"}).insertBefore(el).queue(function(){
+      var el = $(this);
+      el.parent().css({"width":this.width,"height":this.height});
+      el.dequeue();
+    });
+    this.src = grayscale(this.src);
+  });
+  
+  // Fade image 
+  $('.b_thumb').mouseover(function(){
+    $(this).find('.img_grayscale').stop().animate({opacity:1}, 500);
+  })
+  $('.b_thumb').mouseout(function(){
+    if ( $(this).is('.b_thumb_active')) { return false; }
+    $(this).find('.img_grayscale').stop().animate({opacity:0}, 500);
+  });  
+  
+});
+
+
+$(document).ready(function() {
+  
+  
+  $('.explore_btn').bind('click', function(e) {
+    $('.explore_dropdown').fadeToggle('fast');
+  });
+  $('.close_explore_btn').bind('click', function(e) {
+    $('.explore_dropdown').fadeToggle('fast');
+  });
+  
+  /************************************************************************************
+   **    
+   **    Sliders and Image Galleries
+   **
+  ************************************************************************************/
+  
+  $('.slider, .talk_gallery').nivoSlider({
+    effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
+    animSpeed: 500, // Slide transition speed
+    pauseTime: 5000, // How long each slide will show
+    directionNav: false, // Next & Prev navigation
+    controlNav: true, // 1,2,3... navigation
+    keyboardNav: false, // Use left & right arrows
+    pauseOnHover: false, // Stop animation while hovering
+    manualAdvance: false, // Force manual transitions
+    randomStart: false, // Start on a random slide
+    afterLoad: function(){
+      //var controlCount = $(this).children().find('.nivo-controlNav a').length();
+      var newWidth = ($('.nivo-controlNav a').length) * 20;
+      $('.nivo-controlNav').css({
+        'width' : newWidth,
+        'left' : '50%',
+        'margin-left' : -1 * (newWidth / 2)
+      })
+    }
+  });
+
+    
+  $('#sponsors ul').nivoSlider({
+    effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
+    animSpeed: 500, // Slide transition speed
+    pauseTime: 5000, // How long each slide will show
+    directionNav: false, // Next & Prev navigation
+    controlNav: false, // 1,2,3... navigation
+    keyboardNav: false, // Use left & right arrows
+    pauseOnHover: false, // Stop animation while hovering
+    manualAdvance: false, // Force manual transitions
+    randomStart: false, // Start on a random slide
+  });
+  
+  //setup easting
+  jQuery.easing.def = "easeOutExpo";
+  
+  // fancybox 
+  $('.popup_img').fancybox();
+  
+  
+  /************************************************************************************
+   **    
+   **    Homepage Featured Banner Rotator
+   **
+  ************************************************************************************/
+  
+  var currentBannerId = '';
+  var nextBannerId;
+  var bannerTimeout;
+
+  // when a thumbnail is clicked
+  $('.b_thumb').bind('click', function(e) {
+    
+    e.preventDefault();
+    clearTimeout(bannerTimeout);
+    nextBannerId = $(this).attr('id').replace('thumb_',''); //capture the current item ID
+    if (nextBannerId == currentBannerId) {
+      return false //can't select same item
+    }
+    
+    updateThumbnails(nextBannerId);
+    transition(currentBannerId, nextBannerId); // call the transition function
+    bannerTimeout = setTimeout('nextBanner()', 5000);
+  });
+  
+  // transition, fade and zoom the new image, hide the old
+  function transition(currentId, nextId) {
+    
+    var nextCss = {
+      'opacity' : '0',
+      'zoom' : 1.05,
+      'display' : 'table',
+      'z-index' : '1001',
+      'top' : '-15%',
+      'left' : '-5%'
+    }
+    
+    $('#banner_' + currentId).css('z-index', '999');
+    $('#banner_' + nextId).css(nextCss);
+    
+    $('#banner_' + nextId).stop().animate({
+      opacity: 1,
+      zoom: 1,
+      left: 0,
+      top: 0    
+    }, 300, 'easeOutExpo', function() {
+      $('#banner_' + currentId).fadeOut();
+    });
+        
+    currentBannerId = nextId;
+  }
+  
+  //update the thumbnails
+  function updateThumbnails(activeThumb) {
+    $('.b_thumb').each(function() {
+      $(this).removeClass('b_thumb_active');
+      $(this).find('.img_grayscale').stop().animate({opacity:0}, 500);
+    });
+    $('.thumb_' + activeThumb).addClass('b_thumb_active')
+    $('.thumb_' + activeThumb).find('.img_grayscale').stop().animate({opacity:1}, 500);
+  }
+  
+  // click the first by default
+  $('#banner_nav li:first-child a').click();
+  
+ 
+
+  
+  // Navigation Search box
+  $('#global_search').bind('focus', function(e) {
+    $('#global_search_container').animate({
+      width : '300px',
+    });
+    $(this).animate({
+      width : '250px', 
+      left : '0px',
+    });
+  });
+  
+  $('#global_search').bind('blur', function(e) {
+      $('#global_search_container').animate({
+        width : '106px',
+      });
+      $(this).animate({
+        width : '65px', 
+        left : '0px'
+      });
+  });
+  
+  // standard image grid
+  $('.image_grid li').bind('hover', function(e) {
+    $(this).find('.grid_content').fadeToggle();
+  });
+  
+});
