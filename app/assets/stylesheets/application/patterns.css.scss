@@ -825,6 +825,27 @@ input.submit, input.create {
 
 
 
+#news_list {
+  h2 {
+    font-size: 23px;
+    line-height: 29px;
+    margin-bottom: 5px;
+  }
+  span.timestamp {
+    font-size: 14px;
+    display: block;
+    clear: both;
+    margin-bottom: 30px;
+    color: $grey;
+    font-style: italic;
+  }
+  .column:last-child {
+    border: none;
+  }
+  .column {
+    padding-bottom: 30px;
+  }
+}
 
 
 /******************************************************
