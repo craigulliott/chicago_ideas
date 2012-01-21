@@ -23,6 +23,7 @@ gem 'fog'
 gem 'redcarpet'
 gem 'countries'
 gem 'memcache-client'
+gem 'thinking-sphinx', '2.0.10'
 
 # social
 gem 'koala'
