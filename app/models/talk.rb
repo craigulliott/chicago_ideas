@@ -3,6 +3,12 @@ class Talk < ActiveRecord::Base
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
 
+  define_index do
+    indexes name
+    indexes description
+    indexes sponsor(:name), :as => :sponsor, :sortable => true
+    has sponsor_id, created_at, updated_at
+  end
   belongs_to :track
   belongs_to :day
   belongs_to :venue
