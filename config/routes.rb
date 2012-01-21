@@ -10,7 +10,7 @@ CraigsAdmin::Application.routes.draw do
 
   # website pages
   # ----------------------------------------------------------------
-  match 'search', :to => 'application#search'
+  match 'search', :to => 'search#index'
 
   # legalese 
   match 'privacy', :to => 'application#privacy'
