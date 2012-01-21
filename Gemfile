@@ -26,6 +26,8 @@ gem 'countries'
 # cache in memcache - varnish isnt availiable on cedar apps
 gem 'rack-cache'
 gem 'dalli'
+gem 'memcache-client'
+gem 'thinking-sphinx', '2.0.10'
 
 # social
 gem 'koala'
