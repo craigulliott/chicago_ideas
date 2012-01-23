@@ -10,7 +10,7 @@ CraigsAdmin::Application.routes.draw do
 
   # website pages
   # ----------------------------------------------------------------
-  match 'search', :to => 'search#index'
+  match 'search(.:format)', :to => 'search#index', :as => 'search'
 
   # legalese 
   match 'privacy', :to => 'application#privacy'
@@ -22,7 +22,8 @@ CraigsAdmin::Application.routes.draw do
   # sponsors and partners
   # ----------------------------------------------------------------
   resources :sponsors, :only => [:index]
-  resources :partners, :only => [:index]
+  resources :partners, :only => [:index, :apply]
+  match 'partners/apply', :to => 'partners#apply', :as => 'partners_apply'
 
   # users
   # ----------------------------------------------------------------

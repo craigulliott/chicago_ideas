@@ -698,7 +698,22 @@ ul.labs_filter {
   }
 }
 
-
+.yellow_box {
+  span {
+    color: $dark;
+    font-size: 12px;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  span.call_out {
+    font-size: 31px;
+  }
+  a.callout_link, a.callout_link span {
+    text-decoration: none;
+  }
+}
 
 
 

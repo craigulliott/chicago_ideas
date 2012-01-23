@@ -10,14 +10,11 @@ input, textarea {
 .input[type="text"], .input[type="password"], .input[type="email"] {
   width:200px;
 }
-.extra-small { width: 55px; }
-
+.extra-small { width: 75px; }
+.small { width: 155px; }
 .medium { width: 300px; }
-
-.medium-large { width: 425px; }
- 
+.medium-large { width: 440px; }
 .large { width: 500px; }
-
 .extra-large { width: 625px; }
 
 textarea {
@@ -196,3 +193,150 @@ abbr {
     }
   }
 }
+
+
+
+
+
+/******************************************************
+ *  Search Form
+******************************************************/
+
+#search_ {
+  display: block;
+
+  input#q {
+    width: 500px;
+    padding: 6px;
+    margin-right: 12px;
+  }
+  
+}
+ul#nav_s_results {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  li {
+    display: block;
+    margin: 0 0 5px 0;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+
+
+
+
+
+/******************************************************
+ *  Form List
+******************************************************/
+ul.form_list {
+  display: block;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+  
+  > li {
+    display: block;
+    margin: 0 0 25px 0;
+    padding: 0;
+    
+    label {
+      font-size: 13px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .block {
+      display: block;
+      margin-bottom: 12px;
+
+      .column {
+        width: 225px;
+        float: left;
+      }
+    }
+    .block:after {
+      display: table;
+      content: "";
+      zoom: 1;
+      clear: both;
+    }
+    
+    span.light {
+      display: block;
+      font-size: 13px;
+      color: $greyLight;
+      font-weight: 300;
+    }
+    
+  } // end li
+  
+  li:after {
+    display: table;
+    content: "";
+    zoom: 1;
+    clear: both;
+  }
+  
+}
+
+ul.check_list {
+  display: block;
+  margin: 20px 0;
+  list-style: none;
+  
+  li {
+    display: inline;
+    margin: 0 0 10px 0;
+    padding: 0;
+    width: 30%;
+    float: left;
+  }
+  li.block {
+    width: 60%;
+    label, input {
+      display: inline;
+      margin-right: 20px;
+    }
+  }
+}
+
+/*
+<li>
+                 <label>
+                   Address
+                   <span class='required'>*</span>
+                 </label>
+                 <div class='block'>
+                   <input class='medium' name='address' type='address'>
+                   <span class='light'>Street Address</span>
+                 </div>
+                 <div class='block'>
+                   <input class='medium' name='address2' type='address2'>
+                   <span class='light'>Address Line 2</span>
+                 </div>
+                 <div class='block'>
+                   <div class='column'>
+                     <input class='small' name='city' type='city'>
+                     <span class='light'>City</span>
+                   </div>
+                   <div class='column'>
+                     <input class='medium' name='sate' type='state'>
+                     <span class='light'>State / Province / Region</span>
+                   </div>
+                 </div>
+                 <div class='block'>
+                   <div class='column'>
+                     <input class='medium' name='zipcode' type='zipcode'>
+                     <span class='light'>Postal
+
+
+
+
+*/

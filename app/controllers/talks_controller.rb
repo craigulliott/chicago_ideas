@@ -26,7 +26,7 @@ class TalksController < ApplicationController
   # Mega talks landing and individual pages
   def mega_talks
      @megatalks = TalkBrand.find_by_name("Mega Talk").talks
-     @talks = TalkBrand.find_by_name("Talk").talks
+     @talks = TalkBrand.find_by_name("Talk").talks.order('name ASC')
      render "talks/mega_talks"
      @page_title = "CIW Mega Talks"
   end
