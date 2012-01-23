@@ -1,1 +1,52 @@
-=@results.length
+-#     Chicago Ideas Week
+-#     search/index.html.haml
+-#     01/016/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Search", search_path
+        - if @query.present?
+          %li
+            %span= @query
+    = render "partials/explore_dropdown"
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Search
+    = render "partials/share"
+
+  -# Left column, main content: About Us information
+  .box.double.left
+
+    .column_row.divided_row#search_
+      .column.column_double
+        %form{:method => 'get', :id => 'search_form', :action => '/search'}
+          %span.column_header Search
+          %input{:type => "text", :id => "q", :name => "q", :placeholder => "What are you looking for?"}
+          %input{:type => "submit", :class => "btn blue_btn search_btn", :id => "search_btn", :value => "search"}
+    
+    .column_row#search_results
+      .column.column_double
+        - if @results.present?
+          %ul.preview_list
+            - @results.each do |result|
+              = render :partial => "#{result.class.name.pluralize}/result", :locals => {:result => result}
+              
+          
+          
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
+    

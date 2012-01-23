@@ -28,6 +28,7 @@
           %span.column_header Talks
           %ul.preview_list.double_rows
             = render "partials/talks_loop", :talks => @talks
+        = link_to "view all talks →", talks_path, :class => "view_all blue"
 
 
 

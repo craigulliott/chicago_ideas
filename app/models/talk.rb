@@ -9,6 +9,7 @@ class Talk < ActiveRecord::Base
     indexes sponsor(:name), :as => :sponsor, :sortable => true
     has sponsor_id, created_at, updated_at
   end
+  
   belongs_to :track
   belongs_to :day
   belongs_to :venue

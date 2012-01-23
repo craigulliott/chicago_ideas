@@ -25,6 +25,14 @@ class User < ActiveRecord::Base
   
   scope :by_name, order('name asc')
   
+  # Search Indexing
+  define_index do
+    where "speaker = 1 OR staff = 1"
+    indexes name
+    indexes bio
+    has created_at, updated_at
+  end
+  
   # if a temporary_password is provided, a random password will be generated
   # this random password will be sent to the welcome email, so we can notify the user of it
   attr_accessor :temporary_password

@@ -3,7 +3,6 @@ class EventsController < ApplicationController
   # cache rendered versions of these pages
   before_filter :cache_rendered_page, :only => [:index, :labs, :partner_programs, :affiliate_event]
 
-
   def index
     @page_title = "Events"
     @talks = Talk.limit(8)
@@ -15,7 +14,7 @@ class EventsController < ApplicationController
   
   # Labs landing and individual pages
   def labs
-   @labs = EventBrand.find_by_name("Lab").events
+   @labs = EventBrand.find_by_name("Lab").events.order('name ASC')
    @event_photos = EventPhoto.order('RAND()').limit(10)
    @page_title = "CIW Labs"
   end
