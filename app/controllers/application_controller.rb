@@ -45,8 +45,11 @@ class ApplicationController < ActionController::Base
     @staff_bios = StaffBio.by_sort_column
   end
   
+  
+  def recommend_speaker
+  end
+  
   def community
-    
   end
   
   def volunteer  
