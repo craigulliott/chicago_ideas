@@ -389,6 +389,28 @@
     top: 0;
     left: 0;
   }
+  
+  h2 {
+    font-size: 29px;
+    line-height: 33px;
+    color: $white;
+    display: block;
+    margin-bottom: 4px;
+    
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+  span.sub_title {
+    font-size: 16px;
+    color: $offwhite;
+    display: block;
+    a {
+      color: $offwhite;
+      text-decoration: none;
+    }
+  }
 }
 
 .talk_gallery {
@@ -796,7 +818,7 @@ input.submit, input.create {
     background: asset-url('application/explore_top.png', image) top left no-repeat;
     margin-top: -13px;
     text-align: right;
-    padding: 20px 20px 0 0;
+    padding: 10px 20px 0 0;
     
     a.close_explore_btn {
       font-size: 20px;

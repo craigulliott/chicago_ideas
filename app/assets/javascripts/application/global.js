@@ -28,13 +28,11 @@ var nextBanner = function () {
 $(document).ready(function() {
   
   
-  
+  // Explore Popup
   $('.explore_').bind('hover', function(e) {
     $('.explore_dropdown').fadeToggle('fast');
   });
-  $('.close_explore_btn').bind('click', function(e) {
-    $('.explore_dropdown').fadeToggle('fast');
-  });
+
   
   /************************************************************************************
    **    
