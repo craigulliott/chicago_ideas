@@ -37,10 +37,9 @@
       .column.column_double
       
         -# Speaker Quote
-        - if @speaker.quote.present?
+        - @speaker.quotes.each do |q|
           %blockquote.speaker_quote
-            - @speaker.quotes.take(1).each do |quotes|
-              = quotes.body
+            = q.body
           
         -# Speaker Overview: Sidebar with headshot, info, talks, social
         %ul#speaker_overview

@@ -20,7 +20,8 @@ test:
   pool: 5
   username: <%= ENV['MYSQL_USERNAME'] %>
   password: <%= ENV['MYSQL_PASSWORD'] %>
-  host: localhost
+  host: <%= ENV['MYSQL_HOST'] %>
+  port: <%= ENV['MYSQL_PORT'] %>
 
 production:
   # created for us by our push to heroku
