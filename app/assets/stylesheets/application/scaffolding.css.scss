@@ -345,7 +345,7 @@ ul#global_nav {
         }
       }
       
-      li:last-child {
+      li:last-child, li.last {
         margin-right: none;
       }
     }
@@ -431,7 +431,9 @@ ul#global_nav {
 			
 		} // end footer_item
 		
-		.footer_item:last-child { margin-right:0;}
+		.footer_item:last-child, .last { 
+		  margin-right:0;
+		}
 	} // #end footer_nav
 	
 	#copyright {
@@ -464,3 +466,8 @@ ul#global_nav {
 	
 } // end #footer
 
+
+.form_container {
+  margin-top: 150px !important;
+  position: relative;
+}

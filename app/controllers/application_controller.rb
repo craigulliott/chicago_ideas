@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   # which pages are we caching
-  before_filter :cache_rendered_page, :only => [:index, :contact, :team, :terms]
+  before_filter :cache_rendered_page, :only => [:index, :contact, :team, :terms, :about, :special_programs_awards, :privacy, :volunteer]
   before_filter :get_sponsors
   before_filter :get_talks
   before_filter :get_nav_featured
@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
     @speakers = User.speaker.limit(12).order(rand) # grab 12 speakers
     @sponsors = Sponsor.all
     @featured = Chapter.homepage_featured.order('RAND()').limit(6)
+    @page_title = "Welcome"
   end
   
   
