@@ -37,9 +37,10 @@
       .column.column_double
       
         -# Speaker Quote
-        - @speaker.quotes.each do |q|
-          %blockquote.speaker_quote
-            = q.body
+        - if @speaker.quotes.present?
+          - @speaker.quotes.take(1).each do |quote|
+            %blockquote.speaker_quote
+              = quote.body
           
         -# Speaker Overview: Sidebar with headshot, info, talks, social
         %ul#speaker_overview
@@ -65,12 +66,12 @@
 
 
     -# Related speakers
-    = render "partials/chapters_speakers", :chapters => @chapters
+    = render "partials/chapters_speakers", :chapters => @chapters, :title => "Related Speakers", :this_speaker => @speaker
         
 
   -# Include Sidebar Items
   #sidebar
-    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Videos"
+    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Videos", :this_chapter => "NULL"
     -#= render "speakers/speaker_tweets"
     = render "partials/sponsors"
     = render "partials/social"
