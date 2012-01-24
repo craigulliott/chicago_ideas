@@ -40,7 +40,7 @@
               %label 
                 Business/Organization name
                 %span.required *
-              %input{:type => "name", :name => "name", :class => "medium-large"}
+              %input{:type => "text", :name => "name", :class => "medium-large"}
             
             %li
               %label 
@@ -53,24 +53,24 @@
                 Address
                 %span.required *
               .block
-                %input{:type => "address", :name => "address", :class => "medium-large"}
+                %input{:type => "text", :name => "address", :class => "medium-large"}
                 %span.light Street Address
               .block
-                %input{:type => "address2", :name => "address2", :class => "medium-large"}
+                %input{:type => "text", :name => "address2", :class => "medium-large"}
                 %span.light Address Line 2
               .block
                 .column
-                  %input{:type => "city", :name => "city", :class => "small"}
+                  %input{:type => "text", :name => "city", :class => "small"}
                   %span.light City
                 .column
-                  %input{:type => "state", :name => "state", :class => "small"}
+                  %input{:type => "text", :name => "state", :class => "small"}
                   %span.light State / Province / Region
               .block
                 .column
-                  %input{:type => "zipcode", :name => "zipcode", :class => "extra-small"}
+                  %input{:type => "text", :name => "zipcode", :class => "extra-small"}
                   %span.light Postal / Zip Code
                 .column
-                  %input{:type => "country", :name => "country", :class => "small"}
+                  %input{:type => "text", :name => "country", :class => "small"}
                   %span.light Country
             
             %li
@@ -124,13 +124,13 @@
                 Contact Person
                 %span.required *
               .block
-                %input{:type => "contact_name", :name => "contact_name", :class => "medium"}
+                %input{:type => "text", :name => "contact_name", :class => "medium"}
                 %span.light Contact Name
               .block
-                %input{:type => "contact_phone", :name => "contact_phone", :class => "medium"}
+                %input{:type => "text", :name => "contact_phone", :class => "medium"}
                 %span.light Phone Number
               .block
-                %input{:type => "contact_email", :name => "contact_email", :class => "medium"}
+                %input{:type => "text", :name => "contact_email", :class => "medium"}
                 %span.light Email Address
                 
             %li

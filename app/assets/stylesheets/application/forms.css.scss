@@ -307,36 +307,9 @@ ul.check_list {
   }
 }
 
-/*
-<li>
-                 <label>
-                   Address
-                   <span class='required'>*</span>
-                 </label>
-                 <div class='block'>
-                   <input class='medium' name='address' type='address'>
-                   <span class='light'>Street Address</span>
-                 </div>
-                 <div class='block'>
-                   <input class='medium' name='address2' type='address2'>
-                   <span class='light'>Address Line 2</span>
-                 </div>
-                 <div class='block'>
-                   <div class='column'>
-                     <input class='small' name='city' type='city'>
-                     <span class='light'>City</span>
-                   </div>
-                   <div class='column'>
-                     <input class='medium' name='sate' type='state'>
-                     <span class='light'>State / Province / Region</span>
-                   </div>
-                 </div>
-                 <div class='block'>
-                   <div class='column'>
-                     <input class='medium' name='zipcode' type='zipcode'>
-                     <span class='light'>Postal
-
-
-
-
-*/
+li.s_links {
+  input {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
