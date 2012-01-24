@@ -75,7 +75,7 @@
 
   -# Include Sidebar Items
   #sidebar
-    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Other videos in this talk"
+    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Other videos in this talk", :this_chapter => @chapter
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"
