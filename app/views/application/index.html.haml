@@ -29,7 +29,7 @@
         .column.right#homepage_videos
           %span.column_header Videos
           %ul.preview_list
-            = render "partials/chapters_loop", :chapter => @chapters
+            = render "partials/chapters_loop", :chapters => @chapters
           = link_to "view all videos →", videos_path, :class => "view_all blue"
           
     .column_row#speakers
