@@ -7,7 +7,6 @@ class TalksController < ApplicationController
   def index    
     @talks = Talk.search_sort_paginate(params)
     @megatalks = TalkBrand.find_by_name("Mega Talk").talks
-    #@edisontalks = TalkBrand.find_by_name("Edison Talk").talks
     @tracks = Track.all
     @speakers = User.speaker.order('RAND()').limit(6)
     @page_title = "CIW Talks"
