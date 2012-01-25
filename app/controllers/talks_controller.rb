@@ -9,7 +9,7 @@ class TalksController < ApplicationController
     @megatalks = TalkBrand.find_by_name("Mega Talk").talks
     #@edisontalks = TalkBrand.find_by_name("Edison Talk").talks
     @tracks = Track.all
-    @speakers = User.speaker.limit(6)
+    @speakers = User.speaker.order('RAND()').limit(6)
     @page_title = "CIW Talks"
   end
   
