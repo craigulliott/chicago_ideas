@@ -34,6 +34,7 @@ CraigsAdmin::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   match 'account', :to => 'users#index'
   
+  resources :volunteers, :only => [:new, :create]
   
   resources :users do
     member do
@@ -57,7 +58,6 @@ CraigsAdmin::Application.routes.draw do
   
   # Static Pages
   match 'about', :to => 'application#about'
-  match 'volunteer', :to => 'application#volunteer'
   match 'recommend/speaker', :to => 'application#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
   match 'special_programs/blum_helfand_fellowship', :to => 'application#blum_helfand', :as => 'blum_helfand'
@@ -96,6 +96,14 @@ CraigsAdmin::Application.routes.draw do
   namespace :admin do
   
     root :to => 'admin#index'
+
+    resources :volunteers do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
 
     resources :press_clippings do
       member do
