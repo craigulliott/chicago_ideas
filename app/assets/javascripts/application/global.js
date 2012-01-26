@@ -160,7 +160,7 @@ $(document).ready(function() {
     });
   });
   
-  $('#global_search').bind('bindlur', function(e) {
+  $('#global_search').bind('blur', function(e) {
       $('#global_search_container').animate({
         width : '106px',
       });
