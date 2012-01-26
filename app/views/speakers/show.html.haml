@@ -46,7 +46,7 @@
         %ul#speaker_overview
           %li
             .img_frame
-              = image_tag(@speaker.portrait)
+              = image_tag(@speaker.portrait(:medium))
           %li
             %h3= @speaker.name
             - if @speaker.title.present?
