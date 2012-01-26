@@ -30,7 +30,7 @@
     .talk_gallery
       - @labs.each do |lab|
         - if lab.event_photos.present?
-          - lab.event_photos.each do |photo|
+          - lab.event_photos.order('RAND()').limit(10).each do |photo|
             = image_tag(photo.photo(:album))
 
 

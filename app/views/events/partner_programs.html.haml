@@ -1,10 +1,6 @@
--#- @partnerprograms.each do |p|
--#= p.id
-  -#= link_to p.name, event_partner_program_path(p)
-  
 -#     Chicago Ideas Week
--#     talks/index.html.haml
--#     01/15/2012
+-#     events/partner_program.html.haml
+-#     01/25/2012
 
 
 -# Breadcrumbs and Explore button
@@ -18,7 +14,8 @@
           %span Partner Programs
     = render "partials/explore_dropdown"
 
--# Begin Main Talk content
+
+-# Begin content
 %section.container#main_content
 
   #page_header
@@ -36,7 +33,7 @@
           - @partnerprograms.each do |pp|
             %li{:id => "partnerprograms_#{pp.id}"}
               .img_frame
-                = link_to image_tag(pp.banner), event_path(pp)
+                = link_to image_tag(pp.banner(:thumb)), event_path(pp)
               = link_to pp.name, event_path(pp)
 
   -# Include Sidebar Items
