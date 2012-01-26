@@ -31,8 +31,10 @@ gem 'whenever'
 # cache in memcache - varnish isnt availiable on cedar apps
 gem 'rack-cache'
 gem 'dalli'
-gem 'memcache-client'
+
+# search via sphinx deamon
 gem 'thinking-sphinx', '2.0.10'
+gem 'flying-sphinx',   '0.6.2'
 
 # social
 gem 'koala'

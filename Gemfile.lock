@@ -93,7 +93,16 @@ GEM
       addressable (~> 2.2)
       multipart-post (~> 1.1)
       rack (~> 1.1)
+    faraday_middleware (0.7.0)
+      faraday (~> 0.7.3)
     ffi (1.0.11)
+    flying-sphinx (0.6.2)
+      faraday_middleware (~> 0.7.0)
+      multi_json (~> 1.0.1)
+      net-ssh (>= 2.0.23)
+      rash (~> 0.3.0)
+      riddle (>= 1.5.0)
+      thinking-sphinx
     fog (1.1.2)
       builder
       excon (~> 0.9.0)
@@ -138,7 +147,6 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    memcache-client (1.8.5)
     mime-types (1.17.2)
     mongo (1.5.2)
       bson (= 1.5.2)
@@ -204,6 +212,8 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (0.9.2.2)
+    rash (0.3.2)
+      hashie (~> 1.2.0)
     rdoc (3.12)
       json (~> 1.4)
     redcarpet (2.1.0)
@@ -290,6 +300,7 @@ DEPENDENCIES
   devise
   dynamic_models
   factory_girl_rails
+  flying-sphinx (= 0.6.2)
   fog
   foreigner
   formtastic
@@ -302,7 +313,6 @@ DEPENDENCIES
   kaminari
   koala
   launchy
-  memcache-client
   mongoid
   mysql2
   newrelic_rpm
