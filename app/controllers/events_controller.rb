@@ -11,6 +11,12 @@ class EventsController < ApplicationController
   end
   
   
+  def show
+    @event = Event.find(params[:id])
+    @page_title "#{@event.name}"
+    @partnerprograms = EventBrand.find_by_name("Partner Program").events
+  end
+  
   
   # Labs landing and individual pages
   def labs
