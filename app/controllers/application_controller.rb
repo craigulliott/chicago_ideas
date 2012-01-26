@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     @chapters = Chapter.order('RAND()').limit(4)
     @speakers = User.speaker.order('RAND()').limit(8)
     @sponsors = Sponsor.all
-    @featured = Chapter.homepage_featured.order('RAND()').limit(6)
+    @featured = Chapter.homepage_featured.order('RAND()').limit(8)
     @page_title = "Welcome"
   end
   
