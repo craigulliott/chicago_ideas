@@ -4,12 +4,13 @@ class TalksController < ApplicationController
   before_filter :cache_rendered_page, :only => [:index, :show, :mega_talks, :edison_talks, :chapter]
 
   
-  def index    
+  def index
+    @featured = Talk.order('RAND()').limit(10) # Talks specifically for the featured banner
+    #@featured = Chapter.homepage_featured.order('RAND()').limit(2)
+    #@featured = Talk.order('RAND()').search_sort_paginate(params)
     @talks = Talk.search_sort_paginate(params)
-    @megatalks = TalkBrand.find_by_name("Mega Talk").talks
-    #@edisontalks = TalkBrand.find_by_name("Edison Talk").talks
     @tracks = Track.all
-    @speakers = User.speaker.limit(6)
+    @speakers = User.speaker.order('RAND()').limit(6)
     @page_title = "CIW Talks"
   end
   
@@ -26,7 +27,7 @@ class TalksController < ApplicationController
   # Mega talks landing and individual pages
   def mega_talks
      @megatalks = TalkBrand.find_by_name("Mega Talk").talks
-     @talks = TalkBrand.find_by_name("Talk").talks
+     @talks = TalkBrand.find_by_name("Talk").talks.order('name ASC')
      render "talks/mega_talks"
      @page_title = "CIW Mega Talks"
   end

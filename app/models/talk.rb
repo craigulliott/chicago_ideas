@@ -3,6 +3,13 @@ class Talk < ActiveRecord::Base
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
 
+  define_index do
+    indexes name
+    indexes description
+    indexes sponsor(:name), :as => :sponsor, :sortable => true
+    has sponsor_id, created_at, updated_at
+  end
+  
   belongs_to :track
   belongs_to :day
   belongs_to :venue
@@ -54,7 +61,14 @@ class Talk < ActiveRecord::Base
       ]
     end
   end
-
+  
+  # return a banner, from a featured chapter (or nil)
+  def banner size = :medium
+    chapter = featured_chapters.first
+    chapter.present? ? chapter.banner(size) : nil
+  end
+   
+   
   # return formatted time for the front-end
   def formatted_time
     start_time = "#{self.start_time.strftime("%l")} #{self.start_time.strftime("%p")}"
