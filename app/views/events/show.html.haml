@@ -1,6 +1,6 @@
 -#     Chicago Ideas Week
--#     talks/show.html.haml
--#     01/12/2012
+-#     events/show.html.haml
+-#     01/25/2012
 
 
 -# Breadcrumbs and Explore button
@@ -9,8 +9,8 @@
     #breadcrumbs
       %ul
         %li= link_to "Home", "/"
-        %li= link_to "Talks", talks_path
-        %li= link_to @talk.name
+        %li= link_to "Events", events_path
+        %li= link_to @event.name
     = render "partials/explore_dropdown"
 
 
@@ -19,27 +19,25 @@
 
   #page_header
     #page_title.left
-      %h1= @talk.name
-      - if @talk.track.present?
-        %span.sub_header= link_to @talk.track.name, "#"
+      %h1= @event.name
     = render "partials/share"
       
 
   -# Left column, main content: Gallery, details, speakers, etc.
   .box.double.left
     
-    - if @talk.talk_photos.present?
+    - if @event.event_photos.present?
       .talk_gallery
-        - @talk.talk_photos.each do |photo|
+        - @event.talk_photos.each do |photo|
           = image_tag photo.photo(:album)
         
 
     .column_row.divided_row#talks_description
       .column.column_double
         %span.column_header About this Talk
-        %pre= @talk.description
+        %pre= @event.description
         
-    .column_row.divided_row#talks_location
+    .column_row#talks_location
       .column
         %span.column_header
           Date &amp; Location
@@ -47,27 +45,23 @@
         %table.talk_venue_details
           %tr
             %td.venue_label{:width => "85"} Date
-            %td= @talk.day.name
+            %td= @event.day.name
           %tr
             %td.venue_label Time
-            %td= @talk.formatted_time
+            %td= @event.formatted_time
           %tr
             %td.venue_label Venue
             %td
-              = @talk.venue.name
-              %address= @talk.venue.address
+              = @event.venue.name
+              %address= @event.venue.address
       .column.right
         .venue_map
-          - if @talk.venue.present?
+          - if @event.venue.present?
             = image_tag @talk.venue.google_maps_src(300,145,zoom=15)
   
     
-    -#= render "partials/chapters_speakers", :locals => @chapters
-    = render "partials/chapters_speakers", :chapters => @chapters, :title => "Speakers", :this_speaker => @speaker
-
   -# Include Sidebar Items
   #sidebar
-    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Videos in this Talk", :this_chapter => 'NULL'
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"
