@@ -28,9 +28,9 @@
   .box.double.left
     
     -# Speaker Photo Gallery
-    .portrait
-      -#- @talk.talk_photos.each do |photo|
-      = image_tag(@speaker.portrait2(:full))
+    - if @speaker.portrait2.present?
+      .portrait
+        = image_tag(@speaker.portrait2(:full))
       
     -# Main Speaker Content Below
     .column_row.divided_row#speaker_bio
@@ -66,7 +66,8 @@
 
 
     -# Related speakers
-    = render "partials/chapters_speakers", :chapters => @chapters, :title => "Related Speakers", :this_speaker => @speaker
+    -#@chapters = @chapters.first.talk.chapters.all
+    = render "partials/chapters_speakers", :chapters => @chapters.first.talk.chapters.all, :title => "Related Speakers", :this_speaker => @speaker
         
 
   -# Include Sidebar Items

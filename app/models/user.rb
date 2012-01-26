@@ -205,7 +205,7 @@ class User < ActiveRecord::Base
   end
   
   def title_abbreviated
-    ( title.present? && title.length > 75 ) ? "#{bio[0..72]}..." : title
+    ( title.present? && title.length > 75 ) ? "#{title[0..72]}..." : title
   end
   
   private 
