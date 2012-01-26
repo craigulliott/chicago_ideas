@@ -68,7 +68,7 @@
                   %span.speaker_title= performance.speaker.title
 
                   %pre
-                    = "#{performance.speaker.bio[0..200]}..."
+                    = performance.speaker.bio_abbreviated
                     = link_to "read more →", speaker_path(performance.speaker)
                 .clearfix
               
