@@ -28,9 +28,9 @@
   .box.double.left
     
     -# Speaker Photo Gallery
-    .talk_gallery
+    .portrait
       -#- @talk.talk_photos.each do |photo|
-      -#= image_tag(photo.photo_file_name)
+      = image_tag(@speaker.portrait2(:full))
       
     -# Main Speaker Content Below
     .column_row.divided_row#speaker_bio
