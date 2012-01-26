@@ -60,6 +60,7 @@ CraigsAdmin::Application.routes.draw do
   match 'volunteer', :to => 'application#volunteer'
   match 'recommend/speaker', :to => 'application#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
+  match 'special_programs/blum_helfand_fellowship', :to => 'application#blum_helfand', :as => 'blum_helfand'
   match 'community', :to => 'application#community'
   
   # talks and events

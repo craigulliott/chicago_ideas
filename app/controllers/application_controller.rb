@@ -59,6 +59,8 @@ class ApplicationController < ActionController::Base
   def special_programs_awards  
   end
   
+  def blum_helfand
+  end
 
   def terms
   end
