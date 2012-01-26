@@ -57,6 +57,13 @@ class PressClipping < ActiveRecord::Base
     "#{IMAGE_WIDTH}x#{IMAGE_HEIGHT}"
   end
   
+  
+  # return formatted time for the front-end
+  def formatted_time
+    "#{self.created_at.strftime("%B #{self.created_at.day.ordinalize}, %Y")}"
+  end
+  
+  
   private
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_image_dimensions

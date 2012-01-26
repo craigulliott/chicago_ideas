@@ -74,7 +74,7 @@ class UsersController < ApplicationController
     end
     @page_title = "#{@speaker.name}"
     # Get all chapters that the speaker is part of
-    @chapters = @speaker.chapters.all 
+    @chapters = @speaker.chapters.all
     render "speakers/show"
   end
   

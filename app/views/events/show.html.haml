@@ -28,7 +28,7 @@
     
     - if @event.event_photos.present?
       .talk_gallery
-        - @event.talk_photos.each do |photo|
+        - @event.event_photos.each do |photo|
           = image_tag photo.photo(:album)
         
 
