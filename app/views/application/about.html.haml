@@ -38,7 +38,7 @@
       .column.column_double
         %span.column_header CIW Team
         %ul.preview_list.team_list.double_rows
-          - @staff.each do |teammember|
+          - @team.each do |teammember|
             %li{:id => "teammember_#{teammember.id}", :class => "teammember_#{teammember.id}"}
               .img_frame
                 - begin
