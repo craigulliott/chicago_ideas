@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117165429) do
+ActiveRecord::Schema.define(:version => 20120126020301) do
 
   create_table "chapter_photos", :force => true do |t|
     t.string   "photo_file_name",    :null => false
@@ -117,16 +117,12 @@ ActiveRecord::Schema.define(:version => 20120117165429) do
   add_index "notes", ["author_id"], :name => "index_notes_on_author_id"
 
   create_table "partners", :force => true do |t|
-    t.string   "name",                :limit => 100, :null => false
+    t.string   "name",              :limit => 100, :null => false
     t.text     "description"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.datetime "banner_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -307,6 +303,7 @@ ActiveRecord::Schema.define(:version => 20120117165429) do
     t.string   "portrait2_content_type"
     t.integer  "portrait2_file_size"
     t.datetime "portrait2_updated_at"
+    t.boolean  "newsletter",                            :default => true,  :null => false
   end
 
   add_index "users", ["admin"], :name => "index_users_on_admin"
@@ -350,6 +347,34 @@ ActiveRecord::Schema.define(:version => 20120117165429) do
 
   add_index "videos", ["asset_type", "asset_id"], :name => "index_videos_on_asset_type_and_asset_id"
 
+  create_table "volunteers", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "postcode"
+    t.boolean  "employed"
+    t.text     "why"
+    t.text     "what"
+    t.text     "availability"
+    t.boolean  "street_team"
+    t.boolean  "avail_mon"
+    t.boolean  "avail_tue"
+    t.boolean  "avail_wed"
+    t.boolean  "avail_thu"
+    t.boolean  "avail_fri"
+    t.boolean  "avail_sat"
+    t.boolean  "avail_sun"
+    t.boolean  "avail_time_1"
+    t.boolean  "avail_time_2"
+    t.boolean  "avail_time_3"
+    t.boolean  "avail_time_4"
+    t.boolean  "avail_time_5"
+    t.boolean  "avail_time_6"
+    t.string   "hours"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "volunteers", ["user_id"], :name => "index_volunteers_on_user_id"
+
   create_table "years", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -388,5 +413,7 @@ ActiveRecord::Schema.define(:version => 20120117165429) do
   add_foreign_key "talks", "talk_brands", :name => "talks_talk_brand_id_fk"
   add_foreign_key "talks", "tracks", :name => "talks_track_id_fk"
   add_foreign_key "talks", "venues", :name => "talks_venue_id_fk"
+
+  add_foreign_key "volunteers", "users", :name => "volunteers_user_id_fk"
 
 end

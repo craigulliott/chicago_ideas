@@ -7,8 +7,8 @@
   = f.input :title 
   = f.input :bio, :hint => "bios accept basic markdown formatting"
   = f.input :twitter_screen_name 
-  = f.input :portrait, :as => :file, :label => "Portrait Photo", :hint => "for staff and speakers, must be #{@model.portrait_dimensions_string}"
-  = f.input :portrait2, :as => :file, :label => "Portrait Photo 2", :hint => "for staff and speakers, must be #{@model.portrait_dimensions_string}"
+  = f.input :portrait, :as => :file, :label => "Portrait Photo", :hint => "for staff and speakers, must be #{@model.portrait1_dimensions_string}"
+  = f.input :portrait2, :as => :file, :label => "Portrait Photo 2", :hint => "for staff and speakers, must be #{@model.portrait2_dimensions_string}"
 
 = f.inputs :name => 'Quotes' do
   = link_to_add_fields "Add Quote", f, :quotes, :template => 'admin/quotes/nested_fields.html.haml'

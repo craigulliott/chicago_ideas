@@ -5,6 +5,14 @@
 
     .column_row#login_container
       %span.column_header Account Registration
+
+      = link_to "Click here to Login with your Facebook Account", user_omniauth_authorize_path(:facebook), :class => 'facebook_connect'
+      %br/
+      %br/
+      or create a new account below: 
+      %br/
+      %br/
+      
       = semantic_form_for resource, :as => resource_name, :url => registration_path(resource_name) do |f|
         = f.inputs do
           = f.input :name
