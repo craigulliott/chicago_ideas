@@ -36,7 +36,7 @@ CraigsAdmin::Application.routes.draw do
   
   resources :volunteers, :only => [:new, :create]
   
-  resources :years, :only => :show
+  resources :years, :only => [:show]
   
   resources :users do
     collection do 
