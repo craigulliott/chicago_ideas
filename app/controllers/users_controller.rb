@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       # save this new user
       unless user.save
         # send back JSON containing the errors, so we can update the display
-        render_json_response :error, :html => render_to_string('partials/newsletter_form.html.haml', :layout => false), :notice => user.errors.to_sentance
+        render_json_response :error, :html => render_to_string('partials/_newsletter_form.html.haml', :layout => false), :notice => user.errors.first.present? ? user.errors.first.join(' ') : 'Could not save, please check email and name are valid.'
         return
       end
     end
