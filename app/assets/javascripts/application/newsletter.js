@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   // dont submit the contact form unless all the fields have been used
   // -------------------------------------------------------------------
-  $('body#application_page.contact form.contact').live('submit', function(){
+  $('form#subscribe_to_newsletter').live('submit', function(){
     
     $(this).find(':input').closest('li').removeClass('error');
     $missing = [];
@@ -22,9 +22,20 @@ $(document).ready(function(){
     
   }).bind('ajax:success', function(data, status, xhr){
     
-    $(this).hide();
-    $('#thank_you').show();
-  
+    // always display notices it there are any
+    if( status.notice ){
+      Utility.flash_notice(status.notice);
+    }
+    
+    // update the form with any errors we may have recieved
+    if( status.html ){
+      $(this).html($(status.html).find('form').html)
+    } 
+    // else it was a success, hide newsletter signups
+    else {
+      $('#newsletter_signup').fadeOut();
+    }
+
   });
 
 });

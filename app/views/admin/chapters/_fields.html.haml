@@ -3,9 +3,12 @@
   = f.input :vimeo_id
   = f.input :description 
   = f.input :banner, :as => :file, :title => "Banner Photo", :hint => "a #{@model.banner_dimensions_string} blessed photo for displaying on the site"
+
+= f.inputs :name => 'Feature this Chapter' do
   = f.input :featured_on_talk 
   = f.input :featured_on_homepage 
   = f.input :homepage_caption, :hint => 'If this is to be featured on the homepage, we will use this caption'
+  = f.input :homepage_banner, :as => :file, :title => "Homepage Photo", :hint => "a #{@model.banner_dimensions_string} blessed photo for displaying on the homepage"
 
 = f.inputs :name => 'Speakers' do
   = link_to_add_fields "Add Speaker", f, :performances, :template => 'admin/performances/nested_fields.html.haml'

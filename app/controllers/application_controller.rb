@@ -84,6 +84,7 @@ class ApplicationController < ActionController::Base
     json[:connected_to_twitter] = (current_user and current_user.connected_to_twitter?) ? true : false
     json[:connected_to_facebook] = (current_user and current_user.connected_to_facebook?) ? true : false
     json[:full_name] = (current_user ) ? current_user.name : nil
+    json[:newsletter] = (current_user ) ? current_user.newsletter : nil
     render :json => json
   end
   
