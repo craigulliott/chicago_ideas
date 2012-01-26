@@ -31,8 +31,10 @@
             %a{:name => "news_#{news.id}"}
             .column.column_double
               %h2= news.title
-              %span.timestamp= news.created_at
+              %span.timestamp= news.formatted_time
               %pre= news.description
+              -if news.url.present?
+                = link_to news.title, news.url
     - else
       .column_row
         .column.column_double

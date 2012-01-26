@@ -23,7 +23,7 @@
   #page_header
     #page_title.left
       %h1= @chapter.title
-      %span.sub_header= link_to @talk.name, "#"
+      %span.sub_header= link_to @talk.name, talk_path(@talk)
     = render "partials/share"
 
   -# Left column, main content: Video, details, speakers, etc.

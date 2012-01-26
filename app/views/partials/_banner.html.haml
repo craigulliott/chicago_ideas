@@ -8,7 +8,7 @@
 
   #banner_container
     - @featured.each do |featured_item|
-      .banner_item{:id => "banner_#{featured_item.id}", :style => "background: url(#{featured_item.banner.url(:large)}) center center no-repeat;"}
+      .banner_item{:id => "banner_#{featured_item.id}", :style => "background: url(#{featured_item.homepage_banner(:large)}) center center no-repeat;"}
         .banner_content
           .banner_box
             .banner_top
@@ -24,4 +24,4 @@
     .container-fluid#banner_nav_wrapper
       %ul#banner_nav
         - @featured.each do |featured_thumb|
-          %li= link_to image_tag(featured_thumb.banner(:thumb)), "#", :class => "b_thumb thumb_#{featured_thumb.id}", :id => "thumb_#{featured_thumb.id}"
+          %li= link_to image_tag(featured_thumb.homepage_banner(:thumb)), "#", :class => "b_thumb thumb_#{featured_thumb.id}", :id => "thumb_#{featured_thumb.id}"
