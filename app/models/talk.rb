@@ -75,6 +75,7 @@ class Talk < ActiveRecord::Base
     end_time = "#{self.end_time.strftime("%l")} #{self.end_time.strftime("%p")}"
     "#{start_time} - #{end_time}"
   end
+  
 
   # return a banner, from a featured chapter (or nil)
   def banner_src
