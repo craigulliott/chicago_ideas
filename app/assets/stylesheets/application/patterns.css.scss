@@ -749,14 +749,26 @@ ul.semi_finalists {
   clear:both;
 }
 
-form#newsletter_signup {
-  input[type="email"] {
+form#subscribe_to_newsletter {
+  ol {
+    list-style: none;
+  }
+  label {
+    display: none;
+  }
+  input[type="email"], input[type="text"] {
+    margin: 4px 0;
     background-color: #f7f5f6;
-    width: 165px;
+    width: 235px;
     padding: 7px;
     @include box-shadow-inset(0px,1px,3px,#aeaeae);
     @include rounded(3px);
     border: 1px solid #c1c1c1;
+  }
+  .error input {
+    border: 1px solid #AF0000;
+    background-color: #f7f5f6;
+    @include box-shadow-inset(0px,1px,3px,#F2E3E3);
   }
 }
 

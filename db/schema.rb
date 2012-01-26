@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120126020301) do
+ActiveRecord::Schema.define(:version => 20120126033206) do
 
   create_table "chapter_photos", :force => true do |t|
     t.string   "photo_file_name",    :null => false
@@ -27,20 +27,24 @@ ActiveRecord::Schema.define(:version => 20120126020301) do
   add_index "chapter_photos", ["chapter_id"], :name => "index_chapter_photos_on_chapter_id"
 
   create_table "chapters", :force => true do |t|
-    t.integer  "sort",                                    :null => false
+    t.integer  "sort",                                            :null => false
     t.string   "title"
     t.text     "description"
-    t.integer  "talk_id",                                 :null => false
+    t.integer  "talk_id",                                         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "vimeo_id"
-    t.boolean  "featured_on_talk",     :default => false, :null => false
-    t.boolean  "featured_on_homepage", :default => false, :null => false
+    t.boolean  "featured_on_talk",             :default => false, :null => false
+    t.boolean  "featured_on_homepage",         :default => false, :null => false
     t.text     "homepage_caption"
     t.string   "banner_file_name"
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
+    t.string   "homepage_banner_file_name"
+    t.string   "homepage_banner_content_type"
+    t.integer  "homepage_banner_file_size"
+    t.datetime "homepage_banner_updated_at"
   end
 
   add_index "chapters", ["talk_id", "sort"], :name => "index_chapters_on_talk_id_and_sort"
