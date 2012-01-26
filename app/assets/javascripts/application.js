@@ -1,5 +1,7 @@
 // =require common
 
+// =require application/newsletter
+// =require application/contact
 
 // =require application/modernizr.min.js
 // =require application/global.js
@@ -15,6 +17,10 @@ $(document).ready(function(){
     
     if( data.admin ) {
       $('#admin_link').show();
+    }
+    
+    if( data.newsletter ) {
+      $('#newsletter_signup').hide();
     }
     
     if( data.signed_in ) {
