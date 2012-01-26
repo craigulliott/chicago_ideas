@@ -94,6 +94,14 @@ CraigsAdmin::Application.routes.draw do
   
     root :to => 'admin#index'
 
+    resources :volunteers do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
     resources :press_clippings do
       member do
         # pages

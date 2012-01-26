@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   # chainable arel method and a boolean helper to determine if models are deleted or not
   include DeleteByTime
   
-  PORTRAIT_WIDTH = 468
-  PORTRAIT_HEIGHT = 468
+  PORTRAIT_WIDTH = 680
+  PORTRAIT_HEIGHT = 400
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
@@ -103,10 +103,10 @@ class User < ActiveRecord::Base
   
   has_attached_file :portrait2,
     :styles => { 
-      :tiny_thumb => "60x60", 
-      :thumb => "117x117", 
-      :medium => "234x234",
-      :full => "468x468",
+      :tiny_thumb => "60x60#", 
+      :thumb => "117x117#",
+      :medium => "234x234#",
+      :full => "468x468#",
     },
     :convert_options => { 
       :tiny_thumb => "-quality 70", 

@@ -1,0 +1,25 @@
+%table#volunteers
+  %tr
+    %th.user_id= ssp_sort_link :user_id
+    %th.postcode= ssp_sort_link :postcode
+    %th.employed= ssp_sort_link :employed
+    %th.why= ssp_sort_link :why
+    %th.what= ssp_sort_link :what
+    %th.availability= ssp_sort_link :availability
+    %th.street_team= ssp_sort_link :street_team
+    %th.avail_mon= ssp_sort_link :avail_mon
+    %th.avail_tue= ssp_sort_link :avail_tue
+    %th.avail_wed= ssp_sort_link :avail_wed
+    %th.avail_thu= ssp_sort_link :avail_thu
+    %th.avail_fri= ssp_sort_link :avail_fri
+    %th.avail_sat= ssp_sort_link :avail_sat
+    %th.avail_sun= ssp_sort_link :avail_sun
+    %th.avail_time_1= ssp_sort_link :avail_time_1
+    %th.avail_time_2= ssp_sort_link :avail_time_2
+    %th.avail_time_3= ssp_sort_link :avail_time_3
+    %th.avail_time_4= ssp_sort_link :avail_time_4
+    %th.avail_time_5= ssp_sort_link :avail_time_5
+    %th.avail_time_6= ssp_sort_link :avail_time_6
+    %th.hours= ssp_sort_link :hours
+    %th 
+  = render :partial => 'admin/volunteers/volunteer.html.haml', :collection => volunteers
