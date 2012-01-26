@@ -152,10 +152,10 @@ $(document).ready(function() {
   // Navigation Search box
   $('#global_search').bind('focus', function(e) {
     $('#global_search_container').animate({
-      width : '290px',
+      width : '250px',
     });
     $(this).animate({
-      width : '240px', 
+      width : '220px', 
       left : '0px',
     });
   });
