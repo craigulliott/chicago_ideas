@@ -1,6 +1,6 @@
 -#     Chicago Ideas Week
--#     application/about.html.haml
--#     01/016/2012
+-#     volunteer/new.html.haml
+-#     01/025/2012
 
 
 %section.banner.container-fluid
@@ -15,22 +15,23 @@
       %h1 Volunteer for CIW
     = render "partials/share"
     
-  -# Left column, main content: About Us information
+    
+  -# Left column, Main content
   .box.double.left
-
-    .column_row.divided_row#about_description
+    .column_row#volunteer_form
       .column.column_double
+      
         %p Be part of Chicago Ideas Week, and experience all it has to offer in a unique way.
 
         = semantic_form_for(@volunteer) do |f|
-          = f.inputs :name => "#{current_user.name} volunteer application" do
+          = f.inputs :name => "#{current_user.name} volunteer application", :class => "v_list" do
             = f.input :postcode 
             = f.input :employed, :label => "Are you currently employed?" 
             = f.input :why, :label => "Why are you interested in volunteering?" 
             = f.input :what, :label => "What specific areas of expertise/experience do you have?" 
             = f.input :availability, :label => "What is your availability leading up to CIW?" 
             = f.input :street_team, :label => "Are you interested in volunteering on the CIW Event Promotion / Street Team?"
-          = f.inputs :name => "Which days during the week of CIW are you available?" do
+          = f.inputs :name => "Which days during the week of CIW are you available?", :class => "c_list v_lists" do
             = f.input :avail_mon, :label => "Monday"
             = f.input :avail_tue, :label => "Tuesday"
             = f.input :avail_wed, :label => "Wednesday"
@@ -38,7 +39,7 @@
             = f.input :avail_fri, :label => "Friday"
             = f.input :avail_sat, :label => "Saturday"
             = f.input :avail_sun, :label => "Sunday"
-          = f.inputs :name => "What times during the week of CIW are you available?" do
+          = f.inputs :name => "What times during the week of CIW are you available?", :class => "c_list v_lists" do
             = f.input :avail_time_1, :label => "8am - 1pm"
             = f.input :avail_time_2, :label => "10am - 3pm"
             = f.input :avail_time_3, :label => "12am - 5pm"
