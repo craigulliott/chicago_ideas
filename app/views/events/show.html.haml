@@ -57,7 +57,7 @@
       .column.right
         .venue_map
           - if @event.venue.present?
-            = image_tag @talk.venue.google_maps_src(300,145,zoom=15)
+            = image_tag @event.venue.google_maps_src(300,145,zoom=15)
   
     
   -# Include Sidebar Items
