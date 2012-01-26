@@ -1,0 +1,11 @@
+#global_search_container
+  %form{:method => 'get', :id => 'nav_search', :action => '/search'}
+    %input{:type => "text", :id => "global_search", :name => "q", :placeholder => "search"}
+    %input{:type => "submit", :id => "global_search_btn", :value => ""}
+  
+  -##nav_results
+    -#.explore_dropdown.show
+      -#.explore_top.show
+        -#= link_to "×", "#", :class => "close_explore_btn"
+      -#.explore_content
+        -#%ul#nav_s_results

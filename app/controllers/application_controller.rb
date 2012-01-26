@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   # which pages are we caching
-  before_filter :cache_rendered_page, :only => [:index, :contact, :team, :terms]
+  before_filter :cache_rendered_page, :only => [:index, :contact, :team, :terms, :about, :special_programs_awards, :privacy, :volunteer]
   before_filter :get_sponsors
   before_filter :get_talks
   before_filter :get_nav_featured
@@ -10,11 +10,12 @@ class ApplicationController < ActionController::Base
   
   # the application homepage
   def index
-    @talks = Talk.limit(8)
-    @chapters = Chapter.limit(8)
-    @speakers = User.speaker.limit(12).order(rand) # grab 12 speakers
+    @talks = Talk.order('RAND()').limit(4)
+    @chapters = Chapter.order('RAND()').limit(4)
+    @speakers = User.speaker.order('RAND()').limit(8)
     @sponsors = Sponsor.all
     @featured = Chapter.homepage_featured.order('RAND()').limit(6)
+    @page_title = "Welcome"
   end
   
   
@@ -22,9 +23,9 @@ class ApplicationController < ActionController::Base
     @sponsors = Sponsor.all
   end
   def get_talks
-    @e_megatalks = TalkBrand.find_by_name("Mega Talk").talks.limit(3)
-    @e_talks = TalkBrand.find_by_name("Talk").talks.limit(10)
-    @e_speakers = User.speaker.limit(10).order(rand) # grab 12 speakers
+    @e_megatalks = TalkBrand.find_by_name("Mega Talk").talks.order('RAND()').limit(3)
+    @e_talks = TalkBrand.find_by_name("Talk").talks.order('RAND()').limit(10)
+    @e_speakers = User.speaker.order('RAND()').limit(10)
   end
   def get_nav_featured
     @nav_featured_chapters = Chapter.homepage_featured.order('RAND()').limit(2)
@@ -44,8 +45,11 @@ class ApplicationController < ActionController::Base
     @staff_bios = StaffBio.by_sort_column
   end
   
+  
+  def recommend_speaker
+  end
+  
   def community
-    
   end
   
   def volunteer  

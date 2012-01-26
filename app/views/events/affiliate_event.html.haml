@@ -31,7 +31,14 @@
         = image_tag(photo.photo(:album))
 
 
-
+    .column_row.divided_row
+      .column.column_double
+      %p Chicago Ideas Week is an inclusive experience for the thinkers and doers of Chicago and the greater Midwest area.
+      %p A CIW Affiliate Event is independently produced and programmed, exhibits an innovative theme, and takes place during Chicago Ideas Week (October 8-14, 2012).
+      %p Thanks again to all the amazing organizations that chose to host CIW Affiliate
+      %p Events! Please check back for updates on 2012 Affiliate Event coming soon.
+      
+      
     - if @events.present?
       #labs_list
         - @events.each do |event|
@@ -41,11 +48,6 @@
               %h3= event.name
               %pre= event.description
               %a{:class => "back_top", :href => "javascript:scroll(0,0)"} back top
-    - else
-      .column_row
-        .column.column_double
-        %p Sorry, there are currently no affiliate events. Please join our mailing list to get updates on events.
-        
   
   - if @events.present?
     .box.right#labs_list

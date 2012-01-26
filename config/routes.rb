@@ -10,7 +10,7 @@ CraigsAdmin::Application.routes.draw do
 
   # website pages
   # ----------------------------------------------------------------
-  match 'search', :to => 'application#search'
+  match 'search(.:format)', :to => 'search#index', :as => 'search'
 
   # legalese 
   match 'privacy', :to => 'application#privacy'
@@ -22,7 +22,8 @@ CraigsAdmin::Application.routes.draw do
   # sponsors and partners
   # ----------------------------------------------------------------
   resources :sponsors, :only => [:index]
-  resources :partners, :only => [:index]
+  resources :partners, :only => [:index, :apply]
+  match 'partners/apply', :to => 'partners#apply', :as => 'partners_apply'
 
   # users
   # ----------------------------------------------------------------
@@ -57,6 +58,7 @@ CraigsAdmin::Application.routes.draw do
   # Static Pages
   match 'about', :to => 'application#about'
   match 'volunteer', :to => 'application#volunteer'
+  match 'recommend/speaker', :to => 'application#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
   match 'community', :to => 'application#community'
   
@@ -85,7 +87,7 @@ CraigsAdmin::Application.routes.draw do
   match 'videos', :to => 'chapters#index'
   match 'videos/:id', :to => 'chapters#show', :as => "video"
   
-  match 'events/partner_programs/:id', :to => 'events#partner_programs'
+  match 'events/partner_programs/:id', :to => 'events#partner_programs', :as => 'partner_program'
   
 
   # the Admin                                                                   (http://www.domain.com/admin)

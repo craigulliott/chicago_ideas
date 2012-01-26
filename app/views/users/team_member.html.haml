@@ -28,14 +28,15 @@
     .column_row.divided_row#team_member
       .column.column_double
         .headshot_container.img_frame
-          = image_tag URI.decode(staffmember.portrait(:thumb))
+          = image_tag URI.decode(@team_member.portrait(:medium))
         %pre= @team_member.bio_html
     
     .column_row#team
       .column.column_double
+        %span.column_header Other CIW Team Members
         - if @team.present?
           %ul.preview_list.team_list.double_rows
-            = render "partials/team_loop", :team => @team
+            = render "partials/team_loop", :team => @team, :current_team_member => @team_member
 
 
 

@@ -9,5 +9,5 @@
   .column.column_double
     %span.column_header Speakers
     %ul.preview_list.speaker_list.double_rows
-      = render "partials/speakers_loop", :locals => speakers
-    = paginate @speakers
+      = render "partials/speakers_loop", :speakers => speakers
+    = paginate speakers

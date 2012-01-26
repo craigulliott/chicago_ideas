@@ -2,7 +2,12 @@ class Quote < ActiveRecord::Base
 
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
-
+  
+  define_index do
+    indexes body
+    has created_at, updated_at
+  end
+  
   belongs_to :user
   
   # we have a polymorphic relationship with notes

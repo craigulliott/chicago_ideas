@@ -16,10 +16,10 @@
 %section.container#main_content
 
   -# Featured chapter slider
-  = render "partials/slider", :featured => @featured
+  = render "chapters/slider", :featured => @featured
   
   -# Render the chapter list
-  = render "chapters/chapters", :chapters => @chapters
+  = render "chapters/chapters", :chapters => @chapters, :do_paginate => true
 
 
   -# Include Sidebar Items
