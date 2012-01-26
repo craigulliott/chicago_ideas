@@ -222,7 +222,7 @@
   #banner_nav_wrapper {
     background: rgba(0,0,0,.45);
     width:100%;
-    height: 75px;
+    height: 65px;
     padding: 15px 0;
     z-index:4001;
     position: absolute;
@@ -230,7 +230,7 @@
     
     ul#banner_nav {
       width: 1000px;
-      height: 75px;
+      height: 65px;
       margin: 0 auto;
       display:block;
       list-style:none;
@@ -239,15 +239,15 @@
       > li {
         display:inline;
         float:left;
-        width: 160px;
-        height: 75px;
+        width: 110px;
+        height: 65px;
         padding:0;
-        margin:0 8px 0 0;
+        margin:0 15px 0 0;
         @include box-shadow(1px,1px,3px,#111);
         
         a {
-          width: 160px;
-          height: 75px;
+          width: 110px;
+          height: 65px;
           display: block;
           overflow: hidden;
           
