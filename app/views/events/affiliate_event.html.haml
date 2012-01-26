@@ -3,19 +3,12 @@
 -#     01/03/2012
 
 
--# Breadcrumbs and Explore button
-%section#header_toolbar.container-fluid
-  .container
-    #breadcrumbs
-      %ul
-        %li= link_to "Home", "/"
-        %li= link_to "Events", events_path
-        %li
-          %span Affiliate Events
-    = render "partials/explore_dropdown"
+-# Banner Image
+%section.banner.container-fluid
+  .banner_wrapper{:style => "background: url(#{asset_path "application/affilliate_events_banner.jpg"}) top center no-repeat;"}
 
 
--# Main Labs content
+-# Main Affiliate Event content
 %section.container#main_content
 
   #page_header
@@ -26,39 +19,13 @@
   -# Left column, main content
   .box.double.left
 
-    .talk_gallery
-      - @event_photos.each do |photo|
-        = image_tag(photo.photo(:album))
-
-
-    .column_row.divided_row
+    .column_row#affilliate_events
       .column.column_double
       %p Chicago Ideas Week is an inclusive experience for the thinkers and doers of Chicago and the greater Midwest area.
       %p A CIW Affiliate Event is independently produced and programmed, exhibits an innovative theme, and takes place during Chicago Ideas Week (October 8-14, 2012).
       %p Thanks again to all the amazing organizations that chose to host CIW Affiliate
       %p Events! Please check back for updates on 2012 Affiliate Event coming soon.
       
-      
-    - if @events.present?
-      #labs_list
-        - @events.each do |event|
-          .column_row.divided_row{:id => "event_#{event.id}"}
-            %a{:name => "event_#{event.id}"}
-            .column.column_double
-              %h3= event.name
-              %pre= event.description
-              %a{:class => "back_top", :href => "javascript:scroll(0,0)"} back top
-  
-  - if @events.present?
-    .box.right#labs_list
-      .box_header
-        %span Affiliate Event Quicklinks
-      .column_row
-        %ul.filter_list.labs_filter
-          - @events.each do |event|
-            %li
-              %a{:class => "event_#{lab.id}", :href => "#event_#{lab.id}"}= event.name
-
 
 
   -# Include Sidebar Items
