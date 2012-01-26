@@ -1,4 +1,7 @@
-= render 'member_controls'
+= render '/admin/admin/collection_controls'
+- content_for :breadcrumbs do
+  = breadcrumbs @day
+  .crumb.end Volunteers
 
 - content_for :top_links do
   = edit_model_link @volunteer, true
@@ -11,7 +14,7 @@
 
 #model_detail
   %h4 User
-  %p= @volunteer.user.name
+  %p= link_to @volunteer.user.name, admin_user_path(@volunteer.user)
 
   %h4 Postcode
   %p= @volunteer.postcode

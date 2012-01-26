@@ -1,7 +1,6 @@
-= render 'collection_controls'
-
-- content_for :top_links do
-  = new_model_link Volunteer
+= render '/admin/admin/collection_controls'
+- content_for :breadcrumbs do
+  .crumb.end Days
 
 = ssp_search_form Volunteer
 

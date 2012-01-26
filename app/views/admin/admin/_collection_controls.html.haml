@@ -2,6 +2,7 @@
   %h2 Admin home
   %ul
     %li{:class => active_for_controller('admin/admin')}= icon_link_to 'Dashboard', admin_root_path, 'home'
+    %li{:class => active_for_controller('admin/volunteers')}= icon_link_to 'Volunteers', admin_volunteers_path, 'home'
 
   %h2 Content
   %ul
