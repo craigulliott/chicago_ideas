@@ -39,6 +39,10 @@ CraigsAdmin::Application.configure do
   # Use a different cache store in production
   config.cache_store = :dalli_store
   
+  # Use Dalli as the rack-cache metastore
+  $cache = Dalli::Client.new
+  config.middleware.use ::Rack::Cache, :metastore => $cache, :entitystore => 'file:tmp/cache/entity'
+  
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
