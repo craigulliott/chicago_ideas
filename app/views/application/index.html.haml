@@ -20,7 +20,7 @@
     
       - if @talks.present?
         .column#homepage_talks
-          %span.column_header Talks
+          %span.column_header CIW Talks
           %ul.preview_list
             = render "partials/talks_loop", :talks => @talks
           = link_to "view all talks →", talks_path, :class => "view_all blue"

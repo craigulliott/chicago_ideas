@@ -17,7 +17,7 @@
 %section.container#main_content
   
   -# Featured Talks slider
-  = render "talks/slider", :featured => @megatalks
+  = render "talks/slider", :featured => @featured
       
   
   -# Left column, main content
@@ -32,7 +32,7 @@
 
   -# Include Sidebar Items
   #sidebar
-    = render "partials/track_filter"
+    -#= render "partials/track_filter"
     = render "partials/sponsors"
     = render "partials/newsletter_form"
     = render "partials/social"
