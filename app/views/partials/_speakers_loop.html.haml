@@ -3,7 +3,7 @@
 -#    Standard template for an individual speaker item
 -#    in the standard preview list
 
-- @speakers.each do |speaker|
+- speakers.each do |speaker|
   %li{:id => "speaker_#{speaker.id}", :class => "speaker_#{speaker.id}"}
     .img_frame
       = link_to image_tag(speaker.portrait(:thumb)), speaker_path(speaker)

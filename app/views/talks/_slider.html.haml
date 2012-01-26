@@ -1,5 +1,9 @@
--# Featured Talks slider
-- if @megatalks.present?
-  .slider.megatalk_slider
-    - @megatalks.each do |featured|
-      = link_to image_tag(featured.banner_src, :title => featured.name), talk_path(featured)
+-# Videos Landing Page : Featured slider
+- if featured.present?
+  .slider
+    - featured.each do |f|
+      = link_to image_tag(f.banner_src, :title => "#slider_title_#{f.id}"), talk_path(f)
+
+  - featured.each do |f|
+    .nivo-html-caption{:id => "slider_title_#{f.id}"}
+      %h2= link_to f.name, talk_path(f)

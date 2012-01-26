@@ -8,8 +8,8 @@
       %span= title
     .column_row
       %ul.preview_list
-        -@chapters.each do |chapter|
-          - if chapter.present?
+        -chapters.each do |chapter|
+          - if chapter.present? && chapter != this_chapter
             %li
               .img_frame
                 = link_to "play", "#", :class => "play_btn"

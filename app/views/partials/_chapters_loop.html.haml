@@ -4,7 +4,7 @@
 -#    in the standard preview list
 
 
-- @chapters.each do |chapter|
+- chapters.each do |chapter|
   %li{:id => "chapter_#{chapter.id}"}
     .img_frame
       = link_to "play", video_path(chapter), :class => "play_btn"
