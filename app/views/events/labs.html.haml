@@ -28,21 +28,28 @@
   .box.double.left
 
     .talk_gallery
-      - @event_photos.each do |photo|
-        = image_tag(photo.photo(:album))
+      - @labs.each do |lab|
+        - if lab.event_photos.present?
+          - lab.event_photos.each do |photo|
+            = image_tag(photo.photo(:album))
+
 
 
 
     - if @labs.present?
-      #labs_list
-        - @labs.each do |lab|
-          .column_row.divided_row{:id => "lab_#{lab.id}"}
-            %a{:name => "lab_#{lab.id}"}
-            .column.column_double
-              %h3= lab.name
-              %pre= lab.description
-              %a{:class => "back_top", :href => "javascript:scroll(0,0)"} back top
-        
+      .column_row#labs_overview
+        .column.column_double
+          %ul.lab_list
+            - @labs.each do |lab|
+              %li{:id => "lab_item_#{lab.id}", :class => "lab_item lab_item_#{lab.id}"}
+                %a{:name => "lab_#{lab.id}"}
+                %h3= link_to lab.name, "#", :class => "lab_title"
+                .lab_description
+                  %pre= lab.description
+                  %a{:class => "back_top", :href => "javascript:scroll(0,0)"} back top
+
+
+
         
           
   .box.right#labs_list
