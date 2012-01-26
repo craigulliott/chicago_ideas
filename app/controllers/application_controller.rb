@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :get_sponsors
   before_filter :get_talks
   before_filter :get_nav_featured
+  before_filter :get_header_models
   
   before_filter :authenticate_user!, :only => [:dashboard]
   
@@ -18,7 +19,9 @@ class ApplicationController < ActionController::Base
     @page_title = "Welcome"
   end
   
-  
+  def get_header_models
+    @current_year = Year.find(2012)
+  end
   def get_sponsors
     @sponsors = Sponsor.all
   end
