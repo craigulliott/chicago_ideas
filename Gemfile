@@ -16,11 +16,17 @@ gem 'GeoRuby'
 gem 'spatial_adapter'
 gem 'formtastic'
 gem 'haml'
+# pagination
 gem 'kaminari'
+# file uploads
 gem 'paperclip'
 gem 'fog'
+# markdown
 gem 'redcarpet'
 gem 'countries'
+
+# for managing cron job
+gem 'whenever'
 
 # cache in memcache - varnish isnt availiable on cedar apps
 gem 'rack-cache'
