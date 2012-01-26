@@ -1,6 +1,18 @@
 -#     Chicago Ideas Week
--#     about/index.html.haml
+-#     application/terms.html.haml
 -#     01/03/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li 
+          %span Terms of Use
+    = render "partials/explore_dropdown"
+
 
 
 -# Main Talk content

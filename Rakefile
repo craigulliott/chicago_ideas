@@ -5,3 +5,9 @@
 require File.expand_path('../config/application', __FILE__)
 
 CraigsAdmin::Application.load_tasks
+
+begin
+  require 'thinking_sphinx/tasks'
+rescue LoadError
+  puts "You can't load Thinking Sphinx tasks unless the thinking-sphinx gem is installed."
+end

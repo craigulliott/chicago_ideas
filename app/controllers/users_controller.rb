@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   # Speakers landing page
   def list_speakers
     @page_title = "Speakers"
-    @speakers = User.speaker.search_sort_paginate(params)
+    @speakers = User.speaker.order('name').search_sort_paginate(params)
     render "speakers/index"
   end
   

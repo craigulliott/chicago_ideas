@@ -1,0 +1,146 @@
+-#     Chicago Ideas Week
+-#     application/about.html.haml
+-#     01/016/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Partners", partners_path
+        %li
+          %span Community Partners Application Form
+    = render "partials/explore_dropdown"
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Community Partners Application Form
+    = render "partials/share"
+    
+  -# Left column, main content: About Us information
+  .box.double.left
+
+    .column_row#partners_form
+      .column.column_double
+        %p 
+          Before submitting, we recommend you save all your entries for your personal records. If you experience technical problems, please contact
+          = link_to "corey@chicagoideas.com", "mailto:corey@chicagoideas.com"
+        
+        %form#partners_form
+        
+          %ul.form_list
+            
+            %li
+              %label 
+                Business/Organization name
+                %span.required *
+              %input{:type => "text", :name => "name", :class => "medium-large"}
+            
+            %li
+              %label 
+                Business/Organization Description or Mission Statement
+                %span.required *
+              %textarea{:name => "description"}
+          
+            %li
+              %label 
+                Address
+                %span.required *
+              .block
+                %input{:type => "text", :name => "address", :class => "medium-large"}
+                %span.light Street Address
+              .block
+                %input{:type => "text", :name => "address2", :class => "medium-large"}
+                %span.light Address Line 2
+              .block
+                .column
+                  %input{:type => "text", :name => "city", :class => "small"}
+                  %span.light City
+                .column
+                  %input{:type => "text", :name => "state", :class => "small"}
+                  %span.light State / Province / Region
+              .block
+                .column
+                  %input{:type => "text", :name => "zipcode", :class => "extra-small"}
+                  %span.light Postal / Zip Code
+                .column
+                  %input{:type => "text", :name => "country", :class => "small"}
+                  %span.light Country
+            
+            %li
+              %label
+                In what ways does your organization align with Chicago Ideas Week?
+                %span.required *
+              %textarea{:name => "organization_aligned"}
+            
+            %li
+              %label
+                Which themes are most relevant to your organization? (Check all that apply)
+                %span.required *
+                
+                %ul.check_list
+                  %li
+                    %label
+                      %input{:type => "checkbox"} Arts and Culture
+                  %li
+                    %label
+                      %input{:type => "checkbox"} Education
+                  %li
+                    %label
+                      %input{:type => "checkbox"} Finance
+                  %li
+                    %label
+                      %input{:type => "checkbox"} Health and Wellness
+                  %li
+                    %label
+                      %input{:type => "checkbox"} Public Policy
+                  %li
+                    %label
+                      %input{:type => "checkbox"} Social Entrepreneurship
+                  %li
+                    %label
+                      %input{:type => "checkbox"} Technology
+                  %li.block
+                    %label
+                      %input{:type => "checkbox"} Other
+                    %input{:type => "text", :name => "other", :placeholder => "if other, please specify..."}
+            
+            %li
+              %label
+                Does your business/organization have a public mailing list?*
+                %span.required *
+              .block
+                %radio_button Yes
+                %radio_button No
+            
+            %li
+              %label
+                Contact Person
+                %span.required *
+              .block
+                %input{:type => "text", :name => "contact_name", :class => "medium"}
+                %span.light Contact Name
+              .block
+                %input{:type => "text", :name => "contact_phone", :class => "medium"}
+                %span.light Phone Number
+              .block
+                %input{:type => "text", :name => "contact_email", :class => "medium"}
+                %span.light Email Address
+                
+            %li
+              %input{:type => "submit", :value => "Submit Application", :class => "blue_btn"}
+        
+
+      
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

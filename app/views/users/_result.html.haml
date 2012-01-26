@@ -1,0 +1,7 @@
+-#    User Result item
+-#
+
+%li{:id => "result_#{result.id}", :class => "result_#{result.id}"}
+  %span.r_label= result.class
+  = link_to result.name, team_member_path(result)
+  %span= result.title_abbreviated

@@ -3,6 +3,17 @@
 -#     01/016/2012
 
 
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li 
+          %span Privacy Policy
+    = render "partials/explore_dropdown"
+
+
 -# Main Talk content
 %section.container#main_content
 
