@@ -55,7 +55,7 @@
           -# If the speaker has available chapters/videos
           - if @chapters.present?
             %li.divided
-              %span.column_header Talks
+              %span.column_header CIW Talks
               %ul.speaker_overview_talks
                 - @chapters.each do |chapter|
                   %li= link_to chapter.talk.name, talk_path(chapter.talk)

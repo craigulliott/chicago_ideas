@@ -25,7 +25,7 @@
       .dropdown.full_dropdown
         %ul.dd_column
           %li= link_to "All CIW Talks", talks_path
-          %li= link_to "Mega Talks", mega_talks_talks_path
+          %li= link_to "Megatalks", mega_talks_talks_path
           %li= link_to "Videos", videos_path
         %ul.dd_column
           %li= link_to "CIW Labs", labs_events_path
@@ -41,6 +41,9 @@
                 - if performance.speaker.present?
                   %span.small= performance.speaker.name
     
+    %li#gn_videos
+      = link_to "Videos", videos_path
+    
     %li#gn_speakers
       = link_to "Speakers", speakers_path
     
@@ -51,7 +54,6 @@
           %li= link_to "Sponsors", sponsors_path
           %li= link_to "Community Partners", partners_path
           %li= link_to "Special Programs & Awards", special_programs_path
-          %li= link_to "Affiliate Events", affiliate_event_events_path
         %ul.dd_column
           %li= link_to "News", press_clippings_path
           %li= link_to "Newsletter", "/newsletter"

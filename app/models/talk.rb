@@ -61,7 +61,14 @@ class Talk < ActiveRecord::Base
       ]
     end
   end
-
+  
+  # return a banner, from a featured chapter (or nil)
+  def banner size = :medium
+    chapter = featured_chapters.first
+    chapter.present? ? chapter.banner(size) : nil
+  end
+   
+   
   # return formatted time for the front-end
   def formatted_time
     start_time = "#{self.start_time.strftime("%l")} #{self.start_time.strftime("%p")}"
