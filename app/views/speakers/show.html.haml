@@ -66,8 +66,8 @@
 
 
     -# Related speakers
-    -#@chapters = @chapters.first.talk.chapters.all
-    = render "partials/chapters_speakers", :chapters => @chapters.first.talk.chapters.all, :title => "Related Speakers", :this_speaker => @speaker
+    - unless @chapters.empty
+      = render "partials/chapters_speakers", :chapters => @chapters.first.talk.chapters.all, :title => "Related Speakers", :this_speaker => @speaker
         
 
   -# Include Sidebar Items
