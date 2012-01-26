@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
   
   def about
-    @staff = User.staff
+    get_team_members
     render "application/about"
   end
   
@@ -43,11 +43,6 @@ class ApplicationController < ActionController::Base
     AdminMailer.contact_form(params[:contact]).deliver
     render_json_response :ok, :notice => "Your message has been sent."
   end
-  
-  def team
-    @staff_bios = StaffBio.by_sort_column
-  end
-  
   
   def recommend_speaker
   end
@@ -70,7 +65,6 @@ class ApplicationController < ActionController::Base
 
   def privacy
   end
-  
 
   # users account page
   def dashboard
@@ -114,6 +108,21 @@ class ApplicationController < ActionController::Base
         end
       end
       new_hash
+    end
+
+    # get all staff members, sorted by priority
+    def get_team_members
+      # TODO:  add a sort column
+      @team = []
+      @team << User.find(2)
+      @team << User.find(1)
+      @team << User.find(5)
+      @team << User.find(6)
+      @team << User.find(3)
+      User.staff.not_deleted.where('id not in (2,1,5,6,3)').all.each do |u|
+        @team << u
+      end
+      @team
     end
 
 end

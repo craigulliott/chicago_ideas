@@ -89,19 +89,4 @@ class UsersController < ApplicationController
     @page_title = "About #{@team_member.name}"
   end
 
-  private 
-    # get all staff members, sorted by priority
-    def get_team_members
-      # TODO:  add a sort column
-      @team = []
-      @team << User.find(2)
-      @team << User.find(1)
-      @team << User.find(5)
-      @team << User.find(6)
-      @team << User.find(3)
-      User.staff.not_deleted.where('id not in (2,1,5,6,3)').all.each do |u|
-        @team << u
-      end
-      @team
-    end
 end
