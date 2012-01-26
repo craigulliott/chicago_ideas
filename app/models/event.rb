@@ -6,18 +6,10 @@ class Event < ActiveRecord::Base
   BANNER_WIDTH = 1400
   BANNER_HEIGHT = 500
   
-#  define_index do
-#    indexes name
-#    indexes description
-#    indexes venue(:name), :as => "venue"
-#    indexes venue(:address1), :as => "venue_address1"
-#    indexes venue(:address2), :as => "venue_address2"
-#    indexes venue(:city), :as => "venue_city"
-#    indexes venue(:state), :as => "venue_state"
-#    indexes venue(:zipcode), :as => "venue_zip"
-#    indexes venue(:lonlat), :as => "venue_lonlat"    
-#    has venue_id, created_at, updated_at
-#  end
+  define_index do
+    indexes name
+    indexes description
+  end
 
 
   belongs_to :partner
