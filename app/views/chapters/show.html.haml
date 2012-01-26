@@ -45,11 +45,12 @@
       .column_row.divided_row#photo_gallery
         .column.column_double
           %span.column_header Photo Gallery
-          %ul.photo_gallery
+          %ul.photo_gallery.clearfix
             - @chapter.chapter_photos.each do |photo|
               %li
                 .img_wrapper
-                  = link_to image_tag(photo.photo(:thumb)), "#{URI.decode photo.photo.url(:medium)}", :class => "popup_img"
+                  -#= link_to image_tag(photo.photo(:thumb)), "#{URI.decode photo.photo.url(:medium)}", :class => "popup_img"
+                  = image_tag(photo.photo(:thumb))
 
 
     -# Speakers in this chapter/video
