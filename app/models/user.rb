@@ -47,10 +47,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable 
          
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :title, :bio, :twitter_screen_name, :portrait, :portrait2, :quotes_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :title, :bio, :twitter_screen_name, :newsletter, :portrait, :portrait2, :quotes_attributes
 
   # validators
-  validates :email, :email => { :validate_mx => false }, :presence => true
+  validates :email, :email => true, :presence => true, :uniqueness => true
   validates :name, :presence => true
   
   # welcome emails have a link which signs the user in automatically
@@ -91,7 +91,7 @@ class User < ActiveRecord::Base
 
   validates :permalink, :presence => true, :uniqueness => true, :format => {:with => /^[\w\d_]+$/}
   validate :validate_portrait_dimensions, :if => "portrait.present?", :unless => "errors.any?"
-  validate :validate_portrait2_dimensions, :if => "portrait.present?", :unless => "errors.any?"
+  validate :validate_portrait2_dimensions, :if => "portrait2.present?", :unless => "errors.any?"
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?

@@ -25,6 +25,9 @@
   %h4 Vimeo ID
   %p= @chapter.vimeo_id
 
+  %h4 Banner
+  %p= image_tag @chapter.banner.url(:medium)
+
   %h4 Featured on Talk
   %p= @chapter.featured_on_talk? ? 'yes' : 'no'
 
@@ -34,9 +37,8 @@
   %h4 Homepage CAPTION
   %p= @chapter.homepage_caption
 
-  %h4 Banner
-  %p= image_tag @chapter.banner.url(:medium)
-
+  %h4 Homepage Banner
+  %p= image_tag @chapter.homepage_banner.url(:medium)
 
 .table_section
   %h3 

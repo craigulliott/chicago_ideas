@@ -15,6 +15,33 @@ class UsersController < ApplicationController
     @user = current_user
   end
   
+  def newsletter
+    # if a user is signed in, turn on the newsletter flag
+    if current_user
+      current_user.update_attribute(:newsletter, true)
+
+    # as this is equivilent to subscribing someone to a newsletter, security isnt that importaint.  Just update the flag for existing users too
+    elsif existing_user = User.find_by_email(params[:user][:email])
+      existing_user.update_attribute(:newsletter, true)
+      
+    # if a user with this email does not exist, create them with a temporary password and add them as a newsletter subscriber
+    else
+      user = User.new(
+        # hand picking the params to make this secure
+        :email => params[:user][:email],
+        :name => params[:user][:name],
+      )
+      user.temporary_password = Devise.friendly_token[0,8]
+      # save this new user
+      unless user.save
+        # send back JSON containing the errors, so we can update the display
+        render_json_response :error, :html => render_to_string('partials/newsletter_form.html.haml', :layout => false), :notice => user.errors.to_sentance
+        return
+      end
+    end
+    render_json_response :ok, :notice => 'Thank you, You have been added to the CIW newsletter.'
+  end
+  
   # remove the current users stored facebook credentials and redirect back to the page they came from 
   def disconnect_facebook
     current_user.fb_uid = nil

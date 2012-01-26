@@ -37,9 +37,12 @@ CraigsAdmin::Application.routes.draw do
   resources :volunteers, :only => [:new, :create]
   
   resources :users do
+    collection do 
+      # actions
+      post :newsletter
+    end
     member do
       # pages
-      get :volunteer # form to sign up to be a volunteer
       # actions
       put :disconnect_facebook
       put :disconnect_twitter

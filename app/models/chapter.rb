@@ -28,6 +28,7 @@ class Chapter < ActiveRecord::Base
   validates :sort, :presence => true
   validates_uniqueness_of :sort, :scope => :talk_id
   validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
+  validate :validate_homepage_banner_dimensions, :if => "homepage_banner.present?", :unless => "errors.any?"
   
   scope :by_sort, order('sort asc')
   scope :talk_featured, :conditions => {:featured_on_talk => true}
@@ -60,6 +61,22 @@ class Chapter < ActiveRecord::Base
       :thumb => "-quality 70",
     },
     :path => "chapter-banners/:style/:id.:extension"
+  
+  # optional large format blessed photo for the homepage
+  has_attached_file :homepage_banner,
+    :styles => { 
+      :large => "1400x676", 
+      :medium => "1000x483#",
+      :small => "300x144#",
+      :thumb => "110x65#",
+    },
+    :convert_options => { 
+      :large => "-quality 70", 
+      :medium => "-quality 70", 
+      :small => "-quality 70",
+      :thumb => "-quality 70",
+    },
+    :path => "chapter-homepage-banners/:style/:id.:extension"
   
   # a string representation of the required dimensions for the banner image
   def banner_dimensions_string
@@ -95,6 +112,11 @@ class Chapter < ActiveRecord::Base
     def validate_banner_dimensions
       dimensions = Paperclip::Geometry.from_file(banner.to_file(:original))
       errors.add(:banner, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{banner_dimensions_string}") unless dimensions.width == BANNER_WIDTH && dimensions.height == BANNER_HEIGHT
+    end
+
+    def validate_homepage_banner_dimensions
+      dimensions = Paperclip::Geometry.from_file(homepage_banner.to_file(:original))
+      errors.add(:homepage_banner, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{banner_dimensions_string}") unless dimensions.width == BANNER_WIDTH && dimensions.height == BANNER_HEIGHT
     end
   
 end
