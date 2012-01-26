@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   # Speakers landing page
   def list_speakers
     @page_title = "Speakers"
-    @speakers = User.speaker.order('name').search_sort_paginate(params)
+    @speakers = User.speaker.not_deleted.order('name').search_sort_paginate(params)
     render "speakers/index"
   end
   
@@ -99,7 +99,7 @@ class UsersController < ApplicationController
       @team << User.find(5)
       @team << User.find(6)
       @team << User.find(3)
-      User.staff.where('id not in (2,1,5,6,3)').all.each do |u|
+      User.staff.not_deleted.where('id not in (2,1,5,6,3)').all.each do |u|
         @team << u
       end
       @team
