@@ -8,6 +8,8 @@ class Volunteer < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
+  validates :hours, :presence => true
+  validates :user_id, :presence => true
   
   # the hash representing this model that is returned by the api
   def api_attributes
@@ -49,4 +51,27 @@ class Volunteer < ActiveRecord::Base
     end
   end
   
+  def available_days
+    days = []
+    days << "monday" if avail_mon?
+    days << "tuesday" if avail_tue?
+    days << "wednesday" if avail_wed?
+    days << "thursday" if avail_thu?
+    days << "friday" if avail_fri?
+    days << "saturday" if avail_sat?
+    days << "sunday" if avail_sun?
+    days
+  end
+  
+  def available_times
+    days = []
+    days << "8am - 1pm" if avail_time_1?
+    days << "10am - 3pm" if avail_time_2?
+    days << "12am - 5pm" if avail_time_3?
+    days << "2pm - 7pm" if avail_time_4?
+    days << "4pm - 9pm" if avail_time_5?
+    days << "6pm - 11pm" if avail_time_6?
+    days
+  end
+
 end

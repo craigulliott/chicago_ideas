@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125235745) do
+ActiveRecord::Schema.define(:version => 20120126020301) do
 
   create_table "chapter_photos", :force => true do |t|
     t.string   "photo_file_name",    :null => false
@@ -303,6 +303,7 @@ ActiveRecord::Schema.define(:version => 20120125235745) do
     t.string   "portrait2_content_type"
     t.integer  "portrait2_file_size"
     t.datetime "portrait2_updated_at"
+    t.boolean  "newsletter",                            :default => true,  :null => false
   end
 
   add_index "users", ["admin"], :name => "index_users_on_admin"

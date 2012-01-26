@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :performances, :foreign_key => :speaker_id
   has_many :chapters, :through => :performances
   
+  has_one :volunteer
+  
   has_many :quotes
   accepts_nested_attributes_for :quotes, :allow_destroy => true
 
