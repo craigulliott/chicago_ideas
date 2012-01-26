@@ -34,7 +34,7 @@ gem 'dalli'
 
 # search via sphinx deamon
 gem 'thinking-sphinx', '2.0.10'
-gem 'flying-sphinx',   '0.6.2'
+gem 'flying-sphinx',   '0.6.1'
 
 # social
 gem 'koala'
