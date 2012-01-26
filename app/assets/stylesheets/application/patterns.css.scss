@@ -42,7 +42,7 @@
           color: $greyDark;
         }
       }
-      li:last-child {
+      li:last-child, .last {
         background: none;
         margin-right: 0;
         padding-right: 0;
@@ -108,7 +108,7 @@
       li#twitter_ {
         margin-right: 10px;
       }
-      li:last-child {
+      li:last-child, .last {
         margin-right: 0;
       }
     }
@@ -260,7 +260,9 @@
       ul#banner_nav:after, ul#banner_nav:before { display:table; content:""; zoom:1; }
       ul#banner_nav:after { clear:both; }
       
-      > li:last-child { margin-right:0; }
+      > li:last-child, > li.last {
+        margin-right:0; 
+      }
       
     } // #banner_nav
     
@@ -387,6 +389,28 @@
     top: 0;
     left: 0;
   }
+  
+  h2 {
+    font-size: 29px;
+    line-height: 33px;
+    color: $white;
+    display: block;
+    margin-bottom: 4px;
+    
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+  span.sub_title {
+    font-size: 16px;
+    color: $offwhite;
+    display: block;
+    a {
+      color: $offwhite;
+      text-decoration: none;
+    }
+  }
 }
 
 .talk_gallery {
@@ -428,6 +452,7 @@ ul.preview_list {
     width: 300px;
     margin: 0 0 30px 0;
     padding: 0;
+    min-height: 70px;
     
     a {
       display: block;
@@ -468,7 +493,7 @@ ul.double_rows {
     clear: none;
     float: left; 
   }
-  li:nth-child(2n+2) {
+  li:nth-child(2n+2), li.end {
     float:right;
   }
 }
@@ -501,7 +526,7 @@ ul.double_rows {
     li {
       width: 260px;
     }
-    li:last-child {
+    li:last-child, li.last {
       margin-bottom: 0;
     }
   }
@@ -523,7 +548,7 @@ ul.sponsors_list {
     vertical-align: middle;
   }
 }
-#sponsors_list .divided_row:last-child {
+#sponsors_list .divided_row:last-child, #sponsors_list .last {
   border: none;
   margin-bottom: 0;
 }
@@ -566,7 +591,7 @@ ul.sponsors_list {
         text-shadow: 1px 1px 1px #fff;
       }
     }
-    li:last-child {
+    li:last-child, li.last {
       float: right;
       margin-right: 0;
     }
@@ -691,12 +716,27 @@ ul.labs_filter {
     display: block;
     margin-bottom: 10px;
   }
-  .divided_row:last-child {
+  .divided_row:last-child, .last {
     border-bottom: none !important;
   }
 }
 
-
+.yellow_box {
+  span {
+    color: $dark;
+    font-size: 12px;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  span.call_out {
+    font-size: 31px;
+  }
+  a.callout_link, a.callout_link span {
+    text-decoration: none;
+  }
+}
 
 
 
@@ -793,7 +833,7 @@ input.submit, input.create {
     background: asset-url('application/explore_top.png', image) top left no-repeat;
     margin-top: -13px;
     text-align: right;
-    padding: 20px 20px 0 0;
+    padding: 10px 20px 0 0;
     
     a.close_explore_btn {
       font-size: 20px;
@@ -812,7 +852,7 @@ input.submit, input.create {
   .column {
     margin-right: 30px;
   }
-  .column:last-child {
+  .column:last-child, .last {
     margin-right: 0;
   }
   

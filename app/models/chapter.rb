@@ -5,6 +5,14 @@ class Chapter < ActiveRecord::Base
   
   BANNER_WIDTH = 1400
   BANNER_HEIGHT = 676
+  
+  define_index do
+    indexes name
+    indexes description
+    indexes talk(:name), :as => :talk, :sortable => true
+    has talk_id, created_at, updated_at
+    group_by "talk_id"
+  end
 
   belongs_to :talk
   has_many :performances

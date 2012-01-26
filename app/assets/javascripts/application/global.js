@@ -28,13 +28,11 @@ var nextBanner = function () {
 $(document).ready(function() {
   
   
-  
+  // Explore Popup
   $('.explore_').bind('hover', function(e) {
     $('.explore_dropdown').fadeToggle('fast');
   });
-  $('.close_explore_btn').bind('click', function(e) {
-    $('.explore_dropdown').fadeToggle('fast');
-  });
+
   
   /************************************************************************************
    **    
@@ -44,8 +42,8 @@ $(document).ready(function() {
   
   $('.slider, .talk_gallery').nivoSlider({
     effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
-    animSpeed: 500, // Slide transition speed
-    pauseTime: 5000, // How long each slide will show
+    animSpeed: 300, // Slide transition speed
+    pauseTime: 3500, // How long each slide will show
     directionNav: false, // Next & Prev navigation
     controlNav: true, // 1,2,3... navigation
     keyboardNav: false, // Use left & right arrows
@@ -53,7 +51,6 @@ $(document).ready(function() {
     manualAdvance: false, // Force manual transitions
     randomStart: false, // Start on a random slide
     afterLoad: function(){
-      //var controlCount = $(this).children().find('.nivo-controlNav a').length();
       var newWidth = ($('.nivo-controlNav a').length) * 20;
       $('.nivo-controlNav').css({
         'width' : newWidth,
@@ -157,7 +154,7 @@ $(document).ready(function() {
     });
   });
   
-  $('#global_search').bind('blur', function(e) {
+  $('#global_search').bind('bindlur', function(e) {
       $('#global_search_container').animate({
         width : '106px',
       });
@@ -171,5 +168,89 @@ $(document).ready(function() {
   $('.image_grid li').bind('hover', function(e) {
     $(this).find('.grid_content').fadeToggle();
   });
+  
+  
+  // IE Fixes for Child selectors
+  $('footer_item:last-child, ul.featured li:last-child, #breadcrumbs ul li:last-child, #page_share ul li:last-child, ul#banner_nav li:last-child, .sidebar ul.preview_list li:last-child, #sponsors_list .divided_row:last-child, #events_section ul li:last-child, #labs_list .divided_row:last-child, #explore_dropdown .column:last-child, #news_list .column:last-child').addClass('last');
+  $('ul.double_rows li:nth-child(2n+2)').addClass('end')
+  $('#volunteer_form tr td:first-child').addClass('first')  
+  
+  
+  /*
+  // Search
+  $('input#search_btn').bind('click', function(e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'GET',
+      url: '/search.json?q=' + $('input#q').val(),
+      format: 'json',
+      success: function(results) {
+        console.log(results);
+        results = jQuery.parseJSON(results);
+        //$('.preview_list').append(results)
+      }
+    });
+  });
+  */
+  
+  /*
+  // Navigation Live Search
+  var searchTimer;
+  var sInterval = 500;
+  
+  $('input#global_search').bind('keydown', function(e) {
+    clearTimeout(searchTimer);
+  });
+  $('input#global_search').bind('keyup', function(e) {
+    searchTimer = setTimeout(ajaxSearch, sInterval);  
+  });
+    
+  function ajaxSearch() {
+    
+    // Clear the results list
+    $('ul#nav_s_results').children().remove();    
+    
+    // Query
+    var query = $('input#global_search').val();
+    
+    if (query != '') {
+      $.ajax({
+    
+        type: 'GET',
+        url: '/search.json?q=' + query,
+        format: 'json',
+    
+        success: function(results) {
+
+          $.each(results, function(item) {
+            var name;
+            var path;
+            switch (results[item].classType) {
+              case "Chapter":
+                name = results[item].title;
+                path = "/videos/" + results[item].id;
+              break;
+              case "Talk":
+                name = results[item].name;
+                path = "/talks/" + results[item].id;
+              break;
+              case "Event":
+                name = results[item].title
+                path = "/events/" + results[item].id;
+              break;
+              case "User":
+                name = results[item].name;
+                path = "/speaker/" + results[item].id;
+              break;
+            };
+            
+            $('ul#nav_s_results').append('<li id="item_'+results[item].id+'"><span class="label_'+results[item].classType+'">'+results[item].classType+'</span><a href="'+path+'">'+name+'</a></li>');
+          });
+        }
+      });
+    }
+  }
+  */
+  
   
 });
