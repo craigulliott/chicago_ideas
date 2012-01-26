@@ -11,6 +11,10 @@ class EventsController < ApplicationController
   end
   
   
+  def show
+    @event = Event.find(params[:id])
+  end
+  
   
   # Labs landing and individual pages
   def labs

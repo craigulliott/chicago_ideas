@@ -1,0 +1,154 @@
+-#     Chicago Ideas Week
+-#     application/blum_helfand.html.haml
+-#     01/25/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Special Programs & Awards", special_programs_path
+        %li
+          %span Bluhm/Helfand Social Innovation Fellowship
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Bluhm/Helfand Social Innovation Fellowship
+    = render "partials/share"
+
+  -# Left column, main content: About Us information
+  .box.double.left
+  
+    .talk_gallery
+      = image_tag('application/special_programs_awards/spa_intro.jpg')
+      = image_tag('application/special_programs_awards/spa_1.jpg')
+      = image_tag('application/special_programs_awards/spa_2.jpg')
+      = image_tag('application/special_programs_awards/spa_3.jpg')
+      = image_tag('application/special_programs_awards/spa_4.jpg')
+      = image_tag('application/special_programs_awards/spa_5.jpg')
+
+    .column_row.divided_row
+      .column.column_double
+        %p The Bluhm/Helfand Social Innovation Fellowship, in partnership with Chicago Ideas Week, awards five young socially-conscious leaders who have developed ventures addressing critical social needs, and provides them with exposure to nationally recognized business and community leaders, funding to support their cause, and a platform for growth. The Fellowship was created by philanthropists and entrepreneurs Leslie Bluhm and David Helfand to help advance the next generation of socially-minded innovators, entrepreneurs and change agents.
+        %p We encourage social entrepreneurs under the age of 35 from across the globe, working in either for-profit or not-for-profit ventures, to apply for this unique opportunity.  Information on the 2012 BHSI Fellowship is coming soon.
+        %p Congratulations to our 2011 BHSI Fellows! We are incredibly excited and inspired by the work they have done and are continuing to do. Learn about the 5 amazing social entrepreneurs who attended Chicago Ideas Week as our guest! Stay to up to date on the 2011 Fellows by subscribing to our blog!
+      
+      
+    .column_row.divided_row
+      .column.column_double.fellow_item
+        .img_frame
+          = image_tag('application/special_programs_awards/jason_aramburu.jpg')
+        .fellow_content
+          %h3 Jason Aramburu, 26
+          %span.location Austin, TX
+          %span.sub_title= link_to "re:Char", "http://http://www.re-char.com/"
+          %p ason Aramburu, re:char’s CEO, graduated from Princeton University with a degree in Ecology and Evolutionary Biology and a certificate in Environmental Studies. Before founding re:char, Jason was a founding member of Innozone, an online expertise network. Named a 2009 Social Innovation fellow by Pop!Tech and a 2010 Echoing Green fellow, Jason believes climate change and rural poverty are the two greatest global challenges and is excited to take part in solving them. Jason was named one of Business Week’s Top 25 Social Entrepreneurs in America.
+        
+       
+    .column_row.divided_row
+      .column.column_double.fellow_item
+        .img_frame
+          = image_tag('application/special_programs_awards/emma_.jpg')
+        .fellow_content
+          %h3 Emma Clippinger, 25
+          %span.location Cambridge, MA
+          %span.sub_title= link_to "Director of Gardens for Health International", "http://gardensforhealth.org/"
+          
+          %p Emma Clippinger is co-Founder and Executive Director of Gardens for Health International, a non-profit organization equipping those who face malnutrition with the resources to feed themselves and their families. Currently operating in Rwanda, the organization serves over 4,000 individuals through its programs. Gardens for Health International has received numerous accolades, including an Echoing Green Fellowship, and the grand prize in the Dell Social Innovation Competition, JPMorgan Good Venture Competition and Ashoka/Staples Youth Social Entrepreneur Competition.
+          
+          
+    .column_row.divided_row
+      .column.column_double.fellow_item
+        .img_frame
+          = image_tag('application/special_programs_awards/adam_lowy.jpg')
+        .fellow_content
+          %h3 Adam Lowy, 25
+          %span.location Neptune, NJ
+          %span.sub_title= link_to "Move For Hunger", "http://www.moveforhunger.org/"
+
+          %p Adam’s family has owned a moving company in New Jersey for over 90 years, and after seeing the amount of food wasted when people move, decided to take action and founded Move for Hunger in 2009. Move for Hunger works with moving companies to strengthen our nation’s food banks, and in just 2 years has grown to partner with over 150 movers in 35 states to provide 330,000 pounds of food.
+          
+            
+    .column_row.divided_row
+      .column.column_double.fellow_item
+        .img_frame
+          = image_tag('application/special_programs_awards/jeff_nelson.jpg')
+        .fellow_content
+          %h3 Jeff Nelson, 29
+          %span.location Chicago, IL
+          %span.sub_title= link_to "Urban Students Empowered", "http://www.usempowered.org/"
+
+          %p Jeff Nelson has led US Empowered since March 2007, guiding vast programmatic expansion and strategy planning efforts. Jeff began his career as a Teach For America corps member at O’Keeffe Elementary School on Chicago’s South Side. In one year, Jeff led his sixth grade students to an average of two years’ growth in math. Jeff later served as a Teach For America Corps Member Advisor and was awarded the Sue Lehmann Award for Excellence in Teaching for the entire Chicago Region.
+      
+      
+    .column_row.divided_row
+      .column.column_double.fellow_item
+        .img_frame
+          = image_tag('application/special_programs_awards/jessica_posner.jpg')
+        .fellow_content
+          %h3 Jessica Posner, 25
+          %span.location Denver, CO
+          %span.sub_title= link_to "Shining Hope for Communities", "http://shininghopeforcommunities.org/"
+
+          %p Jessica is the Co-Founder and Chief Operating Officer of Shining Hope for Communities, a non-profit that combats extreme poverty and gender inequality in Kibera—Africa’s largest slum. Shining Hope runs the Kibera School for Girls—the slum’s first free school for girls, as well as a community health clinic, clean toilet initiative, youth and community education, and economic development initiatives. Jessica won the 2010 Do Something Award and was named “America’s top-world changer 25 and under” live on VH1.
+
+    .column_row
+      .column.column_double
+        %span.column_header Semi-Finalists
+        %ul.semi_finalists
+          %li
+            %span.name_ Michael Carter, 23
+            %span.location_ Atherton, CA
+            %span.url= link_to "Strive for College", "http://www.striveforcollege.org/"
+          %li
+            %span.name_ Eric Glustorm, 27
+            %span.location_ Boulder, CO
+            %span.url= link_to "Educate!", "http://www.experienceeducate.org/"
+          %li
+            %span.name_ Jonathan Jackson, 30
+            %span.location_ Charlestow, MA
+            %span.url= link_to " Dimagi, Inc.", "http://www.dimagi.com/"
+          %li
+            %span.name_ Emily May, 30
+            %span.location_ Brooklyn, NY
+            %span.url= link_to " Hollaback!", "http://www.ihollaback.org/"
+          %li
+            %span.name_ Sami Nerenberg, 26
+            %span.location_ Evanston, IL
+            %span.url= link_to " Design for America", "http://www.designforamerica.com/"
+          %li
+            %span.name_ Sheel Tyle, 20
+            %span.location_ Mountain, NJ
+            %span.url= link_to " ReSight", "http://www.resight.org/"
+          %li
+            %span.name_ Mark Rembert, 27
+            %span.location_ Wilmgton, OH
+            %span.url= link_to " Energize Clinton County", "http://energizecc.com/"
+          %li
+            %span.name_ Scott Warren, 24
+            %span.location_ New York, NY
+            %span.url= link_to " Generation Citizen", "http://www.generationcitizen.org/"
+          %li
+            %span.name_  Alejandro Velez, 24
+            %span.location_ Oakland, CA
+            %span.url= link_to " Back to the Roots (BTTR) Ventures", "http://www.backtotheroots.com/"
+          %li
+            %span.name_  Manuel Wichers Banuet, 24
+            %span.location_ Mexico City, Mexico
+            %span.url= link_to " Iluméxico", "http://www.ilumexico.mx/"
+            
+
+      
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
