@@ -52,7 +52,6 @@ CraigsAdmin::Application.routes.draw do
     end
   end
   
-  
   # teams members and speakers are both a type of user, so are handled by the users controller
   match 'team_members', :to => 'users#list_team_members'
   match 'team_members/:id', :to => 'users#team_member', :as => "team_member"
@@ -60,13 +59,16 @@ CraigsAdmin::Application.routes.draw do
   match 'speakers/page/:page', :to => 'users#list_speakers'
   match 'speakers/:id', :to => 'users#speaker', :as => "speaker"
   
-  
   # Static Pages
   match 'about', :to => 'application#about'
   match 'recommend/speaker', :to => 'application#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
   match 'special_programs/blum_helfand_fellowship', :to => 'application#blum_helfand', :as => 'blum_helfand'
   match 'community', :to => 'application#community'
+
+  # contact form
+  match 'contact', :to => 'application#contact'
+  match 'send_contact', :to => 'application#send_contact'
   
   # talks and events
   # ----------------------------------------------------------------
