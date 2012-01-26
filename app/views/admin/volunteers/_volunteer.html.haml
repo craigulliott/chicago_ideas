@@ -1,0 +1,26 @@
+%tr{:volunteer => volunteer.id}
+  %td.user_id= link_to volunteer.user_id, admin_volunteer_path(volunteer)
+  %td.postcode= volunteer.postcode
+  %td.employed= volunteer.employed
+  %td.why= volunteer.why
+  %td.what= volunteer.what
+  %td.availability= volunteer.availability
+  %td.street_team= volunteer.street_team
+  %td.avail_mon= volunteer.avail_mon
+  %td.avail_tue= volunteer.avail_tue
+  %td.avail_wed= volunteer.avail_wed
+  %td.avail_thu= volunteer.avail_thu
+  %td.avail_fri= volunteer.avail_fri
+  %td.avail_sat= volunteer.avail_sat
+  %td.avail_sun= volunteer.avail_sun
+  %td.avail_time_1= volunteer.avail_time_1
+  %td.avail_time_2= volunteer.avail_time_2
+  %td.avail_time_3= volunteer.avail_time_3
+  %td.avail_time_4= volunteer.avail_time_4
+  %td.avail_time_5= volunteer.avail_time_5
+  %td.avail_time_6= volunteer.avail_time_6
+  %td.hours= volunteer.hours
+  %td.options
+    = edit_model_link volunteer
+    = destroy_model_link volunteer
+ 
