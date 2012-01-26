@@ -5,8 +5,11 @@ class User < ActiveRecord::Base
   # chainable arel method and a boolean helper to determine if models are deleted or not
   include DeleteByTime
   
-  PORTRAIT_WIDTH = 680
-  PORTRAIT_HEIGHT = 400
+  PORTRAIT1_WIDTH = 468
+  PORTRAIT1_HEIGHT = 468
+  
+  PORTRAIT2_WIDTH = 680
+  PORTRAIT2_HEIGHT = 400
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
@@ -183,8 +186,11 @@ class User < ActiveRecord::Base
   end
   
   # a string representation of the required dimensions for the portrait image
-  def portrait_dimensions_string
-    "#{PORTRAIT_WIDTH}x#{PORTRAIT_HEIGHT}"
+  def portrait1_dimensions_string
+    "#{PORTRAIT1_WIDTH}x#{PORTRAIT1_HEIGHT}"
+  end
+  def portrait2_dimensions_string
+    "#{PORTRAIT2_WIDTH}x#{PORTRAIT2_HEIGHT}"
   end
   
   # parses the description wih markdown and returns html
@@ -207,13 +213,13 @@ class User < ActiveRecord::Base
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_portrait_dimensions
       dimensions = Paperclip::Geometry.from_file(portrait.to_file(:full))
-      errors.add(:portrait, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait_dimensions_string}") unless dimensions.width == PORTRAIT_WIDTH && dimensions.height == PORTRAIT_HEIGHT
+      errors.add(:portrait, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait1_dimensions_string}") unless dimensions.width == PORTRAIT1_WIDTH && dimensions.height == PORTRAIT1_HEIGHT
     end
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_portrait2_dimensions
       dimensions = Paperclip::Geometry.from_file(portrait2.to_file(:full))
-      errors.add(:portrait2, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait_dimensions_string}") unless dimensions.width == PORTRAIT_WIDTH && dimensions.height == PORTRAIT_HEIGHT
+      errors.add(:portrait2, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait2_dimensions_string}") unless dimensions.width == PORTRAIT2_WIDTH && dimensions.height == PORTRAIT2_HEIGHT
     end
 
 end
