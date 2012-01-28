@@ -12,6 +12,7 @@
         .banner_content
           .banner_box
             .banner_top
+              %span.banner_type= "CIW #{featured_item.talk.talk_brand.name}"
               %span.banner_title
                 - if featured_item.homepage_caption.present?
                   = link_to featured_item.homepage_caption, video_path(featured_item)
