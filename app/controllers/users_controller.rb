@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   # Speakers landing page
   def list_speakers
     @page_title = "Speakers"
-    @speakers = User.speaker.not_deleted.order('name').search_sort_paginate(params)
+    @speakers = User.speaker.not_deleted.order('name').search_sort_paginate(params).per(12)
     render "speakers/index"
   end
   

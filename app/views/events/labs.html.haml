@@ -34,8 +34,14 @@
             = image_tag(photo.photo(:album))
 
 
-
-
+    -# Labs introduction
+    .column_row#labs_intro
+      .column.column_double
+        %p Go Behind-the-Scenes in Chicago with Chicago Ideas Week Labs! 
+        %p CIW Labs offer opportunities for participants to experience and explore the best of Chicago like never before.  Exclusive, behind-the-scenes experiences give participants a unique glimpses into the inner workings of businesses and institutions that are otherwise unavailable to the public.  Small groups will explore what it’s like for business leaders in the boardroom, go behind the curtain at leading theaters and venues, and discover “how-it-works” in hands-on workshops.
+        
+    
+    -# Labs List
     - if @labs.present?
       .column_row#labs_overview
         .column.column_double

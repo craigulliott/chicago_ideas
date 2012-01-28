@@ -5,7 +5,7 @@ class ChaptersController < ApplicationController
   
   def index
     @page_title = "Videos"
-    @chapters = Chapter.search_sort_paginate(params)
+    @chapters = Chapter.order('RAND()').search_sort_paginate(params)
     @featured = Chapter.find_all_by_featured_on_talk('1')
   end
   
