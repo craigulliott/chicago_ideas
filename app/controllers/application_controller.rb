@@ -11,8 +11,7 @@ class ApplicationController < ActionController::Base
   
   # the application homepage
   def index
-    @talks = Talk.order('RAND()').limit(4)
-    @chapters = Chapter.order('RAND()').limit(4)
+    @talks = Talk.order('RAND()').limit(8)
     @speakers = User.speaker.order('RAND()').limit(8)
     @sponsors = Sponsor.all
     @featured = Chapter.homepage_featured.order('RAND()').limit(8)

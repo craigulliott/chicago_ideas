@@ -12,13 +12,16 @@
         .banner_content
           .banner_box
             .banner_top
-              %span.banner_title= link_to featured_item.title, video_path(featured_item)
-              - featured_item.performances.limit(2).each do |performance|
-                - if performance.speaker.present?
-                  %span.b_link= link_to performance.speaker.name, speaker_path(performance.speaker)
-            .banner_bottom
-              %span{:class => "banner_dates"}= "CIW 2012: October 8 - 14"
-
+              %span.banner_title
+                - if featured_item.homepage_caption.present?
+                  = link_to featured_item.homepage_caption, video_path(featured_item)
+                -else
+                  = link_to featured_item.title, video_path(featured_item)
+              -# only display speaker list if it's one speaker'
+              - if featured_item.performances.size == 1
+                - featured_item.performances.limit(2).each do |performance|
+                  - if performance.speaker.present?
+                    %span.b_link= link_to performance.speaker.name, speaker_path(performance.speaker)
 
 
     .container-fluid#banner_nav_wrapper

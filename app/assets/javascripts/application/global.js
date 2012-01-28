@@ -40,6 +40,18 @@ $(document).ready(function() {
   });
   
   
+  // Search dropdown
+  $('.model_search_btn').bind('click', function(e) {
+    e.preventDefault();
+    $("#search_container").slideToggle('fast');
+  });
+  
+  $('#hide_search').bind('click', function(e) {
+      e.preventDefault();
+      $("#search_container").slideToggle('fast');
+  });
+  
+  
   /************************************************************************************
    **    
    **    Sliders and Image Galleries

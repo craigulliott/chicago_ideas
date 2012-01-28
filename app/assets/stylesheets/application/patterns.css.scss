@@ -88,6 +88,9 @@
       font-weight: 400;
       text-shadow: 1px 1px 1px #fff;
     }
+    span.speaker_title {
+      font-size: 16px !important;
+    }
   }
   #page_share {
     width: 300px;
@@ -169,7 +172,7 @@
           }
           
           .banner_top {
-            background: rgba(0,0,0,.65);
+            background: rgba(0,0,0,.85);
             
             .banner_title {
               display:block;
@@ -192,6 +195,7 @@
               font-size: 13px;
               color:$white !important;
               text-shadow:1px 1px 1px #000;
+              display: block;
             }
             
           } // end .banner_top
@@ -619,13 +623,13 @@ ul.sponsors_list {
 .lab_list {
   display: block;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 
   li {
     display: block;
-    margin: 0 0 10px 0;
-    padding: 0;
+    margin: 0 0 10px 0 !important;
+    padding: 0 !important;
     
     a.lab_title {
       background: url(/assets/application/site_sprite.png) no-repeat;
@@ -1039,4 +1043,10 @@ ul.list_reset {
     margin: 0;
     padding: 0;
   }
+}
+.offset_left {
+  margin-left: 10px;
+}
+.offset_right {
+  margin-right: 10px;
 }
