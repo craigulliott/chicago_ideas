@@ -32,7 +32,10 @@
             .column.column_double
               %h2= news.title
               %span.timestamp= news.formatted_time
-              %pre= news.description
+              %pre
+                - if news.image.present?
+                  = image_path(news.image, :class => "left offset_right")
+                = news.description
               -if news.url.present?
                 = link_to "more →", news.url
                 
