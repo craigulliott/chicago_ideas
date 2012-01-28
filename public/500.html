@@ -3,24 +3,39 @@
 <head>
   <title>We're sorry, but something went wrong (500)</title>
   <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
+    body { background-color: #f4f2f3; color: #333; text-align: center; font-family: arial, sans-serif; }
+    div#container {
+      width: 1000px;
+      height: 400px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -500px;
+      margin-top: -200px;
+      background: url(error_bulb.jpg) center left no-repeat;
     }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+    h1, p {
+      font-size: 65px;
+      font-weight: bold;
+      box-shadow: inset 2px 3px 5px #8a8a8a;
+      color: #a8a8a8;
+      margin-bottom: 15px;
+      padding-left: 550px;
+    }
+    p {
+      font-size: 23px;
+    }
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <h1>We're sorry, but something went wrong.</h1>
-    <p>We've been notified about this issue and we'll take a look at it shortly.</p>
+  
+  
+  <div id="container">
+      <h1>404 Error!</h1>
+      <p class="large">Whoops, looks like you ran into a broken idea. Don't worry, we have thousands of great ideas <a href="/">here</a></p>
   </div>
+  
+  
 </body>
 </html>
