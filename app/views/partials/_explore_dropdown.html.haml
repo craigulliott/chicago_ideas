@@ -4,7 +4,7 @@
     .explore_top
     .explore_content
       .column
-        %span.column_header Mega Talks
+        %span.column_header CIW Mega Talks
         %ul.preview_list
           - @e_megatalks.each do |talk|
             %li{:id => "talk_#{talk.id}"}
@@ -16,7 +16,7 @@
               - if talk.chapters.present?
                 %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"      
       .column
-        %span.column_header Talks
+        %span.column_header CIW Talks
         %ul.filter_list
           - @e_talks.each do |talk|
             %li{:id => "talk_#{talk.id}"}

@@ -20,7 +20,7 @@
     #page_title.left
       %h1= @speaker.name
       - if @speaker.title.present?
-        %span.sub_header= @speaker.title
+        %span.sub_header.speaker_title= @speaker.title
     = render "partials/share"
       
 
