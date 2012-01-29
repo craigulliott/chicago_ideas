@@ -13,3 +13,5 @@ vendor/bundle
 .project
 *.tmproj
 config/development.sphinx.conf
+db/sphinx/*	
+db/sphinx
