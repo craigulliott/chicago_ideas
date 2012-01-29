@@ -25,7 +25,7 @@
       .dropdown.full_dropdown
         %ul.dd_column
           %li= link_to "All CIW Talks", talks_path
-          %li= link_to "Megatalks", mega_talks_talks_path
+          %li= link_to "CIW Megatalks", mega_talks_talks_path
           %li= link_to "Videos", videos_path
         %ul.dd_column
           %li= link_to "CIW Labs", labs_events_path
@@ -48,7 +48,7 @@
       = link_to "Speakers", speakers_path
     
     %li#gn_community.nav_parent
-      = link_to "Community", "/community"
+      = link_to "Community", sponsors_path
       .dropdown.double_dropdown
         %ul.dd_column
           %li= link_to "Sponsors", sponsors_path
@@ -62,7 +62,7 @@
       = link_to "About", about_path
       .dropdown
         %ul
-          %li= link_to "About CIW", about_path
+          %li= link_to "Mission", about_path
           %li= link_to "Team", team_members_path
           %li= link_to "Volunteer", new_volunteer_path
     
