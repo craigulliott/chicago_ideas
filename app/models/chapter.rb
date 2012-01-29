@@ -105,6 +105,13 @@ class Chapter < ActiveRecord::Base
       ]
     end
   end
+
+
+  # Need to normalize the search attributes
+  def search_attributes
+    {:title => self.title, :description => self.description[0..100], :image => self.banner(:thumb)}
+  end
+  
   
   private 
 

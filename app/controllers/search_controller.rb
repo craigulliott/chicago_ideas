@@ -21,8 +21,7 @@ class SearchController < ApplicationController
     @query = params[:q]
     respond_to do |format|
       format.html  {
-         @results = ThinkingSphinx.search @query, :classes => [User]
-         render "speakers/index"
+         @results = User.search(@query)
       }
       format.json { 
         @results = ThinkingSphinx.search :conditions => {:name => @query, :title => @query}        

@@ -37,7 +37,7 @@ class EventsController < ApplicationController
   # Partner Programs landing and individual pages
   def partner_programs
     if params[:id].nil? # if no paramter, then load the labs landing
-     @partnerprograms = EventBrand.find_by_name("Partner Program").events
+     @partnerprograms = EventBrand.find_by_name("Partner Program").events.order('name ASC')
      @page_title = "Partner Programs"
     else
       @partnerprogram = Event.find(params[:id])
