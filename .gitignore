@@ -12,3 +12,4 @@ vendor/bundle
 .rvmrc
 .project
 *.tmproj
+config/development.sphinx.conf
