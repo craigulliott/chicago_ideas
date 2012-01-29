@@ -71,7 +71,7 @@
         .dropdown
           %ul
             %li#connect_to_facebook= link_to "Connect to Facebook", account_path
-            %li= link_to "Edit my profile", account_path
+            %li= link_to "Edit my profile", user_password_path
             %li= link_to "Logout", destroy_user_session_path
 
       %li#gn_register{:style => 'display:none;'}
