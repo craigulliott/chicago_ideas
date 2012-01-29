@@ -1,6 +1,6 @@
 -#     Chicago Ideas Week
--#     search/index.html.haml
--#     01/016/2012
+-#     speakers/index.html.haml
+-#     01/17/2012
 
 
 -# Breadcrumbs and Explore button
@@ -9,33 +9,28 @@
     #breadcrumbs
       %ul
         %li= link_to "Home", "/"
-        %li= link_to "Search", search_path
-        - if @query.present?
-          %li
-            %span= @query
+        %li= link_to "Speakers", speakers_path
     = render "partials/explore_dropdown"
 
-
--# Main Talk content
+-# Begin Main Speaker content
 %section.container#main_content
-
+  
   #page_header
     #page_title.left
-      %h1 Search
+      %h1 Speakers Search
     = render "partials/share"
-
-  -# Left column, main content: About Us information
+      
+  
+  -# Left column: Speakers List
   .box.double.left
+    .column_row.speakers_filter#speakers_search_results
+      .column.column_double
+        %span.column_header 
+          Speakers
+          %a{:id => "speaker_search", :class => "model_search_btn", :href => "#"} search speakers
 
-    .column_row.divided_row#search_
-      .column.column_double
-        %form{:method => 'get', :id => 'search_form', :action => '/search'}
-          %span.column_header Search
-          %input{:type => "text", :id => "q", :name => "q", :placeholder => "What are you looking for?"}
-          %input{:type => "submit", :class => "btn blue_btn search_btn", :id => "search_btn", :value => "search"}
-    
-    .column_row#search_results
-      .column.column_double
+        = render "partials/search", :model => "speakers"
+      
         - if @results.present?
           %h2#results_count= "#{@results.count} results for #{@query}"
           %ul.preview_list#search_results_list
@@ -44,16 +39,18 @@
                 - if result.search_attributes[:image].present?
                   .img_frame
                     = image_tag(result.search_attributes[:image])
-                %span{:class => "r_label"}= result.class
                 %span.title_= result.search_attributes[:title]
                 %span.desc_= result.search_attributes[:description]
         - else
           = "Sorry, we didn't find anything for #{@query}. Try searching again."
-          
+        
+                
 
   -# Include Sidebar Items
   #sidebar
+    -#= render "partials/track_filter"
     = render "partials/sponsors"
-    = render "partials/social"
     = render "partials/newsletter_form"
-    
+    = render "partials/social"
+
+
