@@ -389,11 +389,15 @@ a#speaker_search {
 }
 
 
-
-
 // Model Search
 #search_container {
   display: none;
   clear: both;
   margin: 20px 0 40px 0;
+}
+
+#speakers_search_results {
+  #search_container {
+    display: block !important;
+  }
 }
