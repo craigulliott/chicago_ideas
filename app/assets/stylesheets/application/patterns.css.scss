@@ -1018,6 +1018,67 @@ input.submit, input.create {
 }
 
 
+
+
+
+// Search
+#results_count {
+  display: block;
+  margin-bottom: 20px;
+}
+#search_results_list {
+  width: 100%; 
+
+  li {
+    width: 100%;
+    margin: 0 0 40px 0;
+    
+    .img_frame {
+      margin-top: 2px;
+    }
+    span.title_ { 
+      font-size: 19px; 
+      font-weight: bold; 
+      display: block;
+      margin: 2px 0 8px 0;
+    }
+    span.desc_ { 
+      font-size: 14px; 
+      line-height: 19px; 
+    }
+  }
+  li.user span.r_label, li.chapter span.r_label, li.event span.r_label, li.talk span.r_label { 
+    display: inline !important; 
+    width: auto !important; 
+    padding: 1px 5px; 
+    clear: both; 
+    color: $dark;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    @include rounded(2px);
+  }
+  li.user {
+    span.r_label {
+      background: #8cbafa;
+      color: $dark;
+    }
+    .img_frame {
+      height: 110px;
+    }
+  }
+  li.chapter {
+    span.r_label {
+      background: #ffc97b;
+    }
+  }
+  li.talk {
+    span.r_label {
+      background: #9bd671;
+    }
+  }
+}
+
 /******************************************************
  *  Overwriting styles
 ******************************************************/
@@ -1057,3 +1118,6 @@ ul.list_reset {
 .offset_right {
   margin-right: 10px;
 }
+
+
+

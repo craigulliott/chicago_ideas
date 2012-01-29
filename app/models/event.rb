@@ -92,6 +92,13 @@ class Event < ActiveRecord::Base
     "#{start_time} - #{end_time}"
   end
   
+
+  # Need to normalize the search attributes
+  def search_attributes
+    {:title => self.name, :description => self.description[0..100], :image => ''}
+  end
+
+  
   private 
   
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
