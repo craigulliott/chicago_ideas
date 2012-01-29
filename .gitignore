@@ -12,3 +12,5 @@ vendor/bundle
 .rvmrc
 .project
 *.tmproj
+db/sphinx/*
+db/sphinx
