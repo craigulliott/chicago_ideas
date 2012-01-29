@@ -24,9 +24,9 @@ class ApplicationController < ActionController::Base
   def get_sponsors
     @sponsors = Sponsor.all
   end
-  def get_talks
-    @e_megatalks = TalkBrand.find_by_name("Megatalk").talks.order('RAND()').limit(3)
-    @e_talks = TalkBrand.find_by_name("Talk").talks.order('RAND()').limit(10)
+  def get_talks    
+    @e_talks = TalkBrand.find(TALK_BRAND_ID).talks.order('RAND()').limit(10)
+    @e_megatalks = TalkBrand.find(MEGATALK_BRAND_ID).talks.order('RAND()').limit(3)
     @e_speakers = User.speaker.order('RAND()').limit(10)
   end
   def get_nav_featured
