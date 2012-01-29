@@ -208,6 +208,13 @@ class User < ActiveRecord::Base
     ( title.present? && title.length > 75 ) ? "#{title[0..72]}..." : title
   end
   
+  
+  # Need to normalize the search attributes
+  def search_attributes
+    {:title => self.name, :description => self.bio[0..100], :image => self.portrait(:thumb)}
+  end
+  
+  
   private 
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio

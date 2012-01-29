@@ -83,6 +83,15 @@ class Talk < ActiveRecord::Base
     chapter.present? ? chapter.banner(:medium) : nil
   end
   
+
+  
+  # Need to normalize the search attributes
+  def search_attributes
+    {:title => self.name, :description => self.description[0..100], :image => self.banner(:thumb)}
+  end
+
+
+  
   private 
   
     def validate_temporal_constraints
