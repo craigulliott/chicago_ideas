@@ -21,7 +21,7 @@ class EventsController < ApplicationController
   # Labs landing and individual pages
   def labs
    @labs = EventBrand.find_by_name("Lab").events.order('name ASC')
-   @event_photos = EventPhoto.joins(:event).where(:event_brand_id => 1).order('RAND()').limit(10)
+   @event_photos = EventPhoto.joins(:event).where('events.event_brand_id = 1').order('RAND()').limit(10)
    @event_brand = EventBrand.find_by_name('Lab')
    @page_title = "CIW Labs"
   end
