@@ -44,9 +44,22 @@
                 - if result.search_attributes[:image].present?
                   .img_frame
                     = image_tag(result.search_attributes[:image])
-                -#%span{:class => "r_label"}= result.class
+                - if result.kind_of? User
+                  - if result.speaker?
+                    %span{:class => "r_label"} Speaker
+                  - elsif result.team?
+                    %span{:class => "r_label"} Team
+                  - elsif result.volunteer?
+                    %span{:class => "r_label"} Volunteer
+                - else
+                  %span{:class => "r_label"}= result.class
                 %span.title_= result.search_attributes[:title]
-                %span.desc_=raw "#{result.search_attributes[:description]}...#{link_to "read more", @model}"
+                %span.desc_
+                  #{result.search_attributes[:description]}...
+                  - if result.kind_of? User or result.kind_of? Event or result.kind_of? Talk
+                    = link_to "read more", result
+                  - elsif result.kind_of? Chapter
+                    = link_to "read more", video_path(result)
         - else
           = "Sorry, we didn't find anything for #{@query}. Try searching again."
           

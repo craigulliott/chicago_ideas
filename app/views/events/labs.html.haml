@@ -28,9 +28,8 @@
   .box.double.left
 
     .talk_gallery
-      - if @event_brand.present?
-        - @event_brand.event_photos.count(10).each do |photo|
-          = image_tag(photo.photo(:album))
+      - @event_photos.each do |photo|
+        = image_tag(photo.photo(:album))
 
 
     -# Labs introduction
