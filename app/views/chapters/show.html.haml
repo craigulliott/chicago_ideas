@@ -40,17 +40,17 @@
         %span.column_header About this Video
         %pre= @chapter.description
     
-    -# Photo Gallery
-    - if @chapter.chapter_photos.present?
-      .column_row.divided_row#photo_gallery
-        .column.column_double
-          %span.column_header Photo Gallery
-          %ul.photo_gallery.clearfix
-            - @chapter.chapter_photos.each do |photo|
-              %li
-                .img_wrapper
+    -#-# Photo Gallery
+    -#- if @chapter.chapter_photos.present?
+      -#.column_row.divided_row#photo_gallery
+        -#.column.column_double
+          -#%span.column_header Photo Gallery
+          -#%ul.photo_gallery.clearfix
+            -#- @chapter.chapter_photos.each do |photo|
+              -#%li
+                -#.img_wrapper
                   -#= link_to image_tag(photo.photo(:thumb)), "#{URI.decode photo.photo.url(:medium)}", :class => "popup_img"
-                  = image_tag(photo.photo(:thumb))
+                  -#= image_tag(photo.photo(:thumb))
 
 
     -# Speakers in this chapter/video
