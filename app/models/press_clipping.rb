@@ -22,11 +22,11 @@ class PressClipping < ActiveRecord::Base
   has_attached_file :image,
     :styles => { 
       :full => "200x140", 
-      :convert_options => { 
-        :full => "-quality 70", 
-      }
     },
-    :path => "press-clippings/:style/:id.:extension"
+    :convert_options => { 
+      :full => "-quality 70", 
+    },
+    :path => "press-clipping-images/:style/:id.:extension"
 
   
   # the hash representing this model that is returned by the api
