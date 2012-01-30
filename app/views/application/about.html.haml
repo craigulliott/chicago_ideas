@@ -44,9 +44,7 @@
           - @team.each do |teammember|
             %li{:id => "teammember_#{teammember.id}", :class => "teammember_#{teammember.id}"}
               .img_frame
-                - begin
-                  = link_to image_tag(teammember.portrait.url), team_member_path(teammember)
-                - rescue
+                = link_to image_tag(teammember.portrait.url), team_member_path(teammember)
               = link_to teammember.name, team_member_path(teammember);
               %span= teammember.title
       

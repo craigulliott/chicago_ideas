@@ -30,6 +30,7 @@ class EventsController < ApplicationController
   def lab
     @lab = Event.find(params[:id])
     @page_title = "#{@lab.title}"
+    @event_brand = EventBrand.find_by_name('Lab')
   end
   
   
