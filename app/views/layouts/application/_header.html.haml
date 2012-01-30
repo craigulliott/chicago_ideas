@@ -70,8 +70,9 @@
         = link_to "My Account", user_root_path, :id => 'users_full_name'
         .dropdown
           %ul
-            %li#connect_to_facebook= link_to "Connect to Facebook", account_path
-            %li= link_to "Edit my profile", "users/edit"
+            %li#connect_to_facebook= link_to "Connect to Facebook", user_omniauth_authorize_path(:facebook), :class => 'facebook_connect'
+            %li= link_to "My Account", user_root_path
+            %li= link_to "Edit My Profile", edit_user_registration_path
             %li= link_to "Logout", destroy_user_session_path
 
       %li#gn_register{:style => 'display:none;'}

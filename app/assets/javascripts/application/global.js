@@ -28,25 +28,18 @@ var nextBanner = function () {
 $(document).ready(function() {
   
   
-  // Login Dropdown
-  var mouse_is_inside = false;
-  
-  $(document).click(function() {
-    if (!mouse_is_inside) {
-      $('#dd_login_form').hide();
-    }
+  // Login Dropdown  
+  $('body').click(function() {
+    $('#dd_login_form').hide();
   });
+
   $('li#gn_login a').bind('click', function(e) {
     e.preventDefault();
     $('#dd_login_form').stop().toggle();
+    e.stopPropagation();
   });
-  $("#dd_login_form").click(function() {
-      return false;
-  });
-  $('li#gn_login').hover(function(e) {
-    mouse_is_inside = true;
-  }, function(e) {
-    mouse_is_inside = false;
+  $("#dd_login_form, #dd_login_form *").click(function(e) {
+      e.stopPropagation();
   });
   
   // Explore Popup

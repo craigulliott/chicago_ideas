@@ -1045,6 +1045,10 @@ input.submit, input.create {
     span.desc_ { 
       font-size: 14px; 
       line-height: 19px; 
+      a {
+        display: inline;
+        font-weight: inherit;
+      }
     }
   }
   li.user span.r_label, li.chapter span.r_label, li.event span.r_label, li.talk span.r_label { 
