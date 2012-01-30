@@ -8,7 +8,7 @@ class TalksController < ApplicationController
     @featured = Talk.order('RAND()').limit(10) # Talks specifically for the featured banner
     @talks = Talk.search_sort_paginate(params)
     @tracks = Track.all
-    @speakers = User.speaker.order('RAND()').limit(6)
+    @speakers = User.speaker.not_deleted.order('RAND()').limit(6)
     @page_title = "CIW Talks"
   end
   

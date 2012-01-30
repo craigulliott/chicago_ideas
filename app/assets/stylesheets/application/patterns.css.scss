@@ -898,8 +898,7 @@ ul.labs_filter {
 ******************************************************/
 .btn, input.submit, input.create {
   @include rounded(3px);
-  line-height: 27px;
-  padding: 0 10px;
+  padding: 6px 10px;
   margin: 0;
   font-weight: 700;
   font-size: 12px; 
@@ -925,7 +924,7 @@ ul.labs_filter {
   @include box-shadow-inset(0px, 1px, 0px, #45aef1);
 }
 input.submit, input.create {
-  padding: 0 25px;
+  padding: 6px 25px;
 }
 
 
