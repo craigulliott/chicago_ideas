@@ -107,13 +107,15 @@ class ApplicationController < ActionController::Base
       # TODO:  add a sort column
       @team = []
       @team << User.find(2)
-      @team << User.find(1)
+      @team << User.find(62)
       @team << User.find(5)
       @team << User.find(6)
-      @team << User.find(3)
-      User.staff.not_deleted.where('id not in (2,1,5,6,3)').all.each do |u|
+      @team << User.find(1)
+      User.staff.not_deleted.where('id not in (2,62,5,6,1,7,156)').all.each do |u|
         @team << u
       end
+      @team << User.find(7)
+      @team << User.find(156)
       @team
     end
 
