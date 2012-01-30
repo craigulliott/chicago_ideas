@@ -28,18 +28,7 @@ CraigsAdmin::Application.routes.draw do
 
   # users
   # ----------------------------------------------------------------
-  # user account page
-  match 'dashboard' => 'application#dashboard', :as => 'user_root'
-  
-  # authentication for the website, uses Devise and Omniauth for facebook and twitter connect
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  match 'account', :to => 'users#index'
-  
-  resources :volunteers, :only => [:new, :create]
-  
-  resources :years, :only => [:show]
-  
-  resources :users do
+  resources :users, :only => [] do
     collection do 
       # actions
       post :newsletter
@@ -49,9 +38,18 @@ CraigsAdmin::Application.routes.draw do
       # actions
       put :disconnect_facebook
       put :disconnect_twitter
-      put :complete_account_update
     end
   end
+  # user account page
+  match 'dashboard' => 'users#dashboard', :as => 'user_root'
+  # authentication for the website, uses Devise and Omniauth for facebook and twitter connect
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
+  # forms we capture data from
+  resources :volunteers, :only => [:new, :create]
+  resources :community_partner_applications, :only => [:new, :create]
+  
+  resources :years, :only => [:show]
   
   # teams members and speakers are both a type of user, so are handled by the users controller
   match 'team_members', :to => 'users#list_team_members'
@@ -104,6 +102,14 @@ CraigsAdmin::Application.routes.draw do
   namespace :admin do
   
     root :to => 'admin#index'
+
+    resources :community_partner_applications do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
 
     resources :volunteers do
       member do

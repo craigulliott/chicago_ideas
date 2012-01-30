@@ -67,7 +67,7 @@
           %li= link_to "Volunteer", new_volunteer_path
     
       %li#nav_user.nav_parent{:style => 'display:none;'}
-        = link_to "My Account", account_path, :id => 'users_full_name'
+        = link_to "My Account", user_root_path, :id => 'users_full_name'
         .dropdown
           %ul
             %li#connect_to_facebook= link_to "Connect to Facebook", account_path

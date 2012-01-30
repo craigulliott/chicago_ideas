@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   // dont submit the contact form unless all the fields have been used
   // -------------------------------------------------------------------
-  $('form#subscribe_to_newsletter').live('submit', function(){
+  $('form#subscribe_to_newsletter').submit(function(){
     
     $(this).find(':input').closest('li').removeClass('error');
     $missing = [];
@@ -19,7 +19,7 @@ $(document).ready(function(){
     
     $(this).addClass('locked').find('input.submit').attr('value','Please wait..');
     Utility.flash_notice('Please Wait....');
-    
+
   }).bind('ajax:success', function(data, status, xhr){
     
     // always display notices it there are any
@@ -33,7 +33,7 @@ $(document).ready(function(){
     } 
     // else it was a success, hide newsletter signups
     else {
-      $('#newsletter_signup').fadeOut();
+      $('#subscribe_to_newsletter').fadeOut();
     }
 
   });

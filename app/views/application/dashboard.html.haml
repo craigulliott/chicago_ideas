@@ -1,1 +1,14 @@
-%h1 Welcome #{@user.name}
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "My Account", user_root_path
+        %li 
+          %span Home
+
+-# Main Talk content
+%section.container#main_content
+  #page_header
+    #page_title.left
+      %h1 Welcome #{@user.name}

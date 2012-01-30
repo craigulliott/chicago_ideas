@@ -6,9 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :get_talks
   before_filter :get_nav_featured
   before_filter :get_header_models
-  
-  before_filter :authenticate_user!, :only => [:dashboard]
-  
+    
   # the application homepage
   def index
     @talks = Talk.order('RAND()').limit(8)
@@ -24,9 +22,9 @@ class ApplicationController < ActionController::Base
   def get_sponsors
     @sponsors = Sponsor.all
   end
-  def get_talks
-    @e_megatalks = TalkBrand.find_by_name("Megatalk").talks.order('RAND()').limit(3)
-    @e_talks = TalkBrand.find_by_name("Talk").talks.order('RAND()').limit(10)
+  def get_talks    
+    @e_talks = TalkBrand.find(TALK_BRAND_ID).talks.order('RAND()').limit(10)
+    @e_megatalks = TalkBrand.find(MEGATALK_BRAND_ID).talks.order('RAND()').limit(3)
     @e_speakers = User.speaker.order('RAND()').limit(10)
   end
   def get_nav_featured
@@ -63,11 +61,6 @@ class ApplicationController < ActionController::Base
   end
 
   def privacy
-  end
-
-  # users account page
-  def dashboard
-    @user = current_user
   end
   
   # this contains the login and register links, we load it in via AJAX after the initial page has loaded.  

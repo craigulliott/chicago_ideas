@@ -3,8 +3,13 @@ class VolunteersController < ApplicationController
   before_filter :authenticate_user!, :only => [:create]
 
   def new
-    redirect_to new_user_registration_path, :notice => 'To apply as a Volunteer, please first create an account on our website.' unless current_user
-    @volunteer = current_user.build_volunteer
+    if current_user and current_user.volunteer.present?
+      redirect_to root_path, :notice => 'Thank you, your application has already been recieved.'
+    elsif current_user
+      @volunteer = current_user.build_volunteer
+    else
+      redirect_to new_user_registration_path, :notice => 'To apply as a Volunteer, please first create an account or log in.' 
+    end
   end
   
   def create
@@ -12,7 +17,7 @@ class VolunteersController < ApplicationController
     if @volunteer.save
       redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
     else
-      action :new
+      render :new
     end
   end
     

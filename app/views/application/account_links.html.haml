@@ -1,5 +1,5 @@
 - if user_signed_in?
-  %li= link_to 'My Account', account_path
+  %li= link_to 'My Account', user_root_path
   %li= link_to 'Sign Out', destroy_user_session_path
   - unless current_user.connected_to_facebook?
     %li.facebook_connect= link_to "Link with Facebook", user_omniauth_authorize_path(:facebook)

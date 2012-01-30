@@ -18,9 +18,17 @@ EventBrand.create!(:name => "Lab")
 EventBrand.create!(:name => "Partner Program")
 EventBrand.create!(:name => "Affiliate Event")
 
-TalkBrand.create!(:name => "Talk")
-TalkBrand.create!(:name => "Mega Talk")
-TalkBrand.create!(:name => "Edison Talk")
+t = TalkBrand.new(:name => "Talk")
+t.id = TALK_BRAND_ID
+t.save!
+
+t = TalkBrand.new(:name => "Megatalk")
+t.id = MEGATALK_BRAND_ID
+t.save!
+
+t = TalkBrand.new(:name => "Edison Talk")
+t.id = EDISON_TALK_BRAND_ID
+t.save!
 
 Topic.create!(:name => "Politics", :description => "add a description here")
 Topic.create!(:name => "Innovation", :description => "add a description here")
