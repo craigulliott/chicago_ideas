@@ -56,8 +56,13 @@
                 %span.title_= result.search_attributes[:title]
                 %span.desc_
                   #{result.search_attributes[:description]}...
-                  - if result.kind_of? User or result.kind_of? Event or result.kind_of? Talk
+                  - if result.kind_of? Event or result.kind_of? Talk
                     = link_to "read more", result
+                  - elsif result.kind_of? User
+                    - if result.staff?
+                      = link_to "read more", team_member_path(result)
+                    - elsif result.speaker?
+                      = link_to "read more", speaker_path(result)
                   - elsif result.kind_of? Chapter
                     = link_to "read more", video_path(result)
         - else
