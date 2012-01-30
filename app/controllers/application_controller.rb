@@ -104,16 +104,23 @@ class ApplicationController < ActionController::Base
 
     # get all staff members, sorted by priority
     def get_team_members
-      # TODO:  add a sort column
+      # TODO:  add a sort column so we dont have to hard code these
       @team = []
       @team << User.find(2)
       @team << User.find(62)
       @team << User.find(5)
       @team << User.find(6)
       @team << User.find(1)
-      User.staff.not_deleted.where('id not in (2,62,5,6,1,7,156)').all.each do |u|
+      @team << User.find(9)
+      @team << User.find(3)
+      @team << User.find(8)
+      @team << User.find(4)
+      @team << User.find(155)
+      @team << User.find(159)
+      User.staff.not_deleted.where("id not in (2,62,5,6,1,9,3,8,4,155,159,7,156)").all.each do |u|
         @team << u
       end
+      # these guys are part time
       @team << User.find(7)
       @team << User.find(156)
       @team
