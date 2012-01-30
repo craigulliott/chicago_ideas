@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :chapters, :through => :performances
   
   has_one :volunteer
+  has_one :community_partner_application
   
   has_many :quotes
   accepts_nested_attributes_for :quotes, :allow_destroy => true
@@ -86,7 +87,7 @@ class User < ActiveRecord::Base
   
   # send out the welcome email
   after_create {|user|
-    #ApplicationMailer.welcome(user).deliver unless Rails.env == 'test'
+    ApplicationMailer.welcome(user).deliver unless Rails.env == 'test'
   }
 
   validates :permalink, :presence => true, :uniqueness => true, :format => {:with => /^[\w\d_]+$/}

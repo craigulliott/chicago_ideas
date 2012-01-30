@@ -9,10 +9,4 @@ class PartnersController < ApplicationController
     @page_title = "CIW Partners"
   end
   
-  
-  # Apply to be a partner form & page
-  def apply
-    
-  end
-
 end

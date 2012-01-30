@@ -1,17 +1,13 @@
 class UsersController < ApplicationController
   
-  before_filter :authenticate_user!, :only => [:index, :edit, :disconnect_facebook, :disconnect_twitter]
+  before_filter :authenticate_user!, :only => [:index, :disconnect_facebook, :disconnect_twitter]
   
   # cache rendered versions of these pages
   before_filter :cache_rendered_page, :only => [:list_speakers, :speaker, :list_team_members, :team_member]
   
   # the users account homepage
-  def index
+  def dashboard
     @page_title = "#{current_user.name} - Your Account"
-    @user = current_user
-  end
-  
-  def edit
     @user = current_user
   end
   

@@ -6,9 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :get_talks
   before_filter :get_nav_featured
   before_filter :get_header_models
-  
-  before_filter :authenticate_user!, :only => [:dashboard]
-  
+    
   # the application homepage
   def index
     @talks = Talk.order('RAND()').limit(8)
@@ -63,11 +61,6 @@ class ApplicationController < ActionController::Base
   end
 
   def privacy
-  end
-
-  # users account page
-  def dashboard
-    @user = current_user
   end
   
   # this contains the login and register links, we load it in via AJAX after the initial page has loaded.  

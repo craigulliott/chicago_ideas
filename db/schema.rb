@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120126033206) do
+ActiveRecord::Schema.define(:version => 20120129220913) do
 
   create_table "chapter_photos", :force => true do |t|
     t.string   "photo_file_name",    :null => false
@@ -49,6 +49,31 @@ ActiveRecord::Schema.define(:version => 20120126033206) do
 
   add_index "chapters", ["talk_id", "sort"], :name => "index_chapters_on_talk_id_and_sort"
   add_index "chapters", ["talk_id"], :name => "index_chapters_on_talk_id"
+
+  create_table "community_partner_applications", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.text     "how_align"
+    t.boolean  "art_theme"
+    t.boolean  "education_theme"
+    t.boolean  "finance_theme"
+    t.boolean  "health_theme"
+    t.boolean  "public_policy_theme"
+    t.boolean  "social_theme"
+    t.boolean  "technology_theme"
+    t.string   "other_theme"
+    t.boolean  "public_mailing_list"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "community_partner_applications", ["user_id"], :name => "index_community_partner_applications_on_user_id"
 
   create_table "days", :force => true do |t|
     t.integer  "year_id",    :null => false
@@ -341,6 +366,16 @@ ActiveRecord::Schema.define(:version => 20120126033206) do
 
   add_index "venues", ["name"], :name => "index_venues_on_name"
 
+  create_table "videos", :force => true do |t|
+    t.string   "caption",    :null => false
+    t.string   "asset_type", :null => false
+    t.integer  "asset_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "videos", ["asset_type", "asset_id"], :name => "index_videos_on_asset_type_and_asset_id"
+
   create_table "volunteers", :force => true do |t|
     t.integer  "user_id"
     t.string   "postcode"
@@ -368,6 +403,47 @@ ActiveRecord::Schema.define(:version => 20120126033206) do
   end
 
   add_index "volunteers", ["user_id"], :name => "index_volunteers_on_user_id"
+
+  create_table "years", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_foreign_key "chapter_photos", "chapters", :name => "chapter_photos_chapter_id_fk"
+
+  add_foreign_key "chapters", "talks", :name => "chapters_talk_id_fk"
+
+  add_foreign_key "community_partner_applications", "users", :name => "community_partner_applications_user_id_fk"
+
+  add_foreign_key "days", "years", :name => "days_year_id_fk"
+
+  add_foreign_key "event_photos", "events", :name => "event_photos_event_id_fk"
+
+  add_foreign_key "events", "days", :name => "events_day_id_fk"
+  add_foreign_key "events", "event_brands", :name => "events_event_brand_id_fk"
+  add_foreign_key "events", "partners", :name => "events_partner_id_fk"
+  add_foreign_key "events", "venues", :name => "events_venue_id_fk"
+
+  add_foreign_key "notes", "users", :name => "notes_author_id_fk", :column => "author_id"
+
+  add_foreign_key "performances", "chapters", :name => "performances_chapter_id_fk"
+  add_foreign_key "performances", "users", :name => "performances_speaker_id_fk", :column => "speaker_id"
+
+  add_foreign_key "quotes", "users", :name => "quotes_user_id_fk"
+
+  add_foreign_key "sponsors", "sponsorship_levels", :name => "sponsors_sponsorship_level_id_fk"
+
+  add_foreign_key "sponsorships", "sponsors", :name => "sponsorships_sponsor_id_fk"
+  add_foreign_key "sponsorships", "sponsorship_levels", :name => "sponsorships_sponsorship_level_id_fk"
+  add_foreign_key "sponsorships", "years", :name => "sponsorships_year_id_fk"
+
+  add_foreign_key "talk_photos", "talks", :name => "talk_photos_talk_id_fk"
+
+  add_foreign_key "talks", "days", :name => "talks_day_id_fk"
+  add_foreign_key "talks", "sponsors", :name => "talks_sponsor_id_fk"
+  add_foreign_key "talks", "talk_brands", :name => "talks_talk_brand_id_fk"
+  add_foreign_key "talks", "tracks", :name => "talks_track_id_fk"
+  add_foreign_key "talks", "venues", :name => "talks_venue_id_fk"
 
   add_foreign_key "volunteers", "users", :name => "volunteers_user_id_fk"
 

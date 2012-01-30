@@ -38,7 +38,7 @@ module ApplicationHelper
     elsif params[:page_title]
       "#{params[:page_title]} | Chicago Ideas Week"
     else
-      "#{params[:controller].split('/').last.singularize.titlecase} #{section_title} | Admin"
+      "#{params[:controller].split('/').last.singularize.titlecase} #{section_title} | Chicago Ideas Week"
     end
   end
 

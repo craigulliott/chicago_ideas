@@ -1,0 +1,64 @@
+-#     Chicago Ideas Week
+-#     application/about.html.haml
+-#     01/016/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Partners", partners_path
+        %li
+          %span Community Partners Application Form
+    = render "partials/explore_dropdown"
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Community Partners Application Form
+    = render "partials/share"
+    
+  -# Left column, main content: About Us information
+  .box.double.left
+
+    .column_row#partners_form
+        
+      = semantic_form_for(@community_partner_application) do |f|
+        = f.inputs :class => "v_list" do
+          = f.input :name, :label => "Business/Organization name"
+          = f.input :description, :label => "Business/Organization Description or Mission Statement"
+
+        = f.inputs :name => "Address", :class => "c_list v_lists" do
+          = f.input :address1, :label => "Street Address"
+          = f.input :address2
+          = f.input :city
+          = f.input :state, :label => "State / Province / Region"
+          = f.input :country
+          
+          = f.input :how_align, :label => "In what ways does your organization align with Chicago Ideas Week?"
+          
+        = f.inputs :name => "Which themes are most relevant to your organization? (Check all that apply)", :class => "c_list v_lists" do
+          = f.input :art_theme, :label => "Arts and Culture"
+          = f.input :education_theme, :label => "Education"
+          = f.input :finance_theme, :label => "Finance"
+          = f.input :health_theme, :label => "Health and Wellness"
+          = f.input :public_policy_theme, :label => "Public Policy"
+          = f.input :social_theme, :label => "Social Entrepreneurship"
+          = f.input :technology_theme, :label => "Technology"
+          = f.input :other_theme, :label => "Other"
+          
+        = f.inputs :name => "Does your business/organization have a public mailing list?*", :class => "c_list v_lists" do
+          = f.input :public_mailing_list
+        = f.buttons
+        
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
+    

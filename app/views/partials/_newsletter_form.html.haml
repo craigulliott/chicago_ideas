@@ -1,4 +1,4 @@
-.box.right#newsletter_signup
+.box.right#subscribe_to_newsletter
   .column_row
     = semantic_form_for User.new, :url => newsletter_users_path, :remote => true, :html => {:id => 'subscribe_to_newsletter'} do |f|
       = f.inputs :name => "Register for the CIW Newsletter" do
