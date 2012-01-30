@@ -26,12 +26,6 @@
 
   -# Left column, main content: Gallery, details, speakers, etc.
   .box.double.left
-    
-    -# Speaker Photo Gallery
-    - if @speaker.portrait2.present?
-      .portrait
-        = image_tag(@speaker.portrait2(:full))
-      
     -# Main Speaker Content Below
     .column_row.divided_row#speaker_bio
       .column.column_double

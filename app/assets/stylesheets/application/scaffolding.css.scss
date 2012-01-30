@@ -125,8 +125,6 @@ body {
   width: 300px;
 }
 
-
-
 // HEADER
 nav#global_nav {
   height: 55px;
@@ -184,6 +182,12 @@ ul#global_nav {
     }
     > a {
       color: $yellow;
+    }
+  }
+  
+  > li#gn_login:hover {
+    > .dropdown {
+      display: none;
     }
   }
   
@@ -400,7 +404,7 @@ ul#global_nav {
     margin: 30px 0 40px 0;
     
     .footer_item {
-      width: 140px;
+      width: 150px;
       display:inline;
       float:left;
       margin-right: 30px;
@@ -435,7 +439,9 @@ ul#global_nav {
       } // end ul
       
     } // end footer_item
-    
+    #community_footer {
+      width: 250px;
+    }
     .footer_item:last-child, .last { 
       margin-right:0;
     }

@@ -1,30 +1,50 @@
-%section.container.form_container#main_content
+-#     Chicago Ideas Week
+-#     devise/passwords/edit.html.haml
+-#     01/29/2012
 
-  -# Left column with form
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span Account Registration
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Account Registration
+    = render "partials/share"
+
+  -# Left column, main content
   .box.double.left
-
-    .column_row#login_container
-      %span.column_header Account Registration
-
-      = link_to "Click here to Login with your Facebook Account", user_omniauth_authorize_path(:facebook), :class => 'facebook_connect'
-      %br/
-      %br/
-      or create a new account below: 
-      %br/
-      %br/
+    .column_row
+      .column.column_double
+        = link_to "Click here to Login with your Facebook Account", user_omniauth_authorize_path(:facebook), :class => 'facebook_connect'
+        %br/
+        %br/
+        or create a new account below: 
+        %br/
+        %br/
       
-      = semantic_form_for resource, :as => resource_name, :url => registration_path(resource_name) do |f|
-        = f.inputs do
-          = f.input :name
-          = f.input :email
-          = f.input :password
-          = f.input :password_confirmation
+        = semantic_form_for resource, :as => resource_name, :url => registration_path(resource_name) do |f|
+          = f.inputs do
+            = f.input :name
+            = f.input :email
+            = f.input :password
+            = f.input :password_confirmation
 
-        .agreeing_to_terms 
-          By creating an account, you are agreeing to our
-          = link_to "Terms of Use", terms_path
+          .agreeing_to_terms 
+            By creating an account, you are agreeing to our
+            = link_to "Terms of Use", terms_path
 
-        = f.buttons do
-          = f.commit_button :label => "Create Account"
+          = f.buttons do
+            = f.commit_button :label => "Create Account"
 
-        = render "devise/shared/links"
+          = render "devise/shared/links"
