@@ -35,8 +35,8 @@
         %ul.preview_list#partner_programs_list
           - @partnerprograms.each do |pp|
             %li{:id => "partnerprograms_#{pp.id}"}
-              .img_frame
-                = link_to image_tag(pp.banner(:thumb)), event_path(pp)
+              -#.img_frame
+                -#= link_to image_tag(pp.banner(:thumb)), event_path(pp)
               = link_to pp.name, event_path(pp)
 
   -# Include Sidebar Items
