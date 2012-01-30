@@ -16,7 +16,7 @@ class TracksController < ApplicationController
     @talks = @track.talks.search_sort_paginate(params)
     @megatalks = TalkBrand.find_by_name("Megatalk").talks
 
-    @speakers = User.speaker.limit(6)
+    @speakers = User.speaker.not_deleted.limit(6)
     render "talks/index"
   
   end

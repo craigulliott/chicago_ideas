@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     @page_title = "Events"
     @talks = Talk.limit(8)
     @chapters = Chapter.limit(8)
-    @speakers = User.speaker.limit(12).order(rand) # grab 12 speakers
+    @speakers = User.speaker.not_deleted.limit(12).order(rand) # grab 12 speakers
   end
   
   
@@ -22,6 +22,7 @@ class EventsController < ApplicationController
   def labs
    @labs = EventBrand.find_by_name("Lab").events.order('name ASC')
    @event_photos = EventPhoto.joins(:events).where(:event_brand_id => 1).order('RAND()').limit(10)
+   @event_brand = EventBrand.find_by_name('Lab')
    @page_title = "CIW Labs"
   end
   

@@ -36,19 +36,11 @@
     .column_row#about_description
       .column.column_double        
         - if @talks.present?
-          .column#homepage_talks
-            %span.column_header Talks
-            %ul.preview_list
+          .column.column_double#homepage_talks
+            %span.column_header CIW Talks
+            %ul.preview_list.double_rows
               = render "partials/talks_loop", :talks => @talks
             = link_to "view all talks →", talks_path, :class => "view_all blue"
-
-        - if @chapters.present?
-          .column.right#homepage_videos
-            %span.column_header Videos
-            %ul.preview_list
-              = render "partials/chapters_loop", :chapters => @chapters
-            = link_to "view all videos →", videos_path, :class => "view_all blue"
-
 
 
 

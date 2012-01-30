@@ -34,7 +34,7 @@
               %span.timestamp= news.formatted_time
               %pre
                 - if news.image.present?
-                  = image_path(news.image, :class => "left offset_right")
+                  = image_tag(news.image, :class => "left offset_right")
                 = news.description
               -if news.url.present?
                 = link_to "more →", news.url
