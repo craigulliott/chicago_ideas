@@ -1,8 +1,11 @@
-%table{:style => "width:100%; background-color: #eeeeee; font-family:sans-serif;"}
-  %tr
-    %td Welcome!
-  - if @user.temporary_password.present?
-    %tr
-      %td Your temporary password is #{@user.temporary_password}
-  %tr
-    %td= link_to 'Login to your account', account_url(:auth_token => @user.authentication_token)
+%table{:style => "width:100%; background-color: #fff; font-family:sans-serif;"}
+  %tr{:style => "background-color: #f7f5f6; width: 600px; border: none;"}
+    %center
+      = asset_path('application/email_assets/logo.png')
+  %tr{:style => "background-color: #f7f5f6; width: 560px; border: none; padding: 20px;"}
+    %h1{:style => "font-size: 35px; color: #111111; font-family: Helvetica Neue, Arial, sans-serif; display: block; margin-bottom: 25px;" }= "Hi #{@user.name}"
+    %p
+      Welcome to the Ideasphere! You’re account has been successfully created. You can access, modify or update your account at anytime by visiting
+      = link_to "http://www.chicagoideas.com/account", "http://www.chicagoideas.com/account"
+  %tr{:style => "background-color: #f7f5f6; width: 600px; border: none; padding: 0;"}
+    = asset_path('application/email_assets/footer.jpg')

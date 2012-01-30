@@ -1,14 +1,37 @@
+-#     Chicago Ideas Week
+-#     application/blum_helfand.html.haml
+-#     01/29/2012
+
+
 -# Breadcrumbs and Explore button
 %section#header_toolbar.container-fluid
   .container
     #breadcrumbs
       %ul
-        %li= link_to "My Account", user_root_path
-        %li 
-          %span Home
+      %li= link_to "Home", "/"
+        %li
+          %span My Account
 
--# Main Talk content
+
+
+-# Main content
 %section.container#main_content
+
   #page_header
     #page_title.left
-      %h1 Welcome #{@user.name}
+      %h1 My Account
+    = render "partials/share"
+
+  -# Left column, main content: About Us information
+  .box.double.left
+    .column_row
+      .column.column_double
+        Welcome to your account. No tickets are currently for sale. 
+        
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
+    

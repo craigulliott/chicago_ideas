@@ -98,7 +98,7 @@ class Event < ActiveRecord::Base
     {:title => self.name, :description => self.description[0..100], :image => ''}
   end
 
-  
+
   private 
   
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio

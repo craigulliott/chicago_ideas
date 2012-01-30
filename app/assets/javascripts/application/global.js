@@ -28,6 +28,20 @@ var nextBanner = function () {
 $(document).ready(function() {
   
   
+  // Login Dropdown  
+  $('body').click(function() {
+    $('#dd_login_form').hide();
+  });
+
+  $('li#gn_login a').bind('click', function(e) {
+    e.preventDefault();
+    $('#dd_login_form').stop().toggle();
+    e.stopPropagation();
+  });
+  $("#dd_login_form, #dd_login_form *").click(function(e) {
+      e.stopPropagation();
+  });
+  
   // Explore Popup
   $('.explore_').bind('hover', function(e) {
     $('.explore_dropdown').fadeToggle('fast');
