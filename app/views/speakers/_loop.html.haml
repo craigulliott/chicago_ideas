@@ -4,7 +4,7 @@
     %li
       = link_to speaker_path(speaker) do
         .grid_img_wrapper
-          = image_tag speaker.portrait(:thumb)
+          = image_tag speaker.portrait(:thumb), :rel => "bookmark", :title => "#{speaker.name}"
           
         .grid_content
           %span{:class => "title_"}= speaker.name

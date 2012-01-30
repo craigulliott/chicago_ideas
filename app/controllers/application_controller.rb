@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     @speakers = User.speaker.not_deleted.order('RAND()').limit(8)
     @sponsors = Sponsor.all
     @featured = Chapter.homepage_featured.order('RAND()').limit(8)
-    @page_title = "Welcome"
+    @meta_data = {:page_title => "Welcome", :og_image => "/assets/application/logo.png", :og_title => "Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
   end
   
   def get_header_models
@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   
   def about
     get_team_members
-    @page_title = "About the CIW Team"
+    @meta_data = {:page_title => "About the CIW Team", :og_title => "Chicago Ideas Week Team", :og_type => "website"}
     render "application/about"
   end
   
@@ -53,19 +53,19 @@ class ApplicationController < ActionController::Base
   
   
   def special_programs_awards
-    @page_title = "Special Programs & Awards"
+    @meta_data = {:page_title => "Special Programs & Awards", :og_title => "Special Programs & Awards | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
   end
   
   def blum_helfand
-    @page_title = "Bluhm/Helfand Innovation Fellowship"
+    @meta_data = {:page_title => "Bluhm/Helfand Innovation Fellowship", :og_title => "Bluhm/Helfand Innovation Fellowship | Chicago Ideas Week", :og_type => "website", :og_desc => "The Bluhm/Helfand Social Innovation Fellowship @ Chicago Ideas Week, recognizes three young socially-conscious leaders who have developed innovative ventures addressing social needs, and provides them with exposure to nationally recognized business and community leaders, funding to support their cause, and a platform for growth."}
   end
 
   def terms
-    @page_title = "Terms of Use"
+    @meta_data = {:page_title => "Terms of Use", :og_image => "/assets/application/logo.png", :og_title => "Terms of Use | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
   end
 
   def privacy
-    @page_title = "Privacy Policy"
+    @meta_data = {:page_title => "Privacy Policy", :og_image => "/assets/application/logo.png", :og_title => "Privacy Policy | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
   end
   
   # this contains the login and register links, we load it in via AJAX after the initial page has loaded.  

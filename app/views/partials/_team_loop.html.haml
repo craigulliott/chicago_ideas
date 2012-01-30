@@ -7,6 +7,6 @@
   - if team != current_team_member
     %li{:id => "team_#{team.id}", :class => "team_#{team.id}"}
       .img_frame
-        = link_to image_tag(team.portrait(:thumb)), team_member_path(team)
-      = link_to team.name, team_member_path(team)
+        = link_to image_tag(team.portrait(:thumb)), team_member_path(team), :rel => "bookmark", :title => "#{team.name}"
+      = link_to team.name, team_member_path(team), :rel => "bookmark", :title => "#{team.name}"
       %span= team.title_abbreviated

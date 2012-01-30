@@ -9,10 +9,10 @@
   %ul#global_nav.container
   
     %li#gn_logo
-      %h1= link_to "Chicago Ideas Week", root_path
+      %h1= link_to "Chicago Ideas Week", root_path, :rel => "bookmark", :title => "Chicago Ideas Week Homepage"
     
     %li#gn_upcoming.nav_parent.nav_section_end
-      = link_to "2012 CIW", year_path(@current_year)
+      = link_to "2012 CIW", year_path(@current_year), :rel => "bookmark", :title => "2012 CIW"
       .dropdown.full_dropdown
         %ul.dd_column.full
           %li
@@ -21,51 +21,51 @@
             Details coming soon
         
     %li#gn_events.nav_parent
-      = link_to "Events", events_path
+      = link_to "Events", events_path, :rel => "bookmark", :title => "CIW Events"
       .dropdown.full_dropdown
         %ul.dd_column
-          %li= link_to "All CIW Talks", talks_path
-          %li= link_to "CIW Megatalks", mega_talks_talks_path
-          %li= link_to "Videos", videos_path
+          %li= link_to "All CIW Talks", talks_path, :rel => "bookmark", :title => "All CIW Talks"
+          %li= link_to "CIW Megatalks", mega_talks_talks_path, :rel => "bookmark", :title => "CIW Megatalks"
+          %li= link_to "Videos", videos_path, :rel => "bookmark", :title => "View Videos"
         %ul.dd_column
-          %li= link_to "CIW Labs", labs_events_path
-          %li= link_to "Partner Programs", partner_programs_events_path
-          %li= link_to "Affiliate Events", affiliate_event_events_path
+          %li= link_to "CIW Labs", labs_events_path, :rel => "bookmark", :title => "View all CIW Labs"
+          %li= link_to "Partner Programs", partner_programs_events_path, :rel => "bookmark", :title => "View all Partner Programs"
+          %li= link_to "Affiliate Events", affiliate_event_events_path, :rel => "bookmark", :title => "All all Affiliate Events"
         %ul.dd_column.featured
           - @nav_featured_chapters.each do |featured|          
             %li
               .dd_img_container
-                = link_to image_tag(featured.banner.url(:thumb)), video_path(featured)
-              = link_to featured.title, video_path(featured)
+                = link_to image_tag(featured.banner.url(:thumb)), video_path(featured), :rel => "bookmark", :title => "#{featured.title}"
+              = link_to featured.title, video_path(featured), :rel => "bookmark", :title => "#{featured.title}"
               - featured.performances.limit(2).each do |performance|
                 - if performance.speaker.present?
                   %span.small= performance.speaker.name
     
     %li#gn_videos
-      = link_to "Videos", videos_path
+      = link_to "Videos", videos_path, :rel => "bookmark", :title => "View all Videos"
     
     %li#gn_speakers
-      = link_to "Speakers", speakers_path
+      = link_to "Speakers", speakers_path, :rel => "bookmark", :title => "View all Speakers"
     
     %li#gn_community.nav_parent
-      = link_to "Community", sponsors_path
+      = link_to "Community", sponsors_path, :rel => "bookmark", :title => "View Sponsors"
       .dropdown.double_dropdown
         %ul.dd_column
-          %li= link_to "Sponsors", sponsors_path
-          %li= link_to "Community Partners", partners_path
-          %li= link_to "Special Programs & Awards", special_programs_path
+          %li= link_to "Sponsors", sponsors_path, :rel => "bookmark", :title => "View Sponsors"
+          %li= link_to "Community Partners", partners_path, :rel => "bookmark", :title => "View Community Partners"
+          %li= link_to "Special Programs & Awards", special_programs_path, :rel => "bookmark", :title => "Special Programs & Awards"
         %ul.dd_column
-          %li= link_to "News", press_clippings_path
-          %li= link_to "Volunteer", new_volunteer_path
+          %li= link_to "News", press_clippings_path, :rel => "bookmark", :title => "View News Releases"
+          %li= link_to "Volunteer", new_volunteer_path, :rel => "bookmark", :title => "Voluneer Application"
 
     %li#gn_about.nav_parent.nav_section_end
       = link_to "About", about_path
       .dropdown
         %ul
-          %li= link_to "Mission", about_path
-          %li= link_to "Team", team_members_path
-          %li= link_to "Volunteer", new_volunteer_path
-          %li= link_to "Contact Us", contact_path
+          %li= link_to "Mission", about_path, :rel => "bookmark", :title => "About CIW"
+          %li= link_to "Team", team_members_path, :rel => "bookmark", :title => "CIW Team"
+          %li= link_to "Volunteer", new_volunteer_path, :rel => "bookmark", :title => "Volunteer Application"
+          %li= link_to "Contact Us", contact_path, :rel => "bookmark", :title => "Contact Us"
     
       %li#nav_user.nav_parent{:style => 'display:none;'}
         = link_to "My Account", user_root_path, :id => 'users_full_name'
@@ -77,10 +77,10 @@
             %li= link_to "Logout", destroy_user_session_path
 
       %li#gn_register{:style => 'display:none;'}
-        = link_to "Register", new_user_registration_path
+        = link_to "Register", new_user_registration_path, :title => "Register"
     
       %li#gn_login{:style => 'display:none;'}
-        = link_to "Login", new_user_session_path
+        = link_to "Login", new_user_session_path, :title => "Login"
         .dropdown#dd_login_form
           = render "partials/login_form"
       
