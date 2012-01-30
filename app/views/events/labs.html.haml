@@ -28,10 +28,9 @@
   .box.double.left
 
     .talk_gallery
-      - @labs.each do |lab|
-        - if lab.event_photos.present?
-          - lab.event_photos.order('RAND()').limit(10).each do |photo|
-            = image_tag(photo.photo(:album))
+      - if @event_brand.present?
+        - @event_brand.event_photos.count(10).each do |photo|
+          = image_tag(photo.photo(:album))
 
 
     -# Labs introduction
@@ -53,20 +52,6 @@
                 .lab_description
                   %pre= lab.description
                   %a{:class => "back_top", :href => "javascript:scroll(0,0)"} back top
-
-
-
-        
-          
-  .box.right#labs_list
-    .box_header
-      %span Labs Quicklinks
-    .column_row
-      %ul.filter_list.labs_filter
-        -#%li= %a.lab_top "Top"
-        - @labs.each do |lab|
-          %li
-            %a{:class => "lab_#{lab.id}", :href => "#lab_#{lab.id}"}= lab.name
 
 
   -# Include Sidebar Items
