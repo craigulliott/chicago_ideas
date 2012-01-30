@@ -54,20 +54,6 @@
                   %a{:class => "back_top", :href => "javascript:scroll(0,0)"} back top
 
 
-
-        
-          
-  .box.right#labs_list
-    .box_header
-      %span Labs Quicklinks
-    .column_row
-      %ul.filter_list.labs_filter
-        -#%li= %a.lab_top "Top"
-        - @labs.each do |lab|
-          %li
-            %a{:class => "lab_#{lab.id}", :href => "#lab_#{lab.id}"}= lab.name
-
-
   -# Include Sidebar Items
   #sidebar
     = render "partials/sponsors"

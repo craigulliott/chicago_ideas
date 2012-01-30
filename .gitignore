@@ -12,11 +12,6 @@ vendor/bundle
 .rvmrc
 .project
 *.tmproj
-<<<<<<< HEAD
 config/development.sphinx.conf
 db/sphinx/*	
 db/sphinx
-=======
-db/sphinx/*
-db/sphinx
->>>>>>> upstream/master
