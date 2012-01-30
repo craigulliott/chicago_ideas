@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     @page_title = "Events"
     @talks = Talk.limit(8)
     @chapters = Chapter.limit(8)
-    @speakers = User.speaker.limit(12).order(rand) # grab 12 speakers
+    @speakers = User.speaker.not_deleted.limit(12).order(rand) # grab 12 speakers
   end
   
   

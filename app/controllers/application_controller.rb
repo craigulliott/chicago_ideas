@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   # the application homepage
   def index
     @talks = Talk.order('RAND()').limit(8)
-    @speakers = User.speaker.order('RAND()').limit(8)
+    @speakers = User.speaker.not_deleted.order('RAND()').limit(8)
     @sponsors = Sponsor.all
     @featured = Chapter.homepage_featured.order('RAND()').limit(8)
     @page_title = "Welcome"
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   def get_talks    
     @e_talks = TalkBrand.find(TALK_BRAND_ID).talks.order('RAND()').limit(10)
     @e_megatalks = TalkBrand.find(MEGATALK_BRAND_ID).talks.order('RAND()').limit(3)
-    @e_speakers = User.speaker.order('RAND()').limit(10)
+    @e_speakers = User.speaker.not_deleted.order('RAND()').limit(10)
   end
   def get_nav_featured
     @nav_featured_chapters = Chapter.homepage_featured.order('RAND()').limit(2)
