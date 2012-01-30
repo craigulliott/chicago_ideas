@@ -551,6 +551,18 @@ ul.double_rows {
 }
 
 
+#partner_programs_list {
+  li {
+    width: 640px;
+    .img_frame {
+      width: 300px;
+      height: 107px;
+      margin: 0 10px 10px 0;
+      float: left;
+    }
+  }
+}
+
 // Sponsors List
 ul.sponsors_list {
   width: 100%;
