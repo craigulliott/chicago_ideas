@@ -28,6 +28,27 @@ var nextBanner = function () {
 $(document).ready(function() {
   
   
+  // Login Dropdown
+  var mouse_is_inside = false;
+  
+  $(document).click(function() {
+    if (!mouse_is_inside) {
+      $('#dd_login_form').hide();
+    }
+  });
+  $('li#gn_login a').bind('click', function(e) {
+    e.preventDefault();
+    $('#dd_login_form').stop().toggle();
+  });
+  $("#dd_login_form").click(function() {
+      return false;
+  });
+  $('li#gn_login').hover(function(e) {
+    mouse_is_inside = true;
+  }, function(e) {
+    mouse_is_inside = false;
+  });
+  
   // Explore Popup
   $('.explore_').bind('hover', function(e) {
     $('.explore_dropdown').fadeToggle('fast');

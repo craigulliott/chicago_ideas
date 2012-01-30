@@ -185,6 +185,12 @@ ul#global_nav {
     }
   }
   
+  > li#gn_login:hover {
+    > .dropdown {
+      display: none;
+    }
+  }
+  
   li#gn_logo:hover {
     @include box-shadow-inset(0px,0px, 0px, #000);
     background-color: transparent;
