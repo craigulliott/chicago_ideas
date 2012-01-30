@@ -33,6 +33,7 @@ class ApplicationController < ActionController::Base
   
   def about
     get_team_members
+    @page_title = "About the CIW Team"
     render "application/about"
   end
   
@@ -51,16 +52,20 @@ class ApplicationController < ActionController::Base
   end
   
   
-  def special_programs_awards  
+  def special_programs_awards
+    @page_title = "Special Programs & Awards"
   end
   
   def blum_helfand
+    @page_title = "Bluhm/Helfand Innovation Fellowship"
   end
 
   def terms
+    @page_title = "Terms of Use"
   end
 
   def privacy
+    @page_title = "Privacy Policy"
   end
   
   # this contains the login and register links, we load it in via AJAX after the initial page has loaded.  
