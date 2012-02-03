@@ -17,7 +17,7 @@
                 - if featured_item.homepage_caption.present?
                   = link_to featured_item.homepage_caption, video_path(featured_item), :rel => "bookmark", :title => "#{featured_item.homepage_caption}"
                 -else
-                  = link_to featured_item.title, video_path(featured_item), :rel => "bookmark", :title => "#{featuerd_item.title}"
+                  = link_to featured_item.title, video_path(featured_item), :rel => "bookmark", :title => "#{featured_item.title}"
               -# only display speaker list if it's one speaker'
               - if featured_item.performances.size == 1
                 - featured_item.performances.limit(2).each do |performance|

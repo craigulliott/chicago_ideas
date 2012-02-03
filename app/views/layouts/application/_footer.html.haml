@@ -48,11 +48,11 @@
         %li= link_to "Twitter", "http://www.twitter.com/chicagoideas", :target => "_blank"
         %li= link_to "Facebook", "http://www.twitter.com/ChicagoIdeasWeek", :target => "_blank"
 
-
-  .row.full#copyright
+  .row_full#credits
     %ul
-      %li{:id => "copyright_notice"} &copy; 2011 Chicago Ideas Week
-      %li= link_to "Privacy Policy", privacy_path
-      %li= link_to "Terms of Use", terms_path
-      %li#admin_link{:style => 'display:none;'}= link_to "Admin", admin_root_path
-      %li.right Lovingly created by <a href="http://www.craigulliott.com" target="_blank">Craig Ulliott</a>, <a href="http://www.kohactive.com" target="_blank">Justin McNally</a> &amp; <a href="http://www.johnkoht.com" target="_blank">John Koht</a>
+      %li Lovingly created by <a href="http://www.craigulliott.com" target="_blank">Craig Ulliott</a>, <a href="http://www.kohactive.com" target="_blank">Justin McNally</a> &amp; <a href="http://www.johnkoht.com" target="_blank">John Koht</a>
+      %li Photos by, Tim Klein, Dirk Fletcher, Danyel Dunkin, Whitney Hsieh, Zak Jokela, Sarah Frankie Linder, Jade Tungjairob, Lois Bernstein, John Broughton, Liz Gilmore and Jasmin Shah
+      %li#copyright
+        &copy; 2011 Chicago Ideas Week
+        = link_to "Privacy Policy", privacy_path
+        = link_to "Terms of Use", terms_path
