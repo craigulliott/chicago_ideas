@@ -9,11 +9,11 @@
     %ul.filter_list
       %li= link_to "All Talks", talks_path
       - @tracks.each do |track|
-        %li= link_to track.name, track_path(track)
+        %li= link_to track.name, track_path(track), :rel => "bookmark", :title => "View all #{track.name} Talks"
   
   .column_row
     %ul.filter_list
-      %li= link_to "Mega Talks", mega_talks_talks_path
-      %li= link_to "CIW Labs", labs_events_path
-      %li= link_to "Partner Programs", partner_programs_events_path
-      %li= link_to "Affiliate Events", affiliate_event_events_path
+      %li= link_to "Megatalks", mega_talks_talks_path, :rel => "bookmark", :title => "View all Megatalks"
+      %li= link_to "CIW Labs", labs_events_path, :rel => "bookmark", :title => "View all CIW Labs"
+      %li= link_to "Partner Programs", partner_programs_events_path, :rel => "bookmark", :title => "View all Partner Programs"
+      %li= link_to "Affiliate Events", affiliate_event_events_path, :rel => "bookmark", :title => "View all Affiliate Events"

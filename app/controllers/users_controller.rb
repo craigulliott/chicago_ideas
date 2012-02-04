@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   
   # the users account homepage
   def dashboard
-    @page_title = "#{current_user.name} - Your Account"
+    @meta_data = {:page_title => "#{current_user.name}", :og_image => "", :og_title => "#{current_user.name} | Chicago Ideas Week", :og_type => "article", :og_desc => ""}
     @user = current_user
   end
   
@@ -56,8 +56,8 @@ class UsersController < ApplicationController
   
   # Speakers landing page
   def list_speakers
-    @page_title = "Speakers"
     @speakers = User.speaker.not_deleted.order('name').search_sort_paginate(params).per(12)
+    @meta_data = {:page_title => "Speakers", :og_image => "/assets/application/logo.png", :og_title => "Speakers | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     render "speakers/index"
   end
   
@@ -68,21 +68,21 @@ class UsersController < ApplicationController
     else
       @speaker = User.find_by_permalink(params[:id])
     end
-    @page_title = "#{@speaker.name}"
     # Get all chapters that the speaker is part of
     @chapters = @speaker.chapters.all
+    @meta_data = {:page_title => "#{@speaker.name}", :og_image => "#{@speaker.portrait(:thumb)}", :og_title => "#{@speaker.name} | Chicago Ideas Week", :og_type => "article", :og_desc => "#{@speaker.bio[0..200]}"}
     render "speakers/show"
   end
   
   def list_team_members
-    @page_title = "Team Members"
+    @meta_data = {:page_title => "CIW Team", :og_image => "/assets/application/logo.png", :og_title => "CIW Team | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     get_team_members
   end  
   
   def team_member
     get_team_members
     @team_member = User.find(params[:id])
-    @page_title = "About #{@team_member.name}"
+    @meta_data = {:page_title => "About #{@team_member.name}", :og_image => "#{@team_member.portrait(:thumb)}", :og_title => "About #{@team_member.name} | Chicago Ideas Week", :og_type => "website", :og_desc => "#{@team_member.bio[0..200]}"}
   end
 
 end

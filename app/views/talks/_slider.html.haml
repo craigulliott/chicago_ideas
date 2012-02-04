@@ -2,8 +2,8 @@
 - if featured.present?
   .slider
     - featured.each do |f|
-      = link_to image_tag(f.banner_src, :title => "#slider_title_#{f.id}"), talk_path(f)
+      = link_to image_tag(f.banner_src, :title => "#slider_title_#{f.id}"), talk_path(f), :rel => "bookmark", :title => "#{f.name}"
 
   - featured.each do |f|
     .nivo-html-caption{:id => "slider_title_#{f.id}"}
-      %h2= link_to f.name, talk_path(f)
+      %h2= link_to f.name, talk_path(f), :rel => "bookmark", :title => "#{f.name}"

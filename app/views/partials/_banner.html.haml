@@ -15,17 +15,17 @@
               %span.banner_type= "CIW #{featured_item.talk.talk_brand.name}"
               %span.banner_title
                 - if featured_item.homepage_caption.present?
-                  = link_to featured_item.homepage_caption, video_path(featured_item)
+                  = link_to featured_item.homepage_caption, video_path(featured_item), :rel => "bookmark", :title => "#{featured_item.homepage_caption}"
                 -else
-                  = link_to featured_item.title, video_path(featured_item)
+                  = link_to featured_item.title, video_path(featured_item), :rel => "bookmark", :title => "#{featured_item.title}"
               -# only display speaker list if it's one speaker'
               - if featured_item.performances.size == 1
                 - featured_item.performances.limit(2).each do |performance|
                   - if performance.speaker.present?
-                    %span.b_link= link_to performance.speaker.name, speaker_path(performance.speaker)
+                    %span.b_link= link_to performance.speaker.name, speaker_path(performance.speaker), :rel => "bookmark", :title => "#{performance.speaker.name}"
 
 
     .container-fluid#banner_nav_wrapper
       %ul#banner_nav
         - @featured.each do |featured_thumb|
-          %li= link_to image_tag(featured_thumb.homepage_banner(:thumb)), "#", :class => "b_thumb thumb_#{featured_thumb.id}", :id => "thumb_#{featured_thumb.id}"
+          %li= link_to image_tag(featured_thumb.homepage_banner(:thumb)), "#", :class => "b_thumb thumb_#{featured_thumb.id}", :id => "thumb_#{featured_thumb.id}", :rel => "bookmark", :title => "#{featured_thumb.title}"

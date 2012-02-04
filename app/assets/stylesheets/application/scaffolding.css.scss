@@ -447,6 +447,33 @@ ul#global_nav {
     }
   } // #end footer_nav
   
+  #credits {
+    display: block;
+    ul {
+      display: block;
+      list-style: none;
+      
+      li {
+        display: block;
+        clear: both;
+        margin-bottom: 5px;
+        text-align: center;
+        color:#bebebe;
+        font-weight:lighter;
+        
+        &#copyright {
+          margin-top: 10px;
+          a {
+            margin-left: 10px;
+          }
+        }
+        a {
+           color:#bebebe;
+        }
+      }
+    }
+  }
+ /*
   #copyright {
     display:block; 
     
@@ -474,7 +501,7 @@ ul#global_nav {
       }
     }
   } // end #copyright
-  
+  */
 } // end #footer
 
 

@@ -16,8 +16,8 @@
         - @megatalks.each do |talks|
           %li
             .img_frame
-              = link_to image_tag(talks.banner_src), talk_path(talks)
-            %h3= link_to talks.name, talk_path(talks)
+              = link_to image_tag(talks.banner_src), talk_path(talks), :rel => "bookmark", :title => "#{talks.name}"
+            %h3= link_to talks.name, talk_path(talks), :rel => "bookmark", :title => "#{talks.name}"
         
 
   -# Left column, main content
@@ -28,7 +28,7 @@
           %span.column_header CIW Talks
           %ul.preview_list.double_rows
             = render "partials/talks_loop", :talks => @talks
-        = link_to "view all talks →", talks_path, :class => "view_all blue"
+        = link_to "view all talks →", talks_path, :class => "view_all blue", :rel => "bookmark", :title => "View all Talks"
 
 
 
