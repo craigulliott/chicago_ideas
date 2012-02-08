@@ -24,7 +24,7 @@ class EventsController < ApplicationController
    @labs = EventBrand.find_by_name("Lab").events.order('name ASC')
    @event_photos = EventPhoto.joins(:event).where('events.event_brand_id = 1').order('RAND()').limit(10)
    @event_brand = EventBrand.find_by_name('Lab')
-   @meta_data = {:page_title => "CIW Labs", :og_image => "/assets/application/labs.jpg", :og_title => "CIW Labs | Chicago Ideas Week", :og_type => "website", :og_desc => "CIW Labs offer opportunities for participants to experience and explore the best of Chicago like never before.  Exclusive, behind-the-scenes experiences give participants a unique glimpses into the inner workings of businesses and institutions that are otherwise unavailable to the public.  Small groups will explore what it’s like for business leaders in the boardroom, go behind the curtain at leading theaters and venues, and discover “how-it-works” in hands-on workshops."}
+   @meta_data = {:page_title => "CIW Labs", :og_image => "/assets/application/labs.jpg", :og_title => "CIW Labs | Chicago Ideas Week", :og_type => "website", :og_desc => "CIW Labs offer opportunities for participants to experience and explore the best of Chicago like never before.  Exclusive, behind-the-scenes experiences give participants a unique glimpses into the inner workings of businesses and institutions that are otherwise unavailable to the public.  Small groups will explore what it's like for business leaders in the boardroom, go behind the curtain at leading theaters and venues, and discover 'how-it-works' in hands-on workshops."}
   end
   
   # Labs landing and individual pages
@@ -39,7 +39,7 @@ class EventsController < ApplicationController
   def partner_programs
     if params[:id].nil? # if no paramter, then load the labs landing
      @partnerprograms = EventBrand.find_by_name("Partner Program").events.order('name ASC')
-     @meta_data = {:page_title => "Partner Programs", :og_image => "/assets/application/logo.png", :og_title => "Partner Programs | Chicago Ideas Week", :og_type => "website", :og_desc => "CIW Partner Programs are official CIW events that are co-curated with our CIW Partners. All programs subscribe to the same goals of connectivity and innovation as other Chicago Ideas Week events, but provide a unique perspective based on the CIW Partner’s specific area of expertise."}
+     @meta_data = {:page_title => "Partner Programs", :og_image => "/assets/application/logo.png", :og_title => "Partner Programs | Chicago Ideas Week", :og_type => "website", :og_desc => "CIW Partner Programs are official CIW events that are co-curated with our CIW Partners. All programs subscribe to the same goals of connectivity and innovation as other Chicago Ideas Week events, but provide a unique perspective based on the CIW Partner's specific area of expertise."}
     else
       @partnerprogram = Event.find(params[:id])
       @meta_data = {:page_title => "#{@partnerprogram.title}", :og_image => "/assets/application/logo.png", :og_title => "#{@partnerprogram.title} | Chicago Ideas Week", :og_type => "website", :og_desc => "#{@partnerprogram.description[0..200]}"}
