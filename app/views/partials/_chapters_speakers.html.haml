@@ -9,6 +9,6 @@
               - if p.speaker.present? && p.speaker != this_speaker
                 %li
                   .img_frame 
-                    = link_to image_tag(p.speaker.portrait(:thumb)), speaker_path(p.speaker)
-                  = link_to p.speaker.name, speaker_path(p.speaker)
+                    = link_to image_tag(p.speaker.portrait(:thumb)), speaker_path(p.speaker), :rel => "bookmark", :title => "#{p.speaker.name}"
+                  = link_to p.speaker.name, speaker_path(p.speaker), :rel => "bookmark", :title => "#{p.speaker.name}"
                   %span= p.speaker.title_abbreviated

@@ -13,12 +13,14 @@
   %meta{:name => "googlebot", :content => "index,follow"}
   %meta{:name => "Distribution", :content => "Global"}
   %meta{:name => "revisit-after", :content => "1days"}
-
-%meta{:property => "og:title", :content => "#{page_title}"}
-%meta{:property => "og:description", :content => ""}
-%meta{:property => "og:type", :content => "website"}
-%meta{:property => "og:image", :content => image_url('logo.jpg')}
-%meta{:property => "og:url", :content => root_url}
+  %meta{:name => "google-site-verification", :content => "SeB1qa1XQe19bhoKs3rRWrcypy4qL5SwDKRdNEcYSg0"}
+  
+/%meta{:property => "og:title", :content => "#{@meta_data[:og_title]}"}
+%meta{:property => "og:title", :content => "#{@meta_data.present? ? @meta_data[:og_title] : ''}"}
+%meta{:property => "og:description", :content => "#{@meta_data.present? ? @meta_data[:og_desc] : ''}"}
+%meta{:property => "og:type", :content => "#{@meta_data.present? ? @meta_data[:og_type] : ''}"}
+%meta{:property => "og:image", :content => "#{@meta_data.present? ? @meta_data[:og_image] : ''}"}
+%meta{:property => "og:url", :content => request.url}
 %meta{:property => "og:site_name", :content => "Chicago Ideas Week"}
 %meta{:property => "fb:app_id", :content => FACEBOOK_CLIENT_ID}
 
@@ -26,10 +28,10 @@
 %link{:rel => 'shortcut icon', :href => '/favicon.ico', :type => 'image/x-icon'}
 %link{:rel => 'apple-touch-icon', :href => '/favicon.ico', :type => 'image/x-icon'}
 
-%meta{:name => 'description', :content => ""}
-%meta{:name => 'keywords', :content => ""}
+%meta{:name => 'description', :content => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action, and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers—and, well…just innately passionate."}
+%meta{:name => 'keywords', :content => "Chicago Innovation, Technology, Social Media Conference, Chicago Technology Conferences, Chicago Ideas"}
 
-%title=  page_title
+%title=  "#{@meta_data.present? ? @meta_data[:page_title] : ''} | Chicago Ideas Week"
 - if Rails.env == 'production'
   %script{:type => "text/javascript", :src => "http://js.getexceptional.com/exceptional.js"}
   %script{:type => "text/javascript"} Exceptional.setKey('#{ENV['EXCEPTIONAL_API_KEY']}');

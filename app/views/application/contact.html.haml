@@ -35,6 +35,7 @@
           = form.inputs do
             = form.input 'name', :required => true, :label => 'Your Name'
             = form.input 'email', :required => true, :label => 'Email Address', :hint => 'So we can get back to you'
+            = form.input 'subject', :required => true, :label => 'Subject'
             = form.input 'message', :required => true, :label => 'Message', :as => :text
 
           = form.buttons do

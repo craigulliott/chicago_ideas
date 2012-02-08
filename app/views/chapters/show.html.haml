@@ -62,14 +62,14 @@
             - if performance.speaker.present?
               %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
                 .img_frame
-                  = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker)
+                  = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker), :rel => "bookmark", :title => "#{performance.speaker.name}"
                 .speaker_info
-                  %h3= link_to performance.speaker.name, speaker_path(performance.speaker)
+                  %h3= link_to performance.speaker.name, speaker_path(performance.speaker), :rel => "bookmark", :title => "#{performance.speaker.name}"
                   %span.speaker_title= performance.speaker.title
 
                   %pre
                     = performance.speaker.bio_abbreviated
-                    = link_to "read more →", speaker_path(performance.speaker)
+                    = link_to "read more →", speaker_path(performance.speaker), :rel => "bookmark", :title => "#{performance.speaker.name}"
                 .clearfix
               
 
