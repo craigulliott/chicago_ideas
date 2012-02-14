@@ -33,6 +33,8 @@
     - if @chapter.vimeo_id.present?
       .video_container
         <iframe src="http://player.vimeo.com/video/#{@chapter.vimeo_id}?title=0&amp;byline=0&amp;portrait=0" width="680" height="383" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+        = render 'partials/share_video'
+          
     
     -# Chapter description
     .column_row.divided_row#talks_description
