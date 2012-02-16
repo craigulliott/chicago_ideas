@@ -29,31 +29,87 @@
     .column_row#partners_form
         
       = semantic_form_for(@community_partner_application) do |f|
-        = f.inputs :class => "v_list" do
-          = f.input :name, :label => "Business/Organization name"
-          = f.input :description, :label => "Business/Organization Description or Mission Statement"
+      
+        .form_section
+          %span.form_section_header Step 1: Basic Info
+          = f.inputs :class => "v_lists" do
+            = f.input :name, :label => "Business/Organization name", :class => "medium-large"
+            = f.input :description, :label => "Business/Organization Description or Mission Statement"          
 
-        = f.inputs :name => "Address", :class => "c_list v_lists" do
-          = f.input :address1, :label => "Street Address"
-          = f.input :address2
-          = f.input :city
-          = f.input :state, :label => "State / Province / Region"
-          = f.input :country
+          = f.inputs :name => "Organization Address", :class => "c_list v_lists" do
+            = f.input :address1, :class => "medium-large", :label => "Street Address"
+            = f.input :address2
+            = f.input :city
+            = f.input :state, :label => "State / Province / Region", :class => "small"
+            = f.input :country
           
-          = f.input :how_align, :label => "In what ways does your organization align with Chicago Ideas Week?"
+          = f.inputs :name => "Organization Social Links", :class => "c_list v_lists" do
+            = f.inputs :facebook_page, :label => "Facebook Page"
+            = f.inputs :twitter_handle, :label => "Twitter Username"
           
-        = f.inputs :name => "Which themes are most relevant to your organization? (Check all that apply)", :class => "c_list v_lists" do
-          = f.input :art_theme, :label => "Arts and Culture"
-          = f.input :education_theme, :label => "Education"
-          = f.input :finance_theme, :label => "Finance"
-          = f.input :health_theme, :label => "Health and Wellness"
-          = f.input :public_policy_theme, :label => "Public Policy"
-          = f.input :social_theme, :label => "Social Entrepreneurship"
-          = f.input :technology_theme, :label => "Technology"
-          = f.input :other_theme, :label => "Other"
+          = f.inputs :name => "Organization Contact", :class => "c_list v_lists" do
+            = f.input :contact_name, :label => "Contact Name"
+            = f.input :contact_title, :label => "Contact Title"
+            = f.input :contact_email, :label => "Contact Email"
+            = f.input :contact_phone, :label => "Contact Phone"
           
-        = f.inputs :name => "Does your business/organization have a public mailing list?*", :class => "c_list v_lists" do
-          = f.input :public_mailing_list
+          
+        .form_section
+          %span.form_section_header Step 2: Chicago Ideas Week Community Partnerships
+          = f.inputs :class => "v_lists" do
+            = f.input :previous_partner, :label => "Was your organization a 2011 Community Partner?"
+            = f.input :why_partner, :label => "Why do you want to become a 2012 CIW Community Partner?"
+          
+          = f.inputs :name => " Select the topics below that are most relevant to your organization. (List topics – Check all that apply)", :class => "v_lists checkbox_list" do 
+            = f.input :design_with_purpose_theme, :label => "Design with Purpose"
+            = f.input :start_something_theme, :label => "Start Something"
+            = f.input :fashion_theme, :label => "Fashion"
+            = f.input :sports_theme, :label => "Sports"
+            = f.input :cities_theme, :label => "Cities"
+            = f.input :politics_theme, :label => "Politics"
+            = f.input :philanthropy_theme, :label => "Philanthropy"
+            = f.input :tech_theme, :label => "Tech"
+            = f.input :breathroughs_in_science_theme, :label => "Breakthroughs in Science"
+            = f.input :creative_process_theme, :label => "Creative Process"
+            = f.input :health_wellness_theme, :label => "Health and Wellnesss"
+            = f.input :future_of_news_theme, :label => "Future of News"
+            = f.input :influence_of_art_theme, :label => "Influence of Art"
+            = f.input :food_theme, :label => "Food"
+            = f.input :good_evil_theme, :label => "Good and Evil"
+            = f.input :social_entrepreneurship_theme, :label => "Social Entrepreneurship"
+            = f.input :explorers_theme, :label => "Explorers"
+            = f.input :disruptive_innovation_theme, :label => "Disruptive Innovation"
+            = f.input :future_of_military_theme, :label => "Future of Military"
+            = f.input :music_theme, :label => "Music"
+            = f.input :religion_theme, :label => "Religion"
+            = f.input :epic_friendships_theme, :label => "Epic Friendships and Relationships"
+            = f.input :economy_theme, :label => "Economy"
+            = f.input :future_leaders_theme, :label => "Future Global Leaders"
+            = f.input :education_theme, :label => "Education"
+            = f.input :meaning_of_life_theme, :label => "Meaning of Life"
+            = f.input :environment_theme, :label => "Environment"
+            = f.input :criminal_justice_theme, :label => "Criminal Justice"
+            = f.input :storytellers_theme, :label => "Storytellers"
+            = f.input :gender_theme, :label => "Gender"
+          
+          = f.inputs :class => "v_lists" do
+            = f.input :most_important, :label => "What is most important to you about being a Community Partner? (Select one)", :collection => ["Networking opportunities", "Being listed on the CIW website and show guide", "Opportunity to help guide CIW programming", "Potential for early ticket sales and/or complimentary tickets", "Other (Please explain)"]
+          
+          
+          = f.inputs :class => "v_lists" do
+            = f.input :organization_has_newsletter, :label => "My organization has a newsletter"
+            = f.input :organization_newsletter_frequency, :label => "If YES, our newsletter is", :collection => ["Weekly, ""Monthly", "Quarterly", "Annually", "Other (Please explain)"]
+            = f.input :ciw_updates_in_newsletter, :label => "If YES, I agree to include relevant CIW updates in my organization’s newsletter"
+            
+        
+        .form_section
+          %span.form_section_header Step 3: Mutual Agreements
+          %span In becoming a community partner, my organization will to the best of our ability:
+          = f.inputs :class => "v_lists" do
+            = f.input :will_promote_ciw, :label => "Promote relevant CIW events through all available channels, including internal and external communications, newsletters, and social networks"
+            = f.input :encourage_promote_ciw, :label => "Encourage and permit employees to attend CIW events"
+            = f.input :provide_insight_guidance, :label => "Provide insight and guidance into relevant areas of expertise where relevant to CIW programming"
+          
         = f.buttons
         
   -# Include Sidebar Items
