@@ -1,0 +1,81 @@
+-#     Chicago Ideas Week
+-#     affiliate_event_application/new.html.haml
+-#     02/17/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Affiliate Events", affiliate_event_events_path
+        %li
+          %span Affiliate Events Application
+    = render "partials/explore_dropdown"
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Affiliate Events Application Form
+    = render "partials/share"
+    
+  -# Left column, main content: About Us information
+  .box.double.left
+
+    .column_row#affiliate_event_form
+        
+      = semantic_form_for(@affiliate_event_application) do |f|
+      
+        .form_section
+          %span.form_section_header Event Coordinator/Contact Information
+          = f.inputs :class => "v_lists" do
+            = f.input :first_name, :label => "First Name"
+            = f.input :last_name, :label => "Last Name"
+            = f.input :organization_name, :label => "Organization Name"
+            = f.input :website, :label => "Website"
+            = f.input :job_title, :label => "Job Title"
+            = f.input :email, :label => "Email Address"
+            = f.input :phone_number, :label => "Phone Number"
+          
+          
+        .form_section
+          %span.form_section_header Affiliate Event Information
+          = f.inputs :class => "v_lists" do
+            = f.input :event_name, :label => "Event Name (as it would be printed in promotional materials)"
+            = f.input :event_date, :label => "Date/Time"
+            = f.input :event_location, :label => "Location & Address (as it would be printed in promotional materials)"
+            = f.input :event_capacity, :label => "Capacity"
+            = f.input :event_overview, :label => "Overivew"
+            = f.input :recurring, :label => "Is this a recurring event?"
+            = f.input :paid_event, :label => "Is this a paid event?"
+            = f.input :event_cost, :label => "If YES, how much does it cost"
+            = f.input :rsvp_required, :label => "Does this event require guests to RSVP in advance?"
+            = f.input :rsvp_directions, :label => "If YES, how and when do guests RSVPS?"
+          
+          %span.bold CIW promotional material will vary in size, so please provide:
+          %ul.standard_list
+            %li Event description in 25 words or less (as it would be printed in promotional materials)
+            %li Event description in 10 words or less (as it would be printed in promotional materials)
+
+
+        .form_section
+          %span.form_section_header Agreements
+          = f.inputs :class => "v_lists" do
+            = f.input :promote_event, :required => true, :label => "My organization will promote this event independently, through all available channels including internal and external communications, social media networks, etc."
+            = f.input :event_info_available, :required => true, :label => "My organization will ensure that information about this event is readily available online (independent of the Chicago Ideas Week website)."
+            = f.input :not_make_changes, :required => true, :label => "My organization will not make significant changes to this event after August1, 2012."
+            
+            
+        = f.buttons do
+          = f.submit :value => "Submit Application", :class => "btn submit"
+        
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
+    

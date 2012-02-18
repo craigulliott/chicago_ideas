@@ -33,7 +33,7 @@
         .form_section
           %span.form_section_header Step 1: Basic Info
           = f.inputs :class => "v_lists" do
-            = f.input :name, :label => "Business/Organization name", :class => "medium-large"
+            = f.input :name, :class => "large", :label => "Business/Organization name"
             = f.input :description, :label => "Business/Organization Description or Mission Statement"          
 
           = f.inputs :name => "Organization Address", :class => "c_list v_lists" do
@@ -50,7 +50,7 @@
           = f.inputs :name => "Organization Contact", :class => "c_list v_lists" do
             = f.input :contact_name, :label => "Contact Name"
             = f.input :contact_title, :label => "Contact Title"
-            = f.input :contact_email, :label => "Contact Email"
+            = f.input :contact_email, :as => :email, :label => "Contact Email"
             = f.input :contact_phone, :label => "Contact Phone"
           
           
@@ -104,13 +104,14 @@
         
         .form_section
           %span.form_section_header Step 3: Mutual Agreements
-          %span In becoming a community partner, my organization will to the best of our ability:
+          %span.bold In becoming a community partner, my organization will to the best of our ability:
           = f.inputs :class => "v_lists" do
             = f.input :will_promote_ciw, :label => "Promote relevant CIW events through all available channels, including internal and external communications, newsletters, and social networks"
             = f.input :encourage_promote_ciw, :label => "Encourage and permit employees to attend CIW events"
             = f.input :provide_insight_guidance, :label => "Provide insight and guidance into relevant areas of expertise where relevant to CIW programming"
           
-        = f.buttons
+        = f.buttons do
+          = f.submit :value => "Submit Application", :class => "btn submit"
         
   -# Include Sidebar Items
   #sidebar

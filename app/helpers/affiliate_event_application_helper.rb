@@ -1,0 +1,2 @@
+module AffiliateEventApplicationHelper
+end

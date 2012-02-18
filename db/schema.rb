@@ -11,7 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216004724) do
+ActiveRecord::Schema.define(:version => 20120217214055) do
+
+  create_table "affiliate_event_applications", :force => true do |t|
+    t.string   "first_name",           :null => false
+    t.string   "last_name",            :null => false
+    t.string   "organization_name",    :null => false
+    t.string   "website"
+    t.string   "job_title"
+    t.string   "email",                :null => false
+    t.string   "phone_number",         :null => false
+    t.string   "event_name",           :null => false
+    t.string   "event_date",           :null => false
+    t.string   "event_location",       :null => false
+    t.string   "event_capacity",       :null => false
+    t.string   "event_overview",       :null => false
+    t.boolean  "recurring"
+    t.boolean  "paid_event"
+    t.string   "event_cost"
+    t.boolean  "rsvp_required",        :null => false
+    t.string   "rsvp_directions"
+    t.boolean  "promote_event",        :null => false
+    t.boolean  "event_info_available", :null => false
+    t.boolean  "not_make_changes",     :null => false
+    t.integer  "user_id",              :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "affiliate_event_applications", ["user_id"], :name => "index_affiliate_event_applilcations_on_user_id"
 
   create_table "chapter_photos", :force => true do |t|
     t.string   "photo_file_name",    :null => false
@@ -434,6 +462,8 @@ ActiveRecord::Schema.define(:version => 20120216004724) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_foreign_key "affiliate_event_applications", "users", :name => "affiliate_event_applilcations_user_id_fk"
 
   add_foreign_key "community_partner_applications", "users", :name => "community_partner_applications_user_id_fk"
 
