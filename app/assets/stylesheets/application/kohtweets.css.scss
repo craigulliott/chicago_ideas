@@ -1,0 +1,66 @@
+.kohtweet_feed {
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+  
+  li {
+    display: block;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+      
+    .avatar_container {
+      width: 48px;
+      height: 48px;
+      float: left;
+      margin: 0 10px 10px 0;
+      height: 100%;
+      
+      img {
+        @include rounded(4px);
+      }
+    }
+    
+    .tweet_content {
+      float: right;
+      font-size: 13px;
+      color: #555;
+      line-height: 17px; 
+      width: 200px;
+      
+      a.tweet_meta {
+        font-size: 11px;
+        display: block;
+        color: #999;
+        margin-top: 6px;
+      }
+    }
+    
+    .tweet_content:before, .tweet_content:after {
+      display: table;
+      content: "";
+      zoom: 1;
+    }
+    .tweet_content:after {
+      clear: both;
+    }
+  
+  }
+  
+  li:before, li:after {
+    display: table;
+    content: "";
+    zoom: 1;
+  }
+  li:after {
+    clear: both;
+  }
+   
+}
+
+a.follow_ {
+  background: asset-url('application/twitter_icon.png', image) center left no-repeat;
+  font-size: 13px;
+  line-height: 25px;
+  padding-left: 27px;
+}

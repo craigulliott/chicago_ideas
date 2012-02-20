@@ -401,3 +401,93 @@ a#speaker_search {
     display: block !important;
   }
 }
+
+
+
+
+
+
+
+
+
+/******************************************************
+ *  Community Partners Form
+******************************************************/
+.form_section {
+  display: block;
+  margin: 0 0 40px 0;
+  border-bottom: 1px solid #ccc;
+  padding: 0 0 0px 0; 
+  
+  span {
+    display: block;
+    clear: both;
+    margin-bottom: 10px;
+  }
+}
+
+.form_section_header {
+    display: block;
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 25px;
+    color: #232323;
+    
+    label {
+        display: block;
+        clear: both;
+        margin-bottom: 10px;
+    }
+}
+.v_lists {
+    display: block;
+    margin-bottom: 45px;     
+}
+legend {
+    float:left;
+    width: 100%;
+    display: block;
+    clear: both;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+  
+.checkbox_list ul {
+     margin-top: 20px !important;   
+}
+.checkbox_list li {
+   padding: 0;
+   width: 300px;
+   float: left;
+   margin: 0 0 5px 0 !important;
+   height: auto;
+   line-height: auto;
+}
+.checkbox_list li label {
+   font-weight: inherit;
+   font-size: 14px;
+}
+
+.boolean label { font-weight: inherit; }
+
+
+// Make requires * red
+abbr[title="required"] { color: red; }
+
+// Form Errors
+form .error {
+
+  input {
+    border: 1px solid red;
+    background: #f9ebeb;    
+  }  
+    
+  p.inline-errors {
+      display: block;
+      margin: 0 0 10px 0;
+      padding: 0;
+      color: red;    
+      font-weight: 400;
+  }
+}
+

@@ -34,10 +34,10 @@
               %span.timestamp= news.formatted_time
               %pre
                 - if news.image.present?
-                  = image_tag(news.image, :class => "left offset_right")
+                  = image_tag(news.image, :class => "news_image")
                 = news.description
               -if news.url.present?
-                = link_to "more →", news.url
+                = link_to "more →", news.url, :rel => 'nofollow', :title => news.title
                 
                 
 

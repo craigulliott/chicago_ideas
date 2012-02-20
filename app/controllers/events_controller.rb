@@ -39,7 +39,7 @@ class EventsController < ApplicationController
   def partner_programs
     if params[:id].nil? # if no paramter, then load the labs landing
      @partnerprograms = EventBrand.find_by_name("Partner Program").events.order('name ASC')
-     @meta_data = {:page_title => "Partner Programs", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Partner Programs | Chicago Ideas Week", :og_type => "website", :og_desc => "CIW Partner Programs are official CIW events that are co-curated with our CIW Partners. All programs subscribe to the same goals of connectivity and innovation as other Chicago Ideas Week events, but provide a unique perspective based on the CIW Partner’s specific area of expertise."}
+     @meta_data = {:page_title => "Partner Programs", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Partner Programs | Chicago Ideas Week", :og_type => "website", :og_desc => "CIW Partner Programs are official CIW events that are co-curated with our CIW Partners. All programs subscribe to the same goals of connectivity and innovation as other Chicago Ideas Week events, but provide a unique perspective based on the CIW Partner's specific area of expertise."}
     else
       @partnerprogram = Event.find(params[:id])
       @meta_data = {:page_title => "#{@partnerprogram.title}", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "#{@partnerprogram.title} | Chicago Ideas Week", :og_type => "website", :og_desc => "#{@partnerprogram.description[0..200]}"}

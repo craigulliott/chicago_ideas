@@ -1,0 +1,37 @@
+-#     Chicago Ideas Week
+-#     application/sizzle.html.haml
+-#     02/17/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span CIW Sizzle Reel
+    -# Explore Button : Dropdown to come...
+    = render "partials/explore_dropdown"
+
+-# Main Content
+%section.container#main_content
+
+  -# Page Header: Title, sub-header, and social
+  #page_header
+    #page_title.left
+      %h1 CIW SIzzle Reel
+
+  -# Left column, main content: Video, details, speakers, etc.
+  .box.double.left
+    
+    -# Chapter Video
+    .video_container
+      <iframe src="http://player.vimeo.com/video/36725632?title=0&amp;byline=0&amp;portrait=0" width="680" height="383" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
