@@ -32,14 +32,17 @@
             %li Dedicated to exposing their audiences to Chicago Ideas Week events
         %p If your organization is as passionate as we are about transformational ideas and building lasting connections, we’d love to hear from you! Chicago Ideas Week provides a unique promotional platform and, with your help, we can further extend the Chicago Ideas Week conversation around new ideas and innovation.
         %p 
-          To apply to enroll in the CIW Community Partner program, please [click here]. For more information, please email
-          %a{:href => "mailto:brooke@chicagoideas.com", :target => "_blank", :rel => "nofollow"} brooke@chicagoideas.com
+          To apply to enroll in the CIW Community Partner program, please 
+          = link_to "click here.", new_community_partner_application_path
+          For more information, please email
+          = link_to "brooke@chicagoideas.com", "mailto:brooke@chicagoideas.com"
         %p All applications are subject to evaluation by the CIW executive committee.
 
 
 
   -# Include Sidebar Items
   #sidebar
+    = render "partners/signup_link"
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"

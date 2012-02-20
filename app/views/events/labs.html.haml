@@ -1,10 +1,19 @@
--# - @labs.each do |lab|
--#  = link_to lab.name, event_lab_path(lab)
-
-
 -#     Chicago Ideas Week
 -#     events/labs.html.haml
 -#     01/03/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Events", events_path
+        %li
+          %span CIW Labs
+    = render "partials/explore_dropdown"
+
 
 
 -# Main Labs content
@@ -19,35 +28,29 @@
   .box.double.left
 
     .talk_gallery
-      -#- @talk.talk_photos.each do |photo|
-      -#  = image_tag(photo.photo_file_name)
-      = image_tag("application/temp/asdf.jpg")
-      = image_tag("application/temp/asdffff.jpg")
-      = image_tag("application/temp/asdfasdf.jpg")
+      - @event_photos.each do |photo|
+        = image_tag(photo.photo(:album))
 
 
-
+    -# Labs introduction
+    .column_row#labs_intro
+      .column.column_double
+        %p Go Behind-the-Scenes in Chicago with Chicago Ideas Week Labs! 
+        %p CIW Labs offer opportunities for participants to experience and explore the best of Chicago like never before.  Exclusive, behind-the-scenes experiences give participants a unique glimpses into the inner workings of businesses and institutions that are otherwise unavailable to the public.  Small groups will explore what it’s like for business leaders in the boardroom, go behind the curtain at leading theaters and venues, and discover “how-it-works” in hands-on workshops.
+        
+    
+    -# Labs List
     - if @labs.present?
-      #labs_list
-        - @labs.each do |lab|
-          .column_row.divided_row{:id => "lab_#{lab.id}"}
-            %a{:name => "lab_#{lab.id}"}
-            .column.column_double
-              %h3= lab.name
-              %pre= lab.description
-              %a{:class => "back_top", :href => "javascript:scroll(0,0)"} back top
-        
-        
-          
-  .box.right#labs_list
-    .box_header
-      %span Labs Quicklinks
-    .column_row
-      %ul.filter_list.labs_filter
-        -#%li= %a.lab_top "Top"
-        - @labs.each do |lab|
-          %li
-            %a{:class => "lab_#{lab.id}", :href => "#lab_#{lab.id}"}= lab.name
+      .column_row#labs_overview
+        .column.column_double
+          %ul.lab_list
+            - @labs.each do |lab|
+              %li{:id => "lab_item_#{lab.id}", :class => "lab_item lab_item_#{lab.id}"}
+                %a{:name => "lab_#{lab.id}"}
+                %h3= link_to lab.name, "#", :class => "lab_title"
+                .lab_description
+                  %pre= lab.description
+                  %a{:class => "back_top", :href => "javascript:scroll(0,0)"} back top
 
 
   -# Include Sidebar Items

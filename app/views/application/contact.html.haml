@@ -1,15 +1,60 @@
-%h1 Contact Us
+-#     Chicago Ideas Week
+-#     application/contact.html.haml
+-#     01/25/2012
 
-#thank_you{:style => "display:none;"}
-  Thank You, your message has been sent.
 
-= semantic_form_for(:contact, :url => send_contact_url, :remote => true) do |form|
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span Contact Us
 
-  = form.inputs do
-    = form.input 'name', :required => true, :label => 'Your Name'
-    = form.input 'email', :required => true, :label => 'Email Address', :hint => 'So we can get back to you'
-    = form.input 'message', :required => true, :label => 'Message', :as => :text
 
-  = form.buttons do
-    = form.commit_button :label => "Send Message"
+-# Main content
+%section.container#main_content
 
+  #page_header
+    #page_title.left
+      %h1 Contact Us
+    = render "partials/share"
+
+  -# Left column, main content: About Us information
+  .box.double.left
+    .column_row
+      .column.column_double
+        %p We'd love to hear your big ideas! Share your ideas here:
+        
+        #thank_you{:style => "display:none;"}
+          Thank You, your message has been sent.
+
+        = semantic_form_for(:contact, :url => send_contact_url, :remote => true) do |form|
+
+          = form.inputs do
+            = form.input 'name', :required => true, :label => 'Your Name'
+            = form.input 'email', :required => true, :label => 'Email Address', :hint => 'So we can get back to you'
+            = form.input 'subject', :required => true, :label => 'Subject'
+            = form.input 'message', :required => true, :label => 'Message', :as => :text
+
+          = form.buttons do
+            = form.commit_button :label => "Send Message"
+            
+    .column_row
+      .column.column_double
+        %p
+          %address
+            %strong Chicago Ideas Week 
+            %br
+            600 W. Chicago Ave. , Suite 700
+            %br
+            Chicago, Illinois, 60654 
+
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

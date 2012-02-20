@@ -11,7 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117165429) do
+ActiveRecord::Schema.define(:version => 20120220170531) do
+
+  create_table "affiliate_event_applications", :force => true do |t|
+    t.string   "first_name",           :null => false
+    t.string   "last_name",            :null => false
+    t.string   "organization_name",    :null => false
+    t.string   "website"
+    t.string   "job_title"
+    t.string   "email",                :null => false
+    t.string   "phone_number",         :null => false
+    t.string   "event_name",           :null => false
+    t.string   "event_date",           :null => false
+    t.string   "event_location",       :null => false
+    t.string   "event_capacity",       :null => false
+    t.string   "event_overview",       :null => false
+    t.string   "recurring"
+    t.string   "paid_event"
+    t.string   "event_cost"
+    t.string   "rsvp_required",        :null => false
+    t.string   "rsvp_directions"
+    t.boolean  "promote_event",        :null => false
+    t.boolean  "event_info_available", :null => false
+    t.boolean  "not_make_changes",     :null => false
+    t.integer  "user_id",              :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description_25words",  :null => false
+    t.text     "description_10words",  :null => false
+  end
+
+  add_index "affiliate_event_applications", ["user_id"], :name => "index_affiliate_event_applilcations_on_user_id"
 
   create_table "chapter_photos", :force => true do |t|
     t.string   "photo_file_name",    :null => false
@@ -27,24 +57,90 @@ ActiveRecord::Schema.define(:version => 20120117165429) do
   add_index "chapter_photos", ["chapter_id"], :name => "index_chapter_photos_on_chapter_id"
 
   create_table "chapters", :force => true do |t|
-    t.integer  "sort",                                    :null => false
+    t.integer  "sort",                                            :null => false
     t.string   "title"
     t.text     "description"
-    t.integer  "talk_id",                                 :null => false
+    t.integer  "talk_id",                                         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "vimeo_id"
-    t.boolean  "featured_on_talk",     :default => false, :null => false
-    t.boolean  "featured_on_homepage", :default => false, :null => false
+    t.boolean  "featured_on_talk",             :default => false, :null => false
+    t.boolean  "featured_on_homepage",         :default => false, :null => false
     t.text     "homepage_caption"
     t.string   "banner_file_name"
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
+    t.string   "homepage_banner_file_name"
+    t.string   "homepage_banner_content_type"
+    t.integer  "homepage_banner_file_size"
+    t.datetime "homepage_banner_updated_at"
   end
 
   add_index "chapters", ["talk_id", "sort"], :name => "index_chapters_on_talk_id_and_sort"
   add_index "chapters", ["talk_id"], :name => "index_chapters_on_talk_id"
+
+  create_table "community_partner_applications", :force => true do |t|
+    t.string   "name",                                                :null => false
+    t.text     "description"
+    t.string   "address1",                                            :null => false
+    t.string   "address2"
+    t.string   "city",                                                :null => false
+    t.string   "state",                                               :null => false
+    t.string   "country",                           :default => "US", :null => false
+    t.boolean  "public_mailing_list"
+    t.integer  "user_id",                                             :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "facebook_page"
+    t.string   "twitter_handle"
+    t.string   "contact_name",                                        :null => false
+    t.string   "contact_title",                                       :null => false
+    t.string   "contact_phone",                                       :null => false
+    t.boolean  "previous_partner",                                    :null => false
+    t.text     "why_partner",                                         :null => false
+    t.boolean  "design_with_purpose_theme"
+    t.boolean  "start_something_theme"
+    t.boolean  "fashion_theme"
+    t.boolean  "sports_theme"
+    t.boolean  "cities_theme"
+    t.boolean  "politics_theme"
+    t.boolean  "philanthropy_theme"
+    t.boolean  "tech_theme"
+    t.boolean  "breathroughs_in_science_theme"
+    t.boolean  "creative_process_theme"
+    t.boolean  "health_wellness_theme"
+    t.boolean  "future_of_news_theme"
+    t.boolean  "influence_of_art_theme"
+    t.boolean  "food_theme"
+    t.boolean  "good_evil_theme"
+    t.boolean  "social_entrepreneurship_theme"
+    t.boolean  "explorers_theme"
+    t.boolean  "disruptive_innovation_theme"
+    t.boolean  "future_of_military_theme"
+    t.boolean  "music_theme"
+    t.boolean  "religion_theme"
+    t.boolean  "epic_friendships_theme"
+    t.boolean  "economy_theme"
+    t.boolean  "future_leaders_theme"
+    t.boolean  "education_theme"
+    t.boolean  "meaning_of_life_theme"
+    t.boolean  "environment_theme"
+    t.boolean  "criminal_justice_theme"
+    t.boolean  "storytellers_theme"
+    t.boolean  "gender_theme"
+    t.string   "most_important"
+    t.string   "organization_has_newsletter"
+    t.string   "organization_newsletter_frequency"
+    t.boolean  "ciw_updates_in_newsletter"
+    t.boolean  "will_promote_ciw",                                    :null => false
+    t.boolean  "encourage_promote_ciw",                               :null => false
+    t.boolean  "provide_insight_guidance",                            :null => false
+    t.string   "contact_email",                                       :null => false
+    t.text     "most_important_other"
+  end
+
+  add_index "community_partner_applications", ["user_id"], :name => "index_community_partner_applications_on_user_id"
 
   create_table "days", :force => true do |t|
     t.integer  "year_id",    :null => false
@@ -117,16 +213,12 @@ ActiveRecord::Schema.define(:version => 20120117165429) do
   add_index "notes", ["author_id"], :name => "index_notes_on_author_id"
 
   create_table "partners", :force => true do |t|
-    t.string   "name",                :limit => 100, :null => false
+    t.string   "name",              :limit => 100, :null => false
     t.text     "description"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.datetime "banner_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -307,6 +399,7 @@ ActiveRecord::Schema.define(:version => 20120117165429) do
     t.string   "portrait2_content_type"
     t.integer  "portrait2_file_size"
     t.datetime "portrait2_updated_at"
+    t.boolean  "newsletter",                            :default => true,  :null => false
   end
 
   add_index "users", ["admin"], :name => "index_users_on_admin"
@@ -340,53 +433,43 @@ ActiveRecord::Schema.define(:version => 20120117165429) do
 
   add_index "venues", ["name"], :name => "index_venues_on_name"
 
-  create_table "videos", :force => true do |t|
-    t.string   "caption",    :null => false
-    t.string   "asset_type", :null => false
-    t.integer  "asset_id",   :null => false
+  create_table "volunteers", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "postcode"
+    t.boolean  "employed"
+    t.text     "why"
+    t.text     "what"
+    t.text     "availability"
+    t.boolean  "street_team"
+    t.boolean  "avail_mon"
+    t.boolean  "avail_tue"
+    t.boolean  "avail_wed"
+    t.boolean  "avail_thu"
+    t.boolean  "avail_fri"
+    t.boolean  "avail_sat"
+    t.boolean  "avail_sun"
+    t.boolean  "avail_time_1"
+    t.boolean  "avail_time_2"
+    t.boolean  "avail_time_3"
+    t.boolean  "avail_time_4"
+    t.boolean  "avail_time_5"
+    t.boolean  "avail_time_6"
+    t.string   "hours"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "videos", ["asset_type", "asset_id"], :name => "index_videos_on_asset_type_and_asset_id"
+  add_index "volunteers", ["user_id"], :name => "index_volunteers_on_user_id"
 
   create_table "years", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_foreign_key "chapter_photos", "chapters", :name => "chapter_photos_chapter_id_fk"
+  add_foreign_key "affiliate_event_applications", "users", :name => "affiliate_event_applilcations_user_id_fk"
 
-  add_foreign_key "chapters", "talks", :name => "chapters_talk_id_fk"
+  add_foreign_key "community_partner_applications", "users", :name => "community_partner_applications_user_id_fk"
 
-  add_foreign_key "days", "years", :name => "days_year_id_fk"
-
-  add_foreign_key "event_photos", "events", :name => "event_photos_event_id_fk"
-
-  add_foreign_key "events", "days", :name => "events_day_id_fk"
-  add_foreign_key "events", "event_brands", :name => "events_event_brand_id_fk"
-  add_foreign_key "events", "partners", :name => "events_partner_id_fk"
-  add_foreign_key "events", "venues", :name => "events_venue_id_fk"
-
-  add_foreign_key "notes", "users", :name => "notes_author_id_fk", :column => "author_id"
-
-  add_foreign_key "performances", "chapters", :name => "performances_chapter_id_fk"
-  add_foreign_key "performances", "users", :name => "performances_speaker_id_fk", :column => "speaker_id"
-
-  add_foreign_key "quotes", "users", :name => "quotes_user_id_fk"
-
-  add_foreign_key "sponsors", "sponsorship_levels", :name => "sponsors_sponsorship_level_id_fk"
-
-  add_foreign_key "sponsorships", "sponsors", :name => "sponsorships_sponsor_id_fk"
-  add_foreign_key "sponsorships", "sponsorship_levels", :name => "sponsorships_sponsorship_level_id_fk"
-  add_foreign_key "sponsorships", "years", :name => "sponsorships_year_id_fk"
-
-  add_foreign_key "talk_photos", "talks", :name => "talk_photos_talk_id_fk"
-
-  add_foreign_key "talks", "days", :name => "talks_day_id_fk"
-  add_foreign_key "talks", "sponsors", :name => "talks_sponsor_id_fk"
-  add_foreign_key "talks", "talk_brands", :name => "talks_talk_brand_id_fk"
-  add_foreign_key "talks", "tracks", :name => "talks_track_id_fk"
-  add_foreign_key "talks", "venues", :name => "talks_venue_id_fk"
+  add_foreign_key "volunteers", "users", :name => "volunteers_user_id_fk"
 
 end

@@ -1,0 +1,13 @@
+= render '/admin/admin/collection_controls'
+- content_for :breadcrumbs do
+  .crumb.end Days
+
+= ssp_search_form Volunteer
+
+.table_section
+  %h3 
+    Volunteers
+    = new_model_link Volunteer
+  .table_wrapper
+    = render 'admin/volunteers/table.html.haml', :volunteers => @volunteers
+

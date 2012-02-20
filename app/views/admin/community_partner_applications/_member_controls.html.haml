@@ -1,0 +1,12 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @community_partner_application
+  .crumb.end= section_title   
+
+- content_for :content_navigation do
+  %h2 CommunityPartnerApplications
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_community_partner_applications_path, 'search'
+  %h2= @community_partner_application.name
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_community_partner_application_path(@community_partner_application), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_community_partner_application_path(@community_partner_application), 'comment'

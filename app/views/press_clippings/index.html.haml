@@ -1,0 +1,48 @@
+-#     Chicago Ideas Week
+-#     press_clippings/index.html.haml
+-#     01/19/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "News", press_clippings_path
+    = render "partials/explore_dropdown"
+
+
+-# Main Labs content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Press Clippings
+    = render "partials/share"
+    
+  -# Left column, main content
+  .box.double.left
+
+    - if @press_clippings.present?
+      #news_list
+        - @press_clippings.each do |news|
+          .column_row.divided_row{:id => "news_#{news.id}"}
+            %a{:name => "news_#{news.id}"}
+            .column.column_double
+              %h2= news.title
+              %span.timestamp= news.formatted_time
+              %pre
+                - if news.image.present?
+                  = image_tag(news.image, :class => "news_image")
+                = news.description
+              -if news.url.present?
+                = link_to "more →", news.url, :rel => 'nofollow', :title => news.title
+                
+                
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

@@ -13,3 +13,23 @@
   .column_row
     -# Twitter Follow button
     <a href="https://twitter.com/chicagoideas" class="twitter-follow-button" data-show-count="true">Follow @chicagoideas</a>
+
+.box.right#twitter_feed
+  .box_header
+    %span twitter
+  .column_row
+    %ul#ciw_twitter_feed.kohtweet_feed
+    
+    = link_to "Follow CIW on Twitter", "http://www.twitter.com/@chicagoideas", :class => "follow_", :rel => "nofollow", :target => "_blank"
+
+    
+//twitter integration
+:javascript
+  $('#ciw_twitter_feed').kohtweets({
+    'preloader' : 'true',
+    'preloader_url' : "#{asset_path 'application/large_preloader.gif'}",
+    'type' : 'search',
+    'template' : '{{#tweets}}<li id="tweet_{{id}}"><div class="avatar_container"><img src="{{profile_image_url}}" /></div><div class="tweet_content"><a href="http://twitter.com/{{from_user}}">@{{from_user}}:</a> {{text}}<a class="tweet_meta" href="http://www.twitter.com/{{#user}}{{screen_name}}{{/user}}/status/{{id_str}}">{{created_at}}</a></div></li>{{/tweets}}',
+    'screen_name' : 'chicagoideas',
+    'count' : '3'
+  });

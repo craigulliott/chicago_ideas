@@ -31,7 +31,7 @@ blockquote.speaker_quote {
 
 ul#speaker_overview {
   display: inline; 
-  width: 240px;
+  width: 274px;
   float: left;
   margin: 0 20px 20px 0;
   padding: 0;
@@ -44,8 +44,8 @@ ul#speaker_overview {
     margin: 0;
     
     .img_frame { 
-      width: 194px;
-      height: 194px;
+      width: 234px;
+      height: 234px;
     }
     
     h3 {
@@ -85,47 +85,8 @@ ul#speaker_overview {
 }
 
 
-
-// Twitter Sidebar
-ul.twitter_list {
-  display: block;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  
-  li {
-    display: block;
-    padding: 0 0 20px 0;
-    margin: 0 0 20px 0;
-    border-bottom: 1px solid #e2e2e2;
-    
-    .tweet_content {
-      display: block;
-      font-size: 14px;
-      line-height: 19px;
-      color: $grey;
-      margin-bottom: 8px;
-    }
-    .tweet_timestamp {
-      font-size: 13px;
-      display: block;
-      
-      a {
-        color: $greyLight;
-        font-size: 12px;
-      }
-    }
-  }
-  li.follow_speaker {
-    border: none;
-    padding: 0;
-    margin: 0;
-    
-    a {
-      background: asset-url('application/twitter_icon.png', image) center left no-repeat;
-      font-size: 13px;
-      line-height: 25px;
-      padding-left: 27px;
-    }
-  }
+.portrait {
+  width: 680px;
+  height: 400px;
+  margin-bottom: 30px;
 }

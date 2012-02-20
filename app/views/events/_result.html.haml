@@ -1,0 +1,6 @@
+-#    Event Result item
+-#
+
+%li{:id => "result_#{result.id}", :class => "result_#{result.id}"}
+  %span.r_label= result.class
+  = link_to result.title, events_path

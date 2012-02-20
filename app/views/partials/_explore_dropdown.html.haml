@@ -1,0 +1,32 @@
+.explore_
+  = link_to "Explore Speakers", "#", :class => "explore_btn", :id => "explore_speakers"
+  .explore_dropdown
+    .explore_top
+    .explore_content
+      .column
+        %span.column_header CIW Mega Talks
+        %ul.preview_list
+          - @e_megatalks.each do |talk|
+            %li{:id => "talk_#{talk.id}"}
+              .img_frame
+                = link_to image_tag(talk.banner(:thumb)), talk_path(talk), :rel => "bookmark", :title => "#{talk.name}"
+              = link_to talk.name, talk_path(talk), :rel => "bookmark", :title => "#{talk.name}"
+              - if talk.track.present?
+                %span= talk.track.name
+              - if talk.chapters.present?
+                %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"      
+      .column
+        %span.column_header CIW Talks
+        %ul.filter_list
+          - @e_talks.each do |talk|
+            %li{:id => "talk_#{talk.id}"}
+              = link_to talk.name, talk_path(talk), :rel => "bookmark", :title => "#{talk.name}"
+          %li= link_to "view all talks →", talks_path, :rel => "bookmark", :title => "View all Talks"
+      
+      .column.right
+        %span.column_header Speakers
+        %ul.filter_list
+          - @e_speakers.each do |speaker|
+            %li{:id => "speaker_#{speaker.id}"}
+              = link_to speaker.name, speaker_path(speaker), :rel => "bookmark", :title => "#{speaker.name}"
+          %li= link_to "view all speaker →", speakers_path, :rel => "bookmark", :title => "View all Speakers"

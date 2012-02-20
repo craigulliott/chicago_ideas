@@ -4,14 +4,12 @@
 -#    in the standard preview list
 
 
-- @chapters.each do |chapter|
+- chapters.each do |chapter|
   %li{:id => "chapter_#{chapter.id}"}
     .img_frame
-      = link_to "play", video_path(chapter), :class => "play_btn"
-      - begin
-        = link_to image_tag(chapter.banner.url), video_path(chapter)
-      - rescue
-    = link_to chapter.title, video_path(chapter)
+      = link_to "play", video_path(chapter), :class => "play_btn", :rel => "bookmark", :title => "#{chapter.title}"
+      = link_to image_tag(chapter.banner(:thumb)), video_path(chapter), :rel => "bookmark", :title => "#{chapter.title}"
+    = link_to chapter.title, video_path(chapter), :rel => "bookmark", :title => "#{chapter.title}"
     - chapter.performances.limit(2).each do |performance|
       - if performance.speaker.present?
         %span= performance.speaker.name

@@ -5,14 +5,21 @@ class User < ActiveRecord::Base
   # chainable arel method and a boolean helper to determine if models are deleted or not
   include DeleteByTime
   
-  PORTRAIT_WIDTH = 468
-  PORTRAIT_HEIGHT = 468
+  PORTRAIT1_WIDTH = 468
+  PORTRAIT1_HEIGHT = 468
+  
+  PORTRAIT2_WIDTH = 680
+  PORTRAIT2_HEIGHT = 400
   
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
   has_many :performances, :foreign_key => :speaker_id
   has_many :chapters, :through => :performances
+  
+  has_one :volunteer
+  has_one :community_partner_application
+  has_one :affiliate_event_application
   
   has_many :quotes
   accepts_nested_attributes_for :quotes, :allow_destroy => true
@@ -25,6 +32,14 @@ class User < ActiveRecord::Base
   
   scope :by_name, order('name asc')
   
+  # Search Indexing
+  define_index do
+    where "speaker = 1 OR staff = 1"
+    indexes name
+    indexes bio
+    has created_at, updated_at
+  end
+  
   # if a temporary_password is provided, a random password will be generated
   # this random password will be sent to the welcome email, so we can notify the user of it
   attr_accessor :temporary_password
@@ -34,10 +49,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable 
          
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :title, :bio, :twitter_screen_name, :portrait, :portrait2, :quotes_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :title, :bio, :twitter_screen_name, :newsletter, :portrait, :portrait2, :quotes_attributes
 
   # validators
-  validates :email, :email => { :validate_mx => false }, :presence => true
+  validates :email, :email => true, :presence => true, :uniqueness => true
   validates :name, :presence => true
   
   # welcome emails have a link which signs the user in automatically
@@ -73,12 +88,12 @@ class User < ActiveRecord::Base
   
   # send out the welcome email
   after_create {|user|
-    #ApplicationMailer.welcome(user).deliver unless Rails.env == 'test'
+    ApplicationMailer.welcome(user).deliver unless Rails.env == 'test'
   }
 
   validates :permalink, :presence => true, :uniqueness => true, :format => {:with => /^[\w\d_]+$/}
   validate :validate_portrait_dimensions, :if => "portrait.present?", :unless => "errors.any?"
-  validate :validate_portrait2_dimensions, :if => "portrait.present?", :unless => "errors.any?"
+  validate :validate_portrait2_dimensions, :if => "portrait2.present?", :unless => "errors.any?"
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
@@ -93,14 +108,26 @@ class User < ActiveRecord::Base
       :medium => "234x234",
       :full => "468x468",
     },
+    :convert_options => { 
+      :tiny_thumb => "-quality 70", 
+      :thumb => "-quality 70", 
+      :medium => "-quality 70",
+      :full => "-quality 70",
+    },
     :path => "portraits/:style/:id.:extension"
   
   has_attached_file :portrait2,
     :styles => { 
-      :tiny_thumb => "60x60", 
-      :thumb => "117x117", 
-      :medium => "234x234",
-      :full => "468x468",
+      :tiny_thumb => "60x60#", 
+      :thumb => "117x117#",
+      :medium => "234x234#",
+      :full => "468x468#",
+    },
+    :convert_options => { 
+      :tiny_thumb => "-quality 70", 
+      :thumb => "-quality 70", 
+      :medium => "-quality 70",
+      :full => "-quality 70",
     },
     :path => "alternative-portraits/:style/:id.:extension"
 
@@ -161,8 +188,11 @@ class User < ActiveRecord::Base
   end
   
   # a string representation of the required dimensions for the portrait image
-  def portrait_dimensions_string
-    "#{PORTRAIT_WIDTH}x#{PORTRAIT_HEIGHT}"
+  def portrait1_dimensions_string
+    "#{PORTRAIT1_WIDTH}x#{PORTRAIT1_HEIGHT}"
+  end
+  def portrait2_dimensions_string
+    "#{PORTRAIT2_WIDTH}x#{PORTRAIT2_HEIGHT}"
   end
   
   # parses the description wih markdown and returns html
@@ -177,21 +207,28 @@ class User < ActiveRecord::Base
   end
   
   def title_abbreviated
-    ( title.present? && title.length > 75 ) ? "#{bio[0..72]}..." : title
+    ( title.present? && title.length > 75 ) ? "#{title[0..72]}..." : title
   end
+  
+  
+  # Need to normalize the search attributes
+  def search_attributes
+    {:title => self.name, :description => self.bio[0..100], :image => self.portrait(:thumb)}
+  end
+  
   
   private 
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_portrait_dimensions
       dimensions = Paperclip::Geometry.from_file(portrait.to_file(:full))
-      errors.add(:portrait, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait_dimensions_string}") unless dimensions.width == PORTRAIT_WIDTH && dimensions.height == PORTRAIT_HEIGHT
+      errors.add(:portrait, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait1_dimensions_string}") unless dimensions.width == PORTRAIT1_WIDTH && dimensions.height == PORTRAIT1_HEIGHT
     end
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_portrait2_dimensions
       dimensions = Paperclip::Geometry.from_file(portrait2.to_file(:full))
-      errors.add(:portrait2, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait_dimensions_string}") unless dimensions.width == PORTRAIT_WIDTH && dimensions.height == PORTRAIT_HEIGHT
+      errors.add(:portrait2, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait2_dimensions_string}") unless dimensions.width == PORTRAIT2_WIDTH && dimensions.height == PORTRAIT2_HEIGHT
     end
 
 end

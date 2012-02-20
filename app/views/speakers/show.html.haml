@@ -11,8 +11,7 @@
         %li= link_to "Home", "/"
         %li= link_to "Speakers", speakers_path
         %li= link_to @speaker.name
-    = link_to "Explore Speakers", "#", :class => "explore_btn", :id => "explore_speakers"
-
+    = render "partials/explore_dropdown"
 
 -# Main Speaker content
 %section.container#main_content
@@ -21,34 +20,27 @@
     #page_title.left
       %h1= @speaker.name
       - if @speaker.title.present?
-        %span.sub_header= @speaker.title
+        %span.sub_header.speaker_title= @speaker.title
     = render "partials/share"
       
 
   -# Left column, main content: Gallery, details, speakers, etc.
   .box.double.left
-    
-    -# Speaker Photo Gallery
-    .talk_gallery
-      -#- @talk.talk_photos.each do |photo|
-      -#= image_tag(photo.photo_file_name)
-      
     -# Main Speaker Content Below
     .column_row.divided_row#speaker_bio
       .column.column_double
       
         -# Speaker Quote
-        -#- if @speaker.quote.present?
-        %blockquote.speaker_quote
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut sem quam, fermentum accumsan nisi. 
+        - if @speaker.quotes.present?
+          - @speaker.quotes.take(1).each do |quote|
+            %blockquote.speaker_quote
+              = quote.body
           
         -# Speaker Overview: Sidebar with headshot, info, talks, social
         %ul#speaker_overview
           %li
             .img_frame
-              - begin
-                = image_tag(@speaker.portrait)
-              - rescue
+              = image_tag(@speaker.portrait(:medium))
           %li
             %h3= @speaker.name
             - if @speaker.title.present?
@@ -57,10 +49,10 @@
           -# If the speaker has available chapters/videos
           - if @chapters.present?
             %li.divided
-              %span.column_header Talks
+              %span.column_header CIW Talks
               %ul.speaker_overview_talks
                 - @chapters.each do |chapter|
-                  %li= link_to chapter.talk.name, talk_path(chapter.talk)
+                  %li= link_to chapter.talk.name, talk_path(chapter.talk), :rel => "bookmark", :title => "#{chapter.talk.name}"
           
         -# Speaker Bio
         %pre= @speaker.bio
@@ -68,13 +60,15 @@
 
 
     -# Related speakers
-    = render "partials/chapters_speakers", :chapters => @chapters
+    - unless @chapters.empty?
+      = render "partials/chapters_speakers", :chapters => @chapters.first.talk.chapters.all, :title => "Related Speakers", :this_speaker => @speaker
         
 
   -# Include Sidebar Items
   #sidebar
-    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Videos"
-    = render "speakers/speaker_tweets"
+    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Videos", :this_chapter => "NULL"
+    /= render "speakers/speaker_tweets", :speaker => @speaker
+    = render "partials/speaker_tweets", :speaker => @speaker
     = render "partials/sponsors"
-    = render "partials/social"
+    /= render "partials/social"
     = render "partials/newsletter_form"

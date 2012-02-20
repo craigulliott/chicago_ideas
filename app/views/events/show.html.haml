@@ -1,0 +1,67 @@
+-#     Chicago Ideas Week
+-#     events/show.html.haml
+-#     01/25/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Events", events_path
+        %li= link_to @event.name
+    = render "partials/explore_dropdown"
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1= @event.name
+    = render "partials/share"
+      
+
+  -# Left column, main content: Gallery, details, speakers, etc.
+  .box.double.left
+    
+    - if @event.event_photos.present?
+      .talk_gallery
+        - @event.event_photos.each do |photo|
+          = image_tag photo.photo(:album)
+        
+
+    .column_row.divided_row#talks_description
+      .column.column_double
+        %span.column_header About this Talk
+        %pre= @event.description
+        
+    .column_row#talks_location
+      .column
+        %span.column_header
+          Date &amp; Location
+          %span.expired_date Event Passed
+        %table.talk_venue_details
+          %tr
+            %td.venue_label{:width => "85"} Date
+            %td= @event.day.name
+          %tr
+            %td.venue_label Time
+            %td= @event.formatted_time
+          %tr
+            %td.venue_label Venue
+            %td
+              = @event.venue.name
+              %address= @event.venue.address
+      .column.right
+        .venue_map
+          - if @event.venue.present?
+            = image_tag @event.venue.google_maps_src(300,145,zoom=15)
+  
+    
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do
+  .crumb.end Community Partner Applications   
+
+- @active_tab = 'community_partner_applications'
+
+- content_for :content_navigation do
+  %h2 Community Partner Applications
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_community_partner_applications_path, 'search'

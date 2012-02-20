@@ -1,20 +1,14 @@
-- if @chapters.present?
+- if chapters.present?
   .column_row#talks_speakers
     .column.column_double
-      %span.column_header Speakers
+      %span.column_header= title
       %ul.preview_list.speaker_list.double_rows
-        - @chapters.each do |c|
+        - chapters.each do |c|
           - if c.present?
             - c.performances.each do |p| 
-              - if p.speaker.present?
+              - if p.speaker.present? && p.speaker != this_speaker
                 %li
                   .img_frame 
-                    - begin
-                      = link_to image_tag(p.speaker.portrait.url), speaker_path(p.speaker)
-                    - rescue
-                  = link_to p.speaker.name, speaker_path(p.speaker)
-                  -# Some titles were obnoxiously long, so let's limit to 75
-                  - if p.speaker.title.length < 75
-                    %span= p.speaker.title
-                  - else
-                    %span= "#{p.speaker.title[0..75]}..."
+                    = link_to image_tag(p.speaker.portrait(:thumb)), speaker_path(p.speaker), :rel => "bookmark", :title => "#{p.speaker.name}"
+                  = link_to p.speaker.name, speaker_path(p.speaker), :rel => "bookmark", :title => "#{p.speaker.name}"
+                  %span= p.speaker.title_abbreviated

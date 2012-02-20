@@ -9,16 +9,6 @@ class Event < ActiveRecord::Base
   define_index do
     indexes name
     indexes description
-    indexes venue(:name), :as => "venue"
-    indexes venue(:address1), :as => "venue_address1"
-    indexes venue(:address2), :as => "venue_address2"
-    indexes venue(:city), :as => "venue_city"
-    indexes venue(:state), :as => "venue_state"
-    indexes venue(:zipcode), :as => "venue_zip"
-    indexes venue(:lonlat), :as => "venue_lonlat"
-    
-    
-    has venue_id, created_at, updated_at
   end
 
 
@@ -55,6 +45,11 @@ class Event < ActiveRecord::Base
       :medium => "1000x357#",
       :thumb => "300x107#",
     },
+    :convert_options => { 
+      :large => "-quality 70", 
+      :medium => "-quality 70", 
+      :thumb => "-quality 70",
+    },
     :path => "event-banners/:style/:id.:extension"
       
   # the hash representing this model that is returned by the api
@@ -90,6 +85,20 @@ class Event < ActiveRecord::Base
     end
   end
   
+  # return formatted time for the front-end
+  def formatted_time
+    start_time = "#{self.start_time.strftime("%l")} #{self.start_time.strftime("%p")}"
+    end_time = "#{self.end_time.strftime("%l")} #{self.end_time.strftime("%p")}"
+    "#{start_time} - #{end_time}"
+  end
+  
+
+  # Need to normalize the search attributes
+  def search_attributes
+    {:title => self.name, :description => self.description[0..100], :image => ''}
+  end
+
+
   private 
   
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio

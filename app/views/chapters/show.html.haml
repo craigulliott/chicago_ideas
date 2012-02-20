@@ -14,8 +14,7 @@
         %li
           %span= @chapter.title
     -# Explore Button : Dropdown to come...
-    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
-
+    = render "partials/explore_dropdown"
 
 -# Main Content
 %section.container#main_content
@@ -24,7 +23,7 @@
   #page_header
     #page_title.left
       %h1= @chapter.title
-      %span.sub_header= link_to @talk.name, "#"
+      %span.sub_header= link_to @talk.name, talk_path(@talk)
     = render "partials/share"
 
   -# Left column, main content: Video, details, speakers, etc.
@@ -34,6 +33,8 @@
     - if @chapter.vimeo_id.present?
       .video_container
         <iframe src="http://player.vimeo.com/video/#{@chapter.vimeo_id}?title=0&amp;byline=0&amp;portrait=0" width="680" height="383" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+        = render 'partials/share_video'
+          
     
     -# Chapter description
     .column_row.divided_row#talks_description
@@ -41,45 +42,47 @@
         %span.column_header About this Video
         %pre= @chapter.description
     
-    -# Photo Gallery
-    - if @chapter.chapter_photos.present?
-      .column_row.divided_row#photo_gallery
-        .column.column_double
-          %span.column_header Photo Gallery
-          %ul.photo_gallery
-            - @chapter.chapter_photos.each do |photo|
-              %li
-                .img_wrapper
-                  - begin
-                    = link_to image_tag(URI.decode photo.photo.url(:thumb)), "#", :class => "popup_img"
-                  - rescue
+    -#-# Photo Gallery
+    -#- if @chapter.chapter_photos.present?
+      -#.column_row.divided_row#photo_gallery
+        -#.column.column_double
+          -#%span.column_header Photo Gallery
+          -#%ul.photo_gallery.clearfix
+            -#- @chapter.chapter_photos.each do |photo|
+              -#%li
+                -#.img_wrapper
+                  -#= link_to image_tag(photo.photo(:thumb)), "#{URI.decode photo.photo.url(:medium)}", :class => "popup_img"
+                  -#= image_tag(photo.photo(:thumb))
 
 
     -# Speakers in this chapter/video
-    .column_row#talks_speakers
+    .column_row.divided_row#talks_speakers
       .column.column_double
         %span.column_header= @chapter.performances.count > 1 ? "Speakers" : "Speaker"
         %ul.chapter_speakers_list
           - @chapter.performances.each do |performance|
-            %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
-              .img_frame
-                -begin
-                  = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker)
-                - rescue
-              .speaker_info
-                %h3= link_to performance.speaker.name, speaker_path(performance.speaker)
-                %span.speaker_title= performance.speaker.title
+            - if performance.speaker.present?
+              %li{:id => "speaker_#{performance.speaker.id}", :class => "speaker_#{performance.speaker.id}"}
+                .img_frame
+                  = link_to image_tag(performance.speaker.portrait), speaker_path(performance.speaker), :rel => "bookmark", :title => "#{performance.speaker.name}"
+                .speaker_info
+                  %h3= link_to performance.speaker.name, speaker_path(performance.speaker), :rel => "bookmark", :title => "#{performance.speaker.name}"
+                  %span.speaker_title= performance.speaker.title
 
-                %pre
-                  = "#{performance.speaker.bio[0..200]}..."
-                  = link_to "read more →", speaker_path(performance.speaker)
-              .clearfix
+                  %pre
+                    = performance.speaker.bio_abbreviated
+                    = link_to "read more →", speaker_path(performance.speaker), :rel => "bookmark", :title => "#{performance.speaker.name}"
+                .clearfix
               
-
+    .column_row.comments
+      .column.column_double
+        %span.column_header Comments
+        <div class="fb-comments" data-href="#{request.url}" data-num-posts="20" data-width="640px"></div>
+        
 
   -# Include Sidebar Items
   #sidebar
-    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Other videos in this talk"
+    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Other videos in this talk", :this_chapter => @chapter
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"

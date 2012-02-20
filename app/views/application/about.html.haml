@@ -4,7 +4,7 @@
 
 
 %section.banner.container-fluid
-  .banner_wrapper{:style => "background: url(#{asset_path "application/temp/speaker_landing_banner.jpg"}) top center no-repeat;"}
+  .banner_wrapper{:style => "background: url(#{asset_path "application/about_new.jpg"}) top center no-repeat;"}
 
 
 -# Main Talk content
@@ -20,33 +20,34 @@
 
     .column_row.divided_row#about_description
       .column.column_double
-        %p As one of the great American cities, Chicago has consistently found itself at the center of innovation in this country. From Daniel Burnham’s great plan to the first African American President, Chicago remains at the heart and soul of ideas in American society. Chicago Ideas Week wants to keep that tradition alive.
-        %p With more than 160 speakers and 60 events—including outstanding talks, and behind-the-scenes tours at some of Chicago’s most spectacular institutions— for one week each October, CIW transforms the City of Big Shoulders into the global hub for new ideas, an ecosystem of innovation and a playground of intellectual recreation.
-        %p There are plenty of ideas in the world, but real change comes from all corners. Ideas do not discriminate, and at CIW, the forum for innovation and ideas is one accessible to all. Among the ideas-based conferences throughout the world, CIW is one of the few that offers such inclusiveness, session tickets are just $15 while other conferences run into the thousands of dollars. This kind of accessibility ensures greater diversity in thought, participation and action. Now is the time for change and new ideas, and CIW has created a space where both are possible.
-        %p So join us and offer your ideas and your activism to our community and the world beyond.
-        %p Very truly yours,
-        %p 
-          Brad Keywell
-          %br
-          %i Founder and Co-Chairman
-
-        %blockquote
-        “Come and show me another city with lifted head singing so proud to be alive and coarse and strong and cunning…here is a tall bold slugger set vivid against the little soft cities…” Carl Sandburg, “Chicago”
-
+        %p Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action, and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers—and, well…just innately passionate.
+        %p For one week each October, CIW brings together some of the world’s most outstanding speakers to present their ideas and inspire the innovations of tomorrow at 80+ sessions across the city of Chicago. CIW aims to be the platform for sharing big ideas and making big things happen.
+    
+    .column_row.divided_row
+      .column.column_double
+        %h3 CIW Talks
+        %p CIW Talks are 90-minute sessions spread throughout the week that feature 3-6 speakers presenting on various themes. Talks take a variety of forms and may incorporate interviews, conversations or performances.
+        %h3 CIW Labs
+        %p CIW Labs offer opportunities for participants to experience and explore the best of Chicago like never before.  Exclusive, behind-the-scenes experiences give participants a unique glimpse into the inner workings of businesses and institutions that are otherwise unavailable to the public.  Small groups will explore what it’s like for business leaders in the boardroom, go behind the curtain at leading theaters and venues, and discover “how-it-works” in hands-on workshops. 
+        %h3 CIW Megatalks
+        %p Megatalks are evening programs featuring distinguished and globally recognized speakers. These influential visionaries unite in order to share their genius and inspire Chicagoans, and the world, to see beyond today and create the best for tomorrow.
+        %h3 CIW Partner Programs 
+        %p CIW Partner Programs are official CIW events that are co-curated with our CIW Partners. All programs subscribe to the same goals of connectivity and innovation as other Chicago Ideas Week events, but provide a unique perspective based on the CIW Partner’s specific area of expertise.
+        
+        
+        
 
     .column_row#staff_overview
       .column.column_double
-        %span.column_header CIW Team
+        %span.column_header Meet the CIW Team
         %ul.preview_list.team_list.double_rows
-          - @staff.each do |teammember|
+          
+          - @team.each do |teammember|
             %li{:id => "teammember_#{teammember.id}", :class => "teammember_#{teammember.id}"}
               .img_frame
-                - begin
-                  = link_to image_tag(teammember.portrait.url), team_member_path(teammember)
-                - rescue
-              = link_to teammember.name, team_member_path(teammember);
+                = link_to image_tag(teammember.portrait.url), team_member_path(teammember), :rel => "bookmark", :title => "#{teammember.name}"
+              = link_to teammember.name, team_member_path(teammember), :rel => "bookmark", :title => "#{teammember.name}"
               %span= teammember.title
-      
       
 
   -# Include Sidebar Items

@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   // dont submit the contact form unless all the fields have been used
   // -------------------------------------------------------------------
-  $('body#application_page.contact form.contact').submit(function(){
+  $('body#application_page.contact form.contact').live('submit', function(){
     
     $(this).find(':input').closest('li').removeClass('error');
     $missing = [];

@@ -10,8 +10,7 @@
       %ul
         %li= link_to "Home", "/"
         %li= link_to "Speakers", speakers_path
-    = link_to "Explore Speakers", "#", :class => "explore_btn", :id => "explore_speakers"
-
+    = render "partials/explore_dropdown"
 
 -# Begin Main Speaker content
 %section.container#main_content
@@ -24,7 +23,7 @@
   
   -# Left column: Speakers List
   .box.double.left
-    .column_row.speakers_filter
+    .column_row.speakers_filter.hide
       .column.column_double
         %ul.filter_
           %li= link_to "A", "#"

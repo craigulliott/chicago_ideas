@@ -1,0 +1,5 @@
+#search_container
+  %form{:method => 'get', :id => "#{model}_search", :action => "/search/#{model}"}
+    %input{:type => "text", :class => "medium-large", :name => "q", :placeholder => "search"}
+    %input{:type => "submit", :id => "model_search", :class => "btn blue_btn offset_left", :value => "search #{model}"}
+    %a{:href => "#", :id => "hide_search", :class => "offset_left"} hide

@@ -6,7 +6,7 @@ $(document).ready(function(){
   });
 
   // animation of the flash notices
-  $('#flash_helper > div').delay(2500).fadeOut('fast', function(){
+  $('#flash_helper > div').delay(4500).fadeOut('fast', function(){
     $(this).remove();
   });
 

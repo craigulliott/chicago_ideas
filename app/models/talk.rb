@@ -9,6 +9,7 @@ class Talk < ActiveRecord::Base
     indexes sponsor(:name), :as => :sponsor, :sortable => true
     has sponsor_id, created_at, updated_at
   end
+  
   belongs_to :track
   belongs_to :day
   belongs_to :venue
@@ -31,12 +32,6 @@ class Talk < ActiveRecord::Base
   validates :start_time, :presence => true
   validates :end_time, :presence => true
   validate :validate_temporal_constraints, :unless => "errors.any?"
-    
-  # tell the dynamic form that we need to post to an iframe to accept the file upload
-  # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
-  def accepts_file_upload?
-    true
-  end
   
   # the hash representing this model that is returned by the api
   def api_attributes
@@ -66,19 +61,36 @@ class Talk < ActiveRecord::Base
       ]
     end
   end
-
+  
+  # return a banner, from a featured chapter (or nil)
+  def banner size = :medium
+    chapter = featured_chapters.first
+    chapter.present? ? chapter.banner(size) : nil
+  end
+   
+   
   # return formatted time for the front-end
   def formatted_time
     start_time = "#{self.start_time.strftime("%l")} #{self.start_time.strftime("%p")}"
     end_time = "#{self.end_time.strftime("%l")} #{self.end_time.strftime("%p")}"
     "#{start_time} - #{end_time}"
   end
+  
 
   # return a banner, from a featured chapter (or nil)
   def banner_src
     chapter = featured_chapters.first
     chapter.present? ? chapter.banner(:medium) : nil
   end
+  
+
+  
+  # Need to normalize the search attributes
+  def search_attributes
+    {:title => self.name, :description => self.description[0..100], :image => self.banner(:thumb)}
+  end
+
+
   
   private 
   

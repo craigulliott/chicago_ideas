@@ -4,7 +4,6 @@
 // 		Date		12/30/11
 // 		Author		John Koht
 
-
 @import "application/reset";
 @import "application/variables";
 @import "application/mixins";
@@ -16,3 +15,6 @@
 @import "application/plugins";
 @import "application/talks";
 @import "application/speakers";
+
+@import "application/kohtweets";
+@import "plugins/flash_helpers";

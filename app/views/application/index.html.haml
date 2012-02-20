@@ -12,32 +12,28 @@
   -# Introduction
   #intro
     %h1 Welcome to the Ideasphere
-    %span For one week each October, CIW transforms Chicago into the global hub for new ideas, an ecosystem of innovation and a playgroud of intellectual recreation
+    %span For one week each October, CIW transforms Chicago into the global hub for new ideas, an ecosystem of innovation and a playground of intellectual recreation
 
   -# Left column, main content: Videos, speakers, etc.
   .box.double.left
     .column_row.divided_row#talks
     
+      -# Talk list
       - if @talks.present?
-        .column#homepage_talks
-          %span.column_header Talks
-          %ul.preview_list
+        .column.column_double#homepage_talks
+          %span.column_header CIW Talks
+          %ul.preview_list.double_rows
             = render "partials/talks_loop", :talks => @talks
-          = link_to "view all talks →", talks_path, :class => "view_all blue"
+          = link_to "view all talks →", talks_path, :class => "view_all blue", :rel => "bookmark", :title => "View all Talks"
           
-      - if @chapters.present?
-        .column.right#homepage_videos
-          %span.column_header Videos
-          %ul.preview_list
-            = render "partials/chapters_loop", :chapter => @chapters
-          = link_to "view all videos →", videos_path, :class => "view_all blue"
           
+    -# List of speakers          
     .column_row#speakers
       .column.column_double
         %span.column_header Speakers
         %ul.preview_list.speaker_list.double_rows
-          = render "partials/speakers_loop", :locals => @speakers
-        = link_to "view all speakers →", speakers_path, :class => "view_all blue"
+          = render "partials/speakers_loop", :speakers => @speakers
+        = link_to "view all speakers →", speakers_path, :class => "view_all blue", :rel => "bookmark", :title => "View all Speakers"
 
     
   

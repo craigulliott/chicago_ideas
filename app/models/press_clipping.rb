@@ -20,7 +20,13 @@ class PressClipping < ActiveRecord::Base
   end
   
   has_attached_file :image,
-    :path => "press-clippings/:style/:id.:extension"
+    :styles => { 
+      :full => "200x140", 
+    },
+    :convert_options => { 
+      :full => "-quality 70", 
+    },
+    :path => "press-clipping-images/:style/:id.:extension"
 
   
   # the hash representing this model that is returned by the api
@@ -50,6 +56,13 @@ class PressClipping < ActiveRecord::Base
   def image_dimensions_string
     "#{IMAGE_WIDTH}x#{IMAGE_HEIGHT}"
   end
+  
+  
+  # return formatted time for the front-end
+  def formatted_time
+    "#{self.created_at.strftime("%B #{self.created_at.day.ordinalize}, %Y")}"
+  end
+  
   
   private
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio

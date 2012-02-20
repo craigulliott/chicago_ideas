@@ -1,0 +1,95 @@
+-#     Chicago Ideas Week
+-#     application/recommend_speaker.html.haml
+-#     01/016/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span Recommend Speaker
+    = render "partials/explore_dropdown"
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Speaker Recommendation Form
+    = render "partials/share"
+    
+  -# Left column, main content: About Us information
+  .box.double.left
+
+    .column_row#partners_form
+      .column.column_double
+        %p To recommend a speaker for Chicago Ideas Week, please fill out and submit this form.
+        
+        %form#partners_form
+        
+          %ul.form_list
+          
+            %li
+              %label 
+                Information about You
+                %span.required *
+              .block
+                %input{:type => "text", :name => "name", :class => "medium"}
+                %span.light First and Last Name
+              .block
+                %input{:type => "text", :name => "email", :class => "medium-large"}
+                %span.light Email Address
+              .block
+                %input{:type => "text", :name => "number", :class => "medium"}
+                %span.light Phone Number
+            
+            %li
+              %label 
+                Information about the person you are recommending to speak at Chicago Ideas Week
+                %span.required *
+              .block
+                %input{:type => "text", :name => "nominee_name", :class => "medium-large"}
+                %span.light Nominee's Name
+              .block
+                %input{:type => "text", :name => "nominee_email", :class => "medium-large"}
+                %span.light Nominee's Email Address
+              .block
+                %input{:type => "text", :name => "nominee_number", :class => "medium"}
+                %span.light Nominee's Phone Number
+            
+            %li
+              %label
+                Tell us a little bit about the speaker: Occupation? Expertise? Honors and distinctions? Why do you think they should speak at Chicago Ideas Week?
+                %span.required *
+              %textarea{:name => "nominee_why"}
+              
+            %li.s_links
+              %label
+                Please provide links to any websites, articles, videos related to this speaker.
+                %span.required *
+              %input{:type => "text", :name => "link_1", :class => "medium"}
+              %input{:type => "text", :name => "link_1", :class => "medium"}
+              %input{:type => "text", :name => "link_1", :class => "medium"}
+              %input{:type => "text", :name => "link_1", :class => "medium"}
+              
+            %li
+              %label
+                Please describe this person’s speaking style. What is this person’s “idea” that you think is relevant to Chicago Ideas Week? Which session topic would best fit this person’s ideas and why?
+                %span.required *
+              %textarea{:name => "speaker_style"}
+            
+            %li
+              %input{:type => "submit", :value => "Submit Recommendation", :class => "blue_btn"}
+        
+
+      
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

@@ -9,9 +9,13 @@
     #breadcrumbs
       %ul
         %li= link_to "Home", "/"
-        %li= link_to "Talks", talks_path
+        %li= link_to "CIW Talks", talks_path
         %li= link_to @talk.name
-    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
+    = render "partials/explore_dropdown"
+
+
+%section.banner.container-fluid.talks_banner
+  .banner_wrapper{:style => "background: url(#{@talk.banner_src}) top center no-repeat;"}
 
 
 -# Main Talk content
@@ -31,7 +35,7 @@
     - if @talk.talk_photos.present?
       .talk_gallery
         - @talk.talk_photos.each do |photo|
-          = image_tag photo.photo.url(:album)
+          = image_tag photo.photo(:album)
         
 
     .column_row.divided_row#talks_description
@@ -58,15 +62,16 @@
               %address= @talk.venue.address
       .column.right
         .venue_map
-          -#= image_tag @talk.venue.google_maps_src(300,145,zoom=15)
+          - if @talk.venue.present?
+            = image_tag @talk.venue.google_maps_src(300,145,zoom=15)
   
     
-    = render "partials/chapters_speakers", :locals => @chapters
-                
+    -#= render "partials/chapters_speakers", :locals => @chapters
+    = render "partials/chapters_speakers", :chapters => @chapters, :title => "Speakers", :this_speaker => @speaker
 
   -# Include Sidebar Items
   #sidebar
-    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Videos in this Talk"
+    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Videos in this Talk", :this_chapter => 'NULL'
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"

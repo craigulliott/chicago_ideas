@@ -1,0 +1,56 @@
+-#     Chicago Ideas Week
+-#     speakers/index.html.haml
+-#     01/17/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Speakers", speakers_path
+    = render "partials/explore_dropdown"
+
+-# Begin Main Speaker content
+%section.container#main_content
+  
+  #page_header
+    #page_title.left
+      %h1 Speakers Search
+    = render "partials/share"
+      
+  
+  -# Left column: Speakers List
+  .box.double.left
+    .column_row.speakers_filter#speakers_search_results
+      .column.column_double
+        %span.column_header 
+          Speakers
+          %a{:id => "speaker_search", :class => "model_search_btn", :href => "#"} search speakers
+
+        = render "partials/search", :model => "speakers"
+      
+        - if @results.present?
+          %h2#results_count= "#{@results.count} results for #{@query}"
+          %ul.preview_list#search_results_list
+            - @results.each do |result|
+              %li{:id => "result_#{result.id}", :class => "result_#{result.id} #{result.class.to_s.downcase}"}
+                - if result.search_attributes[:image].present?
+                  .img_frame
+                    = image_tag(result.search_attributes[:image])
+                %span.title_= result.search_attributes[:title]
+                %span.desc_= result.search_attributes[:description]
+        - else
+          = "Sorry, we didn't find anything for #{@query}. Try searching again."
+        
+                
+
+  -# Include Sidebar Items
+  #sidebar
+    -#= render "partials/track_filter"
+    = render "partials/sponsors"
+    = render "partials/newsletter_form"
+    = render "partials/social"
+
+

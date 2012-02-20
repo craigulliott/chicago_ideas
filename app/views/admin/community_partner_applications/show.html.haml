@@ -1,0 +1,67 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @community_partner_application, true
+  = destroy_model_link @community_partner_application, true
+
+%h1
+  = @community_partner_application.name
+  = icon_link_to 'notes', notes_admin_community_partner_application_path(@community_partner_application), 'script'
+  = new_model_link Note, @community_partner_application
+
+#model_detail
+  %h4 Name
+  %p= @community_partner_application.name
+
+  %h4 Description
+  %p= @community_partner_application.description
+
+  %h4 Address1
+  %p= @community_partner_application.address1
+
+  %h4 Address2
+  %p= @community_partner_application.address2
+
+  %h4 City
+  %p= @community_partner_application.city
+
+  %h4 State
+  %p= @community_partner_application.state
+
+  %h4 Country
+  %p= @community_partner_application.country
+
+  %h4 How Align
+  %p= @community_partner_application.how_align
+
+  %h4 Art Theme
+  %p= @community_partner_application.art_theme? ? 'yes' : 'no'
+
+  %h4 Education Theme
+  %p= @community_partner_application.education_theme? ? 'yes' : 'no'
+
+  %h4 Finance Theme
+  %p= @community_partner_application.finance_theme? ? 'yes' : 'no'
+
+  %h4 Health Theme
+  %p= @community_partner_application.health_theme? ? 'yes' : 'no'
+
+  %h4 Public Policy Theme
+  %p= @community_partner_application.public_policy_theme? ? 'yes' : 'no'
+
+  %h4 Social Theme
+  %p= @community_partner_application.social_theme? ? 'yes' : 'no'
+
+  %h4 Technology Theme
+  %p= @community_partner_application.technology_theme? ? 'yes' : 'no'
+
+  %h4 Other Theme
+  %p= @community_partner_application.other_theme
+
+  %h4 Public Mailing List
+  %p= @community_partner_application.public_mailing_list? ? 'yes' : 'no'
+
+  %h4 User
+  %p= @community_partner_application.user.name
+
+

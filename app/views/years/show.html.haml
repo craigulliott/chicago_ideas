@@ -1,0 +1,38 @@
+-#     Chicago Ideas Week
+-#     talks/show.html.haml
+-#     01/12/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span CIW 2012
+    = render "partials/explore_dropdown"
+
+
+
+-# Main Talk content
+%section.container#main_content
+
+  -# Introduction
+  #intro
+    %h1 
+      Chicago Ideas Week 2012
+      %br
+      October 8th - 14th
+    
+    %span Speakers and schedules for CIW 2012 will be announced shortly. 
+    %span Please join our mailing list to stay up to date!
+    
+    #temp_newsletter
+      = semantic_form_for User.new, :url => newsletter_users_path, :remote => true, :html => {:id => 'subscribe_to_newsletter'} do |f|
+        = f.inputs :name => "Register for the CIW Newsletter" do
+          = f.input :name, :input_html => {:placeholder => 'Your Name'}, :required => true 
+          = f.input :email, :input_html => {:placeholder => 'Email Address'}, :required => true  
+          = f.commit_button :label => 'Subscribe to Newsletter'
+
+  

@@ -34,7 +34,9 @@
     -# Main Body Content
     = yield
 
+  #flash_helper= flash_helper  
 
   %footer{:id => "footer", :class => "container-fluid"}
     = render "layouts/application/footer"
+    = render 'shared/google_analytics'
   

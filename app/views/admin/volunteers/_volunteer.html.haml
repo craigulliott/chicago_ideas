@@ -1,0 +1,15 @@
+%tr{:volunteer => volunteer.id}
+  %td.user_id= link_to volunteer.user.name, admin_volunteer_path(volunteer)
+  %td.postcode= volunteer.postcode
+  %td.employed= volunteer.employed
+  %td.why= volunteer.why
+  %td.what= volunteer.what
+  %td.availability= volunteer.availability
+  %td.street_team= volunteer.street_team
+  %td.available_days= volunteer.available_days.to_sentence
+  %td.available_times= volunteer.available_times.to_sentence
+  %td.hours= volunteer.hours
+  %td.options 
+    = edit_model_link volunteer
+    = destroy_model_link volunteer
+ 

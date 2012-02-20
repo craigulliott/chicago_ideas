@@ -10,7 +10,6 @@
       %ul
         %li= link_to "Home", "/"
         %li= link_to "Team", team_members_path
-    -#= link_to "Explore Speakers", "#", :class => "explore_btn", :id => "explore_speakers"
 
 
 -# Begin Main Speaker content
@@ -29,16 +28,15 @@
     .column_row.divided_row#team_member
       .column.column_double
         .headshot_container.img_frame
-          - begin
-            = image_tag URI.decode(staffmember.portrait.url)
-          - rescue
-        %pre= @team_member.bio
+          = image_tag URI.decode(@team_member.portrait(:medium))
+        %pre= @team_member.bio_html
     
     .column_row#team
       .column.column_double
+        %span.column_header Other CIW Team Members
         - if @team.present?
           %ul.preview_list.team_list.double_rows
-            = render "partials/team_loop", :team => @team
+            = render "partials/team_loop", :team => @team, :current_team_member => @team_member
 
 
 

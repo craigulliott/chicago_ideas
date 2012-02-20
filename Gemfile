@@ -16,14 +16,25 @@ gem 'GeoRuby'
 gem 'spatial_adapter'
 gem 'formtastic'
 gem 'haml'
-gem 'rails_email_validator'
+# pagination
 gem 'kaminari'
+# file uploads
 gem 'paperclip'
 gem 'fog'
+# markdown
 gem 'redcarpet'
 gem 'countries'
-gem 'memcache-client'
+
+# for managing cron job
+gem 'whenever'
+
+# cache in memcache - varnish isnt availiable on cedar apps
+gem 'rack-cache'
+gem 'dalli'
+
+# search via sphinx deamon
 gem 'thinking-sphinx', '2.0.10'
+gem 'flying-sphinx',   '0.6.1'
 
 # social
 gem 'koala'

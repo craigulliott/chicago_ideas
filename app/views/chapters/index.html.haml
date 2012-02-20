@@ -10,17 +10,16 @@
       %ul
         %li= link_to "Home", "/"
         %li= link_to "Videos", videos_path
-    = link_to "Explore Talks", "#", :class => "explore_btn", :id => "explore_talks"
-
+    = render "partials/explore_dropdown"
 
 -# Begin Main content
 %section.container#main_content
 
   -# Featured chapter slider
-  = render "partials/slider", :featured => @featured
+  = render "chapters/slider", :featured => @featured
   
   -# Render the chapter list
-  = render "chapters/chapters", :chapters => @chapters
+  = render "chapters/chapters", :chapters => @chapters, :do_paginate => true
 
 
   -# Include Sidebar Items

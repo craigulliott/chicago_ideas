@@ -30,19 +30,22 @@
       = image_tag('application/team/team_1.jpg')
       = image_tag('application/team/team_2.jpg')
       = image_tag('application/team/team_3.jpg')
-      = image_tag('application/team/team_4.jpg')
-      = image_tag('application/team/team_5.jpg')
+      = image_tag('application/team/maryserious.jpg')
+      = image_tag('application/team/team-5.jpg')
       = image_tag('application/team/team_6.jpg')
       = image_tag('application/team/team_7.jpg')
+      = image_tag('application/team/team_8.jpg')
+      = image_tag('application/team/team_9.jpg')
+      = image_tag('application/team/team_10.jpg')
       
           
           
     .column_row#team
       .column.column_double
-        %span.column_header Other CIW Team Members
+        %span.column_header CIW Team Members
         - if @team.present?
           %ul.preview_list.team_list.double_rows
-            = render "partials/team_loop", :team => @team
+            = render "partials/team_loop", :team => @team, :current_team_member => 'NULL'
 
 
 

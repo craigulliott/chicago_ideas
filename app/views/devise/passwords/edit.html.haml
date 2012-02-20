@@ -1,11 +1,46 @@
-%h1 Change your password
-= semantic_form_for resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put } do |f|
-  = f.inputs do
-    = f.input :reset_password_token, :as => :hidden
-    = f.input :password
-    = f.input :password_confirmation
+-#     Chicago Ideas Week
+-#     devise/passwords/edit.html.haml
+-#     01/29/2012
 
-  = f.buttons do
-    = f.commit_button :label => "Set New Password"
 
-= render "devise/shared/links"
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "My Account", account_path
+          %li
+            %span Password Recovery
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Password Recovery 
+    = render "partials/share"
+
+  -# Left column, main content: About Us information
+  .box.double.left
+    .column_row
+      .column.column_double
+        = semantic_form_for resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put } do |f|
+          = f.inputs do
+            = f.input :reset_password_token, :as => :hidden
+            = f.input :password
+            = f.input :password_confirmation
+
+          = f.buttons do
+            = f.commit_button :label => "Set New Password"
+
+        = render "devise/shared/links"
+        
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

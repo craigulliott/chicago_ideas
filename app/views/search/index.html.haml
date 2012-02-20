@@ -1,1 +1,77 @@
-=@results.length
+-#     Chicago Ideas Week
+-#     search/index.html.haml
+-#     01/016/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Search", search_path
+        - if @query.present?
+          %li
+            %span= @query
+    = render "partials/explore_dropdown"
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Search
+    = render "partials/share"
+
+  -# Left column, main content: About Us information
+  .box.double.left
+
+    .column_row.divided_row#search_
+      .column.column_double
+        %form{:method => 'get', :id => 'search_form', :action => '/search'}
+          %span.column_header Search
+          %input{:type => "text", :id => "q", :name => "q", :placeholder => "What are you looking for?"}
+          %input{:type => "submit", :class => "btn blue_btn search_btn", :id => "search_btn", :value => "search"}
+    
+    .column_row#search_results
+      .column.column_double
+        - if @results.present?
+          %h2#results_count= "#{@results.count} results for #{@query}"
+          %ul.preview_list#search_results_list
+            - @results.each do |result|
+              %li{:id => "result_#{result.id}", :class => "result_#{result.id} #{result.class.to_s.downcase}"}
+                - if result.search_attributes[:image].present?
+                  .img_frame
+                    = image_tag(result.search_attributes[:image])
+                - if result.kind_of? User
+                  - if result.speaker?
+                    %span{:class => "r_label"} Speaker
+                  - elsif result.staff?
+                    %span{:class => "r_label"} Team
+                  - elsif result.volunteer?
+                    %span{:class => "r_label"} Volunteer
+                - else
+                  %span{:class => "r_label"}= result.class
+                %span.title_= result.search_attributes[:title]
+                %span.desc_
+                  #{result.search_attributes[:description]}...
+                  - if result.kind_of? Event or result.kind_of? Talk
+                    = link_to "read more", result
+                  - elsif result.kind_of? User
+                    - if result.staff?
+                      = link_to "read more", team_member_path(result)
+                    - elsif result.speaker?
+                      = link_to "read more", speaker_path(result)
+                  - elsif result.kind_of? Chapter
+                    = link_to "read more", video_path(result)
+        - else
+          = "Sorry, we didn't find anything for #{@query}. Try searching again."
+          
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
+    

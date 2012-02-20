@@ -4,4 +4,5 @@
   klass::DATE_FORMATS[:wordy] = lambda { |date| date.strftime("%a %b %e, %Y") }
   klass::DATE_FORMATS[:long] = lambda { |date| date.strftime("%B %e, %Y %H:%M:%S") }
   klass::DATE_FORMATS[:time] = lambda { |date| date.strftime("%I:%M %p").downcase }
+  
 end
