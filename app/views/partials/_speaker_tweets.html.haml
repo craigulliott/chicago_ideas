@@ -9,7 +9,7 @@
     .column_row
       %ul#speaker_feed.kohtweet_feed
     
-      = link_to "Follow #{@speaker.name} on Twitter", "http://www.twitter.com/#{@speaker.twitter_screen_name}", :class => "follow_"
+      = link_to "Follow #{@speaker.name} on Twitter", "http://www.twitter.com/#{@speaker.twitter_screen_name}", :class => "follow_", :rel => "nofollow", :target => "_blank"
     
 
 //twitter integration
