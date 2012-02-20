@@ -48,6 +48,7 @@ CraigsAdmin::Application.routes.draw do
   # forms we capture data from
   resources :volunteers, :only => [:new, :create]
   resources :community_partner_applications, :only => [:new, :create]
+  resources :affiliate_event_applications, :only => [:new, :create]
   
   resources :years, :only => [:show]
   
@@ -64,6 +65,7 @@ CraigsAdmin::Application.routes.draw do
   match 'special_programs', :to => 'application#special_programs_awards'
   match 'special_programs/blum_helfand_fellowship', :to => 'application#blum_helfand', :as => 'blum_helfand'
   match 'community', :to => 'application#community'
+  match 'sizzle', :to => 'application#sizzle'
 
   # contact form
   match 'contact', :to => 'application#contact'
@@ -104,6 +106,14 @@ CraigsAdmin::Application.routes.draw do
     root :to => 'admin#index'
 
     resources :community_partner_applications do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+    
+    resources :affiliate_event_application do
       member do
         # pages
         get :notes

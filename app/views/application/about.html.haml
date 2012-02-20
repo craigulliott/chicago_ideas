@@ -41,13 +41,13 @@
       .column.column_double
         %span.column_header Meet the CIW Team
         %ul.preview_list.team_list.double_rows
+          
           - @team.each do |teammember|
             %li{:id => "teammember_#{teammember.id}", :class => "teammember_#{teammember.id}"}
               .img_frame
                 = link_to image_tag(teammember.portrait.url), team_member_path(teammember), :rel => "bookmark", :title => "#{teammember.name}"
-              = link_to teammember.name, team_member_path(teammember), :rel => "bookmark", :title => "#{teamember.name}"
+              = link_to teammember.name, team_member_path(teammember), :rel => "bookmark", :title => "#{teammember.name}"
               %span= teammember.title
-      
       
 
   -# Include Sidebar Items

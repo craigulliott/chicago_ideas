@@ -37,6 +37,11 @@ class ApplicationController < ActionController::Base
     render "application/about"
   end
   
+  def sizzle
+    @meta_data = {:page_title => "CIW Sizzle Reel", :og_title => "Chicago Ideas Week", :og_type => "website"}
+    render "application/sizzle"
+  end
+  
   def send_contact
     AdminMailer.contact_form(params[:contact]).deliver
     render_json_response :ok, :notice => "Your message has been sent."
@@ -121,13 +126,14 @@ class ApplicationController < ActionController::Base
       @team << User.find(8)
       @team << User.find(4)
       @team << User.find(155)
-      @team << User.find(159)
-      User.staff.not_deleted.where("id not in (2,62,5,6,1,9,3,8,4,155,159,7,156)").all.each do |u|
+      #@team << User.find(159)
+      #User.staff.not_deleted.where("id not in (2,62,5,6,1,9,3,8,4,155,159,7,156)").all.each do |u|
+      User.staff.not_deleted.where("id not in (2,62,5,6,1,9,3,8,4,155,7)").all.each do |u|
         @team << u
       end
       # these guys are part time
       @team << User.find(7)
-      @team << User.find(156)
+      #@team << User.find(156)
       @team
     end
 

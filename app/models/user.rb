@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   
   has_one :volunteer
   has_one :community_partner_application
+  has_one :affiliate_event_application
   
   has_many :quotes
   accepts_nested_attributes_for :quotes, :allow_destroy => true
