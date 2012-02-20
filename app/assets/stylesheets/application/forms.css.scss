@@ -472,7 +472,9 @@ legend {
 
 
 // Make requires * red
-abbr[title="required"] { color: red; }
+abbr[title="required"], span.required {
+  color: red;
+}
 
 // Form Errors
 form .error {
@@ -491,3 +493,10 @@ form .error {
   }
 }
 
+
+
+
+// Form special cases
+#community_partner_application_most_important_other_input, #affiliate_event_application_event_cost_input, #affiliate_event_application_rsvp_directions_input, #community_partner_application_organization_newsletter_frequency_input, #community_partner_application_ciw_updates_in_newsletter_input {
+  display: none;
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120217214055) do
+ActiveRecord::Schema.define(:version => 20120220170531) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(:version => 20120217214055) do
     t.string   "event_location",       :null => false
     t.string   "event_capacity",       :null => false
     t.string   "event_overview",       :null => false
-    t.boolean  "recurring"
-    t.boolean  "paid_event"
+    t.string   "recurring"
+    t.string   "paid_event"
     t.string   "event_cost"
-    t.boolean  "rsvp_required",        :null => false
+    t.string   "rsvp_required",        :null => false
     t.string   "rsvp_directions"
     t.boolean  "promote_event",        :null => false
     t.boolean  "event_info_available", :null => false
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(:version => 20120217214055) do
     t.integer  "user_id",              :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description_25words",  :null => false
+    t.text     "description_10words",  :null => false
   end
 
   add_index "affiliate_event_applications", ["user_id"], :name => "index_affiliate_event_applilcations_on_user_id"
@@ -128,13 +130,14 @@ ActiveRecord::Schema.define(:version => 20120217214055) do
     t.boolean  "storytellers_theme"
     t.boolean  "gender_theme"
     t.string   "most_important"
-    t.boolean  "organization_has_newsletter"
+    t.string   "organization_has_newsletter"
     t.string   "organization_newsletter_frequency"
     t.boolean  "ciw_updates_in_newsletter"
     t.boolean  "will_promote_ciw",                                    :null => false
     t.boolean  "encourage_promote_ciw",                               :null => false
     t.boolean  "provide_insight_guidance",                            :null => false
     t.string   "contact_email",                                       :null => false
+    t.text     "most_important_other"
   end
 
   add_index "community_partner_applications", ["user_id"], :name => "index_community_partner_applications_on_user_id"

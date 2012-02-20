@@ -16,7 +16,7 @@
 :javascript
   $('#speaker_feed').kohtweets({
     'preloader' : 'true',
-    'preloader_url' : '/assets/images/large_preloader.gif',
+    'preloader_url' : "#{asset_path 'application/large_preloader.gif'}",
     'type' : 'username',
     'template' : '{{#tweets}}<li id="tweet_{{id}}">{{#user}}<div class="avatar_container"><img src="{{profile_image_url}}" /></div><div class="tweet_content"><a href="http://twitter.com/{{screen_name}}">@{{screen_name}}:</a>{{/user}} {{text}}<a class="tweet_meta" href="http://www.twitter.com/{{#user}}{{screen_name}}{{/user}}/status/{{id_str}}">{{created_at}}</a></div></li>{{/tweets}}',
     'screen_name' : "#{escape_javascript speaker.twitter_screen_name}",
