@@ -46,6 +46,8 @@ class Chapter < ActiveRecord::Base
     true
   end
   
+
+  
   # large format blessed photo for the website
   has_attached_file :banner,
     :styles => { 
@@ -92,6 +94,15 @@ class Chapter < ActiveRecord::Base
       :title => title,
       :description => description,
       :talk => talk.api_attributes,
+      :video => vimeo_id,
+      :featured_on_talk => featured_on_talk,
+      :featured_on_homepage => featured_on_homepage,
+      :homepage_caption => homepage_caption,
+      :banner => banner,
+      :homepage_banner_file_name => homepage_banner_file_name,
+      :homepage_banner_content_type => homepage_banner_content_type,
+      :homepage_banner_file_size => homepage_banner_file_size,
+      :homepage_banner_updated_at => homepage_banner_updated_at
     }
   end
 
@@ -111,6 +122,9 @@ class Chapter < ActiveRecord::Base
   def search_attributes
     {:title => self.title, :description => self.description[0..100], :image => self.banner(:thumb)}
   end
+  
+  
+  
   
   
   private 

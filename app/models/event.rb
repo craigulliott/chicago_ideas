@@ -62,9 +62,10 @@ class Event < ActiveRecord::Base
       :partner => partner.api_attributes,
       :day => day.api_attributes,
       :venue => venue.api_attributes,
+      :type => event_brand.api_attributes,
+      :banner => banner,
       :start_time => start_time,
       :end_time => end_time,
-      :type => type,
     }
   end
   

@@ -126,6 +126,7 @@ $(document).ready(function() {
   $('.b_thumb').bind('click', function(e) {
     
     e.preventDefault();
+    e.stopPropagation();
     clearTimeout(bannerTimeout);
     nextBannerId = $(this).attr('id').replace('thumb_',''); //capture the current item ID
     if (nextBannerId == currentBannerId) {
