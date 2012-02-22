@@ -24,4 +24,13 @@ test:
   port: <%= ENV['MYSQL_PORT'] %>
 
 production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: <%= ENV['DATABASE_NAMESPACE'] %>_development
+  pool: 5
+  username: <%= ENV['MYSQL_USERNAME'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  host: <%= ENV['MYSQL_HOST'] %>
+  port: <%= ENV['MYSQL_PORT'] %>
   # created for us by our push to heroku
