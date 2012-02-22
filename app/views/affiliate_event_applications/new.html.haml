@@ -75,7 +75,7 @@
             
             
         = f.buttons do
-          = f.submit :value => "Submit Application", :class => "btn submit"
+          = f.submit :value => "Submit Application", :class => "btn submit", :id => "submit_application"
         
   -# Include Sidebar Items
   #sidebar
@@ -99,4 +99,8 @@
       } else {
         $('li#affiliate_event_application_rsvp_directions_input').stop().fadeOut();
       }
+  });
+  
+  $('#submit_application').bind('click', function(e) {
+    $(this).val('processing...');
   });
