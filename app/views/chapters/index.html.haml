@@ -19,7 +19,7 @@
   = render "chapters/slider", :featured => @featured
   
   -# Render the chapter list
-  = render "chapters/chapters", :chapters => @chapters, :do_paginate => true
+  = render "chapters/chapters", :chapters => @chapters, :top2 => @top2, :do_paginate => true
 
 
   -# Include Sidebar Items

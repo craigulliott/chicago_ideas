@@ -94,21 +94,21 @@
           
           = f.inputs :class => "v_lists" do
             = f.input :most_important, :label => "What is most important to you about being a Community Partner? (Select one)", :collection => ["Networking opportunities", "Being listed on the CIW website and show guide", "Opportunity to help guide CIW programming", "Potential for early ticket sales and/or complimentary tickets", "Other (Please explain)"]
-          
+            = f.input :most_important_other, :label => "Other"
           
           = f.inputs :class => "v_lists" do
-            = f.input :organization_has_newsletter, :label => "My organization has a newsletter"
-            = f.input :organization_newsletter_frequency, :label => "If YES, our newsletter is", :collection => ["Weekly, ""Monthly", "Quarterly", "Annually", "Other (Please explain)"]
+            = f.input :organization_has_newsletter, :label => "My organization has a newsletter", :collection => ["Yes", "No"]
+            = f.input :organization_newsletter_frequency, :label => "If YES, our newsletter is", :collection => ["Weekly", "Monthly", "Quarterly", "Annually", "Other (Please explain)"]
             = f.input :ciw_updates_in_newsletter, :label => "If YES, I agree to include relevant CIW updates in my organization’s newsletter"
             
         
         .form_section
           %span.form_section_header Step 3: Mutual Agreements
-          %span.bold In becoming a community partner, my organization will to the best of our ability:
+          %span.bold In becoming a community partner, my organization will to the best of our ability.
           = f.inputs :class => "v_lists" do
-            = f.input :will_promote_ciw, :label => "Promote relevant CIW events through all available channels, including internal and external communications, newsletters, and social networks"
-            = f.input :encourage_promote_ciw, :label => "Encourage and permit employees to attend CIW events"
-            = f.input :provide_insight_guidance, :label => "Provide insight and guidance into relevant areas of expertise where relevant to CIW programming"
+            = f.input :will_promote_ciw, :required => true, :label => "Promote relevant CIW events through all available channels, including internal and external communications, newsletters, and social networks"
+            = f.input :encourage_promote_ciw, :required => true, :label => "Encourage and permit employees to attend CIW events"
+            = f.input :provide_insight_guidance, :required => true, :label => "Provide insight and guidance into relevant areas of expertise where relevant to CIW programming"
           
         = f.buttons do
           = f.submit :value => "Submit Application", :class => "btn submit"
@@ -119,3 +119,24 @@
     = render "partials/social"
     = render "partials/newsletter_form"
     
+    
+:javascript
+  $("select#community_partner_application_most_important").bind("change", function() {
+      if ( $(this).children(":selected").val() == "Other (Please explain)") {
+        $('li#community_partner_application_most_important_other_input').stop().fadeIn();
+      } else {
+        $('li#community_partner_application_most_important_other_input').stop().fadeOut();
+      }
+  }); 
+  
+  $("select#community_partner_application_organization_has_newsletter").bind("change", function() {
+      if ( $(this).children(":selected").val() == "Yes") {
+        $('li#community_partner_application_organization_newsletter_frequency_input').stop().fadeIn();
+        $('li#community_partner_application_ciw_updates_in_newsletter_input').stop().fadeIn();
+      } else {
+        $('li#community_partner_application_organization_newsletter_frequency_input').stop().fadeOut();
+        $('li#community_partner_application_ciw_updates_in_newsletter_input').stop().fadeOut();
+      }
+  });   
+  
+  
