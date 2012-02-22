@@ -33,7 +33,7 @@ $(document).ready(function() {
     $('#dd_login_form').hide();
   });
 
-  $('li#gn_login a').bind('click', function(e) {
+  $('li#gn_login > a').bind('click', function(e) {
     e.preventDefault();
     $('#dd_login_form').stop().toggle();
     e.stopPropagation();
@@ -126,6 +126,7 @@ $(document).ready(function() {
   $('.b_thumb').bind('click', function(e) {
     
     e.preventDefault();
+    e.stopPropagation();
     clearTimeout(bannerTimeout);
     nextBannerId = $(this).attr('id').replace('thumb_',''); //capture the current item ID
     if (nextBannerId == currentBannerId) {

@@ -135,8 +135,6 @@
     //Make the AJAX requeset and parse results
     $.getJSON(json_url, function(results) {
       
-      console.log(results);
-      
       results = (type == "search") ? results.results : results;
       
       resultsParsed = [];
@@ -153,7 +151,6 @@
       tweets = $(tweets).autolink();
       tweets = $(tweets).hashtaglink();
       tweets = $(tweets).attaglink();
-      //console.log(tweets);
       
       $(element).css('background' , '');
       $(element).html(tweets);

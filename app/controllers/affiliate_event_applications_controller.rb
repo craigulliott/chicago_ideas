@@ -16,7 +16,9 @@ class AffiliateEventApplicationsController < ApplicationController
   def create
     @meta_data = {:page_title => "Affiliate Events", :og_image => "http://www.chicagoideas.com/assets/application/affilliate_events_banner.jpg", :og_title => "Affiliate Events | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     @affiliate_event_application = current_user.build_affiliate_event_application(params[:affiliate_event_application])
+   
     if @affiliate_event_application.save
+      AffiliateEventsMailer.send_form(params[:affiliate_event_application]).deliver
       redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
     else
       render :new

@@ -146,6 +146,11 @@ class User < ActiveRecord::Base
       :id => id.to_s,
       :type => self.class.name.downcase,
       :name => name,
+      :title => title,
+      :bio => bio,
+      :twitter_screen_name => twitter_screen_name,
+      :permalink => permalink,
+      :photo => portrait,
     }
   end
 
