@@ -479,7 +479,7 @@ abbr[title="required"], span.required {
 // Form Errors
 form .error {
 
-  input {
+  input, textarea {
     border: 1px solid red;
     background: #f9ebeb;    
   }  
