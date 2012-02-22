@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120220170531) do
+ActiveRecord::Schema.define(:version => 20120221235818) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -25,11 +25,11 @@ ActiveRecord::Schema.define(:version => 20120220170531) do
     t.string   "event_date",           :null => false
     t.string   "event_location",       :null => false
     t.string   "event_capacity",       :null => false
-    t.string   "event_overview",       :null => false
+    t.text     "event_overview",       :null => false
     t.string   "recurring"
     t.string   "paid_event"
     t.string   "event_cost"
-    t.string   "rsvp_required",        :null => false
+    t.string   "rsvp_required"
     t.string   "rsvp_directions"
     t.boolean  "promote_event",        :null => false
     t.boolean  "event_info_available", :null => false

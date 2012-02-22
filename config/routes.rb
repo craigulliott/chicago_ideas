@@ -98,6 +98,7 @@ CraigsAdmin::Application.routes.draw do
   
   match 'events/partner_programs/:id', :to => 'events#partner_programs', :as => 'partner_program'
   
+  match '/bhsi', :to => 'application#blum_helfand'
 
   # the Admin                                                                   (http://www.domain.com/admin)
   # ---------------------------------------------------------------------------------------------------------

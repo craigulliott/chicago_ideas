@@ -33,7 +33,7 @@ $(document).ready(function() {
     $('#dd_login_form').hide();
   });
 
-  $('li#gn_login a').bind('click', function(e) {
+  $('li#gn_login > a').bind('click', function(e) {
     e.preventDefault();
     $('#dd_login_form').stop().toggle();
     e.stopPropagation();
