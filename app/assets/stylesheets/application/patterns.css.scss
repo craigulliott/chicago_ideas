@@ -206,6 +206,9 @@
             }
             
           } // end .banner_top
+          .ie6 .banner_top, .ie7 .banner_top, .ie8 .banner_top {
+            background-color: #000;
+          }
           
           .banner_bottom {
             background: rgba(255,255,255,.45);
@@ -515,6 +518,9 @@ ul.double_rows {
   overflow: hidden;
   border: 3px solid #fff;
   @include box-shadow(0px, 0px, 2px, $grey);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, OffX=0, OffY=0, Color='#555555')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, OffX=0, OffY=0, Color='#555555');
+  }
   position: relative;
 }
 .speaker_list li .img_frame {
@@ -1023,6 +1029,9 @@ input.submit, input.create {
         color: #2d77de;
       }
     }
+  }
+  .ie6 ul.filter_list, .ie7 ul.filter_list, .ie8 ul.filter_list, .ie6 ul.filter_list li, .ie7 ul.filter_list li, .ie8 ul.filter_list li {
+    width: 280px;
   }
 }
 
