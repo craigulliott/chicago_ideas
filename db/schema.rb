@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222180611) do
+ActiveRecord::Schema.define(:version => 20120223200244) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -81,24 +81,24 @@ ActiveRecord::Schema.define(:version => 20120222180611) do
   add_index "chapters", ["talk_id"], :name => "index_chapters_on_talk_id"
 
   create_table "community_partner_applications", :force => true do |t|
-    t.string   "name",                                                 :null => false
+    t.string   "name",                                                :null => false
     t.text     "description"
-    t.string   "address1",                                             :null => false
+    t.string   "address1",                                            :null => false
     t.string   "address2"
-    t.string   "city",                                                 :null => false
-    t.string   "state",                                                :null => false
-    t.string   "country",                           :default => "US",  :null => false
+    t.string   "city",                                                :null => false
+    t.string   "state",                                               :null => false
+    t.string   "country",                           :default => "US", :null => false
     t.boolean  "public_mailing_list"
-    t.integer  "user_id",                                              :null => false
+    t.integer  "user_id",                                             :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "facebook_page"
     t.string   "twitter_handle"
-    t.string   "contact_name",                                         :null => false
-    t.string   "contact_title",                                        :null => false
-    t.string   "contact_phone",                                        :null => false
-    t.boolean  "previous_partner",                  :default => false, :null => false
-    t.text     "why_partner",                                          :null => false
+    t.string   "contact_name",                                        :null => false
+    t.string   "contact_title",                                       :null => false
+    t.string   "contact_phone",                                       :null => false
+    t.string   "previous_partner",                  :default => "0",  :null => false
+    t.text     "why_partner",                                         :null => false
     t.boolean  "design_with_purpose_theme"
     t.boolean  "start_something_theme"
     t.boolean  "fashion_theme"
@@ -133,11 +133,12 @@ ActiveRecord::Schema.define(:version => 20120222180611) do
     t.string   "organization_has_newsletter"
     t.string   "organization_newsletter_frequency"
     t.boolean  "ciw_updates_in_newsletter"
-    t.boolean  "will_promote_ciw",                                     :null => false
-    t.boolean  "encourage_promote_ciw",                                :null => false
-    t.boolean  "provide_insight_guidance",                             :null => false
-    t.string   "contact_email",                                        :null => false
+    t.boolean  "will_promote_ciw",                                    :null => false
+    t.boolean  "encourage_promote_ciw",                               :null => false
+    t.boolean  "provide_insight_guidance",                            :null => false
+    t.string   "contact_email",                                       :null => false
     t.text     "most_important_other"
+    t.string   "other_newsletter_frequency"
   end
 
   add_index "community_partner_applications", ["user_id"], :name => "index_community_partner_applications_on_user_id"
@@ -457,6 +458,16 @@ ActiveRecord::Schema.define(:version => 20120222180611) do
     t.string   "hours"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name",                  :null => false
+    t.string   "last_name",                   :null => false
+    t.string   "phone",                       :null => false
+    t.string   "email",                       :null => false
+    t.string   "zip_code"
+    t.boolean  "interested_in_promoting"
+    t.string   "type_of_position",            :null => false
+    t.string   "specific_event_interest"
+    t.boolean  "interested_in_youth_program"
+    t.text     "anything_else"
   end
 
   add_index "volunteers", ["user_id"], :name => "index_volunteers_on_user_id"

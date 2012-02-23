@@ -22,8 +22,8 @@ class AffiliateEventApplication < ActiveRecord::Base
   validates :event_overview, :presence => true
   validates :description_25words, :presence => true
   validates :description_10words, :presence => true
-  validates :promote_event, :acceptance => true
-  validates :event_info_available, :acceptance => true
-  validates :not_make_changes, :acceptance => true
+  validates :promote_event, :acceptance => {:accept => true}
+  validates :event_info_available, :acceptance => {:accept => true}
+  validates :not_make_changes, :acceptance => {:accept => true}
   
 end

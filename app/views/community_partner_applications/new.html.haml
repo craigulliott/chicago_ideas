@@ -57,7 +57,7 @@
         .form_section
           %span.form_section_header Step 2: Chicago Ideas Week Community Partnerships
           = f.inputs :class => "v_lists" do
-            = f.input :previous_partner, :label => "Was your organization a 2011 Community Partner?"
+            = f.input :previous_partner, :label => "Was your organization a 2011 Community Partner?", :collection => ["Yes", "No"]
             = f.input :why_partner, :required => true, :label => "Why do you want to become a 2012 CIW Community Partner?"
           
           = f.inputs :name => " Select the topics below that are most relevant to your organization. (List topics – Check all that apply)", :class => "v_lists checkbox_list" do 
@@ -98,8 +98,9 @@
           
           = f.inputs :class => "v_lists" do
             = f.input :organization_has_newsletter, :label => "My organization has a newsletter", :collection => ["Yes", "No"]
-            = f.input :organization_newsletter_frequency, :label => "If YES, our newsletter is", :collection => ["Weekly", "Monthly", "Quarterly", "Annually", "Other (Please explain)"]
-            = f.input :ciw_updates_in_newsletter, :label => "If YES, I agree to include relevant CIW updates in my organization’s newsletter"
+            = f.input :organization_newsletter_frequency, :label => "Our newsletter is", :collection => ["Weekly", "Monthly", "Quarterly", "Annually", "Other (Please explain)"]
+            = f.input :other_newsletter_frequency, :label => "Other frequency:"
+            = f.input :ciw_updates_in_newsletter, :label => "I agree to include relevant CIW updates in my organization’s newsletter"
             
         
         .form_section
@@ -138,6 +139,14 @@
         $('li#community_partner_application_ciw_updates_in_newsletter_input').stop().fadeOut();
       }
   });
+  $("select#community_partner_application_organization_newsletter_frequency").bind("change", function() {
+      if ( $(this).children(":selected").val() == "Other (Please explain)") {
+        $('li#community_partner_application_other_newsletter_frequency_input').stop().fadeIn();
+      } else {
+        $('li#community_partner_application_other_newsletter_frequency_input').stop().fadeOut();
+      }
+  });
+  
   
   $('#submit_application').bind('click', function(e) {
     $(this).val('processing...');

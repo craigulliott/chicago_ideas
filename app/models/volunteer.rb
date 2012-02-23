@@ -10,6 +10,14 @@ class Volunteer < ActiveRecord::Base
   
   validates :hours, :presence => true
   validates :user_id, :presence => true
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates :email, :presence => true
+  validates :phone, :presence => true
+  validates :why, :presence => true
+  validates :what, :presence => true
+  validates :availability, :presence => true
+  
   
   # the hash representing this model that is returned by the api
   def api_attributes
