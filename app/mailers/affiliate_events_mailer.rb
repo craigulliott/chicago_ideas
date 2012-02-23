@@ -5,7 +5,7 @@ class AffiliateEventsMailer < ActionMailer::Base
   default :subject => "Affiliate Events Form Submission"
   
   def send_form(form)
-    mail(form)
+    mail(@form)
   end
   
 end
