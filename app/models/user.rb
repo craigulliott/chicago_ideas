@@ -79,10 +79,12 @@ class User < ActiveRecord::Base
       permalink = name.gsub(' ', '_').gsub(/[^\w\d_]/, '').downcase
       # if it already exists, then add a number
       i = nil
-      if User.find_by_permalink("#{permalink}#{i}").present?
+      while User.find_by_permalink("#{permalink}#{i}").present?
         i = (i||0)+1
       end
+      permalink = "#{permalink}#{i}"
       record.permalink = permalink
+      puts permalink
     end
   }
   
