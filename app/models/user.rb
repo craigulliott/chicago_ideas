@@ -90,7 +90,10 @@ class User < ActiveRecord::Base
   
   # send out the welcome email
   after_create {|user|
+    begin
     ApplicationMailer.welcome(user).deliver unless Rails.env == 'test'
+    rescue
+    end
   }
 
   validates :permalink, :presence => true, :uniqueness => true, :format => {:with => /^[\w\d_]+$/}
