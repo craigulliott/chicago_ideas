@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222180611) do
+ActiveRecord::Schema.define(:version => 20120223174341) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -457,6 +457,16 @@ ActiveRecord::Schema.define(:version => 20120222180611) do
     t.string   "hours"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name",                  :null => false
+    t.string   "last_name",                   :null => false
+    t.string   "phone",                       :null => false
+    t.string   "email",                       :null => false
+    t.string   "zip_code"
+    t.boolean  "interested_in_promoting"
+    t.string   "type_of_position",            :null => false
+    t.string   "specific_event_interest"
+    t.boolean  "interested_in_youth_program"
+    t.text     "anything_else"
   end
 
   add_index "volunteers", ["user_id"], :name => "index_volunteers_on_user_id"
