@@ -2,7 +2,7 @@ class ApplicationMailer < ActionMailer::Base
 
   helper :email
   layout 'email'
-  default :from => "#{BUSINESS_NAME} <#{BUSINESS_EMAIL}>"
+  default :from => "#{ENV['BUSINESS_NAME']} <#{ENV['BUSINESS_EMAIL']}>"
 
   def welcome(user)
     raise 'user has no email address' unless user.email.present?
@@ -11,7 +11,7 @@ class ApplicationMailer < ActionMailer::Base
     headers({'X-SMTPAPI' => '{"category": "Welcome Email"}'})
 
     @user = user
-    mail(:to => @user.email, :subject => "Welcome to #{BUSINESS_NAME}")
+    mail(:to => @user.email, :subject => "Welcome to #{ENV['BUSINESS_NAME']}")
   end
   
 end
