@@ -1,0 +1,342 @@
+@import "header";
+
+// the basic page layout of the admin tool
+body.admin {
+  background-color: #DDDDDD;
+  font-family: arial;
+
+  // we have these additional jquery-ui icon sets for the admin
+  .ui-icon-highlight { 
+    background-image: asset-url('admin/ui_icons_highlight.png', image); 
+  }
+  .ui-icon-light { 
+    background-image: asset-url('admin/ui_icons_light.png', image); 
+  }
+}
+
+
+//all links
+a, a:link, a:visited, a:active {
+  color: #326276;
+}
+a:hover {
+  color: #ce2402;
+}
+
+.searchable-sortable-pagination-form { display: none; }
+
+
+// admin header
+#header_container {
+  background-color: #1A1A1A;
+  @include linear-gradient(top, $navigation_background_lowlight 0%, $navigation_background_highlight 60%);
+  border-bottom: 3px solid $navigation_highlight;
+  @include box-shadow(0 0 20px 7px #999);
+  height: 50px;
+  display: none;
+  
+  #header {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  #header > #logo {
+    position:absolute;
+    top: 0;
+    left:20px;
+    box-shadow: 0 1px 2px 0 #222222;
+    z-index: 4;
+    background-image: asset-url('admin/logo.png', image);
+    display: block;
+    width: 169px;
+    height: 90px;
+  }
+
+  // the admin main menu
+  #main_menu {
+    position:absolute;
+    left: 210px;
+    top: 0;
+    a {
+      float: left;
+      font-size: 18px;
+      height: 50px;
+      line-height: 52px;
+      margin-right: 14px;
+      color: #FFF;
+      display: block;
+      padding:0 10px;
+      @include transition(background-color .25s linear);
+      @include transition(line-height .25s linear);
+      text-decoration: none;
+      &.active, &:hover {
+        background-color: $navigation_highlight;
+        @include linear-gradient(top, $navigation_lowlight 0%, $navigation_highlight 60%);
+        color: #000;
+      }
+      &:hover {
+        line-height: 60px;
+      }
+    }
+  }
+
+  // header account links
+  #account_links {
+    position:absolute;
+    right:0;
+
+    a {
+      float: left;
+      margin-left: 14px;
+      padding-top: 10px;
+      color: #FFF;
+      font-size: 14px;
+      display: block;
+      text-decoration: none;
+      margin-top: 6px;
+      
+      span {
+        margin-right: 4px;
+      }
+  
+      &.active, &:hover {
+        color: $navigation_highlight;
+  
+        span {
+          background-image: image-url('admin/ui_icons_highlight.png');
+        }
+      }
+    
+      // the account link with a facebook image gets positioned differently
+      &.facebook_connected_account {
+        line-height: 36px;
+        padding-top: 0;
+        width: 116px;
+        text-align: right;
+      
+        // make the facebook profile picture artificially smaller
+        img {
+          width: 36px;
+          height: 36px;
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+
+
+// the page content
+#content_container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+// the side bar navigation
+#content_navigation {
+  @include box-shadow(3px 3px 6px #BBB);
+  background-color: #1A1A1A;
+  @include linear-gradient(right, $navigation_background_lowlight 0%, $navigation_background_highlight 60%);
+  border-left: 4px solid $navigation_highlight;
+  
+  float: right;
+  margin-top: 40px;
+  width: 236px;
+  padding: 10px 10px 10px 0;
+  position: relative;
+  z-index: 2;
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    
+    li {
+      list-style-type: none;
+    }
+  }
+  
+  h2 {
+    border-bottom: 1px solid #666;
+    color: #FFFFFF;
+    font-size: 12px;
+    margin: 15px 12px 4px;
+    padding-bottom: 8px;
+  }
+  
+  h3 {
+    color: #FFFFFF;
+    font-size: 12px;
+    font-style: oblique;
+    margin: 15px 12px 0;
+  }
+  
+  a {
+    color: #FFF;
+    display: block;
+    @include transition(background-color .25s linear);
+    @include transition(padding .25s linear);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 6px 10px;
+
+    span {
+      float: left;
+      margin-right: 4px;
+      background-image: image-url('admin/ui_icons_light.png');
+    }
+    
+    &.active, &:hover {
+      padding-left: 2px;
+      background-color: $navigation_highlight;
+      @include linear-gradient(right, $navigation_lowlight 0%, $navigation_highlight 60%);
+    }
+  }
+
+  li.active a, a:hover {
+    background-color: $navigation_highlight;
+    @include linear-gradient(right, $navigation_lowlight 0%, $navigation_highlight 60%);
+    color: #000;
+    span {
+      background-image: image-url('admin/ui_icons_dark.png');
+    }
+  }
+  a:hover {
+    padding-left: 2px;
+  }
+
+}
+
+
+#content {
+  background-color: #ffffff;
+  width: 950px;
+  float: left;
+  margin-top: 30px;
+  min-height: 750px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  
+}
+
+/*the header of the content*/
+#content_head {
+  position: relative;
+}
+/*breadcrumbs*/
+#breadcrumbs {
+  float: left;
+  margin: 8px 0 6px 25px;
+}
+/*action items, like edit or add buttons*/
+#top_links {
+    border-bottom: 1px solid #CCCCCC;
+    margin: 13px 25px 10px;
+    a {
+      border: 1px solid #DDDDDD;
+      color: #222222;
+      display: block;
+      float: right;
+      font-size: 12px;
+      line-height: 17px;
+      margin-left: 2px;
+      margin-top: 12px;
+      padding: 2px 8px 2px 4px;
+      @include transition(background-color .25s linear);
+      text-decoration: none;
+      
+      &:hover {
+        background-color: #DDDDDD;
+      }
+      span {
+        float: left;
+        margin-right: 4px;
+      }
+    }
+}
+
+/*the page itself*/
+#page {
+  margin: 0 25px 25px 25px;
+  color: #323232;
+  position: relative;
+  
+  p {
+    margin: 8px 0;
+  }
+  > h1, > h2 {
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 20px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    margin: 12px 0;
+    > img {
+      height: 48px;
+      margin-right: 8px;
+      margin-top: 1px;
+      float: left;
+    }
+    > span {
+      margin-left: 8px;
+      margin-top: 2px;
+      font-weight: normal;
+      font-style: oblique;
+      &.deleted {
+        color: red;
+      }
+      
+    }
+  }
+  > h2 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  /*links with sprite icons*/
+  a.icon {
+    color: #222222;
+    display: block;
+    float: right;
+    font-size: 12px;
+    line-height: 17px;
+    margin: 1px;
+    padding: 1px 8px 1px 0px;
+    font-weight: normal;
+    text-decoration: none;
+    @include transition(background-color .25s linear);
+    &:hover {
+      background-color: #DDDDDD;
+    }
+    span {
+      float: left;
+      margin: 0 4px;
+    }
+  }
+}
+.ui-icon {
+  display: block;
+  float: left;  
+}
+
+
+// specific pages/sections/overrides
+@import 'admin/forms';
+@import 'admin/notes';
+@import 'admin/users';
+@import 'admin/table';
+
+// plugins we are using or have created
+@import "plugins/ezmark.jquery";
+@import "plugins/flash_helpers";
+@import "plugins/pagination";
+@import "plugins/textile";
+@import "plugins/breadcrumbs";
+@import "plugins/searchable_sortable_pagination";
+@import "plugins/dialog";
+@import "plugins/jquery-ui-1.8.16.custom";
+@import "plugins/jquery_ui_timepicker";
+@import "plugins/locked_links";

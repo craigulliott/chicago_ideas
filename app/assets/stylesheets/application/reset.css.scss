@@ -7,7 +7,7 @@ html,body,body div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,ad
 article,aside,figure,footer,header,hgroup,nav,section{display:block}
 img,object,embed{max-width:100%}
 html{overflow-y:scroll}
-ul{list-style:none}
+ul{list-style:none;margin:0;padding:0;}
 blockquote,q{quotes:none}
 blockquote:before,blockquote:after,q:before,q:after{content:none}
 a{font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0}

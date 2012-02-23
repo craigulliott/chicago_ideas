@@ -33,4 +33,14 @@ class Day < ActiveRecord::Base
     "#{date.to_s(:wordy)} (#{name})"
   end
   
+  # the hash representing this model that is returned by the api
+  def api_attributes
+    {
+      :id => id.to_s,
+      :year_id => year.api_attributes,
+      :date => date,
+      :name => name
+    }
+  end
+  
 end

@@ -38,6 +38,7 @@ class PressClipping < ActiveRecord::Base
       :image => image,
       :url => url,
       :description => description,
+      :date => updated_at,
     }
   end
 

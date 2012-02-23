@@ -33,32 +33,32 @@
         .form_section
           %span.form_section_header Step 1: Basic Info
           = f.inputs :class => "v_lists" do
-            = f.input :name, :class => "large", :label => "Business/Organization name"
-            = f.input :description, :label => "Business/Organization Description or Mission Statement"          
+            = f.input :name, :required => true, :class => "large", :label => "Business/Organization name"
+            = f.input :description, :required => true, :label => "Business/Organization Description or Mission Statement"          
 
           = f.inputs :name => "Organization Address", :class => "c_list v_lists" do
-            = f.input :address1, :class => "medium-large", :label => "Street Address"
+            = f.input :address1, :required => true, :class => "medium-large", :label => "Street Address"
             = f.input :address2
-            = f.input :city
-            = f.input :state, :label => "State / Province / Region", :class => "small"
-            = f.input :country
+            = f.input :city, :required => true
+            = f.input :state, :required => true, :label => "State / Province / Region", :class => "small"
+            = f.input :country, :required => true
           
           = f.inputs :name => "Organization Social Links", :class => "c_list v_lists" do
             = f.inputs :facebook_page, :label => "Facebook Page"
             = f.inputs :twitter_handle, :label => "Twitter Username"
           
           = f.inputs :name => "Organization Contact", :class => "c_list v_lists" do
-            = f.input :contact_name, :label => "Contact Name"
-            = f.input :contact_title, :label => "Contact Title"
-            = f.input :contact_email, :as => :email, :label => "Contact Email"
-            = f.input :contact_phone, :label => "Contact Phone"
+            = f.input :contact_name, :required => true, :label => "Contact Name"
+            = f.input :contact_title, :required => true, :label => "Contact Title"
+            = f.input :contact_email, :required => true, :label => "Contact Email"
+            = f.input :contact_phone, :required => true, :label => "Contact Phone"
           
           
         .form_section
           %span.form_section_header Step 2: Chicago Ideas Week Community Partnerships
           = f.inputs :class => "v_lists" do
             = f.input :previous_partner, :label => "Was your organization a 2011 Community Partner?"
-            = f.input :why_partner, :label => "Why do you want to become a 2012 CIW Community Partner?"
+            = f.input :why_partner, :required => true, :label => "Why do you want to become a 2012 CIW Community Partner?"
           
           = f.inputs :name => " Select the topics below that are most relevant to your organization. (List topics – Check all that apply)", :class => "v_lists checkbox_list" do 
             = f.input :design_with_purpose_theme, :label => "Design with Purpose"
@@ -111,7 +111,7 @@
             = f.input :provide_insight_guidance, :required => true, :label => "Provide insight and guidance into relevant areas of expertise where relevant to CIW programming"
           
         = f.buttons do
-          = f.submit :value => "Submit Application", :class => "btn submit"
+          = f.submit :value => "Submit Application", :class => "btn submit", :id => "submit_application"
         
   -# Include Sidebar Items
   #sidebar
@@ -137,6 +137,10 @@
         $('li#community_partner_application_organization_newsletter_frequency_input').stop().fadeOut();
         $('li#community_partner_application_ciw_updates_in_newsletter_input').stop().fadeOut();
       }
-  });   
+  });
+  
+  $('#submit_application').bind('click', function(e) {
+    $(this).val('processing...');
+  });
   
   

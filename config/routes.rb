@@ -64,8 +64,10 @@ CraigsAdmin::Application.routes.draw do
   match 'recommend/speaker', :to => 'application#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
   match 'special_programs/blum_helfand_fellowship', :to => 'application#blum_helfand', :as => 'blum_helfand'
+  match '/bhsi', :to => 'application#blum_helfand'
   match 'community', :to => 'application#community'
   match 'sizzle', :to => 'application#sizzle'
+  match 'info_2012', :to => 'application#sizzle'
 
   # contact form
   match 'contact', :to => 'application#contact'

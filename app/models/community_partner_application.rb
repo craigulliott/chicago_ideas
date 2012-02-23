@@ -14,6 +14,13 @@ class CommunityPartnerApplication < ActiveRecord::Base
   validates :state, :presence => true
   validates :country, :presence => true
   validates :user_id, :presence => true
+  validates :contact_email, :presence => true
+  validates :contact_name, :presence => true
+  validates :contact_phone, :presence => true
+  validates :why_partner, :presence => true
+  validates :will_promote_ciw, :acceptance => {:accept => true}
+  validates :encourage_promote_ciw, :acceptance => {:accept => true}
+  validates :provide_insight_guidance, :acceptance => {:accept => true}
   
   # the hash representing this model that is returned by the api
   def api_attributes

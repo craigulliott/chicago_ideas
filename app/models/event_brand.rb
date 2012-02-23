@@ -13,7 +13,7 @@ class EventBrand < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      #:type => self.class.name.downcase,
       :name => name,
     }
   end

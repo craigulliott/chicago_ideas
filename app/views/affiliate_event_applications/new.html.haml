@@ -45,11 +45,11 @@
         .form_section
           %span.form_section_header Affiliate Event Information
           = f.inputs :class => "v_lists" do
-            = f.input :event_name, :label => "Event Name (as it would be printed in promotional materials)"
-            = f.input :event_date, :label => "Date/Time"
-            = f.input :event_location, :label => "Location & Address (as it would be printed in promotional materials)"
+            = f.input :event_name, :required => true, :label => "Event Name (as it would be printed in promotional materials)"
+            = f.input :event_date, :required => true, :label => "Date/Time"
+            = f.input :event_location, :required => true, :label => "Location & Address (as it would be printed in promotional materials)"
             = f.input :event_capacity, :label => "Capacity"
-            = f.input :event_overview, :label => "Overivew"
+            = f.input :event_overview, :required => true, :label => "Overivew"
             
             = f.input :recurring, :label => "Is this a recurring event?", :collection => ["Yes", "No"]
             
@@ -57,13 +57,13 @@
             = f.input :event_cost, :label => "If YES, how much does it cost"
             
             = f.input :rsvp_required, :label => "Does this event require guests to RSVP in advance?", :collection => ["Yes", "No"]
-            = f.input :rsvp_directions, :label => "If YES, how and when do guests RSVPS?"
+            = f.input :rsvp_directions, :label => "How and when do guests RSVP?"
           
 
           %span.bold CIW promotional material will vary in size, so please provide:
           = f.inputs :class => "v_lists" do
-            = f.input :description_25words, :label => "Event description in 25 words or less (as it would be printed in promotional materials)"
-            = f.input :description_10words, :label => "Event description in 10 words or less (as it would be printed in promotional materials)"
+            = f.input :description_25words, :required => true, :label => "Event description in 25 words or less (as it would be printed in promotional materials)"
+            = f.input :description_10words, :required => true, :label => "Event description in 10 words or less (as it would be printed in promotional materials)"
             
 
         .form_section
@@ -75,7 +75,7 @@
             
             
         = f.buttons do
-          = f.submit :value => "Submit Application", :class => "btn submit"
+          = f.submit :value => "Submit Application", :class => "btn submit", :id => "submit_application"
         
   -# Include Sidebar Items
   #sidebar
@@ -99,4 +99,8 @@
       } else {
         $('li#affiliate_event_application_rsvp_directions_input').stop().fadeOut();
       }
+  });
+  
+  $('#submit_application').bind('click', function(e) {
+    $(this).val('processing...');
   });

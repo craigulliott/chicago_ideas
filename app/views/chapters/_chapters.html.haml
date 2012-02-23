@@ -9,6 +9,8 @@
     .column.column_double
       %span.column_header Videos
       %ul.preview_list.double_rows
+        -if params[:page].nil? || params[:page] == "1"
+          = render "partials/chapters_loop", :chapters => top2
         = render "partials/chapters_loop", :chapters => chapters
     -if do_paginate == true
       = paginate chapters
