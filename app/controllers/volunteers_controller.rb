@@ -17,6 +17,7 @@ class VolunteersController < ApplicationController
     @meta_data = {:page_title => "Volunteer for CIW", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Volunteer for CIW | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     @volunteer = current_user.build_volunteer(params[:volunteer])
     if @volunteer.save
+      VolunteerMailer.send_form(params[:volunteer]).deliver
       redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
     else
       render :new
