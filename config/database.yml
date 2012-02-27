@@ -24,5 +24,6 @@ test:
   port: <%= ENV['MYSQL_PORT'] %>
 
 production:
+  adapter: mysql2
 
   # created for us by our push to heroku
