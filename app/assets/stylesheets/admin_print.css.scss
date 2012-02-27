@@ -1,4 +1,4 @@
-@import "header";
+//@import "header";
 
 // the basic page layout of the admin tool
 body.admin {
@@ -31,9 +31,9 @@ a:hover {
 // admin header
 #header_container {
   background-color: #1A1A1A;
-  @include linear-gradient(top, $navigation_background_lowlight 0%, $navigation_background_highlight 60%);
-  border-bottom: 3px solid $navigation_highlight;
-  @include box-shadow(0 0 20px 7px #999);
+  //@include linear-gradient(top, $navigation_background_lowlight 0%, $navigation_background_highlight 60%);
+  //border-bottom: 3px solid $navigation_highlight;
+  //@include box-shadow(0 0 20px 7px #999);
   height: 50px;
   display: none;
   
@@ -69,12 +69,12 @@ a:hover {
       color: #FFF;
       display: block;
       padding:0 10px;
-      @include transition(background-color .25s linear);
-      @include transition(line-height .25s linear);
+      //@include transition(background-color .25s linear);
+      //@include transition(line-height .25s linear);
       text-decoration: none;
       &.active, &:hover {
-        background-color: $navigation_highlight;
-        @include linear-gradient(top, $navigation_lowlight 0%, $navigation_highlight 60%);
+//        background-color: $navigation_highlight;
+        //@include linear-gradient(top, $navigation_lowlight 0%, $navigation_highlight 60%);
         color: #000;
       }
       &:hover {
@@ -103,7 +103,7 @@ a:hover {
       }
   
       &.active, &:hover {
-        color: $navigation_highlight;
+//        color: $navigation_highlight;
   
         span {
           background-image: image-url('admin/ui_icons_highlight.png');
@@ -138,10 +138,10 @@ a:hover {
 
 // the side bar navigation
 #content_navigation {
-  @include box-shadow(3px 3px 6px #BBB);
+  //@include box-shadow(3px 3px 6px #BBB);
   background-color: #1A1A1A;
-  @include linear-gradient(right, $navigation_background_lowlight 0%, $navigation_background_highlight 60%);
-  border-left: 4px solid $navigation_highlight;
+  //@include linear-gradient(right, $navigation_background_lowlight 0%, $navigation_background_highlight 60%);
+//  border-left: 4px solid $navigation_highlight;
   
   float: right;
   margin-top: 40px;
@@ -177,8 +177,8 @@ a:hover {
   a {
     color: #FFF;
     display: block;
-    @include transition(background-color .25s linear);
-    @include transition(padding .25s linear);
+    //@include transition(background-color .25s linear);
+    //@include transition(padding .25s linear);
     text-decoration: none;
     font-size: 14px;
     line-height: 16px;
@@ -192,14 +192,14 @@ a:hover {
     
     &.active, &:hover {
       padding-left: 2px;
-      background-color: $navigation_highlight;
-      @include linear-gradient(right, $navigation_lowlight 0%, $navigation_highlight 60%);
+//      background-color: $navigation_highlight;
+      //@include linear-gradient(right, $navigation_lowlight 0%, $navigation_highlight 60%);
     }
   }
 
   li.active a, a:hover {
-    background-color: $navigation_highlight;
-    @include linear-gradient(right, $navigation_lowlight 0%, $navigation_highlight 60%);
+//    background-color: $navigation_highlight;
+    //@include linear-gradient(right, $navigation_lowlight 0%, $navigation_highlight 60%);
     color: #000;
     span {
       background-image: image-url('admin/ui_icons_dark.png');
@@ -247,7 +247,7 @@ a:hover {
       margin-left: 2px;
       margin-top: 12px;
       padding: 2px 8px 2px 4px;
-      @include transition(background-color .25s linear);
+      //@include transition(background-color .25s linear);
       text-decoration: none;
       
       &:hover {
@@ -309,7 +309,7 @@ a:hover {
     padding: 1px 8px 1px 0px;
     font-weight: normal;
     text-decoration: none;
-    @include transition(background-color .25s linear);
+    //@include transition(background-color .25s linear);
     &:hover {
       background-color: #DDDDDD;
     }
@@ -325,11 +325,12 @@ a:hover {
 }
 
 
+/*
 // specific pages/sections/overrides
 @import 'admin/forms';
 @import 'admin/notes';
 @import 'admin/users';
-@import 'admin/table';
+
 
 // plugins we are using or have created
 @import "plugins/ezmark.jquery";
@@ -342,3 +343,4 @@ a:hover {
 @import "plugins/jquery-ui-1.8.16.custom";
 @import "plugins/jquery_ui_timepicker";
 @import "plugins/locked_links";
+*/
