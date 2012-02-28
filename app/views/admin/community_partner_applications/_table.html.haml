@@ -1,22 +1,9 @@
 %table#community_partner_applications
   %tr
     %th.name= ssp_sort_link :name
-    %th.description= ssp_sort_link :description
-    %th.address1= ssp_sort_link :address1
-    %th.address2= ssp_sort_link :address2
     %th.city= ssp_sort_link :city
     %th.state= ssp_sort_link :state
     %th.country= ssp_sort_link :country
-    %th.how_align= ssp_sort_link :how_align
-    %th.art_theme= ssp_sort_link :art_theme
-    %th.education_theme= ssp_sort_link :education_theme
-    %th.finance_theme= ssp_sort_link :finance_theme
-    %th.health_theme= ssp_sort_link :health_theme
-    %th.public_policy_theme= ssp_sort_link :public_policy_theme
-    %th.social_theme= ssp_sort_link :social_theme
-    %th.technology_theme= ssp_sort_link :technology_theme
-    %th.other_theme= ssp_sort_link :other_theme
-    %th.public_mailing_list= ssp_sort_link :public_mailing_list
     %th.user_id= ssp_sort_link :user_id
     %th 
   = render :partial => 'admin/community_partner_applications/community_partner_application.html.haml', :collection => community_partner_applications

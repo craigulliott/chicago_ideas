@@ -1,0 +1,12 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @affiliate_event_application
+  .crumb.end= section_title   
+
+- content_for :content_navigation do
+  %h2 affiliate_event_applications
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_affiliate_event_applications_path, 'search'
+  =#%h2= @affiliate_event_application.id
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_affiliate_event_application_path(@affiliate_event_application), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_affiliate_event_application_path(@affiliate_event_application), 'comment'

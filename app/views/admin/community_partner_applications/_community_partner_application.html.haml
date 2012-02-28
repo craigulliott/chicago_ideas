@@ -1,21 +1,8 @@
 %tr{:community_partner_application => community_partner_application.id}
   %td.name= link_to community_partner_application.name, admin_community_partner_application_path(community_partner_application)
-  %td.description= community_partner_application.description
-  %td.address1= community_partner_application.address1
-  %td.address2= community_partner_application.address2
   %td.city= community_partner_application.city
   %td.state= community_partner_application.state
   %td.country= community_partner_application.country
-  %td.how_align= community_partner_application.how_align
-  %td.art_theme= community_partner_application.art_theme
-  %td.education_theme= community_partner_application.education_theme
-  %td.finance_theme= community_partner_application.finance_theme
-  %td.health_theme= community_partner_application.health_theme
-  %td.public_policy_theme= community_partner_application.public_policy_theme
-  %td.social_theme= community_partner_application.social_theme
-  %td.technology_theme= community_partner_application.technology_theme
-  %td.other_theme= community_partner_application.other_theme
-  %td.public_mailing_list= community_partner_application.public_mailing_list
   %td.user_id= community_partner_application.user_id
   %td.options
     = edit_model_link community_partner_application
