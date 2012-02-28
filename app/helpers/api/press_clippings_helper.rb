@@ -1,0 +1,2 @@
+module Api::PressClippingsHelper
+end
