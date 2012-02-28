@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  = new_model_link AffiliateEventApplication
+
+= ssp_search_form AffiliateEventApplication
+
+.table_section
+  %h3 
+    Affiliate Event Applications
+    = new_model_link AffiliateEventApplication
+  .table_wrapper
+    = render 'admin/affiliate_event_applications/table.html.haml', :affiliate_event_applications => @affiliate_event_applications
+
