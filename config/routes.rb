@@ -1,8 +1,8 @@
 CraigsAdmin::Application.routes.draw do
   # the API                                                                          (http://api.domain.com/)
   # ---------------------------------------------------------------------------------------------------------
-  constraints :subdomain => "api" do
-    scope :module => "api", :as => "api" do
+  namespace :api do
+    #scope :module => "api", :as => "api" do
   
       # the documentation
       root :to => 'documentation#documentation'
@@ -26,7 +26,7 @@ CraigsAdmin::Application.routes.draw do
        # resources :talks, :only => [:list, :show]
       #end
   
-    end
+    #end
   end
     
     
