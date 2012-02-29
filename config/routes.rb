@@ -17,14 +17,14 @@ CraigsAdmin::Application.routes.draw do
       resources :sponsors
       resources :press_clippings
       resources :events
-     
+      resources :speakers
       
-      resources :speaker, :only => [:list, :show] do
+      #resources :speaker, :only => [:list, :show] do
         # search for speakers
-        get :search, :on => :collection
+       # get :search, :on => :collection
         # resources
-        resources :talks, :only => [:list, :show]
-      end
+       # resources :talks, :only => [:list, :show]
+      #end
   
     end
   end
