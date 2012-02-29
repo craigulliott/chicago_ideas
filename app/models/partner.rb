@@ -36,7 +36,7 @@ class Partner < ActiveRecord::Base
       #:type => self.class.name.downcase,
       :name => name,
       :description => description,
-      :logo => logo,
+      :logo => logo.url,
     }
   end
 

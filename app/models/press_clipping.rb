@@ -35,7 +35,7 @@ class PressClipping < ActiveRecord::Base
       :id => id.to_s,
       :type => self.class.name.downcase,
       :title => title,
-      :image => image,
+      :image => image.url,
       :url => url,
       :description => description,
       :date => updated_at,

@@ -19,7 +19,7 @@ class Quote < ActiveRecord::Base
       :id => id.to_s,
       :type => self.class.name.downcase,
       :body => body,
-      :user => user.api_attributes,
+      :user => user.present? ? user.api_attributes : "",
     }
   end
 

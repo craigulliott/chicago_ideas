@@ -155,7 +155,7 @@ class User < ActiveRecord::Base
       :bio => bio,
       :twitter_screen_name => twitter_screen_name,
       :permalink => permalink,
-      :photo => portrait,
+      :photo => portrait.url
     }
   end
 

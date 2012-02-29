@@ -1,16 +1,17 @@
-class Api::EventsController < Api::ApiController
-  def index
+class Api::QuotesController < Api::ApiController
+      def index
     respond_to do |format|
       format.json {
-          json_models Event.all
+          json_models Quote.all
       }
     end
   end
   def show
     respond_to do |format|
       format.json {
-        json_model Event.find(params[:id])
+        json_model Quote.find(params[:id])
       }
     end
   end
+
 end

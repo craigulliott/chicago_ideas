@@ -1,5 +1,35 @@
 CraigsAdmin::Application.routes.draw do
+  # the API                                                                          (http://api.domain.com/)
+  # ---------------------------------------------------------------------------------------------------------
+  constraints :subdomain => "api" do
+    scope :module => "api", :as => "api" do
   
+      # the documentation
+      root :to => 'documentation#documentation'
+      
+      resources :talks
+      resources :chapters
+      resources :years
+      resources :days
+      resources :tracks
+      resources :partners
+      resources :quotes
+      resources :sponsors
+      resources :press_clippings
+      resources :events
+     
+      
+      resources :speaker, :only => [:list, :show] do
+        # search for speakers
+        get :search, :on => :collection
+        # resources
+        resources :talks, :only => [:list, :show]
+      end
+  
+    end
+  end
+    
+    
   # the Site
   # ---------------------------------------------------------------------------------------------------------
   
@@ -307,23 +337,6 @@ CraigsAdmin::Application.routes.draw do
   
   end
   
-  # the API                                                                          (http://api.domain.com/)
-  # ---------------------------------------------------------------------------------------------------------
-  constraints :subdomain => "api" do
-    scope :module => "api", :as => "api" do
   
-      # the documentation
-      root :to => 'documentation#documentation'
-  
-      resources :speaker, :only => [:list, :show] do
-        # search for speakers
-        get :search, :on => :collection
-        # resources
-        resources :talks, :only => [:list, :show]
-      end
-  
-    end
-  end
-    
 
 end
