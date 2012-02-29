@@ -145,7 +145,7 @@ CraigsAdmin::Application.routes.draw do
       resources :notes, :only => [:new, :create]
     end
     
-    resources :affiliate_event_application do
+    resources :affiliate_event_applications do
       member do
         # pages
         get :notes

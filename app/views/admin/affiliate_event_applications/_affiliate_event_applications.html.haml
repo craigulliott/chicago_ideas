@@ -1,0 +1,10 @@
+%tr{:affiliate_event_applications => affiliate_event_applications.id}
+  %td.name= link_to affiliate_event_applications.organization_name, admin_affiliate_event_application_path(affiliate_event_applications)
+  %td.city= affiliate_event_applications.first_name
+  %td.state= affiliate_event_applications.last_name
+  %td.country= affiliate_event_applications.event_name
+  %td.user_id= affiliate_event_applications.user_id
+  %td.options
+    = edit_model_link affiliate_event_applications
+    = destroy_model_link affiliate_event_applications
+ 

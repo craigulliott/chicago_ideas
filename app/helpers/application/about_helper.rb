@@ -1,2 +1,0 @@
-module Application::AboutHelper
-end
