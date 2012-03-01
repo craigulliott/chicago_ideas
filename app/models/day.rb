@@ -37,7 +37,7 @@ class Day < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :year_id => year.present? ? year.api_attributes : "",
+      :year_id => year.present? ? year.id : "",
       :date => date,
       :name => name
     }

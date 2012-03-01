@@ -3,8 +3,8 @@ class Year < ActiveRecord::Base
   
     def api_attributes
     {
-      :id => id.to_s
-      
+      :id => id.to_s,
+      :days => days.present? ? days.collect { |day| day.api_attributes } : []
     }
   end
   
