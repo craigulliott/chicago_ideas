@@ -1,4 +1,4 @@
-class Api::DaysController < ApplicationController
+class Api::DaysController < Api::ApiController
   def index
     respond_to do |format|
       format.json {
