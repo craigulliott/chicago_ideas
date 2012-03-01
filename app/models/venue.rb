@@ -67,7 +67,7 @@ class Venue < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      :type => self.class.name.underscore.downcase,
       :name => name,
       :address1 => address1,
       :address2 => address2,

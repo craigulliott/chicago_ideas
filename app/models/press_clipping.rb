@@ -33,7 +33,7 @@ class PressClipping < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      :type => self.class.name.underscore.downcase,
       :title => title,
       :image => image.url,
       :url => url,

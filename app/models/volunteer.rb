@@ -23,7 +23,7 @@ class Volunteer < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      :type => self.class.name.underscore.downcase,
       :user => user.api_attributes,
       :postcode => postcode,
       :employed => employed,

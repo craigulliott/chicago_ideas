@@ -56,7 +56,7 @@ class Event < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      :type => self.class.name.userscore.downcase,
       :name => name,
       :description => description,
       :partner => partner.present? ? partner.api_attributes : "",

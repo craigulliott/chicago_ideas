@@ -37,7 +37,7 @@ class Talk < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      :type => self.class.name.underscore.downcase,
       :name => name,
       :description => description,
       :track => track.present? ? track.api_attributes : "",

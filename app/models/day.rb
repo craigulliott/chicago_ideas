@@ -37,6 +37,7 @@ class Day < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
+      :type => self.class.name.underscore.downcase
       :year_id => year.present? ? year.id : "",
       :date => date,
       :name => name
