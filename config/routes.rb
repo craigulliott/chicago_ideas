@@ -18,6 +18,7 @@ CraigsAdmin::Application.routes.draw do
       resources :press_clippings, :defaults => { :format => 'json', :version => '1.1.2' }
       resources :events, :defaults => { :format => 'json', :version => '1.1.2' }
       resources :speakers, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :search, :defaults => { :format => 'json', :version => '1.1.2' }
       
       #resources :speaker, :only => [:list, :show] do
         # search for speakers
