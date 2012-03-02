@@ -41,7 +41,7 @@
           %ul.preview_list#search_results_list
             - @results.each do |result|
               %li{:id => "result_#{result.id}", :class => "result_#{result.id} #{result.class.to_s.downcase}"}
-                - if result.search_attributes[:image].present?
+                - if result.search_attributes.present? && result.search_attributes[:image].present?
                   .img_frame
                     = image_tag(result.search_attributes[:image])
                 - if result.kind_of? User
