@@ -5,10 +5,10 @@ class SearchController < ApplicationController
 
     respond_to do |format|
       format.html  {
-         @results = ThinkingSphinx.search(@query)
+         @results = ThinkingSphinx.search(@query) || [];
       }
       format.json { 
-        @results = ThinkingSphinx.search :conditions => {:name => @query, :title => @query}        
+        @results = ThinkingSphinx.search :conditions => {:name => @query, :title => @query}
         @results.collect!{|x| x.serializable_hash.merge!({:classType => x.class.to_s })}
         render :json => @results
       }
