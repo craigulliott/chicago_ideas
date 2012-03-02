@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120223200244) do
+ActiveRecord::Schema.define(:version => 20120302015533) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -42,6 +42,54 @@ ActiveRecord::Schema.define(:version => 20120223200244) do
   end
 
   add_index "affiliate_event_applications", ["user_id"], :name => "index_affiliate_event_applilcations_on_user_id"
+
+  create_table "bhsi_applications", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "first_name",                                             :null => false
+    t.string   "last_name",                                              :null => false
+    t.string   "address1",                                               :null => false
+    t.string   "address2"
+    t.string   "city",                                                   :null => false
+    t.string   "state",                                                  :null => false
+    t.string   "country",                              :default => "US", :null => false
+    t.string   "email",                                                  :null => false
+    t.string   "gender",                                                 :null => false
+    t.string   "birthdate",                                              :null => false
+    t.string   "title",                                                  :null => false
+    t.string   "social_venture_name",                                    :null => false
+    t.string   "legal_structure",                                        :null => false
+    t.string   "url",                                                    :null => false
+    t.string   "twitter_handle",                                         :null => false
+    t.string   "video_url",                                              :null => false
+    t.string   "applied_before",                                         :null => false
+    t.text     "about_yourself",                                         :null => false
+    t.text     "social_venture_description",                             :null => false
+    t.string   "venture_launched",                                       :null => false
+    t.string   "number_people_affected",                                 :null => false
+    t.text     "explain_number",                                         :null => false
+    t.text     "organizational_development",                             :null => false
+    t.text     "makes_social_innovation",                                :null => false
+    t.text     "inspiration",                                            :null => false
+    t.text     "sustainability_model",                                   :null => false
+    t.text     "improvements",                                           :null => false
+    t.text     "distinguish_yourself"
+    t.text     "strong_midwest_connections_explained"
+    t.text     "additional_comments"
+    t.string   "previous_budget",                                        :null => false
+    t.string   "reference_1_name",                                       :null => false
+    t.string   "reference_1_relationship",                               :null => false
+    t.string   "reference_1_phone",                                      :null => false
+    t.string   "reference_1_email",                                      :null => false
+    t.string   "reference_2_name",                                       :null => false
+    t.string   "reference_2_relationship",                               :null => false
+    t.string   "reference_2_phone",                                      :null => false
+    t.string   "reference_2_email",                                      :null => false
+    t.string   "press_clipping_1",                                       :null => false
+    t.string   "press_clipping_2",                                       :null => false
+    t.string   "press_clipping_3",                                       :null => false
+    t.integer  "user_id",                                                :null => false
+  end
 
   create_table "chapter_photos", :force => true do |t|
     t.string   "photo_file_name",    :null => false
