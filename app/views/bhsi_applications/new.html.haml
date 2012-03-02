@@ -1,0 +1,116 @@
+-#     Chicago Ideas Week
+-#     bhsi_applications/new.html.haml
+-#     02/17/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Bluhm/Helfand Social Innovation Fellowship", blum_helfand_path
+        %li
+          %span New Application
+    = render "partials/explore_dropdown"
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Bluhm/Helfand Social Innovation Fellowship Application Form
+    = render "partials/share"
+    
+  -# Left column, main content: About Us information
+  .box.double.left
+
+    .column_row#blum_helfand_application_form
+        
+      = semantic_form_for(@bhsi_application) do |f|
+      
+        .form_section
+          = f.inputs do
+            = f.input :first_name, :required => true, :label => "First Name"
+            = f.input :last_name, :required => true, :label => "Last Name"
+            = f.input :address1, :required => true, :label => "Address"
+            = f.input :address2, :label => "Address 2"
+            = f.input :city, :required => true, :label => "City"
+            = f.input :state, :required => true, :label => "State"
+            = f.input :country, :required => true, :label => "Country"
+            = f.input :email, :required => true, :label => "Email"
+            = f.input :gender, :required => true, :label => "Gender", :collection => ["Male", "Female"]
+            = f.input :birthdate, :required => true, :label => "Birthdate (you must have been born on or after 10/7/1977)"
+            = f.input :title, :required => true, :label => "Your Title"
+          
+          = f.inputs do
+            = f.input :social_venture_name, :required => true, :label => "Social Venture Name"
+            = f.input :legal_structure, :required => true, :label => "Legal Structure (501c3, LLC, Fiscally Sponsored, etc.)"
+            = f.input :url, :required => true, :label => "URL"
+            = f.input :twitter_handle, :required => true, :label => "Twitter Handle"
+            = f.input :video_url, :required => true, :label => "YouTube or Video URL"
+            = f.input :applied_before, :required => true, :label => "Have you applied to the Bluhm/Helfand Social Innovation Fellowship before?", :collection => ["Yes", "No"]
+            = f.input :about_yourself, :required => true, :label => "Tell us a little bit about yourself. Make sure to include any previous leadership recognition or awards (100-200 words):"
+            = f.input :social_venture_description, :required => true, :label => "Capsule description of your social venture(50-100 words):"
+            = f.input :venture_launched, :required => true, :label => "Date your social venture was officially launched:"
+            = f.input :number_people_affected, :required => true, :label => "Number of people you affected this year:"
+            = f.input :explain_number, :required => true, :label => "Please explain this number in a few sentences:"
+
+          = f.inputs :name => "Please provide three standout statistics marking your social venture’s achievement:", :class => "v_lists" do
+            = f.input :organizational_development, :required => true, :label => "1. Explain your venture’s level of organizational development. Also, detail the sources of your funding and your most significant large funders (i.e., second round of VC funding, number of team members, annual budget/income, etc.) (75-200 words):"
+            = f.input :makes_social_innovation, :required => true, :label => "2. Explain what makes your venture a social innovation (2-3 sentences):"
+            = f.input :inspiration, :required => true, :label => "3. Explain your inspiration for starting your social venture and describe your main programs and initiatives (300-600 words):"
+            = f.input :sustainability_model, :required => true, :label => "4. Explain your model for sustainability and share the results that prove your model is working. Also explain how you measure your social impact. (A strong response to this question should include ample data demonstrating your measurable impact.) (300-600 words)"
+            = f.input :improvements, :required => true, :label => "5. What can you improve? Where is your work headed in the next two years? Where would you like to be in the long term, 10 years from now and beyond? What is your plan to achieve those goals? (300-600 words)"
+            = f.input :distinguish_yourself, :label => "6. How do you distinguish yourself in your specific field? What are you doing that no one else is doing? (A strong response should include a discussion of at least two other ventures working in this space and how you are specifically different from them.) (300-500 words)"
+            = f.input :strong_midwest_connections_explained, :required => true, :label => "7. Do you have a strong connection to the Midwest? If so, please explain (50-100 words):"
+            = f.input :additional_comments, :label => "Additional Comments"
+
+            = f.input :previous_budget, :required => true, :label => "Please submit your 2011 <2012?>Budget, including expenses and revenues."
+
+          = f.inputs :name => "References" do
+            = f.input :reference_1_name, :required => true, :label => "#1 Reference Name"
+            = f.input :reference_1_relationship, :required => true, :label => "#1 Reference Relationship to you"
+            = f.input :reference_1_phone, :required => true, :label => "#1 Reference Phone Number"
+            = f.input :reference_1_email, :required => true, :label => "#1 Reference Email"
+            = f.input :reference_2_name, :required => true, :label => "#2 Reference Name"
+            = f.input :reference_2_relationship, :required => true, :label => "#2 Reference Relationship to you"
+            = f.input :reference_2_phone, :required => true, :label => "#2 Reference Phone"
+            = f.input :reference_2_email, :required => true, :label => "#2 Reference Email"
+
+            = f.input :press_clipping_1, :required => true, :label => "Press Clipping #1"
+            = f.input :press_clipping_2, :required => true, :label => "Press Clipping #2"
+            = f.input :press_clipping_3, :required => true, :label => "Press Clipping #3"
+
+            
+        = f.buttons do
+          = f.submit :value => "Submit Application", :class => "btn submit", :id => "submit_application"
+        
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
+    
+
+:javascript
+  $("select#affiliate_event_application_paid_event").bind("change", function() {
+      if ( $(this).children(":selected").val() == "Yes") {
+        $('li#affiliate_event_application_event_cost_input').stop().fadeIn();
+      } else {
+        $('li#affiliate_event_application_event_cost_input').stop().fadeOut();
+      }
+  });
+  
+  $("select#affiliate_event_application_rsvp_required").bind("change", function() {
+      if ( $(this).children(":selected").val() == "Yes") {
+        $('li#affiliate_event_application_rsvp_directions_input').stop().fadeIn();
+      } else {
+        $('li#affiliate_event_application_rsvp_directions_input').stop().fadeOut();
+      }
+  });
+  
+  $('#submit_application').bind('click', function(e) {
+    $(this).val('processing...');
+  });
