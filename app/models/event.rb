@@ -56,13 +56,13 @@ class Event < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.userscore.downcase,
+      :type => self.class.name.underscore.downcase,
       :name => name,
       :description => description,
       :partner => partner.present? ? partner.api_attributes : "",
       :day => day.present? ? day.api_attributes : "",
       :venue => venue.present? ? venue.api_attributes : "",
-      :type => event_brand.present? ? event_brand.api_attributes : "",
+      :event_type => event_brand.present? ? event_brand.api_attributes : "",
       :banner => banner.url,
       :start_time => start_time,
       :end_time => end_time,
