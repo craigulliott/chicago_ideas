@@ -1,15 +1,15 @@
-class Api::YearsController < Api::ApiController
+class Api::DaysController < Api::ApiController
   def index
     respond_to do |format|
       format.json {
-          json_models Year.all
+          json_models Day.all
       }
     end
   end
   def show
     respond_to do |format|
       format.json {
-        json_model Year.find(params[:id])
+        json_model Day.find(params[:id])
       }
     end
   end

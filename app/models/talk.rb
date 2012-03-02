@@ -37,16 +37,16 @@ class Talk < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      :type => self.class.name.underscore.downcase,
       :name => name,
       :description => description,
-      :track => track.api_attributes,
-      :day => day.api_attributes,
-      :venue => venue.api_attributes,
+      :track => track.present? ? track.api_attributes : "",
+      :day => day.present? ? day.api_attributes : "",
+      :venue => venue.present? ? venue.api_attributes : "",
       :start_time => start_time,
       :end_time => end_time,
-      :sponsor => sponsor.api_attributes,
-      :type => type,
+      :sponsor => sponsor.present? ? sponsor.api_attributes : "",
+      #:type => type
     }
   end
 

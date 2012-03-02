@@ -1,5 +1,36 @@
 CraigsAdmin::Application.routes.draw do
+  # the API                                                                          (http://api.domain.com/)
+  # ---------------------------------------------------------------------------------------------------------
+  namespace :api do
+    #scope :module => "api", :as => "api" do
   
+      # the documentation
+      root :to => 'documentation#documentation'
+      
+      resources :talks, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :chapters, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :years, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :days, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :tracks, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :partners, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :quotes, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :sponsors, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :press_clippings, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :events, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :speakers, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :search, :defaults => { :format => 'json', :version => '1.1.2' }
+      
+      #resources :speaker, :only => [:list, :show] do
+        # search for speakers
+       # get :search, :on => :collection
+        # resources
+       # resources :talks, :only => [:list, :show]
+      #end
+  
+    #end
+  end
+    
+    
   # the Site
   # ---------------------------------------------------------------------------------------------------------
   
@@ -308,23 +339,6 @@ CraigsAdmin::Application.routes.draw do
   
   end
   
-  # the API                                                                          (http://api.domain.com/)
-  # ---------------------------------------------------------------------------------------------------------
-  constraints :subdomain => "api" do
-    scope :module => "api", :as => "api" do
   
-      # the documentation
-      root :to => 'documentation#documentation'
-  
-      resources :speaker, :only => [:list, :show] do
-        # search for speakers
-        get :search, :on => :collection
-        # resources
-        resources :talks, :only => [:list, :show]
-      end
-  
-    end
-  end
-    
 
 end

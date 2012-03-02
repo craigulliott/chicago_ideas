@@ -17,7 +17,7 @@ class Performance < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      :type => self.class.name.underscore.downcase,
       :speaker => speaker.api_attributes,
       :chapter => chapter.api_attributes,
     }

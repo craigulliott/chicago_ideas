@@ -17,9 +17,9 @@ class Quote < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      :type => self.class.name.underscore.downcase,
       :body => body,
-      :user => user.api_attributes,
+      :user => user.present? ? user.api_attributes : "",
     }
   end
 

@@ -1,16 +1,17 @@
-class Api::YearsController < Api::ApiController
-  def index
+class Api::QuotesController < Api::ApiController
+      def index
     respond_to do |format|
       format.json {
-          json_models Year.all
+          json_models Quote.all
       }
     end
   end
   def show
     respond_to do |format|
       format.json {
-        json_model Year.find(params[:id])
+        json_model Quote.find(params[:id])
       }
     end
   end
+
 end
