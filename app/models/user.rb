@@ -224,7 +224,7 @@ class User < ActiveRecord::Base
   
   # Need to normalize the search attributes
   def search_attributes
-    {:title => self.name, :description => self.bio[0..100], :image => self.portrait(:thumb)}
+    {:title => self.name, :description => self.bio.present? ? self.bio[0..100] : "", :image => self.portrait(:thumb)}
   end
   
   
