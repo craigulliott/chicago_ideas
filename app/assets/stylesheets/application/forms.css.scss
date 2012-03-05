@@ -379,7 +379,7 @@ fieldset.buttons, fieldset.buttons ol, fieldset.buttons li {
 
 
 // Speaker search
-a#speaker_search {
+a.expandable_search {
   width: 20px;
   height: 20px;
   background: asset-url('application/site_sprite.png', image) no-repeat;
