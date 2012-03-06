@@ -102,6 +102,11 @@
             = f.input :press_clipping_1, :required => true, :label => "Press Clipping #1"
             = f.input :press_clipping_2, :required => true, :label => "Press Clipping #2"
             = f.input :press_clipping_3, :required => true, :label => "Press Clipping #3"
+            
+        .form_section
+          %span.form_section_header Part 6: Agreement
+          = f.inputs :class => "c_list v_lists" do
+            = f.input :agreement_accepeted, :required => true, :label => "By checking this box, I verify that all my responses outlined in this application are truthful and have been answered to the best of my ability."
 
             
         = f.buttons do
@@ -114,23 +119,7 @@
     = render "partials/newsletter_form"
     
 
-:javascript
-  $("select#affiliate_event_application_paid_event").bind("change", function() {
-      if ( $(this).children(":selected").val() == "Yes") {
-        $('li#affiliate_event_application_event_cost_input').stop().fadeIn();
-      } else {
-        $('li#affiliate_event_application_event_cost_input').stop().fadeOut();
-      }
-  });
-  
-  $("select#affiliate_event_application_rsvp_required").bind("change", function() {
-      if ( $(this).children(":selected").val() == "Yes") {
-        $('li#affiliate_event_application_rsvp_directions_input').stop().fadeIn();
-      } else {
-        $('li#affiliate_event_application_rsvp_directions_input').stop().fadeOut();
-      }
-  });
-  
+:javascript  
   $('#submit_application').bind('click', function(e) {
     $(this).val('processing...');
   });

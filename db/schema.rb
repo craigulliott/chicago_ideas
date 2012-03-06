@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305220114) do
+ActiveRecord::Schema.define(:version => 20120305220824) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(:version => 20120305220114) do
     t.text     "inspiration",                                            :null => false
     t.text     "sustainability_model",                                   :null => false
     t.text     "improvements",                                           :null => false
-    t.text     "distinguish_yourself"
+    t.text     "distinguish_yourself",                                   :null => false
     t.text     "strong_midwest_connections_explained"
     t.text     "additional_comments"
     t.string   "previous_budget",                                        :null => false
@@ -85,11 +85,12 @@ ActiveRecord::Schema.define(:version => 20120305220114) do
     t.string   "reference_2_relationship",                               :null => false
     t.string   "reference_2_phone",                                      :null => false
     t.string   "reference_2_email",                                      :null => false
-    t.string   "press_clipping_1",                                       :null => false
-    t.string   "press_clipping_2",                                       :null => false
-    t.string   "press_clipping_3",                                       :null => false
+    t.string   "press_clipping_1"
+    t.string   "press_clipping_2"
+    t.string   "press_clipping_3"
     t.integer  "user_id",                                                :null => false
     t.text     "three_standout_statistics",                              :null => false
+    t.integer  "agreement_accepeted",                                    :null => false
   end
 
   create_table "chapter_photos", :force => true do |t|

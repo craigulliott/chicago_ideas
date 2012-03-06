@@ -44,11 +44,10 @@ class BhsiApplication < ActiveRecord::Base
   validates :reference_2_relationship, :presence => true
   validates :reference_2_phone, :presence => true
   validates :reference_2_email, :presence => true
-
   validates :press_clipping_1, :presence => true
   validates :press_clipping_2, :presence => true
   validates :press_clipping_3, :presence => true
-
+  validates :agreement_accepeted, :presence => true
   validates :user_id, :presence => true
   
   
