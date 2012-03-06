@@ -43,6 +43,7 @@ CraigsAdmin::Application.routes.draw do
   # ----------------------------------------------------------------
   match 'search(.:format)', :to => 'search#index', :as => 'search'
   match 'search/speakers(:format)', :to => 'search#speakers'
+  match 'search/videos(:format)', :to => 'search#videos'
 
   # legalese 
   match 'privacy', :to => 'application#privacy'
@@ -81,6 +82,8 @@ CraigsAdmin::Application.routes.draw do
   resources :community_partner_applications, :only => [:new, :create]
   resources :affiliate_event_applications, :only => [:new, :create]
   resources :bhsi_applications, :only => [:new, :create]
+  
+  match 'form_completed', :to => 'application#form_completed'
   
   resources :years, :only => [:show]
   
