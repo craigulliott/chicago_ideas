@@ -1,7 +1,7 @@
 class BhsiApplicationsController < ApplicationController
 
   before_filter :authenticate_user!, :only => [:create]
-
+  
   def new
     @meta_data = {:page_title => "Bluhm/Helfand Social Innovation Fellowship", :og_image => "http://www.chicagoideas.com/assets/application/affilliate_events_banner.jpg", :og_title => "Bluhm/Helfand Social Innovation Fellowship | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     if current_user and current_user.bhsi_application.present?
@@ -19,7 +19,8 @@ class BhsiApplicationsController < ApplicationController
    
     if @bhsi_application.save
       BhsiApplicationsMailer.send_form(params[:bhsi_application]).deliver
-      redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
+      #redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
+      render 'application/confirmation', :locals => {:title => "BHSI Application Confirmation", :body => "Thank you for applying for the Bluhm/Helfand Social Innovation Fellowship. We will be in contact shortly.", :url => "#{new_bhsi_application_path}" }
     else
       render :new
     end

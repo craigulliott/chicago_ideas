@@ -1,0 +1,47 @@
+-#     Chicago Ideas Week
+-#     application/about.html.haml
+-#     01/016/2012
+
+
+%section.banner.container-fluid
+  .banner_wrapper{:style => "background: url(#{asset_path "application/about_new.jpg"}) top center no-repeat;"}
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1= title
+    = render "partials/share"
+
+  -# Left column, main content: About Us information
+  .box.double.left
+
+    .column_row#about_description
+      .column.column_double
+        %h1 Thank You!
+        = body
+        
+        %ul#confirm_share
+          %li
+            <span class='st_facebook_hcount' displayText='Facebook' st_url="http://www.chicagoideas.com#{url}"></span>
+          %li
+            <span class='st_twitter_hcount' displayText='Tweet' st_url="http://www.chicagoideas.com#{url}"></span>
+          %li
+            <span class='st_email_hcount' displayText='Email' st_url="http://www.chicagoideas.com#{url}"></span>
+
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
+
+
+/ Share this Scripts
+%script{:type => "text/javascript", :src => "http://w.sharethis.com/button/buttons.js"}
+:javascript
+  var switchTo5x=true
+  stLight.options({publisher: "defcc141-a8b2-4734-8cde-5662ed8a4501"});
