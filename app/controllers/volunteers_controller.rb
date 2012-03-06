@@ -18,7 +18,8 @@ class VolunteersController < ApplicationController
     @volunteer = current_user.build_volunteer(params[:volunteer])
     if @volunteer.save
       VolunteerMailer.send_form(params[:volunteer]).deliver
-      redirect_to form_completed, :notice => 'Thank you, your application has been recieved.'
+      #redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
+      render 'application/confirmation', :locals => {:title => "Volunteer Application Confirmation", :body => "Thank you for applying to volunteer. We will be in contact shortly.", :url => "#{new_volunteer_application_path}" }
     else
       render :new
     end

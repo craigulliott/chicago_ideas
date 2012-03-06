@@ -19,7 +19,8 @@ class AffiliateEventApplicationsController < ApplicationController
    
     if @affiliate_event_application.save
       AffiliateEventsMailer.send_form(params[:affiliate_event_application]).deliver
-      redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
+      #redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
+      render 'application/confirmation', :locals => {:title => "Affiliate Event Application Confirmation", :body => "Thank you for applying. We will be in contact shortly.", :url => "#{new_affiliate_event_application_path}" }
     else
       render :new
     end
