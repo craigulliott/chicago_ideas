@@ -140,7 +140,6 @@ abbr {
   #dd_submit {
     padding-bottom: 13px !important;
     margin-bottom: 0px;
-    border-bottom: 1px solid #000;
     label {
       display: inline; 
       line-height: 30px;
@@ -149,6 +148,8 @@ abbr {
   #connect_to_facebook {
     text-align: center;
     margin-top: 10px;
+    border-bottom: 1px solid #000;
+    min-height: 25px;
   }
   #dd_forgot_pw {
     margin-bottom: 0;
@@ -163,6 +164,25 @@ abbr {
 }
 
 
+a.fb_connect_btn {
+  text-indent: -9999px;
+  float: left;
+  width: 194px;
+  height: 25px;
+  background: image-url('application/site_sprite.png') no-repeat;
+  background-position: 0 -300px;
+  clear: both;
+  display: block;
+}
+a.fb_connect_btn:after {
+  display: table;
+  zoom: 1;
+  content: "";
+  clear: both;
+}
+a.fb_connected {
+  background-position: 0 -330px;
+}
 
 
 
