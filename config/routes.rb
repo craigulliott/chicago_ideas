@@ -83,6 +83,8 @@ CraigsAdmin::Application.routes.draw do
   resources :affiliate_event_applications, :only => [:new, :create]
   resources :bhsi_applications, :only => [:new, :create]
   
+  match 'form_completed', :to => 'application#form_completed'
+  
   resources :years, :only => [:show]
   
   # teams members and speakers are both a type of user, so are handled by the users controller
