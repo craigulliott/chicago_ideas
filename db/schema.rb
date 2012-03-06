@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120302015533) do
+ActiveRecord::Schema.define(:version => 20120305220114) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20120302015533) do
     t.string   "press_clipping_2",                                       :null => false
     t.string   "press_clipping_3",                                       :null => false
     t.integer  "user_id",                                                :null => false
+    t.text     "three_standout_statistics",                              :null => false
   end
 
   create_table "chapter_photos", :force => true do |t|

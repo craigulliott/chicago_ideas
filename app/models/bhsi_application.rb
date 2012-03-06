@@ -28,6 +28,7 @@ class BhsiApplication < ActiveRecord::Base
   validates :venture_launched, :presence => true
   validates :number_people_affected, :presence => true
   validates :explain_number, :presence => true
+  validates :three_standout_statistics, :presence => true
   validates :organizational_development, :presence => true
   validates :makes_social_innovation, :presence => true
   validates :inspiration, :presence => true
@@ -35,7 +36,6 @@ class BhsiApplication < ActiveRecord::Base
   validates :improvements, :presence => true
   validates :distinguish_yourself, :presence => true
   validates :strong_midwest_connections_explained, :presence => true
-  #validates :previous_budget, :presence => true
   validates :reference_1_name, :presence => true
   validates :reference_1_relationship, :presence => true
   validates :reference_1_phone, :presence => true
