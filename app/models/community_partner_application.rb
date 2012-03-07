@@ -14,6 +14,7 @@ class CommunityPartnerApplication < ActiveRecord::Base
   validates :address1, :presence => true
   validates :city, :presence => true
   validates :state, :presence => true
+  validates :previous_partner. :presence => true
   validates :country, :presence => true
   validates :user_id, :presence => true
   validates :contact_email, :presence => true
