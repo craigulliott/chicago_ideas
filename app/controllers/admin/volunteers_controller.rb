@@ -16,10 +16,20 @@ class Admin::VolunteersController < Admin::AdminController
     @section_title = 'Detail'
     @volunteer = Volunteer.find(params[:id])
     
-        respond_to do |format|
+    respond_to do |format|
       format.pdf {
-        pdfContent = doc_raptor_send
-        send_data pdfContent, :filename => "Volunteer_#{@volunteer.user.name}.pdf", :type => "pdf"
+        
+         if !@volunteer.pdf.exists?
+          pdf = doc_raptor_send({:document_type => "pdf".to_sym})
+          friendlyName = "Volunteer_#{@volunteer.user.name}.pdf"
+          File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
+          @volunteer.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
+          @volunteer.save!
+          send_data pdf, :filename => friendlyName, :type => "pdf"
+        else
+          redirect_to @volunteer.pdf.url
+        end
+        
       }
       format.html {
         render

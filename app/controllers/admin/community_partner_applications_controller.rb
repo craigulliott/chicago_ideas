@@ -19,8 +19,18 @@ class Admin::CommunityPartnerApplicationsController < Admin::AdminController
     respond_to do |format|
       
       format.pdf {
-        pdfContent = doc_raptor_send
-        send_data pdfContent, :filename => "CPA_#{@community_partner_application.name}.pdf", :type => "pdf"
+        
+        if !@community_partner_application.pdf.exists?
+          pdf = doc_raptor_send({:document_type => "pdf".to_sym})
+          friendlyName = "CPA_#{@community_partner_application.name}.pdf"
+          File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
+          @community_partner_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
+          @community_partner_application.save!
+          send_data pdf, :filename => friendlyName, :type => "pdf"
+        else
+          redirect_to @community_partner_application.pdf.url
+        end
+
       }
       format.html {
         render

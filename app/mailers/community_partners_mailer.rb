@@ -5,8 +5,9 @@ class CommunityPartnersMailer < ActionMailer::Base
   default :bcc => "john@kohactive.com"
   default :subject => "Community Partners Form Submission"
   
-  def send_form(form)
+  def send_form(form, filename)
     @form = form
+    attachments[filename] = File.read("#{Rails.root}/tmp/#{filename}");
     mail()
   end
   

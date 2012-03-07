@@ -4,6 +4,7 @@ class BhsiApplication < ActiveRecord::Base
 
   belongs_to :user
   
+  has_attached_file :pdf, :path => "applications/bhsi/pdfs/:id/:filename"
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   

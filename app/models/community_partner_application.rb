@@ -8,7 +8,7 @@ class CommunityPartnerApplication < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
-  has_attached_file :pdf
+  has_attached_file :pdf, :path => "applications/community/pdfs/:id/:filename"
   
   validates :name, :presence => true
   validates :address1, :presence => true

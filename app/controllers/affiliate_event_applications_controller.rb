@@ -16,19 +16,32 @@ class AffiliateEventApplicationsController < ApplicationController
   def create
     @meta_data = {:page_title => "Affiliate Events", :og_image => "http://www.chicagoideas.com/assets/application/affilliate_events_banner.jpg", :og_title => "Affiliate Events | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     @affiliate_event_application = current_user.build_affiliate_event_application(params[:affiliate_event_application])
+  
+    
+    
+    pdf = doc_raptor_send({:document_type => "pdf".to_sym})
+    
+    friendlyName = "AEA_#{@affiliate_event_application.organization_name}.pdf"
+    
+    
+    
+    File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
+    
+
+    @affiliate_event_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
    
-    if @affiliate_event_application.save
-      pdf = doc_raptor_send
-      friendlyName = "AEA_#{@affiliate_event_application.organization_name}.pdf"
+   
+   
+    if @affiliate_event_application.save!
       
-      tmpPdfFile = File.open("#{Rails.root}/tmp/#{friendlyName}", 'wb+') {|f| f.write(pdf) }
+      AffiliateEventsMailer.send_form(params[:affiliate_event_application],friendlyName).deliver
+      #@affiliate_event_application.destroy
       
-      @affiliate_event_application.pdf = tmpPdfFile
+      #send_file "#{Rails.root}/tmp/#{friendlyName}"
       
-      @affiliate_event_application.save()
+      render :text => "sent"
       
-      AffiliateEventsMailer.send_form(params[:affiliate_event_application],friendlyName, pdf).deliver
-      redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
+      #redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
     else
       render :new
     end

@@ -18,8 +18,16 @@ class Admin::AffiliateEventApplicationsController < Admin::AdminController
     
     respond_to do |format|
       format.pdf {
-        pdfContent = doc_raptor_send
-        send_data pdfContent, :filename => "AEA_#{@affiliate_event_application.organization_name}.pdf", :type => "pdf"
+        if !@affiliate_event_application.pdf.exists?
+          pdf = doc_raptor_send({:document_type => "pdf".to_sym})
+          friendlyName = "AEA_#{@affiliate_event_application.organization_name}.pdf"
+          File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
+          @affiliate_event_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
+          @affiliate_event_application.save!
+          send_data pdf, :filename => friendlyName, :type => "pdf"
+        else
+          redirect_to @affiliate_event_application.pdf.url
+        end
       }
       format.html {
         render
