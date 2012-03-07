@@ -23,7 +23,7 @@ class Admin::AffiliateEventApplicationsController < Admin::AdminController
           friendlyName = "AEA_#{@affiliate_event_application.organization_name}.pdf"
           File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
           @affiliate_event_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
-          @affiliate_event_application.save!
+          @affiliate_event_application.save!({:validate => false})
           send_data pdf, :filename => friendlyName, :type => "pdf"
         else
           redirect_to @affiliate_event_application.pdf.url

@@ -24,7 +24,7 @@ class Admin::VolunteersController < Admin::AdminController
           friendlyName = "Volunteer_#{@volunteer.user.name}.pdf"
           File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
           @volunteer.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
-          @volunteer.save! false
+          @volunteer.save!({:validate => false})
           send_data pdf, :filename => friendlyName, :type => "pdf"
         else
           redirect_to @volunteer.pdf.url
