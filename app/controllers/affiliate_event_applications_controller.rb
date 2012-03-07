@@ -35,13 +35,7 @@ class AffiliateEventApplicationsController < ApplicationController
     if @affiliate_event_application.save!
       
       AffiliateEventsMailer.send_form(params[:affiliate_event_application],friendlyName).deliver
-      #@affiliate_event_application.destroy
-      
-      #send_file "#{Rails.root}/tmp/#{friendlyName}"
-      
-      render :text => "sent"
-      
-      #redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
+      redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
     else
       render :new
     end
