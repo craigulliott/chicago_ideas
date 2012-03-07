@@ -5,8 +5,9 @@ class AffiliateEventsMailer < ActionMailer::Base
   default :bcc => "john@kohactive.com"
   default :subject => "Affiliate Events Form Submission"
   
-  def send_form(form)
+  def send_form(form, filename, pdf)
     @form = form
+    attachments[filename] = pdf
     mail()
   end
   

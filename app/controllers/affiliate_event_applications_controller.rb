@@ -19,14 +19,15 @@ class AffiliateEventApplicationsController < ApplicationController
    
     if @affiliate_event_application.save
       pdf = doc_raptor_send
+      friendlyName = "AEA_#{@affiliate_event_application.organization_name}.pdf"
       
-      tmpPdfFile = File.open("#{Rails.root}/tmp/AEA_#{@affiliate_event_application.organization_name}.pdf", 'wb+') {|f| f.write(pdf) }
+      tmpPdfFile = File.open("#{Rails.root}/tmp/#{friendlyName}", 'wb+') {|f| f.write(pdf) }
       
       @affiliate_event_application.pdf = tmpPdfFile
       
       @affiliate_event_application.save()
       
-      AffiliateEventsMailer.send_form(params[:affiliate_event_application]).deliver
+      AffiliateEventsMailer.send_form(params[:affiliate_event_application],friendlyName, pdf).deliver
       redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
     else
       render :new
