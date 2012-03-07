@@ -3,7 +3,7 @@
 - content_for :top_links do
   = edit_model_link @affiliate_event_application, true
   = destroy_model_link @affiliate_event_application, true
-
+  = link_to "pdf", admin_affiliate_event_application_path(@affiliate_event_application, :format => :pdf)
 %h1
   = @affiliate_event_application.organization_name
   = icon_link_to 'notes', notes_admin_affiliate_event_application_path(@affiliate_event_application), 'script'

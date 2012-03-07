@@ -15,6 +15,17 @@ class Admin::AffiliateEventApplicationsController < Admin::AdminController
   def show
     @section_title = 'Detail'
     @affiliate_event_application = AffiliateEventApplication.find(params[:id])
+    
+    respond_to do |format|
+      
+      format.pdf {
+        pdfContent = doc_raptor_send
+        send_data pdfContent, :filename => "#{@community_partner_application.name}.pdf", :type => "pdf"
+      }
+      format.html {
+        render
+      }
+    end
   end
 
 
