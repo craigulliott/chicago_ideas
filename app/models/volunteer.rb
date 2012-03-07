@@ -5,6 +5,8 @@ class Volunteer < ActiveRecord::Base
 
   belongs_to :user
   
+  has_attached_file :pdf
+  
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
