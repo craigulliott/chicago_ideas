@@ -20,7 +20,7 @@ class Admin::CommunityPartnerApplicationsController < Admin::AdminController
       
       format.pdf {
         pdfContent = doc_raptor_send
-        send_data pdfContent, :filename => "#{@community_partner_application.name}.pdf", :type => "pdf"
+        send_data pdfContent, :filename => "CPA_#{@community_partner_application.name}.pdf", :type => "pdf"
       }
       format.html {
         render

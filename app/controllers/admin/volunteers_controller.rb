@@ -19,7 +19,7 @@ class Admin::VolunteersController < Admin::AdminController
         respond_to do |format|
       format.pdf {
         pdfContent = doc_raptor_send
-        send_data pdfContent, :filename => "#{@community_partner_application.name}.pdf", :type => "pdf"
+        send_data pdfContent, :filename => "Volunteer_#{@volunteer.user.name}.pdf", :type => "pdf"
       }
       format.html {
         render
