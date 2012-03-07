@@ -25,7 +25,8 @@ class ApplicationController < ActionController::Base
       :test => true #for now
     }
     options = default_options.merge(options)
-    options[:document_content] ||= render_to_string "pdf.html.haml"
+    #don't really want to sandbox views for pdfs anywhere so lets keep them in main views folder for consitency
+    options[:document_content] ||= render_to_string "#{self.controller_name}/pdf.html.haml"
     ext = options[:document_type].to_sym
     
     response = DocRaptor.create(options)

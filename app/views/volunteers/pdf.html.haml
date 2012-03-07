@@ -1,6 +1,6 @@
 #model_detail
   %h4 User
-  %p= link_to @volunteer.user.name, admin_user_path(@volunteer.user)
+  %p= @volunteer.user.name
   %p= @volunteer.user.email
   %p= @volunteer.phone
 
