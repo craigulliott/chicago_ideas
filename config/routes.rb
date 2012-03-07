@@ -43,6 +43,7 @@ CraigsAdmin::Application.routes.draw do
   # ----------------------------------------------------------------
   match 'search(.:format)', :to => 'search#index', :as => 'search'
   match 'search/speakers(:format)', :to => 'search#speakers'
+  match 'search/videos(:format)', :to => 'search#videos'
 
   # legalese 
   match 'privacy', :to => 'application#privacy'

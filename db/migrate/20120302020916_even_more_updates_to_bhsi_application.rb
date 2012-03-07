@@ -1,7 +1,7 @@
 class EvenMoreUpdatesToBhsiApplication < ActiveRecord::Migration
-  def up
-  end
-
-  def down
+  def change
+    change_table :bhsi_applications do |t|
+      t.text :three_standout_statistics, :null => false
+    end
   end
 end
