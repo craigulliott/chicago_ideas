@@ -1,0 +1,67 @@
+#model_detail
+  %h4 User
+  %p= link_to @volunteer.user.name, admin_user_path(@volunteer.user)
+  %p= @volunteer.user.email
+  %p= @volunteer.phone
+
+  %h4 Postcode
+  %p= @volunteer.postcode
+
+  %h4 Employed
+  %p= @volunteer.employed? ? 'yes' : 'no'
+
+  %h4 Why
+  %p= @volunteer.why
+
+  %h4 What
+  %p= @volunteer.what
+
+  %h4 Availability
+  %p= @volunteer.availability
+
+  %h4 Street Team
+  %p= @volunteer.street_team? ? 'yes' : 'no'
+
+  %h4 Avail Mon
+  %p= @volunteer.avail_mon? ? 'yes' : 'no'
+
+  %h4 Avail Tue
+  %p= @volunteer.avail_tue? ? 'yes' : 'no'
+
+  %h4 Avail Wed
+  %p= @volunteer.avail_wed? ? 'yes' : 'no'
+
+  %h4 Avail Thu
+  %p= @volunteer.avail_thu? ? 'yes' : 'no'
+
+  %h4 Avail Fri
+  %p= @volunteer.avail_fri? ? 'yes' : 'no'
+
+  %h4 Avail Sat
+  %p= @volunteer.avail_sat? ? 'yes' : 'no'
+
+  %h4 Avail Sun
+  %p= @volunteer.avail_sun? ? 'yes' : 'no'
+
+  %h4 Avail Time 1
+  %p= @volunteer.avail_time_1? ? 'yes' : 'no'
+
+  %h4 Avail Time 2
+  %p= @volunteer.avail_time_2? ? 'yes' : 'no'
+
+  %h4 Avail Time 3
+  %p= @volunteer.avail_time_3? ? 'yes' : 'no'
+
+  %h4 Avail Time 4
+  %p= @volunteer.avail_time_4? ? 'yes' : 'no'
+
+  %h4 Avail Time 5
+  %p= @volunteer.avail_time_5? ? 'yes' : 'no'
+
+  %h4 Avail Time 6
+  %p= @volunteer.avail_time_6? ? 'yes' : 'no'
+
+  %h4 Hours
+  %p= @volunteer.hours
+
+
