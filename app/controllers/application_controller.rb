@@ -16,6 +16,22 @@ class ApplicationController < ActionController::Base
     @meta_data = {:page_title => "Welcome", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
   end
   
+  
+  def doc_raptor_send(options = { })
+    default_options = { 
+      :name             => controller_name,
+      :document_type    => request.format.to_sym,
+      #:test             => ! Rails.env.production?,
+      :test => true #for now
+    }
+    options = default_options.merge(options)
+    options[:document_content] ||= render_to_string "pdf.html.haml"
+    ext = options[:document_type].to_sym
+    
+    response = DocRaptor.create(options)
+    
+  end
+  
   def get_header_models
     @current_year = Year.find(2012)
   end

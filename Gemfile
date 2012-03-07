@@ -25,6 +25,10 @@ gem 'fog'
 gem 'redcarpet'
 gem 'countries'
 
+# pdf-generation
+gem 'doc_raptor'
+
+
 # for managing cron job
 gem 'whenever'
 

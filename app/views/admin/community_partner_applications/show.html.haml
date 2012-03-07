@@ -3,6 +3,7 @@
 - content_for :top_links do
   = edit_model_link @community_partner_application, true
   = destroy_model_link @community_partner_application, true
+  = link_to "pdf", admin_community_partner_application_path(@community_partner_application, :format => :pdf)
 
 %h1
   = @community_partner_application.name
