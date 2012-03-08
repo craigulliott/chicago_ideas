@@ -27,7 +27,7 @@ class VolunteersController < ApplicationController
     
     if @volunteer.save!
       VolunteerMailer.send_form(params[:volunteer], friendlyName).deliver
-      render 'application/confirmation', :locals => {:title => "Volunteer Application Confirmation", :body => "Thank you for applying to volunteer. We will be in contact shortly.", :url => "#{new_volunteer_application_path}" }
+      render 'application/confirmation', :locals => {:title => "Volunteer Application Confirmation", :body => "Thank you for applying to volunteer. We will be in contact shortly.", :url => "#{new_volunteer_path}" }
     else
       render :new
     end
