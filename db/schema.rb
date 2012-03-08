@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120308162917) do
+ActiveRecord::Schema.define(:version => 20120308163406) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(:version => 20120308162917) do
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
+    t.text     "three_standout_statistics",                              :null => false
   end
 
   create_table "chapter_photos", :force => true do |t|
