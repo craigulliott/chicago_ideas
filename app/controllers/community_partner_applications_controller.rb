@@ -33,7 +33,7 @@ class CommunityPartnerApplicationsController < ApplicationController
     if @community_partner_application.save!
       CommunityPartnersMailer.send_form(params[:community_partner_application], friendlyName).deliver
       #redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
-      render 'application/confirmation', :locals => {:title => "Community Partner Application Confirmation", :body => "Thank you for applying. We will be in contact shortly.", :url => "#{new_community_partner_application_path}" }
+      render 'application/confirmation', :locals => {:title => "Community Partner Application Confirmation", :body => "Thank you for applying. We will be in contact shortly.", :url => "#{partners_path}" }
     else
       render :new
     end

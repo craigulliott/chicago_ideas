@@ -30,7 +30,7 @@ class BhsiApplicationsController < ApplicationController
     if @bhsi_application.save
       BhsiApplicationsMailer.send_form(params[:bhsi_application], friendlyName).deliver
       #redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
-      render 'application/confirmation', :locals => {:title => "BHSI Application Confirmation", :body => "Thank you for applying for the Bluhm/Helfand Social Innovation Fellowship. We will be in contact shortly.", :url => "#{new_bhsi_application_path}" }
+      render 'application/confirmation', :locals => {:title => "BHSI Application Confirmation", :body => "Thank you for applying for the Bluhm/Helfand Social Innovation Fellowship. We will be in contact shortly.", :url => "#{blum_helfand_path}" }
     else
       render :new
     end
