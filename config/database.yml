@@ -25,5 +25,4 @@ test:
 
 production:
   adapter: mysql2
-
   # created for us by our push to heroku

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120307212754) do
+ActiveRecord::Schema.define(:version => 20120308163406) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -93,12 +93,12 @@ ActiveRecord::Schema.define(:version => 20120307212754) do
     t.string   "press_clipping_2"
     t.string   "press_clipping_3"
     t.integer  "user_id",                                                :null => false
-    t.text     "three_standout_statistics",                              :null => false
     t.boolean  "agreement_accepeted",                                    :null => false
     t.string   "pdf_file_name"
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
+    t.text     "three_standout_statistics",                              :null => false
   end
 
   create_table "chapter_photos", :force => true do |t|
