@@ -1,7 +1,7 @@
 class BhsiApplicationsMailer < ActionMailer::Base
   
-  default :from => "forms@chicagoideas.com"
-  default :to => "brooke@chicagoideas.com"
+  default :from => "bhsi_submissions@chicagoideas.com"
+  default :to => "info@blubmhelfand.com"
   default :bcc => "john@kohactive.com"
   default :subject => "BHSI Application Form Submission"
   
