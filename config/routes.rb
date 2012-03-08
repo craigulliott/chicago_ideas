@@ -164,6 +164,14 @@ CraigsAdmin::Application.routes.draw do
       resources :notes, :only => [:new, :create]
     end
 
+    resources :bhsi_applications do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
     resources :press_clippings do
       member do
         # pages

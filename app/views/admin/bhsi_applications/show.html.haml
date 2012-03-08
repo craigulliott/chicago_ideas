@@ -1,0 +1,146 @@
+
+- content_for :top_links do
+  = edit_model_link @bhsi_application, true
+  = destroy_model_link @bhsi_application, true
+  = link_to "pdf", admin_bhsi_application_path(@bhsi_application, :format => :pdf)
+%h1
+
+  = icon_link_to 'notes', notes_admin_bhsi_application_path(@bhsi_application), 'script'
+  = new_model_link Note, @bhsi_application
+
+#model_detail
+  %h4 First Name
+  %p= @bhsi_application.first_name
+
+  %h4 Last Name
+  %p= @bhsi_application.last_name
+
+  %h4 Address 1
+  %p= @bhsi_application.address1
+
+  %h4 Address 2
+  %p= @bhsi_application.address2
+
+  %h4 City
+  %p= @bhsi_application.city
+  
+  %h4 State
+  %p= @bhsi_application.state
+  
+  %h4 Country
+  %p= @bhsi_application.country
+
+  %h4 Phone Number
+  %p= @bhsi_application.phone_number
+
+  %h4 Email Address
+  %p= @bhsi_application.email
+
+  %h4 Gender
+  %p= @bhsi_application.gender
+
+  %h4 Birthdate
+  %p= @bhsi_application.birthdate
+  
+  %h4 Applied Before
+  %p= @bhsi_application.applied_before
+
+  %h4 About Yourself
+  %p= @bhsi_application.about_yourself
+  
+  %h4 Title
+  %p= @bhsi_application.title
+  
+  %h4 Social Venture Name
+  %p= @bhsi_application.social_venture_name
+  
+  %h4 Legal Structure
+  %p= @bhsi_application.legal_structure
+  
+  %h4 URL
+  %p= @bhsi_application.url
+  
+  %h4 Twitter Handle
+  %p= @bhsi_application.twitter_handle
+  
+  %h4 Video URL
+  %p= @bhsi_application.video_url
+  
+  %h4 Social Venture Description
+  %p= @bhsi_application.social_venture_description
+  
+  %h4 Venture Launched
+  %p= @bhsi_application.venture_launched
+  
+  %h4 Number of People Affected
+  %p= @bhsi_application.number_people_affected
+  
+  %h4 Explain Number
+  %p= @bhsi_application.explain_number
+  
+  %h4 Three Standout Statistics
+  %p= @bhsi_application.three_standout_statistics
+  
+  %h4 Organizational Development
+  %p= @bhsi_application.organizational_development
+  
+  %h4 What Makes Your Venture a Social Innovation
+  %p= @bhsi_application.makes_social_innovation
+  
+  %h4 Inspiration
+  %p= @bhsi_application.inspiration
+  
+  %h4 Sustainability Model
+  %p= @bhsi_application.sustainability_model
+  
+  %h4 Improvements
+  %p= @bhsi_application.improvements
+  
+  %h4 Distinguish Yourself
+  %p= @bhsi_application.distinguish_yourself
+  
+  %h4 Strong Midwest Connections Explained
+  %p= @bhsi_application.strong_midwest_connections_explained
+  
+  %h4 Additional Comments
+  %p= @bhsi_application.additional_comments
+  
+  %h4 Previous Budget
+  %p= @bhsi_application.previous_budget
+  
+  %h4 Reference 1 Name
+  %p= @bhsi_application.reference_1_name
+  
+  %h4 Reference 1 Relationship
+  %p= @bhsi_application.reference_1_relationship
+  
+  %h4 Reference 1 Phone
+  %p= @bhsi_application.reference_1_phone
+
+  %h4 Reference 1 Email
+  %p= @bhsi_application.reference_1_email
+
+  %h4 Reference 1 Name
+  %p= @bhsi_application.reference_2_name
+  
+  %h4 Reference 2 Relationship
+  %p= @bhsi_application.reference_2_relationship
+  
+  %h4 Reference 2 Phone
+  %p= @bhsi_application.reference_2_phone
+
+  %h4 Reference 2 Email
+  %p= @bhsi_application.reference_2_email
+  
+  %h4 Press Clipping 1
+  %p= @bhsi_application.press_clipping_1
+  
+  %h4 Press Clipping 2
+  %p= @bhsi_application.press_clipping_2
+  
+  %h4 Press Clipping 3
+  %p= @bhsi_application.press_clipping_3
+  
+  %h4 Agreement Accepted
+  %p= @bhsi_application.agreement_accepeted
+  

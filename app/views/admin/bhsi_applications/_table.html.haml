@@ -1,0 +1,8 @@
+%table#bhsi_application
+  %tr
+    %th.first_name= ssp_sort_link :first_name
+    %th.last_name= ssp_sort_link :last_name
+    %th.email= ssp_sort_link :email
+    %th.user_id= ssp_sort_link :user_id
+    %th 
+  = render :partial => 'admin/bhsi_applications/bhsi_applications.html.haml', :collection => bhsi_applications
