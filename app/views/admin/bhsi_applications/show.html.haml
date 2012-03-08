@@ -9,6 +9,7 @@
   = new_model_link Note, @bhsi_application
 
 #model_detail
+
   %h4 First Name
   %p= @bhsi_application.first_name
 
@@ -106,7 +107,7 @@
   %p= @bhsi_application.additional_comments
   
   %h4 Previous Budget
-  %p= @bhsi_application.previous_budget
+  %p= @bhsi_application.previous_budget.present? ? @bhsi_application.previous_budget : ''
   
   %h4 Reference 1 Name
   %p= @bhsi_application.reference_1_name
@@ -133,14 +134,11 @@
   %p= @bhsi_application.reference_2_email
   
   %h4 Press Clipping 1
-  %p= @bhsi_application.press_clipping_1
+  %p= @bhsi_application.press_clipping_1.present? ? @bhsi_application.press_clipping_1 : ''
   
   %h4 Press Clipping 2
-  %p= @bhsi_application.press_clipping_2
+  %p= @bhsi_application.press_clipping_2.present? ? @bhsi_application.press_clipping_2 : ''
   
   %h4 Press Clipping 3
-  %p= @bhsi_application.press_clipping_3
-  
-  %h4 Agreement Accepted
-  %p= @bhsi_application.agreement_accepeted
+  %p= @bhsi_application.press_clipping_3.present? ? @bhsi_application.press_clipping_3 : ''
   
