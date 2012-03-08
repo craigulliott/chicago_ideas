@@ -5,6 +5,11 @@ class BhsiApplication < ActiveRecord::Base
   belongs_to :user
   
   has_attached_file :pdf, :path => "applications/bhsi/pdfs/:id/:filename"
+  has_attached_file :previous_budget, :path => "applications/bhsi/pdfs/:id/:filename"
+  has_attached_file :press_clipping_1, :path => "applications/bhsi/pdfs/:id/:filename"
+  has_attached_file :press_clipping_2, :path => "applications/bhsi/pdfs/:id/:filename"
+  has_attached_file :press_clipping_3, :path => "applications/bhsi/pdfs/:id/:filename"
+
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
@@ -14,6 +19,7 @@ class BhsiApplication < ActiveRecord::Base
   validates :city, :presence => true
   validates :state, :presence => true
   validates :country, :presence => true
+  validates :phone_number, :presence => true
   validates :email, :presence => true
   validates :gender, :presence => true
   validates :birthdate, :presence => true
@@ -45,9 +51,6 @@ class BhsiApplication < ActiveRecord::Base
   validates :reference_2_relationship, :presence => true
   validates :reference_2_phone, :presence => true
   validates :reference_2_email, :presence => true
-  validates :press_clipping_1, :presence => true
-  validates :press_clipping_2, :presence => true
-  validates :press_clipping_3, :presence => true
   validates :agreement_accepeted, :presence => true
   validates :user_id, :presence => true
   

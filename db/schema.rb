@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120308163406) do
+ActiveRecord::Schema.define(:version => 20120308175538) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(:version => 20120308163406) do
     t.text     "distinguish_yourself",                                   :null => false
     t.text     "strong_midwest_connections_explained"
     t.text     "additional_comments"
-    t.string   "previous_budget",                                        :null => false
     t.string   "reference_1_name",                                       :null => false
     t.string   "reference_1_relationship",                               :null => false
     t.string   "reference_1_phone",                                      :null => false
@@ -89,9 +88,6 @@ ActiveRecord::Schema.define(:version => 20120308163406) do
     t.string   "reference_2_relationship",                               :null => false
     t.string   "reference_2_phone",                                      :null => false
     t.string   "reference_2_email",                                      :null => false
-    t.string   "press_clipping_1"
-    t.string   "press_clipping_2"
-    t.string   "press_clipping_3"
     t.integer  "user_id",                                                :null => false
     t.boolean  "agreement_accepeted",                                    :null => false
     t.string   "pdf_file_name"
@@ -99,6 +95,23 @@ ActiveRecord::Schema.define(:version => 20120308163406) do
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
     t.text     "three_standout_statistics",                              :null => false
+    t.string   "phone_number",                                           :null => false
+    t.string   "previous_budget_file_name"
+    t.string   "previous_budget_content_type"
+    t.integer  "previous_budget_file_size"
+    t.datetime "previous_budget_updated_at"
+    t.string   "press_clipping_1_file_name"
+    t.string   "press_clipping_1_content_type"
+    t.integer  "press_clipping_1_file_size"
+    t.datetime "press_clipping_1_updated_at"
+    t.string   "press_clipping_2_file_name"
+    t.string   "press_clipping_2_content_type"
+    t.integer  "press_clipping_2_file_size"
+    t.datetime "press_clipping_2_updated_at"
+    t.string   "press_clipping_3_file_name"
+    t.string   "press_clipping_3_content_type"
+    t.integer  "press_clipping_3_file_size"
+    t.datetime "press_clipping_3_updated_at"
   end
 
   create_table "chapter_photos", :force => true do |t|
