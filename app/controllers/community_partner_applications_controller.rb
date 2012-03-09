@@ -16,13 +16,16 @@ class CommunityPartnerApplicationsController < ApplicationController
   def create
     @meta_data = {:page_title => "Community Partners", :og_image => "http://www.chicagoideas.com/assets/images/application/logo.png", :og_title => "Community Partners | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     @community_partner_application = current_user.build_community_partner_application(params[:community_partner_application])
-        
-    pdf = doc_raptor_send({:document_type => "pdf".to_sym})
-    friendlyName = "CPA_#{@community_partner_application.name}.pdf"
-    File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
-    @community_partner_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");    
+
+    @form = params[:community_partner_application]
+    htmlContent = render_to_string :template => "#{self.controller_name}/pdf.html.erb", :layout => false
     
-    if @community_partner_application.save!
+    pdf = doc_raptor_send({:document_type => "pdf".to_sym, :document_content => htmlContent})
+    friendlyName = "CommunityPartner_#{@community_partner_application.name}.pdf"
+    File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
+    @community_partner_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
+    
+    if @community_partner_application.save
       CommunityPartnersMailer.send_form(params[:community_partner_application], friendlyName).deliver
       #redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
       render 'application/confirmation', :locals => {:title => "Community Partner Application Confirmation", :body => "Thank you for applying. We will be in contact shortly.", :url => "#{partners_path}" }

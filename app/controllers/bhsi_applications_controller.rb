@@ -20,16 +20,12 @@ class BhsiApplicationsController < ApplicationController
     htmlContent = render_to_string :template => "#{self.controller_name}/pdf.html.erb", :layout => false
     
     pdf = doc_raptor_send({:document_type => "pdf".to_sym, :document_content => htmlContent})
-    
     friendlyName = "Bhsi_#{@bhsi_application.social_venture_name}.pdf"
-
     File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
-    
     @bhsi_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
     
     if @bhsi_application.save
       BhsiApplicationsMailer.send_form(params[:bhsi_application], friendlyName).deliver
-      #redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
       render 'application/confirmation', :locals => {:title => "BHSI Application Confirmation", :body => "Thank you for applying for the Bluhm/Helfand Social Innovation Fellowship. We will be in contact shortly.", :url => "#{blum_helfand_path}" }
     else
       render :new

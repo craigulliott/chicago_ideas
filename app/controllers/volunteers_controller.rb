@@ -18,14 +18,11 @@ class VolunteersController < ApplicationController
     @volunteer = current_user.build_volunteer(params[:volunteer])
     
     pdf = doc_raptor_send({:document_type => "pdf".to_sym})
-    
-    friendlyName = "Volunteer_#{@volunteer.user.name}.pdf"
-
+    friendlyName = "VolunteerApplication_#{@volunteer.user.name}.pdf"
     File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
-    
     @volunteer.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
     
-    if @volunteer.save!
+    if @volunteer.save
       VolunteerMailer.send_form(params[:volunteer], friendlyName).deliver
       render 'application/confirmation', :locals => {:title => "Volunteer Application Confirmation", :body => "Thank you for applying to volunteer. We will be in contact shortly.", :url => "#{new_volunteer_path}" }
     else

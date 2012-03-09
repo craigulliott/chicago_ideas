@@ -11,14 +11,17 @@ class CommunityPartnerApplication < ActiveRecord::Base
   has_attached_file :pdf, :path => "applications/community/pdfs/:id/:filename"
   
   validates :name, :presence => true
+  validates :description, :presence => true
   validates :address1, :presence => true
   validates :city, :presence => true
   validates :state, :presence => true
+  validates :country, :presence => true
   validates :previous_partner, :presence => true
   validates :country, :presence => true
   validates :user_id, :presence => true
   validates :contact_email, :presence => true
   validates :contact_name, :presence => true
+  validates :contact_title, :presence => true
   validates :contact_phone, :presence => true
   validates :previous_partner, :presence => true
   validates :why_partner, :presence => true

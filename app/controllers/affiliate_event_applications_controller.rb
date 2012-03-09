@@ -33,7 +33,7 @@ class AffiliateEventApplicationsController < ApplicationController
    
    
 
-    if @affiliate_event_application.save!
+    if @affiliate_event_application.save
       
       AffiliateEventsMailer.send_form(params[:affiliate_event_application],friendlyName).deliver
       #redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
