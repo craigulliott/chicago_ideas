@@ -54,7 +54,7 @@
             = f.input :title, :required => true, :label => "Your Title"
             = f.input :social_venture_name, :required => true, :label => "Social Venture Name"
             = f.input :legal_structure, :required => true, :label => "Legal Structure (501c3, LLC, Fiscally Sponsored, etc.)"
-            = f.input :url, :required => true, :label => "URL"
+            = f.input :url, :required => true, :label => "Website URL"
             = f.input :twitter_handle, :required => true, :label => "Twitter Handle"
             = f.input :video_url, :required => true, :label => "YouTube or Video URL"
           
@@ -77,16 +77,16 @@
 
 
         .form_section
-          %span.form_section_header Part 4: Optional Questions
+          %span.form_section_header Part 4: Additional Questions
           = f.inputs :class => "c_list v_lists" do
-            = f.input :strong_midwest_connections_explained, :required => true, :label => "Do you have a strong connection to the Midwest? If so, please explain (50-100 words):"
+            = f.input :strong_midwest_connections_explained, :label => "Do you have a strong connection to the Midwest? If so, please explain (50-100 words):"
             = f.input :additional_comments, :label => "Additional Comments"
             
     
         .form_section
           %span.form_section_header Part 5: Budget, Press Clippings & References
           = f.inputs :class => "c_list v_lists" do
-            = f.input :previous_budget, :as => :file, :label => "Please submit your 2011 Budget, including expenses and revenues.", :hint => "Must be a PDF"
+            = f.input :previous_budget, :required => true, :as => :file, :label => "Please submit your 2011 Budget, including expenses and revenues.", :hint => "Must be a PDF"
             = f.input :reference_1_name, :required => true, :label => "#1 Reference Name"
             = f.input :reference_1_relationship, :required => true, :label => "#1 Reference Relationship to you"
             = f.input :reference_1_phone, :required => true, :label => "#1 Reference Phone Number"
