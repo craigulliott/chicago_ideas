@@ -20,6 +20,7 @@ class CommunityPartnerApplication < ActiveRecord::Base
   validates :contact_email, :presence => true
   validates :contact_name, :presence => true
   validates :contact_phone, :presence => true
+  validates :previous_partner, :presence => true
   validates :why_partner, :presence => true
   validates :will_promote_ciw, :acceptance => {:accept => true}
   validates :encourage_promote_ciw, :acceptance => {:accept => true}

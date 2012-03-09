@@ -57,7 +57,7 @@
         .form_section
           %span.form_section_header Step 2: Chicago Ideas Week Community Partnerships
           = f.inputs :class => "v_lists" do
-            = f.input :previous_partner, :label => "Was your organization a 2011 Community Partner?", :collection => ["Yes", "No"]
+            = f.input :previous_partner, :required => true, :label => "Was your organization a 2011 Community Partner?", :collection => ["Yes", "No"]
             = f.input :why_partner, :required => true, :label => "Why do you want to become a 2012 CIW Community Partner?"
           
           = f.inputs :name => " Select the topics below that are most relevant to your organization. (List topics – Check all that apply)", :class => "v_lists checkbox_list" do 
