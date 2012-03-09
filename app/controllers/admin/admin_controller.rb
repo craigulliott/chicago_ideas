@@ -72,9 +72,12 @@ class Admin::AdminController < ApplicationController
   end
 
   def create
+    
     @parent = parent_model
     @model = new_model(params[model_name])
     @model = pre_create(@model)
+    
+    
     
     if @model.errors.empty? and @model.save
       # allows for some basic controler specific functionality without redefining the create method
