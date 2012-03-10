@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
+  
+  has_many :speakers, :dependent => :destroy
+  has_many :years, :through => :speakers
+  
+  
   has_many :performances, :foreign_key => :speaker_id
   has_many :chapters, :through => :performances
   
