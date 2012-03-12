@@ -1,5 +1,7 @@
 class Year < ActiveRecord::Base
   has_many :days
+  has_many :speakers, :dependent => :destroy
+  has_many :users, :through => :speakers
   
     def api_attributes
     {
