@@ -1,14 +1,7 @@
 
-- content_for :top_links do
-  = edit_model_link @bhsi_application, true
-  = destroy_model_link @bhsi_application, true
-  = link_to "pdf", admin_bhsi_application_path(@bhsi_application, :format => :pdf)
-%h1
-
-  = icon_link_to 'notes', notes_admin_bhsi_application_path(@bhsi_application), 'script'
-  = new_model_link Note, @bhsi_application
 
 #model_detail
+
   
   %h1 Part 1: About You
   %h4 First Name
@@ -168,3 +161,4 @@
 
   %h4 Press Clipping 3
   %p= @bhsi_application.press_clipping_3.present? ? @bhsi_application.press_clipping_3 : ''
+  

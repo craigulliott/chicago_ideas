@@ -20,6 +20,7 @@ class BhsiApplication < ActiveRecord::Base
   validates :state, :presence => true
   validates :country, :presence => true
   validates :phone_number, :presence => true
+  validates :zipcode, :presence => true
   validates :email, :presence => true
   validates :gender, :presence => true
   validates :birthdate, :presence => true
@@ -42,7 +43,6 @@ class BhsiApplication < ActiveRecord::Base
   validates :sustainability_model, :presence => true
   validates :improvements, :presence => true
   validates :distinguish_yourself, :presence => true
-  validates :strong_midwest_connections_explained, :presence => true
   validates :reference_1_name, :presence => true
   validates :reference_1_relationship, :presence => true
   validates :reference_1_phone, :presence => true

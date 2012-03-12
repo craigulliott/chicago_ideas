@@ -14,7 +14,6 @@ body.admin {
   }
 }
 
-
 //all links
 a, a:link, a:visited, a:active {
   color: #326276;
@@ -344,3 +343,20 @@ a:hover {
 @import "plugins/jquery_ui_timepicker";
 @import "plugins/locked_links";
 */
+
+
+
+body.pdf_admin {
+  background-color: #fff;
+  font-family: Arial;
+
+  #content_container {
+    width: 100%;
+    
+    #content {
+      background-color: #ffffff;
+    }
+    
+  }
+
+}
