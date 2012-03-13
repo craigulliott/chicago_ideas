@@ -119,3 +119,9 @@
     = link_to 'Community Partner Applications', admin_community_partner_applications_path
   .crumb
     = link_to base_model.name, admin_community_partner_application_path(base_model)
+
+- elsif base_model.kind_of? Job
+  .crumb
+    = link_to 'Jobs', admin_jobs_path
+  .crumb
+    = link_to 'Job', admin_job_path(base_model)

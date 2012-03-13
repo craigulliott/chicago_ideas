@@ -1,0 +1,12 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @job
+  .crumb.end= section_title   
+
+- content_for :content_navigation do
+  %h2 Jobs
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_jobs_path, 'search'
+  %h2 This Job
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_job_path(@job), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_job_path(@job), 'comment'

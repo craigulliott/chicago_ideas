@@ -1,0 +1,9 @@
+%tr{:job => job.id}
+  %td.title= link_to job.title, admin_job_path(job)
+  %td.body= job.body
+  %td.url= job.url
+  %td.published= job.published
+  %td.options
+    = edit_model_link job
+    = destroy_model_link job
+ 

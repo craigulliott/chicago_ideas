@@ -140,6 +140,14 @@ CraigsAdmin::Application.routes.draw do
   
     root :to => 'admin#index'
 
+    resources :jobs do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
     resources :community_partner_applications do
       member do
         # pages

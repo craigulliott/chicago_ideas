@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120312175238) do
+ActiveRecord::Schema.define(:version => 20120313151502) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -272,6 +272,15 @@ ActiveRecord::Schema.define(:version => 20120312175238) do
   add_index "events", ["event_brand_id"], :name => "index_events_on_event_brand_id"
   add_index "events", ["partner_id"], :name => "index_events_on_partner_id"
   add_index "events", ["venue_id"], :name => "index_events_on_venue_id"
+
+  create_table "jobs", :force => true do |t|
+    t.string   "title",                        :null => false
+    t.text     "body",                         :null => false
+    t.string   "url"
+    t.boolean  "published",  :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "notes", :force => true do |t|
     t.integer  "author_id"

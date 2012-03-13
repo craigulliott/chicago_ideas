@@ -1,0 +1,8 @@
+%table#jobs
+  %tr
+    %th.title= ssp_sort_link :title
+    %th.body= ssp_sort_link :body
+    %th.url= ssp_sort_link :url
+    %th.published= ssp_sort_link :published
+    %th 
+  = render :partial => 'admin/jobs/job.html.haml', :collection => jobs

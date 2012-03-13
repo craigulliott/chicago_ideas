@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  = new_model_link Job
+
+= ssp_search_form Job
+
+.table_section
+  %h3 
+    Jobs
+    = new_model_link Job
+  .table_wrapper
+    = render 'admin/jobs/table.html.haml', :jobs => @jobs
+
