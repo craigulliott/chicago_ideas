@@ -9,6 +9,11 @@ class Day < ActiveRecord::Base
   validates :date, :presence => true, :uniqueness => true
   validates :name, :presence => true
 
+
+  def self.upcomming
+    where(:year_id => Year.maximum("id"))
+  end
+
   # build and/or link the year model
   before_validation {|record|
     record.year_id = Year.find_or_create_by_id(record.date.year).id
