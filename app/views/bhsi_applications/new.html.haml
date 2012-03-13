@@ -41,10 +41,10 @@
             = f.input :state, :required => true, :label => "State"
             = f.input :zipcode, :required => true, :label => "Zip Code"
             = f.input :country, :required => true, :label => "Country"
-            = f.input :phone_number, :as => :phone, :required => true, :label => "Phone Number"
+            = f.input :phone_number, :as => :phone, :required => true, :label => "Phone Number", :hint => "xxx-xxx-xxxx"
             = f.input :email, :as => :email, :required => true, :label => "Email"
             = f.input :gender, :required => true, :label => "Gender", :collection => ["Male", "Female"]
-            = f.input :birthdate, :required => true, :label => "Birthdate (you must have been born on or after 10/7/1977)"
+            = f.input :birthdate, :required => true, :label => "Birthdate (you must have been born on or after 10/7/1977)", :hint => "mm/dd/yyyy"
             = f.input :applied_before, :required => true, :label => "Have you applied to the Bluhm/Helfand Social Innovation Fellowship before?", :collection => ["Yes", "No"]
             = f.input :about_yourself, :required => true, :label => "Tell us a little bit about yourself. Make sure to include any previous leadership recognition or awards (100-200 words):"
             
@@ -55,9 +55,9 @@
             = f.input :title, :required => true, :label => "Your Title"
             = f.input :social_venture_name, :required => true, :label => "Social Venture Name"
             = f.input :legal_structure, :required => true, :label => "Legal Structure (501c3, LLC, Fiscally Sponsored, etc.)"
-            = f.input :url, :required => true, :label => "Website URL"
-            = f.input :twitter_handle, :required => true, :label => "Twitter Handle"
-            = f.input :video_url, :required => true, :label => "YouTube or Video URL"
+            = f.input :url, :required => true, :label => "Website URL", :hint => "ex. http://www.domain.com..."
+            = f.input :twitter_handle, :required => true, :label => "Twitter Handle", :hint => "ex. chicagoideas (no @ required)"
+            = f.input :video_url, :required => true, :label => "YouTube or Video URL", :hint => "ex. http://www.youtube.com/..."
           
           = f.inputs :class => "c_list v_lists" do
             = f.input :social_venture_description, :required => true, :label => "Capsule description of your social venture (50-100 words):"

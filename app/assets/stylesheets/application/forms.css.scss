@@ -496,6 +496,12 @@ abbr[title="required"], span.required {
   color: red;
 }
 
+.inline-hints {
+  color: #888 !important;
+  font-size: 13px;
+  font-style: italic;
+}
+
 // Form Errors
 form .error {
 
