@@ -3,7 +3,16 @@
   = f.input :name 
   = f.input :description 
   = f.input :partner, :include_blank => true, :hint => "use this to assign this event with a specific partner", :as => :select, :collection => Partner.by_name.all
-  = f.input :day, :include_blank => false 
+  - if @model.day.present?
+    - if @model.day.year.id == Year.maximum("id")
+      = f.input :day, :collection => Day.upcomming.to_a.push(@model.day), :include_blank => false
+    -else   
+      %li#event_partner_input.select.input.optional
+        %label{:class => "label", :for => "day_id"} Day
+        %span.staticField #{@model.day.full_name}
+  - else
+    = f.input :day, :collection => Day.upcomming, :include_blank => false
+  
   = f.input :venue, :include_blank => false, :as => :select, :collection => Venue.by_name.all 
   = f.input :start_time, :input_html => {:class => 'timepicker', :value => @model.start_time.present? ? @model.start_time.to_s(:time) : nil}, :as => :string 
   = f.input :end_time, :input_html => {:class => 'timepicker', :value => @model.end_time.present? ? @model.end_time.to_s(:time) : nil}, :as => :string 

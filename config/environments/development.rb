@@ -37,6 +37,7 @@ CraigsAdmin::Application.configure do
     :enable_starttls_auto => true
   }
 
+
   ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor)
 
   # Do not compress assets
