@@ -31,7 +31,6 @@
             %a{:name => "jobs_#{jobs.id}"}
             .column.column_double
               %h2= jobs.title
-              %span.timestamp= jobs.formatted_time
               %pre
                 = jobs.body
               -if jobs.url.present?
