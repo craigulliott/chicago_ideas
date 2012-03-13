@@ -19,6 +19,7 @@ CraigsAdmin::Application.routes.draw do
       resources :events, :defaults => { :format => 'json', :version => '1.1.2' }
       resources :speakers, :defaults => { :format => 'json', :version => '1.1.2' }
       resources :search, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :jobs, :defaults => { :format => 'json', :version => '1.1.2' }
       
       #resources :speaker, :only => [:list, :show] do
         # search for speakers
@@ -51,6 +52,9 @@ CraigsAdmin::Application.routes.draw do
 
   # news about CIW
   resources :press_clippings, :only => [:index]
+  
+  # jobs
+  resources :jobs, :only => [:index]
   
   # sponsors and partners
   # ----------------------------------------------------------------
