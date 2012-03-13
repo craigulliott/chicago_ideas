@@ -22,6 +22,11 @@ class Job < ActiveRecord::Base
     }
   end
 
+  # return formatted time for the front-end
+  def formatted_time
+    "#{self.created_at.strftime("%B #{self.created_at.day.ordinalize}, %Y")}"
+  end
+
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil
     case parent_model.class.name.underscore
