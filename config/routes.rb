@@ -126,6 +126,9 @@ CraigsAdmin::Application.routes.draw do
   end
   resources :tracks, :only => [:show]
   
+  
+  resources :jobs, :only [:index, :show]
+  
 
   # all videos are of chapters, so pass to the chapter controller
   match 'videos', :to => 'chapters#index'
