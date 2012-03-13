@@ -57,6 +57,10 @@ body {
   background: $white;
   @include rounded(2px);
   margin-bottom: 30px;
+  
+  .divided_row:last-child, .divided_row_last {
+    border-bottom: none;
+  }
 }
 .yellow_box {
   background: #faeb09;

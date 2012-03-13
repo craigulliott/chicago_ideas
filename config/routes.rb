@@ -53,9 +53,7 @@ CraigsAdmin::Application.routes.draw do
   # news about CIW
   resources :press_clippings, :only => [:index]
   
-  # jobs
-  resources :jobs, :only => [:index]
-  
+
   # sponsors and partners
   # ----------------------------------------------------------------
   resources :sponsors, :only => [:index]
@@ -131,7 +129,7 @@ CraigsAdmin::Application.routes.draw do
   resources :tracks, :only => [:show]
   
   
-  resources :jobs, :only [:index, :show]
+  resources :jobs, :only => [:index, :show]
   
 
   # all videos are of chapters, so pass to the chapter controller

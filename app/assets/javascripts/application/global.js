@@ -207,7 +207,7 @@ $(document).ready(function() {
   $('footer_item:last-child, ul.featured li:last-child, #breadcrumbs ul li:last-child, #page_share ul li:last-child, ul#banner_nav li:last-child, .sidebar ul.preview_list li:last-child, #sponsors_list .divided_row:last-child, #events_section ul li:last-child, #labs_list .divided_row:last-child, #explore_dropdown .column:last-child, #news_list .column:last-child').addClass('last');
   $('ul.double_rows li:nth-child(2n+2), ul.semi_finalists li:nth-child(2n+2)').addClass('end')
   $('#volunteer_form tr td:first-child').addClass('first')  
-  
+  %('.divided_row:last-child').addClass('.divided_row_last');
   
   /*
   // Search
