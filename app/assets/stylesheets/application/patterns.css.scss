@@ -953,7 +953,7 @@ ul.labs_filter {
   background-image:      -o-linear-gradient(top, #e4e4e4, #dcdcdc);
 }
 .blue_btn, input.submit, input.create, .pagination .current {
-  color:$white;
+  color:#fff !important;
   border:1px solid #0072bc;
   text-shadow: 1px 1px 1px #00548a;
   @include gradient(#0072bc, #1c91dc, #0072bc);
