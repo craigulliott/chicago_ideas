@@ -3,9 +3,6 @@
 %html
   %head
     %title
-    - if Rails.env == 'production'
-      = stylesheet_link_tag 'admin_print'
-    - else
       %style
         = CraigsAdmin::Application.assets["admin_print"].to_s.html_safe
         
