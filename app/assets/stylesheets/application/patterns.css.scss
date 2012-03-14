@@ -736,7 +736,7 @@ ul#confirm_share {
   display: block;
   text-align: center;
   list-style: none;
-  margin: 0;
+  margin: 20px 0 0 0;
   padding: 0;
   
   li {
@@ -748,26 +748,27 @@ ul#confirm_share {
 /******************************************************
  *  Sidebar
 ******************************************************/
-#sponsors ul {
-  display: table;
-  list-style: none;
-  clear: both;
-  position: relative; 
-  width: 300px;
-  height: 180px;
-  overflow: hidden; 
+#sponsors {
+  width: 260px;
+  padding: 0 20px;
   
-  li {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: table-cell;
+  ul {
+    display: block;
+    list-style: none;
+    clear: both;
+    width: 300px;
+    height: 260px;
+    overflow: hidden; 
     text-align: center;
-    vertical-align: middle; 
-    float: left;
+  
+    li {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      text-align: center;
+    }
   }
 }
-
 
 // Column item headers
 .box_header {
@@ -952,7 +953,7 @@ ul.labs_filter {
   background-image:      -o-linear-gradient(top, #e4e4e4, #dcdcdc);
 }
 .blue_btn, input.submit, input.create, .pagination .current {
-  color:$white;
+  color:#fff !important;
   border:1px solid #0072bc;
   text-shadow: 1px 1px 1px #00548a;
   @include gradient(#0072bc, #1c91dc, #0072bc);
