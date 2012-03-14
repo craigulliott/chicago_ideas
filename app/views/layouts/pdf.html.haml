@@ -1,17 +1,14 @@
 !!! 5
-- conditional_html 'en'
 
-%head
-  - if Rails.env == 'production'
-    = stylesheet_link_tag 'admin_print'
-  - else
-    %style
-      = CraigsAdmin::Application.assets["admin_print"].to_s.html_safe
-      
-
-%body.pdf_admin
+%html
+  %head
+    %title
+      %style
+        = CraigsAdmin::Application.assets["admin_print"].to_s.html_safe
+        
   
-  #content_container
-    #content
-      = yield
-  
+  %body.pdf_admin
+    
+    #content_container
+      #content
+        = yield
