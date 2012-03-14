@@ -27,10 +27,11 @@
   .box.double.left
 
     .column_row#blum_helfand_application_form
-        
+
       = semantic_form_for(@bhsi_application) do |f|
       
         .form_section
+          = image_tag('application/BHSIFlogo1.jpg', :class => "bhsi_logo")
           %span.form_section_header Part 1: About You
           = f.inputs :class => "c_list v_lists" do
             = f.input :first_name, :required => true, :label => "First Name"
