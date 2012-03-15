@@ -64,6 +64,7 @@ class BhsiApplication < ActiveRecord::Base
   validates_attachment_content_type :press_clipping_2, :content_type => 'application/pdf'
   validates_attachment_content_type :press_clipping_3, :content_type => 'application/pdf'
   
+  
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil
     case parent_model.class.name.underscore
