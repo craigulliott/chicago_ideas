@@ -14,20 +14,30 @@ class VolunteersController < ApplicationController
   end
   
   def create
-    @meta_data = {:page_title => "Volunteer for CIW", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Volunteer for CIW | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
-    @volunteer = current_user.build_volunteer(params[:volunteer])
     
-    pdf = doc_raptor_send({:document_type => "pdf".to_sym})
-    friendlyName = "VolunteerApplication_#{@volunteer.user.name}.pdf"
-    File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
-    @volunteer.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
+    # Prevents duplicate submissions
+    if current_user and current_user.volunteer.blank?
+      
+      @meta_data = {:page_title => "Volunteer for CIW", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Volunteer for CIW | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
+      @volunteer = current_user.build_volunteer(params[:volunteer])
     
-    if @volunteer.save
-      VolunteerMailer.send_form(params[:volunteer], friendlyName).deliver
-      render 'application/confirmation', :locals => {:title => "Volunteer Application Confirmation", :body => "Thank you for applying to volunteer. We will be in contact shortly.", :url => "#{new_volunteer_path}" }
+      pdf = doc_raptor_send({:document_type => "pdf".to_sym})
+      friendlyName = "VolunteerApplication_#{@volunteer.user.name}.pdf"
+      File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
+      @volunteer.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
+    
+      if @volunteer.save
+        VolunteerMailer.send_form(params[:volunteer], friendlyName).deliver
+        render 'application/confirmation', :locals => {:title => "Volunteer Application Confirmation", :body => "Thank you for applying to volunteer. We will be in contact shortly.", :url => "#{new_volunteer_path}" }
+      else
+        flash[:notice] = 'Please fill in all required fields!'
+        render :new
+      end
+    
     else
-      render :new
+      redirect_to root_path, :notice => 'Thank you, your application has already been recieved.' 
     end
+    
   end
     
 end

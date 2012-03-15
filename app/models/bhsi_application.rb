@@ -10,8 +10,13 @@ class BhsiApplication < ActiveRecord::Base
   has_attached_file :press_clipping_2, :path => "applications/bhsi/pdfs/:id/:filename"
   has_attached_file :press_clipping_3, :path => "applications/bhsi/pdfs/:id/:filename"
 
+  
+
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
+  
+  
+
   
   validates :first_name, :presence => true
   validates :last_name, :presence => true
@@ -54,6 +59,10 @@ class BhsiApplication < ActiveRecord::Base
   validates :agreement_accepeted, :presence => true
   validates :user_id, :presence => true
   
+  validates_attachment_content_type :previous_budget, :content_type => 'application/pdf'
+  validates_attachment_content_type :press_clipping_1, :content_type => 'application/pdf'
+  validates_attachment_content_type :press_clipping_2, :content_type => 'application/pdf'
+  validates_attachment_content_type :press_clipping_3, :content_type => 'application/pdf'
   
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil
