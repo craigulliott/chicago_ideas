@@ -18,16 +18,16 @@ class Admin::BhsiApplicationsController < Admin::AdminController
     
     respond_to do |format|
       format.pdf {
-        if Rails.env == 'development' or !@bhsi_application.pdf.exists?
+        #if Rails.env == 'development' or !@bhsi_application.pdf.exists?
           pdf = doc_raptor_send({:document_type => "pdf".to_sym})
           friendlyName = "BHSI_Application_#{@bhsi_application.first_name}_#{@bhsi_application.last_name}.pdf"
           File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
           @bhsi_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
           @bhsi_application.save!({:validate => false})
           send_data pdf, :filename => friendlyName, :type => "pdf"
-        else
-          redirect_to @bhsi_application.pdf.url
-        end
+        #else
+          #redirect_to @bhsi_application.pdf.url
+        #end
       }
       format.html {
         render

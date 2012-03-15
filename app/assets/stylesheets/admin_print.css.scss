@@ -349,6 +349,7 @@ a:hover {
 body.pdf_admin {
   background-color: #fff;
   font-family: Arial;
+  
 
   #content_container {
     width: 100%;
@@ -358,5 +359,10 @@ body.pdf_admin {
     }
     
   }
-
+}
+table {
+  width: 50%;
+}
+td {
+  height: 10px;
 }
