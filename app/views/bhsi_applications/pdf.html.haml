@@ -6,46 +6,60 @@
     %h1 Part 1: About You
   
     .row.no_margin
-      .column First Name
+      .column 
+        %strong First Name
       .column_double= @bhsi_application.first_name
     .row.no_margin
-      .column Last Name
+      .column 
+        %strong Last Name
       .column_double= @bhsi_application.last_name
     .row.no_margin
-      .column Your Title
+      .column 
+        %strong Your Title
       .column_double= @bhsi_application.title
     .row.no_margin
-      .column Social Venture Name
+      .column 
+        %strong Social Venture Name
       .column_double= @bhsi_application.social_venture_name
     .row.no_margin
-      .column Address 1
+      .column 
+        %strong Address 1
       .column_double= @bhsi_application.address1
     .row.no_margin
-      .column Address 2
+      .column 
+        %strong Address 2
       .column_double= @bhsi_application.address2
     .row.no_margin
-      .column City
+      .column 
+        %strong City
       .column_double= @bhsi_application.city
     .row.no_margin
-      .column State
+      .column 
+        %strong State
       .column_double= @bhsi_application.state
     .row.no_margin
-      .column Zipcode
+      .column 
+        %strong Zipcode
       .column_double= @bhsi_application.zipcode
     .row.no_margin
-      .column Country
+      .column 
+        %strong Country
       .column_double= @bhsi_application.country
     .row.no_margin
-      .column Phone Number
+      .column 
+        %strong Phone Number
       .column_double= @bhsi_application.phone_number
     .row.no_margin
-      .column Email Address
+      .column 
+        %strong Email Address
       .column_double= @bhsi_application.email
     .row.no_margin
-      .column Gender
+      .column 
+        %strong Gender
       .column_double= @bhsi_application.gender
-    .row.no_margin
-      .column Birthdate
+    .row
+      .column 
+        %strong Birthdate
       .column_double= @bhsi_application.birthdate
 
     .row
@@ -62,31 +76,36 @@
   
     %h1 Part 2: About Your Venture
 
-    .row
+    .row.no_margin
       .column_double
         %strong Legal Structure (501c3, LLC, Fiscally Sponsored, etc.)
       .column_double
         %p= @bhsi_application.legal_structure
 
-    .row
-      .column URL
+    .row.no_margin
+      .column 
+        %strong URL
       .column_double= link_to @bhsi_application.url, @bhsi_application.url
-    .row
-      .column Twitter Handle
+    .row.no_margin
+      .column 
+        %strong Twitter Handle
       .column_double= link_to @bhsi_application.twitter_handle, "http://www.twitter.com/#{@bhsi_application.twitter_handle}"
-    .row
-      .column Video URL
+    .row.no_margin
+      .column 
+        %strong Video URL
       .column_double= link_to @bhsi_application.video_url, @bhsi_application.video_url
 
     .row
       %strong Capsule description of your social venture (50-100 words):
       %p= @bhsi_application.social_venture_description
 
-    .row
-      .column_double Date your social venture was officially launched:
+    .row.no_margin
+      .column_double
+        %strong Date your social venture was officially launched:
       .column_double= @bhsi_application.venture_launched
-    .row
-      .column_double Number of people you affected this year:
+    .row.no_margin
+      .column_double
+        %strong Number of people you affected this year:
       .column_double= @bhsi_application.number_people_affected
       
     .row
@@ -142,27 +161,35 @@
     
     %h1 Part 5: Budget, Press Clippings &amp; References
 
-    .row
-      .column_double Reference 1 Name
+    .row.no_margin
+      .column_double 
+        %strong Reference 1 Name
       .column_double= @bhsi_application.reference_1_name
-    .row
-      .column_double Reference 1 Relationship to you
+    .row.no_margin
+      .column_double 
+        %strong Reference 1 Relationship to you
       .column_double= @bhsi_application.reference_1_relationship
-    .row
-      .column_double Reference 1 Phone Number
+    .row.no_margin
+      .column_double 
+        %strong Reference 1 Phone Number
       .column_double= @bhsi_application.reference_1_phone
-    .row
-      .column_double Reference 1 Email
+    .row.no_margin
+      .column_double 
+        %strong Reference 1 Email
       .column_double= @bhsi_application.reference_1_email
-    .row
-      .column_double Reference 2 Name
+    .row.no_margin
+      .column_double 
+        %strong Reference 2 Name
       .column_double= @bhsi_application.reference_2_name
-    .row
-      .column_double Reference 2 Relationship to you
+    .row.no_margin
+      .column_double 
+        %strong Reference 2 Relationship to you
       .column_double= @bhsi_application.reference_2_relationship
-    .row
-      .column_double Reference 2 Phone Number
+    .row.no_margin
+      .column_double 
+        %strong Reference 2 Phone Number
       .column_double= @bhsi_application.reference_2_phone
-    .row
-      .column_double Reference 2 Email
+    .row.no_margin
+      .column_double 
+        %strong Reference 2 Email
       .column_double= @bhsi_application.reference_2_email

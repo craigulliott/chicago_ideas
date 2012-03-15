@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
     @current_year = Year.find(2012)
   end
   def get_sponsors
-    @sponsors = Sponsor.all
+    @sponsors = Sponsor.featured_sponsors
   end
   def get_talks    
     @e_talks = TalkBrand.find(TALK_BRAND_ID).talks.order('RAND()').limit(10)
