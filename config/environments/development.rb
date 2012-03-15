@@ -27,7 +27,7 @@ CraigsAdmin::Application.configure do
   config.action_mailer.default_url_options = {:host => 'localhost:3000'}
 
   # mail configuration
-=begin
+
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
@@ -37,9 +37,8 @@ CraigsAdmin::Application.configure do
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }
-=end
 
-  config.action_mailer.delivery_method = :sendmail
+  #config.action_mailer.delivery_method = :sendmail
 
   ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor)
 
