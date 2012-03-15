@@ -343,26 +343,3 @@ a:hover {
 @import "plugins/jquery_ui_timepicker";
 @import "plugins/locked_links";
 */
-
-
-
-body.pdf_admin {
-  background-color: #fff;
-  font-family: Arial;
-  
-
-  #content_container {
-    width: 100%;
-    
-    #content {
-      background-color: #ffffff;
-    }
-    
-  }
-}
-table {
-  width: 50%;
-}
-td {
-  height: 10px;
-}

@@ -1,0 +1,85 @@
+@page {
+  margin: 40px;
+}
+body.pdf_admin {
+  background-color: #fff;
+  font-family: Arial;
+  font-size: 14px;
+  color: #333;
+  width: 750px;
+  
+
+  #content_container {
+    width: 750px;    
+    
+    #content {
+      background-color: #fff;
+    }
+    
+  }
+}
+
+
+h1 {
+  font-size: 23px;
+  display: block;
+}
+
+.section {
+  display: block;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  
+  .row {
+    display: block;
+    width: 100%;
+    margin: 0 0 10px 0;
+  
+    .column, .column_double {
+      display: inline;
+      float: left;
+      width: 150px;
+      font-size: 15px;
+      color: #555;
+      margin: 0 10px 0 0;  
+    }
+  
+    .column_double {
+      width: 365px;
+      font-size: 15px;
+    }
+  }
+  .row:before, .row:after {
+    display: table;
+    content: "";
+    zoom: 1;
+  }
+  .row:after {
+    clear: both;
+  }
+  
+}
+
+.section:last-child {
+  border: none;
+  margin: none;
+}
+
+
+strong {
+  display: block;
+  margin: 0 0 5px 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+p {
+  display: block;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.no_margin {
+  margin: 0;
+}
