@@ -1,6 +1,7 @@
 %tr{:sponsor => sponsor.id}
   %td.name= link_to sponsor.name, admin_sponsor_path(sponsor)
   %td.sponsorship_level_id= sponsor.sponsorship_level.name
+  %td.featured=raw sponsor.featured ? "&#10004;" : ""
   %td.options
     = edit_model_link sponsor
     = destroy_model_link sponsor
