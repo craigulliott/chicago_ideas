@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316005636) do
+ActiveRecord::Schema.define(:version => 20120316024614) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -50,69 +50,69 @@ ActiveRecord::Schema.define(:version => 20120316005636) do
   create_table "bhsi_applications", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name",                           :limit => 25,                    :null => false
-    t.string   "last_name",                            :limit => 25,                    :null => false
-    t.string   "address1",                             :limit => 100,                   :null => false
-    t.string   "address2",                             :limit => 55
-    t.string   "city",                                 :limit => 55,                    :null => false
-    t.string   "state",                                :limit => 15,                    :null => false
-    t.string   "country",                                             :default => "US", :null => false
-    t.string   "email",                                :limit => 50,                    :null => false
-    t.string   "gender",                                                                :null => false
-    t.string   "birthdate",                                                             :null => false
-    t.string   "title",                                :limit => 50,                    :null => false
-    t.string   "social_venture_name",                                                   :null => false
-    t.string   "legal_structure",                      :limit => 100,                   :null => false
-    t.string   "url",                                  :limit => 100,                   :null => false
-    t.string   "twitter_handle",                       :limit => 20,                    :null => false
-    t.string   "video_url",                                                             :null => false
-    t.string   "applied_before",                       :limit => 3,                     :null => false
-    t.text     "about_yourself",                                                        :null => false
-    t.text     "social_venture_description",                                            :null => false
-    t.string   "venture_launched",                     :limit => 50,                    :null => false
-    t.string   "number_people_affected",               :limit => 20,                    :null => false
-    t.text     "explain_number",                                                        :null => false
-    t.text     "organizational_development",                                            :null => false
-    t.text     "makes_social_innovation",                                               :null => false
-    t.text     "inspiration",                                                           :null => false
-    t.text     "sustainability_model",                                                  :null => false
-    t.text     "improvements",                                                          :null => false
-    t.text     "distinguish_yourself",                                                  :null => false
-    t.text     "strong_midwest_connections_explained"
-    t.text     "additional_comments"
-    t.string   "reference_1_name",                     :limit => 50,                    :null => false
-    t.string   "reference_1_relationship",             :limit => 100,                   :null => false
-    t.string   "reference_1_phone",                    :limit => 15,                    :null => false
-    t.string   "reference_1_email",                    :limit => 50,                    :null => false
-    t.string   "reference_2_name",                     :limit => 50,                    :null => false
-    t.string   "reference_2_relationship",             :limit => 100,                   :null => false
-    t.string   "reference_2_phone",                    :limit => 15,                    :null => false
-    t.string   "reference_2_email",                    :limit => 50,                    :null => false
-    t.integer  "user_id",                                                               :null => false
-    t.boolean  "agreement_accepeted",                                                   :null => false
-    t.string   "pdf_file_name"
-    t.string   "pdf_content_type"
+    t.text     "first_name",                           :limit => 16777215,                   :null => false
+    t.text     "last_name",                            :limit => 16777215,                   :null => false
+    t.text     "address1",                             :limit => 16777215,                   :null => false
+    t.text     "address2",                             :limit => 16777215
+    t.text     "city",                                 :limit => 16777215,                   :null => false
+    t.text     "state",                                :limit => 16777215,                   :null => false
+    t.string   "country",                                                  :default => "US", :null => false
+    t.text     "email",                                :limit => 16777215,                   :null => false
+    t.text     "gender",                               :limit => 16777215,                   :null => false
+    t.text     "birthdate",                            :limit => 16777215,                   :null => false
+    t.text     "title",                                :limit => 16777215,                   :null => false
+    t.text     "social_venture_name",                  :limit => 16777215,                   :null => false
+    t.text     "legal_structure",                      :limit => 16777215,                   :null => false
+    t.text     "url",                                  :limit => 16777215,                   :null => false
+    t.text     "twitter_handle",                       :limit => 16777215,                   :null => false
+    t.text     "video_url",                            :limit => 16777215,                   :null => false
+    t.text     "applied_before",                       :limit => 16777215,                   :null => false
+    t.text     "about_yourself",                       :limit => 16777215,                   :null => false
+    t.text     "social_venture_description",           :limit => 16777215,                   :null => false
+    t.text     "venture_launched",                     :limit => 16777215,                   :null => false
+    t.text     "number_people_affected",               :limit => 16777215,                   :null => false
+    t.text     "explain_number",                       :limit => 16777215,                   :null => false
+    t.text     "organizational_development",           :limit => 16777215,                   :null => false
+    t.text     "makes_social_innovation",              :limit => 16777215,                   :null => false
+    t.text     "inspiration",                          :limit => 16777215,                   :null => false
+    t.text     "sustainability_model",                 :limit => 16777215,                   :null => false
+    t.text     "improvements",                         :limit => 16777215,                   :null => false
+    t.text     "distinguish_yourself",                 :limit => 16777215,                   :null => false
+    t.text     "strong_midwest_connections_explained", :limit => 16777215
+    t.text     "additional_comments",                  :limit => 16777215
+    t.text     "reference_1_name",                     :limit => 16777215,                   :null => false
+    t.text     "reference_1_relationship",             :limit => 16777215,                   :null => false
+    t.text     "reference_1_phone",                    :limit => 16777215,                   :null => false
+    t.text     "reference_1_email",                    :limit => 16777215,                   :null => false
+    t.text     "reference_2_name",                     :limit => 16777215,                   :null => false
+    t.text     "reference_2_relationship",             :limit => 16777215,                   :null => false
+    t.text     "reference_2_phone",                    :limit => 16777215,                   :null => false
+    t.text     "reference_2_email",                    :limit => 16777215,                   :null => false
+    t.text     "user_id",                              :limit => 16777215,                   :null => false
+    t.text     "agreement_accepeted",                  :limit => 16777215,                   :null => false
+    t.text     "pdf_file_name",                        :limit => 16777215
+    t.text     "pdf_content_type",                     :limit => 16777215
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
-    t.text     "three_standout_statistics",                                             :null => false
-    t.string   "phone_number",                         :limit => 11,                    :null => false
-    t.string   "previous_budget_file_name"
-    t.string   "previous_budget_content_type"
+    t.text     "three_standout_statistics",            :limit => 16777215,                   :null => false
+    t.text     "phone_number",                         :limit => 16777215,                   :null => false
+    t.text     "previous_budget_file_name",            :limit => 16777215
+    t.text     "previous_budget_content_type",         :limit => 16777215
     t.integer  "previous_budget_file_size"
     t.datetime "previous_budget_updated_at"
-    t.string   "press_clipping_1_file_name"
-    t.string   "press_clipping_1_content_type"
+    t.text     "press_clipping_1_file_name",           :limit => 16777215
+    t.text     "press_clipping_1_content_type",        :limit => 16777215
     t.integer  "press_clipping_1_file_size"
     t.datetime "press_clipping_1_updated_at"
-    t.string   "press_clipping_2_file_name"
-    t.string   "press_clipping_2_content_type"
+    t.text     "press_clipping_2_file_name",           :limit => 16777215
+    t.text     "press_clipping_2_content_type",        :limit => 16777215
     t.integer  "press_clipping_2_file_size"
     t.datetime "press_clipping_2_updated_at"
-    t.string   "press_clipping_3_file_name"
-    t.string   "press_clipping_3_content_type"
+    t.text     "press_clipping_3_file_name",           :limit => 16777215
+    t.text     "press_clipping_3_content_type",        :limit => 16777215
     t.integer  "press_clipping_3_file_size"
     t.datetime "press_clipping_3_updated_at"
-    t.string   "zipcode",                              :limit => 11,                    :null => false
+    t.text     "zipcode",                              :limit => 16777215,                   :null => false
   end
 
   create_table "chapter_photos", :force => true do |t|
