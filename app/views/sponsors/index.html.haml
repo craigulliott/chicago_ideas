@@ -27,10 +27,14 @@
         - if sl.sponsors.present?
           .column_row.divided_row
             .column.column_double
+              %h2= sl.name
               %ul.sponsors_list
                 - sl.sponsors.each do |s|
                   %li
-                    = link_to image_tag(s.logo), s.url, :alt => s.name
+                    - if s.url.present?
+                      = link_to image_tag(s.logo), s.url, :alt => s.name
+                    - else
+                      = image_tag(s.logo, :alt => s.name)
 
 
   -# Include Sidebar Items
