@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316003041) do
+ActiveRecord::Schema.define(:version => 20120316005636) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -50,52 +50,52 @@ ActiveRecord::Schema.define(:version => 20120316003041) do
   create_table "bhsi_applications", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name",                                             :null => false
-    t.string   "last_name",                                              :null => false
-    t.string   "address1",                                               :null => false
-    t.string   "address2"
-    t.string   "city",                                                   :null => false
-    t.string   "state",                                                  :null => false
-    t.string   "country",                              :default => "US", :null => false
-    t.string   "email",                                                  :null => false
-    t.string   "gender",                                                 :null => false
-    t.string   "birthdate",                                              :null => false
-    t.string   "title",                                                  :null => false
-    t.string   "social_venture_name",                                    :null => false
-    t.string   "legal_structure",                                        :null => false
-    t.string   "url",                                                    :null => false
-    t.string   "twitter_handle",                                         :null => false
-    t.string   "video_url",                                              :null => false
-    t.string   "applied_before",                                         :null => false
-    t.text     "about_yourself",                                         :null => false
-    t.text     "social_venture_description",                             :null => false
-    t.string   "venture_launched",                                       :null => false
-    t.string   "number_people_affected",                                 :null => false
-    t.text     "explain_number",                                         :null => false
-    t.text     "organizational_development",                             :null => false
-    t.text     "makes_social_innovation",                                :null => false
-    t.text     "inspiration",                                            :null => false
-    t.text     "sustainability_model",                                   :null => false
-    t.text     "improvements",                                           :null => false
-    t.text     "distinguish_yourself",                                   :null => false
+    t.string   "first_name",                           :limit => 25,                    :null => false
+    t.string   "last_name",                            :limit => 25,                    :null => false
+    t.string   "address1",                             :limit => 100,                   :null => false
+    t.string   "address2",                             :limit => 55
+    t.string   "city",                                 :limit => 55,                    :null => false
+    t.string   "state",                                :limit => 15,                    :null => false
+    t.string   "country",                                             :default => "US", :null => false
+    t.string   "email",                                :limit => 50,                    :null => false
+    t.string   "gender",                                                                :null => false
+    t.string   "birthdate",                                                             :null => false
+    t.string   "title",                                :limit => 50,                    :null => false
+    t.string   "social_venture_name",                                                   :null => false
+    t.string   "legal_structure",                      :limit => 100,                   :null => false
+    t.string   "url",                                  :limit => 100,                   :null => false
+    t.string   "twitter_handle",                       :limit => 20,                    :null => false
+    t.string   "video_url",                                                             :null => false
+    t.string   "applied_before",                       :limit => 3,                     :null => false
+    t.text     "about_yourself",                                                        :null => false
+    t.text     "social_venture_description",                                            :null => false
+    t.string   "venture_launched",                     :limit => 50,                    :null => false
+    t.string   "number_people_affected",               :limit => 20,                    :null => false
+    t.text     "explain_number",                                                        :null => false
+    t.text     "organizational_development",                                            :null => false
+    t.text     "makes_social_innovation",                                               :null => false
+    t.text     "inspiration",                                                           :null => false
+    t.text     "sustainability_model",                                                  :null => false
+    t.text     "improvements",                                                          :null => false
+    t.text     "distinguish_yourself",                                                  :null => false
     t.text     "strong_midwest_connections_explained"
     t.text     "additional_comments"
-    t.string   "reference_1_name",                                       :null => false
-    t.string   "reference_1_relationship",                               :null => false
-    t.string   "reference_1_phone",                                      :null => false
-    t.string   "reference_1_email",                                      :null => false
-    t.string   "reference_2_name",                                       :null => false
-    t.string   "reference_2_relationship",                               :null => false
-    t.string   "reference_2_phone",                                      :null => false
-    t.string   "reference_2_email",                                      :null => false
-    t.integer  "user_id",                                                :null => false
-    t.boolean  "agreement_accepeted",                                    :null => false
+    t.string   "reference_1_name",                     :limit => 50,                    :null => false
+    t.string   "reference_1_relationship",             :limit => 100,                   :null => false
+    t.string   "reference_1_phone",                    :limit => 15,                    :null => false
+    t.string   "reference_1_email",                    :limit => 50,                    :null => false
+    t.string   "reference_2_name",                     :limit => 50,                    :null => false
+    t.string   "reference_2_relationship",             :limit => 100,                   :null => false
+    t.string   "reference_2_phone",                    :limit => 15,                    :null => false
+    t.string   "reference_2_email",                    :limit => 50,                    :null => false
+    t.integer  "user_id",                                                               :null => false
+    t.boolean  "agreement_accepeted",                                                   :null => false
     t.string   "pdf_file_name"
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
-    t.text     "three_standout_statistics",                              :null => false
-    t.string   "phone_number",                                           :null => false
+    t.text     "three_standout_statistics",                                             :null => false
+    t.string   "phone_number",                         :limit => 11,                    :null => false
     t.string   "previous_budget_file_name"
     t.string   "previous_budget_content_type"
     t.integer  "previous_budget_file_size"
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(:version => 20120316003041) do
     t.string   "press_clipping_3_content_type"
     t.integer  "press_clipping_3_file_size"
     t.datetime "press_clipping_3_updated_at"
-    t.string   "zipcode",                                                :null => false
+    t.string   "zipcode",                              :limit => 11,                    :null => false
   end
 
   create_table "chapter_photos", :force => true do |t|
