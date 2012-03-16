@@ -146,8 +146,7 @@ class Admin::AdminController < ApplicationController
 	  @model = model_name.camelize.constantize
 		order = params[:node]
 		@model.sort(order) if order.present?
-		render_json_response :ok, :order => order, :model => @model.all
-		#render_json_response :ok, :id => id, :order => order, :title => "Successfully sorted #{@model.name.titlecase.pluralize}!"
+		render_json_response :ok, :notice => "Successfully sorted!"
 	end
 	
 	
