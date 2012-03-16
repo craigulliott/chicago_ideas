@@ -1,59 +1,91 @@
 #model_detail
-  %h4 First Name
-  %p= @affiliate_event_application.first_name
+  .section
+    %h1 Affiliate Event Application
+    .row.no_margin
+      .column
+        %strong First Name
+      .column_double= @affiliate_event_application.first_name
 
-  %h4 Last Name
-  %p= @affiliate_event_application.last_name
+    .row.no_margin
+      .column
+        %strong Last Name
+      .column_double= @affiliate_event_application.last_name
 
-  %h4 Organization Name
-  %p= @affiliate_event_application.organization_name
+    .row.no_margin
+      .column
+        %strong Organization Name
+      .column_double= @affiliate_event_application.organization_name
 
-  %h4 Website
-  %p= @affiliate_event_application.website
+    .row.no_margin
+      .column
+        %strong Website
+      .column_double= @affiliate_event_application.website
 
-  %h4 Job Title
-  %p= @affiliate_event_application.job_title
+    .row.no_margin
+      .column
+        %strong Job Title
+      .column_double= @affiliate_event_application.job_title
 
-  %h4 Email Address
-  %p= @affiliate_event_application.email
+    .row.no_margin
+      .column
+        %strong Email Address
+      .column_double= @affiliate_event_application.email
 
-  %h4 Phone Number
-  %p= @affiliate_event_application.phone_number
+    .row.no_margin
+      .column
+        %strong Phone Number
+      .column_double= @affiliate_event_application.phone_number
 
-  %h4 vent Name (as it would be printed in promotional materials)
-  %p= @affiliate_event_application.event_name
+    .row.no_margin
+      .column
+        %strong vent Name (as it would be printed in promotional materials)
+      .column_double= @affiliate_event_application.event_name
   
-  %h4 Date/Time
-  %p= @affiliate_event_application.event_date
+    .row.no_margin
+      .column
+        %strong Date/Time
+      .column_double= @affiliate_event_application.event_date
 
-  %h4 Event Location
-  %p= @affiliate_event_application.event_location
+    .row.no_margin
+      .column
+        %strong Event Location
+      .column_double= @affiliate_event_application.event_location
   
-  %h4 Event Capacity
-  %p= @affiliate_event_application.event_capacity
+    .row.no_margin
+      .column
+        %strong Event Capacity
+      .column_double= @affiliate_event_application.event_capacity
   
-  %h4 Event Overview
-  %p= @affiliate_event_application.event_overview
+    %strong Event Overview
+    %p= @affiliate_event_application.event_overview
   
-  %h4 Is this a recurring event?
-  %p= @affiliate_event_application.recurring
+    .row.no_margin
+      .column
+        %strong Is this a recurring event?
+      .column_double= @affiliate_event_application.recurring? ? 'yes' : 'no'
   
-  %h4 Is this a paid event?
-  %p= @affiliate_event_application.paid_event? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Is this a paid event?
+      .column_double= @affiliate_event_application.paid_event? ? 'yes' : 'no'
   
-  %h4 WHow much does it cost
-  %p= @affiliate_event_application.event_cost
+    .row.no_margin
+      .column
+        %strong How much does it cost?
+      .column_double= @affiliate_event_application.event_cost
   
   
   
-  %h3 Does this event require guests to RSVP in advance?
-  %p= @affiliate_event_application.rsvp_required? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Does this event require guests to RSVP in advance?
+      .column_double= @affiliate_event_application.rsvp_required? ? 'yes' : 'no'
 
-  %h3 How and when do guests RSVP?
-  %p= @affiliate_event_application.rsvp_directions
+    %strong How and when do guests RSVP?
+    %p= @affiliate_event_application.rsvp_directions
 
-  %h3 Event description in 25 words or less (as it would be printed in promotional materials)
-  %p= @affiliate_event_application.description_25words
+    %strong Event description in 25 words or less (as it would be printed in promotional materials)
+    %p= @affiliate_event_application.description_25words
 
-  %h3 Event description in 10 words or less (as it would be printed in promotional materials)
-  %p= @affiliate_event_application.description_10words? ? 'yes' : 'no'
+    %strong Event description in 10 words or less (as it would be printed in promotional materials)
+    %p= @affiliate_event_application.description_10words
