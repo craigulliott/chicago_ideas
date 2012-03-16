@@ -41,10 +41,10 @@
             = f.input :city, :as => :string,:required => true, :label => "City"
             = f.input :state, :as => :string,:required => true, :label => "State"
             = f.input :zipcode, :as => :string,:required => true, :label => "Zip Code"
-            = f.input :country, :as => :string, :required => true, :label => "Country"
+            = f.input :country, :required => true, :label => "Country"
             = f.input :phone_number, :as => :phone, :required => true, :label => "Phone Number", :hint => "xxx-xxx-xxxx"
             = f.input :email, :as => :email, :required => true, :label => "Email"
-            = f.input :gender, :as => :string, :required => true, :label => "Gender", :collection => ["Male", "Female"]
+            = f.input :gender, :as => :select, :required => true, :label => "Gender", :collection => ["Male", "Female"]
             = f.input :birthdate, :as => :string, :required => true, :label => "Birthdate (you must have been born on or after 10/7/1977)", :hint => "mm/dd/yyyy"
             = f.input :applied_before, :as => :string, :required => true, :label => "Have you applied to the Bluhm/Helfand Social Innovation Fellowship before?", :collection => ["Yes", "No"]
             = f.input :about_yourself, :required => true, :label => "Tell us a little bit about yourself. Make sure to include any previous leadership recognition or awards (100-200 words):"
