@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316024614) do
+ActiveRecord::Schema.define(:version => 20120316222238) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -393,8 +393,6 @@ ActiveRecord::Schema.define(:version => 20120316024614) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "sponsorship_levels", ["sort"], :name => "index_sponsorship_levels_on_sort"
 
   create_table "sponsorships", :force => true do |t|
     t.integer  "sponsor_id",           :null => false

@@ -297,7 +297,7 @@ CraigsAdmin::Application.routes.draw do
       resources :event_photos, :only => [:new, :create]
     end
 
-    resources :sponsors do
+    resources :sponsors do      
       member do
         # pages
         get :notes
@@ -306,12 +306,16 @@ CraigsAdmin::Application.routes.draw do
     end
 
     resources :sponsorship_levels do
+      collection do
+        post :sort
+      end
       member do
         # pages
         get :notes
       end
       resources :notes, :only => [:new, :create]
     end
+    
 
     resources :partners do
       member do
