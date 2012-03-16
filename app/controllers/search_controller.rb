@@ -8,7 +8,7 @@ class SearchController < ApplicationController
          @results = ThinkingSphinx.search(@query) || [];
       }
       format.json { 
-        @results = ThinkingSphinx.search :conditions => {:name => @query, :title => @query}
+        @results = ThinkingSphinx.search(@query) || []
         @results.collect!{|x| x.serializable_hash.merge!({:classType => x.class.to_s })}
         render :json => @results
       }
@@ -24,7 +24,7 @@ class SearchController < ApplicationController
          @results = User.search(@query)
       }
       format.json { 
-        @results = ThinkingSphinx.search :conditions => {:name => @query, :title => @query}        
+        @results = User.search(@query)        
         @results.collect!{|x| x.serializable_hash.merge!({:classType => x.class.to_s })}
         render :json => @results
       }
