@@ -110,6 +110,8 @@ CraigsAdmin::Application.routes.draw do
   match 'special_programs', :to => 'application#special_programs_awards'
   match 'special_programs/blum_helfand_fellowship', :to => 'application#blum_helfand', :as => 'blum_helfand'
   match '/bhsi', :to => 'application#blum_helfand'
+  match 'special_programs/blum_helfand_fellowship/2011_fellows', :to => 'application#blum_helfand_previous'
+  
   match 'community', :to => 'application#community'
   match 'sizzle', :to => 'application#sizzle'
   match 'info_2012', :to => 'application#sizzle'

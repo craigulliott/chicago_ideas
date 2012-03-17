@@ -80,6 +80,12 @@ class ApplicationController < ActionController::Base
   def blum_helfand
     @meta_data = {:page_title => "Bluhm/Helfand Innovation Fellowship", :og_title => "Bluhm/Helfand Innovation Fellowship | Chicago Ideas Week", :og_type => "website", :og_desc => "The Bluhm/Helfand Social Innovation Fellowship @ Chicago Ideas Week, recognizes three young socially-conscious leaders who have developed innovative ventures addressing social needs, and provides them with exposure to nationally recognized business and community leaders, funding to support their cause, and a platform for growth."}
   end
+  
+  def blum_helfand_previous
+    @meta_data = {:page_title => "Bluhm/Helfand Innovation Fellowship", :og_title => "Bluhm/Helfand Innovation Fellowship | Chicago Ideas Week", :og_type => "website", :og_desc => "The Bluhm/Helfand Social Innovation Fellowship @ Chicago Ideas Week, recognizes three young socially-conscious leaders who have developed innovative ventures addressing social needs, and provides them with exposure to nationally recognized business and community leaders, funding to support their cause, and a platform for growth."}
+  end
+  
+  
 
   def terms
     @meta_data = {:page_title => "Terms of Use", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Terms of Use | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
