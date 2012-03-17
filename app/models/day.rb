@@ -5,7 +5,10 @@ class Day < ActiveRecord::Base
 
   has_many :notes, :as => :asset
   belongs_to :year
-
+  
+  has_many :events
+  has_many :talks
+  
   validates :date, :presence => true, :uniqueness => true
   validates :name, :presence => true
 

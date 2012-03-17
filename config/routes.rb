@@ -7,17 +7,27 @@ CraigsAdmin::Application.routes.draw do
       # the documentation
       root :to => 'documentation#documentation'
       
-      resources :talks, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :talks, :defaults => { :format => 'json', :version => '1.1.2' } do
+        resources :chapters, :only => [:index]
+      end
       resources :chapters, :defaults => { :format => 'json', :version => '1.1.2' }
       resources :years, :defaults => { :format => 'json', :version => '1.1.2' }
-      resources :days, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :days, :defaults => { :format => 'json', :version => '1.1.2' } do
+        resources :talks, :only => [:index]
+        resources :events, :only => [:index]
+      end
       resources :tracks, :defaults => { :format => 'json', :version => '1.1.2' }
       resources :partners, :defaults => { :format => 'json', :version => '1.1.2' }
       resources :quotes, :defaults => { :format => 'json', :version => '1.1.2' }
       resources :sponsors, :defaults => { :format => 'json', :version => '1.1.2' }
       resources :press_clippings, :defaults => { :format => 'json', :version => '1.1.2' }
-      resources :events, :defaults => { :format => 'json', :version => '1.1.2' }
-      resources :speakers, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :events, :defaults => { :format => 'json', :version => '1.1.2' } do
+        resources :talks, :only => [:index]
+      end
+      resources :speakers, :defaults => { :format => 'json', :version => '1.1.2' } do
+        resources :talks, :only => [:index]
+      end
+      
       resources :search, :defaults => { :format => 'json', :version => '1.1.2' }
       resources :jobs, :defaults => { :format => 'json', :version => '1.1.2' }
       
