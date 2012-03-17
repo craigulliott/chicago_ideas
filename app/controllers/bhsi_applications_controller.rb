@@ -28,7 +28,8 @@ class BhsiApplicationsController < ApplicationController
     
       if @bhsi_application.save
         BhsiApplicationsMailer.send_form(params[:bhsi_application], friendlyName).deliver
-        render 'application/confirmation', :locals => {:title => "BHSI Application Confirmation", :body => "Thank you for applying to the Bluhm/Helfand Social Innovation Fellowship. BHSI semi-finalists will be announced in mid-June.", :url => "#{blum_helfand_path}" }
+        render 'application/confirmation', :locals => {:title => "BHSI Application Confirmation", :body => "Thank you for applying to the Bluhm/Helfand Social Innovation Fellowship. BHSI semi-finalists will be announced in mid-June.", :url => "#{blum_helfand_path}", :share_text => "I applied to the #BHSI Fellowship at @chicagoideas! RT to all #innovative #socent! Applications close 5/21. Apply today: "}
+
       else
         flash[:notice] = 'Please fill in all required fields!'
         render :new

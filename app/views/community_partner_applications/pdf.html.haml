@@ -1,6 +1,9 @@
 #model_detail
   .section
     %h1 Community Partner Application
+    
+    %h2 Step 1: Basic Info
+    
     .row.no_margin
       .column
         %strong Name
@@ -31,21 +34,25 @@
         %strong State
       .column_double= @community_partner_application.state
 
-    .row.no_margin
+    .row
       .column
         %strong Country
       .column_double= @community_partner_application.country
-
+      
+    .row
+      %strong Organization Social Links
     .row.no_margin
       .column
         %strong Facebook Page
       .column_double= @community_partner_application.facebook_page
   
-    .row.no_margin
+    .row
       .column
         %strong Twitter Handle
       .column_double= @community_partner_application.twitter_handle
 
+    .row
+      %strong Organization Contact 
     .row.no_margin
       .column
         %strong Contact Name
@@ -66,172 +73,98 @@
         %strong Contact Phone
       .column_double= @community_partner_application.contact_phone
   
-    .row.no_margin
+  
+  
+  .section
+  
+    %h2 Step 2: Chicago Ideas Week Community Partnerships
+  
+    .row
       .column
         %strong Was your organization a 2011 Community Partner?
       .column_double= @community_partner_application.previous_partner? ? 'yes' : 'no'
-  
-    %strong Why do you want to become a 2012 CIW Community Partner?
-    %p= @community_partner_application.why_partner
-  
-  
-  
-    .row.no_margin
-      .column
-        %strong Design with Purpose
-      .column_double= @community_partner_application.design_with_purpose_theme? ? 'yes' : 'no'
 
-    .row.no_margin
-      .column
-        %strong Start Something
-      .column_double= @community_partner_application.start_something_theme? ? 'yes' : 'no'
+    .row
+      %strong Why do you want to become a 2012 CIW Community Partner?
+      %p= @community_partner_application.why_partner
+      
+    .row
+      %strong Select the topics below that are most relevant to your organization. 
+      %ul.standard_list
+        - if @community_partner_application.design_with_purpose_theme?
+          %li Design with Purpose
+        - if @community_partner_application.start_something_theme?
+          %li Start Something
+        - if @community_partner_application.fashion_theme?
+          %li Fashion
+        - if @community_partner_application.sports_theme?
+          %li Sports
+        - if @community_partner_application.cities_theme?
+          %li Cities
+        - if @community_partner_application.politics_theme?
+          %li Politics
+        - if @community_partner_application.philanthropy_theme?
+          %li Philanthropy
+        - if @community_partner_application.tech_theme?
+          %li Tech
+        - if @community_partner_application.breathroughs_in_science_theme?
+          %li Breakthroughs in Science
+        - if @community_partner_application.creative_process_theme?
+          %li Creative Process
+          
+        - if @community_partner_application.creative_process_theme?
+          %li Creative Process
 
-    .row.no_margin
-      .column
-        %strong Fashion
-      .column_double= @community_partner_application.fashion_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Sports
-      .column_double= @community_partner_application.sports_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Cities
-      .column_double= @community_partner_application.cities_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Politics
-      .column_double= @community_partner_application.politics_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Philanthropy
-      .column_double= @community_partner_application.philanthropy_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Tech
-      .column_double= @community_partner_application.tech_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Breakthroughs in Science
-      .column_double= @community_partner_application.breathroughs_in_science_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Creative Process
-      .column_double= @community_partner_application.creative_process_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Health and Wellnesss
-      .column_double= @community_partner_application.health_wellness_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Future of News
-      .column_double= @community_partner_application.future_of_news_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Influence of Art
-      .column_double= @community_partner_application.influence_of_art_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Food
-      .column_double= @community_partner_application.food_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Good and Evil
-      .column_double= @community_partner_application.good_evil_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Social Entrepreneurship
-      .column_double= @community_partner_application.social_entrepreneurship_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Explorers
-      .column_double= @community_partner_application.explorers_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Disruptive Innovation
-      .column_double= @community_partner_application.disruptive_innovation_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Future of Military
-      .column_double= @community_partner_application.future_of_military_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Music
-      .column_double= @community_partner_application.music_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Religion
-      .column_double= @community_partner_application.religion_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Epic Friendships and Relationships
-      .column_double= @community_partner_application.epic_friendships_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Economy
-      .column_double= @community_partner_application.economy_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Future Global Leaders
-      .column_double= @community_partner_application.future_leaders_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Education
-      .column_double= @community_partner_application.education_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Meaning of Life
-      .column_double= @community_partner_application.meaning_of_life_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Environment
-      .column_double= @community_partner_application.environment_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Criminal Justice
-      .column_double= @community_partner_application.criminal_justice_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Storytellers
-      .column_double= @community_partner_application.storytellers_theme? ? 'yes' : 'no'
-
-    .row.no_margin
-      .column
-        %strong Gender
-      .column_double= @community_partner_application.gender_theme? ? 'yes' : 'no'
-  
-    %strong What is most important to you about being a Community Partner?
-    %p= @community_partner_application.most_important
-  
-    %strong Other?
-    %p= @community_partner_application.most_important_other
-  
+        - if @community_partner_application.health_wellness_theme?
+          %li Health and Wellnesss
+        - if @community_partner_application.future_of_news_theme?
+          %li Future of News
+        - if @community_partner_application.influence_of_art_theme?
+          %li Influence of Art
+        - if @community_partner_application.food_theme?
+          %li Food
+        - if @community_partner_application.good_evil_theme?
+          %li Good and Evil
+        - if @community_partner_application.social_entrepreneurship_theme?
+          %li Social Entrepreneurship
+        - if @community_partner_application.explorers_theme?
+          %li Explorers
+        - if @community_partner_application.disruptive_innovation_theme?
+          %li Disruptive Innovation
+        - if @community_partner_application.future_of_military_theme?
+          %li Future of Military
+        - if @community_partner_application.music_theme?
+          %li Music
+        - if @community_partner_application.religion_theme?
+          %li Religion
+        - if @community_partner_application.epic_friendships_theme?
+          %li Epic Friendships and Relationships
+        - if @community_partner_application.economy_theme?
+          %li Economy
+        - if @community_partner_application.future_leaders_theme?
+          %li Future Global Leaders
+        - if @community_partner_application.education_theme?
+          %li Education
+        - if @community_partner_application.meaning_of_life_theme?
+          %li Meaning of Life
+        - if @community_partner_application.environment_theme?
+          %li Environment
+        - if @community_partner_application.criminal_justice_theme?
+          %li Criminal Justice
+        - if @community_partner_application.storytellers_theme?
+          %li Storytellers
+        - if @community_partner_application.gender_theme?
+          %li Gender
+      
+    .row
+      %strong What is most important to you about being a Community Partner?
+      %p= @community_partner_application.most_important
+    
+    .row
+      %strong Other?
+      %p= @community_partner_application.most_important_other
+    
+    
     .row.no_margin
       .column
         %strong My organization has a newsletter

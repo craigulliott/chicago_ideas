@@ -31,14 +31,14 @@
         %strong Email Address
       .column_double= @affiliate_event_application.email
 
-    .row.no_margin
+    .row
       .column
         %strong Phone Number
       .column_double= @affiliate_event_application.phone_number
 
     .row.no_margin
       .column
-        %strong vent Name (as it would be printed in promotional materials)
+        %strong Event Name (as it would be printed in promotional materials)
       .column_double= @affiliate_event_application.event_name
   
     .row.no_margin
@@ -51,15 +51,16 @@
         %strong Event Location
       .column_double= @affiliate_event_application.event_location
   
-    .row.no_margin
+    .row
       .column
         %strong Event Capacity
       .column_double= @affiliate_event_application.event_capacity
+    
+    .row
+      %strong Event Overview
+      %p= @affiliate_event_application.event_overview
   
-    %strong Event Overview
-    %p= @affiliate_event_application.event_overview
-  
-    .row.no_margin
+    .row
       .column
         %strong Is this a recurring event?
       .column_double= @affiliate_event_application.recurring? ? 'yes' : 'no'
@@ -69,23 +70,24 @@
         %strong Is this a paid event?
       .column_double= @affiliate_event_application.paid_event? ? 'yes' : 'no'
   
-    .row.no_margin
+    .row
       .column
         %strong How much does it cost?
       .column_double= @affiliate_event_application.event_cost
-  
-  
-  
+    
     .row.no_margin
       .column
         %strong Does this event require guests to RSVP in advance?
       .column_double= @affiliate_event_application.rsvp_required? ? 'yes' : 'no'
-
-    %strong How and when do guests RSVP?
-    %p= @affiliate_event_application.rsvp_directions
-
-    %strong Event description in 25 words or less (as it would be printed in promotional materials)
-    %p= @affiliate_event_application.description_25words
-
-    %strong Event description in 10 words or less (as it would be printed in promotional materials)
-    %p= @affiliate_event_application.description_10words
+    
+    .row
+      %strong How and when do guests RSVP?
+      %p= @affiliate_event_application.rsvp_directions
+    
+    .row
+      %strong Event description in 25 words or less (as it would be printed in promotional materials)
+      %p= @affiliate_event_application.description_25words
+    
+    .row
+      %strong Event description in 10 words or less (as it would be printed in promotional materials)
+      %p= @affiliate_event_application.description_10words

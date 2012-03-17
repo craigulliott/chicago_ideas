@@ -29,7 +29,7 @@ class CommunityPartnerApplicationsController < ApplicationController
     
       if @community_partner_application.save
         CommunityPartnersMailer.send_form(params[:community_partner_application], friendlyName).deliver
-        render 'application/confirmation', :locals => {:title => "Community Partner Application Confirmation", :body => "Thank you for applying. We will be in contact shortly.", :url => "#{partners_path}" }
+        render 'application/confirmation', :locals => {:title => "Community Partner Application Confirmation", :body => "Thank you for applying. We will be in contact shortly.", :url => "http://bit.ly/xtTO7B", :share_text => "I just applied to be a @chicagoideas Community Partner! Join the convo w/ #idea makers & big #thinkers. Apply today: "}
       else
         flash[:notice] = 'Please fill in all required fields!'
         render :new

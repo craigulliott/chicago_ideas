@@ -18,7 +18,7 @@ class AffiliateEventApplicationsController < ApplicationController
     # Prevents duplicate submissions
     if current_user and current_user.affiliate_event_application.blank?
       
-      @meta_data = {:page_title => "Affiliate Events", :og_image => "http://www.chicagoideas.com/assets/application/affilliate_events_banner.jpg", :og_title => "Affiliate Events | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
+      @meta_data = {:page_title => "Affiliate Events", :og_image => "http://www.chicagoideas.com/assets/application/affilliate_events_banner.jpg", :og_title => "Affiliate Events Application Confirmation!", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
       @affiliate_event_application = current_user.build_affiliate_event_application(params[:affiliate_event_application])
     
       pdf = doc_raptor_send({:document_type => "pdf".to_sym})
@@ -30,7 +30,7 @@ class AffiliateEventApplicationsController < ApplicationController
       
         AffiliateEventsMailer.send_form(params[:affiliate_event_application],friendlyName).deliver
         #redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
-        render 'application/confirmation', :locals => {:title => "Affiliate Event Application Confirmation", :body => "Thank you for applying. We will be in contact shortly.", :url => "#{affiliate_event_events_path}" }
+        render 'application/confirmation', :locals => {:title => "Affiliate Event Application Confirmation", :body => "Thank you for applying. We will be in contact shortly.", :url => "http://bit.ly/wlUjBn", :share_text => "I just applied to host a @chicagoideas Affiliate Event! Share your big #ideas, too! Apply today" }
 
       else
         flash[:notice] = 'Please fill in all required fields!'
