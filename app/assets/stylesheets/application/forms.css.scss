@@ -523,11 +523,9 @@ form .error {
  *  BHSI Form
 ******************************************************/
 img.bhsi_logo{
-  display: block;
-  margin-bottom: 10px;
-  clear: both;
+  margin: 0 20px 20px 0;
+  float: left;
 }
-
 
 // Form special cases
 #community_partner_application_most_important_other_input, #affiliate_event_application_event_cost_input, #affiliate_event_application_rsvp_directions_input, #community_partner_application_organization_newsletter_frequency_input, #community_partner_application_ciw_updates_in_newsletter_input, #community_partner_application_other_newsletter_frequency_input {

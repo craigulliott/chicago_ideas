@@ -963,6 +963,27 @@ input.submit, input.create {
 }
 
 
+/* BHSI Page */
+#bhsi_apply_btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+ul#previous_winners_preview {
+  display: block;
+  clear: both;
+  list-style: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+  text-align: left;
+  
+  li {
+    display: inline;
+    margin: 0 10px 0 0;
+    padding: 0;
+  }
+}
+
 
 
 // Sharing

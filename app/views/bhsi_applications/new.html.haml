@@ -32,7 +32,12 @@
       
         .form_section
           %center
-            = image_tag('application/bluhm_helfand_logo.jpg', :class => "bhsi_logo clearfix")
+            = image_tag('application/bluhm_helfand_logo.jpg', :class => "clearfix", :width => "200px")
+          
+          %p
+            Please save a copy of your application responses for your records. For questions or any technical difficulties, please email
+            = link_to "info@bluhmhelfand.com.", "mailto:info@bluhmhelfand.com"
+            
           %span.form_section_header Part 1: About You
           = f.inputs :class => "c_list v_lists" do
             = f.input :first_name, :as => :string, :required => true, :label => "First Name"
