@@ -47,7 +47,7 @@
             = f.input :email, :as => :email, :required => true, :label => "Email"
             = f.input :gender, :as => :select, :required => true, :label => "Gender", :collection => ["Male", "Female"]
             = f.input :birthdate, :as => :string, :required => true, :label => "Birthdate (you must have been born on or after 10/7/1977)", :hint => "mm/dd/yyyy"
-            = f.input :applied_before, :as => :string, :required => true, :label => "Have you applied to the Bluhm/Helfand Social Innovation Fellowship before?", :collection => ["Yes", "No"]
+            = f.input :applied_before, :as => :select, :required => true, :label => "Have you applied to the Bluhm/Helfand Social Innovation Fellowship before?", :collection => ["Yes", "No"]
             = f.input :about_yourself, :required => true, :label => "Tell us a little bit about yourself. Make sure to include any previous leadership recognition or awards (100-200 words):"
             
             

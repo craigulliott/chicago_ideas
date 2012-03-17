@@ -2,7 +2,8 @@
   .section
     %h1 Community Partner Application
     
-    %h2 Step 1: Basic Info
+    .row
+      %h2 Step 1: Basic Info
     
     .row.no_margin
       .column
@@ -10,9 +11,8 @@
       .column_double= @community_partner_application.name
 
     .row.no_margin
-      .column
-        %strong Description
-      .column_double= @community_partner_application.description
+      %strong Description
+      %p= @community_partner_application.description
 
     .row.no_margin
       .column
@@ -77,7 +77,8 @@
   
   .section
   
-    %h2 Step 2: Chicago Ideas Week Community Partnerships
+    .row
+      %h2 Step 2: Chicago Ideas Week Community Partnerships
   
     .row
       .column
@@ -166,22 +167,22 @@
     
     
     .row.no_margin
-      .column
+      .column_double
         %strong My organization has a newsletter
       .column_double= @community_partner_application.organization_has_newsletter
   
     .row.no_margin
-      .column
+      .column_double
         %strong Our newsletter is
       .column_double= @community_partner_application.organization_newsletter_frequency
   
     .row.no_margin
-      .column
+      .column_double
         %strong Other frequency
       .column_double= @community_partner_application.other_newsletter_frequency
   
     .row.no_margin
-      .column
+      .column_double
         %strong I agree to include relevant CIW updates in my organization’s newsletter
       .column_double= @community_partner_application.ciw_updates_in_newsletter? ? 'yes' : 'no'
   
