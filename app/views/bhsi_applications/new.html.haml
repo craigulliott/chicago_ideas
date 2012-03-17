@@ -31,7 +31,8 @@
       = semantic_form_for(@bhsi_application) do |f|
       
         .form_section
-          = image_tag('application/BHSIFlogo1.jpg', :class => "bhsi_logo")
+          %center
+            = image_tag('application/bluhm_helfand_logo.jpg', :class => "bhsi_logo clearfix")
           %span.form_section_header Part 1: About You
           = f.inputs :class => "c_list v_lists" do
             = f.input :first_name, :as => :string, :required => true, :label => "First Name"
