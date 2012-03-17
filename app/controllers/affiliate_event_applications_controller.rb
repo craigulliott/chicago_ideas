@@ -30,7 +30,7 @@ class AffiliateEventApplicationsController < ApplicationController
       
         AffiliateEventsMailer.send_form(params[:affiliate_event_application],friendlyName).deliver
         #redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
-        render 'application/confirmation', :locals => {:title => "Affiliate Event Application Confirmation", :body => "Thank you for applying. We will be in contact shortly.", :url => "http://bit.ly/wlUjBn", :share_text => "I just applied to host a @chicagoideas Affiliate Event! Share your big #ideas, too! Apply today" }
+        render 'application/confirmation', :locals => {:title => "Affiliate Event Application Confirmation", :body => "Thank you for applying. We will be in contact shortly.", :url => "http://bit.ly/wlUjBn", :share_text => "I just applied to host a @chicagoideas Affiliate Event! Share your big #ideas, too! Apply today: http://bit.ly/wlUjBn" }
 
       else
         flash[:notice] = 'Please fill in all required fields!'

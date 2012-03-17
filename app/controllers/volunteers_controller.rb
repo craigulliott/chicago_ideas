@@ -29,7 +29,7 @@ class VolunteersController < ApplicationController
     
       if @volunteer.save
         VolunteerMailer.send_form(params[:volunteer], friendlyName).deliver
-        render 'application/confirmation', :locals => {:title => "Volunteer Application Confirmation", :body => "Thank you for applying to volunteer. We will be in contact shortly.", :url => "http://bit.ly/zPj9Lb", :share_text => "I'm #volunteering for @chicagoideas Oct. 8-14! Help turn #ideas into #action by signing up today: " }
+        render 'application/confirmation', :locals => {:title => "Volunteer Application Confirmation", :body => "Thank you for applying to volunteer. We will be in contact shortly.", :url => "http://bit.ly/zPj9Lb", :share_text => "I'm #volunteering for @chicagoideas Oct. 8-14! Help turn #ideas into #action by signing up today: http://bit.ly/zPj9Lb" }
       else
         flash[:notice] = 'Please fill in all required fields!'
         render :new
