@@ -1,67 +1,105 @@
 #model_detail
-  %h4 User
-  %p= @volunteer.user.name
-  %p= @volunteer.user.email
-  %p= @volunteer.phone
+  .section
+    %h1 Volunteer Application
+    .row.no_margin
+      .column
+        %strong User
+      .column_double= @volunteer.user.name
+      .column_double= @volunteer.user.email
+      .column_double= @volunteer.phone
 
-  %h4 Postcode
-  %p= @volunteer.postcode
+    .row.no_margin
+      .column
+        %strong Postcode
+      .column_double= @volunteer.postcode
 
-  %h4 Employed
-  %p= @volunteer.employed? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Employed
+      .column_double= @volunteer.employed? ? 'yes' : 'no'
 
-  %h4 Why
-  %p= @volunteer.why
+    %strong Why
+    %p= @volunteer.why
 
-  %h4 What
-  %p= @volunteer.what
+    %strong What
+    %p= @volunteer.what
 
-  %h4 Availability
-  %p= @volunteer.availability
+    %strong Availability
+    %p= @volunteer.availability
 
-  %h4 Street Team
-  %p= @volunteer.street_team? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Street Team
+      .column_double= @volunteer.street_team? ? 'yes' : 'no'
 
-  %h4 Avail Mon
-  %p= @volunteer.avail_mon? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Avail Mon
+      .column_double= @volunteer.avail_mon? ? 'yes' : 'no'
 
-  %h4 Avail Tue
-  %p= @volunteer.avail_tue? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Avail Tue
+      .column_double= @volunteer.avail_tue? ? 'yes' : 'no'
 
-  %h4 Avail Wed
-  %p= @volunteer.avail_wed? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Avail Wed
+      .column_double= @volunteer.avail_wed? ? 'yes' : 'no'
 
-  %h4 Avail Thu
-  %p= @volunteer.avail_thu? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Avail Thu
+      .column_double= @volunteer.avail_thu? ? 'yes' : 'no'
 
-  %h4 Avail Fri
-  %p= @volunteer.avail_fri? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Avail Fri
+      .column_double= @volunteer.avail_fri? ? 'yes' : 'no'
 
-  %h4 Avail Sat
-  %p= @volunteer.avail_sat? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Avail Sat
+      .column_double= @volunteer.avail_sat? ? 'yes' : 'no'
 
-  %h4 Avail Sun
-  %p= @volunteer.avail_sun? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Avail Sun
+      .column_double= @volunteer.avail_sun? ? 'yes' : 'no'
 
-  %h4 Avail Time 1
-  %p= @volunteer.avail_time_1? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Avail Time 1
+      .column_double= @volunteer.avail_time_1? ? 'yes' : 'no'
 
-  %h4 Avail Time 2
-  %p= @volunteer.avail_time_2? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Avail Time 2
+      .column_double= @volunteer.avail_time_2? ? 'yes' : 'no'
 
-  %h4 Avail Time 3
-  %p= @volunteer.avail_time_3? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Avail Time 3
+      .column_double= @volunteer.avail_time_3? ? 'yes' : 'no'
 
-  %h4 Avail Time 4
-  %p= @volunteer.avail_time_4? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Avail Time 4
+      .column_double= @volunteer.avail_time_4? ? 'yes' : 'no'
 
-  %h4 Avail Time 5
-  %p= @volunteer.avail_time_5? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Avail Time 5
+      .column_double= @volunteer.avail_time_5? ? 'yes' : 'no'
 
-  %h4 Avail Time 6
-  %p= @volunteer.avail_time_6? ? 'yes' : 'no'
+    .row.no_margin
+      .column
+        %strong Avail Time 6
+      .column_double= @volunteer.avail_time_6? ? 'yes' : 'no'
 
-  %h4 Hours
-  %p= @volunteer.hours
+    .row.no_margin
+      .column
+        %strong Hours
+      .column_double= @volunteer.hours
 
 
