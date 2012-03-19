@@ -11,4 +11,5 @@
     = new_model_link Quote
   .table_wrapper
     = render 'admin/quotes/table.html.haml', :quotes => @quotes
+  = paginate @quotes
 

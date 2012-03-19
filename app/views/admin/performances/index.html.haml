@@ -11,4 +11,5 @@
     = new_model_link Performance
   .table_wrapper
     = render 'admin/performances/table.html.haml', :performances => @performances
+  = paginate @performances
 

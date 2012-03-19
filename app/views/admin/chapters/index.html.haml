@@ -11,4 +11,5 @@
     = new_model_link Chapter
   .table_wrapper
     = render 'admin/chapters/table.html.haml', :chapters => @chapters
+  = paginate @chapters
 

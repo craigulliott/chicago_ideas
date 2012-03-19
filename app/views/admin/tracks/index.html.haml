@@ -13,4 +13,5 @@
     = new_model_link Track
   .table_wrapper
     = render 'admin/tracks/table.html.haml', :tracks => @tracks
+  = paginate @tracks
 

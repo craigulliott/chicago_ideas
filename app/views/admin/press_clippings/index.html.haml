@@ -11,4 +11,5 @@
     = new_model_link PressClipping
   .table_wrapper
     = render 'admin/press_clippings/table.html.haml', :press_clippings => @press_clippings
+  = paginate @press_clippings
 
