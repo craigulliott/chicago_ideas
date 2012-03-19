@@ -14,12 +14,12 @@ class Performance < ActiveRecord::Base
   
   
   # the hash representing this model that is returned by the api
-  def api_attributes
+  def api_attributes(ref = nil)
     {
       :id => id.to_s,
       :type => self.class.name.underscore.downcase,
       :speaker => speaker.api_attributes,
-      :chapter => chapter.api_attributes,
+      :chapter => ref != 'chapters' ? chapter.api_attributes : '',
     }
   end
 

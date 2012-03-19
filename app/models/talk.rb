@@ -46,6 +46,7 @@ class Talk < ActiveRecord::Base
       :start_time => start_time,
       :end_time => end_time,
       :sponsor => sponsor.present? ? sponsor.api_attributes : "",
+      :chapters => chapters.present? ? chapters.collect{ |c| c.api_attributes('talk') } : "",
       #:type => type
     }
   end
