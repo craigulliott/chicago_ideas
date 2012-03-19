@@ -1,0 +1,44 @@
+-#     Chicago Ideas Week
+-#     bhsi/nominate_form.html.haml
+-#     03/19/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Special Programs & Awards", special_programs_path
+        %li= link_to "Bluhm/Helfand Social Innovation Fellowship", blum_helfand_path
+        %li
+          %span Nominate
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Bluhm/Helfand Social Innovation Fellow Nomination Form
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+  
+    .column_row.divided_row
+      .column.column_double
+        <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dGVKZGJmY1FsZUxsZ3UxRkE3Y1VQbXc6MQ" width="640" height="638" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+  -# Include Sidebar Items
+  #sidebar
+    .box.right.yellow_box#bhs_link
+      .column_row
+        %a{:href => "#{new_bhsi_application_path}", :class => "callout_link"}
+          %span Bluhm/Helfand Social Innovation Fellowship
+          %span.call_out Apply Today!
+
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

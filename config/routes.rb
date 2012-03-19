@@ -108,9 +108,12 @@ CraigsAdmin::Application.routes.draw do
   match 'about', :to => 'application#about'
   match 'recommend/speaker', :to => 'application#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
-  match 'special_programs/blum_helfand_fellowship', :to => 'application#blum_helfand', :as => 'blum_helfand'
-  match '/bhsi', :to => 'application#blum_helfand'
-  match 'special_programs/blum_helfand_fellowship/2011_fellows', :to => 'application#blum_helfand_previous'
+  
+  # BHSI
+  match 'special_programs/blum_helfand_fellowship', :to => 'bhsi#index', :as => 'blum_helfand'
+  match '/bhsi', :to => 'bhsi#index'
+  match 'special_programs/blum_helfand_fellowship/previous_fellows', :to => 'bhsi#previous_fellows'
+  match 'special_programs/blum_helfand_fellowship/nominate', :to => 'bhsi#nominate_form'
   
   match 'community', :to => 'application#community'
   match 'sizzle', :to => 'application#sizzle'
