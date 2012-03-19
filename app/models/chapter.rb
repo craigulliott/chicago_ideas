@@ -86,19 +86,20 @@ class Chapter < ActiveRecord::Base
   end
   
   # the hash representing this model that is returned by the api
-  def api_attributes
+  def api_attributes(ref = nil)
     {
       :id => id.to_s,
       :type => self.class.name.underscore.downcase,
       :sort => sort,
       :title => title,
       :description => description,
-      :talk => talk.present? ? talk.api_attributes : "",
+      :talk => talk.present? ? ref != 'talk' ? talk.api_attributes : '' : "",
       :video => vimeo_id,
       :featured_on_talk => featured_on_talk,
       :featured_on_homepage => featured_on_homepage,
       :homepage_caption => homepage_caption,
       :banner => banner.url,
+      :performances => performances.present? ? performances.collect{|p| p.api_attributes('chapters') } : "",
       :homepage_banner_file_name => homepage_banner_file_name,
       :homepage_banner_content_type => homepage_banner_content_type,
       :homepage_banner_file_size => homepage_banner_file_size,
