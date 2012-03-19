@@ -70,7 +70,7 @@
         %p.italics *Fellows are welcome (but not required) to attend the remainder of Chicago Ideas Week (all expenses paid). All applicants must be available for a remote interview the weekend of June 29-July 1 if selected as semi-finalists.
 
         %p= link_to "APPLY TODAY!", new_bhsi_application_path, :class => "btn blue_btn", :id => "bhsi_apply_btn"
-        %p= link_to "Nominate a fellow →", special_programs_blum_helfand_fellowship_nominate_path
+        %p= link_to "Nominate a BHSI Fellow →", special_programs_blum_helfand_fellowship_nominate_path
 
     
     .column_row
@@ -95,6 +95,8 @@
         %a{:href => "#{new_bhsi_application_path}", :class => "callout_link"}
           %span Bluhm/Helfand Social Innovation Fellowship
           %span.call_out Apply Today!
+      .column_row.alt_link
+        = link_to "Nominate a Fellow →", special_programs_blum_helfand_fellowship_nominate_path
           
     = render "partials/sponsors"
     = render "partials/social"
