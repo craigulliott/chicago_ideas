@@ -103,8 +103,8 @@ class User < ActiveRecord::Base
   }
 
   validates :permalink, :presence => true, :uniqueness => true, :format => {:with => /^[\w\d_]+$/}
-  validate :validate_portrait_dimensions, :if => "portrait.present?", :unless => "errors.any?"
-  validate :validate_portrait2_dimensions, :if => "portrait2.present?", :unless => "errors.any?"
+  #validate :validate_portrait_dimensions, :if => "portrait.present?", :unless => "errors.any?"
+  #validate :validate_portrait2_dimensions, :if => "portrait2.present?", :unless => "errors.any?"
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
@@ -142,14 +142,7 @@ class User < ActiveRecord::Base
     },
     :path => "alternative-portraits/:style/:id.:extension"
 
-  # an array representing this users special permissiond (tags) used for display purposes
-  def access_tags
-    tags = []
-    tags << 'admin' if admin?
-    tags << 'speaker' if speaker?
-    tags << 'staff' if staff?
-    tags
-  end
+  x
   
   # the hash representing this model that is returned by the api
   def api_attributes

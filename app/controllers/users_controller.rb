@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     render "speakers/index"
   end
   
-  # show and individual speaker
+  # show andindividual speaker
   def speaker
     if params[:id].is_number? # check if an ID or permalink is passed
       @speaker = User.find(params[:id])
