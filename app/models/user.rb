@@ -142,7 +142,14 @@ class User < ActiveRecord::Base
     },
     :path => "alternative-portraits/:style/:id.:extension"
 
-  x
+  # an array representing this users special permissiond (tags) used for display purposes
+  def access_tags
+    tags = []
+    tags << 'admin' if admin?
+    tags << 'speaker' if speaker?
+    tags << 'staff' if staff?
+    tags
+  end
   
   # the hash representing this model that is returned by the api
   def api_attributes
