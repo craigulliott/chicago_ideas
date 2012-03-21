@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :get_talks
   before_filter :get_nav_featured
   before_filter :get_header_models
+  before_filter :capture_path
     
   # the application homepage
   def index
@@ -77,9 +78,6 @@ class ApplicationController < ActionController::Base
     @meta_data = {:page_title => "Special Programs & Awards", :og_title => "Special Programs & Awards | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
   end
   
-  def blum_helfand
-    @meta_data = {:page_title => "Bluhm/Helfand Innovation Fellowship", :og_title => "Bluhm/Helfand Innovation Fellowship | Chicago Ideas Week", :og_type => "website", :og_desc => "The Bluhm/Helfand Social Innovation Fellowship @ Chicago Ideas Week, recognizes three young socially-conscious leaders who have developed innovative ventures addressing social needs, and provides them with exposure to nationally recognized business and community leaders, funding to support their cause, and a platform for growth."}
-  end
 
   def terms
     @meta_data = {:page_title => "Terms of Use", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Terms of Use | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
@@ -102,6 +100,27 @@ class ApplicationController < ActionController::Base
     json[:newsletter] = (current_user ) ? current_user.newsletter : nil
     render :json => json
   end
+  
+  
+  # Capture the URL
+  def capture_path
+    
+    puts "will run::::: #{!request.xhr?} #{request.method == "GET" && !devise_controller? && !request.xhr?}"
+    
+    cookies[:return_to] = request.path if request.method == "GET" && !devise_controller? && !request.xhr? && action_name != 'redirect'
+    
+    puts cookies.to_json
+    
+  end
+  
+  def after_sign_in_path_for(resource)
+    
+    puts session.to_json
+    
+    cookies[:return_to] || user_root_path
+  
+  end
+
   
   private
   

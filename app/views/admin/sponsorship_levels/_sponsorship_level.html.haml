@@ -1,4 +1,4 @@
-%tr{:sponsorship_level => sponsorship_level.id}
+%tr{:sponsorship_level => sponsorship_level.id, :class => 'sortable', :id => "node_#{sponsorship_level.id}"}
   %td.name= link_to sponsorship_level.name, admin_sponsorship_level_path(sponsorship_level)
   %td.sort= sponsorship_level.sort
   %td.options

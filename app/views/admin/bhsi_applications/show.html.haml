@@ -161,10 +161,14 @@
   %p= @bhsi_application.reference_2_email
 
   %h4 Press Clipping 1
-  %p= @bhsi_application.press_clipping_1.present? ? @bhsi_application.press_clipping_1 : ''
+  - if @bhsi_application.press_clipping_1.present?
+    = link_to @bhsi_application.press_clipping_1, @bhsi_application.press_clipping_1
 
   %h4 Press Clipping 2
-  %p= @bhsi_application.press_clipping_2.present? ? @bhsi_application.press_clipping_2 : ''
+  - if @bhsi_application.press_clipping_2.present?
+    = link_to @bhsi_application.press_clipping_2, @bhsi_application.press_clipping_2
 
   %h4 Press Clipping 3
-  %p= @bhsi_application.press_clipping_3.present? ? @bhsi_application.press_clipping_3 : ''
+  - if @bhsi_application.press_clipping_3.present?
+    = link_to @bhsi_application.press_clipping_3, @bhsi_application.press_clipping_3
+

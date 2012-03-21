@@ -11,4 +11,5 @@
     = new_model_link CommunityPartnerApplication
   .table_wrapper
     = render 'admin/community_partner_applications/table.html.haml', :community_partner_applications => @community_partner_applications
+  = paginate @community_partner_applications
 

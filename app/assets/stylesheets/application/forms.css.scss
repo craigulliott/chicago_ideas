@@ -519,16 +519,32 @@ form .error {
   }
 }
 
+
+/* Not signed in notice for BHSI */
+.notification {
+  display: block;
+  clear: both;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background: #fffde2;
+  border: 1px solid #d8cd17;
+  @include rounded(4px);
+
+  p {
+    color: #000;
+    font-weight: bold;
+    line-height: 19px;
+  }
+}
+
+
 /******************************************************
  *  BHSI Form
 ******************************************************/
 img.bhsi_logo{
-  height:360px;
-  width:360px;
-  display: block;
-  margin-bottom: 10px;
+  margin: 0 20px 20px 0;
+  float: left;
 }
-
 
 // Form special cases
 #community_partner_application_most_important_other_input, #affiliate_event_application_event_cost_input, #affiliate_event_application_rsvp_directions_input, #community_partner_application_organization_newsletter_frequency_input, #community_partner_application_ciw_updates_in_newsletter_input, #community_partner_application_other_newsletter_frequency_input {

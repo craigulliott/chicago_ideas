@@ -13,4 +13,5 @@
     = new_model_link SponsorshipLevel
   .table_wrapper
     = render 'admin/sponsorship_levels/table.html.haml', :sponsorship_levels => @sponsorship_levels
+  = paginate @sponsorship_levels
 

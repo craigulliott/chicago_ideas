@@ -19,16 +19,16 @@ class Admin::VolunteersController < Admin::AdminController
     respond_to do |format|
       format.pdf {
         
-         if !@volunteer.pdf.exists?
+         #if !@volunteer.pdf.exists?
           pdf = doc_raptor_send({:document_type => "pdf".to_sym})
           friendlyName = "Volunteer_#{@volunteer.user.name}.pdf"
           File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
           @volunteer.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
           @volunteer.save!({:validate => false})
           send_data pdf, :filename => friendlyName, :type => "pdf"
-        else
-          redirect_to @volunteer.pdf.url
-        end
+        #else
+         # redirect_to @volunteer.pdf.url
+        #end
         
       }
       format.html {

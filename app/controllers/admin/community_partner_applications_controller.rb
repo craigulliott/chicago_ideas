@@ -14,22 +14,21 @@ class Admin::CommunityPartnerApplicationsController < Admin::AdminController
   # the detail page for this community_partner_application
   def show
     @section_title = 'Detail'
-    @community_partner_application = CommunityPartnerApplication.find(params[:id])
-      
+    @community_partner_application = CommunityPartnerApplication.find(params[:id])  
     respond_to do |format|
       
       format.pdf {
         
-        if !@community_partner_application.pdf.exists?
+        # if !@community_partner_application.pdf.exists?
           pdf = doc_raptor_send({:document_type => "pdf".to_sym})
           friendlyName = "CPA_#{@community_partner_application.name}.pdf"
           File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
           @community_partner_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
           @community_partner_application.save!({:validate => false})
           send_data pdf, :filename => friendlyName, :type => "pdf"
-        else
-          redirect_to @community_partner_application.pdf.url
-        end
+        # else
+          # redirect_to @community_partner_application.pdf.url
+        # end
 
       }
       format.html {

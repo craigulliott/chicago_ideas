@@ -18,6 +18,7 @@ class Admin::BhsiApplicationsController < Admin::AdminController
     
     respond_to do |format|
       format.pdf {
+        
         #if Rails.env == 'development' or !@bhsi_application.pdf.exists?
           pdf = doc_raptor_send({:document_type => "pdf".to_sym})
           friendlyName = "BHSI_Application_#{@bhsi_application.first_name}_#{@bhsi_application.last_name}.pdf"

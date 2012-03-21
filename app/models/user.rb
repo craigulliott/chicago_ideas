@@ -103,8 +103,8 @@ class User < ActiveRecord::Base
   }
 
   validates :permalink, :presence => true, :uniqueness => true, :format => {:with => /^[\w\d_]+$/}
-  validate :validate_portrait_dimensions, :if => "portrait.present?", :unless => "errors.any?"
-  validate :validate_portrait2_dimensions, :if => "portrait2.present?", :unless => "errors.any?"
+  #validate :validate_portrait_dimensions, :if => "portrait.present?", :unless => "errors.any?"
+  #validate :validate_portrait2_dimensions, :if => "portrait2.present?", :unless => "errors.any?"
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?

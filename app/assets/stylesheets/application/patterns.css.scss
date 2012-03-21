@@ -874,6 +874,7 @@ ul.labs_filter {
   span {
     color: $dark;
     font-size: 12px;
+    line-height: 17px;
     margin-bottom: 5px;
     display: block;
     font-weight: 700;
@@ -885,7 +886,21 @@ ul.labs_filter {
   a.callout_link, a.callout_link span {
     text-decoration: none;
   }
+  .alt_link {
+    background: $dark;
+    color: #f0f0f0;
+    padding: 10px 20px;
+    
+    a {
+      color: #f0f0f0;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
 }
+
 
 
 
@@ -962,6 +977,27 @@ input.submit, input.create {
   padding: 6px 25px;
 }
 
+
+/* BHSI Page */
+#bhsi_apply_btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+ul#previous_winners_preview {
+  display: block;
+  clear: both;
+  list-style: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+  text-align: left;
+  
+  li {
+    display: inline;
+    margin: 0 10px 0 0;
+    padding: 0;
+  }
+}
 
 
 

@@ -11,4 +11,4 @@
     = new_model_link BhsiApplication
   .table_wrapper
     = render 'admin/bhsi_applications/table.html.haml', :bhsi_applications => @bhsi_applications
-
+  = paginate @bhsi_applications

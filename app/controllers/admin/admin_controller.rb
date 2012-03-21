@@ -140,7 +140,16 @@ class Admin::AdminController < ApplicationController
 
   # common controller actions
   # ----------------------------------------------------------------------------------------------------
-
+  
+  # Sorting items by drag and drop
+	def sort
+	  @model = model_name.camelize.constantize
+		order = params[:node]
+		@model.sort(order) if order.present?
+		render_json_response :ok, :notice => "Successfully sorted!"
+	end
+	
+	
   # mark as deleted, without actually destroying the record
   def delete
     @model = fetch_model

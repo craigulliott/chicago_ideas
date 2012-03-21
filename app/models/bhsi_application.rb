@@ -52,7 +52,7 @@ class BhsiApplication < ActiveRecord::Base
   validates :reference_2_relationship, :presence => true
   validates :reference_2_phone, :presence => true
   validates :reference_2_email, :presence => true
-  validates :agreement_accepeted, :presence => true
+  validates :agreement_accepeted, :acceptance => {:accept => true}
   validates :user_id, :presence => true
   
   validates_attachment_content_type :previous_budget, :content_type => 'application/pdf'

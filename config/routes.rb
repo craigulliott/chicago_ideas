@@ -93,7 +93,11 @@ CraigsAdmin::Application.routes.draw do
   resources :volunteers, :only => [:new, :create]
   resources :community_partner_applications, :only => [:new, :create]
   resources :affiliate_event_applications, :only => [:new, :create]
-  resources :bhsi_applications, :only => [:new, :create]
+  resources :bhsi_applications, :only => [:index, :new, :create] do
+    collection do
+      get :redirect
+    end
+  end
   
   resources :years, :only => [:show]
   
@@ -108,8 +112,13 @@ CraigsAdmin::Application.routes.draw do
   match 'about', :to => 'application#about'
   match 'recommend/speaker', :to => 'application#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
-  match 'special_programs/blum_helfand_fellowship', :to => 'application#blum_helfand', :as => 'blum_helfand'
-  match '/bhsi', :to => 'application#blum_helfand'
+  
+  # BHSI
+  match 'special_programs/blum_helfand_fellowship', :to => 'bhsi#index', :as => 'blum_helfand'
+  match '/bhsi', :to => 'bhsi#index'
+  match 'special_programs/blum_helfand_fellowship/previous_fellows', :to => 'bhsi#previous_fellows'
+  match 'special_programs/blum_helfand_fellowship/nominate', :to => 'bhsi#nominate_form'
+  
   match 'community', :to => 'application#community'
   match 'sizzle', :to => 'application#sizzle'
   match 'info_2012', :to => 'application#sizzle'
@@ -307,7 +316,7 @@ CraigsAdmin::Application.routes.draw do
       resources :event_photos, :only => [:new, :create]
     end
 
-    resources :sponsors do
+    resources :sponsors do      
       member do
         # pages
         get :notes
@@ -316,12 +325,16 @@ CraigsAdmin::Application.routes.draw do
     end
 
     resources :sponsorship_levels do
+      collection do
+        post :sort
+      end
       member do
         # pages
         get :notes
       end
       resources :notes, :only => [:new, :create]
     end
+    
 
     resources :partners do
       member do

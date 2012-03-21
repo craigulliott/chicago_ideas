@@ -4,3 +4,43 @@
     %th.sort= ssp_sort_link :sort
     %th 
   = render :partial => 'admin/sponsorship_levels/sponsorship_level.html.haml', :collection => sponsorship_levels
+
+
+:javascript
+  $(document).ready(function() {
+    $('#sponsorship_levels')
+    
+    .sortable({
+      forcePlaceholderSize: true,
+      helper:  'clone',
+      items: 'tr.sortable',
+      opacity: .6,
+      placeholder: 'item_placeholder',
+      revert: 250,
+      tolerance: 'pointer',
+      distance: 20,
+    })
+    
+    .bind( 'sortstop', function(event, ui) {
+      
+      // set up variables
+      var node_id = ui.item.attr('sponsorship_level');
+      var serialized_data = $('#sponsorship_levels').sortable('serialize'); 
+      console.log(serialized_data);
+      
+      $.ajax({
+
+        type: 'POST',
+        url: '/admin/sponsorship_levels/sort',
+        data: serialized_data,
+
+        success: function(results) {
+          
+        }
+        
+      });
+      
+      
+    });
+    
+  });
