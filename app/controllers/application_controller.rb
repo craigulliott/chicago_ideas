@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
       :name             => controller_name,
       :document_type    => request.format.to_sym,
       #:test             => ! Rails.env.production?,
-      :test => true #for now
+      :test => DOC_RAPTOR_TEST #for now
     }
     options = default_options.merge(options)
     #don't really want to sandbox views for pdfs anywhere so lets keep them in main views folder for consitency
