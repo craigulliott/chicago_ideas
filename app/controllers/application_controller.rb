@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :get_talks
   before_filter :get_nav_featured
   before_filter :get_header_models
+  before_filter :capture_path
     
   # the application homepage
   def index
@@ -99,6 +100,27 @@ class ApplicationController < ActionController::Base
     json[:newsletter] = (current_user ) ? current_user.newsletter : nil
     render :json => json
   end
+  
+  
+  # Capture the URL
+  def capture_path
+    
+    puts "will run::::: #{!request.xhr?} #{request.method == "GET" && !devise_controller? && !request.xhr?}"
+    
+    cookies[:return_to] = request.path if request.method == "GET" && !devise_controller? && !request.xhr? && action_name != 'redirect'
+    
+    puts cookies.to_json
+    
+  end
+  
+  def after_sign_in_path_for(resource)
+    
+    puts session.to_json
+    
+    cookies[:return_to] || user_root_path
+  
+  end
+
   
   private
   

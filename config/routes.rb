@@ -93,7 +93,11 @@ CraigsAdmin::Application.routes.draw do
   resources :volunteers, :only => [:new, :create]
   resources :community_partner_applications, :only => [:new, :create]
   resources :affiliate_event_applications, :only => [:new, :create]
-  resources :bhsi_applications, :only => [:index, :new, :create]
+  resources :bhsi_applications, :only => [:index, :new, :create] do
+    collection do
+      get :redirect
+    end
+  end
   
   resources :years, :only => [:show]
   

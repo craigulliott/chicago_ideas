@@ -31,6 +31,11 @@
       = semantic_form_for(@bhsi_application) do |f|
       
         .form_section
+          - if current_user.blank?
+            .notification
+              %p
+                *NOTE: In order to submit an application, you must create a Chicago Ideas Week account. 
+                = link_to "Click here to create a CIW account.", new_user_registration_path
           %center
             = image_tag('application/bluhm_helfand_logo.jpg', :class => "clearfix", :width => "200px")
           
@@ -122,7 +127,19 @@
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"
+
+
+
+-# If the User is not signed in or registered, then we only preview the form, once
+-# they click they are redirected to the login/registration forms
+- if current_user.blank?
+  :javascript
+    $('#blum_helfand_application_form input, #blum_helfand_application_form textarea, #blum_helfand_application_form select').focus(function(e) {
+      $('#flash_helper').append('<div class="redirect_notice">You need an account, redirecting to the registration page...</div>');
+      document.location = "#{redirect_bhsi_applications_path}";
+    });
     
+
 
 :javascript  
   $('#submit_application').bind('click', function(e) {

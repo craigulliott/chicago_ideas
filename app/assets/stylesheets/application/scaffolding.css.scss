@@ -171,11 +171,9 @@ ul#global_nav {
     > h1 a {
       display: block;
       width: 156px;
-      //height: 87px;
-      height: 122px;
-      //background: asset-url('application/site_sprite.png', image) no-repeat !important;
-      //background-position: 0 0;
-      background: image-url('application/logo_w_sponsor.png') top left no-repeat;
+      height: 87px;
+      background: asset-url('application/site_sprite.png', image) no-repeat !important;
+      background-position: 0 0;
       text-indent: -9999px;
     }
   } // end li#gn_logo

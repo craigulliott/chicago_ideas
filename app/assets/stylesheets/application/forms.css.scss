@@ -519,6 +519,25 @@ form .error {
   }
 }
 
+
+/* Not signed in notice for BHSI */
+.notification {
+  display: block;
+  clear: both;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background: #fffde2;
+  border: 1px solid #d8cd17;
+  @include rounded(4px);
+
+  p {
+    color: #000;
+    font-weight: bold;
+    line-height: 19px;
+  }
+}
+
+
 /******************************************************
  *  BHSI Form
 ******************************************************/
