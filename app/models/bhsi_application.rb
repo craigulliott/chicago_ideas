@@ -45,12 +45,12 @@ class BhsiApplication < ActiveRecord::Base
   validates :venture_launched, :presence => true
   validates :number_people_affected, :presence => true
   validates :explain_number, :presence => true, :length => {
-    :maximum   => 200,
+    :maximum   => 500,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :three_standout_statistics, :presence => true, :length => {
-    :maximum   => 200,
+    :maximum   => 600,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
