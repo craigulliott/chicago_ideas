@@ -104,21 +104,13 @@ class ApplicationController < ActionController::Base
   
   # Capture the URL
   def capture_path
-    
-    puts "will run::::: #{!request.xhr?} #{request.method == "GET" && !devise_controller? && !request.xhr?}"
-    
     cookies[:return_to] = request.path if request.method == "GET" && !devise_controller? && !request.xhr? && action_name != 'redirect'
-    
-    puts cookies.to_json
-    
+    #puts cookies.to_json    
   end
   
   def after_sign_in_path_for(resource)
-    
-    puts session.to_json
-    
+    #puts session.to_json
     cookies[:return_to] || user_root_path
-  
   end
 
   
