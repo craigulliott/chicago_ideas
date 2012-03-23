@@ -33,7 +33,7 @@ class BhsiApplication < ActiveRecord::Base
   validates :video_url, :presence => true
   validates :applied_before, :presence => true
   validates :about_yourself, :presence => true, :length => {
-    :maximum   => 100,
+    :maximum   => 200,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
@@ -94,6 +94,10 @@ class BhsiApplication < ActiveRecord::Base
   validates :reference_2_email, :presence => true
   validates :agreement_accepeted, :acceptance => {:accept => true}
   validates :user_id, :presence => true
+  
+  
+  validates_attachment_presence :previous_budget, :presence => true
+  validates_attachment_presence :press_clipping_1, :presence => true
   
   validates_attachment_content_type :previous_budget, :content_type => 'application/pdf'
   validates_attachment_content_type :press_clipping_1, :content_type => 'application/pdf'
