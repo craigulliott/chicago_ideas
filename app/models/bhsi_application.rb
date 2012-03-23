@@ -32,18 +32,58 @@ class BhsiApplication < ActiveRecord::Base
   validates :twitter_handle, :presence => true
   validates :video_url, :presence => true
   validates :applied_before, :presence => true
-  validates :about_yourself, :presence => true
-  validates :social_venture_description, :presence => true
+  validates :about_yourself, :presence => true, :length => {
+    :maximum   => 100,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :social_venture_description, :presence => true, :length => {
+    :maximum   => 100,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
   validates :venture_launched, :presence => true
   validates :number_people_affected, :presence => true
-  validates :explain_number, :presence => true
-  validates :three_standout_statistics, :presence => true
-  validates :organizational_development, :presence => true
-  validates :makes_social_innovation, :presence => true
-  validates :inspiration, :presence => true
-  validates :sustainability_model, :presence => true
-  validates :improvements, :presence => true
-  validates :distinguish_yourself, :presence => true
+  validates :explain_number, :presence => true, :length => {
+    :maximum   => 200,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :three_standout_statistics, :presence => true, :length => {
+    :maximum   => 200,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :organizational_development, :presence => true, :length => {
+    :maximum   => 200,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :makes_social_innovation, :presence => true, :length => {
+    :maximum   => 200,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :inspiration, :presence => true, :length => {
+    :maximum   => 600,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :sustainability_model, :presence => true, :length => {
+    :maximum   => 600,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :improvements, :presence => true, :length => {
+    :maximum   => 600,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :distinguish_yourself, :presence => true, :length => {
+    :maximum   => 500,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
   validates :reference_1_name, :presence => true
   validates :reference_1_relationship, :presence => true
   validates :reference_1_phone, :presence => true
