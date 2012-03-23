@@ -114,10 +114,16 @@ CraigsAdmin::Application.routes.draw do
   match 'special_programs', :to => 'application#special_programs_awards'
   
   # BHSI
-  match 'special_programs/blum_helfand_fellowship', :to => 'bhsi#index', :as => 'blum_helfand'
-  match '/bhsi', :to => 'bhsi#index'
-  match 'special_programs/blum_helfand_fellowship/previous_fellows', :to => 'bhsi#previous_fellows'
-  match 'special_programs/blum_helfand_fellowship/nominate', :to => 'bhsi#nominate_form'
+  match 'special_programs/bhsi', :to => 'bhsi#index', :as => 'blum_helfand'
+  match 'special_programs/bhsi/previous_fellows', :to => 'bhsi#previous_fellows'
+  match 'special_programs/bhsi/nominate', :to => 'bhsi#nominate_form'
+  
+  # We changed the url post-launch :(
+  match "special_programs/blum_helfand_fellowship" => redirect("/special_programs/bhsi")
+  match "special_programs/blum_helfand_fellowship/previous_fellows" => redirect("/special_programs/bhsi/previous_fellows")
+  match "special_programs/blum_helfand_fellowship/nominate" => redirect("/special_programs/bhsi/nominate")
+  match '/bhsi' => redirect("/special_programs/bhsi")
+   
   
   match 'community', :to => 'application#community'
   match 'sizzle', :to => 'application#sizzle'
