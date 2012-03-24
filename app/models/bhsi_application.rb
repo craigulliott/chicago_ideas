@@ -33,54 +33,54 @@ class BhsiApplication < ActiveRecord::Base
   validates :video_url, :presence => true
   validates :applied_before, :presence => true
   validates :about_yourself, :presence => true, :length => {
-    :maximum   => 200,
+    :maximum   => 1000,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :social_venture_description, :presence => true, :length => {
-    :maximum   => 100,
+    :maximum   => 200,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :venture_launched, :presence => true
   validates :number_people_affected, :presence => true
   validates :explain_number, :presence => true, :length => {
-    :maximum   => 500,
+    :maximum   => 300,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :three_standout_statistics, :presence => true, :length => {
-    :maximum   => 600,
+    :maximum   => 200,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :organizational_development, :presence => true, :length => {
-    :maximum   => 200,
+    :maximum   => 600,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :makes_social_innovation, :presence => true, :length => {
-    :maximum   => 200,
+    :maximum   => 150,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :inspiration, :presence => true, :length => {
-    :maximum   => 600,
+    :maximum   => 1000,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :sustainability_model, :presence => true, :length => {
-    :maximum   => 600,
+    :maximum   => 1000,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :improvements, :presence => true, :length => {
-    :maximum   => 600,
+    :maximum   => 1000,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :distinguish_yourself, :presence => true, :length => {
-    :maximum   => 500,
+    :maximum   => 1000,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
@@ -94,8 +94,7 @@ class BhsiApplication < ActiveRecord::Base
   validates :reference_2_email, :presence => true
   validates :agreement_accepeted, :acceptance => {:accept => true}
   validates :user_id, :presence => true
-  
-  
+    
   validates_attachment_presence :previous_budget, :presence => true
   validates_attachment_presence :press_clipping_1, :presence => true
   
