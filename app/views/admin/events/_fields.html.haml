@@ -12,7 +12,7 @@
         %span.staticField #{@model.day.full_name}
   - else
     = f.input :day, :collection => Day.upcomming, :include_blank => false
-  
+  = f.input :twitter_hashtag
   = f.input :venue, :include_blank => false, :as => :select, :collection => Venue.by_name.all 
   = f.input :start_time, :input_html => {:class => 'timepicker', :value => @model.start_time.present? ? @model.start_time.to_s(:time) : nil}, :as => :string 
   = f.input :end_time, :input_html => {:class => 'timepicker', :value => @model.end_time.present? ? @model.end_time.to_s(:time) : nil}, :as => :string 

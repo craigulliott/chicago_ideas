@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120321014148) do
+ActiveRecord::Schema.define(:version => 20120326210140) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -266,6 +266,7 @@ ActiveRecord::Schema.define(:version => 20120321014148) do
     t.time     "end_time",                           :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "twitter_hashtag"
   end
 
   add_index "events", ["day_id"], :name => "index_events_on_day_id"
@@ -428,17 +429,18 @@ ActiveRecord::Schema.define(:version => 20120321014148) do
   add_index "talk_photos", ["talk_id"], :name => "index_talk_photos_on_talk_id"
 
   create_table "talks", :force => true do |t|
-    t.string   "name",          :limit => 150, :null => false
+    t.string   "name",            :limit => 150, :null => false
     t.text     "description"
-    t.integer  "day_id",                       :null => false
-    t.integer  "venue_id",                     :null => false
+    t.integer  "day_id",                         :null => false
+    t.integer  "venue_id",                       :null => false
     t.integer  "track_id"
-    t.integer  "talk_brand_id",                :null => false
-    t.time     "start_time",                   :null => false
-    t.time     "end_time",                     :null => false
+    t.integer  "talk_brand_id",                  :null => false
+    t.time     "start_time",                     :null => false
+    t.time     "end_time",                       :null => false
     t.integer  "sponsor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "twitter_hashtag"
   end
 
   add_index "talks", ["day_id"], :name => "index_talks_on_day_id"
