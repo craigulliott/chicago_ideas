@@ -94,8 +94,6 @@
       %ul.standard_list
         - if @community_partner_application.design_with_purpose_theme?
           %li Design with Purpose
-        - if @community_partner_application.start_something_theme?
-          %li Start Something
         - if @community_partner_application.fashion_theme?
           %li Fashion
         - if @community_partner_application.sports_theme?
@@ -107,7 +105,7 @@
         - if @community_partner_application.philanthropy_theme?
           %li Philanthropy
         - if @community_partner_application.tech_theme?
-          %li Tech
+          %li Technology
         - if @community_partner_application.breathroughs_in_science_theme?
           %li Breakthroughs in Science
         - if @community_partner_application.creative_process_theme?
@@ -124,8 +122,6 @@
           %li Influence of Art
         - if @community_partner_application.food_theme?
           %li Food
-        - if @community_partner_application.good_evil_theme?
-          %li Good and Evil
         - if @community_partner_application.social_entrepreneurship_theme?
           %li Social Entrepreneurship
         - if @community_partner_application.explorers_theme?
@@ -148,14 +144,16 @@
           %li Education
         - if @community_partner_application.meaning_of_life_theme?
           %li Meaning of Life
-        - if @community_partner_application.environment_theme?
-          %li Environment
+        - if @community_partner_application.earth_theme?
+          %li Earth
         - if @community_partner_application.criminal_justice_theme?
           %li Criminal Justice
         - if @community_partner_application.storytellers_theme?
           %li Storytellers
-        - if @community_partner_application.gender_theme?
-          %li Gender
+        - if @community_partner_application.identity_theme?
+          %li Identity
+        - if @community_partner_application.instigators_theme?
+          %li Instigators
       
     .row
       %strong What is most important to you about being a Community Partner?

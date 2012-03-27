@@ -64,9 +64,6 @@ class ApplicationController < ActionController::Base
     render_json_response :ok, :notice => "Your message has been sent."
   end
   
-  def recommend_speaker
-  end
-  
   def community
   end
   
