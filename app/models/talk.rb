@@ -33,6 +33,9 @@ class Talk < ActiveRecord::Base
   validates :end_time, :presence => true
   validate :validate_temporal_constraints, :unless => "errors.any?"
   
+  scope :archived, joins(:day).where("days.year_id != #{DateTime.now.year}")
+  scope :current, joins(:day).where("days.year_id == #{DateTime.now.year}")
+  
   # the hash representing this model that is returned by the api
   def api_attributes
     {
@@ -85,15 +88,7 @@ class Talk < ActiveRecord::Base
   end
   
   
-  def self.archives_only
-    years = Year.not_this_year
-    talks = [];
-    years.map(&:days).flatten.each do |day|
-      talks << day.talks
-    end
-    talks.flatten!
-  end
-  
+
 
   
   # Need to normalize the search attributes
