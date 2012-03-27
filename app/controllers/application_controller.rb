@@ -148,14 +148,15 @@ class ApplicationController < ActionController::Base
       @team << User.find(5)
       @team << User.find(6)
       @team << User.find(1)
-      @team << User.find(9)
+      #@team << User.find(9)
       @team << User.find(3)
       @team << User.find(8)
       @team << User.find(4)
       @team << User.find(155)
       #@team << User.find(159)
       #User.staff.not_deleted.where("id not in (2,62,5,6,1,9,3,8,4,155,159,7,156)").all.each do |u|
-      User.staff.not_deleted.where("id not in (2,62,5,6,1,9,3,8,4,155,7)").all.each do |u|
+      #User.staff.not_deleted.where("id not in (2,62,5,6,1,9,3,8,4,155,7)").all.each do |u|
+      User.staff.not_deleted.where("id not in (2,62,5,6,1,3,8,4,155,7)").all.each do |u|
         @team << u
       end
       # these guys are part time
