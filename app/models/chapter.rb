@@ -34,6 +34,7 @@ class Chapter < ActiveRecord::Base
   scope :talk_featured, :conditions => {:featured_on_talk => true}
   scope :homepage_featured, :conditions => {:featured_on_homepage => true}
   
+  
   # when this model is created, set the sort order to the last in the current set (unless it was already set)
   before_validation {|record|
     return true if record.sort.present?
