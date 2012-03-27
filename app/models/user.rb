@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
   scope :volunteer, :conditions => { :volunteer => true }
   scope :staff, :conditions => { :staff => true }
   
+  scope :current, joins(:years).where("years.id = #{DateTime.now.year}")
+  
   scope :by_name, order('name asc')
   
   # Search Indexing

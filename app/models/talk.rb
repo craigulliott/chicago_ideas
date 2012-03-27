@@ -34,7 +34,7 @@ class Talk < ActiveRecord::Base
   validate :validate_temporal_constraints, :unless => "errors.any?"
   
   scope :archived, joins(:day).where("days.year_id != #{DateTime.now.year}")
-  
+  scope :current, joins(:day).where("days.year_id == #{DateTime.now.year}")
   
   # the hash representing this model that is returned by the api
   def api_attributes
