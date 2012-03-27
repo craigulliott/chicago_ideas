@@ -1,9 +1,13 @@
 class Year < ActiveRecord::Base
+  
   has_many :days
   has_many :speakers, :dependent => :destroy
   has_many :users, :through => :speakers
   
-    def api_attributes
+  # Get all years that are not this year - for archived talks
+  scope :not_this_year, where("id != #{Time.now.year}")
+  
+  def api_attributes
     {
       :id => id.to_s,
       :type => self.class.name.underscore.downcase,

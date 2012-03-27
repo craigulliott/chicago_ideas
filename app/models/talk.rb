@@ -84,6 +84,16 @@ class Talk < ActiveRecord::Base
     chapter.present? ? chapter.banner(:medium) : nil
   end
   
+  
+  def self.archives_only
+    years = Year.not_this_year
+    talks = [];
+    years.map(&:days).flatten.each do |day|
+      talks << day.talks
+    end
+    talks.flatten!
+  end
+  
 
   
   # Need to normalize the search attributes
