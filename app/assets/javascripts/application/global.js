@@ -33,7 +33,7 @@ $(document).ready(function() {
     $('#dd_login_form').hide();
   });
 
-  $('body').not('.ciw_blog').find('li#gn_login > a').bind('click', function(e) {
+  $('li#gn_login > a:not(".blog_link")').bind('click', function(e) {
     e.preventDefault();
     $('#dd_login_form').stop().toggle();
     e.stopPropagation();
