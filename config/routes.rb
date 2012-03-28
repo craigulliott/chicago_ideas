@@ -61,7 +61,7 @@ CraigsAdmin::Application.routes.draw do
   match 'terms', :to => 'application#terms'
 
   # news about CIW
-  resources :press_clippings, :only => [:index]
+  resources :press_clippings, :only => [:index, :show]
   
 
   # sponsors and partners
