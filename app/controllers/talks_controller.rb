@@ -5,7 +5,7 @@ class TalksController < ApplicationController
 
   
   def index
-    @featured = Talk.order('RAND()').limit(10) # Talks specifically for the featured banner
+    @featured = Talk.archived.order('RAND()').limit(10) # Talks specifically for the featured banner
     @talks = Talk.archived.search_sort_paginate(params)
     @tracks = Track.all
     @speakers = User.speaker.not_deleted.order('RAND()').limit(6)
