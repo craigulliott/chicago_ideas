@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120326210140) do
+ActiveRecord::Schema.define(:version => 20120327213542) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -172,7 +172,6 @@ ActiveRecord::Schema.define(:version => 20120326210140) do
     t.string   "previous_partner",                  :default => "0",  :null => false
     t.text     "why_partner",                                         :null => false
     t.boolean  "design_with_purpose_theme"
-    t.boolean  "start_something_theme"
     t.boolean  "fashion_theme"
     t.boolean  "sports_theme"
     t.boolean  "cities_theme"
@@ -185,7 +184,6 @@ ActiveRecord::Schema.define(:version => 20120326210140) do
     t.boolean  "future_of_news_theme"
     t.boolean  "influence_of_art_theme"
     t.boolean  "food_theme"
-    t.boolean  "good_evil_theme"
     t.boolean  "social_entrepreneurship_theme"
     t.boolean  "explorers_theme"
     t.boolean  "disruptive_innovation_theme"
@@ -197,10 +195,10 @@ ActiveRecord::Schema.define(:version => 20120326210140) do
     t.boolean  "future_leaders_theme"
     t.boolean  "education_theme"
     t.boolean  "meaning_of_life_theme"
-    t.boolean  "environment_theme"
+    t.boolean  "earth_theme"
     t.boolean  "criminal_justice_theme"
     t.boolean  "storytellers_theme"
-    t.boolean  "gender_theme"
+    t.boolean  "identity_theme"
     t.string   "most_important"
     t.string   "organization_has_newsletter"
     t.string   "organization_newsletter_frequency"
@@ -215,6 +213,7 @@ ActiveRecord::Schema.define(:version => 20120326210140) do
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
+    t.boolean  "instigators_theme"
   end
 
   add_index "community_partner_applications", ["user_id"], :name => "index_community_partner_applications_on_user_id"

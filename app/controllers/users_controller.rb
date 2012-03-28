@@ -74,6 +74,11 @@ class UsersController < ApplicationController
     render "speakers/show"
   end
   
+  def recommend_speaker
+    @meta_data = {:page_title => "Recommend a Speaker for 2012 CIW", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Recommenda Speaker for CIW 2012 | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
+    render "speakers/recommend_speaker"
+  end
+  
   def list_team_members
     @meta_data = {:page_title => "CIW Team", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "CIW Team | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     get_team_members
