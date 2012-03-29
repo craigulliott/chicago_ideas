@@ -130,7 +130,10 @@ class Admin::AdminController < ApplicationController
     
     if allow
       @model.destroy
-      render_json_response :ok, :notice => "#{@model.class.name.titlecase} was successfully deleted."
+      flash[:notice] = "#{@model.class.name.titlecase} was successfully deleted."
+      model_path = send("admin_#{@model.class.name.underscore}_path")
+      redirect_to model_path
+      #render_json_response :ok, :notice => "#{@model.class.name.titlecase} was successfully deleted."
     else
       render_json_response :error, :notice => 'you can not delete this.'
     end

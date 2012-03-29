@@ -3,6 +3,7 @@
 - content_for :top_links do
   = edit_model_link @user, true
   = delete_model_link @user, true
+  = destroy_model_link @user, false if @user.deleted?
 
 %h1
   = @user.name
