@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     
   # the application homepage
   def index
-    @talks = Talk.order('RAND()').limit(8)
+    @talks = Talk.archived.order('RAND()').limit(8)
     @speakers = User.speaker.not_deleted.order('RAND()').limit(8)
     @featured = Chapter.homepage_featured.order('RAND()').limit(8)
     @meta_data = {:page_title => "Welcome", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
     @sponsors = Sponsor.featured_sponsors.order('RAND()')
   end
   def get_talks    
-    @e_talks = TalkBrand.find(TALK_BRAND_ID).talks.order('RAND()').limit(10)
+    @e_talks = TalkBrand.find(TALK_BRAND_ID).talks.archived.order('RAND()').limit(10)
     @e_megatalks = TalkBrand.find(MEGATALK_BRAND_ID).talks.order('RAND()').limit(3)
     @e_speakers = User.speaker.not_deleted.order('RAND()').limit(10)
   end
