@@ -133,6 +133,9 @@ CraigsAdmin::Application.routes.draw do
   match 'contact', :to => 'application#contact'
   match 'send_contact', :to => 'application#send_contact'
   
+  # guest blogger form
+  match 'guest_blogger_form', :to => 'application#guest_blogger_form'
+  
   # talks and events
   # ----------------------------------------------------------------
   resources :events, :only => [:index, :show] do
