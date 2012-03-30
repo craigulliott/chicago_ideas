@@ -61,7 +61,7 @@ CraigsAdmin::Application.routes.draw do
   match 'terms', :to => 'application#terms'
 
   # news about CIW
-  resources :press_clippings, :only => [:index]
+  resources :press_clippings, :only => [:index, :show]
   
 
   # sponsors and partners
@@ -132,6 +132,9 @@ CraigsAdmin::Application.routes.draw do
   # contact form
   match 'contact', :to => 'application#contact'
   match 'send_contact', :to => 'application#send_contact'
+  
+  # guest blogger form
+  match 'guest_blogger_form', :to => 'application#guest_blogger_form'
   
   # talks and events
   # ----------------------------------------------------------------
