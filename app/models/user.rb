@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
   scope :staff, :conditions => { :staff => true }
   
   scope :current, joins(:years).where("years.id = #{DateTime.now.year}")
+  scope :archived, joins(:years).where("years.id != #{DateTime.now.year}")
   
   scope :by_name, order('name asc')
   
