@@ -55,6 +55,11 @@
 
   -# Include Sidebar Items
   #sidebar
+    .box.right.yellow_box#bhs_link
+      .column_row
+        %a{:href => "#{labs_host_form_path}", :class => "callout_link"}
+          %span Become a 2012 CIW Lab Host!
+          %span.call_out Apply Today!
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"

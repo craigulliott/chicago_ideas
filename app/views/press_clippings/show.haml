@@ -18,22 +18,22 @@
 
   #page_header
     #page_title.left
-      %h1 Press Clippings
+      %h1 News
     = render "partials/share"
 
   -# Left column, main content
   .box.double.left
-  
-    .column_row.divided_row
-      .column.column_double
-        %h2= @press_clipping.title
-        %span.timestamp= @press_clipping.formatted_time
-        %pre
-          - if @press_clipping.image.present?
-            = image_tag(@press_clipping.image, :class => "news_image")
-          = @press_clipping.description
-        -if @press_clipping.url.present?
-          = link_to "original article →", @press_clipping.url, :rel => 'nofollow', :title => @press_clipping.title
+    #news_list
+      .column_row.divided_row
+        .column.column_double
+          %h2= @press_clipping.title
+          %span.timestamp= @press_clipping.formatted_time
+          %pre
+            - if @press_clipping.image.present?
+              = image_tag(@press_clipping.image, :class => "news_image")
+            = @press_clipping.description
+          -if @press_clipping.url.present?
+            = link_to "original article →", @press_clipping.url, :rel => 'nofollow', :title => @press_clipping.title
           
           
   -# Include Sidebar Items

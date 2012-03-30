@@ -146,6 +146,7 @@ CraigsAdmin::Application.routes.draw do
       get :affiliate_event
     end
   end
+  match 'events/labs/host_form', :to => 'events#labs_host_form', :as => 'labs_host_form'
 
   resources :talks, :only => [:index, :show] do
     # home pages for the different talk types
