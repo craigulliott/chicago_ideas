@@ -59,6 +59,10 @@ class PressClipping < ActiveRecord::Base
   end
   
   
+  def title_abbreviated
+    ( title.present? && title.length > 75 ) ? "#{title[0..75]}..." : title
+  end
+  
   # return formatted time for the front-end
   def formatted_time
     "#{self.created_at.strftime("%B #{self.created_at.day.ordinalize}, %Y")}"
