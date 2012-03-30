@@ -33,6 +33,9 @@ class EventsController < ApplicationController
     @page_title = "#{@lab.title}"
   end
   
+  def labs_host_form
+    @meta_data = {:page_title => "CIW Labs Host Form", :og_image => "http://www.chicagoideas.com/assets/application/labs.jpg", :og_title => "CIW Labs Host Form | Chicago Ideas Week", :og_type => "website", :og_desc => "CIW Labs offer opportunities for participants to experience and explore the best of Chicago like never before.  Exclusive, behind-the-scenes experiences give participants a unique glimpses into the inner workings of businesses and institutions that are otherwise unavailable to the public.  Small groups will explore what it's like for business leaders in the boardroom, go behind the curtain at leading theaters and venues, and discover 'how-it-works' in hands-on workshops."}
+  end
   
   
   # Partner Programs landing and individual pages

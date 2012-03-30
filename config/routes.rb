@@ -61,7 +61,7 @@ CraigsAdmin::Application.routes.draw do
   match 'terms', :to => 'application#terms'
 
   # news about CIW
-  resources :press_clippings, :only => [:index]
+  resources :press_clippings, :only => [:index, :show]
   
 
   # sponsors and partners
@@ -133,6 +133,9 @@ CraigsAdmin::Application.routes.draw do
   match 'contact', :to => 'application#contact'
   match 'send_contact', :to => 'application#send_contact'
   
+  # guest blogger form
+  match 'guest_blogger_form', :to => 'application#guest_blogger_form'
+  
   # talks and events
   # ----------------------------------------------------------------
   resources :events, :only => [:index, :show] do
@@ -143,6 +146,7 @@ CraigsAdmin::Application.routes.draw do
       get :affiliate_event
     end
   end
+  match 'events/labs/host_form', :to => 'events#labs_host_form', :as => 'labs_host_form'
 
   resources :talks, :only => [:index, :show] do
     # home pages for the different talk types

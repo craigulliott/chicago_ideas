@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   
   # Search Indexing
   define_index do
-    where "speaker = 1 OR staff = 1"
+    where "speaker = 1 OR staff = 1 AND deleted_at IS NOT NULL"
     indexes name
     indexes bio
     has created_at, updated_at
