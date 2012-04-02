@@ -33,11 +33,8 @@ class Chapter < ActiveRecord::Base
   
   scope :by_sort, order('sort asc')
   
-  
-
+  # Get current or archived chapters
   scope :current, joins(:talk => [:day]).where("days.year_id = #{DateTime.now.year}")
- 
-  
   scope :archived, joins(:talk => [:day]).where("days.year_id != #{DateTime.now.year}")
   
   scope :talk_featured, :conditions => {:featured_on_talk => true}

@@ -514,6 +514,49 @@ ul.double_rows {
     float:right;
   }
 }
+ul.horizontal_list {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  
+  li {
+    display: inline;
+    width: 142px;
+    text-align: center;
+    float: left;
+    clear: none;
+    
+    .img_frame {
+      display: block;
+      clear: both;
+      margin: 0 0 10px 0;
+      float: none;
+    }
+    span {
+      font-size: 13px;
+    }
+  }
+  &li:last-child {
+    margin-right: 0;
+  }
+}
+ul.theme_list {
+  display: block;
+  clear: both;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 620px;
+  
+  li {
+    display: inline;
+    width: 260px;
+    float: left;
+    margin: 0 0 7px 0;
+    padding: 0;
+  }
+}
+
 .img_frame {
   overflow: hidden;
   border: 3px solid #fff;

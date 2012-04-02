@@ -6,15 +6,15 @@ class ChaptersController < ApplicationController
   def index
     # Nice little hack for the CIW girls b/c they wanted these two items featured a the very beginning of the list
     @top2 = Chapter.where("id=69 OR id=67");
-    @chapters = Chapter.search_sort_paginate(params);
-    @featured = Chapter.find_all_by_featured_on_talk('1')
+    @chapters = Chapter.archived.search_sort_paginate(params);
+    @featured = Chapter.archived.find_all_by_featured_on_talk('1')
     @meta_data = {:page_title => "Videos", :og_image => "/assets/images/application/logo.png", :og_title => "Videos | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
   end
   
   def current
     # Nice little hack for the CIW girls b/c they wanted these two items featured a the very beginning of the list
-    @top2 = Chapter.where("id=69 OR id=67");
-    @chapters = Chapter.current
+    #@top2 = Chapter.where("id=69 OR id=67");
+    @chapters = Chapter.current.search_sort_paginate(params);
     @featured = Chapter.find_all_by_featured_on_talk('1')
     @meta_data = {:page_title => "Videos", :og_image => "/assets/images/application/logo.png", :og_title => "Videos | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     render :index
