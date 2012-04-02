@@ -13,7 +13,8 @@ class Chapter < ActiveRecord::Base
     has talk_id, created_at, updated_at
     group_by "talk_id"
   end
-
+  
+  
   belongs_to :talk
   has_many :performances
   has_many :speakers, :through => :performances
@@ -31,6 +32,14 @@ class Chapter < ActiveRecord::Base
   validate :validate_homepage_banner_dimensions, :if => "homepage_banner.present?", :unless => "errors.any?"
   
   scope :by_sort, order('sort asc')
+  
+  
+
+  scope :current, joins(:talk).joins('LEFT JOIN days ON talks.day_id = days.id').where("days.year_id = #{DateTime.now.year}")
+ 
+  
+  scope :archived, joins(:talk).joins('LEFT JOIN days ON talks.day_id = days.id').where("days.year_id != #{DateTime.now.year}")
+  
   scope :talk_featured, :conditions => {:featured_on_talk => true}
   scope :homepage_featured, :conditions => {:featured_on_homepage => true}
   
