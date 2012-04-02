@@ -34,6 +34,13 @@ class Chapter < ActiveRecord::Base
   scope :talk_featured, :conditions => {:featured_on_talk => true}
   scope :homepage_featured, :conditions => {:featured_on_homepage => true}
   
+  # Simple way to separate current chapters from archived
+  #scope :current, joins(Talk).where('id = self.talk_id').joins(:day).where("days.year_id != #{DateTime.now.year}")
+  
+  #scope :current, joins(self.Talk.years).where("years.id = #{DateTime.now.year}")
+  #scope :current, 
+  #scope :archived, joins(:years).where("years.id != #{DateTime.now.year}")
+  
   
   # when this model is created, set the sort order to the last in the current set (unless it was already set)
   before_validation {|record|

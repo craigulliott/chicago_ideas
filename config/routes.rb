@@ -167,6 +167,7 @@ CraigsAdmin::Application.routes.draw do
   
   match 'events/partner_programs/:id', :to => 'events#partner_programs', :as => 'partner_program'
   
+  match 'current', :to => 'chapters#current'
 
   # the Admin                                                                   (http://www.domain.com/admin)
   # ---------------------------------------------------------------------------------------------------------
