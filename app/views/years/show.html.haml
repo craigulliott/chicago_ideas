@@ -12,8 +12,8 @@
   
   - if @speakers
     #page_header
-      %center
-        %h1 Meet the 2012 CIW Speakers
+      .down_arrow
+      %span.blue_header Meet the CIW 2012 Speakers (more to come!)
       %ul.preview_list.speaker_list.horizontal_list
         - @speakers.each do |speaker|
           %li{:id => "speaker_#{speaker.id}", :class => "speaker_#{speaker.id}"}
@@ -24,14 +24,15 @@
       %center
         = link_to "view more speakers →"
         
-
+        
   -# Left column, main content: About Us information
+  
+  .theme_arrow_container
+    %span.blue_header Check out some of this year’s themes!
+    .theme_arrow
   .box.double.left
-
-    .column_row.divided_row#about_description
+    .column_row.divided_row
       .column.column_double
-        %center
-          %h1 2012 CIW Themes
         - if @talks
           %ul.theme_list
             - @talks.each do |talk|
