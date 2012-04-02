@@ -35,10 +35,10 @@ class Chapter < ActiveRecord::Base
   
   
 
-  scope :current, joins(:talk).joins('LEFT JOIN days ON talks.day_id = days.id').where("days.year_id = #{DateTime.now.year}")
+  scope :current, joins(:talk => [:day]).where("days.year_id = #{DateTime.now.year}")
  
   
-  scope :archived, joins(:talk).joins('LEFT JOIN days ON talks.day_id = days.id').where("days.year_id != #{DateTime.now.year}")
+  scope :archived, joins(:talk => [:day]).where("days.year_id != #{DateTime.now.year}")
   
   scope :talk_featured, :conditions => {:featured_on_talk => true}
   scope :homepage_featured, :conditions => {:featured_on_homepage => true}
