@@ -59,6 +59,11 @@ class ApplicationController < ActionController::Base
     render "application/sizzle"
   end
   
+  def media_inquiry
+    @meta_data = {:page_title => "CIW Media Inquiry Form", :og_title => "Chicago Ideas Week", :og_type => "website"}
+    render 'application/media_inquiry_form'
+  end
+  
   def send_contact
     AdminMailer.contact_form(params[:contact]).deliver
     render_json_response :ok, :notice => "Your message has been sent."

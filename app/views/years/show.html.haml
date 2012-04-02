@@ -12,6 +12,8 @@
   
   - if @speakers
     #page_header
+      %center
+        %h1 Meet the 2012 CIW Speakers
       %ul.preview_list.speaker_list.horizontal_list
         - @speakers.each do |speaker|
           %li{:id => "speaker_#{speaker.id}", :class => "speaker_#{speaker.id}"}
@@ -28,6 +30,8 @@
 
     .column_row.divided_row#about_description
       .column.column_double
+        %center
+          %h1 2012 CIW Themes
         - if @talks
           %ul.theme_list
             - @talks.each do |talk|
