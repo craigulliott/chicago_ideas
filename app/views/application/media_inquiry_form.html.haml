@@ -1,0 +1,35 @@
+-#     Chicago Ideas Week
+-#     04/02/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span= "Media & Press Request Form"
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Media & Press Request Form
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+  
+    .column_row.divided_row
+      .column.column_double
+        <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dDhyNmtZWS1QUE9PZ2lWMGVmc2p6bGc6MQ" width="640" height="675" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

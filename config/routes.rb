@@ -128,6 +128,7 @@ CraigsAdmin::Application.routes.draw do
   match 'community', :to => 'application#community'
   match 'sizzle', :to => 'application#sizzle'
   match 'info_2012', :to => 'application#sizzle'
+  match 'media/inquiry', :to => 'application#media_inquiry', :as => 'media_inquiry_form'
 
   # contact form
   match 'contact', :to => 'application#contact'
@@ -167,6 +168,7 @@ CraigsAdmin::Application.routes.draw do
   
   match 'events/partner_programs/:id', :to => 'events#partner_programs', :as => 'partner_program'
   
+  match 'current', :to => 'chapters#current'
 
   # the Admin                                                                   (http://www.domain.com/admin)
   # ---------------------------------------------------------------------------------------------------------

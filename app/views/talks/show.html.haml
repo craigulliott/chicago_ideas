@@ -13,9 +13,9 @@
         %li= link_to @talk.name
     = render "partials/explore_dropdown"
 
-
-%section.banner.container-fluid.talks_banner
-  .banner_wrapper{:style => "background: url(#{@talk.banner_src}) top center no-repeat;"}
+- if @talk.banner_src
+  %section.banner.container-fluid.talks_banner
+    .banner_wrapper{:style => "background: url(#{@talk.banner_src}) top center no-repeat;"}
 
 
 -# Main Talk content
@@ -47,7 +47,8 @@
       .column
         %span.column_header
           Date &amp; Location
-          %span.expired_date Event Passed
+          - if !@talk.is_current?
+            %span.expired_date Event Passed
         %table.talk_venue_details
           %tr
             %td.venue_label{:width => "85"} Date
@@ -60,18 +61,22 @@
             %td
               = @talk.venue.name
               %address= @talk.venue.address
+          - if @talk.is_current?
+            %tr
+              %td{:colspan => "2"}
+                %span.hint *Please note: CIW Talk dates/times are subject to change
       .column.right
         .venue_map
           - if @talk.venue.present?
-            = image_tag @talk.venue.google_maps_src(300,145,zoom=15)
+            -#= image_tag @talk.venue.google_maps_src(300,145,zoom=15)
   
     
-    -#= render "partials/chapters_speakers", :locals => @chapters
     = render "partials/chapters_speakers", :chapters => @chapters, :title => "Speakers", :this_speaker => @speaker
 
   -# Include Sidebar Items
   #sidebar
-    = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Videos in this Talk", :this_chapter => 'NULL'
+    - if !@talk.is_current?
+      = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Videos in this Talk", :this_chapter => 'NULL'
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"
