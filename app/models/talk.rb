@@ -75,8 +75,8 @@ class Talk < ActiveRecord::Base
    
   # return formatted time for the front-end
   def formatted_time
-    start_time = "#{self.start_time.strftime("%l")} #{self.start_time.strftime("%p")}"
-    end_time = "#{self.end_time.strftime("%l")} #{self.end_time.strftime("%p")}"
+    start_time = "#{self.start_time.strftime("%l:%M")} #{self.start_time.strftime("%p")}"
+    end_time = "#{self.end_time.strftime("%l:%M")} #{self.end_time.strftime("%p")}"
     "#{start_time} - #{end_time}"
   end
   

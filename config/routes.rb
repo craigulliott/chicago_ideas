@@ -99,7 +99,12 @@ CraigsAdmin::Application.routes.draw do
     end
   end
   
-  resources :years, :only => [:show]
+  
+  #resources :years, :only => [:show]
+  resources :years, :only => [:show] do
+    match 'speakers', :to => 'users#list_speakers'
+  end
+  
   
   # teams members and speakers are both a type of user, so are handled by the users controller
   match 'team_members', :to => 'users#list_team_members'
