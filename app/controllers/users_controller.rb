@@ -56,10 +56,17 @@ class UsersController < ApplicationController
   
   # Speakers landing page
   def list_speakers
-    @speakers = User.speaker.not_deleted.archived.order('name').search_sort_paginate(params).per(12)
+    
+    if params[:year_id].present?
+      @parent = Year.find(params[:year_id])
+      @speakers = @parent.users.speaker.not_deleted.search_sort_paginate(params).per(24)
+    else
+      @speakers = User.speaker.not_deleted.archived.order('name').search_sort_paginate(params).per(12)
+    end
     @meta_data = {:page_title => "Speakers", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Speakers | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     render "speakers/index"
   end
+  
   
   # show andindividual speaker
   def speaker

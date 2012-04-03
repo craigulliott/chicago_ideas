@@ -22,13 +22,13 @@
             = link_to speaker.name, speaker_path(speaker), :rel => "bookmark", :title => "#{speaker.name}"
             %span= speaker.title_abbreviated
       %center
-        = link_to "view more speakers →"
+        = link_to "view more speakers →", year_speakers_path(@current_year)
         
         
   -# Left column, main content: About Us information
   
   .theme_arrow_container
-    %span.blue_header Check out some of this year’s themes!
+    %span.blue_header Check out all of this year’s themes!
     .theme_arrow
   .box.double.left
     .column_row.divided_row
