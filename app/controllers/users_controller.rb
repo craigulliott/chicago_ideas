@@ -56,11 +56,12 @@ class UsersController < ApplicationController
   
   # Speakers landing page
   def list_speakers
-    
+    # If it's a year based list, then return all the speakers for that year
     if params[:year_id].present?
       @parent = Year.find(params[:year_id])
-      @speakers = @parent.users.speaker.not_deleted.search_sort_paginate(params).per(24)
+      @speakers = @parent.users.speaker.not_deleted.order('name').search_sort_paginate(params).per(24)
     else
+      # Else serve all the archived speakers
       @speakers = User.speaker.not_deleted.archived.order('name').search_sort_paginate(params).per(12)
     end
     @meta_data = {:page_title => "Speakers", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Speakers | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
@@ -68,15 +69,15 @@ class UsersController < ApplicationController
   end
   
   
-  # show andindividual speaker
+  # show an individual speaker
   def speaker
     if params[:id].is_number? # check if an ID or permalink is passed
       @speaker = User.find(params[:id])
     else
       @speaker = User.find_by_permalink(params[:id])
     end
-    # Get all chapters that the speaker is part of
-    @chapters = @speaker.chapters.all
+    # Get all chapters that the speaker is part of that are archived
+    @chapters = @speaker.chapters.archived
     @meta_data = {:page_title => "#{@speaker.name}", :og_image => "#{@speaker.portrait(:thumb)}", :og_title => "#{@speaker.name} | Chicago Ideas Week", :og_type => "article", :og_desc => "#{@speaker.bio[0..200]}"}
     render "speakers/show"
   end
