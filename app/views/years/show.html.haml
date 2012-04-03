@@ -9,9 +9,12 @@
 
 -# Main Talk content
 %section.container#main_content
+
+  #intro
+    %h1 CIW 2012: October 8 - 14, 2012
   
   - if @speakers
-    #page_header
+    #page_header.current_year_header
       .down_arrow
       %span.blue_header Meet the CIW 2012 Speakers (more to come!)
       %ul.preview_list.speaker_list.horizontal_list
@@ -21,6 +24,7 @@
               = link_to image_tag(speaker.portrait(:thumb)), speaker_path(speaker), :rel => "bookmark", :title => "#{speaker.name}"
             = link_to speaker.name, speaker_path(speaker), :rel => "bookmark", :title => "#{speaker.name}"
             %span= speaker.title_abbreviated
+      .clearfix
       %center
         = link_to "view more speakers →", year_speakers_path(@current_year)
         
