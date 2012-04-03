@@ -60,6 +60,15 @@ class Chapter < ActiveRecord::Base
     true
   end
   
+  
+  # Check if it's a current year chapter
+  def is_current?
+    talk = Talk.find(self.talk_id)
+    return talk.day.year_id == DateTime.now.year ? true : false
+    #self.Talk.days.year_id == DateTime.now.year ? true : false
+    #self.day.year_id == DateTime.now.year ? true : false
+  end
+  
 
   
   # large format blessed photo for the website
