@@ -35,10 +35,13 @@
               %pre
                 - if news.image.present?
                   = image_tag(news.image, :class => "news_image")
-                -#= truncate_words(news.description)
-                = truncate_words(news.description, 75)
-              
-              = link_to "more →", press_clipping_path(news), :rel => "bookmark", :title => "#{news.title}"
+                - if news.news_type == "News Releases"
+                  -#= truncate_words(news.description)
+                  = truncate_words(news.description, 75)
+                  = link_to "more →", press_clipping_path(news), :rel => "bookmark", :title => "#{news.title}"
+                - else
+                  = news.description
+                  = link_to "original article →", news.url, :rel => 'nofollow', :title => "#{news.title}"
                 
                 
 
