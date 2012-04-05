@@ -60,7 +60,7 @@
 
 
     -# Related speakers
-    - unless @chapters.empty?
+    - unless @chapters.blank?
       = render "partials/chapters_speakers", :chapters => @chapters.first.talk.chapters.all, :title => "Related Speakers", :this_speaker => @speaker
         
 

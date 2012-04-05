@@ -12,7 +12,7 @@ class AdminMailer < ActionMailer::Base
     # headers to track everything through sendgrid
     headers({'X-SMTPAPI' => '{"category": "Contact Form"}'})
 
-    mail(:to => BUSINESS_EMAIL, :subject => 'Contact form was filled out')
+    mail(:to => BUSINESS_EMAIL, :subject => contact_params[:subject])
   end
 
 end

@@ -2,8 +2,9 @@
   %tr
     %th.created_at= ssp_sort_link :created_at, :title => 'Date'
     %th.title= ssp_sort_link :title
-    %th.image Image
+    -#%th.image Image
     %th.url= ssp_sort_link :url
     %th.description Description
+    %th.news_type News Type
     %th 
   = render :partial => 'admin/press_clippings/press_clipping.html.haml', :collection => press_clippings
