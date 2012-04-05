@@ -13,12 +13,12 @@
     
     %li#gn_upcoming.nav_parent.nav_section_end
       = link_to "2012 CIW", year_path(@current_year), :rel => "bookmark", :title => "2012 CIW"
-      .dropdown.full_dropdown
+      .dropdown
         %ul.dd_column.full
-          %li
-            2012 CIW Dates Announced: October 8 - 14, 2012
-            %br
-            Details coming soon
+          %li= link_to "CIW Talks", year_talks_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
+          %li= link_to "CIW Megatalks", mega_talks_year_talks_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Megatalks"
+          %li= link_to "CIW Labs", labs_events_path, :rel => "bookmark", :title => "View all CIW Labs"
+          %li= link_to "Affiliate Events", affiliate_event_events_path, :rel => "bookmark", :title => "All all Affiliate Events"
         
     %li#gn_events.nav_parent
       = link_to "Events", events_path, :rel => "bookmark", :title => "CIW Events"

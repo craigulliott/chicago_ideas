@@ -103,6 +103,13 @@ CraigsAdmin::Application.routes.draw do
   #resources :years, :only => [:show]
   resources :years, :only => [:show] do
     match 'speakers', :to => 'users#list_speakers'
+    resources :talks, :only => [:index] do
+      # home pages for the different talk types
+      collection do
+        get :mega_talks
+        get :edison_talks
+      end
+    end
   end
   
   

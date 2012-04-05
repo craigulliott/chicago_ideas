@@ -32,7 +32,11 @@
 
   -# Include Sidebar Items
   #sidebar
-    -#= render "partials/track_filter"
+    .box.right.yellow_box
+      .column_row
+        = link_to year_talks_path(@current_year), :class => "callout_link" do
+          %span.call_out 2012 CIW Talks
+          %span Checkout the 2012 CIW Announcement
     = render "partials/sponsors"
     = render "partials/newsletter_form"
     = render "partials/social"
