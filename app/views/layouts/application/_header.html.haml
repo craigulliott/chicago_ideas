@@ -15,6 +15,7 @@
       = link_to "2012 CIW", year_path(@current_year), :rel => "bookmark", :title => "2012 CIW"
       .dropdown
         %ul.dd_column.full
+          %li= link_to "2012 Speakers", year_speakers_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
           %li= link_to "CIW Talks", year_talks_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
           %li= link_to "CIW Megatalks", mega_talks_year_talks_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Megatalks"
           %li= link_to "CIW Labs", labs_events_path, :rel => "bookmark", :title => "View all CIW Labs"
