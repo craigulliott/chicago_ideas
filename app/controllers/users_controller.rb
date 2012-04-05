@@ -77,8 +77,8 @@ class UsersController < ApplicationController
       @speaker = User.find_by_permalink(params[:id])
     end
     # Get all chapters that the speaker is part of that are archived
-    @chapters = @speaker.chapters
-    @meta_data = {:page_title => "#{@speaker.name}", :og_image => "#{@speaker.portrait(:thumb)}", :og_title => "#{@speaker.name} | Chicago Ideas Week", :og_type => "article", :og_desc => "#{@speaker.bio.present? ? @speaker.bio[0..200] : ""}"}
+    @chapters = @speaker.chapters.all
+    @meta_data = {} #{:page_title => "#{@speaker.name}", :og_image => "#{@speaker.portrait(:thumb)}", :og_title => "#{@speaker.name} | Chicago Ideas Week", :og_type => "article", :og_desc => "#{@speaker.bio[0..200]}"}
     render "speakers/show"
   end
   

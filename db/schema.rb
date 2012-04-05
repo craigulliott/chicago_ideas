@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327213542) do
+ActiveRecord::Schema.define(:version => 20120404192823) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -343,6 +343,7 @@ ActiveRecord::Schema.define(:version => 20120327213542) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "news_type"
   end
 
   create_table "quotes", :force => true do |t|
