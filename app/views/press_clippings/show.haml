@@ -32,17 +32,15 @@
             - if @press_clipping.image.present?
               = image_tag(@press_clipping.image, :class => "news_image")
             = @press_clipping.description
-          -if @press_clipping.url.present?
-            = link_to "original article →", @press_clipping.url, :rel => 'nofollow', :title => @press_clipping.title
           
           
   -# Include Sidebar Items
   #sidebar
-  .box.right.yellow_box
-    .column_row
-      %a{:href => "#{media_inquiry_form_path}", :class => "callout_link"}
-        %span.medium_callout Media &amp; Press Requests
-        %span Submit a Request Here
-  = render "partials/sponsors"
-  = render "partials/social"
-  = render "partials/newsletter_form"
+    .box.right.yellow_box
+      .column_row
+        %a{:href => "#{media_inquiry_form_path}", :class => "callout_link"}
+          %span.medium_callout Media &amp; Press Requests
+          %span Submit a Request Here
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

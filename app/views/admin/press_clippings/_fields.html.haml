@@ -4,4 +4,4 @@
   = f.input :image, :as => :file, :hint => "this must be exactly #{@model.image_dimensions_string}"
   = f.input :url 
   = f.input :description
-  = f.input :news_type, :as => :select, :collection => ['News Releases', 'Press Clippings']
+  = f.input :news_type, :as => :select, :collection => ['Press Release', 'News Article'], :default => "News Article"
