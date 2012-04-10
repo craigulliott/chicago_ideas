@@ -93,7 +93,7 @@ $(document).ready(function() {
   });
 
     
-  $('#sponsors ul').nivoSlider({
+  $('#sponsors div').nivoSlider({
     effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
     animSpeed: 500, // Slide transition speed
     pauseTime: 5000, // How long each slide will show
