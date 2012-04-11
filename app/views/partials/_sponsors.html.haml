@@ -5,6 +5,6 @@
 -# Sponsors Section
 - if @sponsors.present?
   .box.right#sponsors
-    .nivoSlider
+    .nivoSlider#sponsors
       - @sponsors.each do |sponsor|
         = link_to image_tag(sponsor.logo), "#{sponsor.url}", :class => "sponsor_item"

@@ -151,6 +151,9 @@
 #sponsors{
   height: 260px;
 }
+#sponsors .nivo-caption{
+  z-index:0;
+}
 /*
  * FancyBox - jQuery Plugin
  * Simple and fancy lightbox alternative
