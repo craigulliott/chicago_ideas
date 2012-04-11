@@ -341,6 +341,9 @@ CraigsAdmin::Application.routes.draw do
     end
 
     resources :sponsors do      
+      collection do
+        post :sort
+      end
       member do
         # pages
         get :notes
