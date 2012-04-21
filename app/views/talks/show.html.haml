@@ -13,9 +13,6 @@
         %li= link_to @talk.name
     = render "partials/explore_dropdown"
 
-- if @talk.banner_src
-  %section.banner.container-fluid.talks_banner
-    .banner_wrapper{:style => "background: url(#{@talk.banner_src}) top center no-repeat;"}
 
 
 -# Main Talk content
