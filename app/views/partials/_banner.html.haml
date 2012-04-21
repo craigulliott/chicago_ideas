@@ -7,6 +7,22 @@
 %section#featured.container-fluid
 
   #banner_container
+    .banner_item{:id => "banner_#{@clinton.id}", :style => "background: url(#{@clinton.homepage_banner(:large)}) center center no-repeat;"}
+      .banner_content
+        .banner_box
+          .banner_top
+            %span.banner_type= "CIW #{@clinton.talk.talk_brand.name}"
+            %span.banner_title
+              - if @clinton.homepage_caption.present?
+                = link_to @clinton.homepage_caption, video_path(@clinton), :rel => "bookmark", :title => "#{@clinton.homepage_caption}"
+              -else
+                = link_to @clinton.title, video_path(@clinton), :rel => "bookmark", :title => "#{@clinton.title}"
+            -# only display speaker list if it's one speaker'
+            - if @clinton.performances.size == 1
+              - @clinton.performances.limit(2).each do |performance|
+                - if performance.speaker.present?
+                  %span.b_link= link_to performance.speaker.name, speaker_path(performance.speaker), :rel => "bookmark", :title => "#{performance.speaker.name}"
+
     - @featured.each do |featured_item|
       .banner_item{:id => "banner_#{featured_item.id}", :style => "background: url(#{featured_item.homepage_banner(:large)}) center center no-repeat;"}
         .banner_content
@@ -27,5 +43,6 @@
 
     .container-fluid#banner_nav_wrapper
       %ul#banner_nav
+        %li= link_to image_tag(@clinton.homepage_banner(:thumb)), "#", :class => "b_thumb thumb_#{@clinton.id}", :id => "thumb_#{@clinton.id}", :rel => "bookmark", :title => "#{@clinton.title}"
         - @featured.each do |featured_thumb|
           %li= link_to image_tag(featured_thumb.homepage_banner(:thumb)), "#", :class => "b_thumb thumb_#{featured_thumb.id}", :id => "thumb_#{featured_thumb.id}", :rel => "bookmark", :title => "#{featured_thumb.title}"
