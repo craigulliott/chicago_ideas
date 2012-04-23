@@ -3,7 +3,7 @@ class Admin::SponsorsController < Admin::AdminController
   # COLLECTION ACTIONS
   # ---------------------------------------------------------------------------------------------------------
   def index
-    @sponsors = Sponsor.search_sort_paginate(params)
+    @sponsors = Sponsor.by_sort.search_sort_paginate(params)
   end
 
   # MEMBER ACTIONS

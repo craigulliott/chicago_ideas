@@ -925,6 +925,11 @@ ul.labs_filter {
     display: block;
     font-weight: 700;
     text-transform: uppercase;
+
+    a {
+      color: $dark;
+      text-transform: uppercase;
+    }
   }
   span.call_out {
     font-size: 31px;
@@ -949,12 +954,11 @@ ul.labs_filter {
     font-size: 21px;
     line-height: 27px;
   }
+  .small_callout {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
-
-
-
-
-
 
 
 

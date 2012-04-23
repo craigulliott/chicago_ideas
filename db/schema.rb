@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120404192823) do
+ActiveRecord::Schema.define(:version => 20120410214906) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -384,6 +384,7 @@ ActiveRecord::Schema.define(:version => 20120404192823) do
     t.datetime "updated_at"
     t.string   "url"
     t.boolean  "featured"
+    t.integer  "sort"
   end
 
   add_index "sponsors", ["sponsorship_level_id"], :name => "index_sponsors_on_sponsorship_level_id"
