@@ -34,7 +34,7 @@
   #sidebar
     .box.right.yellow_box
       .column_row
-        = link_to year_talks_path(@current_year), :class => "callout_link" do
+        = link_to year_path(@current_year), :class => "callout_link" do
           %span.call_out 2012 CIW Talks
           %span Checkout the 2012 CIW Announcement
     = render "partials/sponsors"
