@@ -57,25 +57,23 @@
         .form_section
           %span.form_section_header Step 2: Chicago Ideas Week Community Partnerships
           = f.inputs :class => "v_lists" do
-            = f.input :previous_partner, :label => "Was your organization a 2011 Community Partner?", :collection => ["Yes", "No"]
+            = f.input :previous_partner, :required => true, :label => "Was your organization a 2011 Community Partner?", :collection => ["Yes", "No"]
             = f.input :why_partner, :required => true, :label => "Why do you want to become a 2012 CIW Community Partner?"
           
           = f.inputs :name => " Select the topics below that are most relevant to your organization. (List topics – Check all that apply)", :class => "v_lists checkbox_list" do 
             = f.input :design_with_purpose_theme, :label => "Design with Purpose"
-            = f.input :start_something_theme, :label => "Start Something"
             = f.input :fashion_theme, :label => "Fashion"
             = f.input :sports_theme, :label => "Sports"
             = f.input :cities_theme, :label => "Cities"
             = f.input :politics_theme, :label => "Politics"
             = f.input :philanthropy_theme, :label => "Philanthropy"
-            = f.input :tech_theme, :label => "Tech"
+            = f.input :tech_theme, :label => "Technology"
             = f.input :breathroughs_in_science_theme, :label => "Breakthroughs in Science"
             = f.input :creative_process_theme, :label => "Creative Process"
             = f.input :health_wellness_theme, :label => "Health and Wellnesss"
             = f.input :future_of_news_theme, :label => "Future of News"
             = f.input :influence_of_art_theme, :label => "Influence of Art"
             = f.input :food_theme, :label => "Food"
-            = f.input :good_evil_theme, :label => "Good and Evil"
             = f.input :social_entrepreneurship_theme, :label => "Social Entrepreneurship"
             = f.input :explorers_theme, :label => "Explorers"
             = f.input :disruptive_innovation_theme, :label => "Disruptive Innovation"
@@ -87,10 +85,11 @@
             = f.input :future_leaders_theme, :label => "Future Global Leaders"
             = f.input :education_theme, :label => "Education"
             = f.input :meaning_of_life_theme, :label => "Meaning of Life"
-            = f.input :environment_theme, :label => "Environment"
+            = f.input :earth_theme, :label => "Earth"
             = f.input :criminal_justice_theme, :label => "Criminal Justice"
             = f.input :storytellers_theme, :label => "Storytellers"
-            = f.input :gender_theme, :label => "Gender"
+            = f.input :identity_theme, :label => "Identity"
+            = f.input :instigators_theme, :label => "Instigators"
           
           = f.inputs :class => "v_lists" do
             = f.input :most_important, :label => "What is most important to you about being a Community Partner? (Select one)", :collection => ["Networking opportunities", "Being listed on the CIW website and show guide", "Opportunity to help guide CIW programming", "Potential for early ticket sales and/or complimentary tickets", "Other (Please explain)"]

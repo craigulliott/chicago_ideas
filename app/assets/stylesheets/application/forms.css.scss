@@ -140,7 +140,6 @@ abbr {
   #dd_submit {
     padding-bottom: 13px !important;
     margin-bottom: 0px;
-    border-bottom: 1px solid #000;
     label {
       display: inline; 
       line-height: 30px;
@@ -149,6 +148,8 @@ abbr {
   #connect_to_facebook {
     text-align: center;
     margin-top: 10px;
+    border-bottom: 1px solid #000;
+    min-height: 25px;
   }
   #dd_forgot_pw {
     margin-bottom: 0;
@@ -163,6 +164,25 @@ abbr {
 }
 
 
+a.fb_connect_btn {
+  text-indent: -9999px;
+  float: left;
+  width: 194px;
+  height: 25px;
+  background: image-url('application/site_sprite.png') no-repeat;
+  background-position: 0 -300px;
+  clear: both;
+  display: block;
+}
+a.fb_connect_btn:after {
+  display: table;
+  zoom: 1;
+  content: "";
+  clear: both;
+}
+a.fb_connected {
+  background-position: 0 -330px;
+}
 
 
 
@@ -322,7 +342,7 @@ li.s_links {
       display: block;
       margin: 0 0 20px 0;
      li { 
-       margin: 0 0 5px 0 !important; 
+       margin: 0 0 10px 0 !important; 
        padding: 0;
        
         input[type="checkbox"] {
@@ -379,7 +399,7 @@ fieldset.buttons, fieldset.buttons ol, fieldset.buttons li {
 
 
 // Speaker search
-a#speaker_search {
+a.expandable_search {
   width: 20px;
   height: 20px;
   background: asset-url('application/site_sprite.png', image) no-repeat;
@@ -476,6 +496,12 @@ abbr[title="required"], span.required {
   color: red;
 }
 
+.inline-hints {
+  color: #888 !important;
+  font-size: 13px;
+  font-style: italic;
+}
+
 // Form Errors
 form .error {
 
@@ -494,7 +520,31 @@ form .error {
 }
 
 
+/* Not signed in notice for BHSI */
+.notification {
+  display: block;
+  clear: both;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background: #fffde2;
+  border: 1px solid #d8cd17;
+  @include rounded(4px);
 
+  p {
+    color: #000;
+    font-weight: bold;
+    line-height: 19px;
+  }
+}
+
+
+/******************************************************
+ *  BHSI Form
+******************************************************/
+img.bhsi_logo{
+  margin: 0 20px 20px 0;
+  float: left;
+}
 
 // Form special cases
 #community_partner_application_most_important_other_input, #affiliate_event_application_event_cost_input, #affiliate_event_application_rsvp_directions_input, #community_partner_application_organization_newsletter_frequency_input, #community_partner_application_ciw_updates_in_newsletter_input, #community_partner_application_other_newsletter_frequency_input {

@@ -27,13 +27,21 @@
         - if sl.sponsors.present?
           .column_row.divided_row
             .column.column_double
+              %h2= sl.name
               %ul.sponsors_list
                 - sl.sponsors.each do |s|
                   %li
-                    = link_to image_tag URI.decode(s.logo), s.url, :alt => s.name
+                    - if s.url.present?
+                      = link_to image_tag(s.logo), s.url, :alt => s.name
+                    - else
+                      = image_tag(s.logo, :alt => s.name)
 
 
   -# Include Sidebar Items
   #sidebar
+    .box.right.yellow_box
+      .column_row
+        %span.small_callout
+          = mail_to "jessica@chicagoideas.com, mary@chicagoideas.com", "Interested in Sponsorship? Click here", :class => "callout_link"        
     = render "partials/social"
     = render "partials/newsletter_form"

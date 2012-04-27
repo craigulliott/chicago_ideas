@@ -1,0 +1,14 @@
+!!! 5
+
+%html
+  %head
+    %title
+    %style
+      = CraigsAdmin::Application.assets["pdf"].to_s.html_safe
+        
+  
+  %body.pdf_admin
+    
+    #content_container
+      #content
+        = yield

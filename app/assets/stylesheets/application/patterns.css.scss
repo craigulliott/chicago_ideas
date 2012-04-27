@@ -514,6 +514,52 @@ ul.double_rows {
     float:right;
   }
 }
+ul.horizontal_list {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  
+  li {
+    display: inline;
+    width: 142px;
+    text-align: center;
+    float: left;
+    clear: none;
+    
+    .img_frame {
+      display: block;
+      clear: both;
+      margin: 0 0 10px 0;
+      float: none;
+    }
+    span {
+      font-size: 13px;
+    }
+  }
+  &li:last-child {
+    margin-right: 0;
+  }
+}
+ul.theme_list {
+  display: block;
+  clear: both;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 620px;
+  
+  li {
+    display: block;
+    width: 100%;
+    float: left;
+    margin: 0 30px 7px 0;
+    padding: 0;
+  }
+  li:nth-child(2n+2), li.end {
+    margin-right: 0;
+  }
+}
+
 .img_frame {
   overflow: hidden;
   border: 3px solid #fff;
@@ -576,16 +622,15 @@ ul.double_rows {
 // Sponsors List
 ul.sponsors_list {
   width: 100%;
-  display: table;
+  display: block;
   margin: 0;
   padding: 0;
   list-style: none;
+  text-align: center;
   
   li {
-    display: table-cell;
-    float: left;
-    margin: 0 15px 15px 0;
-    vertical-align: middle;
+    display: inline;
+    margin: 0 10px;
   }
 }
 #sponsors_list .divided_row:last-child, #sponsors_list .last {
@@ -731,30 +776,44 @@ ul.semi_finalists {
   }
 }
 
+//Sharethis icons
+ul#confirm_share {
+  display: block;
+  text-align: center;
+  list-style: none;
+  margin: 20px 0 0 0;
+  padding: 0;
+  
+  li {
+    display: inline;
+    
+  }
+}
 
 /******************************************************
  *  Sidebar
 ******************************************************/
-#sponsors ul {
-  display: table;
-  list-style: none;
-  clear: both;
-  position: relative; 
-  width: 300px;
-  height: 180px;
-  overflow: hidden; 
+#sponsors {
+  width: 260px;
+  padding: 0 20px;
   
-  li {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: table-cell;
+  ul {
+    display: block;
+    list-style: none;
+    clear: both;
+    width: 300px;
+    height: 260px;
+    overflow: hidden; 
     text-align: center;
-    vertical-align: middle; 
-    float: left;
+  
+    li {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      text-align: center;
+    }
   }
 }
-
 
 // Column item headers
 .box_header {
@@ -861,10 +920,16 @@ ul.labs_filter {
   span {
     color: $dark;
     font-size: 12px;
+    line-height: 17px;
     margin-bottom: 5px;
     display: block;
     font-weight: 700;
     text-transform: uppercase;
+
+    a {
+      color: $dark;
+      text-transform: uppercase;
+    }
   }
   span.call_out {
     font-size: 31px;
@@ -872,11 +937,28 @@ ul.labs_filter {
   a.callout_link, a.callout_link span {
     text-decoration: none;
   }
+  .alt_link {
+    background: $dark;
+    color: #f0f0f0;
+    padding: 10px 20px;
+    
+    a {
+      color: #f0f0f0;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+  .medium_callout {
+    font-size: 21px;
+    line-height: 27px;
+  }
+  .small_callout {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
-
-
-
-
 
 
 
@@ -939,7 +1021,7 @@ ul.labs_filter {
   background-image:      -o-linear-gradient(top, #e4e4e4, #dcdcdc);
 }
 .blue_btn, input.submit, input.create, .pagination .current {
-  color:$white;
+  color:#fff !important;
   border:1px solid #0072bc;
   text-shadow: 1px 1px 1px #00548a;
   @include gradient(#0072bc, #1c91dc, #0072bc);
@@ -949,6 +1031,27 @@ input.submit, input.create {
   padding: 6px 25px;
 }
 
+
+/* BHSI Page */
+#bhsi_apply_btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+ul#previous_winners_preview {
+  display: block;
+  clear: both;
+  list-style: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+  text-align: left;
+  
+  li {
+    display: inline;
+    margin: 0 10px 0 0;
+    padding: 0;
+  }
+}
 
 
 
@@ -1037,6 +1140,7 @@ input.submit, input.create {
 
 
 #news_list {
+  
   h2 {
     font-size: 23px;
     line-height: 29px;
@@ -1060,6 +1164,7 @@ input.submit, input.create {
   .column {
     padding-bottom: 30px;
   }
+  
 }
 
 
@@ -1175,3 +1280,43 @@ ul.list_reset {
 }
 
 
+span.blue_header {
+  font-size: 21px;
+  font-weight: bold;
+  color: #2d77de;
+  display: block;
+  clear: both;
+  margin-bottom: 15px;
+}
+#page_header span.blue_header {
+  text-align: right;
+  padding-right: 20px;
+}
+.down_arrow {
+  background: image-url('application/arrow_1.png') no-repeat;
+  width: 74px;
+  height: 121px;
+  float: right;
+  margin-right: -60px;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+}
+
+.theme_arrow_container {
+  position: relative; 
+  
+  .theme_arrow {
+    background: image-url('application/arrow_2.png') no-repeat;
+    width: 75px;
+    height: 116px;
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    margin-left: -80px;
+  }
+  
+}
+.current_year_header {
+  position: relative;
+}

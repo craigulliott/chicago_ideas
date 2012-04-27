@@ -6,6 +6,7 @@
 - content_for :top_links do
   = edit_model_link @volunteer, true
   = destroy_model_link @volunteer, true
+  = link_to "pdf", admin_volunteer_path(@volunteer, :format => :pdf)
 
 %h1
   This Volunteer
@@ -15,6 +16,8 @@
 #model_detail
   %h4 User
   %p= link_to @volunteer.user.name, admin_user_path(@volunteer.user)
+  %p= @volunteer.user.email
+  %p= @volunteer.phone
 
   %h4 Postcode
   %p= @volunteer.postcode

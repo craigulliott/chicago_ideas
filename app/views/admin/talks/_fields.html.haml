@@ -5,6 +5,7 @@
   = f.input :track, :as => :select, :collection => Track.by_name.all
   = f.input :day, :include_blank => false, :as => :select, :collection => Day.by_date.all
   = f.input :venue, :include_blank => false, :as => :select, :collection => Venue.by_name.all
+  = f.input :twitter_hashtag
   = f.input :start_time, :input_html => {:class => 'timepicker', :value => @model.start_time.present? ? @model.start_time.to_s(:time) : nil}, :as => :string 
   = f.input :end_time, :input_html => {:class => 'timepicker', :value => @model.end_time.present? ? @model.end_time.to_s(:time) : nil}, :as => :string 
   = f.input :sponsor, :hint => "use this to assign this event with a specific sponsor", :as => :select, :collection => Sponsor.by_name.all

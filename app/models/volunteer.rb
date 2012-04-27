@@ -5,6 +5,8 @@ class Volunteer < ActiveRecord::Base
 
   belongs_to :user
   
+  has_attached_file :pdf, :path => "applications/volunteer/pdfs/:id/:filename"
+  
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
@@ -12,6 +14,7 @@ class Volunteer < ActiveRecord::Base
   validates :user_id, :presence => true
   validates :first_name, :presence => true
   validates :last_name, :presence => true
+  validates :type_of_position, :presence => true
   validates :email, :presence => true
   validates :phone, :presence => true
   validates :why, :presence => true
@@ -23,7 +26,7 @@ class Volunteer < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      :type => self.class.name.underscore.downcase,
       :user => user.api_attributes,
       :postcode => postcode,
       :employed => employed,

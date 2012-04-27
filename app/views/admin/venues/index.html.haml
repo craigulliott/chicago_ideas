@@ -11,4 +11,5 @@
     = new_model_link Venue
   .table_wrapper
     = render 'admin/venues/table.html.haml', :venues => @venues
+  = paginate @venues
 

@@ -57,6 +57,10 @@ body {
   background: $white;
   @include rounded(2px);
   margin-bottom: 30px;
+  
+  .divided_row:last-child, .divided_row_last {
+    border-bottom: none;
+  }
 }
 .yellow_box {
   background: #faeb09;
@@ -160,17 +164,17 @@ ul#global_nav {
   } // end li
   
   li#gn_logo {
-    width: 156px;
-    height: 87px;
-    padding:0;
+    width: 160px;
+    height: 116px;
+    padding: 0;
     
     > h1 a {
       display: block;
-      width: 156px;
-      height: 87px;
+      width: 160px;
+      height: 116px;
       background: asset-url('application/site_sprite.png', image) no-repeat !important;
       background-position: 0 0;
-      text-indent: -9999px;      
+      text-indent: -9999px;
     }
   } // end li#gn_logo
       
@@ -284,9 +288,8 @@ ul#global_nav {
     background: #1e1b1b asset-url('application/dropdown_gradient.png', image) top left repeat-x;
     width: 200px;
     padding: 30px;
-    margin-left: -20px;
+    margin-left: -19px;
     z-index: 3001 !important;
-//    @include box-shadow(0,5px,15px,#000);
     border-bottom-right-radius: 5px;
     -webkit-border-bottom-right-radius: 5px;
     -moz-border-radius-bottomright: 5px;
@@ -318,7 +321,7 @@ ul#global_nav {
     }
     
     ul.featured {
-      width: 530px;
+      width: 520px;
       margin: 0;
       
       li {
@@ -359,9 +362,9 @@ ul#global_nav {
   } // end .dropdown
 
   .full_dropdown {
-    width: 804px;
-    left: 153px;
-    margin-left:0;
+    width: 794px;
+    left: 157px;
+    margin-left: 0;
   }
   .double_dropdown {
     width: 440px;

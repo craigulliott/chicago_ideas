@@ -1,0 +1,174 @@
+
+- content_for :top_links do
+  = edit_model_link @bhsi_application, true
+  = destroy_model_link @bhsi_application, true
+  = link_to "pdf", admin_bhsi_application_path(@bhsi_application, :format => :pdf)
+%h1
+
+  = icon_link_to 'notes', notes_admin_bhsi_application_path(@bhsi_application), 'script'
+  = new_model_link Note, @bhsi_application
+
+#model_detail
+  
+  %h1 Part 1: About You
+  %h4 First Name
+  %p= @bhsi_application.first_name
+
+  %h4 Last Name
+  %p= @bhsi_application.last_name
+
+  %h4 Address 1
+  %p= @bhsi_application.address1
+
+  %h4 Address 2
+  %p= @bhsi_application.address2
+
+  %h4 City
+  %p= @bhsi_application.city
+
+  %h4 State
+  %p= @bhsi_application.state
+
+  %h4 Zipcode
+  %p= @bhsi_application.zipcode
+
+  %h4 Country
+  %p= @bhsi_application.country
+
+  %h4 Phone Number
+  %p= @bhsi_application.phone_number
+
+  %h4 Email Address
+  %p= @bhsi_application.email
+
+  %h4 Gender
+  %p= @bhsi_application.gender
+
+  %h4 Birthdate
+  %p= @bhsi_application.birthdate
+
+  %h4 Have you applied to the Bluhm/Helfand Social Innovation Fellowship before?
+  %p= @bhsi_application.applied_before
+
+  %h4 Tell us a little bit about yourself. Make sure to include any previous leadership recognition or awards (100-200 words):
+  %p= @bhsi_application.about_yourself
+  
+  %hr
+  
+  %h1  Part 2: About Your Venture
+  
+  %h4 Your Title
+  %p= @bhsi_application.title
+
+  %h4 Social Venture Name
+  %p= @bhsi_application.social_venture_name
+
+  %h4 Legal Structure (501c3, LLC, Fiscally Sponsored, etc.)
+  %p= @bhsi_application.legal_structure
+
+  %h4 URL
+  %p= @bhsi_application.url
+
+  %h4 Twitter Handle
+  %p= @bhsi_application.twitter_handle
+
+  %h4 Video URL
+  %p= @bhsi_application.video_url
+
+  %h4 Capsule description of your social venture (50-100 words):
+  %p= @bhsi_application.social_venture_description
+
+  %h4 Date your social venture was officially launched:
+  %p= @bhsi_application.venture_launched
+
+  %h4 Number of people you affected this year:
+  %p= @bhsi_application.number_people_affected
+
+  %h4 Please explain this number in a few sentences:
+  %p= @bhsi_application.explain_number
+
+  %h4 TPlease provide three standout statistics marking your social venture’s achievement:
+  %p= @bhsi_application.three_standout_statistics
+  
+  
+  %hr
+  
+  
+  %h1 Part 3: Structure, Strategy & Goals
+  
+  %h4 Explain your venture’s level of organizational development. Also, detail the sources of your funding and your most significant large funders (i.e., second round of VC funding, number of team members, annual budget/income, etc.) (75-200 words):
+  %p= @bhsi_application.organizational_development
+
+  %h4 Explain what makes your venture a social innovation (2-3 sentences):
+  %p= @bhsi_application.makes_social_innovation
+
+  %h4 Explain your inspiration for starting your social venture and describe your main programs and initiatives (300-600 words):
+  %p= @bhsi_application.inspiration
+
+  %h4 Explain your model for sustainability and share the results that prove your model is working. Also explain how you measure your social impact. (A strong response to this question should include ample data demonstrating your measurable impact.) (300-600 words)
+  %p= @bhsi_application.sustainability_model
+
+  %h4 What can you improve? Where is your work headed in the next two years? Where would you like to be in the long term, 10 years from now and beyond? What is your plan to achieve those goals? (300-600 words)
+  %p= @bhsi_application.improvements
+
+  %h4 How do you distinguish yourself in your specific field? What are you doing that no one else is doing? (A strong response should include a discussion of at least two other ventures working in this space and how you are specifically different from them.) (300-500 words)
+  %p= @bhsi_application.distinguish_yourself
+
+
+  %hr
+  
+  
+  %h1 Part 4: Additional Questions
+  
+  %h4 Do you have a strong connection to the Midwest? If so, please explain (50-100 words):
+  %p= @bhsi_application.strong_midwest_connections_explained
+
+  %h4 Additional Comments
+  %p= @bhsi_application.additional_comments
+  
+  
+  
+  %hr
+  
+
+  %h1 Part 5: Budget, Press Clippings & References
+
+  %h4 Please submit your 2011 Budget, including expenses and revenues.
+  %p= @bhsi_application.previous_budget.present? ? @bhsi_application.previous_budget : ''
+
+  %h4 Reference 1 Name
+  %p= @bhsi_application.reference_1_name
+
+  %h4 Reference 1 Relationship to you
+  %p= @bhsi_application.reference_1_relationship
+
+  %h4 Reference 1 Phone Number
+  %p= @bhsi_application.reference_1_phone
+
+  %h4 Reference 1 Email
+  %p= @bhsi_application.reference_1_email
+
+  %h4 Reference 1 Name
+  %p= @bhsi_application.reference_2_name
+
+  %h4 Reference 2 Relationship to you
+  %p= @bhsi_application.reference_2_relationship
+
+  %h4 Reference 2 Phone Number
+  %p= @bhsi_application.reference_2_phone
+
+  %h4 Reference 2 Email
+  %p= @bhsi_application.reference_2_email
+
+  %h4 Press Clipping 1
+  - if @bhsi_application.press_clipping_1.present?
+    = link_to @bhsi_application.press_clipping_1_file_name, @bhsi_application.press_clipping_1.url
+
+  %h4 Press Clipping 2
+  - if @bhsi_application.press_clipping_2.present?
+    = link_to @bhsi_application.press_clipping_2_file_name, @bhsi_application.press_clipping_2.url
+
+  %h4 Press Clipping 3
+  - if @bhsi_application.press_clipping_3.present?
+    = link_to @bhsi_application.press_clipping_3_file_name, @bhsi_application.press_clipping_3.url
+

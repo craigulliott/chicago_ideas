@@ -14,12 +14,18 @@ class User < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
+  
+  has_many :speakers, :dependent => :destroy
+  has_many :years, :through => :speakers
+  
+  
   has_many :performances, :foreign_key => :speaker_id
   has_many :chapters, :through => :performances
   
   has_one :volunteer
   has_one :community_partner_application
   has_one :affiliate_event_application
+  has_one :bhsi_application
   
   has_many :quotes
   accepts_nested_attributes_for :quotes, :allow_destroy => true
@@ -30,11 +36,14 @@ class User < ActiveRecord::Base
   scope :volunteer, :conditions => { :volunteer => true }
   scope :staff, :conditions => { :staff => true }
   
+  scope :current, joins(:years).where("years.id = #{DateTime.now.year}")
+  scope :archived, joins(:years).where("years.id != #{DateTime.now.year}")
+  
   scope :by_name, order('name asc')
   
   # Search Indexing
   define_index do
-    where "speaker = 1 OR staff = 1"
+    where "speaker = 1 OR staff = 1 AND deleted_at IS NOT NULL"
     indexes name
     indexes bio
     has created_at, updated_at
@@ -49,7 +58,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable 
          
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :title, :bio, :twitter_screen_name, :newsletter, :portrait, :portrait2, :quotes_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :title, :bio, :twitter_screen_name, :newsletter, :portrait, :portrait2, :quotes_attributes, :year_ids
 
   # validators
   validates :email, :email => true, :presence => true, :uniqueness => true
@@ -97,8 +106,8 @@ class User < ActiveRecord::Base
   }
 
   validates :permalink, :presence => true, :uniqueness => true, :format => {:with => /^[\w\d_]+$/}
-  validate :validate_portrait_dimensions, :if => "portrait.present?", :unless => "errors.any?"
-  validate :validate_portrait2_dimensions, :if => "portrait2.present?", :unless => "errors.any?"
+  #validate :validate_portrait_dimensions, :if => "portrait.present?", :unless => "errors.any?"
+  #validate :validate_portrait2_dimensions, :if => "portrait2.present?", :unless => "errors.any?"
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
@@ -149,13 +158,13 @@ class User < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      :type => self.class.name.underscore.downcase,
       :name => name,
       :title => title,
       :bio => bio,
       :twitter_screen_name => twitter_screen_name,
       :permalink => permalink,
-      :photo => portrait,
+      :photo => portrait.url
     }
   end
 
@@ -223,7 +232,7 @@ class User < ActiveRecord::Base
   
   # Need to normalize the search attributes
   def search_attributes
-    {:title => self.name, :description => self.bio[0..100], :image => self.portrait(:thumb)}
+    {:title => self.name, :description => self.bio.present? ? self.bio[0..100] : "", :image => self.portrait(:thumb)}
   end
   
   

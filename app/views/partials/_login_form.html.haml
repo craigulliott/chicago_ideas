@@ -11,6 +11,6 @@
       = label_tag 'user[remember_me]', 'Remember me'
       %button.btn.blue_btn.right Sign in
     %li#connect_to_facebook
-      = link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), :class => 'facebook_connect'
+      = link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), :class => 'fb_connect_btn'
     %li#dd_forgot_pw
       = link_to "Forgot your password?", new_password_path('user')

@@ -1,0 +1,12 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @bhsi_application
+  .crumb.end= section_title   
+
+- content_for :content_navigation do
+  %h2 bhsi_applications
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_bhsi_applications_path, 'search'
+  =#%h2= @bhsi_application.id
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_bhsi_application_path(@bhsi_application), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_bhsi_application_path(@bhsi_application), 'comment'

@@ -33,7 +33,7 @@ $(document).ready(function() {
     $('#dd_login_form').hide();
   });
 
-  $('li#gn_login > a').bind('click', function(e) {
+  $('li#gn_login > a:not(".blog_link")').bind('click', function(e) {
     e.preventDefault();
     $('#dd_login_form').stop().toggle();
     e.stopPropagation();
@@ -93,7 +93,7 @@ $(document).ready(function() {
   });
 
     
-  $('#sponsors ul').nivoSlider({
+  $('#sponsors div').nivoSlider({
     effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
     animSpeed: 500, // Slide transition speed
     pauseTime: 5000, // How long each slide will show
@@ -205,9 +205,9 @@ $(document).ready(function() {
   
   // IE Fixes for Child selectors
   $('footer_item:last-child, ul.featured li:last-child, #breadcrumbs ul li:last-child, #page_share ul li:last-child, ul#banner_nav li:last-child, .sidebar ul.preview_list li:last-child, #sponsors_list .divided_row:last-child, #events_section ul li:last-child, #labs_list .divided_row:last-child, #explore_dropdown .column:last-child, #news_list .column:last-child').addClass('last');
-  $('ul.double_rows li:nth-child(2n+2), ul.semi_finalists li:nth-child(2n+2)').addClass('end')
+  $('ul.double_rows li:nth-child(2n+2), ul.semi_finalists li:nth-child(2n+2), ul.theme_list li:nth-child(2n+2)').addClass('end')
   $('#volunteer_form tr td:first-child').addClass('first')  
-  
+  $('.divided_row:last-child').addClass('.divided_row_last');
   
   /*
   // Search

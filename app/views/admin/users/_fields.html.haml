@@ -3,6 +3,7 @@
   = f.input :name
   = f.input :admin, :hint => "administrators have access to the website backend"
   = f.input :speaker, :hint => "speakers can be associated with talks"
+  = f.input :years, :as => :check_boxes, :member_label => Proc.new { |year| year.id.to_s }
   = f.input :staff, :hint => "staff will appear on the about us page"
   = f.input :title 
   = f.input :bio, :hint => "bios accept basic markdown formatting"

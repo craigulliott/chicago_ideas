@@ -1,0 +1,105 @@
+#model_detail
+  .section
+    %h1 Volunteer Application
+    .row.no_margin
+      .column
+        %strong User
+      .column_double= @volunteer.user.name
+      .column_double= @volunteer.user.email
+      .column_double= @volunteer.phone
+
+    .row.no_margin
+      .column
+        %strong Postcode
+      .column_double= @volunteer.postcode
+
+    .row.no_margin
+      .column
+        %strong Employed
+      .column_double= @volunteer.employed? ? 'yes' : 'no'
+
+    %strong Why
+    %p= @volunteer.why
+
+    %strong What
+    %p= @volunteer.what
+
+    %strong Availability
+    %p= @volunteer.availability
+
+    .row.no_margin
+      .column
+        %strong Street Team
+      .column_double= @volunteer.street_team? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Avail Mon
+      .column_double= @volunteer.avail_mon? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Avail Tue
+      .column_double= @volunteer.avail_tue? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Avail Wed
+      .column_double= @volunteer.avail_wed? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Avail Thu
+      .column_double= @volunteer.avail_thu? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Avail Fri
+      .column_double= @volunteer.avail_fri? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Avail Sat
+      .column_double= @volunteer.avail_sat? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Avail Sun
+      .column_double= @volunteer.avail_sun? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Avail Time 1
+      .column_double= @volunteer.avail_time_1? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Avail Time 2
+      .column_double= @volunteer.avail_time_2? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Avail Time 3
+      .column_double= @volunteer.avail_time_3? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Avail Time 4
+      .column_double= @volunteer.avail_time_4? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Avail Time 5
+      .column_double= @volunteer.avail_time_5? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Avail Time 6
+      .column_double= @volunteer.avail_time_6? ? 'yes' : 'no'
+
+    .row.no_margin
+      .column
+        %strong Hours
+      .column_double= @volunteer.hours
+
+

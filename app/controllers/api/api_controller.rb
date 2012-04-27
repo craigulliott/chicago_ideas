@@ -44,6 +44,7 @@ class Api::ApiController < ApplicationController
             :data => models.collect{|model| access_level.nil? ? model.api_attributes : model.api_attributes(access_level)} 
           }
         else
+      
           render :json => models.collect{|model| access_level.nil? ? model.api_attributes : model.api_attributes(access_level)} 
         end
       end
@@ -77,7 +78,7 @@ class Api::ApiController < ApplicationController
         params_to_log.delete('action') 
 
         # we have some public API endpoints, so client_id can be null
-        client_id = current_client.present? ? current_client.id : nil
+        client_id = (current_client.present? ? current_client.id : nil) rescue nil;
         log_entry = ApiLogEntry.create!(:action => params[:controller]+'.'+params[:action], :params => params_to_log, :host => request.env["REMOTE_ADDR"] );
 
       end

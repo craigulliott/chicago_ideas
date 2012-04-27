@@ -16,6 +16,22 @@ class Sponsor < ActiveRecord::Base
   validate :validate_logo_dimensions, :if => "logo.present?", :unless => "errors.any?"
   
   scope :by_name, order('name asc')
+  scope :featured_sponsors, :conditions => { :featured => true }
+  scope :by_sort, order('sort asc')
+  
+  # when this model is created, set the sort order to the last in the current set (unless it was already set)
+  before_validation {|record|
+    return true if record.sort.present?
+    record.sort = Sponsor.maximum(:sort).to_i + 1
+  }
+  
+  # Sort the model records all at once
+  def self.sort(ids)
+    update_all(
+      ['sort = FIND_IN_SET(id, ?)', ids.join(',')],
+      { :id => ids }
+    )
+  end
   
   # tell the dynamic form that we need to post to an iframe to accept the file upload
   # TODO:: find a more elegant solution to this problem, can we detect the use of has_attached_file?
@@ -25,12 +41,14 @@ class Sponsor < ActiveRecord::Base
   
   has_attached_file :logo,
     :styles => { 
-      :full => "260x260", 
-      :convert_options => { 
-        :full => "-quality 70", 
-      }
+      :full => "260x260",
     },
+    :convert_options => { 
+        :full => "-quality 70", 
+    },
+    
     :path => "sponsor-logos/:style/:id.:extension"
+
 
   
   # the hash representing this model that is returned by the api

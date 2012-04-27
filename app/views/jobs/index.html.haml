@@ -1,0 +1,48 @@
+-#     Chicago Ideas Week
+-#     jobs/index.html.haml
+-#     03/13/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Jobs", jobs_path
+    = render "partials/explore_dropdown"
+
+
+-# Main Labs content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Jobs
+    = render "partials/share"
+    
+  -# Left column, main content
+  .box.double.left
+
+    - if @jobs.present?
+      #news_list
+        - @jobs.each do |jobs|
+          .column_row.divided_row{:id => "jobs_#{jobs.id}"}
+            %a{:name => "jobs_#{jobs.id}"}
+            .column.column_double
+              %h2= jobs.title
+              %pre
+                = jobs.body
+              -if jobs.url.present?
+                = link_to "more →", jobs.url, :rel => 'nofollow', :title => jobs.title
+    - else
+      .column_row
+        %p We are looking for energetic, passionate, detail-oriented big thinkers to join our team. Please check back for job opportunities with CIW. 
+                
+                
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

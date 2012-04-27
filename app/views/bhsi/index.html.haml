@@ -1,0 +1,103 @@
+-#     Chicago Ideas Week
+-#     application/blum_helfand.html.haml
+-#     01/25/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Special Programs & Awards", special_programs_path
+        %li
+          %span Bluhm/Helfand Social Innovation Fellowship
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Bluhm/Helfand Social Innovation Fellowship
+    = render "partials/share"
+
+  -# Left column, main content: About Us information
+  .box.double.left
+
+    .column_row.divided_row
+      .column.column_double
+        
+        = image_tag('application/bluhm_helfand_logo.jpg', :class => "bhsi_logo clearfix", :width => "200px")
+        
+        %p The Bluhm/Helfand Social Innovation Fellowship @ Chicago Ideas Week will recognize three young socially-conscious leaders who have developed sustainable ventures addressing social needs, and provide them with exposure to nationally recognized business and community leaders, funding to support their cause, and a platform for growth. 
+        %p The Fellowship was created by philanthropists and entrepreneurs Leslie Bluhm and David Helfand to help advance the next generation of socially-minded innovators, entrepreneurs and change agents. In 2011, the fellowship received over 200 applications and brought an outstanding group of social innovators to Chicago for the first ever Chicago Ideas Week.
+        %h2 The Program
+        %p The three fellowship recipients will be hosted in Chicago for Chicago Ideas Week, taking place October 8-14 2012, all expenses paid. Fellows will gain exposure for their organization, establish a community of support, and receive a $10,000 financial contribution for their venture.
+        
+        .video_container
+          %center
+            <iframe src="http://player.vimeo.com/video/37765551?title=0&amp;byline=0&amp;portrait=0" width="540" height="304" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          
+        %h2 Fellowship Details
+        %p Each of the Bluhm/Helfand Social Innovation fellows will receive <strong>$10,000 in financial support</strong> for their venture, and they’ll join a group of likeminded young innovators for a week of one-of-a-kind experiences including:
+        %ul
+          %li The opportunity to present their ventures at Chicago Ideas Week alongside leading innovators, entrepreneurs, and thinkers, in front of an exclusive audience.
+          %li Intimate breakfasts and lunches with prominent business and political leaders. Past meetings have included: Mayor Richard M. Daley, Chairman of Equity Group Investments Sam Zell, and Groupon Chairman and Co-Founder Eric Lefkofsky.
+          %li Participate in hands-on working sessions with top not-for-profit leaders. Past speakers include: Livestrong CEO Doug Ulman and charity: water Founder and CEO Scott Harrison.
+          %li One-on-one meetings with potential funders, partners, and mentors relevant to their ventures. Previous mentors include: entrepreneur and philanthropist J.B. Pritzker, GrubHub Founder Matthew Maloney, and philanthropist and civic leader Helen Zell.
+          %li Access to Chicago Ideas Week speakers. Past speakers include: President Bill Clinton, Justice Sandra Day O’Connor, Mayor Michael Bloomberg, Mayor Rahm Emanuel, writer and director Wes Craven, actor Kevin Bacon, and inventor Dean Kamen.
+          %li A night rocking out a private concert with a superstar headliner. Last year’s headliner was Weezer!
+          %li And much more!
+        %h2 Applicant Criteria
+        %ul
+          %li All applicants must be 35 years of age or younger (born on or before October 7, 1977).
+          %li Applicants may be from anywhere in the world.
+          %li Ventures may be for-profit or not-for-profit entities.
+          %li All ventures must demonstrate that they are social innovations, addressing compelling social need(s).
+          %li All ventures must demonstrate a sustainable model with proven results.
+          %li Chicago Ideas Week takes place from October 8-14, 2012. The fellowship takes place from October 7-11. In order to be considered, all applicants must be available from October 7-11.*
+        
+        %h2 Important Dates
+        %ul
+          %li May 21: Deadline to apply.
+          %li June 19: Semi-finalists notified.
+          %li June 29-July 1: Semi-finalists Interviews.
+          %li July 16: 2012 Bluhm/Helfand Social Innovation Fellows announced.
+          %li October 7-11: Bluhm/Helfand Social Innovation Fellowship @ Chicago Ideas Week.
+
+        %p.italics *Fellows are welcome (but not required) to attend the remainder of Chicago Ideas Week (all expenses paid). All applicants must be available for a remote interview the weekend of June 29-July 1 if selected as semi-finalists.
+
+        %p= link_to "APPLY TODAY!", new_bhsi_application_path, :class => "btn blue_btn", :id => "bhsi_apply_btn"
+        %p= link_to "Nominate a BHSI Fellow →", special_programs_blum_helfand_fellowship_nominate_path
+
+    
+    .column_row
+      .column.column_double
+        %span.column_header 2011 Bluhm/Helfand Social Innovation Fellows
+        %ul#previous_winners_preview
+          %li= image_tag('application/special_programs_awards/jason_aramburu.jpg', :width => "65px")
+          %li= image_tag('application/special_programs_awards/emma_.jpg', :width => "65px")
+          %li= image_tag('application/special_programs_awards/adam_lowy.jpg', :width => "65px")
+          %li= image_tag('application/special_programs_awards/jeff_nelson.jpg', :width => "65px")
+          %li= image_tag('application/special_programs_awards/jessica_posner.jpg', :width => "65px")
+          
+        %p= link_to "Meet the 2011 Bluhm/Helfand Social Innovation Fellows →", special_programs_blum_helfand_fellowship_previous_fellows_path
+      
+      
+      
+
+  -# Include Sidebar Items
+  #sidebar
+    .box.right.yellow_box#bhs_link
+      .column_row
+        %a{:href => "#{new_bhsi_application_path}", :class => "callout_link"}
+          %span Bluhm/Helfand Social Innovation Fellowship
+          %span.call_out Apply Today!
+      .column_row.alt_link
+        = link_to "Nominate a BHSI Fellow →", special_programs_blum_helfand_fellowship_nominate_path
+          
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

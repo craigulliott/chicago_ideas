@@ -33,9 +33,9 @@ class PressClipping < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      :type => self.class.name.underscore.downcase,
       :title => title,
-      :image => image,
+      :image => image.url,
       :url => url,
       :description => description,
       :date => updated_at,
@@ -58,6 +58,10 @@ class PressClipping < ActiveRecord::Base
     "#{IMAGE_WIDTH}x#{IMAGE_HEIGHT}"
   end
   
+  
+  def title_abbreviated
+    ( title.present? && title.length > 75 ) ? "#{title[0..75]}..." : title
+  end
   
   # return formatted time for the front-end
   def formatted_time

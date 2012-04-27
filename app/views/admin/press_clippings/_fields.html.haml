@@ -3,4 +3,5 @@
   = f.input :created_at, :label => 'Date', :as => :string, :input_html => {:class => 'datepicker', :value => @model.created_at.present? ? @model.created_at.to_date.to_s(:db) : nil}
   = f.input :image, :as => :file, :hint => "this must be exactly #{@model.image_dimensions_string}"
   = f.input :url 
-  = f.input :description 
+  = f.input :description
+  = f.input :news_type, :as => :select, :collection => ['Press Release', 'News Article'], :default => "News Article"

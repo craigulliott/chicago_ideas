@@ -1,5 +1,47 @@
 CraigsAdmin::Application.routes.draw do
+  # the API                                                                          (http://api.domain.com/)
+  # ---------------------------------------------------------------------------------------------------------
+  namespace :api do
+    #scope :module => "api", :as => "api" do
   
+      # the documentation
+      root :to => 'documentation#documentation'
+      
+      resources :talks, :defaults => { :format => 'json', :version => '1.1.2' } do
+        resources :chapters, :only => [:index]
+      end
+      resources :chapters, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :years, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :days, :defaults => { :format => 'json', :version => '1.1.2' } do
+        resources :talks, :only => [:index]
+        resources :events, :only => [:index]
+      end
+      resources :tracks, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :partners, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :quotes, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :sponsors, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :press_clippings, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :events, :defaults => { :format => 'json', :version => '1.1.2' } do
+        resources :talks, :only => [:index]
+      end
+      resources :speakers, :defaults => { :format => 'json', :version => '1.1.2' } do
+        resources :talks, :only => [:index]
+      end
+      
+      resources :search, :defaults => { :format => 'json', :version => '1.1.2' }
+      resources :jobs, :defaults => { :format => 'json', :version => '1.1.2' }
+      
+      #resources :speaker, :only => [:list, :show] do
+        # search for speakers
+       # get :search, :on => :collection
+        # resources
+       # resources :talks, :only => [:list, :show]
+      #end
+  
+    #end
+  end
+    
+    
   # the Site
   # ---------------------------------------------------------------------------------------------------------
   
@@ -12,14 +54,16 @@ CraigsAdmin::Application.routes.draw do
   # ----------------------------------------------------------------
   match 'search(.:format)', :to => 'search#index', :as => 'search'
   match 'search/speakers(:format)', :to => 'search#speakers'
+  match 'search/videos(:format)', :to => 'search#videos'
 
   # legalese 
   match 'privacy', :to => 'application#privacy'
   match 'terms', :to => 'application#terms'
 
   # news about CIW
-  resources :press_clippings, :only => [:index]
+  resources :press_clippings, :only => [:index, :show]
   
+
   # sponsors and partners
   # ----------------------------------------------------------------
   resources :sponsors, :only => [:index]
@@ -49,8 +93,25 @@ CraigsAdmin::Application.routes.draw do
   resources :volunteers, :only => [:new, :create]
   resources :community_partner_applications, :only => [:new, :create]
   resources :affiliate_event_applications, :only => [:new, :create]
+  resources :bhsi_applications, :only => [:index, :new, :create] do
+    collection do
+      get :redirect
+    end
+  end
   
-  resources :years, :only => [:show]
+  
+  #resources :years, :only => [:show]
+  resources :years, :only => [:show] do
+    match 'speakers', :to => 'users#list_speakers'
+    resources :talks, :only => [:index] do
+      # home pages for the different talk types
+      collection do
+        get :mega_talks
+        get :edison_talks
+      end
+    end
+  end
+  
   
   # teams members and speakers are both a type of user, so are handled by the users controller
   match 'team_members', :to => 'users#list_team_members'
@@ -61,17 +122,32 @@ CraigsAdmin::Application.routes.draw do
   
   # Static Pages
   match 'about', :to => 'application#about'
-  match 'recommend/speaker', :to => 'application#recommend_speaker', :as => 'recommend_speaker'
+  match 'speaker/recommend_speaker', :to => 'users#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
-  match 'special_programs/blum_helfand_fellowship', :to => 'application#blum_helfand', :as => 'blum_helfand'
-  match '/bhsi', :to => 'application#blum_helfand'
+  
+  # BHSI
+  match 'special_programs/bhsi', :to => 'bhsi#index', :as => 'blum_helfand'
+  match 'special_programs/bhsi/previous_fellows', :to => 'bhsi#previous_fellows'
+  match 'special_programs/bhsi/nominate', :to => 'bhsi#nominate_form'
+  
+  # We changed the url post-launch :(
+  match "special_programs/blum_helfand_fellowship" => redirect("/special_programs/bhsi")
+  match "special_programs/blum_helfand_fellowship/previous_fellows" => redirect("/special_programs/bhsi/previous_fellows")
+  match "special_programs/blum_helfand_fellowship/nominate" => redirect("/special_programs/bhsi/nominate")
+  match '/bhsi' => redirect("/special_programs/bhsi")
+   
+  
   match 'community', :to => 'application#community'
   match 'sizzle', :to => 'application#sizzle'
   match 'info_2012', :to => 'application#sizzle'
+  match 'media/inquiry', :to => 'application#media_inquiry', :as => 'media_inquiry_form'
 
   # contact form
   match 'contact', :to => 'application#contact'
   match 'send_contact', :to => 'application#send_contact'
+  
+  # guest blogger form
+  match 'guest_blogger_form', :to => 'application#guest_blogger_form'
   
   # talks and events
   # ----------------------------------------------------------------
@@ -83,6 +159,7 @@ CraigsAdmin::Application.routes.draw do
       get :affiliate_event
     end
   end
+  match 'events/labs/host_form', :to => 'events#labs_host_form', :as => 'labs_host_form'
 
   resources :talks, :only => [:index, :show] do
     # home pages for the different talk types
@@ -93,6 +170,9 @@ CraigsAdmin::Application.routes.draw do
   end
   resources :tracks, :only => [:show]
   
+  
+  resources :jobs, :only => [:index, :show]
+  
 
   # all videos are of chapters, so pass to the chapter controller
   match 'videos', :to => 'chapters#index'
@@ -100,12 +180,21 @@ CraigsAdmin::Application.routes.draw do
   
   match 'events/partner_programs/:id', :to => 'events#partner_programs', :as => 'partner_program'
   
+  match 'current', :to => 'chapters#current'
 
   # the Admin                                                                   (http://www.domain.com/admin)
   # ---------------------------------------------------------------------------------------------------------
   namespace :admin do
   
     root :to => 'admin#index'
+
+    resources :jobs do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
 
     resources :community_partner_applications do
       member do
@@ -124,6 +213,14 @@ CraigsAdmin::Application.routes.draw do
     end
 
     resources :volunteers do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
+    resources :bhsi_applications do
       member do
         # pages
         get :notes
@@ -243,7 +340,10 @@ CraigsAdmin::Application.routes.draw do
       resources :event_photos, :only => [:new, :create]
     end
 
-    resources :sponsors do
+    resources :sponsors do      
+      collection do
+        post :sort
+      end
       member do
         # pages
         get :notes
@@ -252,12 +352,16 @@ CraigsAdmin::Application.routes.draw do
     end
 
     resources :sponsorship_levels do
+      collection do
+        post :sort
+      end
       member do
         # pages
         get :notes
       end
       resources :notes, :only => [:new, :create]
     end
+    
 
     resources :partners do
       member do
@@ -307,23 +411,6 @@ CraigsAdmin::Application.routes.draw do
   
   end
   
-  # the API                                                                          (http://api.domain.com/)
-  # ---------------------------------------------------------------------------------------------------------
-  constraints :subdomain => "api" do
-    scope :module => "api", :as => "api" do
   
-      # the documentation
-      root :to => 'documentation#documentation'
-  
-      resources :speaker, :only => [:list, :show] do
-        # search for speakers
-        get :search, :on => :collection
-        # resources
-        resources :talks, :only => [:list, :show]
-      end
-  
-    end
-  end
-    
 
 end

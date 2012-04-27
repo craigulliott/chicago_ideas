@@ -4,12 +4,11 @@
 -#    this to set some extra details before looping over
 -#    all the items, including column width, paginate...
 
-
 .column_row#speakers
   .column.column_double
     %span.column_header 
       Speakers
-      %a{:id => "speaker_search", :class => "model_search_btn", :href => "#"} search speakers
+      %a{:class => "model_search_btn expandable_search", :href => "#"} search speakers
       
     = render "partials/search", :model => "speakers"
       

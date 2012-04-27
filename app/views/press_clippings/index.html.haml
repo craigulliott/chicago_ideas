@@ -18,7 +18,7 @@
 
   #page_header
     #page_title.left
-      %h1 Press Clippings
+      %h1 News
     = render "partials/share"
     
   -# Left column, main content
@@ -30,19 +30,36 @@
           .column_row.divided_row{:id => "news_#{news.id}"}
             %a{:name => "news_#{news.id}"}
             .column.column_double
-              %h2= news.title
+            
+              -# Check the news type
+              - press_release = ( news.news_type == "Press Release" ? true : false)
+              - press_release = false if news.news_type.blank?
+              - path = press_release ? press_clipping_path(news) : news.url
+              
+              %h2= link_to news.title, path, :rel => "bookmark", :title => "#{news.title}", :target => "#{'_blank' if !press_release}"
               %span.timestamp= news.formatted_time
               %pre
                 - if news.image.present?
                   = image_tag(news.image, :class => "news_image")
-                = news.description
-              -if news.url.present?
-                = link_to "more →", news.url, :rel => 'nofollow', :title => news.title
-                
+                  
+                - if press_release
+                  = truncate_words(news.description, 75)
+                  = link_to "read more →", press_clipping_path(news), :rel => "bookmark", :title => "#{news.title}"
+                - else
+                  = news.description
+                  = link_to "original article →", news.url, :rel => 'nofollow', :title => "#{news.title}", :target => "_blank"
+                  
+              
+
                 
 
   -# Include Sidebar Items
   #sidebar
+    .box.right.yellow_box#bhs_link
+      .column_row
+        %a{:href => "#{media_inquiry_form_path}", :class => "callout_link"}
+          %span.medium_callout Media &amp; Press Requests
+          %span Submit a Request Here
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"

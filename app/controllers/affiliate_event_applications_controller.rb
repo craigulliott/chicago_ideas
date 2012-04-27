@@ -5,7 +5,8 @@ class AffiliateEventApplicationsController < ApplicationController
   def new
     @meta_data = {:page_title => "Affiliate Events", :og_image => "http://www.chicagoideas.com/assets/application/affilliate_events_banner.jpg", :og_title => "Affiliate Events | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     if current_user and current_user.affiliate_event_application.present?
-      redirect_to root_path, :notice => 'Thank you, your application has already been recieved.'
+      flash[:notice] = 'Thank you, your application has already been recieved.'
+      redirect_to root_path
     elsif current_user
       @affiliate_event_application = current_user.build_affiliate_event_application
     else
@@ -14,14 +15,30 @@ class AffiliateEventApplicationsController < ApplicationController
   end
 
   def create
-    @meta_data = {:page_title => "Affiliate Events", :og_image => "http://www.chicagoideas.com/assets/application/affilliate_events_banner.jpg", :og_title => "Affiliate Events | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
-    @affiliate_event_application = current_user.build_affiliate_event_application(params[:affiliate_event_application])
-   
-    if @affiliate_event_application.save
-      AffiliateEventsMailer.send_form(params[:affiliate_event_application]).deliver
-      redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
+    # Prevents duplicate submissions
+    if current_user and current_user.affiliate_event_application.blank?
+      
+      @meta_data = {:page_title => "Affiliate Events", :og_image => "http://www.chicagoideas.com/assets/application/affilliate_events_banner.jpg", :og_title => "Affiliate Events Application Confirmation!", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
+      @affiliate_event_application = current_user.build_affiliate_event_application(params[:affiliate_event_application])
+    
+      pdf = doc_raptor_send({:document_type => "pdf".to_sym})
+      friendlyName = "AEA_#{@affiliate_event_application.organization_name}.pdf"
+      File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
+      @affiliate_event_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
+
+      if @affiliate_event_application.save
+      
+        AffiliateEventsMailer.send_form(params[:affiliate_event_application],friendlyName).deliver
+        #redirect_to root_path, :notice => 'Thank you, your application has been recieved.'
+        render 'application/confirmation', :locals => {:title => "Affiliate Event Application Confirmation", :body => "Thank you for applying. We will be in contact shortly.", :url => "http://bit.ly/wlUjBn", :share_text => "I just applied to host a @chicagoideas Affiliate Event! Share your big #ideas, too! Apply today: http://bit.ly/wlUjBn" }
+
+      else
+        flash[:notice] = 'Please fill in all required fields!'
+        render :new
+      end
     else
-      render :new
+      flash[:notice] = 'Thank you, your application has already been recieved.'
+      redirect_to root_path
     end
   end
   

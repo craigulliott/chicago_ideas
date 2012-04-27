@@ -1,0 +1,25 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @job, true
+  = destroy_model_link @job, true
+
+%h1
+  This Job
+  = icon_link_to 'notes', notes_admin_job_path(@job), 'script'
+  = new_model_link Note, @job
+
+#model_detail
+  %h4 Title
+  %p= @job.title
+
+  %h4 Body
+  %p= @job.body
+
+  %h4 Url
+  %p= @job.url
+
+  %h4 Published
+  %p= @job.published? ? 'yes' : 'no'
+
+

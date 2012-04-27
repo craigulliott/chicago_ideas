@@ -12,7 +12,7 @@ class SponsorshipLevel < ActiveRecord::Base
   scope :by_sort, order('sort asc')
   
   validates :name, :presence => true, :uniqueness => true
-  validates :sort, :presence => true, :uniqueness => true
+  #validates :sort, :presence => true, :uniqueness => true
   
   # when this model is created, set the sort order to the last in the current set (unless it was already set)
   before_validation {|record|
@@ -20,11 +20,21 @@ class SponsorshipLevel < ActiveRecord::Base
     record.sort = SponsorshipLevel.maximum(:sort).to_i + 1
   }
   
+  # Sort the model records all at once
+  def self.sort(ids)
+    update_all(
+      ['sort = FIND_IN_SET(id, ?)', ids.join(',')],
+      { :id => ids }
+    )
+  end
+  
+  
+  
   # the hash representing this model that is returned by the api
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      :type => self.class.name.underscore.downcase,
       :name => name,
       :sort => sort,
     }

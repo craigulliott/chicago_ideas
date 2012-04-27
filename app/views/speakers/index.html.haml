@@ -23,42 +23,15 @@
   
   -# Left column: Speakers List
   .box.double.left
-    .column_row.speakers_filter.hide
-      .column.column_double
-        %ul.filter_
-          %li= link_to "A", "#"
-          %li= link_to "B", "#"
-          %li= link_to "C", "#"
-          %li= link_to "D", "#"
-          %li= link_to "E", "#"
-          %li= link_to "F", "#"
-          %li= link_to "G", "#"
-          %li= link_to "H", "#"
-          %li I
-          %li= link_to "J", "#", :class => "active"
-          %li= link_to "K", "#"
-          %li= link_to "L", "#"
-          %li= link_to "M", "#"
-          %li= link_to "N", "#"
-          %li= link_to "O", "#"
-          %li= link_to "P", "#"
-          %li Q
-          %li= link_to "R", "#"
-          %li= link_to "S", "#"
-          %li= link_to "T", "#"
-          %li= link_to "U", "#"
-          %li= link_to "V", "#"
-          %li= link_to "W", "#"
-          %li X
-          %li= link_to "Y", "#"
-          %li= link_to "Z", "#"
-          
     = render "speakers/speakers", :speakers => @speakers
                 
 
   -# Include Sidebar Items
   #sidebar
-    -#= render "partials/track_filter"
+    .box.right.yellow_box
+      .column_row
+        = link_to recommend_speaker_path, :class => "callout_link" do
+          %span.medium_callout Recommend a Speaker for CIW 2012!
     = render "partials/sponsors"
     = render "partials/newsletter_form"
     = render "partials/social"

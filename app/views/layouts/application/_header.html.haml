@@ -13,12 +13,12 @@
     
     %li#gn_upcoming.nav_parent.nav_section_end
       = link_to "2012 CIW", year_path(@current_year), :rel => "bookmark", :title => "2012 CIW"
-      .dropdown.full_dropdown
+      .dropdown
         %ul.dd_column.full
-          %li
-            2012 CIW Dates Announced: October 8 - 14, 2012
-            %br
-            Details coming soon
+          %li= link_to "2012 Speakers", year_speakers_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
+          %li= link_to "CIW Talks", year_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
+          %li= link_to "CIW Labs", labs_events_path, :rel => "bookmark", :title => "View all CIW Labs"
+          %li= link_to "Affiliate Events", affiliate_event_events_path, :rel => "bookmark", :title => "All all Affiliate Events"
         
     %li#gn_events.nav_parent
       = link_to "Events", events_path, :rel => "bookmark", :title => "CIW Events"
@@ -57,6 +57,7 @@
         %ul.dd_column
           %li= link_to "News", press_clippings_path, :rel => "bookmark", :title => "View News Releases"
           %li= link_to "Volunteer", new_volunteer_path, :rel => "bookmark", :title => "Voluneer Application"
+          %li= link_to "CIW Blog", "http://blog.chicagoideas.com", :title => "CIW Blog"
 
     %li#gn_about.nav_parent.nav_section_end
       = link_to "About", about_path
@@ -65,6 +66,7 @@
           %li= link_to "Mission", about_path, :rel => "bookmark", :title => "About CIW"
           %li= link_to "Team", team_members_path, :rel => "bookmark", :title => "CIW Team"
           %li= link_to "Volunteer", new_volunteer_path, :rel => "bookmark", :title => "Volunteer Application"
+          %li= link_to "Jobs", jobs_path, :rel => "bookmark", :title => "Jobs at CIW"
           %li= link_to "Contact Us", contact_path, :rel => "bookmark", :title => "Contact Us"
     
       %li#nav_user.nav_parent{:style => 'display:none;'}

@@ -11,4 +11,5 @@
     = new_model_link Event
   .table_wrapper
     = render 'admin/events/table.html.haml', :events => @events
+  = paginate @events
 

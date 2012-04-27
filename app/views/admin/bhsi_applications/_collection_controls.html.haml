@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do
+  .crumb.end BHSI Applications
+
+- @active_tab = 'bhsi_applications'
+
+- content_for :content_navigation do
+  %h2 BHSI Applications
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_bhsi_applications_path, 'search'

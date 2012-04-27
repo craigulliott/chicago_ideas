@@ -10,4 +10,5 @@
     = new_model_link Volunteer
   .table_wrapper
     = render 'admin/volunteers/table.html.haml', :volunteers => @volunteers
+  = paginate @volunteers
 

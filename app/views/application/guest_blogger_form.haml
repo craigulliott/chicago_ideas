@@ -1,0 +1,37 @@
+-#     Chicago Ideas Week
+-#     bhsi/nominate_form.html.haml
+-#     03/19/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Blog", "http://blog.chicagoideas.com"
+        %li
+          %span Guest Blogger Application
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Guest Blogger Application
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+  
+    .column_row.divided_row
+      .column.column_double
+        <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dENMVm5sTGIzRktQQmwxY3lnbHgzcFE6MQ" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> 
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

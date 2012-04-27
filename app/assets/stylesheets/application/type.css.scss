@@ -53,6 +53,10 @@ a:hover {
   text-decoration:underline;
 }
 
+.italics {
+  font-style: italic !important;
+}
+
 span.column_header {
   color: $grey;
   font-size: 12px;
@@ -88,6 +92,11 @@ span.expired_date {
   list-style: decimal;
 }
 
+.hint {
+  font-size: 11px;
+  color: #777;
+  font-style: italic
+}
 
 
 /******************************************************

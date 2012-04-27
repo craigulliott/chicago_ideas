@@ -12,6 +12,35 @@ module ApplicationHelper
     haml_concat capture( &block ) << Haml::Util::html_safe( "\n</html>" ) if block_given?
   end
   
+  # Simple way to truncate a paragraph
+=begin
+  def truncate_words(text, length = 250, end_string = ' ...')
+    words = text.split()
+    words[0..(length-1)].join(' ') + (words.length > length ? end_string : '')
+  end
+=end
+
+  def truncate_words text, length=55, truncate_string="..."
+    return if text.nil?
+    l = length - truncate_string.chars.length
+    text.chars.length > length ? text[/\A.{#{l}}\w*\;?/m][/.*[\w\;]/m] + truncate_string : text
+  end
+  
+  def truncate_words text, length=55, separator = ' ', truncate_string = '...'
+    
+  end
+  
+  def truncate_words(text, length = 30, separator = ' ', truncate_string = '...')
+    return if text.nil?
+    truncated_text = text.split[0..length].join(separator)
+    if(truncated_text == text)
+      text
+    else
+      truncated_text + ' ' + truncate_string
+    end
+  end
+    
+    
   
   # a robust method to display flash messages
   def flash_helper keys=[:notice, :alert]
@@ -74,5 +103,8 @@ module ApplicationHelper
     return 'never' unless m.present?
     return m.created_at.to_s(:ago)
   end
+  
+
+    
 
 end

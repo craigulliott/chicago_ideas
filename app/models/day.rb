@@ -5,9 +5,17 @@ class Day < ActiveRecord::Base
 
   has_many :notes, :as => :asset
   belongs_to :year
-
+  
+  has_many :events
+  has_many :talks
+  
   validates :date, :presence => true, :uniqueness => true
   validates :name, :presence => true
+
+
+  def self.upcomming
+    where(:year_id => Year.maximum("id"))
+  end
 
   # build and/or link the year model
   before_validation {|record|
@@ -37,7 +45,8 @@ class Day < ActiveRecord::Base
   def api_attributes
     {
       :id => id.to_s,
-      :year_id => year.api_attributes,
+      :type => self.class.name.underscore.downcase,
+      :year_id => year.present? ? year.id : "",
       :date => date,
       :name => name
     }

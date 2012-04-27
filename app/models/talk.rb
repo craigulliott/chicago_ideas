@@ -33,20 +33,24 @@ class Talk < ActiveRecord::Base
   validates :end_time, :presence => true
   validate :validate_temporal_constraints, :unless => "errors.any?"
   
+  scope :archived, joins(:day).where("days.year_id != #{DateTime.now.year}")
+  scope :current, joins(:day).where("days.year_id = #{DateTime.now.year}")
+  
   # the hash representing this model that is returned by the api
   def api_attributes
     {
       :id => id.to_s,
-      :type => self.class.name.downcase,
+      :type => self.class.name.underscore.downcase,
       :name => name,
       :description => description,
-      :track => track.api_attributes,
-      :day => day.api_attributes,
-      :venue => venue.api_attributes,
+      :track => track.present? ? track.api_attributes : "",
+      :day => day.present? ? day.api_attributes : "",
+      :venue => venue.present? ? venue.api_attributes : "",
       :start_time => start_time,
       :end_time => end_time,
-      :sponsor => sponsor.api_attributes,
-      :type => type,
+      :sponsor => sponsor.present? ? sponsor.api_attributes : "",
+      :chapters => chapters.present? ? chapters.collect{ |c| c.api_attributes('talk') } : "",
+      #:type => type
     }
   end
 
@@ -71,8 +75,8 @@ class Talk < ActiveRecord::Base
    
   # return formatted time for the front-end
   def formatted_time
-    start_time = "#{self.start_time.strftime("%l")} #{self.start_time.strftime("%p")}"
-    end_time = "#{self.end_time.strftime("%l")} #{self.end_time.strftime("%p")}"
+    start_time = "#{self.start_time.strftime("%l:%M")} #{self.start_time.strftime("%p")}"
+    end_time = "#{self.end_time.strftime("%l:%M")} #{self.end_time.strftime("%p")}"
     "#{start_time} - #{end_time}"
   end
   
@@ -83,6 +87,11 @@ class Talk < ActiveRecord::Base
     chapter.present? ? chapter.banner(:medium) : nil
   end
   
+  
+  def is_current?
+    self.day.year_id == DateTime.now.year ? true : false
+  end
+
 
   
   # Need to normalize the search attributes

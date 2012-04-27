@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120223200244) do
+ActiveRecord::Schema.define(:version => 20120410214906) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -39,9 +39,81 @@ ActiveRecord::Schema.define(:version => 20120223200244) do
     t.datetime "updated_at"
     t.text     "description_25words",  :null => false
     t.text     "description_10words",  :null => false
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
   end
 
   add_index "affiliate_event_applications", ["user_id"], :name => "index_affiliate_event_applilcations_on_user_id"
+
+  create_table "bhsi_applications", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "first_name",                           :limit => 16777215,                    :null => false
+    t.text     "last_name",                            :limit => 16777215,                    :null => false
+    t.text     "address1",                             :limit => 16777215,                    :null => false
+    t.text     "address2",                             :limit => 16777215
+    t.text     "city",                                 :limit => 16777215,                    :null => false
+    t.text     "state",                                :limit => 16777215,                    :null => false
+    t.string   "country",                                                  :default => "US",  :null => false
+    t.text     "email",                                :limit => 16777215,                    :null => false
+    t.text     "gender",                               :limit => 16777215,                    :null => false
+    t.text     "birthdate",                            :limit => 16777215,                    :null => false
+    t.text     "title",                                :limit => 16777215,                    :null => false
+    t.text     "social_venture_name",                  :limit => 16777215,                    :null => false
+    t.text     "legal_structure",                      :limit => 16777215,                    :null => false
+    t.text     "url",                                  :limit => 16777215,                    :null => false
+    t.text     "twitter_handle",                       :limit => 16777215,                    :null => false
+    t.text     "video_url",                            :limit => 16777215,                    :null => false
+    t.text     "applied_before",                       :limit => 16777215,                    :null => false
+    t.text     "about_yourself",                       :limit => 16777215,                    :null => false
+    t.text     "social_venture_description",           :limit => 16777215,                    :null => false
+    t.text     "venture_launched",                     :limit => 16777215,                    :null => false
+    t.text     "number_people_affected",               :limit => 16777215,                    :null => false
+    t.text     "explain_number",                       :limit => 16777215,                    :null => false
+    t.text     "organizational_development",           :limit => 16777215,                    :null => false
+    t.text     "makes_social_innovation",              :limit => 16777215,                    :null => false
+    t.text     "inspiration",                          :limit => 16777215,                    :null => false
+    t.text     "sustainability_model",                 :limit => 16777215,                    :null => false
+    t.text     "improvements",                         :limit => 16777215,                    :null => false
+    t.text     "distinguish_yourself",                 :limit => 16777215,                    :null => false
+    t.text     "strong_midwest_connections_explained", :limit => 16777215
+    t.text     "additional_comments",                  :limit => 16777215
+    t.text     "reference_1_name",                     :limit => 16777215,                    :null => false
+    t.text     "reference_1_relationship",             :limit => 16777215,                    :null => false
+    t.text     "reference_1_phone",                    :limit => 16777215,                    :null => false
+    t.text     "reference_1_email",                    :limit => 16777215,                    :null => false
+    t.text     "reference_2_name",                     :limit => 16777215,                    :null => false
+    t.text     "reference_2_relationship",             :limit => 16777215,                    :null => false
+    t.text     "reference_2_phone",                    :limit => 16777215,                    :null => false
+    t.text     "reference_2_email",                    :limit => 16777215,                    :null => false
+    t.text     "user_id",                              :limit => 16777215,                    :null => false
+    t.boolean  "agreement_accepeted",                                      :default => false, :null => false
+    t.text     "pdf_file_name",                        :limit => 16777215
+    t.text     "pdf_content_type",                     :limit => 16777215
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
+    t.text     "three_standout_statistics",            :limit => 16777215,                    :null => false
+    t.text     "phone_number",                         :limit => 16777215,                    :null => false
+    t.text     "previous_budget_file_name",            :limit => 16777215
+    t.text     "previous_budget_content_type",         :limit => 16777215
+    t.integer  "previous_budget_file_size"
+    t.datetime "previous_budget_updated_at"
+    t.text     "press_clipping_1_file_name",           :limit => 16777215
+    t.text     "press_clipping_1_content_type",        :limit => 16777215
+    t.integer  "press_clipping_1_file_size"
+    t.datetime "press_clipping_1_updated_at"
+    t.text     "press_clipping_2_file_name",           :limit => 16777215
+    t.text     "press_clipping_2_content_type",        :limit => 16777215
+    t.integer  "press_clipping_2_file_size"
+    t.datetime "press_clipping_2_updated_at"
+    t.text     "press_clipping_3_file_name",           :limit => 16777215
+    t.text     "press_clipping_3_content_type",        :limit => 16777215
+    t.integer  "press_clipping_3_file_size"
+    t.datetime "press_clipping_3_updated_at"
+    t.text     "zipcode",                              :limit => 16777215,                    :null => false
+  end
 
   create_table "chapter_photos", :force => true do |t|
     t.string   "photo_file_name",    :null => false
@@ -100,7 +172,6 @@ ActiveRecord::Schema.define(:version => 20120223200244) do
     t.string   "previous_partner",                  :default => "0",  :null => false
     t.text     "why_partner",                                         :null => false
     t.boolean  "design_with_purpose_theme"
-    t.boolean  "start_something_theme"
     t.boolean  "fashion_theme"
     t.boolean  "sports_theme"
     t.boolean  "cities_theme"
@@ -113,7 +184,6 @@ ActiveRecord::Schema.define(:version => 20120223200244) do
     t.boolean  "future_of_news_theme"
     t.boolean  "influence_of_art_theme"
     t.boolean  "food_theme"
-    t.boolean  "good_evil_theme"
     t.boolean  "social_entrepreneurship_theme"
     t.boolean  "explorers_theme"
     t.boolean  "disruptive_innovation_theme"
@@ -125,10 +195,10 @@ ActiveRecord::Schema.define(:version => 20120223200244) do
     t.boolean  "future_leaders_theme"
     t.boolean  "education_theme"
     t.boolean  "meaning_of_life_theme"
-    t.boolean  "environment_theme"
+    t.boolean  "earth_theme"
     t.boolean  "criminal_justice_theme"
     t.boolean  "storytellers_theme"
-    t.boolean  "gender_theme"
+    t.boolean  "identity_theme"
     t.string   "most_important"
     t.string   "organization_has_newsletter"
     t.string   "organization_newsletter_frequency"
@@ -139,6 +209,11 @@ ActiveRecord::Schema.define(:version => 20120223200244) do
     t.string   "contact_email",                                       :null => false
     t.text     "most_important_other"
     t.string   "other_newsletter_frequency"
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
+    t.boolean  "instigators_theme"
   end
 
   add_index "community_partner_applications", ["user_id"], :name => "index_community_partner_applications_on_user_id"
@@ -190,12 +265,22 @@ ActiveRecord::Schema.define(:version => 20120223200244) do
     t.time     "end_time",                           :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "twitter_hashtag"
   end
 
   add_index "events", ["day_id"], :name => "index_events_on_day_id"
   add_index "events", ["event_brand_id"], :name => "index_events_on_event_brand_id"
   add_index "events", ["partner_id"], :name => "index_events_on_partner_id"
   add_index "events", ["venue_id"], :name => "index_events_on_venue_id"
+
+  create_table "jobs", :force => true do |t|
+    t.string   "title",                        :null => false
+    t.text     "body",                         :null => false
+    t.string   "url"
+    t.boolean  "published",  :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "notes", :force => true do |t|
     t.integer  "author_id"
@@ -258,6 +343,7 @@ ActiveRecord::Schema.define(:version => 20120223200244) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "news_type"
   end
 
   create_table "quotes", :force => true do |t|
@@ -279,6 +365,13 @@ ActiveRecord::Schema.define(:version => 20120223200244) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
+  create_table "speakers", :force => true do |t|
+    t.integer  "year_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sponsors", :force => true do |t|
     t.string   "name",                 :limit => 150, :null => false
     t.text     "description"
@@ -290,6 +383,8 @@ ActiveRecord::Schema.define(:version => 20120223200244) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url"
+    t.boolean  "featured"
+    t.integer  "sort"
   end
 
   add_index "sponsors", ["sponsorship_level_id"], :name => "index_sponsors_on_sponsorship_level_id"
@@ -300,8 +395,6 @@ ActiveRecord::Schema.define(:version => 20120223200244) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "sponsorship_levels", ["sort"], :name => "index_sponsorship_levels_on_sort"
 
   create_table "sponsorships", :force => true do |t|
     t.integer  "sponsor_id",           :null => false
@@ -337,17 +430,18 @@ ActiveRecord::Schema.define(:version => 20120223200244) do
   add_index "talk_photos", ["talk_id"], :name => "index_talk_photos_on_talk_id"
 
   create_table "talks", :force => true do |t|
-    t.string   "name",          :limit => 150, :null => false
+    t.string   "name",            :limit => 150, :null => false
     t.text     "description"
-    t.integer  "day_id",                       :null => false
-    t.integer  "venue_id",                     :null => false
+    t.integer  "day_id",                         :null => false
+    t.integer  "venue_id",                       :null => false
     t.integer  "track_id"
-    t.integer  "talk_brand_id",                :null => false
-    t.time     "start_time",                   :null => false
-    t.time     "end_time",                     :null => false
+    t.integer  "talk_brand_id",                  :null => false
+    t.time     "start_time",                     :null => false
+    t.time     "end_time",                       :null => false
     t.integer  "sponsor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "twitter_hashtag"
   end
 
   add_index "talks", ["day_id"], :name => "index_talks_on_day_id"
@@ -468,6 +562,10 @@ ActiveRecord::Schema.define(:version => 20120223200244) do
     t.string   "specific_event_interest"
     t.boolean  "interested_in_youth_program"
     t.text     "anything_else"
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
   end
 
   add_index "volunteers", ["user_id"], :name => "index_volunteers_on_user_id"

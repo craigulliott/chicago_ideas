@@ -1,0 +1,9 @@
+%tr{:bhsi_application => bhsi_application.id}
+  %td.name= link_to bhsi_application.first_name, admin_bhsi_application_path(bhsi_application)
+  %td.name= bhsi_application.last_name
+  %td.email= bhsi_application.email
+  %td.user_id= bhsi_application.user_id
+  %td.options
+    = edit_model_link bhsi_application
+    = destroy_model_link bhsi_application
+ 

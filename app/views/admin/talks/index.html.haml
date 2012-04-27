@@ -11,4 +11,5 @@
     = new_model_link Talk
   .table_wrapper
     = render 'admin/talks/table.html.haml', :talks => @talks
+  = paginate @talks
 

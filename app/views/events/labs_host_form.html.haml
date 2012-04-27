@@ -1,0 +1,36 @@
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Events", events_path
+        %li= link_to "CIW Labs", labs_events_path
+        %li
+          %span CIW Labs Host Form
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 CIW Labs Host Form
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+  
+    .column_row.divided_row
+      .column.column_double
+        <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dFRadzR5dHp2ck9LSWVrTWxENS1YdVE6MQ" width="640" height="1485" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> 
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
+    
+    
