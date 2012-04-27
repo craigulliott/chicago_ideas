@@ -102,9 +102,7 @@ class Venue < ActiveRecord::Base
   end
   
   def google_maps_src width=280, height=280, zoom=12, maptype=:roadmap
-    #http://www.bing.com/maps/?v=2&cp=41.89534771202352~-87.64807128906251&lvl=16&dir=0&sty=r&where1=41.89534771202352~-87.64807128906251&form=LMLTCC
-    "http://www.bing.com/maps/?v=2&cp=#{lonlat.y}~-#{lonlat.x}&lvl=#{zoom}&dir=0&sty=r&where1=#{address}&form=LMLTCC"
-    #"http://maps.google.com/maps/api/staticmap?center=#{position}&zoom=#{zoom}&size=#{width}x#{height}&maptype=#{maptype}&markers=color:blue%7Clabel:A%7C#{position}&sensor=false"
+    "http://maps.google.com/maps/api/staticmap?center=#{position}&zoom=#{zoom}&size=#{width}x#{height}&maptype=#{maptype}&markers=color:blue%7Clabel:A%7C#{position}&sensor=false"
   end
   
   def google_maps_url
