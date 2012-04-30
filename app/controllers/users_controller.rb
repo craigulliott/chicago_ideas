@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   
   # the users account homepage
   def dashboard
-    @meta_data = {:page_title => "#{current_user.name}", :og_image => "", :og_title => "#{current_user.name} | Chicago Ideas Week", :og_type => "article", :og_desc => ""}
+    @meta_data = {:page_title => "#{current_user.name if current_user.name.present?}", :og_image => "", :og_title => "#{current_user.name if current_user.name.present?} | Chicago Ideas Week", :og_type => "article", :og_desc => ""}
     @user = current_user
   end
   

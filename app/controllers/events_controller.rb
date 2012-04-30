@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   
   def show
     @event = Event.find(params[:id])
-    @partnerprograms = EventBrand.find_by_name("Partner Program").archived.events
+    @partnerprograms = EventBrand.find_by_name("Partner Program").events.archived
     @meta_data = {:page_title => "#{@event.name}", :og_image => "#{@event.banner(:thumb)}", :og_title => "#{@event.name} | Chicago Ideas Week", :og_type => "website", :og_desc => "#{@event.description[0..200]}"}
   end
   
