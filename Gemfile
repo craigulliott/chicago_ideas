@@ -28,6 +28,8 @@ gem 'countries'
 # pdf-generation
 gem 'doc_raptor'
 
+# very useful to see what exceptions have been thrown - logs stcktrace too
+gem 'exceptional'
 
 # for managing cron job
 gem 'whenever'
