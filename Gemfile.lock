@@ -83,6 +83,8 @@ GEM
       httparty (>= 0.4.3)
     dynamic_models (0.3.2)
     erubis (2.7.0)
+    exceptional (2.0.32)
+      rack
     excon (0.9.5)
     execjs (1.3.0)
       multi_json (~> 1.0)
@@ -302,6 +304,7 @@ DEPENDENCIES
   devise
   doc_raptor
   dynamic_models
+  exceptional
   factory_girl_rails
   flying-sphinx (= 0.6.1)
   fog
