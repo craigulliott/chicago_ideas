@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   
-  before_filter :authenticate_user!, :only => [:index, :disconnect_facebook, :disconnect_twitter]
+  before_filter :authenticate_user!, :only => [:index, :dashboard, :disconnect_facebook, :disconnect_twitter]
   
   # cache rendered versions of these pages
   before_filter :cache_rendered_page, :only => [:list_speakers, :speaker, :list_team_members, :team_member]
   
   # the users account homepage
   def dashboard
-    @meta_data = {:page_title => "#{current_user.name if current_user.name.present?}", :og_image => "", :og_title => "#{current_user.name if current_user.name.present?} | Chicago Ideas Week", :og_type => "article", :og_desc => ""}
+    @meta_data = {:page_title => "Chicago Ideas Week | Dashboard", :og_image => "", :og_title => "Chicago Ideas Week", :og_type => "article", :og_desc => ""}
     @user = current_user
   end
   
