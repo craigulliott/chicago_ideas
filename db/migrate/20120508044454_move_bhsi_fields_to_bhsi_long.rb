@@ -11,11 +11,6 @@ class MoveBhsiFieldsToBhsiLong < ActiveRecord::Migration
         ba.bhsi_longtext.number_people_affected = ba.number_people_affected
         ba.bhsi_longtext.explain_number = ba.explain_number
         ba.bhsi_longtext.organizational_development = ba.organizational_development
-        ba.bhsi_longtext.makes_social_innovation = ba.makes_social_innovation
-        ba.bhsi_longtext.inspiration = ba.inspiration
-        ba.bhsi_longtext.improvements = ba.improvements
-        ba.bhsi_longtext.sustainability_model = ba.sustainability_model
-        ba.bhsi_longtext.distinguish_yourself = ba.distinguish_yourself
         ba.bhsi_longtext.strong_midwest_connections_explained = ba.strong_midwest_connections_explained
         ba.bhsi_longtext.additional_comments = ba.additional_comments
         ba.bhsi_longtext.three_standout_statistics = ba.three_standout_statistics
