@@ -54,6 +54,33 @@ class BhsiApplication < ActiveRecord::Base
   validates_attachment_content_type :press_clipping_3, :content_type => 'application/pdf'
   
   
+  validates :makes_social_innovation, :presence => true, :length => {
+    :maximum   => 150,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :inspiration, :presence => true, :length => {
+    :maximum   => 1000,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :sustainability_model, :presence => true, :length => {
+    :maximum   => 1000,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :improvements, :presence => true, :length => {
+    :maximum   => 1000,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :distinguish_yourself, :presence => true, :length => {
+    :maximum   => 1000,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+
+  
   
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil

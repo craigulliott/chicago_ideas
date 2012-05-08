@@ -42,31 +42,6 @@ class BhsiLongtext < ActiveRecord::Base
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
-  validates :makes_social_innovation, :presence => true, :length => {
-    :maximum   => 150,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :inspiration, :presence => true, :length => {
-    :maximum   => 1000,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :sustainability_model, :presence => true, :length => {
-    :maximum   => 1000,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :improvements, :presence => true, :length => {
-    :maximum   => 1000,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :distinguish_yourself, :presence => true, :length => {
-    :maximum   => 1000,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-
+  
   
 end
