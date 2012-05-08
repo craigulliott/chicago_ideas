@@ -11,7 +11,7 @@ class BhsiApplication < ActiveRecord::Base
   has_attached_file :press_clipping_3, :path => "applications/bhsi/pdfs/:id/:filename"
 
   # we have a polymorphic relationship with notes
-  has_one :bhsi_longtext
+  has_one :bhsi_longtext, :dependent => :destroy
   has_many :notes, :as => :asset
   
   accepts_nested_attributes_for :bhsi_longtext
