@@ -4,11 +4,7 @@ class BhsiLongtext < ActiveRecord::Base
 
   belongs_to :BhsiApplication
   
-  has_attached_file :pdf, :path => "applications/bhsi/pdfs/:id/:filename"
-  has_attached_file :previous_budget, :path => "applications/bhsi/pdfs/:id/:filename"
-  has_attached_file :press_clipping_1, :path => "applications/bhsi/pdfs/:id/:filename"
-  has_attached_file :press_clipping_2, :path => "applications/bhsi/pdfs/:id/:filename"
-  has_attached_file :press_clipping_3, :path => "applications/bhsi/pdfs/:id/:filename"
+
   
   validates :about_yourself, :presence => true, :length => {
     :maximum   => 1000,

@@ -9,6 +9,8 @@ class BhsiApplication < ActiveRecord::Base
   has_attached_file :press_clipping_1, :path => "applications/bhsi/pdfs/:id/:filename"
   has_attached_file :press_clipping_2, :path => "applications/bhsi/pdfs/:id/:filename"
   has_attached_file :press_clipping_3, :path => "applications/bhsi/pdfs/:id/:filename"
+  
+  
 
   # we have a polymorphic relationship with notes
   has_one :bhsi_longtext, :dependent => :destroy
