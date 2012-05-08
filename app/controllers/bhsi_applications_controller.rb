@@ -18,8 +18,11 @@ class BhsiApplicationsController < ApplicationController
       redirect_to root_path
     elsif current_user
       @bhsi_application = current_user.build_bhsi_application
+      @bhsi_application.build_bhsi_longtext
     else
+      
       @bhsi_application = BhsiApplication.new
+      @bhsi_application.build_bhsi_longtext
     end
   end
 
@@ -30,6 +33,7 @@ class BhsiApplicationsController < ApplicationController
       
       @meta_data = {:page_title => "Bluhm/Helfand Social Innovation Fellowship", :og_image => "http://www.chicagoideas.com/assets/application/affilliate_events_banner.jpg", :og_title => "Bluhm/Helfand Social Innovation Fellowship | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
       @bhsi_application = current_user.build_bhsi_application(params[:bhsi_application])
+     
     
       pdf = doc_raptor_send({:document_type => "pdf".to_sym})
       friendlyName = "Bhsi_#{@bhsi_application.social_venture_name}.pdf"

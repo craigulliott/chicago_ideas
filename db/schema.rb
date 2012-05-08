@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410214906) do
+ActiveRecord::Schema.define(:version => 20120508065937) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -67,17 +67,12 @@ ActiveRecord::Schema.define(:version => 20120410214906) do
     t.text     "twitter_handle",                       :limit => 16777215,                    :null => false
     t.text     "video_url",                            :limit => 16777215,                    :null => false
     t.text     "applied_before",                       :limit => 16777215,                    :null => false
-    t.text     "about_yourself",                       :limit => 16777215,                    :null => false
-    t.text     "social_venture_description",           :limit => 16777215,                    :null => false
-    t.text     "venture_launched",                     :limit => 16777215,                    :null => false
-    t.text     "number_people_affected",               :limit => 16777215,                    :null => false
-    t.text     "explain_number",                       :limit => 16777215,                    :null => false
-    t.text     "organizational_development",           :limit => 16777215,                    :null => false
-    t.text     "makes_social_innovation",              :limit => 16777215,                    :null => false
-    t.text     "inspiration",                          :limit => 16777215,                    :null => false
-    t.text     "sustainability_model",                 :limit => 16777215,                    :null => false
-    t.text     "improvements",                         :limit => 16777215,                    :null => false
-    t.text     "distinguish_yourself",                 :limit => 16777215,                    :null => false
+    t.text     "about_yourself",                       :limit => 16777215
+    t.text     "social_venture_description",           :limit => 16777215
+    t.text     "venture_launched",                     :limit => 16777215
+    t.text     "number_people_affected",               :limit => 16777215
+    t.text     "explain_number",                       :limit => 16777215
+    t.text     "organizational_development",           :limit => 16777215
     t.text     "strong_midwest_connections_explained", :limit => 16777215
     t.text     "additional_comments",                  :limit => 16777215
     t.text     "reference_1_name",                     :limit => 16777215,                    :null => false
@@ -94,7 +89,7 @@ ActiveRecord::Schema.define(:version => 20120410214906) do
     t.text     "pdf_content_type",                     :limit => 16777215
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
-    t.text     "three_standout_statistics",            :limit => 16777215,                    :null => false
+    t.text     "three_standout_statistics",            :limit => 16777215
     t.text     "phone_number",                         :limit => 16777215,                    :null => false
     t.text     "previous_budget_file_name",            :limit => 16777215
     t.text     "previous_budget_content_type",         :limit => 16777215
@@ -113,6 +108,24 @@ ActiveRecord::Schema.define(:version => 20120410214906) do
     t.integer  "press_clipping_3_file_size"
     t.datetime "press_clipping_3_updated_at"
     t.text     "zipcode",                              :limit => 16777215,                    :null => false
+    t.text     "makes_social_innovation",              :limit => 16777215,                    :null => false
+    t.text     "inspiration",                          :limit => 16777215,                    :null => false
+    t.text     "sustainability_model",                 :limit => 16777215,                    :null => false
+    t.text     "improvements",                         :limit => 16777215,                    :null => false
+    t.text     "distinguish_yourself",                 :limit => 16777215,                    :null => false
+  end
+
+  create_table "bhsi_longtexts", :force => true do |t|
+    t.text    "about_yourself",                       :limit => 16777215, :null => false
+    t.text    "social_venture_description",           :limit => 16777215, :null => false
+    t.text    "venture_launched",                     :limit => 16777215, :null => false
+    t.text    "number_people_affected",               :limit => 16777215, :null => false
+    t.text    "explain_number",                       :limit => 16777215, :null => false
+    t.text    "organizational_development",           :limit => 16777215, :null => false
+    t.text    "strong_midwest_connections_explained", :limit => 16777215
+    t.text    "additional_comments",                  :limit => 16777215
+    t.text    "three_standout_statistics",            :limit => 16777215, :null => false
+    t.integer "bhsi_application_id"
   end
 
   create_table "chapter_photos", :force => true do |t|
