@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120508063003) do
+ActiveRecord::Schema.define(:version => 20120508065937) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -73,11 +73,6 @@ ActiveRecord::Schema.define(:version => 20120508063003) do
     t.text     "number_people_affected",               :limit => 16777215
     t.text     "explain_number",                       :limit => 16777215
     t.text     "organizational_development",           :limit => 16777215
-    t.text     "makes_social_innovation",              :limit => 16777215
-    t.text     "inspiration",                          :limit => 16777215
-    t.text     "sustainability_model",                 :limit => 16777215
-    t.text     "improvements",                         :limit => 16777215
-    t.text     "distinguish_yourself",                 :limit => 16777215
     t.text     "strong_midwest_connections_explained", :limit => 16777215
     t.text     "additional_comments",                  :limit => 16777215
     t.text     "reference_1_name",                     :limit => 16777215,                    :null => false
@@ -113,6 +108,11 @@ ActiveRecord::Schema.define(:version => 20120508063003) do
     t.integer  "press_clipping_3_file_size"
     t.datetime "press_clipping_3_updated_at"
     t.text     "zipcode",                              :limit => 16777215,                    :null => false
+    t.text     "makes_social_innovation",              :limit => 16777215,                    :null => false
+    t.text     "inspiration",                          :limit => 16777215,                    :null => false
+    t.text     "sustainability_model",                 :limit => 16777215,                    :null => false
+    t.text     "improvements",                         :limit => 16777215,                    :null => false
+    t.text     "distinguish_yourself",                 :limit => 16777215,                    :null => false
   end
 
   create_table "bhsi_longtexts", :force => true do |t|
@@ -122,11 +122,6 @@ ActiveRecord::Schema.define(:version => 20120508063003) do
     t.text    "number_people_affected",               :limit => 16777215, :null => false
     t.text    "explain_number",                       :limit => 16777215, :null => false
     t.text    "organizational_development",           :limit => 16777215, :null => false
-    t.text    "makes_social_innovation",              :limit => 16777215, :null => false
-    t.text    "inspiration",                          :limit => 16777215, :null => false
-    t.text    "sustainability_model",                 :limit => 16777215, :null => false
-    t.text    "improvements",                         :limit => 16777215, :null => false
-    t.text    "distinguish_yourself",                 :limit => 16777215, :null => false
     t.text    "strong_midwest_connections_explained", :limit => 16777215
     t.text    "additional_comments",                  :limit => 16777215
     t.text    "three_standout_statistics",            :limit => 16777215, :null => false
