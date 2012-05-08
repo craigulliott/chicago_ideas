@@ -11,8 +11,10 @@ class BhsiApplication < ActiveRecord::Base
   has_attached_file :press_clipping_3, :path => "applications/bhsi/pdfs/:id/:filename"
 
   # we have a polymorphic relationship with notes
+  has_one :bhsi_longtext
   has_many :notes, :as => :asset
-
+  
+  accepts_nested_attributes_for :bhsi_longtext
   
   validates :first_name, :presence => true
   validates :last_name, :presence => true
@@ -32,59 +34,7 @@ class BhsiApplication < ActiveRecord::Base
   validates :twitter_handle, :presence => true
   validates :video_url, :presence => true
   validates :applied_before, :presence => true
-  validates :about_yourself, :presence => true, :length => {
-    :maximum   => 1000,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :social_venture_description, :presence => true, :length => {
-    :maximum   => 200,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :venture_launched, :presence => true
-  validates :number_people_affected, :presence => true
-  validates :explain_number, :presence => true, :length => {
-    :maximum   => 300,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :three_standout_statistics, :presence => true, :length => {
-    :maximum   => 200,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :organizational_development, :presence => true, :length => {
-    :maximum   => 600,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :makes_social_innovation, :presence => true, :length => {
-    :maximum   => 150,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :inspiration, :presence => true, :length => {
-    :maximum   => 1000,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :sustainability_model, :presence => true, :length => {
-    :maximum   => 1000,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :improvements, :presence => true, :length => {
-    :maximum   => 1000,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :distinguish_yourself, :presence => true, :length => {
-    :maximum   => 1000,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
-    :too_long  => "must be less than %{count} words"
-  }
-  validates :reference_1_name, :presence => true
+    validates :reference_1_name, :presence => true
   validates :reference_1_relationship, :presence => true
   validates :reference_1_phone, :presence => true
   validates :reference_1_email, :presence => true
@@ -94,14 +44,15 @@ class BhsiApplication < ActiveRecord::Base
   validates :reference_2_email, :presence => true
   validates :agreement_accepeted, :acceptance => {:accept => true}
   validates :user_id, :presence => true
-    
+  
   validates_attachment_presence :previous_budget, :presence => true
   validates_attachment_presence :press_clipping_1, :presence => true
-  
+
   validates_attachment_content_type :previous_budget, :content_type => 'application/pdf'
   validates_attachment_content_type :press_clipping_1, :content_type => 'application/pdf'
   validates_attachment_content_type :press_clipping_2, :content_type => 'application/pdf'
   validates_attachment_content_type :press_clipping_3, :content_type => 'application/pdf'
+  
   
   
   # a DRY approach to searching lists of these models
@@ -111,7 +62,7 @@ class BhsiApplication < ActiveRecord::Base
     else
       [
         { :name => :search, :as => :string, :fields => [:first_name], :wildcard => :both },
-        { :name => :created_at, :as => :datetimerange }, 
+        { :name => :created_at, :as => :datetimerange }
       ]
     end
   end
