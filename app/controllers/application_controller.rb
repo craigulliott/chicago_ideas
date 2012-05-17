@@ -152,7 +152,7 @@ class ApplicationController < ActionController::Base
       @team << User.find(6)
       @team << User.find(1)
       #@team << User.find(9)
-      @team << User.find(3)
+      #@team << User.find(3)
       @team << User.find(8)
       @team << User.find(4)
       @team << User.find(155)

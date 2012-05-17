@@ -478,6 +478,15 @@
 	background: asset-url('application/fancybox/fancybox.png', image) -55px -90px no-repeat;
 }
 
+/* PollDaddy */
+#poll input {
+	border:0 !important;
+	padding-top:4px !important;
+}
+.pds-box {
+	border:0 !important;
+}	
+
 /* IE6 */
 
 .fancybox-ie6 #fancybox-close { background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/javascript/application/fancybox/fancy_close.png', sizingMethod='scale'); }
