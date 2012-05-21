@@ -393,6 +393,7 @@ CraigsAdmin::Application.routes.draw do
         get :administrators
         get :staff
         get :speakers
+        get :export
       end
       member do
         # pages

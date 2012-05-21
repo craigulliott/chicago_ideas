@@ -1,3 +1,4 @@
+require 'csv'
 class Admin::UsersController < Admin::AdminController
 
   # if the password field is empty, allow the password to stay the same
@@ -11,6 +12,22 @@ class Admin::UsersController < Admin::AdminController
     @users = User.search_sort_paginate(params)
   end
 
+  def export
+    @users = User.all # get all the users
+    respond_to do |format|
+      format.csv { # CSV is the only format we're concerned with for now
+        csv = CSV.generate do |row| # generated the CSV
+          row << ['Name', 'Email']
+          @users.each do |user|
+            row << [user.name, user.email] # add a user's name and email
+          end
+        end
+    	
+    	# send .csv back to the browser
+        send_data(csv, :type => 'text/csv; charset=iso-8859-1; header=present', :disposition => "attachment; filename=users_export_" << Date.today.to_s() << "_.csv") 
+      }
+    end
+  end
 
   # MEMBER ACTIONS
   # ---------------------------------------------------------------------------------------------------------
