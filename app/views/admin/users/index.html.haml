@@ -2,9 +2,8 @@
 
 - content_for :top_links do
   = new_model_link User
-  %a{ :href => "/admin/users/export.csv" }
-    export all users
-
+  = export_model_link User, "csv"
+ 
 = ssp_search_form(User)
 
 .table_section
