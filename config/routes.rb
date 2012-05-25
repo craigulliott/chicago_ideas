@@ -393,6 +393,7 @@ CraigsAdmin::Application.routes.draw do
         get :administrators
         get :staff
         get :speakers
+        #get :export
       end
       member do
         # pages
@@ -404,6 +405,10 @@ CraigsAdmin::Application.routes.draw do
         get :edit_password
         put :update_password
       end
+      resources :export
+        collection do
+          get :export
+        end
       resources :notes, :only => [:new, :create]
     end
   
