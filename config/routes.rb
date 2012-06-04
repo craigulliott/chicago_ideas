@@ -104,6 +104,7 @@ CraigsAdmin::Application.routes.draw do
   resources :years, :only => [:show] do
     match 'speakers', :to => 'users#list_speakers'
     match 'speakers/edison', :to => 'users#list_edison_speakers'
+    match 'speakers/project_youth', :to => 'users#list_project_youth_speakers'
     
     resources :talks, :only => [:index] do
       # home pages for the different talk types
@@ -118,7 +119,8 @@ CraigsAdmin::Application.routes.draw do
   # teams members and speakers are both a type of user, so are handled by the users controller
   match 'team_members', :to => 'users#list_team_members'
   match 'team_members/:id', :to => 'users#team_member', :as => "team_member"
-   match 'speakers/edison', :to => 'users#list_edison_speakers'
+  match 'speakers/edison', :to => 'users#list_edison_speakers'
+  match 'speakers/project_youth', :to => 'users#list_project_youth_speakers'
   match 'speakers', :to => 'users#list_speakers'
   match 'speakers/page/:page', :to => 'users#list_speakers'
   match 'speakers/:id', :to => 'users#speaker', :as => "speaker"
