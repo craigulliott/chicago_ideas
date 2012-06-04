@@ -55,6 +55,12 @@ class BhsiApplication < ActiveRecord::Base
   validates_attachment_content_type :press_clipping_2, :content_type => 'application/pdf'
   validates_attachment_content_type :press_clipping_3, :content_type => 'application/pdf'
   
+  validates_attachment_size :previous_budget, :less_than => 4.megabytes
+  validates_attachment_size :press_clipping_1, :less_than => 4.megabytes
+  validates_attachment_size :press_clipping_2, :less_than => 4.megabytes
+  validates_attachment_size :press_clipping_3, :less_than => 4.megabytes
+  
+  
   
   validates :makes_social_innovation, :presence => true, :length => {
     :maximum   => 150,

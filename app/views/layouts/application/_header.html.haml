@@ -16,6 +16,7 @@
       .dropdown
         %ul.dd_column.full
           %li= link_to "2012 Speakers", year_speakers_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
+          %li= link_to "Edison Talks", year_speakers_edison_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Edison Talks Speakers"
           %li= link_to "CIW Talks", year_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
           %li= link_to "CIW Labs", labs_events_path, :rel => "bookmark", :title => "View all CIW Labs"
           %li= link_to "Affiliate Events", affiliate_event_events_path, :rel => "bookmark", :title => "All all Affiliate Events"
