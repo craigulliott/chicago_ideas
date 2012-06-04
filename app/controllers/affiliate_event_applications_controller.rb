@@ -23,6 +23,8 @@ class AffiliateEventApplicationsController < ApplicationController
     
       pdf = doc_raptor_send({:document_type => "pdf".to_sym})
       friendlyName = "AEA_#{@affiliate_event_application.organization_name}.pdf"
+      friendlyName = friendlyName.gsub(" ", "")
+      friendlyName = friendlyName.gsub("/", "_")
       File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
       @affiliate_event_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
 
