@@ -90,3 +90,237 @@ ul#speaker_overview {
   height: 400px;
   margin-bottom: 30px;
 }
+
+body.list_edison_speakers {
+	background:#000 asset-url('application/edison_bg.png', image) top center no-repeat;
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+	p {
+		font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size:18px;
+		color:#fff;
+	}
+	
+	#main_content {
+		margin-top:150px;
+		
+		#edison_info {
+			width:1000px;
+			height:243px;
+			margin:-5px auto 50px auto;
+			background:transparent asset-url('application/edison_info_bg.png', image) top center no-repeat;
+			
+			div {
+				width:450px;
+				float:left;
+				padding: 55px 20px;
+				text-align:right;
+				font-style:italic;
+				font-weight:bold;
+				
+				
+				p {
+					margin:0;
+					line-height:1.6em;
+					text-shadow: 0px -1px 1px #000000
+					
+					a {
+						color:#3170e1;
+					}
+				}
+				
+				
+			}
+			
+			div + div {
+				text-align:left;
+				font-style:normal;
+				margin-left:15px;
+				
+				h2 {
+					margin:0;
+					margin-bottom:10px;
+					
+					p {
+						font-size:20px;
+						color:#f6e800;
+						text-shadow: 0px -1px 1px #000;
+					}
+				}
+				
+				p {
+					font-size:14px;
+				}
+			}
+			
+		}
+		
+		div#edison_speakers {
+			min-height:208px;
+			background:transparent asset-url('application/edison_speakers_bg.png', image) top center repeat-y;
+			
+			ul.preview_list {
+		
+				li {
+					width:450px;
+					float:left;
+					display:block;
+					clear:left;
+				
+					a {
+						color:#f6e800;
+					}
+				
+					span {
+						color:#fff;
+					}
+				
+					blockquote.speaker_quote {
+						background: asset-url('application/edison_quotation_marks.png', image) top left no-repeat;
+						margin:15px 0 0 133px;
+						padding-left:0;
+						font-size:15px;
+						color:#fff;
+						font-style:italic;
+						line-height:23px;
+					}
+				}
+			
+				li.even {
+					float:right;
+					clear:none;
+				
+				}
+			}
+			
+		}
+		
+		div#edison_speakers_none {
+			p {
+				font-style:italic;
+				text-align:center;
+				margin-bottom:50px;
+			}
+		}
+		
+		
+	}
+}
+
+body.list_project_youth_speakers {
+	background:#fff;
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+	p {
+		font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size:18px;
+		color:#2c2829;
+	}
+	
+	#main_content {
+		margin-top:100px;
+		
+		#project_youth_info {
+			width:1000px;
+			height:140px;
+			margin:30px auto 50px auto;
+			
+			div {
+				width:470px;
+				float:left;
+				text-align:center;
+				font-weight:bold;
+				
+				h2 {
+					margin:0;
+					margin-bottom:10px;
+					font-weight:bold;
+					font-style:italic;
+					font-size:18px;
+					
+					
+				}
+				
+				p {
+					font-size:14px;
+					margin:0;
+					line-height:1.4em;
+					
+					a {
+						color:#04a7e8;
+					}
+				}
+				
+			}
+			
+			div + div {
+				float:right;
+				text-align:left;
+				font-style:normal;
+				margin-left:15px;
+				
+				p {
+					font-size:14px;
+					font-weight:normal;
+				}
+			}
+		}
+		
+		div.speakers {
+			position:relative;
+			background:transparent asset-url('application/project_youth_speakers_bg.png', image) 0 0 repeat-x;
+			padding-top:60px;
+			
+			h2 {
+				position:absolute;
+				top:-37px;
+				left:439px;
+				background:#fff;
+				padding:10px 20px;
+				font-style:italic;
+				color:#2e2a2b;
+			}
+			
+			ul.preview_list {
+		
+				li {
+					width:450px;
+					float:left;
+					display:block;
+					clear:left;
+				
+					a {
+						color:#04a7e8;
+					}
+				
+					span {
+						color:#292728;
+					}
+				
+					blockquote.speaker_quote {
+						background: asset-url('application/project_youth_quotation_marks.png', image) top left no-repeat;
+						margin:15px 0 0 133px;
+						padding-left:0;
+						font-size:15px;
+						color:#292728;
+						font-style:italic;
+						line-height:23px;
+					}
+				}
+			
+				li.even {
+					float:right;
+					clear:none;
+				
+				}
+			}
+		}
+		
+		div#project_youth_none {
+			h2 {
+				left:390px;
+			}
+		}
+	
+	}
+}

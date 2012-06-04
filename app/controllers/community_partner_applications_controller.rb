@@ -21,6 +21,8 @@ class CommunityPartnerApplicationsController < ApplicationController
 
       pdf = doc_raptor_send({:document_type => "pdf".to_sym})
       friendlyName = "CommunityPartner_#{@community_partner_application.name}.pdf"
+      friendlyName = friendlyName.gsub(" ", "")
+      friendlyName = friendlyName.gsub("/", "_")
       File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
       @community_partner_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
     

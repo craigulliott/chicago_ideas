@@ -36,6 +36,7 @@
   %script{:type => "text/javascript", :src => "http://js.getexceptional.com/exceptional.js"}
   %script{:type => "text/javascript"} Exceptional.setKey('#{ENV['EXCEPTIONAL_API_KEY']}');
 
+%link{:rel => 'stylesheet', :href => 'http://fonts.googleapis.com/css?family=Open+Sans', :type => 'text/css' }
 = stylesheet_link_tag :application
 = javascript_include_tag :application
 = csrf_meta_tag

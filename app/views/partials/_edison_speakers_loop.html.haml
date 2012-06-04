@@ -1,0 +1,18 @@
+-#    Speaker Loop
+-#
+-#    Standard template for an individual speaker item
+-#    in the standard preview list
+
+- speakers.each_with_index do |speaker, i|
+  %li{:id => "speaker_#{speaker.id}", :class => "speaker_#{speaker.id} #{i.modulo(2) == 0 ? 'odd' : 'even' }"}
+    .img_frame
+      = link_to image_tag(speaker.portrait(:thumb)), speaker_path(speaker), :rel => "bookmark", :title => "#{speaker.name}"
+    = link_to speaker.name, speaker_path(speaker), :rel => "bookmark", :title => "#{speaker.name}"
+    %span= speaker.title_abbreviated
+    
+    - if speaker.quotes.present?
+      - speaker.quotes.take(1).each do |quote|
+        %blockquote.speaker_quote
+          = quote.body
+    
+

@@ -1,0 +1,33 @@
+-#     Chicago Ideas Week
+-#     speakers/edison.html.haml
+-#     05/21/2012
+
+
+
+-# Begin Main Speaker content
+%section.container#main_content
+  
+  %img{ :src => "/assets/application/edison_logo.jpg", :rel => "bookmark", :title => "", :width => "1000", :height => "350" }
+  %div#edison_info
+    %div
+      %p Edison Talks is an invitation-only, daylong gathering of provocative presentations, performances and interactive installations led by globally recognized visionaries created to connect and inspire leaders from across the globe.
+    %div
+      %h2
+        %p Friday, October 12th, 2012
+        %p 9:00am - 6:00pm
+      %p Chicago Tribune Freedom Center,
+      %p Riverfront Theater
+      %p 
+        For questions, please contact: 
+        %a{:href => "mailto:edisontalks@chicagoideas.com"}
+          edisontalks@chicagoideas.com
+  
+  - if @speakers.length > 0
+    %div#edison_speakers
+      %ul.preview_list.speaker_list.double_rows
+        = render "partials/edison_speakers_loop", :speakers => @speakers
+      %div{:class => "clearfix" }            
+  - else
+    %div#edison_speakers_none
+      %p Speakers Coming Soon
+    
