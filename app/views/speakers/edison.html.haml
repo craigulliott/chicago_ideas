@@ -25,7 +25,7 @@
   - if @speakers.length > 0
     %div#edison_speakers
       %ul.preview_list.speaker_list.double_rows
-        = render "partials/edison_speakers_loop", :speakers => @speakers
+        = render "partials/landing_page_speakers_loop", :speakers => @speakers
       %div{:class => "clearfix" }            
   - else
     %div#edison_speakers_none
