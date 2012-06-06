@@ -13,7 +13,7 @@
       %h2
         %p Thursday, October 11th, 2012
         %p Oriental Theatre
-      %p TWITTER/FACEBOOK
+      = render "partials/share"
       %p For questions, please contact:  
       %p  
         %a{:href => "mailto:info@projectyouth.com"}
@@ -28,7 +28,7 @@
     %div{ :id => "project_youth_speakers", :class => "speakers" }
       %h2 Speakers
       %ul.preview_list.speaker_list.double_rows
-        = render "partials/edison_speakers_loop", :speakers => @speakers
+        = render "partials/landing_page_speakers_loop", :speakers => @speakers
       %div{:class => "clearfix" }            
   - else
     %div{ :id => "project_youth_none", :class => "speakers" }
