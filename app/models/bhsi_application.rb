@@ -50,10 +50,15 @@ class BhsiApplication < ActiveRecord::Base
   validates_attachment_presence :previous_budget, :presence => true
   validates_attachment_presence :press_clipping_1, :presence => true
 
-  validates_attachment_content_type :previous_budget, :content_type => 'application/pdf'
-  validates_attachment_content_type :press_clipping_1, :content_type => 'application/pdf'
-  validates_attachment_content_type :press_clipping_2, :content_type => 'application/pdf'
-  validates_attachment_content_type :press_clipping_3, :content_type => 'application/pdf'
+  #validates_attachment_content_type :previous_budget, :content_type => 'application/pdf'
+  #validates_attachment_content_type :press_clipping_1, :content_type => 'application/pdf'
+  #validates_attachment_content_type :press_clipping_2, :content_type => 'application/pdf'
+  #validates_attachment_content_type :press_clipping_3, :content_type => 'application/pdf'
+  
+  validates_format_of :previous_budget_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
+  validates_format_of :press_clipping_1_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
+  validates_format_of :press_clipping_2_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
+  validates_format_of :press_clipping_3_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
   
   validates_attachment_size :previous_budget, :less_than => 4.megabytes
   validates_attachment_size :press_clipping_1, :less_than => 4.megabytes
