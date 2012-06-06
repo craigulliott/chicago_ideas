@@ -25,7 +25,6 @@ $(document).ready(function(){
   
     if( data.newsletter ) {
       $('#subscribe_to_newsletter').hide();
-      subscribe_to_newsletter
     }
   
     if( data.signed_in ) {
