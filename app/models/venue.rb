@@ -109,6 +109,11 @@ class Venue < ActiveRecord::Base
     "http://maps.google.com/maps?hl=en&q=#{position}"
   end
   
+  def bing_maps_src width=280, height=280, zoom=12, maptype=:Road
+    "http://dev.virtualearth.net/REST/v1/Imagery/Map/Road/#{position}/#{zoom}?pushpin=#{position}&mapSize=#{width},#{height}&key=AuGgGandaCq-kaRoSzngT0VCwi8MWNk0BgOj5pxdiJvooLyZrGwoNnFpT3ZRBMTi"
+  end
+  
+  
   private 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_banner_dimensions
