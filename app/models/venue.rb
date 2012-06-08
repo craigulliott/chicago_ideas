@@ -110,7 +110,7 @@ class Venue < ActiveRecord::Base
   end
   
   def bing_maps_src width=280, height=280, zoom=12, maptype=:Road
-    "http://dev.virtualearth.net/REST/v1/Imagery/Map/Road/#{position}/#{zoom}?pushpin=#{position}&mapSize=#{width},#{height}&key=AuGgGandaCq-kaRoSzngT0VCwi8MWNk0BgOj5pxdiJvooLyZrGwoNnFpT3ZRBMTi"
+    "http://dev.virtualearth.net/REST/v1/Imagery/Map/#{maptype}/#{position}/#{zoom}?pushpin=#{position}&mapSize=#{width},#{height}&key=#{BING_MAPS_API_KEY}"
   end
   
   
