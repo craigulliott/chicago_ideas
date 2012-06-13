@@ -65,7 +65,7 @@
       .column.right
         .venue_map
           - if @talk.venue.present?
-            = image_tag @talk.venue.google_maps_src(300,145,zoom=15)
+            = image_tag @talk.venue.bing_maps_src(300,145,zoom=15)
   
     
     = render "partials/chapters_speakers", :chapters => @chapters, :title => "Speakers", :this_speaker => @speaker

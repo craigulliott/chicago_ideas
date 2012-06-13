@@ -14,6 +14,9 @@ BUSINESS_EMAIL = ENV['BUSINESS_EMAIL'].freeze
 # emails sent in development are intercepted and delivered to the developer, so we dont bombard customers by accident
 DEVELOPER_EMAIL = ENV['DEVELOPER_EMAIL'].freeze
 
+# bing maps api key for static maps
+BING_MAPS_API_KEY = ENV['BING_MAPS_API_KEY'].freeze
+
 # urchin code for google analytics
 GOOGLE_ANALYTICS_ACCOUNT_ID = ENV['GOOGLE_ANALYTICS_ACCOUNT_ID'].freeze
 
