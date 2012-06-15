@@ -171,9 +171,9 @@ ul#global_nav {
     > h1 a {
       display: block;
       width: 160px;
-      height: 116px;
+      height: 142px;
       background: asset-url('application/site_sprite.png', image) no-repeat !important;
-      background-position: 0 0;
+      background-position: -285px 0px !important;
       text-indent: -9999px;
     }
   } // end li#gn_logo
