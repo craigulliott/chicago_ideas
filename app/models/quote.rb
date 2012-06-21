@@ -25,7 +25,7 @@ class Quote < ActiveRecord::Base
   
    # Need to normalize the search attributes
   def search_attributes
-    {:title => '', :description => self.body, :image => ''}
+    {:title => self.user.name, :description => self.body, :image => ''}
   end
 
   # a DRY approach to searching lists of these models

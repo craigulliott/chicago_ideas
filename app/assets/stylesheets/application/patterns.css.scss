@@ -1202,7 +1202,7 @@ ul#previous_winners_preview {
       }
     }
   }
-  li.user span.r_label, li.chapter span.r_label, li.event span.r_label, li.talk span.r_label { 
+  li.user span.r_label, li.chapter span.r_label, li.event span.r_label, li.talk span.r_label, li.quote span.r_label { 
     display: inline !important; 
     width: auto !important; 
     padding: 1px 5px; 
@@ -1230,6 +1230,11 @@ ul#previous_winners_preview {
   li.talk {
     span.r_label {
       background: #9bd671;
+    }
+  }
+  li.quote {
+    span.r_label {
+      background: #f9f097;
     }
   }
 }
