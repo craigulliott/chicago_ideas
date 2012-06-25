@@ -1,0 +1,116 @@
+
+
+#model_detail
+
+  .section
+    %h1 ThinkChicago Application
+    %h2 Part 1: About You
+  
+    .row.no_margin
+      .column 
+        %strong First Name
+      .column_double= @think_chicago_application.first_name
+    .row.no_margin
+      .column 
+        %strong Last Name
+      .column_double= @think_chicago_application.last_name
+    .row.no_margin
+      .column 
+        %strong Address 1
+      .column_double= @think_chicago_application.address1
+    .row.no_margin
+      .column 
+        %strong Address 2
+      .column_double= @think_chicago_application.address2
+    .row.no_margin
+      .column 
+        %strong City
+      .column_double= @think_chicago_application.city
+    .row.no_margin
+      .column 
+        %strong State
+      .column_double= @think_chicago_application.state
+    .row.no_margin
+      .column 
+        %strong Zipcode
+      .column_double= @think_chicago_application.zip
+    .row.no_margin
+      .column 
+        %strong Phone
+      .column_double= @think_chicago_application.phone
+    .row.no_margin
+      .column 
+        %strong Email
+      .column_double= @think_chicago_application.email
+    .row.no_margin
+      .column 
+        %strong How did you learn about this program?
+      .column_double= @think_chicago_application.how_learn
+    .row.no_margin
+      .column 
+        %strong Please Specify:
+      .column_double= @think_chicago_application.how_learn_extra
+
+  .section
+  
+    %h2 Part 2: Education
+
+    .row.no_margin
+      .column_double
+        %strong Undergraduate Institution(s)
+      .column_double
+        %p= @think_chicago_application.undergraduate_institutions
+    .row.no_margin
+      .column 
+        %strong Field or Major
+      .column_double
+        %p= @think_chicago_application.field_major
+    .row.no_margin
+      .column 
+        %strong Minor
+      .column_double
+        %p= @think_chicago_application.minor
+    .row.no_margin
+      .column 
+        %strong Dates Attended
+      .column_double
+        %p= @think_chicago_application.dates_attended
+    .row.no_margin
+      .column 
+        %strong GPA
+      .column_double
+        %p= @think_chicago_application.gpa
+    .row.no_margin
+      .column 
+        %strong Type of Degree
+      .column_double
+        %p= @think_chicago_application.degree_type
+    .row.no_margin
+      .column 
+        %strong Expected Graduation Date
+      .column_double
+        %p= @think_chicago_application.expected_graduation_date
+    
+    
+  .section
+  
+    %h2 Part 3: Employment Interests
+  
+  
+  .section  
+  
+    %h2 Part 4: Additional Questions
+  
+    .row
+      %strong= "Discuss how your academic honors, leadership experience, extracurricular activities, or professional involvement demonstrate a commitment to technology and innovation."
+      %p= @think_chicago_application.honors_experience_activities
+    
+    .row
+      %strong What qualities or attributes will you bring to ThinkChicago?
+      %p= @think_chicago_application.qualities_attributes
+      
+    .row
+      %strong What do you hope to gain from this program?
+      %p= @think_chicago_application.hope_to_gain
+      
+    

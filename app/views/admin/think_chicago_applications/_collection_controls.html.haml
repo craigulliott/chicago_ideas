@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do
+  .crumb.end ThinkChicago Applications
+
+- @active_tab = 'think_chicago_applications'
+
+- content_for :content_navigation do
+  %h2 ThinkChicago Applications
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_think_chicago_applications_path, 'search'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120508065937) do
+ActiveRecord::Schema.define(:version => 20120622145422) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -50,69 +50,69 @@ ActiveRecord::Schema.define(:version => 20120508065937) do
   create_table "bhsi_applications", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "first_name",                           :limit => 16777215,                    :null => false
-    t.text     "last_name",                            :limit => 16777215,                    :null => false
-    t.text     "address1",                             :limit => 16777215,                    :null => false
-    t.text     "address2",                             :limit => 16777215
-    t.text     "city",                                 :limit => 16777215,                    :null => false
-    t.text     "state",                                :limit => 16777215,                    :null => false
+    t.string   "first_name",                           :limit => 25,       :default => "",    :null => false
+    t.string   "last_name",                            :limit => 25,       :default => "",    :null => false
+    t.string   "address1",                             :limit => 100,      :default => "",    :null => false
+    t.string   "address2",                             :limit => 55
+    t.string   "city",                                 :limit => 55,       :default => "",    :null => false
+    t.string   "state",                                :limit => 15,       :default => "",    :null => false
     t.string   "country",                                                  :default => "US",  :null => false
-    t.text     "email",                                :limit => 16777215,                    :null => false
+    t.string   "email",                                :limit => 50,       :default => "",    :null => false
     t.text     "gender",                               :limit => 16777215,                    :null => false
     t.text     "birthdate",                            :limit => 16777215,                    :null => false
-    t.text     "title",                                :limit => 16777215,                    :null => false
+    t.string   "title",                                :limit => 50,       :default => "",    :null => false
     t.text     "social_venture_name",                  :limit => 16777215,                    :null => false
-    t.text     "legal_structure",                      :limit => 16777215,                    :null => false
-    t.text     "url",                                  :limit => 16777215,                    :null => false
-    t.text     "twitter_handle",                       :limit => 16777215,                    :null => false
+    t.string   "legal_structure",                      :limit => 100,      :default => "",    :null => false
+    t.string   "url",                                  :limit => 100,      :default => "",    :null => false
+    t.string   "twitter_handle",                       :limit => 20,       :default => "",    :null => false
     t.text     "video_url",                            :limit => 16777215,                    :null => false
-    t.text     "applied_before",                       :limit => 16777215,                    :null => false
+    t.string   "applied_before",                       :limit => 3,        :default => "",    :null => false
     t.text     "about_yourself",                       :limit => 16777215
     t.text     "social_venture_description",           :limit => 16777215
     t.text     "venture_launched",                     :limit => 16777215
     t.text     "number_people_affected",               :limit => 16777215
     t.text     "explain_number",                       :limit => 16777215
     t.text     "organizational_development",           :limit => 16777215
+    t.text     "makes_social_innovation",              :limit => 16777215
+    t.text     "inspiration",                          :limit => 16777215
+    t.text     "sustainability_model",                 :limit => 16777215
+    t.text     "improvements",                         :limit => 16777215
+    t.text     "distinguish_yourself",                 :limit => 16777215
     t.text     "strong_midwest_connections_explained", :limit => 16777215
     t.text     "additional_comments",                  :limit => 16777215
-    t.text     "reference_1_name",                     :limit => 16777215,                    :null => false
-    t.text     "reference_1_relationship",             :limit => 16777215,                    :null => false
-    t.text     "reference_1_phone",                    :limit => 16777215,                    :null => false
-    t.text     "reference_1_email",                    :limit => 16777215,                    :null => false
-    t.text     "reference_2_name",                     :limit => 16777215,                    :null => false
-    t.text     "reference_2_relationship",             :limit => 16777215,                    :null => false
-    t.text     "reference_2_phone",                    :limit => 16777215,                    :null => false
-    t.text     "reference_2_email",                    :limit => 16777215,                    :null => false
-    t.text     "user_id",                              :limit => 16777215,                    :null => false
+    t.string   "reference_1_name",                     :limit => 50,       :default => "",    :null => false
+    t.string   "reference_1_relationship",             :limit => 100,      :default => "",    :null => false
+    t.string   "reference_1_phone",                    :limit => 15,       :default => "",    :null => false
+    t.string   "reference_1_email",                    :limit => 50,       :default => "",    :null => false
+    t.string   "reference_2_name",                     :limit => 50,       :default => "",    :null => false
+    t.string   "reference_2_relationship",             :limit => 100,      :default => "",    :null => false
+    t.string   "reference_2_phone",                    :limit => 15,       :default => "",    :null => false
+    t.string   "reference_2_email",                    :limit => 50,       :default => "",    :null => false
+    t.integer  "user_id",                                                                     :null => false
+    t.text     "three_standout_statistics",            :limit => 16777215
     t.boolean  "agreement_accepeted",                                      :default => false, :null => false
-    t.text     "pdf_file_name",                        :limit => 16777215
-    t.text     "pdf_content_type",                     :limit => 16777215
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
-    t.text     "three_standout_statistics",            :limit => 16777215
-    t.text     "phone_number",                         :limit => 16777215,                    :null => false
-    t.text     "previous_budget_file_name",            :limit => 16777215
-    t.text     "previous_budget_content_type",         :limit => 16777215
+    t.string   "phone_number",                         :limit => 11,       :default => "",    :null => false
+    t.string   "previous_budget_file_name"
+    t.string   "previous_budget_content_type"
     t.integer  "previous_budget_file_size"
     t.datetime "previous_budget_updated_at"
-    t.text     "press_clipping_1_file_name",           :limit => 16777215
-    t.text     "press_clipping_1_content_type",        :limit => 16777215
+    t.string   "press_clipping_1_file_name"
+    t.string   "press_clipping_1_content_type"
     t.integer  "press_clipping_1_file_size"
     t.datetime "press_clipping_1_updated_at"
-    t.text     "press_clipping_2_file_name",           :limit => 16777215
-    t.text     "press_clipping_2_content_type",        :limit => 16777215
+    t.string   "press_clipping_2_file_name"
+    t.string   "press_clipping_2_content_type"
     t.integer  "press_clipping_2_file_size"
     t.datetime "press_clipping_2_updated_at"
-    t.text     "press_clipping_3_file_name",           :limit => 16777215
-    t.text     "press_clipping_3_content_type",        :limit => 16777215
+    t.string   "press_clipping_3_file_name"
+    t.string   "press_clipping_3_content_type"
     t.integer  "press_clipping_3_file_size"
     t.datetime "press_clipping_3_updated_at"
-    t.text     "zipcode",                              :limit => 16777215,                    :null => false
-    t.text     "makes_social_innovation",              :limit => 16777215,                    :null => false
-    t.text     "inspiration",                          :limit => 16777215,                    :null => false
-    t.text     "sustainability_model",                 :limit => 16777215,                    :null => false
-    t.text     "improvements",                         :limit => 16777215,                    :null => false
-    t.text     "distinguish_yourself",                 :limit => 16777215,                    :null => false
+    t.string   "zipcode",                              :limit => 11,       :default => "",    :null => false
   end
 
   create_table "bhsi_longtexts", :force => true do |t|
@@ -378,6 +378,14 @@ ActiveRecord::Schema.define(:version => 20120508065937) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
+  create_table "speaker_brands", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "speaker_brands", ["name"], :name => "index_speaker_brands_on_name"
+
   create_table "speakers", :force => true do |t|
     t.integer  "year_id"
     t.integer  "user_id"
@@ -463,6 +471,47 @@ ActiveRecord::Schema.define(:version => 20120508065937) do
   add_index "talks", ["track_id"], :name => "index_talks_on_topic_id"
   add_index "talks", ["venue_id"], :name => "index_talks_on_venue_id"
 
+  create_table "think_chicago_applications", :force => true do |t|
+    t.string   "first_name",                                               :null => false
+    t.string   "middle_name"
+    t.string   "last_name",                                                :null => false
+    t.string   "address1",                                                 :null => false
+    t.string   "address2"
+    t.string   "city",                                                     :null => false
+    t.string   "state",                                                    :null => false
+    t.string   "zip",                                                      :null => false
+    t.string   "phone",                                                    :null => false
+    t.string   "email",                                                    :null => false
+    t.string   "how_learn",                                                :null => false
+    t.string   "how_learn_extra"
+    t.string   "undergraduate_institutions",                               :null => false
+    t.string   "field_major",                                              :null => false
+    t.string   "minor"
+    t.string   "dates_attended",                                           :null => false
+    t.string   "gpa",                                                      :null => false
+    t.string   "degree_type",                                              :null => false
+    t.string   "expected_graduation_date",                                 :null => false
+    t.string   "employment_interests",                                     :null => false
+    t.string   "employment_interests_extra"
+    t.text     "honors_experience_activities",       :limit => 2147483647, :null => false
+    t.text     "qualities_attributes",               :limit => 2147483647, :null => false
+    t.text     "hope_to_gain",                       :limit => 2147483647, :null => false
+    t.string   "current_resume_file_name"
+    t.string   "current_resume_content_type"
+    t.integer  "current_resume_file_size"
+    t.datetime "current_resume_updated_at"
+    t.string   "unofficial_transcript_file_name"
+    t.string   "unofficial_transcript_content_type"
+    t.integer  "unofficial_transcript_file_size"
+    t.datetime "unofficial_transcript_updated_at"
+    t.string   "faculty_endorsement_file_name"
+    t.string   "faculty_endorsement_content_type"
+    t.integer  "faculty_endorsement_file_size"
+    t.datetime "faculty_endorsement_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tracks", :force => true do |t|
     t.string   "name",        :null => false
     t.text     "description", :null => false
@@ -541,6 +590,16 @@ ActiveRecord::Schema.define(:version => 20120508065937) do
 
   add_index "venues", ["name"], :name => "index_venues_on_name"
 
+  create_table "videos", :force => true do |t|
+    t.string   "caption",    :null => false
+    t.string   "asset_type", :null => false
+    t.integer  "asset_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "videos", ["asset_type", "asset_id"], :name => "index_videos_on_asset_type_and_asset_id"
+
   create_table "volunteers", :force => true do |t|
     t.integer  "user_id"
     t.string   "postcode"
@@ -590,7 +649,41 @@ ActiveRecord::Schema.define(:version => 20120508065937) do
 
   add_foreign_key "affiliate_event_applications", "users", :name => "affiliate_event_applilcations_user_id_fk"
 
+  add_foreign_key "chapter_photos", "chapters", :name => "chapter_photos_chapter_id_fk"
+
+  add_foreign_key "chapters", "talks", :name => "chapters_talk_id_fk"
+
   add_foreign_key "community_partner_applications", "users", :name => "community_partner_applications_user_id_fk"
+
+  add_foreign_key "days", "years", :name => "days_year_id_fk"
+
+  add_foreign_key "event_photos", "events", :name => "event_photos_event_id_fk"
+
+  add_foreign_key "events", "days", :name => "events_day_id_fk"
+  add_foreign_key "events", "event_brands", :name => "events_event_brand_id_fk"
+  add_foreign_key "events", "partners", :name => "events_partner_id_fk"
+  add_foreign_key "events", "venues", :name => "events_venue_id_fk"
+
+  add_foreign_key "notes", "users", :name => "notes_author_id_fk", :column => "author_id"
+
+  add_foreign_key "performances", "chapters", :name => "performances_chapter_id_fk"
+  add_foreign_key "performances", "users", :name => "performances_speaker_id_fk", :column => "speaker_id"
+
+  add_foreign_key "quotes", "users", :name => "quotes_user_id_fk"
+
+  add_foreign_key "sponsors", "sponsorship_levels", :name => "sponsors_sponsorship_level_id_fk"
+
+  add_foreign_key "sponsorships", "sponsors", :name => "sponsorships_sponsor_id_fk"
+  add_foreign_key "sponsorships", "sponsorship_levels", :name => "sponsorships_sponsorship_level_id_fk"
+  add_foreign_key "sponsorships", "years", :name => "sponsorships_year_id_fk"
+
+  add_foreign_key "talk_photos", "talks", :name => "talk_photos_talk_id_fk"
+
+  add_foreign_key "talks", "days", :name => "talks_day_id_fk"
+  add_foreign_key "talks", "sponsors", :name => "talks_sponsor_id_fk"
+  add_foreign_key "talks", "talk_brands", :name => "talks_talk_brand_id_fk"
+  add_foreign_key "talks", "tracks", :name => "talks_track_id_fk"
+  add_foreign_key "talks", "venues", :name => "talks_venue_id_fk"
 
   add_foreign_key "volunteers", "users", :name => "volunteers_user_id_fk"
 

@@ -1,0 +1,8 @@
+%tr{:think_chicago_application => think_chicago_application.id}
+  %td.name= link_to think_chicago_application.first_name, admin_think_chicago_application_path(think_chicago_application)
+  %td.name= think_chicago_application.last_name
+  %td.email= think_chicago_application.email
+  %td.options
+    = edit_model_link think_chicago_application
+    = destroy_model_link think_chicago_application
+ 
