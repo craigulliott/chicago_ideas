@@ -4,8 +4,6 @@ class ThinkChicagoApplication < ActiveRecord::Base
   
   has_attached_file :pdf, :path => "applications/think_chicago/pdfs/:id/:filename"
   has_attached_file :current_resume, :path => "applications/think_chicago/pdfs/:id/:filename"
-  has_attached_file :unofficial_transcript, :path => "applications/think_chicago/pdfs/:id/:filename"
-  has_attached_file :faculty_endorsement, :path => "applications/think_chicago/pdfs/:id/:filename"
   
 
   # we have a polymorphic relationship with notes
@@ -29,16 +27,10 @@ class ThinkChicagoApplication < ActiveRecord::Base
   validates :employment_interests, :presence => true
 
   validates_attachment_presence :current_resume, :presence => true
-  #validates_attachment_presence :unofficial_transcript, :presence => true
-  #validates_attachment_presence :faculty_endorsement, :presence => true
-
+ 
   validates_format_of :current_resume_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
-  validates_format_of :unofficial_transcript_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
-  validates_format_of :faculty_endorsement_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
   
   validates_attachment_size :current_resume, :less_than => 4.megabytes
-  validates_attachment_size :unofficial_transcript, :less_than => 4.megabytes
-  validates_attachment_size :faculty_endorsement, :less_than => 4.megabytes
   
   
   validates :honors_experience_activities, :presence => true, :length => {
@@ -71,8 +63,6 @@ class ThinkChicagoApplication < ActiveRecord::Base
     self.employment_interests.reject! { |et| et.empty? }  # need to remove empty string
     if self.employment_interests.length < 2
       self.errors.add('employment_interests', 'please select at least two')
-    else
-      self.employment_interests = self.employment_interests.join(', ') # convert array to a string for saving
     end
   end
   
@@ -81,6 +71,17 @@ class ThinkChicagoApplication < ActiveRecord::Base
       self.errors.add('employment_interests_extra', 'can\'t be blank')
     end
   end
+  
+  before_create {|record|
+    record.employment_interests = record.employment_interests.join(', ') # convert array to a string for saving
+  }
+
+  
+  #after_validation :convert_employment_interests_to_string, :on => :create
+  #def convert_employment_interests_to_string
+  #  puts "HERE"
+  #  
+  #end
   
   
   # a DRY approach to searching lists of these models
