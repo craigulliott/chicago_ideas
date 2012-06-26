@@ -29,8 +29,8 @@ class ThinkChicagoApplication < ActiveRecord::Base
   validates :employment_interests, :presence => true
 
   validates_attachment_presence :current_resume, :presence => true
-  validates_attachment_presence :unofficial_transcript, :presence => true
-  validates_attachment_presence :faculty_endorsement, :presence => true
+  #validates_attachment_presence :unofficial_transcript, :presence => true
+  #validates_attachment_presence :faculty_endorsement, :presence => true
 
   validates_format_of :current_resume_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
   validates_format_of :unofficial_transcript_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"

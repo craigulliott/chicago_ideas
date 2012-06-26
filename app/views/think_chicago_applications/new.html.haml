@@ -42,11 +42,10 @@
               %ul
                 %li Copy of applicant's current resume
                 %li Unofficial copy of applicant's transcript from school currently attending
-                %li Completed application including completion of interest statements
-                %li Faculty endorsement
+
             %p
-              Please save a copy of your application responses for your records. For questions or any technical difficulties, please email
-              = link_to "info@bluhmhelfand.com.", "mailto:info@bluhmhelfand.com"
+              Please save a copy of your application responses for your records. For questions or any technical difficulties, please email Danyelle Michelini at
+              = link_to "tec@illinois.edu", "mailto:tec@illinois.edu"
             
             %span.form_section_header Part 1: About You
             = f.inputs :class => "c_list v_lists" do
@@ -90,11 +89,9 @@
               = f.input :hope_to_gain, :label => "What do you hope to gain from this program?"
     
           .form_section
-            %span.form_section_header Part 5: Attachments
+            %span.form_section_header Part 5: R&eacute;sum&eacute;
             = f.inputs :class => "c_list v_lists" do
-              = f.input :current_resume, :required => true, :as => :file, :label => "Please submit a current resume", :hint => "Must be a PDF and less than 4MB"
-              = f.input :unofficial_transcript, :required => true, :as => :file, :label => "Please submit an unofficial copy of your transcript from the school you're currently attending", :hint => "Must be a PDF and less than 4MB"
-              = f.input :faculty_endorsement, :required => true, :as => :file, :label => "Please submit an endorsement from your school's faculty", :hint => "Must be a PDF and less than 4MB"
+              = f.input :current_resume, :required => true, :as => :file, :label => "Please submit a current r&eacute;sum&eacute;", :hint => "Must be a PDF and less than 4MB"
               
             
           = f.buttons do
