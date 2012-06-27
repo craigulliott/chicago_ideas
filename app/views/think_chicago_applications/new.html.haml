@@ -31,9 +31,6 @@
 
     .column_row#blum_helfand_application_form
     
-      - @think_chicago_application.errors.each do |e|
-        = e
-        %br
     
       = semantic_form_for(@think_chicago_application) do |f|
           
