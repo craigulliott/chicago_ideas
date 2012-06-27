@@ -12,6 +12,10 @@
       .column_double= @think_chicago_application.first_name
     .row.no_margin
       .column 
+        %strong Middle Name
+      .column_double= @think_chicago_application.middle_name
+    .row.no_margin
+      .column 
         %strong Last Name
       .column_double= @think_chicago_application.last_name
     .row.no_margin
@@ -32,7 +36,7 @@
       .column_double= @think_chicago_application.state
     .row.no_margin
       .column 
-        %strong Zipcode
+        %strong Zip
       .column_double= @think_chicago_application.zip
     .row.no_margin
       .column 
