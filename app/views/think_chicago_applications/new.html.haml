@@ -1,0 +1,131 @@
+-#     Chicago Ideas Week
+-#     bhsi_applications/new.html.haml
+-#     02/17/2012
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "ThinkChicago", thinkchicago_path
+        %li
+          %span New Application
+    = render "partials/explore_dropdown"
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 ThinkChicago Application Form
+    = render "partials/share"
+    
+  -# Left column, main content: About Us information
+  .box.double.left
+
+    .column_row#blum_helfand_application_form
+    
+    
+      = semantic_form_for(@think_chicago_application) do |f|
+          
+        .form_section
+          %span.form_section_header Application Instructions
+          %p 
+            The following documents 
+            %strong MUST 
+            be submitted with the application:
+            %ul
+              %li Copy of applicant's current r&eacute;sum&eacute;
+              %li Unofficial copy of applicant's transcript from school currently attending
+
+          %p
+            Please save a copy of your application responses for your records. For questions or any technical difficulties, please email Danyelle Michelini at
+            = link_to "tec@illinois.edu.", "mailto:tec@illinois.edu"
+            
+          %span.form_section_header Part 1: About You
+          = f.inputs :class => "c_list v_lists" do
+            = f.input :first_name, :as => :string, :required => true, :label => "First Name"
+            = f.input :middle_name, :as => :string, :label => "Middle Name"
+            = f.input :last_name, :as => :string, :required => true, :label => "Last Name"
+            = f.input :address1, :as => :string, :required => true, :label => "Address"
+            = f.input :address2, :as => :string, :label => "Address 2"
+            = f.input :city, :as => :string, :required => true, :label => "City"
+            = f.input :state, :as => :string, :required => true, :label => "State"
+            = f.input :zip, :as => :string, :required => true, :label => "Zip Code"
+            = f.input :phone, :as => :phone, :required => true, :label => "Phone Number", :hint => "xxx-xxx-xxxx"
+            = f.input :email, :as => :email, :required => true, :label => "Email"
+            = f.input :how_learn, :as => :select, :collection => ['Chicago Ideas Week Website','School Posting','Career Services','In-Class Presentation','Faculty Member','Individual'], :required => true, :label => "How did you learn about this program?"
+            = f.input :how_learn_extra, :as => :string, :label => "Please Specify:"
+              
+        .form_section
+          %span.form_section_header Part 2: Education
+          = f.inputs :class => "c_list v_lists" do
+            = f.input :undergraduate_institutions, :as => :string, :required => true, :label => "Undergraduate Institution(s)"
+            = f.input :field_major, :as => :string, :required => true, :label => "Field or Major"
+            = f.input :minor, :as => :string, :label => "Minor"
+            = f.input :dates_attended, :as => :string, :required => true, :label => "Dates Attended", :hint => "mm/dd/yyyy"
+            = f.input :gpa, :as => :string, :required => true, :label => "GPA"
+            = f.input :degree_type, :as => :string, :required => true, :label => "Type of Degree"
+            = f.input :expected_graduation_date, :as => :string, :required => true, :label => "Expected Graduation Date"
+        
+        .form_section
+          %span.form_section_header Part 3: Employment Interests
+          = f.inputs :class => "c_list v_lists" do
+            = f.input :employment_interests, :as => :check_boxes, :collection => ['Starting your own business', 'Working for a start-up', 'Working for an established tech company', 'Working for a non-profit organization', 'Other'], :label => "Which of the following career opportunities are you most interested in pursuing post-graduation (minimum of 2 selected)?" 
+            = f.input :employment_interests_extra, :as => :string, :label => "Please specify:"
+              
+
+        .form_section
+          %span.form_section_header Part 4: Interest Statements
+          = f.inputs :class => "c_list v_lists" do
+            %p Please provide a response of 2-3 sentences for each of the following questions:
+            = f.input :honors_experience_activities, :required => true, :label => "Discuss how your academic honors, leadership experience, extracurricular activities, or professional involvement demonstrate a commitment to technology and innovation."
+            = f.input :qualities_attributes, :required => true, :label => "What qualities or attributes will you bring to ThinkChicago? "
+            = f.input :hope_to_gain, :label => "What do you hope to gain from this program?"
+    
+        .form_section
+          %span.form_section_header Part 5: R&eacute;sum&eacute;
+          = f.inputs :class => "c_list v_lists" do
+            = f.input :current_resume, :required => true, :as => :file, :label => "Please submit a current r&eacute;sum&eacute;", :hint => "Must be a PDF and less than 4MB"
+              
+            
+        = f.buttons do
+          = f.submit :value => "Submit Application", :class => "btn submit", :id => "submit_application"
+        
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
+
+
+
+:javascript
+  $( function() {
+    toggle_how_learn_extra();
+    toggle_employment_interests_extra();
+    $('#think_chicago_application_how_learn').bind('change', toggle_how_learn_extra);
+    $('#think_chicago_application_employment_interests_other').bind('change', toggle_employment_interests_extra);
+  
+    function toggle_how_learn_extra() {
+      if($('#think_chicago_application_how_learn').val() == 'Individual') {
+        $('#think_chicago_application_how_learn_extra_input').show();
+      } else {
+        $('#think_chicago_application_how_learn_extra_input').hide();
+      }
+    }
+  
+    function toggle_employment_interests_extra() {
+      if($('#think_chicago_application_employment_interests_other').is(':checked')) {
+        $('#think_chicago_application_employment_interests_extra_input').show();
+      } else {
+        $('#think_chicago_application_employment_interests_extra_input').hide();
+      }
+    }
+  
+    $('#submit_application').bind('click', function(e) {
+      $(this).val('processing...');
+    });
+  });
