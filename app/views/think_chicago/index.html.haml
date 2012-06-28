@@ -21,6 +21,8 @@
   #page_header
     #page_title.left
       %h1 ThinkChicago
+      %p
+        %strong Presented by City of Chicago and University of Illinois
       %p October 11 &ndash; 12, 2012
     = render "partials/share"
 
@@ -30,9 +32,8 @@
     .column_row.divided_row
       .column.column_double
         
-        %p
-          %center
-            %em Presented by the City of Chicago, University of Illinois and Chicago Ideas Week
+        = image_tag('application/thinkchicago_logo.jpg', :class => "think_chicago_logo clearfix", :width => "200px", :height => "316px")
+        
         %p
           %strong Chicago is the hub of tech innovation, a booming center for cutting edge companies like Groupon, GrubHub, Threadless and 37Signals to thrive –  where young entrepreneurs grow big ideas, transform industries and shape technology and business as we know it. 
         
@@ -40,7 +41,7 @@
         
         
         
-        %ul#think_chicago_box
+        %ul#think_chicago_box.clearfix
           %li 
             %h2 What Will I Do?
           %li
@@ -62,6 +63,8 @@
               %li Attend CIW rock concert at Park West with other startup entrepreneurs. Last year's headliner was Weezer! 2012 concert details will be announced soon.
               %li Access to one session and closing reception of CIW's exclusive event: the Edison Talks—an invitation-only, daylong gathering for CEOs, Presidents and leaders from a cross section of industries to listen to provocative presentations and performances led by globally recognized visionaries. 
         
+        = image_tag('application/thinkchicago_rahm.jpg', :class => "think_chicago_rahm clearfix", :width => "630px", :height => "409px")
+        
         %h2 How Do I Get Started?
         %p Applications must be submitted online no later than September 7th. Completed applications must include a r&eacute;sum&eacute; and brief interest statement. Please follow the link below to receive an application.
         
@@ -75,7 +78,7 @@
         %h2 Questions
         %p 
           For questions, please contact Danyelle Michelini at
-          = link_to "tec@illinois.edu", "mailto:tec@illinois.edu"
+          = link_to "tec@illinois.edu.", "mailto:tec@illinois.edu"
         
         %p= link_to "APPLY TODAY!", new_think_chicago_application_path, :class => "btn blue_btn", :id => "think_chicago_apply_btn"
       

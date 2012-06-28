@@ -2,17 +2,13 @@
 -#     bhsi_applications/new.html.haml
 -#     02/17/2012
 
-:css
-  #think_chicago_application_how_learn_extra_input {display:none;}
-  #think_chicago_application_employment_interests_extra_input {display:none;}
-
 -# Breadcrumbs and Explore button
 %section#header_toolbar.container-fluid
   .container
     #breadcrumbs
       %ul
         %li= link_to "Home", "/"
-        %li= link_to "ThinkChicago", think_chicago_path
+        %li= link_to "ThinkChicago", thinkchicago_path
         %li
           %span New Application
     = render "partials/explore_dropdown"
@@ -23,7 +19,7 @@
 
   #page_header
     #page_title.left
-      %h1 Think Chicago Application Form
+      %h1 ThinkChicago Application Form
     = render "partials/share"
     
   -# Left column, main content: About Us information
@@ -41,12 +37,12 @@
             %strong MUST 
             be submitted with the application:
             %ul
-              %li Copy of applicant's current resume
+              %li Copy of applicant's current r&eacute;sum&eacute;
               %li Unofficial copy of applicant's transcript from school currently attending
 
           %p
             Please save a copy of your application responses for your records. For questions or any technical difficulties, please email Danyelle Michelini at
-            = link_to "tec@illinois.edu", "mailto:tec@illinois.edu"
+            = link_to "tec@illinois.edu.", "mailto:tec@illinois.edu"
             
           %span.form_section_header Part 1: About You
           = f.inputs :class => "c_list v_lists" do

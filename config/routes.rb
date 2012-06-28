@@ -98,7 +98,7 @@ CraigsAdmin::Application.routes.draw do
       get :redirect
     end
   end
-  resources :think_chicago_applications, :only => [:index, :new, :create] do
+  resources :think_chicago_applications, :path => "/thinkchicago_applications", :only => [:index, :new, :create] do
     collection do
       get :redirect
     end
@@ -148,8 +148,8 @@ CraigsAdmin::Application.routes.draw do
   match '/bhsi' => redirect("/special_programs/bhsi")
   
   # ThinkChicago
-  match 'special_programs/think_chicago', :to => 'think_chicago#index', :as => 'think_chicago'
-  match '/think_chicago' => redirect("/special_programs/think_chicago")
+  match 'special_programs/thinkchicago', :to => 'think_chicago#index', :as => 'thinkchicago'
+  match '/thinkchicago' => redirect("/special_programs/thinkchicago")
   
   match 'community', :to => 'application#community'
   match 'sizzle', :to => 'application#sizzle'
