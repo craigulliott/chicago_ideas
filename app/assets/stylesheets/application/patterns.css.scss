@@ -1054,6 +1054,67 @@ ul#previous_winners_preview {
   }
 }
 
+/* ThinkChicago Page */
+#think_chicago_page {
+  #page_header {
+  	margin-bottom:20px;
+    #page_title {
+    
+      p {
+        margin-bottom:0;
+      }
+    }
+  }
+  
+  #think_chicago_apply_btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+  }
+  #main_content {
+    ul#think_chicago_box {
+      background:#ebebeb;
+      border:1px solid #ccc;
+  	  padding:0.5em;
+  	  margin:0;
+  	  list-style-type:none;
+  	  box-shadow: 2px 2px 3px #BBB;
+	  -moz-box-shadow: 2px 2px 3px #BBB;
+	  -webkit-box-shadow: 2px 2px 3px #BBB;
+  	
+  	  li {
+  		margin-left:1em;
+  		
+  	    h2 {
+  		  margin-top:0;
+  		}
+  	  }
+  	
+  	  li + li {
+  	    margin-top:0.5em;
+      }
+    }
+    ul#think_chicago_box + p {
+  	  margin-top:1em;
+    }
+  
+    ul {
+      ul {
+       list-style-type:circle !important;
+      }
+    }
+  }
+}
+
+#think_chicago_applications_page {
+  #main_content {
+    ul {
+      list-style-type:disc;
+  	  margin:0 1em;
+  	  padding:0 1em;
+    }
+  }
+}
 
 
 // Sharing
@@ -1202,7 +1263,7 @@ ul#previous_winners_preview {
       }
     }
   }
-  li.user span.r_label, li.chapter span.r_label, li.event span.r_label, li.talk span.r_label { 
+  li.user span.r_label, li.chapter span.r_label, li.event span.r_label, li.talk span.r_label, li.quote span.r_label { 
     display: inline !important; 
     width: auto !important; 
     padding: 1px 5px; 
@@ -1230,6 +1291,11 @@ ul#previous_winners_preview {
   li.talk {
     span.r_label {
       background: #9bd671;
+    }
+  }
+  li.quote {
+    span.r_label {
+      background: #f9f097;
     }
   }
 }

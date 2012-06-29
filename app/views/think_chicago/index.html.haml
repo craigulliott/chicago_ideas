@@ -1,0 +1,97 @@
+-#     Chicago Ideas Week
+-#     application/blum_helfand.html.haml
+-#     01/25/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Special Programs & Awards", special_programs_path
+        %li
+          %span ThinkChicago
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 ThinkChicago
+      %p
+        %strong Presented by City of Chicago and University of Illinois
+      %p October 11 &ndash; 12, 2012
+    = render "partials/share"
+
+  -# Left column, main content: About Us information
+  .box.double.left
+
+    .column_row.divided_row
+      .column.column_double
+        
+        = image_tag('application/thinkchicago_logo.jpg', :class => "think_chicago_logo clearfix", :width => "200px", :height => "316px")
+        
+        %p
+          %strong Chicago is the hub of tech innovation, a booming center for cutting edge companies like Groupon, GrubHub, Threadless and 37Signals to thrive –  where young entrepreneurs grow big ideas, transform industries and shape technology and business as we know it. 
+        
+        %p Join us in Chicago for a chance to visit and meet with the leaders of some of today's most innovative tech companies October 11-12, 2012. 100 elite students will meet industry leaders and venture capitalists, visit business headquarters, gain free VIP admission to select programming at the second annual Chicago Ideas Week, and much more. 
+        
+        
+        
+        %ul#think_chicago_box.clearfix
+          %li 
+            %h2 What Will I Do?
+          %li
+            %strong Learn from the best:
+            Visit Chicago's leading and emerging tech businesses, including Microsoft, Grubhub, Accenture, Excelerate Labs, Google, Threadless, Coudal Partners, 37Signals and Classified Ventures
+          %li 
+            %strong Get the inside scoop:
+            Find out what really drives Chicago's most successful high-tech companies to stay on top.
+          %li 
+            %strong Be inspired:
+            Attend thought-provoking CIW Talks, featuring innovative pioneers in topics ranging from architecture and design to education and technology.
+          %li 
+            %strong Explore your career:
+            Network with industry leaders and startup founders who are looking for talent like you to add to the team.
+          %li
+            Gain free admission and exclusive access to select programming at Chicago Ideas Week.
+            %ul 
+              %li Some of last year's speakers included: Pandora founder Tim Westergren, President Bill Clinton, PayPal co-founder Peter Thiel, Redbox president Mitch Lowe, and inventor Dean Kamen.
+              %li Attend CIW rock concert at Park West with other startup entrepreneurs. Last year's headliner was Weezer! 2012 concert details will be announced soon.
+              %li Access to one session and closing reception of CIW's exclusive event: the Edison Talks—an invitation-only, daylong gathering for CEOs, Presidents and leaders from a cross section of industries to listen to provocative presentations and performances led by globally recognized visionaries. 
+        
+        = image_tag('application/thinkchicago_rahm.jpg', :class => "think_chicago_rahm clearfix", :width => "630px", :height => "409px")
+        
+        %h2 How Do I Get Started?
+        %p Applications must be submitted online no later than September 7th. Completed applications must include a r&eacute;sum&eacute; and brief interest statement. Please follow the link below to receive an application.
+        
+        %h2 Eligibility Criteria
+        %p The program seeks candidates who are enthusiastic about technology and entrepreneurship. These students demonstrate a commitment to excellence as evidenced by academic honors, leadership experience, extracurricular activities, and/or professional involvement. ThinkChicago applicants must be in their junior or senior year of their undergraduate program at an academic institution in one of the following states: Michigan, Ohio, Indiana, Illinois, Missouri, Iowa, Wisconsin, and Minnesota. 
+        
+        %h2 Selection Process
+        %p ThinkChicago sponsors will select up to 100 applicants based on the Eligibility Criteria listed above. Selection of program participants will be made without regard to race, color, religion, gender, national origin, age, disability, sexual orientation or political affiliation.
+        
+       
+        %h2 Questions
+        %p 
+          For questions, please contact Danyelle Michelini at
+          = link_to "tec@illinois.edu.", "mailto:tec@illinois.edu"
+        
+        %p= link_to "APPLY TODAY!", new_think_chicago_application_path, :class => "btn blue_btn", :id => "think_chicago_apply_btn"
+      
+      
+      
+
+  -# Include Sidebar Items
+  #sidebar
+    .box.right.yellow_box#think_chicago_link
+      .column_row
+        %a{:href => "#{new_think_chicago_application_path}", :class => "callout_link"}
+          %span ThinkChicago
+          %span.call_out Apply Today! 
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

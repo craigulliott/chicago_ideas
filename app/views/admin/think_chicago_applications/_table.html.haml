@@ -1,0 +1,7 @@
+%table#think_chicago_application
+  %tr
+    %th.first_name= ssp_sort_link :first_name
+    %th.last_name= ssp_sort_link :last_name
+    %th.email= ssp_sort_link :email
+    %th 
+  = render :partial => 'admin/think_chicago_applications/think_chicago_application.html.haml', :collection => think_chicago_applications

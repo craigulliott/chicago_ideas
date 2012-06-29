@@ -550,3 +550,30 @@ img.bhsi_logo{
 #community_partner_application_most_important_other_input, #affiliate_event_application_event_cost_input, #affiliate_event_application_rsvp_directions_input, #community_partner_application_organization_newsletter_frequency_input, #community_partner_application_ciw_updates_in_newsletter_input, #community_partner_application_other_newsletter_frequency_input {
   display: none;
 }
+
+
+/******************************************************
+ *  ThinkChicago Form
+******************************************************/
+#think_chicago_page {
+  img.think_chicago_logo{
+    margin: 0 20px 20px 0;
+    float: left;
+  }
+  
+  img.think_chicago_rahm{
+    margin-top: 25px;
+    border:5px solid #EBEBEB;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+  }
+}
+
+// Form special cases
+#think_chicago_applications_page {
+  #think_chicago_application_how_learn_extra_input, #think_chicago_application_employment_interests_extra_input {
+    display:none;
+  }
+}
+

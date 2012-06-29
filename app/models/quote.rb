@@ -22,6 +22,11 @@ class Quote < ActiveRecord::Base
       :user => user.present? ? user.api_attributes : "",
     }
   end
+  
+   # Need to normalize the search attributes
+  def search_attributes
+    {:title => self.user.name, :description => self.body, :image => ''}
+  end
 
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil
