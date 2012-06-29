@@ -8,8 +8,6 @@ gem 'foreigner'
 # mongodb is perfect for logging and analytics which we care less about
 gem "mongoid"
 gem "bson_ext"
-# memcache is usefu, because database queries are expensive
-gem 'memcache-client'
 
 # Bundle the extra gems:
 gem 'devise'
