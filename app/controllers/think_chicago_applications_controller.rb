@@ -23,7 +23,7 @@ class ThinkChicagoApplicationsController < ApplicationController
   
     if @think_chicago_application.save
       #ThinkChicagoApplicationsMailer.send_form(params[:think_chicago_application], friendlyName).deliver
-      render 'application/confirmation', :locals => {:title => "ThinkChicago Application Confirmation", :body => "Thank you for applying to ThinkChicago 2012.", :url => "http://bit.ly/MkbMy5", :share_text => "I applied to ThinkChicago 2012 at @chicagoideas! RT to all #innovative #socent! Apply today: http://bit.ly/MkbMy5"}
+      render 'application/confirmation', :locals => {:title => "ThinkChicago Application Confirmation", :body => "Thank you for applying to ThinkChicago 2012.", :url => "http://bit.ly/NXyJJ9", :share_text => "I applied to ThinkChicago 2012 at @chicagoideas! RT to all #innovative #socent! Apply today: http://bit.ly/MkbMy5"}
 
     else
       flash[:notice] = 'Please fill in all required fields!'
