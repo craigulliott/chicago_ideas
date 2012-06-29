@@ -1,0 +1,110 @@
+
+- content_for :top_links do
+  = edit_model_link @think_chicago_application, true
+  = destroy_model_link @think_chicago_application, true
+  = link_to "pdf", admin_think_chicago_application_path(@think_chicago_application, :format => :pdf)
+%h1
+
+  = icon_link_to 'notes', notes_admin_think_chicago_application_path(@think_chicago_application), 'script'
+  = new_model_link Note, @think_chicago_application
+
+#model_detail
+  
+  %h1 Part 1: About You
+  %h4 First Name
+  %p= @think_chicago_application.first_name
+  
+  %h4 Middle Name
+  %p= @think_chicago_application.middle_name
+
+  %h4 Last Name
+  %p= @think_chicago_application.last_name
+
+  %h4 Address 1
+  %p= @think_chicago_application.address1
+
+  %h4 Address 2
+  %p= @think_chicago_application.address2
+
+  %h4 City
+  %p= @think_chicago_application.city
+
+  %h4 State
+  %p= @think_chicago_application.state
+
+  %h4 Zip
+  %p= @think_chicago_application.zip
+
+  %h4 Phone
+  %p= @think_chicago_application.phone
+
+  %h4 Email Address
+  %p= @think_chicago_application.email
+
+  %h4 How did you learn about this program?
+  %p= @think_chicago_application.how_learn
+
+  %h4 Please specify:
+  %p= @think_chicago_application.how_learn_extra
+
+  %hr
+  
+  %h1  Part 2: Education
+  
+  %h4 Undergraduate Institution(s)
+  %p= @think_chicago_application.undergraduate_institutions
+
+  %h4 Field or Major
+  %p= @think_chicago_application.field_major
+
+  %h4 Minor
+  %p= @think_chicago_application.minor
+
+  %h4 Dates Attended
+  %p= @think_chicago_application.dates_attended
+
+  %h4 GPA
+  %p= @think_chicago_application.gpa
+
+  %h4 Type of Degree
+  %p= @think_chicago_application.degree_type
+
+  %h4 Expected Graduation Date
+  %p= @think_chicago_application.expected_graduation_date
+
+  
+  %hr
+  
+  %h1 Part 3: Employment Interests
+  
+  %h4 Employment Interests
+  %p= @think_chicago_application.employment_interests
+
+  %h4 Other
+  %p= @think_chicago_application.employment_interests_extra
+  
+  
+  %hr
+  
+  
+  %h1 Part 4: Interest Statements
+  
+  %h4 Discuss how your academic honors, leadership experience, extracurricular activities, or professional involvement demonstrate a commitment to technology and innovation.
+  %p= @think_chicago_application.honors_experience_activities
+
+  %h4 What qualities or attributes will you bring to ThinkChicago?
+  %p= @think_chicago_application.qualities_attributes
+  
+  %h4 What do you hope to gain from this program?
+  %p= @think_chicago_application.hope_to_gain
+  
+  
+  %hr
+  
+
+  %h1 Part 5: Resume
+
+  %h4 Please submit a current resume
+  = link_to @think_chicago_application.current_resume_file_name, @think_chicago_application.current_resume.url
+
+

@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  -#= new_model_link ThinkChicagoApplication
+
+= ssp_search_form ThinkChicagoApplication
+
+.table_section
+  %h3 
+    ThinkChicago Applications
+    = new_model_link ThinkChicagoApplication
+  .table_wrapper
+    = render 'admin/think_chicago_applications/table.html.haml', :think_chicago_applications => @think_chicago_applications
+  = paginate @think_chicago_applications
