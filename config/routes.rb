@@ -149,6 +149,7 @@ CraigsAdmin::Application.routes.draw do
   
   # ThinkChicago
   match 'special_programs/thinkchicago', :to => 'think_chicago#index', :as => 'thinkchicago'
+  match '/special_programs/think_chicago' => redirect("/special_programs/thinkchicago")
   match '/thinkchicago' => redirect("/special_programs/thinkchicago")
   
   match 'community', :to => 'application#community'
