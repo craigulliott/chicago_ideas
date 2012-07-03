@@ -1053,6 +1053,19 @@ ul#previous_winners_preview {
     padding: 0;
   }
 }
+table#semi_finalists {
+  width:100%;
+  td {
+    width:50%;
+  }
+}
+div.semi_finalist {
+  margin-bottom:1em;
+  p {
+    margin-bottom:0;
+    line-height:20px;
+  }
+}
 
 /* ThinkChicago Page */
 #think_chicago_page {

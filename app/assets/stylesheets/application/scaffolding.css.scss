@@ -127,6 +127,19 @@ body {
 #sidebar {
   float: right;
   width: 300px;
+  
+  #think_chicago {
+    img {
+      float:left;
+      margin-right:15px;
+    }
+    
+    a {
+      display:block;
+      margin-top:15px;
+    }
+  }
+  
 }
 
 // HEADER
