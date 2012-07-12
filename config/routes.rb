@@ -70,6 +70,9 @@ CraigsAdmin::Application.routes.draw do
   resources :partners, :only => [:index, :apply]
   match 'partners/apply', :to => 'partners#apply', :as => 'partners_apply'
 
+  # member program
+  resources :member_program, :only => [:index]
+  
   # users
   # ----------------------------------------------------------------
   resources :users, :only => [] do

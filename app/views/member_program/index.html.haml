@@ -1,0 +1,30 @@
+-#     Chicago Ideas Week
+-#     member_program/index.html.haml
+-#     07/12/2012
+
+
+%section.banner.container-fluid
+  .banner_wrapper{:style => "background: url(#{asset_path "application/community.jpg"}) top center no-repeat;"}
+
+
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 CIW Member Program
+    = render "partials/share"
+
+  -# Left column, main content: 
+  .box.double.left
+  
+    .column_row.divided_row
+      .column.column_double
+        %p Member Program Info here
+    
+    
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/social"
+    = render "partials/newsletter_form"
