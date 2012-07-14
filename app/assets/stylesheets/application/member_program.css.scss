@@ -1,0 +1,154 @@
+body.member_program {
+  h2, h3 {
+    color:#323031;
+    font-weight:bold;
+  }
+  
+  h3 {
+    font-size:18px;
+    line-height:1.5em;
+  }
+  
+  strong {
+    color:#2c2a2b;
+  }
+  
+  #main_content {
+    margin-top:75px;
+    
+    p, li {
+      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    
+    #member_program_header {
+      padding:130px 0 100px;
+      background:transparent asset-url('application/member_program_lightbulb.jpg', image) top right no-repeat;
+      
+      h1 {
+        font-size:35px;
+        text-transform:uppercase;
+      }
+      
+      h2 {
+        margin-bottom:25px;
+        p {
+          color:#323031;
+          font-size:20px;
+          margin-bottom:0;
+          line-height:1.2em;
+        }
+      }
+      
+      #page_share {
+        float:none;
+        
+        
+        li {
+          display: inline;
+          float: left;
+          width: auto;
+        }
+      }
+      
+      #member_program_header_content {
+        clear:both;
+        padding-top:25px;
+        p {
+          font-size:13px;
+          width:475px;
+        	
+          span {
+        	font-style:italic;
+        	font-size:10px;
+          }
+        }
+      }
+      
+    }
+    
+    #member_program_content {
+      h2 {
+        font-size:20px;
+        text-transform:uppercase;
+        width:220px;
+        padding:10px 15px;
+        background:#fff;
+        margin:0 auto;
+        
+        -moz-box-shadow: 2px 2px 2px #888;
+        -webkit-box-shadow: 2px 2px 2px #888;
+        box-shadow: 2px 2px 2px #888;
+      }
+      
+      #member_program_levels {
+        border-top:10px solid #f0e936;
+        border-bottom:10px solid #f0e936;
+        background:#fff;
+        padding:15px;
+        
+        -moz-box-shadow: 2px 2px 2px #888;
+        -webkit-box-shadow: 2px 2px 2px #888;
+        box-shadow: 2px 2px 2px #888;
+        
+        div {
+        	width:450px;
+        	margin-bottom:20px;
+        	
+        	p {
+        	  line-height:1.2em;
+        	  
+        	}
+        	
+        	ul {
+        	  list-style-type:disc;
+        	  margin-left:4em;
+        	  margin-bottom:10px;
+        	  li {
+        	    
+        	  }
+        	}
+        	
+        	a.btn_level {
+        	  margin-left:37px;
+        	  padding:4px 12px;
+        	  text-transform:uppercase;
+        	  color:#fff;
+        	  background:#00aeff;
+        	  border-top:1px solid #a6def7;
+        	  border-bottom:1px solid #004c6e;
+        	  font-weight:bold;
+        	  font-size:13px;
+        	}
+        	
+        	a.btn_level:hover {
+        		text-decoration:none;
+        	}
+        }
+      }
+        
+    }
+    
+    p.note {
+      margin:8px 15px;
+      margin-bottom:15px;
+      line-height:1.2em;
+      font-size:13px;
+    }
+    
+    p.non_profit {
+    	font-size:11px;
+    	font-style:italic;
+    	text-align:center;
+    }
+    
+    div.questions {
+      p {
+        text-align:center;
+        margin:0;
+        color:#343233;
+        font-weight:bold;
+        font-size:18px;
+      }
+    }
+  }
+}
