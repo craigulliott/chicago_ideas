@@ -70,9 +70,6 @@ CraigsAdmin::Application.routes.draw do
   resources :partners, :only => [:index, :apply]
   match 'partners/apply', :to => 'partners#apply', :as => 'partners_apply'
 
-  # member program
-  resources :member_program, :only => [:index]
-  
   # users
   # ----------------------------------------------------------------
   resources :users, :only => [] do
@@ -139,6 +136,7 @@ CraigsAdmin::Application.routes.draw do
   
   # Static Pages
   match 'about', :to => 'application#about'
+  match 'member_program', :to => 'application#member_program'
   match 'speaker/recommend_speaker', :to => 'users#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
   
