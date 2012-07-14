@@ -1,0 +1,92 @@
+-#     Chicago Ideas Week
+-#     member_program/index.html.haml
+-#     07/12/2012
+
+
+%section.banner.container-fluid
+  .banner_wrapper{:style => "background: url(#{asset_path "application/community.jpg"}) top center no-repeat;"}
+
+
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 CIW Member Program
+    = render "partials/share"
+
+  -# Left column, main content: 
+  .box.double.left
+  
+    .column_row.divided_row
+      .column.column_double
+        %p asdfasdf
+        %p
+          %strong Enjoy Unparalleled Access, Advanced Tickets, & Invitations to Insider Parties!
+        %p
+          %u Chicago Ideas Week started with a simple belief: big ideas should be accessible to big communities.
+        %p Join our CIW Member Program today and connect with our growing community of leaders, innovators and game-changers—all while reserving your Chicago Ideas Week priority tickets before the public.
+        %p As a CIW Member, you join an invaluable group of supporters who believe the most powerful thing on earth is an idea. Thanks to the annual support of our members, Chicago Ideas Week continues to deliver on our core mission of turning ideas into actionable results.
+        %p CIW memberships include: Priority Ticketing, All Access Menlo Passes good for all Talks and Megatalks*, invitations to the exclusive Edison Talks*, attendance at CIW private parties*, and more. Join today!
+        %p 
+          Questions? Call us at 312-999-5809 or email us at 
+          = mail_to "membership@chicagoideas.com", "membership@chicagoideas.com."
+        %p
+          %strong *At select levels
+        
+        %p{:style => "color:#2D77DE;"}
+          The Innovation Foundation (d/b/a Chicago Ideas Week) is a 501c3 organization
+          
+        %h2 CIW Member Levels
+        
+        %h3 Friends - $100
+        %p Enjoy exciting benefits while supporting Chicago Ideas Week production and programming.
+        %ul
+          %li 10% discount on all ticket sales
+          %li Advanced ticket sales (4 ticket limit per event)
+          %li CIW 2012 T-shirt (available at CIW Headquarters for members)
+          %li Member recognition on badges
+        
+        %h3 Donor - $500
+        %p Support Chicago Ideas Week programming while you enjoy greater access to the week’s events and special benefits that give you greater involvement throughout the week.
+        %ul
+          %li 10% discount on all ticket sales
+          %li 20 event tickets redeemable at Megatalks, Talks and Labs throughout the week (4 ticket limit per event).
+          %li Advanced ticket sales on additional tickets (4 ticket limit per event)
+          %li Name on CIW website
+          %li CIW 2012 T-shirt (available at CIW Headquarters for members)
+          %li Insider updates
+          %li Member recognition on badges
+        
+        %h3 Patron - $1,500
+        %p Discover a deeper relationship with Chicago Ideas Week and receive priority tickets and access to invitation-only performances and special events.
+        %ul
+          %li 10% discount on all ticket sales
+          %li 1 Menlo Pass (provides access to all Talks and Megatalks, transferrable)
+          %li 1 ticket to the Edison Talks
+          %li Advanced ticket sales on additional tickets (4 ticket limit per event)
+          %li Name on event program and CIW website
+          %li CIW 2012 T-Shirt (available at CIW Headquarters for members)
+          %li Insider updates
+          %li Preferred seating
+          %li Member recognition on badges
+        
+        %h3 Benefactor - $5,000
+        %p Members of this group will engage with Chicago Ideas Week in a unique way, experiencing unparalleled access to the Week’s events.
+        %ul
+          %li 10% discount on all ticket sales
+          %li 2 Menlo Passes (provides access to all Talks and Megatalks, transferrable)
+          %li 2 tickets to the Edison Talks
+          %li Advanced ticket sales on additional tickets
+          %li Name in official CIW Show Guide and CIW website
+          %li 2 invitations to CIW private party
+          %li CIW 2012 T-shirt (available at CIW Headquarters for members)
+          %li Insider updates
+          %li Commemorative photo book
+          %li Preferred seating
+          %li Member recognition on badges
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/social"
+    = render "partials/newsletter_form"
