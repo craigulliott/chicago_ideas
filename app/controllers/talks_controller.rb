@@ -1,7 +1,7 @@
 class TalksController < ApplicationController
 
   # cache rendered versions of these pages
-  before_filter :cache_rendered_page, :only => [:index, :show, :mega_talks, :edison_talks, :chapter]
+  before_filter :cache_rendered_page, :only => [:index, :show, :mega_talks, :chapter]
 
   
   def index
