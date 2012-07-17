@@ -98,12 +98,18 @@ CraigsAdmin::Application.routes.draw do
       get :redirect
     end
   end
+  
   resources :think_chicago_applications, :path => "/thinkchicago_applications", :only => [:index, :new, :create] do
     collection do
       get :redirect
     end
   end
   
+  resources :edison_talks_applications, :only => [:index, :new, :create] do
+    collection do
+      get :redirect
+    end
+  end
   
   #resources :years, :only => [:show]
   resources :years, :only => [:show] do
@@ -248,6 +254,14 @@ CraigsAdmin::Application.routes.draw do
     end
     
     resources :think_chicago_applications do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+    
+    resources :edison_talks_applications do
       member do
         # pages
         get :notes

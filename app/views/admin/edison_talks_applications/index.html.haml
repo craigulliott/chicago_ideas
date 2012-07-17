@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  -#= new_model_link EdisonTalksApplication
+
+= ssp_search_form EdisonTalksApplication
+
+.table_section
+  %h3 
+    Edison Talks Applications
+    = new_model_link EdisonTalksApplication
+  .table_wrapper
+    = render 'admin/edison_talks_applications/table.html.haml', :edison_talks_applications => @edison_talks_applications
+  = paginate @edison_talks_applications
