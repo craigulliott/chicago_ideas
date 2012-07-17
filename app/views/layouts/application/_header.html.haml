@@ -19,7 +19,8 @@
           %li= link_to "Edison Talks", year_speakers_edison_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Edison Talks Speakers"
           %li= link_to "CIW Talks", year_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
           %li= link_to "CIW Labs", labs_events_path, :rel => "bookmark", :title => "View all CIW Labs"
-          %li= link_to "Affiliate Events", affiliate_event_events_path, :rel => "bookmark", :title => "All all Affiliate Events"
+          %li= link_to "Affiliate Events", affiliate_event_events_path, :rel => "bookmark", :title => "View all Affiliate Events"
+          %li= link_to "CIW Member Program", member_program_path, :rel => "bookmark", :title => "Become a member today!"
         
     %li#gn_events.nav_parent
       = link_to "Events", events_path, :rel => "bookmark", :title => "CIW Events"
@@ -31,7 +32,7 @@
         %ul.dd_column
           %li= link_to "CIW Labs", labs_events_path, :rel => "bookmark", :title => "View all CIW Labs"
           %li= link_to "Partner Programs", partner_programs_events_path, :rel => "bookmark", :title => "View all Partner Programs"
-          %li= link_to "Affiliate Events", affiliate_event_events_path, :rel => "bookmark", :title => "All all Affiliate Events"
+          %li= link_to "Affiliate Events", affiliate_event_events_path, :rel => "bookmark", :title => "View all Affiliate Events"
         %ul.dd_column.featured
           - @nav_featured_chapters.each do |featured|          
             %li
@@ -53,6 +54,7 @@
       .dropdown.double_dropdown
         %ul.dd_column
           %li= link_to "Sponsors", sponsors_path, :rel => "bookmark", :title => "View Sponsors"
+          %li= link_to "CIW Member Program", member_program_path, :rel => "bookmark", :title => "Become a member today!"
           %li= link_to "Community Partners", partners_path, :rel => "bookmark", :title => "View Community Partners"
           %li= link_to "Special Programs & Awards", special_programs_path, :rel => "bookmark", :title => "Special Programs & Awards"
         %ul.dd_column
