@@ -106,6 +106,15 @@ body {
 .column_row:after {
   clear: both;
 }
+
+.column_three {
+  margin-top:30px;
+}
+
+.column_three .column + .column {
+  margin-left:50px;
+}
+
 .divided_row {
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
@@ -128,17 +137,7 @@ body {
   float: right;
   width: 300px;
   
-  #think_chicago {
-    img {
-      float:left;
-      margin-right:15px;
-    }
-    
-    a {
-      display:block;
-      margin-top:15px;
-    }
-  }
+  
   
 }
 
