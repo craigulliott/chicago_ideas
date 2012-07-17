@@ -1,0 +1,204 @@
+body.member_program {
+  h2, h3 {
+    color:#323031;
+    font-weight:bold;
+  }
+  
+  h3 {
+    font-size:18px;
+    line-height:1.5em;
+  }
+  
+  strong {
+    color:#2c2a2b;
+  }
+  
+  #main_content {
+    margin-top:75px;
+    
+    p, li {
+      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    
+    #member_program_header {
+      padding:130px 0 100px;
+      background:transparent asset-url('application/member_program_lightbulb.jpg', image) top right no-repeat;
+      
+      h1 {
+        font-size:35px;
+        text-transform:uppercase;
+      }
+      
+      h2 {
+        margin-bottom:25px;
+        p {
+          color:#323031;
+          font-size:20px;
+          margin-bottom:0;
+          line-height:1.2em;
+        }
+      }
+      
+      #page_share {
+        float:none;
+        
+        
+        li {
+          display: inline;
+          float: left;
+          width: auto;
+        }
+      }
+      
+      #member_program_header_content {
+      	position:relative;
+        clear:both;
+        padding-top:25px;
+        
+        a.download {
+          position:absolute;
+          top:28px;
+          right:0;
+          display:block;
+          padding:5px;
+          padding-left:35px;
+          padding-right:10px;
+          color:#fff;
+          font-size:12px;
+          font-weight:bold;
+          background: #2989d5 asset-url('application/btn_download_small.png', image) 0 0 no-repeat;
+          
+          background-image: asset-url('application/btn_download_small.png', image), -khtml-gradient(linear, left top, left bottom, from(#2890e7), to(#286aa6));
+          background-image: asset-url('application/btn_download_small.png', image), -moz-linear-gradient(top, #2890e7, #286aa6);
+          background-image: asset-url('application/btn_download_small.png', image), -ms-linear-gradient(top, #2890e7, #286aa6);
+          background-image: asset-url('application/btn_download_small.png', image), -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2890e7), color-stop(100%, #286aa6));
+          background-image: asset-url('application/btn_download_small.png', image), -webkit-linear-gradient(top, #2890e7, #286aa6);
+          background-image: asset-url('application/btn_download_small.png', image), -o-linear-gradient(top, #2890e7, #286aa6);
+          background-image: asset-url('application/btn_download_small.png', image), linear-gradient(top, #2890e7, #286aa6);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2890e7', endColorstr='#286aa6', GradientType=0);
+        }
+        
+        a.download:hover {
+        	text-decoration:none;
+        }
+        
+        p {
+          font-size:13px;
+          width:475px;
+        	
+          span {
+        	font-style:italic;
+        	font-size:10px;
+          }
+        }
+      }
+      
+    }
+    
+    #member_program_content {
+      h2 {
+        font-size:20px;
+        text-transform:uppercase;
+        width:700px;
+        white-space:nowrap;
+        text-align:center;
+        padding:10px 15px;
+        background:#fff;
+        margin:0 auto;
+        
+        -moz-box-shadow: 2px 2px 2px #888;
+        -webkit-box-shadow: 2px 2px 2px #888;
+        box-shadow: 2px 2px 2px #888;
+      }
+      
+      #member_program_levels {
+        border-top:10px solid #f0e936;
+        border-bottom:10px solid #f0e936;
+        background:#fff;
+        padding:15px;
+        
+        -moz-box-shadow: 2px 2px 2px #888;
+        -webkit-box-shadow: 2px 2px 2px #888;
+        box-shadow: 2px 2px 2px #888;
+        
+        div {
+        	width:450px;
+        	margin-bottom:20px;
+        	
+        	h3 {
+              font-size:20px;
+              line-height:1.5em;
+            }
+        	
+        	p {
+        	  line-height:1.2em;
+        	  
+        	}
+        	
+        	ul {
+        	  list-style-type:disc;
+        	  margin-left:4em;
+        	  margin-bottom:10px;
+        	  li {
+        	    
+        	  }
+        	}
+        	
+        	a.btn_level {
+        	  margin-left:37px;
+        	  padding:4px 12px;
+        	  text-transform:uppercase;
+        	  color:#fff;
+        	  background:#00aeff;
+        	  border-top:1px solid #a6def7;
+        	  border-bottom:1px solid #004c6e;
+        	  font-weight:bold;
+        	  font-size:13px;
+        	}
+        	
+        	a.btn_level:hover {
+        	  text-decoration:none;
+        	  background:#0383bf;
+        	  border-top:1px solid #f6f6f6;
+        	  border-bottom:1px solid #6a6a6a;
+        	}
+        	
+        	a.btn_level:active {
+        	  text-decoration:none;
+        	  background:#0383bf;
+        	  border-top:1px solid #f6f5f6;
+        	  border-bottom:1px solid #f6f5f6;
+        	  
+        	  -moz-box-shadow: inset 0 0 1px 1px #0378af;
+              -webkit-box-shadow: inset 0 0 1px 1px #0378af;
+              box-shadow: inset 0 0 1px 1px #0378af;
+        	}
+        }
+      }
+        
+    }
+    
+    p.note {
+      margin:8px 15px;
+      margin-bottom:15px;
+      line-height:1.2em;
+      font-size:13px;
+    }
+    
+    p.non_profit {
+    	font-size:11px;
+    	font-style:italic;
+    	text-align:center;
+    }
+    
+    div.questions {
+      p {
+        text-align:center;
+        margin:0;
+        color:#343233;
+        font-weight:bold;
+        font-size:18px;
+      }
+    }
+  }
+}
