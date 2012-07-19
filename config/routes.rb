@@ -148,6 +148,7 @@ CraigsAdmin::Application.routes.draw do
   
   # BHSI
   match 'special_programs/bhsi', :to => 'bhsi#index', :as => 'blum_helfand'
+  match 'special_programs/bhsi/fellows', :to => 'bhsi#fellows'
   match 'special_programs/bhsi/previous_fellows', :to => 'bhsi#previous_fellows'
   match 'special_programs/bhsi/nominate', :to => 'bhsi#nominate_form'
   
