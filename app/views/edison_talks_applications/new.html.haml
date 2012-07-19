@@ -32,8 +32,15 @@
           
         .form_section
           %span.form_section_header Application Instructions
+          %p Please submit the form below to apply to attend the premiere of the Edison Talks. A select, diverse group of innovators, disruptors, inventors, and instigators will participate in this daylong gathering of provocative presentations, performances and interactive installations.
+          %p A limited number of applications will be accepted for the 2012 event. The Edison Talks application will close on August 28, 2012. Selected attendees will be notified by the first week of September.
+          %p Please save a copy of your responses for your records and submit this application form only once. The Edison Talks committee will carefully review and consider all applications submitted here and reach out accordingly.
           %p 
-            %i More informational text here!!!
+            For questions, please contact 
+            = mail_to "edisontalks@chicagoideas.com", "edisontalks@chicagoideas.com."     
+            Thank you for your interest!
+          %p *Please note: Selected attendees do not receive complimentary tickets. Tickets for the Edison Talks are $395.00. If selected, you will receive additional information about purchasing your tickets via email. 
+            
             
           %span.form_section_header
           = f.inputs :class => "c_list v_lists" do
@@ -63,32 +70,3 @@
     = render "partials/social"
     = render "partials/newsletter_form"
 
-
-
-:javascript
-  $( function() {
-    toggle_how_learn_extra();
-    toggle_employment_interests_extra();
-    $('#think_chicago_application_how_learn').bind('change', toggle_how_learn_extra);
-    $('#think_chicago_application_employment_interests_other').bind('change', toggle_employment_interests_extra);
-  
-    function toggle_how_learn_extra() {
-      if($('#think_chicago_application_how_learn').val() == 'Individual') {
-        $('#think_chicago_application_how_learn_extra_input').show();
-      } else {
-        $('#think_chicago_application_how_learn_extra_input').hide();
-      }
-    }
-  
-    function toggle_employment_interests_extra() {
-      if($('#think_chicago_application_employment_interests_other').is(':checked')) {
-        $('#think_chicago_application_employment_interests_extra_input').show();
-      } else {
-        $('#think_chicago_application_employment_interests_extra_input').hide();
-      }
-    }
-  
-    $('#submit_application').bind('click', function(e) {
-      $(this).val('processing...');
-    });
-  });
