@@ -29,12 +29,28 @@
     .column_row.divided_row
       .column.column_double
         
-        = image_tag('application/bluhm_helfand_logo.jpg', :class => "bhsi_logo clearfix", :width => "200px")
-        
-        %p The Bluhm/Helfand Social Innovation Fellowship @ Chicago Ideas Week will recognize three young socially-conscious leaders who have developed sustainable ventures addressing social needs, and provide them with exposure to nationally recognized business and community leaders, funding to support their cause, and a platform for growth. 
-        %p The Fellowship was created by philanthropists and entrepreneurs Leslie Bluhm and David Helfand to help advance the next generation of socially-minded innovators, entrepreneurs and change agents. In 2011, the fellowship received over 200 applications and brought an outstanding group of social innovators to Chicago for the first ever Chicago Ideas Week.
+        = image_tag('application/bluhm_helfand_logo.jpg', :class => "bhsi_logo clearfix", :width => "200px", :height => "200px")
+        %p The Bluhm/Helfand Social Innovation Fellowship @ Chicago Ideas Week recognizes a group of young socially-conscious leaders who have developed sustainable ventures addressing social needs, and provide them with exposure to nationally recognized business and community leaders, funding to support their cause, and a platform for growth.
+        %p 
+          The Fellowship was created by philanthropist and entrepreneurs Leslie Bluhm and David Helfand to help advance the next generation of social innovators, entrepreneurs, and change agents. In 2012, the fellowship received over 200 applications. 
+          = link_to "Click here to check out our 2012 BHSI Fellows this year.", special_programs_bhsi_fellows_path
+     
+    .column_row.divided_row
+      .column.column_double
+        %h2 2012 Bluhm/Helfand Social Innovation Fellows
+        %ul#previous_winners_preview
+          %li= image_tag('application/special_programs_awards/bhsi_2012/mark_arnoldy.jpg', :width => "100px")
+          %li= image_tag('application/special_programs_awards/bhsi_2012/michael_carter.jpg', :width => "100px")
+          %li= image_tag('application/special_programs_awards/bhsi_2012/micaela_connery.jpg', :width => "100px")
+          %li= image_tag('application/special_programs_awards/bhsi_2012/toni_maraviglia.jpg', :width => "100px")
+          
+        %p= link_to "Meet the 2012 Bluhm/Helfand Social Innovation Fellows →", special_programs_bhsi_fellows_path     
+    
+    .column_row
+      .column.column_double
+          
         %h2 The Program
-        %p The three fellowship recipients will be hosted in Chicago for Chicago Ideas Week, taking place October 8-14 2012, all expenses paid. Fellows will gain exposure for their organization, establish a community of support, and receive a $10,000 financial contribution for their venture.
+        %p The BHSI Fellows are hosted in Chicago for Chicago Ideas Week, taking place the second week of October each year, all expenses paid. Fellows gain exposure for their organization, establish a community of support, and receive a $10,000 financial contribution for their venture.
         
         .video_container
           %center
@@ -52,21 +68,15 @@
           %li And much more!
         
 
-    .column_row
-      .column.column_double
-        %span.column_header 2012 Bluhm/Helfand Social Innovation Fellows
-        %ul#previous_winners_preview
-          %li= image_tag('application/special_programs_awards/bhsi_2012/mark_arnoldy.jpg', :width => "65px")
-          %li= image_tag('application/special_programs_awards/bhsi_2012/michael_carter.jpg', :width => "65px")
-          %li= image_tag('application/special_programs_awards/bhsi_2012/micaela_connery.jpg', :width => "65px")
-          %li= image_tag('application/special_programs_awards/bhsi_2012/toni_maraviglia.jpg', :width => "65px")
-          
-        %p= link_to "Meet the 2012 Bluhm/Helfand Social Innovation Fellows →", special_programs_bhsi_fellows_path
+    
       
 
   -# Include Sidebar Items
   #sidebar
-          
+    .box.right.yellow_box#edison_talks_callout
+      .column_row
+        %a{:href => "#{special_programs_bhsi_fellows_path}", :class => "callout_link"}
+          %span.call_out MEET THE 2012 BHSI FELLOWS
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"
