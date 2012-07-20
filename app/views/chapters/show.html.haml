@@ -83,6 +83,7 @@
 
   -# Include Sidebar Items
   #sidebar
+    = render "partials/member_program_callout"
     = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Other videos in this talk", :this_chapter => @chapter
     = render "partials/sponsors"
     = render "partials/social"
