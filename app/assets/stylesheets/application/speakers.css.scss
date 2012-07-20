@@ -105,6 +105,7 @@ body.list_edison_speakers {
 		margin-top:150px;
 		
 		#edison_info {
+			position:relative;
 			width:1000px;
 			height:243px;
 			margin:-5px auto 50px auto;
@@ -151,6 +152,13 @@ body.list_edison_speakers {
 				p {
 					font-size:14px;
 				}
+			}
+			
+			p#edison_talks_application {
+				position:absolute;
+				bottom: -40px;
+				width: 100%;
+				text-align: center;
 			}
 			
 		}
