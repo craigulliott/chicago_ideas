@@ -98,12 +98,18 @@ CraigsAdmin::Application.routes.draw do
       get :redirect
     end
   end
+  
   resources :think_chicago_applications, :path => "/thinkchicago_applications", :only => [:index, :new, :create] do
     collection do
       get :redirect
     end
   end
   
+  resources :edison_talks_applications, :only => [:index, :new, :create] do
+    collection do
+      get :redirect
+    end
+  end
   
   #resources :years, :only => [:show]
   resources :years, :only => [:show] do
@@ -142,6 +148,7 @@ CraigsAdmin::Application.routes.draw do
   
   # BHSI
   match 'special_programs/bhsi', :to => 'bhsi#index', :as => 'blum_helfand'
+  match 'special_programs/bhsi/fellows', :to => 'bhsi#fellows'
   match 'special_programs/bhsi/previous_fellows', :to => 'bhsi#previous_fellows'
   match 'special_programs/bhsi/nominate', :to => 'bhsi#nominate_form'
   
@@ -248,6 +255,14 @@ CraigsAdmin::Application.routes.draw do
     end
     
     resources :think_chicago_applications do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+    
+    resources :edison_talks_applications do
       member do
         # pages
         get :notes

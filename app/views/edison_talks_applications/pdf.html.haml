@@ -1,0 +1,63 @@
+
+
+#model_detail
+
+  .section
+    %h1 Edison Talks Application
+    
+    .row.no_margin
+      .column 
+        %strong Name
+      .column_double= @edison_talks_application.name
+    .row.no_margin
+      .column 
+        %strong Organization
+      .column_double= @edison_talks_application.organization
+    .row.no_margin
+      .column 
+        %strong Title
+      .column_double= @edison_talks_application.title
+    .row.no_margin
+      .column 
+        %strong Email
+      .column_double= @edison_talks_application.email
+    .row.no_margin
+      .column 
+        %strong Phone
+      .column_double= @edison_talks_application.phone
+    .row.no_margin
+      .column 
+        %strong Tell us in 200 words or less what you are passionate about in your life, your work, and your community.
+      .column_double= @edison_talks_application.passions
+    .row.no_margin
+      .column 
+        %strong Why do you want to come to the Edison Talks? What is it that you wish to get, to give, to share?
+      .column_double= @edison_talks_application.why_come
+    .row.no_margin
+      .column 
+        %strong If you could recommend one speaker or performer to present at the Edison Talks who or what would it be?
+      .column_double= @edison_talks_application.recommendation
+    .row.no_margin
+      .column 
+        %strong What is the coolest or most innovative thing that you invented or someone else invented?
+      .column_double= @edison_talks_application.invention  
+    .row.no_margin
+      .column 
+        %strong What inspires you? (ex: World Music, Philanthrophy 3.0, Coolest Startups, Travel, Academia, Best Technology This Year)
+    .row.no_margin
+      .column 
+        %strong Inspiration 1
+      .column_double= @edison_talks_application.inspiration_1  
+    .row.no_margin
+      .column 
+        %strong Inspiration 2
+      .column_double= @edison_talks_application.inspiration_2  
+    .row.no_margin
+      .column 
+        %strong Inspiration 3
+      .column_double= @edison_talks_application.inspiration_3 
+    .row.no_margin
+      .column 
+        %strong What else would you like to say? Any final thoughts? 
+      .column_double= @edison_talks_application.comments  
+

@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do
+  .crumb.end Edison Talks Applications
+
+- @active_tab = 'edison_talks_applications'
+
+- content_for :content_navigation do
+  %h2 Edison Talks Applications
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_edison_talks_applications_path, 'search'

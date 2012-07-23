@@ -1,0 +1,6 @@
+%table#edison_talks_application
+  %tr
+    %th.name= ssp_sort_link :name
+    %th.email= ssp_sort_link :email
+    %th 
+  = render :partial => 'admin/edison_talks_applications/edison_talks_application.html.haml', :collection => edison_talks_applications
