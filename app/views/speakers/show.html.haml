@@ -66,6 +66,7 @@
 
   -# Include Sidebar Items
   #sidebar
+    = render "partials/member_program_callout"
     = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Videos", :this_chapter => "NULL"
     = render "partials/speaker_tweets", :speaker => @speaker
     = render "partials/sponsors"

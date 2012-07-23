@@ -1,0 +1,52 @@
+
+- content_for :top_links do
+  = edit_model_link @edison_talks_application, true
+  = destroy_model_link @edison_talks_application, true
+  = link_to "pdf", admin_edison_talks_application_path(@edison_talks_application, :format => :pdf)
+%h1
+
+  = icon_link_to 'notes', notes_admin_edison_talks_application_path(@edison_talks_application), 'script'
+  = new_model_link Note, @edison_talks_application
+
+#model_detail
+  
+  %h4 Name
+  %p= @edison_talks_application.name
+  
+  %h4 Organization
+  %p= @edison_talks_application.organization
+
+  %h4 Title
+  %p= @edison_talks_application.title
+
+  %h4 Email
+  %p= @edison_talks_application.email
+
+  %h4 Phone
+  %p= @edison_talks_application.phone
+
+  %h4 Tell us in 200 words or less what you are passionate about in your life, your work, and your community.
+  %p= @edison_talks_application.passions
+
+  %h4 Why do you want to come to the Edison Talks? What is it that you wish to get, to give, to share?
+  %p= @edison_talks_application.why_come
+
+  %h4 If you could recommend one speaker or performer to present at the Edison Talks who or what would it be?
+  %p= @edison_talks_application.recommendation
+
+  %h4 What is the coolest or most innovative thing that you invented or someone else invented?
+  %p= @edison_talks_application.invention
+
+  %h4 What inspires you? (ex: World Music, Philanthrophy 3.0, Coolest Startups, Travel, Academia, Best Technology This Year)
+  %h4 Inspiration 1
+  %p= @edison_talks_application.inspiration_1
+
+  %h4 Inspiration 2
+  %p= @edison_talks_application.inspiration_2
+
+  %h4 Inspiration 3
+  %p= @edison_talks_application.inspiration_3
+
+  %h4 What else would you like to say? Any final thoughts?
+  %p= @edison_talks_application.comments
+
