@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120625123154) do
+ActiveRecord::Schema.define(:version => 20120716133012) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -241,6 +241,28 @@ ActiveRecord::Schema.define(:version => 20120625123154) do
 
   add_index "days", ["date"], :name => "index_days_on_date"
   add_index "days", ["year_id"], :name => "index_days_on_year_id"
+
+  create_table "edison_talks_applications", :force => true do |t|
+    t.string   "name",                                   :null => false
+    t.string   "organization"
+    t.string   "title"
+    t.string   "email",                                  :null => false
+    t.string   "phone",                                  :null => false
+    t.text     "passions",         :limit => 2147483647, :null => false
+    t.text     "why_come",         :limit => 2147483647, :null => false
+    t.text     "recommendation",   :limit => 2147483647, :null => false
+    t.text     "invention",        :limit => 2147483647, :null => false
+    t.string   "inspiration_1",                          :null => false
+    t.string   "inspiration_2",                          :null => false
+    t.string   "inspiration_3",                          :null => false
+    t.text     "comments",         :limit => 2147483647
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "event_brands", :force => true do |t|
     t.string   "name",       :null => false

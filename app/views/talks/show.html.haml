@@ -72,6 +72,7 @@
 
   -# Include Sidebar Items
   #sidebar
+    = render "partials/member_program_callout"
     - if !@talk.is_current?
       = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Videos in this Talk", :this_chapter => 'NULL'
     = render "partials/sponsors"

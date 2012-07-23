@@ -1,0 +1,7 @@
+%tr{:edison_talks_application => edison_talks_application.id}
+  %td.name= link_to edison_talks_application.name, admin_edison_talks_application_path(edison_talks_application)
+  %td.email= edison_talks_application.email
+  %td.options
+    = edit_model_link edison_talks_application
+    = destroy_model_link edison_talks_application
+ 

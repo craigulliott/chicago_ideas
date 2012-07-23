@@ -26,7 +26,7 @@ class TalksController < ApplicationController
     @talk = Talk.find(params[:id])
     @chapters = @talk.chapters.all
     @page_title = "#{@talk.name}"
-    @meta_data = {:page_title => "#{@talk.name}", :og_image => "#{@talk.banner_src}", :og_title => "#{@talk.name} | Chicago Ideas Week", :og_type => "article", :og_desc => "#{@talk.description[0..200]}"}
+    @meta_data = {:page_title => "#{@talk.name}", :og_image => "#{@talk.banner_src}", :og_title => "#{@talk.name} | Chicago Ideas Week", :og_type => "article", :og_desc => (@talk.description) ? "#{@talk.description[0..200]}" : ""}
   end # end def talks
   
   

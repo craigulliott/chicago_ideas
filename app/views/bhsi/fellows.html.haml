@@ -1,0 +1,158 @@
+-#     Chicago Ideas Week
+-#     application/blum_helfand.html.haml
+-#     01/25/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Special Programs & Awards", special_programs_path
+        %li= link_to "Bluhm/Helfand Social Innovation Fellowship", blum_helfand_path
+        %li
+          %span 2012 Fellows
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Meet the 2012 Bluhm/Helfand Social Innovation Fellows
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+  
+    
+    .column_row.divided_row
+      .column.column_double
+        = image_tag('application/bluhm_helfand_logo.jpg', :class => "bhsi_logo clearfix", :width => "200px", :height => "200px")
+        %p Congratulations to our 2012 Bluhm/Helfand Social Innovation Fellows! These four amazing social entrepreneurs will attend and speak at Chicago Ideas Week this fall where they will meet with key leaders, mentors, potential partners, and have the opportunity to grow their impact. Each fellow will also receive a $10,000 contribution to their venture.
+      
+    .column_row.divided_row
+      .column.column_double.fellow_item
+        .img_frame
+          = image_tag('application/special_programs_awards/bhsi_2012/mark_arnoldy.jpg')
+        .fellow_content
+          %h3 Mark Arnoldy, 25
+          %span.sub_title= link_to "Nyaya Health", "http://www.nyayahealth.org/"
+          %span.location South Boston, Massachusetts
+          
+          %p 
+            Mark Arnoldy is the Executive Director of Nyaya Health, a NGO that delivers health care to the poor in rural Nepal. After nearly dying on his 1st trip to Nepal from lack of access to health care following a severe allergic reaction, Mark was afforded a rare glimpse of empathy with the millions of Nepalis who were being denied care. In partnership with the Nepali government, Nyaya now manages one of the country's largest hospitals, providing care to tens of thousands of patients each year. A native of St. Louis Missouri, he is a graduate of Harvard's Global Health Effectiveness Program and a former Fulbright Scholar to Nepal.
+        
+       
+    .column_row.divided_row
+      .column.column_double.fellow_item
+        .img_frame
+          = image_tag('application/special_programs_awards/bhsi_2012/michael_carter.jpg')
+        .fellow_content
+          %h3 Michael Carter, 24
+          %span.sub_title= link_to "Strive for College", "http://www.striveforcollege.org/"
+          %span.location Atherton, California
+          
+          %p Michael Carter is the CEO of Strive for College, which he founded in his freshman year of college. Since then Strive has grown into a national movement with chapters at college campuses across the country. Strive has raised over $2.2 million, and has helped hundreds of low-income high school students gain admission to universities across the country. For his work with Strive, Michael has been featured in Forbes, Education Week, and the Chronicle of Higher Education.
+          
+          
+    .column_row.divided_row
+      .column.column_double.fellow_item
+        .img_frame
+          = image_tag('application/special_programs_awards/bhsi_2012/micaela_connery.jpg')
+        .fellow_content
+          %h3 Micaela Connery, 25
+          %span.sub_title= link_to "Unified Theater", "http://www.unifiedtheater.org/"
+          %span.location Hartford, Connecticut
+          
+          %p Micaela Connery is the Executive Director of Unified Theater, an organization she conceived of when she was just 15. She was inspired by her cousin Kelsey who has physical and developmental disabilities: harness the power of youth leaders and bring people with and without disabilities together as equals through theater. Today Unified Theater has grown to over 35 programs in high schools and middle schools in six states. Micaela serves as a Global Shaper for the World Economic Forum, for which she spoke on a panel at Davos last year. She is a DoSomething Award Winner and she has been named a CNN Breakthrough Woman, and a Coca Cola Scholar. Micaela is a proud alum of Conard High School, and the University of Virginia.
+          
+            
+    .column_row.divided_row
+      .column.column_double.fellow_item
+        .img_frame
+          = image_tag('application/special_programs_awards/bhsi_2012/toni_maraviglia.jpg')
+        .fellow_content
+          %h3 Toni Maraviglia, 29
+          %span.sub_title= link_to "MPrep", "http://mprep.co.ke/"
+          %span.location Nairobi, Kenya
+          
+          %p Toni Maraviglia is the CEO and Founder of MPrep, a Kenya based company that uses simple text messaging technology to allow students in poorest parts of Kenya access to prepare for national exams, where passage can often determine the course of a student's entire future. Today more than 4,000 students in Kenya use MPrep. A Chicago native, Toni began her education career as a Teach For America corps member and program director in New York City. She is the co-founder of the EdTech Meetup Group in Nairobi. She firmly believes mobile devices can change the way we teach, learn, and think.
+      
+    
+
+    .column_row.divided_row
+      .column.column_double
+        %span.column_header Semi-Finalists
+        %ul.semi_finalists
+          %li
+            %span.name_ David Auerbach, 31
+            %span.url= link_to "Sanergy", "http://saner.gy/", :rel => "nofollow"
+            %span.location_ Brookline, Massachusetts
+            
+          %li
+            %span.name_ Dan MacCombie, 26
+            %span.url= link_to "Runa", "http://www.runa.org/", :rel => "nofollow"
+            %span.location_ Brooklyn, New York
+            
+          %li
+            %span.name_ Elizabeth Dearborn Davis, 27
+            %span.url= link_to "Akilah Institute for Women", "http://www.akilahinstitute.org/", :rel => "nofollow"
+            %span.location_ Kigali, Rwanda
+            
+          %li
+            %span.name_ Rustam Sengupta, 31
+            %span.url= link_to "Boond Engineering & Development Pvt.", "http://www.boond.net/", :rel => "nofollow"
+            %span.location_ New Delhi, India
+            
+          %li
+            %span.name_ Sasha Fisher, 23
+            %span.url= link_to "Spark MicroGrants", "http://www.sparkmicrogrants.org/", :rel => "nofollow"
+            %span.location_ New York, New York
+            
+          %li
+            %span.name_ Julia Silverman, 24
+            %span.url= link_to "Uncharted Play, Inc", "http://www.unchartedplay.com/", :rel => "nofollow"
+            %span.location_ New York, New York
+            
+          %li
+            %span.name_ Khalil Fuller, 20
+            %span.url= link_to "NBA Math Hoops", "http://www.nbamathhoops.org/", :rel => "nofollow"
+            %span.location_ Providence, Rhode Island
+            
+          %li
+            %span.name_ Jacob Wertz, 25
+            %span.url= link_to "Urban Prep Fellows Program", "http://www.urbanprep.org/fellows-program", :rel => "nofollow"
+            %span.location_ Chicago, Illinois
+            
+          %li
+            %span.name_ Eric Glustrom, 27
+            %span.url= link_to "Educate!", "http://www.experienceeducate.org/", :rel => "nofollow"
+            %span.location_ Boulder, Colorado
+            
+          %li
+            %span.name_ Jacob Wood, 29
+            %span.url= link_to "Team Rubicon", "http://www.teamrubiconusa.org//", :rel => "nofollow"
+            %span.location_ Inglewood, California
+            
+     
+    .column_row.divided_row
+      .column.column_double
+        %p 
+          Do you know a social innovator (under 35) that would be a perfect fit for next year's Fellowship? Whether that person is you or someone you know, click  
+          = link_to "here", "https://docs.google.com/spreadsheet/viewform?formkey=dGVKZGJmY1FsZUxsZ3UxRkE3Y1VQbXc6MQ#gid=0", :target => "_blank"
+          to suggest them for the 2013 BHSI Fellowship and we'll let them know the application information for next year before anyone else.
+       
+    .column_row
+      .column.column_double
+        %span.column_header Previous Fellows   
+        %p= link_to "Meet the 2011 Bluhm/Helfand Social Innovation Fellows →", special_programs_blum_helfand_fellowship_previous_fellows_path
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/member_program_callout"
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

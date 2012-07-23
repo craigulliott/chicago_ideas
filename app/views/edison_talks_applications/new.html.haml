@@ -1,0 +1,72 @@
+-#     Chicago Ideas Week
+-#     bhsi_applications/new.html.haml
+-#     02/17/2012
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Edison Talks", year_speakers_edison_path(@current_year)
+        %li
+          %span New Application
+    = render "partials/explore_dropdown"
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Edison Talks Application Form
+    = render "partials/share"
+    
+  -# Left column, main content:
+  .box.double.left
+
+    .column_row#blum_helfand_application_form
+    
+    
+      = semantic_form_for(@edison_talks_application) do |f|
+          
+        .form_section
+          %span.form_section_header Application Instructions
+          %p Please submit the form below to apply to attend the premiere of the Edison Talks. A select, diverse group of innovators, disruptors, inventors, and instigators will participate in this daylong gathering of provocative presentations, performances and interactive installations.
+          %p A limited number of applications will be accepted for the 2012 event. The Edison Talks application will close on August 28, 2012. Selected attendees will be notified by the first week of September.
+          %p Please save a copy of your responses for your records and submit this application form only once. The Edison Talks committee will carefully review and consider all applications submitted here and reach out accordingly.
+          %p 
+            For questions, please contact 
+            = mail_to "edisontalks@chicagoideas.com", "edisontalks@chicagoideas.com."     
+            Thank you for your interest!
+          %p *Please note: Selected attendees do not receive complimentary tickets. Tickets for the Edison Talks are $395.00. If selected, you will receive additional information about purchasing your tickets via email. 
+            
+            
+          %span.form_section_header
+          = f.inputs :class => "c_list v_lists" do
+            = f.input :name, :as => :string, :required => true, :label => "Your Name"
+            = f.input :organization, :as => :string, :required => true, :label => "Organization"
+            = f.input :title, :as => :string, :label => "Title"
+            = f.input :email, :as => :email, :required => true, :label => "Email"
+            = f.input :phone, :as => :phone, :required => true, :label => "Phone Number", :hint => "xxx-xxx-xxxx"
+            %p Please provide a response of 2-3 sentences for each of the following questions:
+            = f.input :passions, :required => true, :label => "Tell us in 200 words or less what you are passionate about in your life, your work, and your community."
+            = f.input :why_come, :required => true, :label => "Why do you want to come to the Edison Talks? What is it that you wish to get, to give, to share?"
+            = f.input :recommendation, :required => true, :label => "If you could recommend one speaker or performer to present at the Edison Talks who or what would it be?"
+            = f.input :invention, :required => true, :label => "What is the coolest or most innovative thing that you invented or someone else invented?"
+            %p What inspires you? (ex: World Music, Philanthrophy 3.0, Coolest Startups, Travel, Academia, Best Technology This Year)
+            = f.input :inspiration_1, :required => true, :label => "Inspiration 1"
+            = f.input :inspiration_2, :required => true, :label => "Inspiration 2"
+            = f.input :inspiration_3, :required => true, :label => "Inspiration 3"
+            = f.input :comments, :label => "What else would you like to say? Any final thoughts?"
+              
+            
+        = f.buttons do
+          = f.submit :value => "Submit Application", :class => "btn submit", :id => "submit_application"
+        
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
+
