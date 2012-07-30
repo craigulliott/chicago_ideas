@@ -253,6 +253,10 @@ CraigsAdmin::Application.routes.draw do
         # pages
         get :notes
       end
+      resources :export
+        collection do
+          get :export
+        end
       resources :notes, :only => [:new, :create]
     end
 

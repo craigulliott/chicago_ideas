@@ -5,6 +5,23 @@ class Admin::VolunteersController < Admin::AdminController
   def index
     @volunteers = Volunteer.search_sort_paginate(params)
   end
+  
+  def export
+    @users = Volunteer.all # get all the users
+    respond_to do |format|
+      format.csv { # CSV is the only format we're concerned with for now
+        csv = CSV.generate do |row| # generated the CSV
+          row << ['Name', 'Email']
+          @users.each do |volunteer|
+            row << [volunteer.user.name, volunteer.user.email] # add a user's name and email
+          end
+        end
+    	
+    	# send .csv back to the browser
+        send_data(csv, :type => 'text/csv; charset=iso-8859-1; header=present', :disposition => "attachment; filename=volunteers_export_" << Date.today.to_s() << "_.csv") 
+      }
+    end
+  end
 
   # MEMBER ACTIONS
   # ---------------------------------------------------------------------------------------------------------
