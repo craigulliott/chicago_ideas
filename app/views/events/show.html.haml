@@ -41,7 +41,8 @@
       .column
         %span.column_header
           Date &amp; Location
-          %span.expired_date Event Passed
+          - if !@event.is_current?
+            %span.expired_date Event Passed
         %table.talk_venue_details
           %tr
             %td.venue_label{:width => "85"} Date
