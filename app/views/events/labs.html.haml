@@ -47,7 +47,7 @@
             - @labs.each do |lab|
               %li{:id => "lab_item_#{lab.id}", :class => "lab_item lab_item_#{lab.id}"}
                 %a{:name => "lab_#{lab.id}"}
-                %h3= link_to lab.name, "#", :class => "lab_title"
+                %h3= link_to lab.name, event_path(lab)
                 .lab_description
                   %pre= lab.description
                   %a{:class => "back_top", :href => "javascript:scroll(0,0)"} back top

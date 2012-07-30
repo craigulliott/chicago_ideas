@@ -119,6 +119,16 @@ CraigsAdmin::Application.routes.draw do
     match 'calendar', :to => 'calendar#index'
     match ':month_id/:day_id/calendar', :to => 'calendar#index'
     
+    # talks and events
+    # ----------------------------------------------------------------
+    resources :events, :only => [:index, :show] do
+      # home pages for the different event types
+      collection do
+        get :labs
+        get :partner_programs
+        get :affiliate_event
+      end
+    end
     
     resources :talks, :only => [:index] do
       # home pages for the different talk types
