@@ -10,12 +10,12 @@
       %ul
         %li= link_to "Home", "/"
         %li= link_to "Events", events_path
-        - if params[:year_id].present? && params[:year_id] == '2011'
-          %li
-            %span 2011 CIW Labs
-        - else
+        - if @current_year.id == @year_id
           %li
             %span CIW Labs
+        - else
+          %li
+            %span #{@year_id} CIW Labs
     = render "partials/explore_dropdown"
 
 
@@ -25,16 +25,16 @@
 
   #page_header
     #page_title.left
-      - if params[:year_id].present? && params[:year_id] == '2011'
-        %h1 2011 CIW Labs
-      - else
+      - if @current_year.id == @year_id
         %h1 CIW Labs
+      - else
+        %h1 #{@year_id} CIW Labs
     = render "partials/share"
 
   -# Left column, main content
   .box.double.left
 
-    - if !params[:year_id].present? || (params[:year_id].present? && params[:year_id] != '2011')
+    - if @current_year.id == @year_id
       .talk_gallery
         - @event_photos.each do |photo|
           = image_tag(photo.photo(:album))
@@ -60,7 +60,7 @@
                   %pre= lab.description
                   %a{:class => "back_top", :href => "javascript:scroll(0,0)"} back top
     
-    - if !params[:year_id].present? || (params[:year_id].present? && params[:year_id] != '2011')
+    - if @current_year.id == @year_id
       .column_row
         .column.column_double
           = link_to "Check out our lab hosts from CIW 2011", "/years/2011/events/labs"
