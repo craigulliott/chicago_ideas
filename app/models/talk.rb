@@ -72,6 +72,10 @@ class Talk < ActiveRecord::Base
     chapter.present? ? chapter.banner(size) : nil
   end
    
+   # return formatted date for the front-end
+  def formatted_date
+    "#{self.day.date.strftime("%A, %B %e, %Y")}"
+  end
    
   # return formatted time for the front-end
   def formatted_time

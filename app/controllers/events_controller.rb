@@ -22,10 +22,13 @@ class EventsController < ApplicationController
   # Labs landing and individual pages
   def labs
     if params[:year_id].present?
-      @labs = EventBrand.find_by_name("Lab").events.joins(:day).where("days.year_id = '#{params[:year_id]}'").order('name ASC')
+      @year_id = params[:year_id].to_i
+      @labs = EventBrand.find_by_name("Lab").events.joins(:day).where("days.year_id = '#{@year_id}'").order('name ASC')
     else
+      @year_id = @current_year.id
       @labs = EventBrand.find_by_name("Lab").events.current.order('name ASC')
     end
+    
     @event_photos = EventPhoto.joins(:event).where('events.event_brand_id = 1').order('RAND()').limit(10)
     @event_brand = EventBrand.find_by_name('Lab')
     @meta_data = {:page_title => "CIW Labs", :og_image => "http://www.chicagoideas.com/assets/application/labs.jpg", :og_title => "CIW Labs | Chicago Ideas Week", :og_type => "website", :og_desc => "CIW Labs offer opportunities for participants to experience and explore the best of Chicago like never before.  Exclusive, behind-the-scenes experiences give participants a unique glimpses into the inner workings of businesses and institutions that are otherwise unavailable to the public.  Small groups will explore what it's like for business leaders in the boardroom, go behind the curtain at leading theaters and venues, and discover 'how-it-works' in hands-on workshops."}

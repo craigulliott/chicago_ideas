@@ -34,7 +34,10 @@
 
     .column_row.divided_row#talks_description
       .column.column_double
-        %span.column_header About this Talk
+        - if @event.event_brand
+          %span.column_header About this #{@event.event_brand.name}
+        - else
+          %span.column_header About this Event
         %pre= @event.description
         
     .column_row#talks_location
@@ -46,7 +49,7 @@
         %table.talk_venue_details
           %tr
             %td.venue_label{:width => "85"} Date
-            %td= @event.day.name
+            %td= @event.formatted_date
           %tr
             %td.venue_label Time
             %td= @event.formatted_time
