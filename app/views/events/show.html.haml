@@ -34,7 +34,10 @@
 
     .column_row.divided_row#talks_description
       .column.column_double
-        %span.column_header About this #{@event.event_brand.name}
+        - if @event.event_brand
+          %span.column_header About this #{@event.event_brand.name}
+        - else
+          %span.column_header About this Event
         %pre= @event.description
         
     .column_row#talks_location
