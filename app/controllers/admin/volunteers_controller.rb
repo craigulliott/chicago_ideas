@@ -1,3 +1,4 @@
+require 'csv'
 class Admin::VolunteersController < Admin::AdminController
 
   # COLLECTION ACTIONS
@@ -11,14 +12,18 @@ class Admin::VolunteersController < Admin::AdminController
     respond_to do |format|
       format.csv { # CSV is the only format we're concerned with for now
         csv = CSV.generate do |row| # generated the CSV
-          row << ['Name', 'Email']
+          row << ['Name', 'Email', 'Phone', 'Post Code']
           @users.each do |volunteer|
-            row << [volunteer.user.name, volunteer.user.email] # add a user's name and email
+            name = ((volunteer.first_name << ' ' << volunteer.last_name).strip.length > 0) ? (volunteer.first_name << ' ' << volunteer.last_name).strip : volunteer.user.name.strip
+            email = (volunteer.email.strip.length > 0) ? volunteer.email.strip : volunteer.user.email.strip
+            phone = (volunteer.phone.strip.length > 0) ? volunteer.phone.strip : (!volunteer.user.phone.nil? ? volunteer.user.phone.strip : '')
+            postcode = volunteer.postcode
+            row << [name, email, phone, postcode] # add a volunteer's name, email, phone, and postcode
           end
         end
     	
     	# send .csv back to the browser
-        send_data(csv, :type => 'text/csv; charset=iso-8859-1; header=present', :disposition => "attachment; filename=volunteers_export_" << Date.today.to_s() << "_.csv") 
+        send_data(csv, :type => 'text/csv; charset=iso-8859-1; header=present', :disposition => "attachment; filename=volunteers_export_" << Date.today.to_s() << ".csv") 
       }
     end
   end
