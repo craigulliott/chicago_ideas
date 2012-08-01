@@ -1,7 +1,7 @@
 = render '/admin/admin/collection_controls'
 - content_for :breadcrumbs do
-  = breadcrumbs @day
-  .crumb.end Volunteers
+  = breadcrumbs @volunteer
+  .crumb.end= section_title   
 
 - content_for :top_links do
   = edit_model_link @volunteer, true

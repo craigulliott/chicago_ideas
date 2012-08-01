@@ -30,7 +30,8 @@ class VolunteersController < ApplicationController
     
       if @volunteer.save
         VolunteerMailer.send_form(params[:volunteer], friendlyName).deliver
-        render 'application/confirmation', :locals => {:title => "Volunteer Application Confirmation", :body => "Thank you for applying to volunteer. We will be in contact shortly.", :url => "http://bit.ly/zPj9Lb", :share_text => "I'm #volunteering for @chicagoideas Oct. 8-14! Help turn #ideas into #action by signing up today: http://bit.ly/zPj9Lb" }
+        confirmation_text = 'You are now registered as a Chicago Ideas Week volunteer! We will contact you via email with specific volunteer opportunities as they arise. There are many ways in which you can get involved. Volunteers are the backbone of our event week, and we also enlist volunteers to assist with office support, special projects, and program coordination. We are looking for enthusiastic and highly motivated individuals to help make Chicago Ideas Week a smooth running operation and huge success. If you have associates, friends or family who would like volunteer, please encourage them to register. Thank you for your interest in Chicago Ideas Week! We are looking forward to having you on our team!'
+        render 'application/confirmation', :locals => {:title => "Volunteer Application Confirmation", :body => confirmation_text, :url => "http://bit.ly/zPj9Lb", :share_text => "I'm #volunteering for @chicagoideas Oct. 8-14! Help turn #ideas into #action by signing up today: http://bit.ly/zPj9Lb" }
       else
         flash[:notice] = 'Please fill in all required fields!'
         render :new

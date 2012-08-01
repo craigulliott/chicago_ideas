@@ -1,6 +1,9 @@
 = render '/admin/admin/collection_controls'
 - content_for :breadcrumbs do
-  .crumb.end Days
+  .crumb.end Volunteers
+
+- content_for :top_links do
+  = export_model_link Volunteer, "csv"
 
 = ssp_search_form Volunteer
 
