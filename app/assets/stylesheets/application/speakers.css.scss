@@ -111,7 +111,7 @@ body.list_edison_speakers {
 			margin:-5px auto 50px auto;
 			background:transparent asset-url('application/edison_info_bg.png', image) top center no-repeat;
 			
-			> div {
+			div.info {
 				width:450px;
 				float:left;
 				padding: 55px 20px;
@@ -133,7 +133,7 @@ body.list_edison_speakers {
 				
 			}
 			
-			> div + div {
+			div.info + div.info {
 				text-align:left;
 				font-style:normal;
 				margin-left:15px;
@@ -154,9 +154,9 @@ body.list_edison_speakers {
 				}
 			}
 			
-			p#edison_talks_application {
+			div#edison_talks_application {
 				position:absolute;
-				bottom: -40px;
+				bottom: -80px;
 				width: 100%;
 				text-align: center;
 			}
@@ -164,7 +164,7 @@ body.list_edison_speakers {
 		}
 		
 		div#edison_speakers {
-			padding-top:15px;
+			margin-top:100px;
 			min-height:208px;
 			background:transparent asset-url('application/edison_speakers_bg.png', image) top center repeat-y;
 			
