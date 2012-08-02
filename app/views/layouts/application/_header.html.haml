@@ -23,14 +23,14 @@
           %li= link_to "CIW Member Program", member_program_path, :rel => "bookmark", :title => "Become a member today!"
         
     %li#gn_events.nav_parent
-      = link_to "Events", events_path, :rel => "bookmark", :title => "CIW Events"
+      = link_to "2011 Events", events_path, :rel => "bookmark", :title => "CIW Events"
       .dropdown.full_dropdown
         %ul.dd_column
           %li= link_to "All CIW Talks", talks_path, :rel => "bookmark", :title => "All CIW Talks"
           %li= link_to "CIW Megatalks", mega_talks_talks_path, :rel => "bookmark", :title => "CIW Megatalks"
           %li= link_to "Videos", videos_path, :rel => "bookmark", :title => "View Videos"
         %ul.dd_column
-          %li= link_to "CIW Labs", labs_events_path, :rel => "bookmark", :title => "View all CIW Labs"
+          %li= link_to "2011 CIW Labs", "/years/2011/events/labs", :rel => "bookmark", :title => "View all CIW Labs"
           %li= link_to "Partner Programs", partner_programs_events_path, :rel => "bookmark", :title => "View all Partner Programs"
           %li= link_to "Affiliate Events", affiliate_event_events_path, :rel => "bookmark", :title => "View all Affiliate Events"
         %ul.dd_column.featured
@@ -43,11 +43,11 @@
                 - if performance.speaker.present?
                   %span.small= performance.speaker.name
     
+    %li#gn_speakers
+      = link_to "2011 Speakers", speakers_path, :rel => "bookmark", :title => "View 2011 Speakers"
+    
     %li#gn_videos
       = link_to "Videos", videos_path, :rel => "bookmark", :title => "View all Videos"
-    
-    %li#gn_speakers
-      = link_to "Speakers", speakers_path, :rel => "bookmark", :title => "View all Speakers"
     
     %li#gn_community.nav_parent
       = link_to "Community", sponsors_path, :rel => "bookmark", :title => "View Sponsors"
@@ -81,9 +81,6 @@
             %li= link_to "Edit My Profile", edit_user_registration_path
             %li= link_to "Logout", destroy_user_session_path
 
-      %li#gn_register{:style => 'display:none;'}
-        = link_to "Register", new_user_registration_path, :title => "Register"
-    
       %li#gn_login{:style => 'display:none;'}
         = link_to "Login", new_user_session_path, :title => "Login"
         .dropdown#dd_login_form
