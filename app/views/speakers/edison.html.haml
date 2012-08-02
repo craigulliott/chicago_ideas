@@ -23,7 +23,8 @@
     
     %div#edison_talks_application.clearfix
       %p= link_to "Interested in attending the Edison Talks? Apply here.", edison_talks_applications_path
-      %p More Speakers Coming Soon
+      - if @speakers.length > 0
+        %p More Speakers Coming Soon
   
   - if @speakers.length > 0
     %div#edison_speakers
