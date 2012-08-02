@@ -79,8 +79,8 @@ body#schedule_page {
         }
         
         a.download {
+          display:none;
           position:absolute;
-          display:block;
           top:260px;
           left:0;
           width:177px;
@@ -111,7 +111,7 @@ body#schedule_page {
       #schedule_title {
         position:absolute;
         top:180px;
-        left:400px;
+        left:360px;
       
         h1 {
           color:#303032;
@@ -141,7 +141,7 @@ body#schedule_page {
     #schedule_table {
       width:825px;
       min-height:300px;
-      margin:50px auto;
+      margin:10px auto;
       
       table {
         
@@ -168,11 +168,11 @@ body#schedule_page {
           width:130px;
         }
         
-        th.talk_type {
+        th.event_type {
           width:110px;
         }
         
-        th.event {
+        th.event_title {
           width:380px;
         }
         

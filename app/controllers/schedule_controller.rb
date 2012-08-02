@@ -47,11 +47,15 @@ class ScheduleController < ApplicationController
       if @range === @day.tomorrow
         @tomorrow = @day.tomorrow
         @next = '/years/%s/%s/%s/schedule' % [@tomorrow.strftime("%Y"), @tomorrow.strftime("%m"), @tomorrow.strftime("%d")]
+      else
+        @next = '/years/%s/%s/%s/schedule' % [@start_date.strftime("%Y"), @start_date.strftime("%m"), @start_date.strftime("%d")]
       end
       
       if @range === @day.yesterday
         @yesterday = @day.yesterday
         @prev = '/years/%s/%s/%s/schedule' % [@yesterday.strftime("%Y"), @yesterday.strftime("%m"), @yesterday.strftime("%d")]
+      else
+        @prev = '/years/%s/%s/%s/schedule' % [@end_date.strftime("%Y"), @end_date.strftime("%m"), @end_date.strftime("%d")]
       end
       
     else

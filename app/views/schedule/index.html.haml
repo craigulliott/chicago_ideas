@@ -39,8 +39,8 @@
       %tr
         %th.time Time
         %th.location Location
-        %th.talk_type Talk Type
-        %th.event Event
+        %th.event_type Event Type
+        %th.event_title Event Title
       
       - if @schedule.length > 0
         - @schedule.each_with_index do |c, i|
@@ -50,11 +50,11 @@
             %td.time= c.formatted_time 
             %td.location= c.venue.name
             - if c.kind_of? Talk
-              %td.talk_type= c.talk_brand.name
-              %td.event= link_to c.name, talk_path(c), :rel => "bookmark", :title => "#{c.name}"
+              %td.event_type= c.talk_brand.name
+              %td.event_title= link_to c.name, talk_path(c), :rel => "bookmark", :title => "#{c.name}"
             - if c.kind_of? Event
-              %td.talk_type= c.event_brand.name
-              %td.event= link_to c.name, event_path(c), :rel => "bookmark", :title => "#{c.name}"
+              %td.event_type= c.event_brand.name
+              %td.event_title= link_to c.name, event_path(c), :rel => "bookmark", :title => "#{c.name}"
       - else
         %tr.odd
           %td.no_results{:colspan => "4"} No Events
