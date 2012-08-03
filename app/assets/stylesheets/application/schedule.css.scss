@@ -1,0 +1,185 @@
+body#schedule_page {
+
+  #schedule_container {
+    font-family:"Open Sans" !important;
+  	margin-top:55px;
+    background: #f7f5f6 asset-url('application/schedule_corkboard_bg.png', image) 0 -166px repeat-x;
+    
+    #schedule_header {
+      position:relative;
+      width:900px;
+      height:390px;
+      margin:0 auto;	
+		
+      #schedule_day_container {
+        position:absolute;
+        top:90px;
+        left:50px;
+        width:220px;
+        
+        border:8px solid #342e2e;
+        background:#f0e938;
+        padding:10px;
+        
+        a {
+          display:block;
+          position:absolute;
+          cursor:pointer;
+          width:38px;
+          height:38px;
+        }
+        
+        a#schedule_arrow_left {
+          top:105px;
+          left:-23px;
+          background:asset-url('application/schedule_arrow_left.png', image) 0 0 no-repeat;
+        }
+        
+        a#schedule_arrow_right {
+          top:105px;
+          right:-23px;
+          background:asset-url('application/schedule_arrow_right.png', image) 0 0 no-repeat;
+        }
+        
+        span {
+        	display:block;
+        	color:#302e2f;
+        	text-align:center;
+        	text-transform:uppercase;
+        }
+        
+        span + span {
+        	margin-top:10px;
+        }
+        
+        span#day_name {
+        	font-size:22px;
+        	line-height:18px;
+        }
+        
+        span#month_name {
+        	font-size:30px;
+        	line-height:18px;
+        	font-weight:bold;
+        }
+        
+        span#day_number {
+        	font-size:180px;
+        	line-height:140px;
+        	font-weight:bold;
+        	letter-spacing:-15px;
+        	left: -10px;
+            position: relative;
+        }
+        
+        span#year_number {
+        	font-size:30px;
+        	line-height:18px;
+        	font-weight:bold;
+        }
+        
+        a.download {
+          display:none;
+          position:absolute;
+          top:260px;
+          left:0;
+          width:177px;
+          padding:5px;
+          padding-left:55px;
+          padding-right:10px;
+          color:#fff;
+          font-size:14px;
+          font-weight:bold;
+          background: #2989d5 asset-url('application/btn_download.png', image) 0 0 no-repeat;
+          
+          background-image: asset-url('application/btn_download.png', image), -khtml-gradient(linear, left top, left bottom, from(#2890e7), to(#286aa6));
+          background-image: asset-url('application/btn_download.png', image), -moz-linear-gradient(top, #2890e7, #286aa6);
+          background-image: asset-url('application/btn_download.png', image), -ms-linear-gradient(top, #2890e7, #286aa6);
+          background-image: asset-url('application/btn_download.png', image), -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2890e7), color-stop(100%, #286aa6));
+          background-image: asset-url('application/btn_download.png', image), -webkit-linear-gradient(top, #2890e7, #286aa6);
+          background-image: asset-url('application/btn_download.png', image), -o-linear-gradient(top, #2890e7, #286aa6);
+          background-image: asset-url('application/btn_download.png', image), linear-gradient(top, #2890e7, #286aa6);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2890e7', endColorstr='#286aa6', GradientType=0);
+        }
+        
+        a.download:hover {
+        	text-decoration:none;
+        }
+        
+      }
+      
+      #schedule_title {
+        position:absolute;
+        top:180px;
+        left:360px;
+      
+        h1 {
+          color:#303032;
+          font-size:35px;
+          text-transform:uppercase;
+          text-shadow: 0px 1px 2px #fff;
+        }
+        
+        p {
+          color:#303032;
+          text-shadow: 0px 1px 2px #fff;
+          
+          select {
+          	 color:#303032;
+          	 border:0;
+          	 padding:2px 6px;
+          	 background:#fff;
+          	 
+             border-bottom:1px solid #858681;
+          }
+        
+        }
+      }
+      
+    }
+		
+    #schedule_table {
+      width:825px;
+      min-height:300px;
+      margin:10px auto;
+      
+      table {
+        
+        tr.odd {
+          background:#fff;
+        }
+        
+        td, th {
+          padding:10px;
+          text-align:left;
+        }
+        
+        th {
+          color:#000;
+          font-weight:bold;
+        }
+        
+        th.time {
+          width:130px;
+          
+        }
+        
+        th.location {
+          width:130px;
+        }
+        
+        th.event_type {
+          width:110px;
+        }
+        
+        th.event_title {
+          width:380px;
+        }
+        
+        td.time {
+          white-space:nowrap;
+        }
+      }
+    }
+  }
+}

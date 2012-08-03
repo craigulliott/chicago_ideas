@@ -9,21 +9,22 @@
   
   %img{ :src => "/assets/application/edison_logo.jpg", :rel => "bookmark", :title => "", :width => "1000", :height => "350" }
   %div#edison_info
-    %div
+    %div.info
       %p Edison Talks is an invitation-only, daylong gathering of provocative presentations, performances and interactive installations led by globally recognized visionaries created to connect and inspire leaders from across the globe.
-    %div
+    %div.info
       %h2
         %p Friday, October 12th, 2012
         %p 9:00am - 6:00pm
-      %p Chicago Tribune Freedom Center,
-      %p Riverfront Theater
+      %p The Oriental Theatre
       %p 
         For questions, please contact: 
         %a{:href => "mailto:edisontalks@chicagoideas.com"}
           edisontalks@chicagoideas.com
     
-    %p#edison_talks_application.clearfix
-      = link_to "Interested in attending the Edison Talks? Apply here.", edison_talks_applications_path
+    %div#edison_talks_application.clearfix
+      %p= link_to "Interested in attending the Edison Talks? Apply here.", edison_talks_applications_path
+      - if @speakers.length > 0
+        %p More Speakers Coming Soon
   
   - if @speakers.length > 0
     %div#edison_speakers

@@ -1,0 +1,88 @@
+-#     Chicago Ideas Week
+-#     schedule/index.html.haml
+-#     07/05/2012
+
+%div#schedule_container 
+
+  %div#schedule_header
+    %div#schedule_day_container
+      - if @prev
+        %a#schedule_arrow_left{:href => @prev}
+      - if @next
+        %a#schedule_arrow_right{:href => @next}
+      %span#day_name
+        = @day_name
+      %span#month_name
+        = @month_name
+      %span#day_number
+        = @day_number
+      %span#year_number
+        = @year_number
+      %a.download 
+        Download the entire week's schedule (PDF)
+    
+    %div#schedule_title
+      %h1 Schedule of Events
+      %p
+        Filter by
+        %select#id_talk_type
+          %option{:value => ""} Show All
+          %option{:value => "Talk"} CIW Talks
+          %option{:value => "Megatalk"} CIW Megatalks
+          %option{:value => "all_talks"} All CIW Talks
+          %option{:value => "Lab"} CIW Labs
+          
+    
+  
+  %div#schedule_table
+    %table 
+      %tr
+        %th.time Time
+        %th.location Location
+        %th.event_type Event Type
+        %th.event_title Event Title
+      
+      - if @schedule.length > 0
+        - @schedule.each_with_index do |c, i|
+          - classes = "schedule_row"
+          - classes += " odd" if i % 2 == 0
+          %tr{:class => classes}
+            %td.time= c.formatted_time 
+            %td.location= c.venue.name
+            - if c.kind_of? Talk
+              %td.event_type= c.talk_brand.name
+              %td.event_title= link_to c.name, talk_path(c), :rel => "bookmark", :title => "#{c.name}"
+            - if c.kind_of? Event
+              %td.event_type= c.event_brand.name
+              %td.event_title= link_to c.name, event_path(c), :rel => "bookmark", :title => "#{c.name}"
+      - else
+        %tr.odd
+          %td.no_results{:colspan => "4"} No Events
+
+:javascript
+  $( function() {
+    
+    var type = getQuerystring('type')
+    $('#id_talk_type option[value="' + type + '"]').attr('selected', 'selected')
+    
+    $('#id_talk_type').change( function() {
+      var val = $(this).val()
+      var href = document.location.pathname
+      if(val.length > 0) {
+        href = href + '?type=' + val
+      }
+      window.location = href
+    })
+    
+    
+    function getQuerystring(key, default_) {
+      if (default_==null) default_=""; 
+      key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+      var regex = new RegExp("[\\?&]"+key+"=([^&#]*)");
+      var qs = regex.exec(window.location.href);
+      if(qs == null)
+        return default_;
+      else
+        return qs[1];
+    }
+  })
