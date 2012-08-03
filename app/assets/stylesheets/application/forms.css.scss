@@ -151,6 +151,16 @@ abbr {
     border-bottom: 1px solid #000;
     min-height: 25px;
   }
+  #dd_register {
+    margin-bottom: 0;
+    padding-top: 10px !important;
+    padding-bottom: 5px !important;
+    border-top: 1px solid #333;
+    a {
+      font-size: 13px;
+      color: $grey;
+    }
+  }
   #dd_forgot_pw {
     margin-bottom: 0;
     padding-top: 10px !important;
