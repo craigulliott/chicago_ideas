@@ -56,7 +56,7 @@ class ApplicationController < ActionController::Base
   end
   
   def member_program
-    @meta_data = {:page_title => "CIW Member Program", :og_title => "Chicago Ideas Week Member Program", :og_type => "website"}
+    @meta_data = {:page_title => "CIW Member Program", :og_title => "Chicago Ideas Week Member Program", :og_type => "website", :og_image => "http://www.chicagoideas.com/assets/application/member_program_lightbulb.jpg"}
     render "application/member_program"
   end
   
