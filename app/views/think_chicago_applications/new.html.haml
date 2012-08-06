@@ -74,6 +74,7 @@
           = f.inputs :class => "c_list v_lists" do
             = f.input :employment_interests, :as => :check_boxes, :collection => ['Starting your own business', 'Working for a start-up', 'Working for an established tech company', 'Working for a non-profit organization', 'Other'], :label => "Which of the following career opportunities are you most interested in pursuing post-graduation (minimum of 2 selected)?" 
             = f.input :employment_interests_extra, :as => :string, :label => "Please specify:"
+            = f.input :honors_experience_activities, :required => true, :label => "Please list types or specific companies in Chicago you would be interested in visiting if you were selected for this trip."
               
 
         .form_section
