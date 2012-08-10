@@ -1,0 +1,11 @@
+-#     Chicago Ideas Week
+-#     partials/_events_loop.html.haml
+-#     08/11/2012
+
+
+- @events.each do |event|
+  %li{:id => "event_#{event.id}"}
+    .img_frame
+      = link_to image_tag(event.banner(:thumb)), event_path(event), :rel => "bookmark", :title => "#{event.name}"
+    = link_to event.name, event_path(event), :rel => "bookmark", :title => "#{event.name}"
+    

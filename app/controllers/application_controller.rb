@@ -41,9 +41,9 @@ class ApplicationController < ActionController::Base
     @sponsors = Sponsor.featured_sponsors.order('RAND()')
   end
   def get_talks    
-    @e_talks = TalkBrand.find(TALK_BRAND_ID).talks.archived.order('RAND()').limit(10)
-    @e_megatalks = TalkBrand.find(MEGATALK_BRAND_ID).talks.order('RAND()').limit(3)
-    @e_speakers = User.speaker.not_deleted.archived.order('RAND()').limit(10)
+    @e_talks = TalkBrand.find(TALK_BRAND_ID).talks.current.order('RAND()').limit(10)
+    @e_megatalks = TalkBrand.find(MEGATALK_BRAND_ID).talks.current.order('RAND()').limit(3)
+    @e_speakers = User.speaker.not_deleted.current.order('RAND()').limit(10)
   end
   def get_nav_featured
     @nav_featured_chapters = Chapter.homepage_featured.order('RAND()').limit(2)
