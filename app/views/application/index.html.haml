@@ -24,7 +24,7 @@
           %span.column_header CIW Talks
           %ul.preview_list.double_rows
             = render "partials/talks_loop", :talks => @talks
-          = link_to "view all talks →", talks_path, :class => "view_all blue", :rel => "bookmark", :title => "View all Talks"
+          = link_to "view all talks →", year_path(@current_year), :class => "view_all blue", :rel => "bookmark", :title => "View all Talks"
           
           
     -# List of speakers          
