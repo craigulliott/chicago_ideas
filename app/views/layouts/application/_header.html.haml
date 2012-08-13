@@ -19,8 +19,8 @@
       .dropdown
         %ul
           %li= link_to "Edison Talks", year_speakers_edison_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Edison Talks Speakers"
-          %li= link_to "CIW Megatalks", year_talks_mega_talks_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Megatalks"
-          %li= link_to "CIW Talks", year_talks_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
+          %li= link_to "CIW Megatalks", year_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Megatalks"
+          %li= link_to "CIW Talks", year_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
           %li= link_to "CIW Labs", year_events_labs_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Labs"
           %li= link_to "Partner Programs", year_events_partner_programs_path(@current_year), :rel => "bookmark", :title => "View all 2012 Partner Programs"
           %li= link_to "Affiliate Events", year_events_affiliate_event_path(@current_year), :rel => "bookmark", :title => "View all 2012 Affiliate Events"

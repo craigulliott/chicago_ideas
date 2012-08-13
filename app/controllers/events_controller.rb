@@ -53,7 +53,10 @@ class EventsController < ApplicationController
     if params[:year_id].present?
       @year_id = params[:year_id].to_i
       @partnerprograms = EventBrand.find_by_name("Partner Program").events.joins(:day).where("days.year_id = '#{@year_id}'").order('name ASC')
-      @meta_data = {:page_title => "Partner Programs", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Partner Programs | Chicago Ideas Week", :og_type => "website", :og_desc => "CIW Partner Programs are official CIW events that are co-curated with our CIW Partners. All programs subscribe to the same goals of connectivity and innovation as other Chicago Ideas Week events, but provide a unique perspective based on the CIW Partner's specific area of expertise."}  
+    else
+      @partnerprograms = EventBrand.find_by_name("Partner Program").events.archived.order('name ASC')
+    
+    @meta_data = {:page_title => "Partner Programs", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Partner Programs | Chicago Ideas Week", :og_type => "website", :og_desc => "CIW Partner Programs are official CIW events that are co-curated with our CIW Partners. All programs subscribe to the same goals of connectivity and innovation as other Chicago Ideas Week events, but provide a unique perspective based on the CIW Partner's specific area of expertise."}  
 
     #if params[:id].nil? # if no paramter, then load the labs landing
     #  puts 'no param'
