@@ -21,7 +21,7 @@
           - @e_talks.each do |talk|
             %li{:id => "talk_#{talk.id}"}
               = link_to talk.name, talk_path(talk), :rel => "bookmark", :title => "#{talk.name}"
-          %li= link_to "view all talks →", talks_path, :rel => "bookmark", :title => "View all Talks"
+          %li= link_to "view all 2012 talks →", year_talks_path(@current_year), :rel => "bookmark", :title => "View all Talks"
       
       .column.right
         %span.column_header Speakers
@@ -29,4 +29,4 @@
           - @e_speakers.each do |speaker|
             %li{:id => "speaker_#{speaker.id}"}
               = link_to speaker.name, speaker_path(speaker), :rel => "bookmark", :title => "#{speaker.name}"
-          %li= link_to "view all speaker →", speakers_path, :rel => "bookmark", :title => "View all Speakers"
+          %li= link_to "view all 2012 speakers →", year_speakers_path(@current_year), :rel => "bookmark", :title => "View all Speakers"

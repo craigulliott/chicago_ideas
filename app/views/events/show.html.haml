@@ -56,12 +56,16 @@
           %tr
             %td.venue_label Venue
             %td
-              = @event.venue.name
-              %address= @event.venue.address
-      .column.right
-        .venue_map
-          - if @event.venue.present?
-            = image_tag @event.venue.bing_maps_src(300,145,zoom=15)
+              - if @event.venue.name == '--Venue TBD--'
+                Venue TBD
+              - else
+                = @event.venue.name
+                %address= @event.venue.address
+      - if @event.venue.name != '--Venue TBD--'
+        .column.right
+          .venue_map
+            - if @event.venue.present?
+              = image_tag @event.venue.bing_maps_src(300,145,zoom=15)
   
     
   -# Include Sidebar Items

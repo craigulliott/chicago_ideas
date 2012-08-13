@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120716133012) do
+ActiveRecord::Schema.define(:version => 20120806142809) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -286,21 +286,26 @@ ActiveRecord::Schema.define(:version => 20120716133012) do
   add_index "event_photos", ["event_id"], :name => "index_event_photos_on_event_id"
 
   create_table "events", :force => true do |t|
-    t.string   "name",                :limit => 150, :null => false
+    t.string   "name",                  :limit => 150, :null => false
     t.text     "description"
     t.integer  "partner_id"
-    t.integer  "day_id",                             :null => false
-    t.integer  "venue_id",                           :null => false
-    t.integer  "event_brand_id",                     :null => false
+    t.integer  "day_id",                               :null => false
+    t.integer  "venue_id",                             :null => false
+    t.integer  "event_brand_id",                       :null => false
     t.string   "banner_file_name"
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
-    t.time     "start_time",                         :null => false
-    t.time     "end_time",                           :null => false
+    t.time     "start_time",                           :null => false
+    t.time     "end_time",                             :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "twitter_hashtag"
+    t.string   "ticket_url"
+    t.string   "lab_host_file_name"
+    t.string   "lab_host_content_type"
+    t.integer  "lab_host_file_size"
+    t.datetime "lab_host_updated_at"
   end
 
   add_index "events", ["day_id"], :name => "index_events_on_day_id"
@@ -485,6 +490,7 @@ ActiveRecord::Schema.define(:version => 20120716133012) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "twitter_hashtag"
+    t.string   "ticket_url"
   end
 
   add_index "talks", ["day_id"], :name => "index_talks_on_day_id"
@@ -536,6 +542,7 @@ ActiveRecord::Schema.define(:version => 20120716133012) do
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
+    t.text     "companies",                          :limit => 2147483647, :null => false
   end
 
   create_table "tracks", :force => true do |t|
@@ -583,6 +590,7 @@ ActiveRecord::Schema.define(:version => 20120716133012) do
     t.integer  "portrait2_file_size"
     t.datetime "portrait2_updated_at"
     t.boolean  "newsletter",                            :default => true,  :null => false
+    t.boolean  "published",                             :default => false, :null => false
   end
 
   add_index "users", ["admin"], :name => "index_users_on_admin"

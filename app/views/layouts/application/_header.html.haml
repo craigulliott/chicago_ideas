@@ -11,59 +11,39 @@
     %li#gn_logo
       %h1= link_to "Chicago Ideas Week", root_path, :rel => "bookmark", :title => "Chicago Ideas Week Homepage"
     
-    %li#gn_upcoming.nav_parent.nav_section_end
-      = link_to "2012 CIW", year_path(@current_year), :rel => "bookmark", :title => "2012 CIW"
-      .dropdown
-        %ul.dd_column.full
-          %li= link_to "2012 Schedule", year_schedule_path(@current_year), :rel => "bookmark", :title => "View the 2012 CIW Schedule"
-          %li= link_to "2012 Speakers", year_speakers_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
-          %li= link_to "Edison Talks", year_speakers_edison_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Edison Talks Speakers"
-          %li= link_to "CIW Talks", year_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
-          %li= link_to "CIW Labs", labs_events_path, :rel => "bookmark", :title => "View all CIW Labs"
-          %li= link_to "Affiliate Events", affiliate_event_events_path, :rel => "bookmark", :title => "View all Affiliate Events"
-          %li= link_to "CIW Member Program", member_program_path, :rel => "bookmark", :title => "Become a member today!"
-        
+    %li#gn_schedule
+      = link_to "Schedule", year_schedule_path(@current_year), :rel => "bookmark", :title => "View the 2012 CIW Schedule"
+    
     %li#gn_events.nav_parent
-      = link_to "2011 Events", events_path, :rel => "bookmark", :title => "CIW Events"
-      .dropdown.full_dropdown
-        %ul.dd_column
-          %li= link_to "All CIW Talks", talks_path, :rel => "bookmark", :title => "All CIW Talks"
-          %li= link_to "CIW Megatalks", mega_talks_talks_path, :rel => "bookmark", :title => "CIW Megatalks"
-          %li= link_to "Videos", videos_path, :rel => "bookmark", :title => "View Videos"
-        %ul.dd_column
-          %li= link_to "2011 CIW Labs", "/years/2011/events/labs", :rel => "bookmark", :title => "View all CIW Labs"
-          %li= link_to "Partner Programs", partner_programs_events_path, :rel => "bookmark", :title => "View all Partner Programs"
-          %li= link_to "Affiliate Events", affiliate_event_events_path, :rel => "bookmark", :title => "View all Affiliate Events"
-        %ul.dd_column.featured
-          - @nav_featured_chapters.each do |featured|          
-            %li
-              .dd_img_container
-                = link_to image_tag(featured.banner.url(:thumb)), video_path(featured), :rel => "bookmark", :title => "#{featured.title}"
-              = link_to featured.title, video_path(featured), :rel => "bookmark", :title => "#{featured.title}"
-              - featured.performances.limit(2).each do |performance|
-                - if performance.speaker.present?
-                  %span.small= performance.speaker.name
+      = link_to "Events", year_path(@current_year), :rel => "bookmark", :title => "2012 Events"
+      .dropdown
+        %ul
+          %li= link_to "Edison Talks", year_speakers_edison_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Edison Talks Speakers"
+          %li= link_to "CIW Megatalks", year_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Megatalks"
+          %li= link_to "CIW Talks", year_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
+          %li= link_to "CIW Labs", year_events_labs_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Labs"
+          %li= link_to "Partner Programs", year_events_partner_programs_path(@current_year), :rel => "bookmark", :title => "View all 2012 Partner Programs"
+          %li= link_to "Affiliate Events", year_events_affiliate_event_path(@current_year), :rel => "bookmark", :title => "View all 2012 Affiliate Events"
     
     %li#gn_speakers
-      = link_to "2011 Speakers", speakers_path, :rel => "bookmark", :title => "View 2011 Speakers"
-    
-    %li#gn_videos
-      = link_to "Videos", videos_path, :rel => "bookmark", :title => "View all Videos"
+      = link_to "Speakers", year_speakers_path(@current_year), :rel => "bookmark", :title => "View 2012 Speakers"
     
     %li#gn_community.nav_parent
-      = link_to "Community", sponsors_path, :rel => "bookmark", :title => "View Sponsors"
-      .dropdown.double_dropdown
-        %ul.dd_column
+      = link_to "Community", sponsors_path, :rel => "bookmark", :title => "View the CIW Community"
+      .dropdown
+        %ul
           %li= link_to "Sponsors", sponsors_path, :rel => "bookmark", :title => "View Sponsors"
           %li= link_to "CIW Member Program", member_program_path, :rel => "bookmark", :title => "Become a member today!"
           %li= link_to "Community Partners", partners_path, :rel => "bookmark", :title => "View Community Partners"
           %li= link_to "Special Programs & Awards", special_programs_path, :rel => "bookmark", :title => "Special Programs & Awards"
-        %ul.dd_column
           %li= link_to "News", press_clippings_path, :rel => "bookmark", :title => "View News Releases"
           %li= link_to "Volunteer", new_volunteer_path, :rel => "bookmark", :title => "Voluneer Application"
-          %li= link_to "CIW Blog", "http://blog.chicagoideas.com", :title => "CIW Blog"
-
-    %li#gn_about.nav_parent.nav_section_end
+        
+    %li#gn_blog
+      = link_to "Blog", "http://blog.chicagoideas.com", :title => "CIW Blog", :target => "_blank"
+    
+    
+    %li#gn_about.nav_parent
       = link_to "About", about_path
       .dropdown
         %ul
@@ -73,14 +53,20 @@
           %li= link_to "Jobs", jobs_path, :rel => "bookmark", :title => "Jobs at CIW"
           %li= link_to "Contact Us", contact_path, :rel => "bookmark", :title => "Contact Us"
     
-      %li#nav_user.nav_parent{:style => 'display:none;'}
-        = link_to "My Account", user_root_path, :id => 'users_full_name'
-        .dropdown
-          %ul
-            %li#connect_to_facebook= link_to "Connect to Facebook", user_omniauth_authorize_path(:facebook), :class => 'facebook_connect'
-            %li= link_to "My Account", user_root_path
-            %li= link_to "Edit My Profile", edit_user_registration_path
-            %li= link_to "Logout", destroy_user_session_path
+    %li#gn_videos
+      = link_to "Videos", videos_path, :rel => "bookmark", :title => "View all Videos"
+    
+    %li#gn_purchase_tickets.nav_section_end  
+      = link_to "Tickets", "https://andticketing.com/chicagoideasweek/Online/", :title => "Purchase CIW Tickets", :target => "_blank"
+    
+    %li#nav_user.nav_parent{:style => 'display:none;'}
+      = link_to "My Account", user_root_path, :id => 'users_full_name'
+      .dropdown
+        %ul
+          %li#connect_to_facebook= link_to "Connect to Facebook", user_omniauth_authorize_path(:facebook), :class => 'facebook_connect'
+          %li= link_to "My Account", user_root_path
+          %li= link_to "Edit My Profile", edit_user_registration_path
+          %li= link_to "Logout", destroy_user_session_path
 
       %li#gn_login{:style => 'display:none;'}
         = link_to "Login", new_user_session_path, :title => "Login"
