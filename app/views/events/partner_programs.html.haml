@@ -9,7 +9,7 @@
     #breadcrumbs
       %ul
         %li= link_to "Home", "/"
-        %li= link_to "Events", events_path
+        %li= link_to "2012 Events", year_events_path(@current_year)
         %li
           %span Partner Programs
     = render "partials/explore_dropdown"
@@ -33,11 +33,14 @@
         %p CIW Partner Programs are official CIW events that are co-curated with our CIW Partners. All programs subscribe to the same goals of connectivity and innovation as other Chicago Ideas Week events, but provide a unique perspective based on the CIW Partner's specific area of expertise.
         
         %ul.preview_list#partner_programs_list
-          - @partnerprograms.each do |pp|
-            %li{:id => "partnerprograms_#{pp.id}"}
-              -#.img_frame
-                -#= link_to image_tag(pp.banner(:thumb)), event_path(pp)
-              = link_to pp.name, event_path(pp)
+          - if @partnerprograms.length > 0
+            - @partnerprograms.each do |pp|
+              %li{:id => "partnerprograms_#{pp.id}"}
+                -#.img_frame
+                  -#= link_to image_tag(pp.banner(:thumb)), event_path(pp)
+                = link_to pp.name, event_path(pp)
+          - else
+            %li{:style => "font-weight:bold;font-style:italic;"} Check back soon for Partner Programs!
 
   -# Include Sidebar Items
   #sidebar

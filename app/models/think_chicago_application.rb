@@ -27,11 +27,14 @@ class ThinkChicagoApplication < ActiveRecord::Base
   validates :employment_interests, :presence => true
 
   validates_attachment_presence :current_resume, :presence => true
- 
   validates_format_of :current_resume_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
-  
   validates_attachment_size :current_resume, :less_than => 4.megabytes
   
+  validates :companies, :presence => true, :length => {
+    :maximum   => 500,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
   
   validates :honors_experience_activities, :presence => true, :length => {
     :maximum   => 500,

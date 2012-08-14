@@ -507,11 +507,12 @@ ul.preview_list li:after {
 ul.double_rows {
   li {
     display: inline;
-    clear: none;
+    clear: both;
     float: left; 
   }
   li:nth-child(2n+2), li.end {
     float:right;
+    clear:none;
   }
 }
 ul.horizontal_list {

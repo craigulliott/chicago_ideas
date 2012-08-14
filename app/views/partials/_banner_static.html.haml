@@ -1,0 +1,38 @@
+-#       Chicago Ideas Week
+-#       Featured Banner Partial
+-#       _banner.html.haml
+-#       01/01/2012
+
+
+%section#featured.container-fluid
+
+  #banner_container
+    .banner_item{:id => "banner_1", :style => "background: url('/assets/application/banner_static/ciw_homepage_banner_schedule.jpg') center center no-repeat;"}
+      %a{:href => "/schedule/", :style => "display:block;height:675px;"}
+    .banner_item{:id => "banner_2", :style => "background: url('/assets/application/banner_static/ciw_homepage_banner_speakers.jpg') center center no-repeat;"}
+      %a{:href => year_speakers_path(@current_year), :style => "display:block;height:675px;"}  
+    .banner_item{:id => "banner_3", :style => "background: url('/assets/application/banner_static/ciw_homepage_banner_tickets.jpg') center center no-repeat;"}
+      %a{:href => "https://andticketing.com/chicagoideasweek/Online/default.asp?doWork::WScontent::loadArticle=Load&BOparam::WScontent::loadArticle::article_id=127BAF87-D7DE-472C-B546-22EB03F2F422&sessionlanguage=EN", :target => "_blank", :style => "display:block;height:675px;"}  
+    .banner_item{:id => "banner_4", :style => "background: url('/assets/application/banner_static/ciw_homepage_banner_labs2.jpg') center center no-repeat;"}
+      %a{:href => year_events_labs_path(@current_year), :style => "display:block;height:675px;"}
+    .banner_item{:id => "banner_5", :style => "background: url('/assets/application/banner_static/ciw_homepage_banner_themes.jpg') center center no-repeat;"}
+      %a{:href => year_path(@current_year), :style => "display:block;height:675px;"}
+    .banner_item{:id => "banner_6", :style => "background: url('/assets/application/banner_static/ciw_homepage_banner_membership.jpg') center center no-repeat;"}
+      %a{:href => "/member_program/", :style => "display:block;height:675px;"}
+    
+    
+    
+    .container-fluid#banner_nav_wrapper
+      %ul#banner_nav
+        %li= link_to image_tag("/assets/application/banner_static/ciw_homepage_banner_schedule_th.jpg"), "#", :class => "b_thumb thumb_1", :id => "thumb_1", :rel => "bookmark", :title => "CIW Schedule"
+        %li= link_to image_tag("/assets/application/banner_static/ciw_homepage_banner_speakers_th.jpg"), "#", :class => "b_thumb thumb_2", :id => "thumb_2", :rel => "bookmark", :title => "CIW Speakers"
+        %li= link_to image_tag("/assets/application/banner_static/ciw_homepage_banner_tickets_th.jpg"), "#", :class => "b_thumb thumb_3", :id => "thumb_3", :rel => "bookmark", :title => "CIW Member Tickets"
+        %li= link_to image_tag("/assets/application/banner_static/ciw_homepage_banner_labs2_th.jpg"), "#", :class => "b_thumb thumb_4", :id => "thumb_4", :rel => "bookmark", :title => "CIW Labs"
+        %li= link_to image_tag("/assets/application/banner_static/ciw_homepage_banner_themes_th.jpg"), "#", :class => "b_thumb thumb_5", :id => "thumb_5", :rel => "bookmark", :title => "CIW Themes"
+        %li= link_to image_tag("/assets/application/banner_static/ciw_homepage_banner_membership_th.jpg"), "#", :class => "b_thumb thumb_6", :id => "thumb_6", :rel => "bookmark", :title => "CIW Member Program"
+        
+        
+        
+        
+  
+

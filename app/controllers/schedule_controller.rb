@@ -21,7 +21,7 @@ class ScheduleController < ApplicationController
     if(type == 'all_talks')
       talks = Talk.joins([:talk_brand, :day]).where("days.date = '#{@day}'").order('talks.start_time, talks.end_time')
       @schedule = talks
-    elsif(type == 'Talk' || type == 'Megatalk')
+    elsif(type == 'Talk' || type == 'Megatalk' || type == 'Edison Talk')
       talks = Talk.joins([:talk_brand, :day]).where("days.date = '#{@day}' AND talk_brands.name = '#{type}'").order('talks.start_time, talks.end_time')
       @schedule = talks
     elsif(type == 'Lab')

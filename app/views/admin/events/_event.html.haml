@@ -1,7 +1,7 @@
 %tr{:event => event.id}
   %td.name= link_to event.name, admin_event_path(event)
   %td.day_id= event.day.full_name
-  %td.venue_id= link_to event.venue.name, admin_partner_path(event.venue)
+  %td.venue_id= link_to event.venue.name, admin_venue_path(event.venue)
   %td.start_time= event.start_time.to_s(:time)
   %td.end_time= event.end_time.to_s(:time)
   %td.partner_id= event.partner.present? ? link_to(event.partner.name, admin_partner_path(event.partner)) : 'none'

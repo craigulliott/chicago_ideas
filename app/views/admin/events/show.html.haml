@@ -30,6 +30,9 @@
 
   %h4 End Time
   %p= @event.end_time.to_s(:time)
+  
+  %h4 Ticket URL
+  %p= @event.ticket_url
 
   %h4 Banner
   %p= image_tag @event.banner.url(:medium)
