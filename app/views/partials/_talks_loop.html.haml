@@ -5,8 +5,9 @@
 
 - @talks.each do |talk|
   %li{:id => "talk_#{talk.id}"}
-    .img_frame
-      = link_to image_tag(talk.banner(:thumb)), talk_path(talk), :rel => "bookmark", :title => "#{talk.name}"
+    - if talk.banner.present?
+      .img_frame
+        = link_to image_tag(talk.banner(:thumb)), talk_path(talk), :rel => "bookmark", :title => "#{talk.name}"
     = link_to talk.name, talk_path(talk), :rel => "bookmark", :title => "#{talk.name}"
     - if talk.track.present?
       %span= talk.track.name

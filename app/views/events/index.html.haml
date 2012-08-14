@@ -18,16 +18,16 @@
     %ul
       %li
         .img_frame
-          = link_to image_tag('application/events/talks_new.jpg'), talks_path, :rel => "bookmark", :title => "View all CIW Talks"
-        %h3= link_to "CIW Talks & Mega Talks", talks_path, :rel => "bookmark", :title => "View all CIW Talks"
+          = link_to image_tag('application/events/talks_new.jpg'), year_talks_path(@current_year), :rel => "bookmark", :title => "View all CIW Talks"
+        %h3= link_to "CIW Talks & Mega Talks", year_talks_path(@current_year), :rel => "bookmark", :title => "View all CIW Talks"
       %li
         .img_frame
-          = link_to image_tag('application/events/labs_new.jpg'), labs_events_path, :rel => "bookmark", :title => "View all CIW Labs"
-        %h3= link_to "CIW Labs", labs_events_path, :rel => "bookmark", :title => "View all CIW Labs"
+          = link_to image_tag('application/events/labs_new.jpg'), year_events_labs_path(@current_year), :rel => "bookmark", :title => "View all CIW Labs"
+        %h3= link_to "CIW Labs", year_events_labs_path(@current_year), :rel => "bookmark", :title => "View all CIW Labs"
       %li
         .img_frame
-          = link_to image_tag('application/events/partner_programs_new.jpg'), partner_programs_events_path, :rel => "bookmark", :title => "View all Partner Programs"
-        %h3= link_to "Partner Programs", partner_programs_events_path, :rel => "bookmark", :title => "View all Partner Programs"
+          = link_to image_tag('application/events/partner_programs_new.jpg'), year_events_partner_programs_path(@current_year), :rel => "bookmark", :title => "View all Partner Programs"
+        %h3= link_to "Partner Programs", year_events_partner_programs_path(@current_year), :rel => "bookmark", :title => "View all Partner Programs"
         
 
   -# Left column, main content
@@ -35,12 +35,11 @@
 
     .column_row#about_description
       .column.column_double        
-        - if @talks.present?
-          .column.column_double#homepage_talks
-            %span.column_header CIW Talks
+        - if @events.present?
+          .column.column_double
+            %span.column_header CIW Events
             %ul.preview_list.double_rows
-              = render "partials/talks_loop", :talks => @talks
-            = link_to "view all talks →", talks_path, :class => "view_all blue"
+              = render "partials/events_loop", :events => @events
 
 
 

@@ -29,6 +29,9 @@
 
   %h4 End Time
   %p= @talk.end_time.to_s(:time)
+  
+  %h4 Ticket URL
+  %p= @talk.ticket_url
 
   %h4 Sponsor
   %p= @talk.sponsor.present? ? @talk.sponsor.name : 'none'
