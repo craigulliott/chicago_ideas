@@ -159,6 +159,7 @@ CraigsAdmin::Application.routes.draw do
   # Static Pages
   match 'about', :to => 'application#about'
   match 'member_program', :to => 'application#member_program'
+  match 'artist', :to => 'application#artist'
   match 'speaker/recommend_speaker', :to => 'users#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
   
