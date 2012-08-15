@@ -25,32 +25,82 @@
   .box.double.left
     .column_row
       .column.column_double
-        %p We'd love to hear your big ideas! Share your ideas here:
+        %p 
+          %strong We'd love to hear your big ideas! Share them with us.
         
-        #thank_you{:style => "display:none;"}
-          Thank You, your message has been sent.
-
-        = semantic_form_for(:contact, :url => send_contact_url, :remote => true) do |form|
-
-          = form.inputs do
-            = form.input 'name', :required => true, :label => 'Your Name'
-            = form.input 'email', :required => true, :label => 'Email Address', :hint => 'So we can get back to you'
-            = form.input 'subject', :required => true, :label => 'Subject'
-            = form.input 'message', :required => true, :label => 'Message', :as => :text
-
-          = form.buttons do
-            = form.commit_button :label => "Send Message"
-            
-    .column_row
-      .column.column_double
+        %div.clearfix
+          %ul.preview_list.double_rows
+            %li
+              %p 
+                Chicago Ideas Week
+                %br
+                600 West Chicago
+                %br
+                Suite 700
+                %br
+                Chicago, IL 60654
+          
+            %li.end
+              %p
+                = link_to "@chicagoideas on Twitter", "https://twitter.com/chicagoideas"
+                = link_to "Like us on Facebook", "http://www.facebook.com/ChicagoIdeasWeek"
+                = link_to "Find more ideas on Pinterest", "http://pinterest.com/chicagoideas/"
+              
+        %p Have a question? Please direct your inquiry to the appropriate CIW contact below:
+        
         %p
-          %address
-            %strong Chicago Ideas Week 
-            %br
-            600 W. Chicago Ave. , Suite 700
-            %br
-            Chicago, Illinois, 60654 
-
+          %strong Sponsorship Opportunities
+          %br
+          Leah Marshall:
+          = link_to "leah@chicagoideas.com", "mailto:leah@chicagoideas.com"
+        
+        %p
+          %strong CIW Membership Program
+          %br 
+          Becky Ahasic:
+          = link_to "membership@chicagoideas.com", "mailto:membership@chicagoideas.com"
+        
+        %p
+          %strong Volunteer Opportunities
+          %br 
+          Jennifer Nelson:
+          = link_to "jennifer@chicagoideas.com", "mailto:jennifer@chicagoideas.com"
+        
+        %p
+          %strong Ticketing & Registration
+          %br 
+          For all questions regarding ticket purchases, please email
+          = link_to "tickets@andticketing.com", "mailto:tickets@andticketing.com"
+          or call (800) 247-4360.
+        
+        %p
+          %strong Edison Talks
+          %br 
+          General inquiries:
+          = link_to "edisontalks@chicagoideas.com", "mailto:edisontalks@chicagoideas.com"
+        
+        %p
+          %strong ThinkChicago Program
+          %br 
+          Danyelle Michelini:
+          = link_to "tec@illinois.edu", "mailto:tec@illinois.edu"
+        
+        %p
+          %strong Community Partner Program
+          %br 
+          Patricia Nicandro:
+          = link_to "patricia@chicagoideas.com", "mailto:patricia@chicagoideas.com"
+          
+        %p
+          %strong Bluhm/Helfand Social Innovation Fellowship
+          %br 
+          General inquiries:
+          = link_to "info@bluhmhelfand.com", "mailto:info@bluhmhelfand.com"
+        
+        %p
+          For all other questions or comments, please connect with us at info@chicagoideas.com
+          = link_to "info@chicagoideas.com.", "mailto:info@chicagoideas.com"
+  
 
 
   -# Include Sidebar Items
