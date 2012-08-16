@@ -60,6 +60,11 @@ class ApplicationController < ActionController::Base
     render "application/member_program"
   end
   
+  def artist
+    @meta_data = {:page_title => "CIW Artist in Residence", :og_title => "Chicago Ideas Week Artist in Residence", :og_type => "website", :og_image => "http://www.chicagoideas.com/assets/application/member_program_lightbulb.jpg"}
+    render "application/artist_in_residence"
+  end
+  
   def sizzle
     @meta_data = {:page_title => "CIW Sizzle Reel", :og_title => "Chicago Ideas Week", :og_type => "website"}
     render "application/sizzle"
