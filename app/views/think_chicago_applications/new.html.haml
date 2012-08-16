@@ -61,7 +61,7 @@
         .form_section
           %span.form_section_header Part 2: Education
           = f.inputs :class => "c_list v_lists" do
-            = f.input :undergraduate_institutions, :as => :string, :required => true, :label => "Undergraduate Institution(s)"
+            = f.input :institutions, :as => :string, :required => true, :label => "Institution(s)"
             = f.input :field_major, :as => :string, :required => true, :label => "Field or Major"
             = f.input :minor, :as => :string, :label => "Minor"
             = f.input :dates_attended, :as => :string, :required => true, :label => "Dates Attended", :hint => "mm/dd/yyyy"

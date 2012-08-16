@@ -791,6 +791,27 @@ ul#confirm_share {
   }
 }
 
+// Community Parterns page
+#partners_page {
+  table#partners_list {
+  	margin-bottom:10px;
+    td {
+      width:50%;
+      padding-right:10px;
+      
+      a {
+        display:block;
+        margin-bottom:4px;
+        line-height:25px;
+      }
+      
+      p {
+      	margin-bottom:4px;
+      }
+    }
+  }
+}
+
 /******************************************************
  *  Sidebar
 ******************************************************/

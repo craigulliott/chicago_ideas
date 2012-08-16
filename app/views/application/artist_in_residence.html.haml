@@ -1,0 +1,54 @@
+-#     Chicago Ideas Week
+-#     application/artist_in_residence.html.haml
+-#     08/15/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span CIW Artist in Residence
+       
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 CIW Artist in Residence
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+
+    .talk_gallery
+      = image_tag("/assets/application/artist_in_residence/Convergence1.jpg")
+      = image_tag("/assets/application/artist_in_residence/Convergence2.jpg")
+      = image_tag("/assets/application/artist_in_residence/Fallingwater1.jpg")
+      = image_tag("/assets/application/artist_in_residence/Fallingwater2.jpg")
+      = image_tag("/assets/application/artist_in_residence/LuminousField1.jpg")
+      = image_tag("/assets/application/artist_in_residence/LuminousField2.jpg")
+      = image_tag("/assets/application/artist_in_residence/LuminousField3.jpg")
+      = image_tag("/assets/application/artist_in_residence/Skywall1.jpg")
+      = image_tag("/assets/application/artist_in_residence/Skywall2.jpg")
+
+    -# Artist in Residence introduction
+    .column_row#labs_intro
+      .column.column_double
+        %p Luftwerk creates new media art installations by merging video projection, light, sound, material and elemental surfaces. The interest of the collaborative vision of Petra Bachmaier and Sean Gallero is to transform material and space into a moving canvas, intersecting the perception of science, nature and the built environment of architecture. Expansive installations and extensive environments immerse the viewer within theme, imagery, motion, shadow and light. The site-specific projects of the duo have been presented in diverse locations as Frank Lloyd Wright’s Fallingwater, Millennium Park, Chicago Cultural Center, JFK Airport, and Las Vegas.
+        %p 
+          Learn more about Luftwerk by visiting: 
+          = link_to "www.luftwerk.net.", "http://www.luftwerk.net"
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/member_program_callout"
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
