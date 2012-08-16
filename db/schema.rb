@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120806142809) do
+ActiveRecord::Schema.define(:version => 20120816071641) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -512,7 +512,7 @@ ActiveRecord::Schema.define(:version => 20120806142809) do
     t.string   "email",                                                    :null => false
     t.string   "how_learn",                                                :null => false
     t.string   "how_learn_extra"
-    t.string   "undergraduate_institutions",                               :null => false
+    t.string   "institutions",                                             :null => false
     t.string   "field_major",                                              :null => false
     t.string   "minor"
     t.string   "dates_attended",                                           :null => false
