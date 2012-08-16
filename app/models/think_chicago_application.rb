@@ -18,7 +18,7 @@ class ThinkChicagoApplication < ActiveRecord::Base
   validates :phone, :presence => true
   validates :email, :presence => true
   validates :how_learn, :presence => true
-  validates :undergraduate_institutions, :presence => true
+  validates :institutions, :presence => true
   validates :field_major, :presence => true
   validates :dates_attended, :presence => true
   validates :gpa, :presence => true

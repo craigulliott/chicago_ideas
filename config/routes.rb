@@ -146,6 +146,9 @@ CraigsAdmin::Application.routes.draw do
   # Schedule redirect
   match "schedule" => redirect("/years/2012/schedule")
   
+  # Edison Speakers redirect
+  match "edison" => redirect("/years/2012/speakers/edison")
+  
   # teams members and speakers are both a type of user, so are handled by the users controller
   match 'team_members', :to => 'users#list_team_members'
   match 'team_members/:id', :to => 'users#team_member', :as => "team_member"
@@ -159,6 +162,7 @@ CraigsAdmin::Application.routes.draw do
   # Static Pages
   match 'about', :to => 'application#about'
   match 'member_program', :to => 'application#member_program'
+  match 'artist', :to => 'application#artist'
   match 'speaker/recommend_speaker', :to => 'users#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
   
