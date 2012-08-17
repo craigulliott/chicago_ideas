@@ -79,7 +79,6 @@ body#schedule_page {
         }
         
         a.download {
-          display:none;
           position:absolute;
           top:260px;
           left:0;
@@ -141,7 +140,7 @@ body#schedule_page {
     #schedule_table {
       width:825px;
       min-height:300px;
-      margin:10px auto;
+      margin:50px auto;
       
       table {
         
