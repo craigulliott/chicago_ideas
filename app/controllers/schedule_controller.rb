@@ -27,10 +27,14 @@ class ScheduleController < ApplicationController
     elsif(type == 'Lab')
       labs = EventBrand.find_by_name("Lab").events.joins(:day).where("days.date = '#{@day}'").order('start_time, end_time')
       @schedule = labs
+    elsif(type == 'Partner Program')
+      partner_programs = EventBrand.find_by_name("Partner Program").events.joins(:day).where("days.date = '#{@day}'").order('start_time, end_time')
+      @schedule = partner_programs
     else
       talks = Talk.joins([:talk_brand, :day]).where("days.date = '#{@day}'").order('talks.start_time, talks.end_time')
       labs = EventBrand.find_by_name("Lab").events.joins(:day).where("days.date = '#{@day}'").order('start_time, end_time')
-      @schedule = talks + labs
+      partner_programs = EventBrand.find_by_name("Partner Program").events.joins(:day).where("days.date = '#{@day}'").order('start_time, end_time')
+      @schedule = talks + labs + partner_programs
     end
     
     

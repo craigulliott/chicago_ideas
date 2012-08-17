@@ -32,6 +32,7 @@
           %option{:value => "Edison Talk"} Edison Talks
           %option{:value => "all_talks"} All CIW Talks
           %option{:value => "Lab"} CIW Labs
+          %option{:value => "Partner Program"} Partner Programs
           
     
   
@@ -63,7 +64,7 @@
 :javascript
   $( function() {
     
-    var type = getQuerystring('type')
+    var type = getQuerystring('type').replace('%20', ' ')
     $('#id_talk_type option[value="' + type + '"]').attr('selected', 'selected')
     
     $('#id_talk_type').change( function() {
