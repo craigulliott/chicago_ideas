@@ -40,8 +40,8 @@
           %span.column_header About this Event
         %pre= @event.description
         
-        - if @event.is_current? && @event.ticket_url.present?
-          %a{:href => "#{@event.ticket_url}", :class => "btn blue_btn buy_your_tickets", :target => "_blank"}Buy Your Tickets
+        -#- if @event.is_current? && @event.ticket_url.present?
+        -#  %a{:href => "#{@event.ticket_url}", :class => "btn blue_btn buy_your_tickets", :target => "_blank"}Buy Your Tickets
         
     .column_row#talks_location
       .column
