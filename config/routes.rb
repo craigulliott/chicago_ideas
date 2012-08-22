@@ -369,6 +369,22 @@ CraigsAdmin::Application.routes.draw do
       resources :notes, :only => [:new, :create]
     end
     
+    resources :member_types do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+    
+    resources :members do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+    
     resources :venues do
       member do
         # pages

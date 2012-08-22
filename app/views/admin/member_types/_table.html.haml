@@ -1,0 +1,5 @@
+%table#member_types
+  %tr
+    %th.name= ssp_sort_link :name
+    %th 
+  = render :partial => 'admin/member_types/member_type.html.haml', :collection => member_types

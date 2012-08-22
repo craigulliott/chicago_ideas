@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816071641) do
+ActiveRecord::Schema.define(:version => 20120822133917) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -321,6 +321,28 @@ ActiveRecord::Schema.define(:version => 20120816071641) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "member_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "member_types", ["name"], :name => "index_member_types_on_name"
+
+  create_table "members", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "member_type_id", :null => false
+    t.integer  "year_id",        :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "members", ["member_type_id"], :name => "index_members_on_member_type_id"
+  add_index "members", ["user_id"], :name => "index_members_on_user_id"
+  add_index "members", ["year_id"], :name => "index_members_on_year_id"
 
   create_table "notes", :force => true do |t|
     t.integer  "author_id"
@@ -697,6 +719,10 @@ ActiveRecord::Schema.define(:version => 20120816071641) do
   add_foreign_key "events", "event_brands", :name => "events_event_brand_id_fk"
   add_foreign_key "events", "partners", :name => "events_partner_id_fk"
   add_foreign_key "events", "venues", :name => "events_venue_id_fk"
+
+  add_foreign_key "members", "member_types", :name => "members_member_type_id_fk"
+  add_foreign_key "members", "users", :name => "members_user_id_fk"
+  add_foreign_key "members", "years", :name => "members_year_id_fk"
 
   add_foreign_key "notes", "users", :name => "notes_author_id_fk", :column => "author_id"
 
