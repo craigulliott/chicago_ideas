@@ -19,6 +19,7 @@
   = f.input :ticket_url, :label => "Ticket URL"
   = f.input :banner, :as => :file, :title => "Banner Photo", :hint => "a #{@model.banner_dimensions_string} blessed photo for displaying on the site"
   = f.input :lab_host, :as => :file, :title => "Lab Host Photo", :hint => "a #{@model.lab_host_dimensions_string} photo for displaying on the site"
+  = f.input :lab_host_url, :label => "Lab Host URL"
 
 - unless @model.id.present?
   = f.inputs :name => "Photos of this Event" do

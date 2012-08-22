@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120822133917) do
+ActiveRecord::Schema.define(:version => 20120822133918) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -306,6 +306,7 @@ ActiveRecord::Schema.define(:version => 20120822133917) do
     t.string   "lab_host_content_type"
     t.integer  "lab_host_file_size"
     t.datetime "lab_host_updated_at"
+    t.string   "lab_host_url"
   end
 
   add_index "events", ["day_id"], :name => "index_events_on_day_id"
