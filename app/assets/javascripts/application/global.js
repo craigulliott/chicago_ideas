@@ -53,6 +53,12 @@ $(document).ready(function() {
     $(this).parent().parent().find('.lab_description').slideToggle();
   });
   
+  $('a.faq_question').bind('click', function(e) {
+    e.preventDefault();
+    var $li = $(this).closest('li');
+    $li.find('.faq_answer').slideToggle();
+  });
+  
   
   // Search dropdown
   $('.model_search_btn').bind('click', function(e) {

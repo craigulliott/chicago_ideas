@@ -163,6 +163,7 @@ CraigsAdmin::Application.routes.draw do
   match 'about', :to => 'application#about'
   match 'member_program', :to => 'application#member_program'
   match 'artist', :to => 'application#artist'
+  match 'faq', :to => 'application#faq'
   match 'speaker/recommend_speaker', :to => 'users#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
   
@@ -361,6 +362,22 @@ CraigsAdmin::Application.routes.draw do
     end
 
     resources :talk_brands do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+    
+    resources :member_types do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+    
+    resources :members do
       member do
         # pages
         get :notes

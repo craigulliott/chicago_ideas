@@ -61,8 +61,13 @@ class ApplicationController < ActionController::Base
   end
   
   def artist
-    @meta_data = {:page_title => "CIW Artist in Residence", :og_title => "Chicago Ideas Week Artist in Residence", :og_type => "website", :og_image => "http://www.chicagoideas.com/assets/application/member_program_lightbulb.jpg"}
+    @meta_data = {:page_title => "CIW Artist in Residence", :og_title => "Chicago Ideas Week Artist in Residence", :og_type => "website"}
     render "application/artist_in_residence"
+  end
+  
+  def faq
+    @meta_data = {:page_title => "CIW Frequently Asked Questions", :og_title => "Chicago Ideas Week Artist in Residence", :og_type => "website"}
+    render "application/faq"
   end
   
   def sizzle

@@ -38,7 +38,20 @@
           %span.column_header About this #{@event.event_brand.name}
         - else
           %span.column_header About this Event
+        
+        - if @event.event_brand.name == 'Lab' && @event.lab_host.present? && @event.lab_host_url.present?  
+          %ul#speaker_overview
+            %li
+              .img_frame
+                %a{:href => "#{@event.lab_host_url}", :class => "event_lab_host", :target => "_blank"}
+                  = image_tag(@event.lab_host(:large), :size => "260x260")
+        
         %pre= @event.description
+        
+        -#- if @event.is_current? && @event.ticket_url.present?
+        -#  %a{:href => "#{@event.ticket_url}", :class => "btn blue_btn buy_your_tickets", :target => "_blank"}Buy Your Tickets
+    
+          
         
     .column_row#talks_location
       .column
@@ -70,7 +83,7 @@
     
   -# Include Sidebar Items
   #sidebar
-    = render "partials/member_program_callout"
+    = render "partials/buy_tickets_now"
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"

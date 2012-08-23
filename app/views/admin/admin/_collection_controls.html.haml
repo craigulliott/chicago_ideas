@@ -3,6 +3,7 @@
   %ul
     %li{:class => active_for_controller('admin/admin')}= icon_link_to 'Dashboard', admin_root_path, 'home'
     %li{:class => active_for_controller('admin/volunteers')}= icon_link_to 'Volunteers', admin_volunteers_path, 'home'
+    %li{:class => active_for_controller('admin/members')}= icon_link_to 'Members', admin_members_path, 'home'
     %li{:class => active_for_controller('admin/affiliate_event_application')}= icon_link_to 'Affiliate Events', admin_affiliate_event_applications_path, 'home'
     %li{:class => active_for_controller('admin/community_partner_applications')}= icon_link_to 'Community Partners', admin_community_partner_applications_path, 'home'
     %li{:class => active_for_controller('admin/bhsi_applications')}= icon_link_to 'BHSI', admin_bhsi_applications_path, 'home'
@@ -19,4 +20,5 @@
   %ul
     %li{:class => active_for_controller('admin/talk_brands')}= icon_link_to "Talk Types", admin_talk_brands_path, 'gear'
     %li{:class => active_for_controller('admin/event_brands')}= icon_link_to "Event Types", admin_event_brands_path, 'gear'
+    %li{:class => active_for_controller('admin/member_types')}= icon_link_to "Member Types", admin_member_types_path, 'gear'
   
