@@ -1,0 +1,6 @@
+%tr{:member_type => member_type.id}
+  %td.name= link_to member_type.name, admin_member_type_path(member_type)
+  %td.options
+    = edit_model_link member_type
+    = destroy_model_link member_type
+ 

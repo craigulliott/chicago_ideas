@@ -1,0 +1,8 @@
+%table#volunteers
+  %tr
+    %th.first_name= ssp_sort_link :first_name
+    %th.last_name= ssp_sort_link :last_name
+    %th.user_id= :user.present? ? (ssp_sort_link :user_id): '' 
+    %th.member_type= ssp_sort_link :member_type
+    %th.year= ssp_sort_link :year
+  = render :partial => 'admin/members/member.html.haml', :collection => members

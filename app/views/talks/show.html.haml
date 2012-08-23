@@ -40,6 +40,9 @@
         %span.column_header About this Talk
         %pre= @talk.description
         
+        -#- if @talk.is_current? && @talk.ticket_url.present?
+        -#  %a{:href => "#{@talk.ticket_url}", :class => "btn blue_btn buy_your_tickets", :target => "_blank"}Buy Your Tickets
+        
     .column_row.divided_row#talks_location
       .column
         %span.column_header
@@ -72,7 +75,7 @@
 
   -# Include Sidebar Items
   #sidebar
-    = render "partials/member_program_callout"
+    = render "partials/buy_tickets_now"
     - if !@talk.is_current?
       = render "partials/chapters_sidebar", :chapters => @chapters, :title => "Videos in this Talk", :this_chapter => 'NULL'
     = render "partials/sponsors"

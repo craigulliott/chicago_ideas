@@ -1,0 +1,15 @@
+= render '/admin/admin/collection_controls'
+- content_for :breadcrumbs do
+  .crumb.end Members
+
+
+= ssp_search_form Member
+
+.table_section
+  %h3 
+    Members
+    = new_model_link Member
+  .table_wrapper
+    = render 'admin/members/table.html.haml', :members => @members
+  = paginate @members
+

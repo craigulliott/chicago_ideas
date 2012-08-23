@@ -1,0 +1,28 @@
+= render '/admin/admin/collection_controls'
+- content_for :breadcrumbs do
+  = breadcrumbs @member
+  .crumb.end= section_title   
+
+- content_for :top_links do
+  = edit_model_link @member, true
+  = destroy_model_link @member, true
+
+%h1
+  This Member
+  = icon_link_to 'notes', notes_admin_member_path(@member), 'script'
+  = new_model_link Note, @member
+
+#model_detail
+  %h4 Member
+  - if @member.user.present?
+    %p= link_to @member.user.name, admin_user_path(@member.user)
+  - else
+    %p= @member.first_name
+    %p= @member.last_name
+
+  %h4 Member Type
+  %p= @member.member_type.name
+
+  %h4 Year
+  %p= @member.year.id.to_s
+

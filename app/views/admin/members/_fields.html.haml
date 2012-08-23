@@ -1,0 +1,7 @@
+= f.inputs do
+  = f.input :user
+  = f.input :first_name 
+  = f.input :last_name
+  = f.input :member_type
+  = f.input :year, :collection => Hash[Year.all.map { |y| [y.id.to_s, y.id.to_s] } ]
+
