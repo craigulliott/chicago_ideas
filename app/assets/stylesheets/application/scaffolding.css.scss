@@ -534,6 +534,19 @@ a.buy_your_tickets {
 
 
 body.faq {
+  div#faq_menu {
+  	float:left;
+  	background: #EBEBEB;
+    border: 1px solid #CCC;
+    padding: 0.5em;
+    margin: 0;
+    margin-right:20px;
+    
+    a {
+      display:block;
+    }
+  }
+
   ul.faq_list {
     list-style-type:none;
     margin:0;

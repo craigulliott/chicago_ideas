@@ -27,21 +27,64 @@
   .box.double.left
     .column_row.divided_row
       .column.column_double
-        %h2 Chicago Ideas Week
+        %div#faq_menu
+          %strong Explore
+          = link_to "General Questions", "#faq_general_questions"
+          = link_to "CIW Talks", "#faq_ciw_talks"
+          = link_to "Edison Talks", "#faq_edison_talks"
+          = link_to "CIW Labs", "#faq_ciw_labs"
+          = link_to "CIW Membership Program", "#faq_ciw_membership_program"
+          = link_to "Sponsorship", "#faq_sponsorship"
+          = link_to "Ticketing/Registration", "#faq_ticketing_registration"
+          = link_to "Volunteering", "#faq_volunteering"
+          = link_to "Press", "#faq_press"
+      
+      
+        %h2#faq_general_questions General Questions
         
         %ul.faq_list
           %li.faq_item
             %a.faq_question 
               What is Chicago Ideas Week?
             .faq_answer
-              %p Chicago Ideas Week is an annual, weeklong gathering of global thought leaders created to drive ideas into actionable results. The goal of CIW is to become a catalyst to stimulate new initiatives and ventures, creating new connections and points of collaboration designed to enhance the world we live in.
+              %p Chicago Ideas Week is an annual, weeklong gathering of global thought leaders created to drive ideas into actionable results. The goal of CIW is to become a catalyst to stimulate new initiatives and ventures, creating new connections and points of collaboration designed to enhance the world we live in. 
               %p The programming for the Week is open to public and tickets are $15 for each event, unless otherwise noted.
-    
+          %li.faq_item
+            %a.faq_question 
+              When is Chicago Ideas Week?
+            .faq_answer
+              %p In 2012, Chicago Ideas Week will be held from October 8th &mdash; 14th, 2012.
+          %li.faq_item
+            %a.faq_question 
+              Where does Chicago Ideas Week take place?
+            .faq_answer
+              %p 
+                Chicago Ideas Week uses the entire city of Chicago as our campus, exploring many parts of the city throughout the week's events. See our full
+                = link_to "schedule", schedule_path
+                for individual venue listings.
+          %li.faq_item
+            %a.faq_question 
+              Why should I attend CIW? 
+            .faq_answer
+              %p Attending Chicago Ideas Week allows you to become part of a diverse community of thinkers and doers from Chicago and the greater Midwest region. CIW offers a unique platform to share your ideas, hear ideas on the next big things and provides a multitude of networking/community building opportunities. You won't want to miss it!
+          %li.faq_item
+            %a.faq_question 
+              How can I connect with CIW in the months leading up to the event?
+            .faq_answer
+              %p
+                %p 
+                As we plan for Chicago Ideas Week and specific details emerge, we will share news and updates here on our website and through email "Action Updates". Get news even faster by following us on 
+                = link_to "Twitter", "https://twitter.com/chicagoideas"  
+                and 
+                = link_to "Facebook", "http://www.facebook.com/ChicagoIdeasWeek"  
+                and our blog – 
+                = link_to "The Ideasphere.", "http://blog.chicagoideas.com/"  
+                We'll introduce you to CIW presenters, connect you with local thought leaders and showcase the innovations of our great city. Please check your email in the weeks and months to come for news and program updates.
 
 
     .column_row.divided_row
       .column.column_double
-        %h2 CIW Talks
+        %h2#faq_ciw_talks CIW Talks
         
         %ul.faq_list
           %li.faq_item
@@ -51,7 +94,7 @@
               %p CIW Talks are 90-minute sessions spread throughout the week that feature 3-6 speakers presenting on a specific theme or subject matter. CIW Talks take a variety of forms and may incorporate short-format presentations, interviews, conversations or performances.
           %li.faq_item
             %a.faq_question 
-              What are this year’s themes for CIW Talks?
+              What are this year's themes for CIW Talks?
             .faq_answer
               %p 
                 This year, CIW will feature sessions on 30 provocative, relevant themes. 
@@ -61,18 +104,38 @@
               What are CIW Megatalks?
             .faq_answer
               %p Megatalks are evening programs featuring distinguished and globally recognized speakers. These evening programs will be held at the Oriental Theatre and typically begin at 7:00 p.m.
-    
+
     
     .column_row.divided_row
       .column.column_double
-        %h2 CIW Labs
+        %h2#faq_edison_talks Edison Talks
+        
+        %ul.faq_list
+          %li.faq_item
+            %a.faq_question 
+              What is the Edison Talks?
+            .faq_answer
+              %p Edison Talks is an invitation-only, day-long gathering of provocative presentations, performances, and interactive installations led by globally recognized visionaries created to connect and inspire leaders from across the globe. 
+          %li.faq_item
+            %a.faq_question 
+              Can I attend the Edison Talks?
+            .faq_answer
+              %p 
+                You may submit an application to attend the Edison Talks 
+                = link_to "here.", edison_talks_applications_path
+                We will accept a select few applications for the 2012 event.  Please note, once selected there is still an entrance fee of $395.
+
+    
+    .column_row.divided_row
+      .column.column_double
+        %h2#faq_ciw_labs CIW Labs
         
         %ul.faq_list
           %li.faq_item
             %a.faq_question 
               What are CIW Labs?
             .faq_answer
-              %p CIW Labs offer opportunities for participants to experience and explore the best of Chicago like never before.  Exclusive, behind-the-scenes experiences give participants a unique glimpse into the inner workings of businesses and institutions that are otherwise unavailable to the public.  Small groups will explore what it's like for business leaders in the boardroom, go behind the curtain at leading theaters and venues, and discover “how-it-works” in hands-on workshops. 
+              %p CIW Labs offer opportunities for participants to experience and explore the best of Chicago like never before.  Exclusive, behind-the-scenes experiences give participants a unique glimpse into the inner workings of businesses and institutions that are otherwise unavailable to the public.  Small groups will explore what it's like for business leaders in the boardroom, go behind the curtain at leading theaters and venues, and discover "how-it-works" in hands-on workshops. 
           %li.faq_item
             %a.faq_question 
               How can I host a CIW Lab?
@@ -82,7 +145,7 @@
     
     .column_row.divided_row
       .column.column_double
-        %h2 CIW Membership Program
+        %h2#faq_ciw_membership_program CIW Membership Program
         
         %ul.faq_list
           %li.faq_item
@@ -109,21 +172,35 @@
               Who can I contact about my CIW Membership purchase?
             .faq_answer
               %p
-                That’s easy! Please send your inquires about your CIW Membership to 
+                That's easy! Please send your inquires about your CIW Membership to 
                 = link_to "membership@chicagoideas.com", "mailto:membership@chicagoideas.com" 
                 or give us a call at 312-999-5809. 
+
                 
-    
     .column_row.divided_row
       .column.column_double
-        %h2 Ticketing/Registration
+        %h2#faq_sponsorship Sponsorship
         
         %ul.faq_list
           %li.faq_item
             %a.faq_question 
-              Why should I attend CIW?
+              How do I become a sponsor? 
             .faq_answer
-              %p Attending Chicago Ideas Week allows you to become part of a diverse community of thinkers and doers from Chicago and the greater Midwest region. CIW offers a unique platform to share your ideas, hear ideas on the next big things and provides a multitude of networking/community building opportunities. You won’t want to miss it!
+              %p 
+                Interested in helping Chicago Ideas Week become a reality from year to year? Our sponsorship platform is just the place to show your impact. Please contact Director of Development, Leah Marshall, for inquiries:
+                = link_to "leah@chicagoideas.com", "mailto:leah@chicagoideas.com" 
+          %li.faq_item
+            %a.faq_question 
+              Does sponsorship guarantee a speaking opportunity for a representative from my organization?
+            .faq_answer
+              %p Though we greatly appreciate the many speaker suggestions we receive, we are unable to guarantee speaking opportunities to any individual – even if suggested by a sponsor. 
+
+    
+    .column_row.divided_row
+      .column.column_double
+        %h2#faq_ticketing_registration Ticketing/Registration
+        
+        %ul.faq_list
           %li.faq_item
             %a.faq_question 
               When will ticket sales for CIW be open?
@@ -143,7 +220,7 @@
     
     .column_row.divided_row
       .column.column_double
-        %h2 Volunteering
+        %h2#faq_volunteering Volunteering
         
         %ul.faq_list
           %li.faq_item
@@ -176,12 +253,12 @@
               How do I change my volunteer schedule or cancel a volunteer shift for which I have been scheduled?
             .faq_answer
               %p 
-                To request a schedule change, please send an email with the subject line “Schedule Change” to 
+                To request a schedule change, please send an email with the subject line "Schedule Change" to 
                 = link_to "volunteers@chicagoideas.com.", "mailto:volunteers@chicagoideas.com"
                 We will try to accommodate schedule change requests; however, we cannot guarantee that the new shifts you request will be available.   
 
               %p 
-                To cancel a volunteer shift for which you were scheduled, please send an email with the subject line “Shift Cancellation” to 
+                To cancel a volunteer shift for which you were scheduled, please send an email with the subject line "Shift Cancellation" to 
                 = link_to "volunteers@chicagoideas.com.", "mailto:volunteers@chicagoideas.com" 
                 Please let us know the shift or shifts for which you are no longer able to commit. We respectfully ask that no person cancel participation in an event that will execute within the next 48 hours.
           %li.faq_item
@@ -191,7 +268,7 @@
               %p
                 There will be a Registration Manager present at every event during CIW. The Registration Manager will be responsible for making sure the greeting and reception areas run smoothly and that our volunteer effort is well-coordinated onsite. Registration Managers can volunteer for one event or more, depending on their individual availability. If you are interested in this position, email your resume and contact information to 
                 = link_to "jennifer@chicagoideas.com.", "mailto:jennifer@chicagoideas.com"
-                Please make the subject line of your email, “Registration Manager Application.” A Volunteer Coordinator will contact you with specific details should we have a Registration Manager position to offer you.
+                Please make the subject line of your email, "Registration Manager Application." A Volunteer Coordinator will contact you with specific details should we have a Registration Manager position to offer you.
           %li.faq_item
             %a.faq_question 
               I will be out of town during CIW. Is there any way I can assist before the event week?
@@ -200,44 +277,13 @@
                 Thank you for your interest in CIW! Please email 
                 = link_to "volunteers@chicagoideas.com", "mailto:volunteers@chicagoideas.com"
                 with your interests and areas of expertise. A Volunteer Coordinator will respond to your email should there be a need for your assistance prior to the event.
-
+    
 
     .column_row.divided_row
       .column.column_double
-        %h2 Sponsorship
+        %h2#faq_press Press
         
         %ul.faq_list
-          %li.faq_item
-            %a.faq_question 
-              How do I become a sponsor? 
-            .faq_answer
-              %p 
-                Interested in helping Chicago Ideas Week become a reality from year to year? Our sponsorship platform is just the place to show your impact. Please contact Director of Development, Leah Marshall, for inquiries:
-                = link_to "leah@chicagoideas.com", "mailto:leah@chicagoideas.com" 
-          %li.faq_item
-            %a.faq_question 
-              Does sponsorship guarantee a speaking opportunity for a representative from my organization?
-            .faq_answer
-              %p Though we greatly appreciate the many speaker suggestions we receive, we are unable to guarantee speaking opportunities to any individual – even if suggested by a sponsor. 
-    
-    
-    .column_row.divided_row
-      .column.column_double
-        %h2 Misc
-        
-        %ul.faq_list
-          %li.faq_item
-            %a.faq_question 
-              How can I connect with CIW in the months leading up to the event?
-            .faq_answer
-              %p 
-                As we plan for Chicago Ideas Week and specific details emerge, we will share news and updates here on our website and through email “Action Updates”. Get news even faster by following us on 
-                = link_to "Twitter", "https://twitter.com/chicagoideas"  
-                and 
-                = link_to "Facebook", "http://www.facebook.com/ChicagoIdeasWeek"  
-                and our blog – 
-                = link_to "The Ideasphere.", "http://blog.chicagoideas.com/"  
-                We’ll introduce you to CIW presenters, connect you with local thought leaders and showcase the innovations of our great city. Please check your email in the weeks and months to come for news and program updates.
           %li.faq_item
             %a.faq_question 
               How can I obtain a press pass?
@@ -245,39 +291,8 @@
               %p 
                 You can request a press pass by 
                 = link_to "completing this short form", "/media/inquiry"  
-                outlining you interest. For all press related inquiries, please contact Jessica Malkin: 
-                = link_to "jessica@chicagoideas.com.", "mailto:jessica@chicagoideas.com"
-          %li.faq_item
-            %a.faq_question 
-              What are CIW Partner Programs? 
-            .faq_answer
-              %p CIW Partner Programs are official CIW events that are co-curated with our Partners. All programs subscribe to the same goals of connectivity and innovation as other Chicago Ideas Week events, but provide a unique perspective based on the CIW Partner's specific area of expertise. 
-          
-                
-    
-    
-    .column_row.divided_row
-      .column.column_double
-        %h2 Edison Talks
-        
-        %ul.faq_list
-          %li.faq_item
-            %a.faq_question 
-              What is the Edison Talks?
-            .faq_answer
-              %p Edison Talks is an invitation-only, day-long gathering of provocative presentations, performances, and interactive installations led by globally recognized visionaries created to connect and inspire leaders from across the globe. 
-          %li.faq_item
-            %a.faq_question 
-              Can I attend the Edison Talks?
-            .faq_answer
-              %p 
-                You may submit an application to attend the Edison Talks 
-                = link_to "here.", edison_talks_applications_path
-                We will accept a select few applications for the 2012 event.  Please note, once selected there is still an entrance fee of $395.
-
-
-
-    
+                outlining you interest. For all press related inquiries, please contact Patricia Nicandro: 
+                = link_to "patricia@chicagoideas.com.", "mailto:patricia@chicagoideas.com"
 
   -# Include Sidebar Items
   #sidebar
