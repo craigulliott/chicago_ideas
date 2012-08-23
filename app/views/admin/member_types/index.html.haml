@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  = new_model_link MemberType
+
+= ssp_search_form MemberType
+
+.table_section
+  %h3 
+    Member Types
+    = new_model_link MemberType
+  .table_wrapper
+    = render 'admin/member_types/table.html.haml', :member_types => @member_types
+

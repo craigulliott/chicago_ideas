@@ -524,3 +524,37 @@ ul#global_nav {
   margin-top: 150px !important;
   position: relative;
 }
+
+a.buy_your_tickets {
+  display:block;
+  margin:0 auto;
+  padding: 6px 25px;
+  width:100px;
+}
+
+
+body.faq {
+  ul.faq_list {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    
+    li {
+      margin:0;
+      padding:0;
+      
+      .faq_question {
+        cursor:pointer;
+      }
+      
+      .faq_answer {
+        display:none;
+        margin-left:2em;
+      }
+      
+      .f_active {
+        display:block;
+      }
+    }
+  }
+}

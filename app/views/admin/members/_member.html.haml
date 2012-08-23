@@ -1,0 +1,10 @@
+%tr{:member => member.id}
+  %td.first_name= member.get_first_name
+  %td.last_name= link_to member.get_last_name, admin_member_path(member)
+  %td.user_id= member.user.present? ? (link_to member.user.name, admin_user_path(member.user)) : ''
+  %td.member_type= member.member_type.name
+  %td.year= member.year.id.to_s
+  %td.options 
+    = edit_model_link member
+    = destroy_model_link member
+ 

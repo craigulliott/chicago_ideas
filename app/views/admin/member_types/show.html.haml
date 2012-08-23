@@ -1,0 +1,17 @@
+= render 'admin/admin/collection_controls'
+= render 'controls'
+
+- content_for :top_links do
+  = edit_model_link @member_type, true
+  = destroy_model_link @member_type, true
+
+%h1
+  = @member_type.name
+  = icon_link_to 'notes', notes_admin_member_type_path(@member_type), 'script'
+  = new_model_link Note, @member_type
+  
+#model_detail
+  %h4 Name
+  %p= @member_type.name
+
+

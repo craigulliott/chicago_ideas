@@ -2,14 +2,15 @@
   = link_to "Explore Speakers", "#", :class => "explore_btn", :id => "explore_speakers"
   .explore_dropdown
     .explore_top
-    .explore_content
+    .explore_content.clearfix
       .column
         %span.column_header CIW Mega Talks
         %ul.preview_list
           - @e_megatalks.each do |talk|
             %li{:id => "talk_#{talk.id}"}
-              .img_frame
-                = link_to image_tag(talk.banner(:thumb)), talk_path(talk), :rel => "bookmark", :title => "#{talk.name}"
+              - if talk.banner.present?
+                .img_frame
+                  = link_to image_tag(talk.banner(:thumb)), talk_path(talk), :rel => "bookmark", :title => "#{talk.name}"
               = link_to talk.name, talk_path(talk), :rel => "bookmark", :title => "#{talk.name}"
               - if talk.track.present?
                 %span= talk.track.name
