@@ -37,10 +37,7 @@ class ScheduleController < ApplicationController
       @schedule = talks + labs + partner_programs
     end
     
-    
-    
     @schedule = @schedule.sort_by(&:name).sort_by(&:start_time)
-    
     
     if @range === @day
       @day_name = @day.strftime("%A")
@@ -60,6 +57,11 @@ class ScheduleController < ApplicationController
         @prev = '/years/%s/%s/%s/schedule' % [@yesterday.strftime("%Y"), @yesterday.strftime("%m"), @yesterday.strftime("%d")]
       else
         @prev = '/years/%s/%s/%s/schedule' % [@end_date.strftime("%Y"), @end_date.strftime("%m"), @end_date.strftime("%d")]
+      end
+      
+      if !type.nil? && type.length > 0
+        @next << '?type=%s' % [type]
+        @prev << '?type=%s' % [type]
       end
       
     else
