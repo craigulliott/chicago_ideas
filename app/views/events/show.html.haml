@@ -40,7 +40,7 @@
           %span.column_header About this Event
         
         - if @event.event_brand.name == 'Lab' && @event.lab_host.present? && @event.lab_host_url.present?  
-          %ul#speaker_overview
+          %ul#lab_host
             %li
               .img_frame
                 %a{:href => "#{@event.lab_host_url}", :class => "event_lab_host", :target => "_blank"}

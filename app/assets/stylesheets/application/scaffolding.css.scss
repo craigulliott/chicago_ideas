@@ -520,6 +520,27 @@ ul#global_nav {
 } // end #footer
 
 
+ul#lab_host {
+  display: inline;
+  width: 300px;
+  float: left;
+  margin: 0 20px 20px 0;
+  padding: 0;
+  list-style: none;
+  background-color:#F7F5F6;
+  
+  li {
+    display: block;
+    padding: 20px;
+    margin: 0;
+    
+    .img_frame {
+      width: 260px;
+      height: 260px;
+    }
+  }
+}
+
 .form_container {
   margin-top: 150px !important;
   position: relative;
