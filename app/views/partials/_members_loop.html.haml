@@ -2,18 +2,16 @@
 -#
 -#    Standard template for a group of Members
 
-- if members.length > 0
-  - half = (members.length / 2.0).ceil
-  %h2.member_label #{label}
-  %table.member_table
-    %tr
-      - members1 = members.slice(0, half)
-      %td
-        - members1.each do |member|
-          %p #{member.get_first_name} #{member.get_last_name}
+- half = (members.length / 2.0).ceil
+%table.member_table
+  %tr
+    - members1 = members.slice(0, half)
+    %td
+      - members1.each do |member|
+        %p #{member.get_first_name} #{member.get_last_name}
       
-      - members2 = members.slice(half, members.length)
-      %td
-        - members2.each do |member|
-          %p #{member.get_first_name} #{member.get_last_name}
+    - members2 = members.slice(half, members.length)
+    %td
+      - members2.each do |member|
+        %p #{member.get_first_name} #{member.get_last_name}
           
