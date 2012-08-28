@@ -25,21 +25,25 @@
 
   -# Left column, main content
   .box.double.left
-    .column_row.divided_row
-      .column.column_double
+    
+    - if @patrons.length > 0
+      .column_row.divided_row
+        .column.column_double
         
-        -# Members: Patrons Loop
-        = render "partials/members_loop", :members => @patrons, :label => "Patrons"
+          -# Members: Patrons Loop
+          = render "partials/members_loop", :members => @patrons, :label => "Patrons"
+    
+    - if @benefactors.length > 0 
+      .column_row.divided_row
+        .column.column_double 
+          -# Members: Patrons Loop
+          = render "partials/members_loop", :members => @benefactors, :label => "Benefactors"
      
-    .column_row.divided_row
-      .column.column_double 
-        -# Members: Patrons Loop
-        = render "partials/members_loop", :members => @benefactors, :label => "Benefactors"
-     
-    .column_row.divided_row
-      .column.column_double   
-        -# Members: Patrons Loop
-        = render "partials/members_loop", :members => @pillars, :label => "Pillars"
+    - if @pillars.length > 0
+      .column_row.divided_row
+        .column.column_double   
+          -# Members: Patrons Loop
+          = render "partials/members_loop", :members => @pillars, :label => "Pillars"
       
         
 

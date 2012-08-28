@@ -12,7 +12,7 @@ class MembersController < ApplicationController
       @benefactors = Member.joins([:year, :member_type]).where("years.id = '#{params[:year_id]}' AND member_types.name = 'Benefactor'").sort_by(&:get_last_name)
       
     end
-    @page_title = "Members"
+    @meta_data = {:page_title => "CIW Members", :og_title => "Chicago Ideas Week Members", :og_type => "website"}
   end
   
 end
