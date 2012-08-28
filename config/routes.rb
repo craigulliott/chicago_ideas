@@ -122,6 +122,7 @@ CraigsAdmin::Application.routes.draw do
     match 'events/affiliate_event', :to => 'events#affiliate_event'
     match 'schedule', :to => 'schedule#index'
     match ':month_id/:day_id/schedule', :to => 'schedule#index'
+    match 'members', :to => 'members#index'
     
     # talks and events
     # ----------------------------------------------------------------

@@ -1,0 +1,51 @@
+-#     Chicago Ideas Week
+-#     members/index.html.haml
+-#     08/27/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span #{params[:year_id]} CIW Members
+       
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 #{params[:year_id]} Members
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+    .column_row.divided_row
+      .column.column_double
+        
+        -# Members: Patrons Loop
+        = render "partials/members_loop", :members => @patrons, :label => "Patrons"
+     
+    .column_row.divided_row
+      .column.column_double 
+        -# Members: Patrons Loop
+        = render "partials/members_loop", :members => @benefactors, :label => "Benefactors"
+     
+    .column_row.divided_row
+      .column.column_double   
+        -# Members: Patrons Loop
+        = render "partials/members_loop", :members => @pillars, :label => "Pillars"
+      
+        
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/buy_tickets_now"
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
