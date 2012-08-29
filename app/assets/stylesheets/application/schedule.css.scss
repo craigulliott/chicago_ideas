@@ -109,7 +109,7 @@ body#schedule_page {
       
       #schedule_title {
         position:absolute;
-        top:180px;
+        top:150px;
         left:360px;
       
         h1 {
@@ -132,6 +132,27 @@ body#schedule_page {
              border-bottom:1px solid #858681;
           }
         
+        }
+      }
+      
+      #top_picks_link {
+        position:absolute;
+        left:360px;
+        bottom:47px;
+        
+        p {
+          color:#303032;
+          margin-bottom:5px;
+        }
+        
+        a {
+          padding:4px 12px;
+          color:#fff;
+          background:#00aeff;
+          border-top:1px solid #a6def7;
+          border-bottom:1px solid #004c6e;
+          font-weight:bold;
+          font-size:13px;
         }
       }
       

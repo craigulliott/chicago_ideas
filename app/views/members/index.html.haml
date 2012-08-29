@@ -1,0 +1,68 @@
+-#     Chicago Ideas Week
+-#     members/index.html.haml
+-#     08/27/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span #{params[:year_id]} CIW Members
+       
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 #{params[:year_id]} Members
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+  
+    - if @members.length > 0
+      .column_row.divided_row
+        .column.column_double
+        %p Thank you to our CIW 2012 Members for supporting the production and programming of Chicago Ideas Week.
+      
+      - if @pillars.length > 0
+        .column_row.divided_row
+          .column.column_double
+            %h2.member_label Pillars
+            -# Members: Pillars Loop
+            = render "partials/members_loop", :members => @pillars
+      
+      - if @benefactors.length > 0 
+        .column_row.divided_row
+          .column.column_double
+            %h2.member_label Benefactors
+            -# Members: Benefactors Loop
+            = render "partials/members_loop", :members => @benefactors
+      
+      - if @patrons.length > 0
+        .column_row.divided_row
+          .column.column_double
+            %h2.member_label Patrons
+            -# Members: Patrons Loop
+            = render "partials/members_loop", :members => @patrons
+            
+    - else
+      .column_row.divided_row
+        .column.column_double
+          %p 
+            %i Check back soon for a list of the #{params[:year_id]} Members
+      
+        
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/buy_tickets_now"
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

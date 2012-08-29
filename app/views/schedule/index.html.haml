@@ -33,6 +33,11 @@
           %option{:value => "all_talks"} All CIW Talks
           %option{:value => "Lab"} CIW Labs
           %option{:value => "Partner Program"} Partner Programs
+      
+    #top_picks_link 
+      %p Too much to choose from?
+      = link_to "Check out some of our speakers' top picks", year_speakers_top_picks_path(@current_year)  
+      
           
     
   
