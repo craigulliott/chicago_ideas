@@ -116,6 +116,7 @@ CraigsAdmin::Application.routes.draw do
     match 'speakers', :to => 'users#list_speakers'
     match 'speakers/edison', :to => 'users#list_edison_speakers'
     match 'speakers/project_youth', :to => 'users#list_project_youth_speakers'
+    match 'speakers/top_picks', :to => 'users#speakers_top_picks'
     match 'talks/mega_talks', :to => 'talks#mega_talks'
     match 'events/labs', :to => 'events#labs'
     match 'events/partner_programs', :to => 'events#partner_programs'

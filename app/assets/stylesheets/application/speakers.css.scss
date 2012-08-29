@@ -349,3 +349,157 @@ body.list_project_youth_speakers {
 	
 	}
 }
+
+body.speakers_top_picks {
+  h2, h3 {
+    color:#323031;
+    font-weight:bold;
+  }
+  
+  h3 {
+    font-size:18px;
+    line-height:1.5em;
+  }
+  
+  strong {
+    color:#2c2a2b;
+  }
+  
+  #main_content {
+    margin-top:75px;
+    
+    p, li {
+      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    
+    #top_picks_header {
+      padding-top:180px;
+      height:250px;
+      background:transparent asset-url('application/member_program_lightbulb.jpg', image) top right no-repeat;
+      
+      h1 {
+        font-size:35px;
+        text-transform:uppercase;
+      }
+      
+      h2 {
+        margin-bottom:25px;
+        p {
+          color:#323031;
+          font-size:20px;
+          margin-bottom:0;
+          line-height:1.2em;
+        }
+      }
+      
+      #page_share {
+        float:none;
+        
+        
+        li {
+          display: inline;
+          float: left;
+          width: auto;
+        }
+      }
+      
+      #top_picks_header_content {
+      	position:relative;
+        clear:both;
+        padding-top:25px;
+        
+        p {
+          font-size:13px;
+          width:475px;
+        	
+          span {
+        	font-style:italic;
+        	font-size:10px;
+          }
+        }
+      }
+      
+    }
+    
+    #top_picks_content {
+      margin-top:25px;
+      
+      #top_picks_levels {
+        border-top:10px solid #00aeff;
+        border-bottom:10px solid #00aeff;
+        background:#fff;
+        padding:15px;
+        
+        -moz-box-shadow: 2px 2px 2px #888;
+        -webkit-box-shadow: 2px 2px 2px #888;
+        box-shadow: 2px 2px 2px #888;
+        
+        .top_pick + .top_pick {
+          margin-top:25px;
+        }
+        
+        div.left, div.right {
+          width:450px;
+        }
+        
+        div {
+        	margin-bottom:10px;
+        	
+        	h3 {
+              font-size:20px;
+              line-height:1.5em;
+              margin-bottom:10px;
+            }
+        	
+        	p {
+        	  line-height:1.2em;
+        	  margin-left:1em;
+        	  margin-bottom:5px;
+        	}
+        	
+        	ul {
+        	  list-style-type:disc;
+        	  margin-left:3em;
+        	  margin-bottom:10px;
+        	  li {
+        	    
+        	  }
+        	}
+        	
+        	a.btn_level {
+        	  clear:both;
+        	  margin-left:37px;
+        	  padding:4px 12px;
+        	  text-transform:uppercase;
+        	  color:#fff;
+        	  background:#00aeff;
+        	  border-top:1px solid #a6def7;
+        	  border-bottom:1px solid #004c6e;
+        	  font-weight:bold;
+        	  font-size:13px;
+        	}
+        	
+        	a.btn_level:hover {
+        	  text-decoration:none;
+        	  background:#0383bf;
+        	  border-top:1px solid #f6f6f6;
+        	  border-bottom:1px solid #6a6a6a;
+        	}
+        	
+        	a.btn_level:active {
+        	  text-decoration:none;
+        	  background:#0383bf;
+        	  border-top:1px solid #f6f5f6;
+        	  border-bottom:1px solid #f6f5f6;
+        	  
+        	  -moz-box-shadow: inset 0 0 1px 1px #0378af;
+              -webkit-box-shadow: inset 0 0 1px 1px #0378af;
+              box-shadow: inset 0 0 1px 1px #0378af;
+        	}
+        }
+      }
+        
+    }
+    
+  }
+}

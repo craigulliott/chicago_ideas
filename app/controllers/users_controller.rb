@@ -68,7 +68,7 @@ class UsersController < ApplicationController
     render "speakers/index"
   end
   
-  # Speakers landing page
+  # Edison speakers landing page
   def list_edison_speakers
     # If it's a year based list, then return all the speakers for that year
     if params[:year_id].present?
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
     render "speakers/edison"
   end
   
-  # Speakers landing page
+  # Project Youth speakers landing page
   def list_project_youth_speakers
     # If it's a year based list, then return all the speakers for that year
     if params[:year_id].present?
@@ -94,6 +94,11 @@ class UsersController < ApplicationController
     end
     @meta_data = {:page_title => "PROJECT YOU(th) Talks Speakers", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Project YOU(th) Speakers | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     render "speakers/project_youth"
+  end
+  
+  def speakers_top_picks
+    @meta_data = {:page_title => "Speaker Top Picks", :og_title => "Chicago Ideas Week Member Program", :og_type => "website", :og_image => "http://www.chicagoideas.com/assets/application/member_program_lightbulb.jpg"}
+    render "speakers/top_picks"
   end
   
   
