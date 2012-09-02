@@ -520,6 +520,13 @@ ul#global_nav {
 } // end #footer
 
 
+.form_container {
+  margin-top: 150px !important;
+  position: relative;
+}
+
+
+// Lab Host images
 ul#lab_host {
   display: inline;
   width: 300px;
@@ -541,11 +548,7 @@ ul#lab_host {
   }
 }
 
-.form_container {
-  margin-top: 150px !important;
-  position: relative;
-}
-
+// Buy Your Tickets button
 a.buy_your_tickets {
   display:block;
   margin:0 auto;
@@ -554,6 +557,7 @@ a.buy_your_tickets {
 }
 
 
+// FAQ CSS
 body.faq {
   div#faq_menu {
   	float:left;
@@ -591,4 +595,15 @@ body.faq {
       }
     }
   }
+}
+
+.member_table {
+  width:100%;
+  td {
+    width:48%;
+		
+    p {
+	  margin-bottom:5px;
+    }
+	}
 }
