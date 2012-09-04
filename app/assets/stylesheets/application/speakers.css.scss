@@ -159,6 +159,16 @@ body.list_edison_speakers {
 				top: 107%;
 				width: 100%;
 				text-align: center;
+				
+				a.received_invitation {
+				  padding: 4px 12px;
+                  color:white;
+                  background:#2D77DE;
+                  border-top: 1px solid #A6DEF7;
+                  border-bottom: 1px solid #004C6E;
+                  font-weight: bold;
+                  font-size: 13px;
+				}
 			}
 			
 		}
