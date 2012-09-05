@@ -50,6 +50,46 @@ class Volunteer < ActiveRecord::Base
       :hours => hours,
     }
   end
+  
+  def self.csv_columns   # class method
+    ['First Name', 'Last Name', 'Email', 'Phone', 'Post Code']
+  end
+  
+  def csv_attributes
+    [get_first_name, get_last_name, get_email, get_phone, postcode]
+  end
+  
+  def get_first_name
+    fname = ((first_name).strip.length > 0) ? (first_name).strip : ''
+    if fname.length == 0
+      name = user.name
+      idx = name.index(' ')
+      if !idx.nil?
+        fname = name[0..idx]
+      end
+    end
+    return fname
+  end
+  
+  def get_last_name
+    lname = ((last_name).strip.length > 0) ? (last_name).strip : ''
+    if lname.length == 0
+      name = user.name
+      idx = name.index(' ')
+      if !idx.nil?
+        lname = name[(idx+1)..name.length]
+      end
+    end
+    return lname
+  end
+  
+  def get_email
+   return (email.strip.length > 0) ? email.strip : user.email.strip
+  end
+  
+  def get_phone
+    return (phone.strip.length > 0) ? phone.strip : (!user.phone.nil? ? user.phone.strip : '')
+  end
 
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil
