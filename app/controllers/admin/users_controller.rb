@@ -17,9 +17,10 @@ class Admin::UsersController < Admin::AdminController
     respond_to do |format|
       format.csv { # CSV is the only format we're concerned with for now
         csv = CSV.generate do |row| # generated the CSV
-          row << ['Name', 'Email']
+          columns = User.csv_columns
+          row << columns
           @users.each do |user|
-            row << [user.name, user.email] # add a user's name and email
+            row << user.csv_attributes
           end
         end
     	

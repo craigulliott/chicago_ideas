@@ -5,6 +5,24 @@ class Admin::EdisonTalksApplicationsController < Admin::AdminController
   def index
     @edison_talks_applications = EdisonTalksApplication.search_sort_paginate(params)
   end
+  
+  def export
+    @applications = EdisonTalksApplication.all # get all the users
+    respond_to do |format|
+      format.csv { # CSV is the only format we're concerned with for now
+        csv = CSV.generate do |row| # generated the CSV
+          columns = EdisonTalksApplication.csv_columns
+          row << columns
+          @applications.each do |a|
+            row << a.csv_attributes
+          end
+        end
+    	
+    	# send .csv back to the browser
+        send_data(csv, :type => 'text/csv; charset=iso-8859-1; header=present', :disposition => "attachment; filename=edison_talks_applications_export_" << Date.today.to_s() << ".csv") 
+      }
+    end
+  end
 
   # MEMBER ACTIONS
   # ---------------------------------------------------------------------------------------------------------
@@ -36,7 +54,13 @@ class Admin::EdisonTalksApplicationsController < Admin::AdminController
     
   end
   
+  def self.csv_columns   # class method
+    ['First Name', 'Last Name', 'Email', 'Phone', 'Post Code']
+  end
   
+  def csv_attributes
+    [get_first_name, get_last_name, get_email, get_phone, postcode]
+  end
   
 
 

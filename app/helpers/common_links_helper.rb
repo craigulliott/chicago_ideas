@@ -95,9 +95,12 @@ module CommonLinksHelper
     return content_tag(:div, publish_link+unpublish_link, :class => "toggle") 
   end
   
-  def export_model_link klass, format
+  def export_model_link klass, format, title=nil
+    if title.nil?
+      title = "export all #{klass.name.pluralize.downcase}"
+    end
   	export_path = send("export_admin_#{klass.name.pluralize.underscore}_path") + ".#{format}"
-    return link_to "export all #{klass.name.pluralize.downcase}", export_path
+    return link_to title, export_path
   end
 
 end
