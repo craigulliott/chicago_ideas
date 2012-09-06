@@ -29,7 +29,6 @@ class Member < ActiveRecord::Base
       idx = name.index(' ')
       if !idx.nil?
         fname = name[0..idx]
-        #        last_name = name[(idx+1)..name.length]
       end
     end
     return fname

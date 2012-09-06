@@ -28,7 +28,10 @@ $(document).ready(function(){
     }
   
     if( data.signed_in ) {
-      $('#nav_user').show();
+      /* Commented out due to confusion with ticketing site - 9/5/12 */
+      //$('#nav_user').show();
+      /* *********************************************************** */
+      
       // dont ask for email or name when prompting for newsletter
       // we use remove, so they are subsequently ignored when checking for required fields
       $('#subscribe_to_newsletter input[type="text"]').remove();
@@ -36,8 +39,10 @@ $(document).ready(function(){
     
     
     } else {
-      $('#gn_register').show();
-      $('#gn_login').show();
+      /* Commented out due to confusion with ticketing site - 9/5/12 */
+      //$('#gn_register').show();
+      //$('#gn_login').show();
+      /* *********************************************************** */
       $('#users_full_name').html(data.full_name);
     }
       

@@ -9,7 +9,9 @@
   
   %img{ :src => "/assets/application/edison_logo.jpg", :rel => "bookmark", :title => "", :width => "1000", :height => "350" }
   %div#edison_info
-    %div.info
+    = link_to "Received an invitation? Click here to purchase your ticket!", "https://andticketing.com/chicagoideasweek/Online/default.asp?doWork::WScontent::loadArticle=Load&BOparam::WScontent::loadArticle::article_id=CEC1E538-9258-4633-A9A2-C69597EAD84D&menu_id=02479498-C7AA-43D6-849B-1E3630D7FBDB", :target => "_blank", :class => "received_invitation" 
+      
+    %div.info  
       %p Edison Talks is an invitation-only, daylong gathering of provocative presentations, performances and interactive installations led by globally recognized visionaries created to connect and inspire leaders from across the globe.
     %div.info
       %h2
