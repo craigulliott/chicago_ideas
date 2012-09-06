@@ -12,25 +12,10 @@ class Admin::VolunteersController < Admin::AdminController
     respond_to do |format|
       format.csv { # CSV is the only format we're concerned with for now
         csv = CSV.generate do |row| # generated the CSV
-          row << ['First Name', 'Last Name', 'Email', 'Phone', 'Post Code']
+          columns = Volunteer.csv_columns
+          row << columns
           @users.each do |volunteer|
-            
-            first_name = ((volunteer.first_name).strip.length > 0) ? (volunteer.first_name).strip : ''
-            last_name = ((volunteer.last_name).strip.length > 0) ? (volunteer.last_name).strip : ''
-
-            if first_name.length == 0 or last_name.length == 0
-              name = volunteer.user.name
-              idx = name.index(' ')
-              if !idx.nil?
-                first_name = name[0..idx]
-                last_name = name[(idx+1)..name.length]
-              end
-            end
-            
-            email = (volunteer.email.strip.length > 0) ? volunteer.email.strip : volunteer.user.email.strip
-            phone = (volunteer.phone.strip.length > 0) ? volunteer.phone.strip : (!volunteer.user.phone.nil? ? volunteer.user.phone.strip : '')
-            postcode = volunteer.postcode
-            row << [first_name, last_name, email, phone, postcode] # add a volunteer's name, email, phone, and postcode
+            row << volunteer.csv_attributes
           end
         end
     	
