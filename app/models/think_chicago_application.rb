@@ -80,11 +80,13 @@ class ThinkChicagoApplication < ActiveRecord::Base
   }
 
   
-  #after_validation :convert_employment_interests_to_string, :on => :create
-  #def convert_employment_interests_to_string
-  #  puts "HERE"
-  #  
-  #end
+  def self.csv_columns   # class method
+    ['First Name', 'Middle Name', 'Last Name', 'Address 1', 'Address 2', 'City', 'State', 'Zip Code', 'Phone', 'Email', 'How did you learn about this program?', 'Please Specify', 'Institution(s)', 'Field or Major', 'Minor', 'Dates Attended', 'GPA', 'Type of Degree', 'Expected Graduation Date', 'Employment Interests', 'Please Specify', 'Chicago Companies', 'Academic Honors, Leadership Experience, etc', 'Qualities/Attributes', 'Hope to Gain from ThinkChicago', 'Resume']
+  end
+  
+  def csv_attributes
+    [first_name, middle_name, last_name, address1, address2, city, state, zip, phone, email, how_learn, how_learn_extra, institutions, field_major, minor, dates_attended, gpa, degree_type, expected_graduation_date, employment_interests, employment_interests_extra, companies, honors_experience_activities, qualities_attributes, hope_to_gain, current_resume.url]
+  end
   
   
   # a DRY approach to searching lists of these models

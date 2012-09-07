@@ -39,6 +39,14 @@ class EdisonTalksApplication < ActiveRecord::Base
     :too_long  => "must be less than %{count} words"
   }
 
+
+  def self.csv_columns   # class method
+    ['Name', 'Organization', 'Title', 'Email', 'Phone', 'What are you passionate about?', 'Why do you want to come to the Edison Talks?', 'Recommended Speaker', 'Coolest/Most Innovative Invention', 'Inspiration 1', 'Inspiration 2', 'Inspiration 3', 'Final Thoughts']
+  end
+  
+  def csv_attributes
+    [name, organization, title, email, phone, passions, why_come, recommendation, invention, inspiration_1, inspiration_2, inspiration_3, comments]
+  end
   
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil

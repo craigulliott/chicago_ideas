@@ -1,3 +1,4 @@
+require 'csv'
 class Admin::ThinkChicagoApplicationsController < Admin::AdminController
 
   # COLLECTION ACTIONS
@@ -5,6 +6,25 @@ class Admin::ThinkChicagoApplicationsController < Admin::AdminController
   def index
     @think_chicago_applications = ThinkChicagoApplication.search_sort_paginate(params)
   end
+
+  def export
+    @applications = ThinkChicagoApplication.all # get all the users
+    respond_to do |format|
+      format.csv { # CSV is the only format we're concerned with for now
+        csv = CSV.generate do |row| # generated the CSV
+          columns = ThinkChicagoApplication.csv_columns
+          row << columns
+          @applications.each do |a|
+            row << a.csv_attributes
+          end
+        end
+    	
+    	# send .csv back to the browser
+        send_data(csv, :type => 'text/csv; charset=iso-8859-1; header=present', :disposition => "attachment; filename=thinkchicago_applications_export_" << Date.today.to_s() << ".csv") 
+      }
+    end
+  end
+
 
   # MEMBER ACTIONS
   # ---------------------------------------------------------------------------------------------------------
