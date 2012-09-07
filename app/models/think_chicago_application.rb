@@ -81,7 +81,7 @@ class ThinkChicagoApplication < ActiveRecord::Base
 
   
   def self.csv_columns   # class method
-    ['First Name', 'Middle Name', 'Last Name', 'Address 1', 'Address 2', 'City', 'State', 'Zip Code', 'Phone', 'Email', 'Phone', 'How did you learn about this program?', 'Please Specify', 'Institution(s)', 'Field or Major', 'Minor', 'Dates Attended', 'GPA', 'Type of Degree', 'Expected Graduation Date', 'Employment Interests', 'Please Specify', 'Chicago Companies', 'Academic Honors, Leadership Experience, etc', 'Qualities/Attributes', 'Hope to Gain from ThinkChicago', 'Resume']
+    ['First Name', 'Middle Name', 'Last Name', 'Address 1', 'Address 2', 'City', 'State', 'Zip Code', 'Phone', 'Email', 'How did you learn about this program?', 'Please Specify', 'Institution(s)', 'Field or Major', 'Minor', 'Dates Attended', 'GPA', 'Type of Degree', 'Expected Graduation Date', 'Employment Interests', 'Please Specify', 'Chicago Companies', 'Academic Honors, Leadership Experience, etc', 'Qualities/Attributes', 'Hope to Gain from ThinkChicago', 'Resume']
   end
   
   def csv_attributes
