@@ -167,6 +167,14 @@ class User < ActiveRecord::Base
       :photo => portrait.url
     }
   end
+  
+  def self.csv_columns   # class method
+    ['Name', 'Email']
+  end
+  
+  def csv_attributes
+    [name, email]
+  end
 
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil
