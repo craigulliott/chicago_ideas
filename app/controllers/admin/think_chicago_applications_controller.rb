@@ -1,3 +1,4 @@
+require 'csv'
 class Admin::ThinkChicagoApplicationsController < Admin::AdminController
 
   # COLLECTION ACTIONS

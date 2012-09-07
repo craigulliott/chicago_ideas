@@ -1,3 +1,4 @@
+require 'csv'
 class Admin::EdisonTalksApplicationsController < Admin::AdminController
 
   # COLLECTION ACTIONS
