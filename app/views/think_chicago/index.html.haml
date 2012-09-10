@@ -65,33 +65,19 @@
         
         = image_tag('application/thinkchicago_rahm.jpg', :class => "think_chicago_rahm clearfix", :width => "630px", :height => "409px")
         
-        %h2 How Do I Get Started?
-        %p Applications must be submitted online by 11:59 pm on September 7th. Applicants must include a r&eacute;sum&eacute; and answer all application questions. Please follow the link below to view the application.
         
-        %h2 Eligibility Criteria
-        %p This program seeks students who are passionate about technology entrepreneurship. Applicants must be a junior, senior or graduate student at an academic institution in one of the following states: Michigan, Ohio, Indiana, Illinois, Missouri, Iowa, Wisconsin, and Minnesota.
-        
-        %h2 Selection Process
-        %p ThinkChicago sponsors will select up to 100 applicants based on the Eligibility Criteria listed above. Selection of program participants will be made without regard to race, color, religion, gender, national origin, age, disability, sexual orientation or political affiliation.
-       
         %h2 Questions
         %p 
           For questions, please contact Danyelle Michelini at
           = link_to "tec@illinois.edu.", "mailto:tec@illinois.edu"
         
-        %p= link_to "APPLY TODAY!", new_think_chicago_application_path, :class => "btn blue_btn", :id => "think_chicago_apply_btn"
-      
+        
       
       
 
   -# Include Sidebar Items
   #sidebar
     = render "partials/buy_tickets_now"
-    .box.right.yellow_box#think_chicago_link
-      .column_row
-        %a{:href => "#{new_think_chicago_application_path}", :class => "callout_link"}
-          %span ThinkChicago
-          %span.call_out Apply Today! 
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"
