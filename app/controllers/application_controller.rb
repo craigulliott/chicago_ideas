@@ -24,10 +24,9 @@ class ApplicationController < ActionController::Base
       :document_type    => request.format.to_sym,
       #:test             => ! Rails.env.production?,
       :test => DOC_RAPTOR_TEST, #for now,
-      :template => "#{self.controller_name}/pdf.html.haml"
+      :template => "#{self.controller_name}/pdf.html.haml" #don't really want to sandbox views for pdfs anywhere so lets keep them in main views folder for consitency
     }
     options = default_options.merge(options)
-    #don't really want to sandbox views for pdfs anywhere so lets keep them in main views folder for consitency
     options[:document_content] ||= render_to_string :template => "#{options[:template]}", :layout => 'pdf.html.haml'
     ext = options[:document_type].to_sym
     
@@ -73,19 +72,18 @@ class ApplicationController < ActionController::Base
   
   def badge
     if request.method == 'POST'
-      first_name = params['badge']['first_name']
-      last_name = params['badge']['last_name']
-      title = params['badge']['title']
-      organization = params['badge']['organization']
-      inspiration_1 = params['badge']['inspiration_1']
-      inspiration_2 = params['badge']['inspiration_2']
-      inspiration_3 = params['badge']['inspiration_3']
+      @first_name = params['badge']['first_name']
+      @last_name = params['badge']['last_name']
+      @title = params['badge']['title']
+      @organization = params['badge']['organization']
+      @inspiration_1 = params['badge']['inspiration_1']
+      @inspiration_2 = params['badge']['inspiration_2']
+      @inspiration_3 = params['badge']['inspiration_3']
       
       pdf = doc_raptor_send({:document_type => "pdf".to_sym, :template => "application/badge_pdf.html.haml"})
-      #friendlyName = "ThinkChicago_#{@think_chicago_application.first_name}_#{@think_chicago_application.last_name}.pdf"
-      #friendlyName = friendlyName.gsub(" ", "")
-      #friendlyName = friendlyName.gsub("/", "_")
-      friendlyName = 'test.pdf'
+      friendlyName = "CIW_Badge_#{@first_name}_#{@last_name}.pdf"
+      friendlyName = friendlyName.gsub(" ", "")
+      friendlyName = friendlyName.gsub("/", "_")
       File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
       send_data pdf, :filename => friendlyName, :type => "pdf"
     else
