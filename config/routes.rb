@@ -429,9 +429,19 @@ CraigsAdmin::Application.routes.draw do
         # pages
         get :notes
         get :event_photos
+        get :event_speakers
       end
       resources :notes, :only => [:new, :create]
       resources :event_photos, :only => [:new, :create]
+      resources :event_speakers, :only => [:new, :create]
+    end
+    
+    resources :event_speakers do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
     end
 
     resources :sponsors do      

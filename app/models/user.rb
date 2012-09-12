@@ -22,6 +22,9 @@ class User < ActiveRecord::Base
   has_many :performances, :foreign_key => :speaker_id
   has_many :chapters, :through => :performances
   
+  has_many :event_speakers, :foreign_key => :speaker_id
+  has_many :events, :through => :event_speakers
+  
   has_one :volunteer
   has_one :community_partner_application
   has_one :affiliate_event_application

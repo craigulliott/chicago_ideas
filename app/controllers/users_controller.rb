@@ -111,6 +111,7 @@ class UsersController < ApplicationController
     end
     # Get all chapters that the speaker is part of that are archived
     @chapters = @speaker.chapters.all
+    @events = @speaker.events.all
     @meta_data = {:page_title => "#{@speaker.name}", :og_image => "#{@speaker.portrait(:thumb)}", :og_title => "#{@speaker.name} | Chicago Ideas Week", :og_type => "article", :og_desc => "#{@speaker.bio.present? ? @speaker.bio[0..200] : ""}"}
     render "speakers/show"
   end

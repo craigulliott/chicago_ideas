@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do
+  .crumb.end Event Speakers   
+
+- @active_tab = 'event_speakers'
+
+- content_for :content_navigation do
+  %h2 Event Speakers
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_event_speakers_path, 'search'
