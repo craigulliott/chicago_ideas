@@ -90,8 +90,11 @@ class ApplicationController < ActionController::Base
       @meta_data = {:page_title => "CIW Build-a-Badge", :og_title => "Chicago Ideas Week Build-a-Badge", :og_type => "website"}
       render "application/badge"
     end
+  end
   
-    
+   def project_youth
+    @meta_data = {:page_title => "CIW PROJECT YOU(th)", :og_title => "Chicago Ideas Week PROJECT YOU(th)", :og_type => "website"}
+    render "application/project_youth"
   end
   
   def sizzle

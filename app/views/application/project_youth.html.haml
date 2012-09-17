@@ -1,0 +1,64 @@
+-#     Chicago Ideas Week
+-#     speakers/edison.html.haml
+-#     05/21/2012
+
+
+
+-# Begin Main Speaker content
+%section.container#main_content
+  
+  %img{ :src => "/assets/application/project_youth_logo.png", :rel => "bookmark", :title => "", :width => "1000", :height => "480" }
+  %div#project_youth_info
+    %div
+      %p Chicago Ideas Week is proud to launch <strong>PROJECT YOU(th)</strong>, a platform designed to empower, encourage, and inspire the next generation of leaders.    
+
+      %p PROJECT YOU(th) was founded on the idea that action stems from knowing what's possible.  In connecting PROJECT YOU(th) students with Chicago Ideas Week, we aim to expose students from some of Chicago's most economically-challenged communities with:
+
+      %ol
+        %li Speakers and visionaries who communicate what's possible
+        %li Experiences that are springboards to positive action
+        %li Networking events that unite students with positive adults and role models
+      
+      #high_impact.clearfix
+        %p This year, Chicago Ideas Week has selected over 100 students for PROJECT YOU(th) from the following high-impact programs:
+        %p
+          %strong= link_to "EPIC Academy", "http://www.epicacademy.org/", :target => "_blank"
+          %strong= link_to "Global Citizenship Experience", "http://www.globalcitizenshipexperience.com/", :target => "_blank"
+          %strong= link_to "EMBARC", "http://www.embarcchicago.org/", :target => "_blank"
+          %strong= link_to "Future Founders", "http://www.builtinchicago.org/blog/cec-and-brad-keywell-launch-future-founders-foundation?xg_source=activity", :target => "_blank"
+          %strong= link_to "YOUmedia Chicago", "http://youmediachicago.org/", :target => "_blank"
+      
+    %div
+      %p Throughout Chicago Ideas Week, PROJECT YOU(th) students will participate in:
+
+      %ul
+        %li
+          %strong= link_to "Edison Talks:", "/edison"
+          joining 900 of the country’s top executives, philanthropists, scientists, entrepreneurs, artists and innovators for a daylong gathering of provocative presentations and interactive performances 
+        %li 
+          %strong Youth Labs:
+           behind-the-scenes workshops and all-access tours at Chicago hot-spots, including 
+          = link_to "1871", "/events/155"
+          and 
+          = link_to "Nokia", "/events/154"
+        %li 
+          %strong Digital 'Zine: 
+          a youth-led and produced digital magazine of Chicago Ideas Week 2012, with behind-the-scenes featurettes and speakers interviews
+      
+      %p
+        %strong
+          For more information on how to contribute to PROJECT YOU(th) or to apply, please contact 
+          = link_to "patricia@chicagoideas.com.", "mailto:patricia@chicagoideas.com"
+    
+    
+  %div.column_three.clearfix
+    %div.column
+      = render "partials/buy_tickets_now"
+    %div.column
+      = render "partials/sponsors"
+    %div.column
+      .box.right
+        = link_to image_tag("/assets/application/project_youth_sponsor.png"), "http://www.cct.org/", :width => "300", :height => "239", :target => "_blank"
+        
+
+    

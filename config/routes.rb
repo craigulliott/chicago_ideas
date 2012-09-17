@@ -115,7 +115,6 @@ CraigsAdmin::Application.routes.draw do
   resources :years, :only => [:show] do
     match 'speakers', :to => 'users#list_speakers'
     match 'speakers/edison', :to => 'users#list_edison_speakers'
-    match 'speakers/project_youth', :to => 'users#list_project_youth_speakers'
     match 'speakers/top_picks', :to => 'users#speakers_top_picks'
     match 'talks/mega_talks', :to => 'talks#mega_talks'
     match 'events/labs', :to => 'events#labs'
@@ -150,6 +149,7 @@ CraigsAdmin::Application.routes.draw do
   
   # Edison Speakers redirect
   match "edison" => redirect("/years/2012/speakers/edison")
+  match 'project_youth', :to => 'application#project_youth'
   
   # teams members and speakers are both a type of user, so are handled by the users controller
   match 'team_members', :to => 'users#list_team_members'
