@@ -53,7 +53,7 @@
     
           
         
-    .column_row#talks_location
+    .column_row.divided_row#talks_location
       .column
         %span.column_header
           Date &amp; Location
@@ -79,6 +79,8 @@
           .venue_map
             - if @event.venue.present?
               = image_tag @event.venue.bing_maps_src(300,145,zoom=15)
+      
+    = render "partials/event_speakers", :event_speakers => @event_speakers, :title => "Speakers"
   
     
   -# Include Sidebar Items

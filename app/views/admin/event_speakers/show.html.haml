@@ -1,0 +1,19 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = edit_model_link @event_speaker, true
+  = destroy_model_link @event_speaker, true
+
+%h1
+  This Event Speaker
+  = icon_link_to 'notes', notes_admin_event_speaker_path(@event_speaker), 'script'
+  = new_model_link Note, @event_speaker
+
+#model_detail
+  %h4 Speaker
+  %p= @event_speaker.speaker.name
+
+  %h4 Chapter
+  %p= @event_speaker.event.name
+
+

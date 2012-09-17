@@ -43,3 +43,8 @@
   %h4 Lab Host URL
   %p= @event.lab_host_url
 
+.table_section
+  %h3 
+    Speakers
+  .table_wrapper
+    = render 'admin/event_speakers/table.html.haml', :event_speakers => @event.event_speakers

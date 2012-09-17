@@ -115,7 +115,6 @@ CraigsAdmin::Application.routes.draw do
   resources :years, :only => [:show] do
     match 'speakers', :to => 'users#list_speakers'
     match 'speakers/edison', :to => 'users#list_edison_speakers'
-    match 'speakers/project_youth', :to => 'users#list_project_youth_speakers'
     match 'speakers/top_picks', :to => 'users#speakers_top_picks'
     match 'talks/mega_talks', :to => 'talks#mega_talks'
     match 'events/labs', :to => 'events#labs'
@@ -150,6 +149,7 @@ CraigsAdmin::Application.routes.draw do
   
   # Edison Speakers redirect
   match "edison" => redirect("/years/2012/speakers/edison")
+  match 'project_youth', :to => 'application#project_youth'
   
   # teams members and speakers are both a type of user, so are handled by the users controller
   match 'team_members', :to => 'users#list_team_members'
@@ -166,6 +166,7 @@ CraigsAdmin::Application.routes.draw do
   match 'member_program', :to => 'application#member_program'
   match 'artist', :to => 'application#artist'
   match 'faq', :to => 'application#faq'
+  match 'badge', :to => 'application#badge'
   match 'speaker/recommend_speaker', :to => 'users#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
   
@@ -428,9 +429,19 @@ CraigsAdmin::Application.routes.draw do
         # pages
         get :notes
         get :event_photos
+        get :event_speakers
       end
       resources :notes, :only => [:new, :create]
       resources :event_photos, :only => [:new, :create]
+      resources :event_speakers, :only => [:new, :create]
+    end
+    
+    resources :event_speakers do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
     end
 
     resources :sponsors do      

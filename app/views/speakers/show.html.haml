@@ -54,6 +54,14 @@
                 - @chapters.each do |chapter|
                   %li= link_to chapter.talk.name, talk_path(chapter.talk), :rel => "bookmark", :title => "#{chapter.talk.name}"
           
+          -# If the speaker has available events
+          - if @events.present?
+            %li.divided
+              %span.column_header CIW Events
+              %ul.speaker_overview_talks
+                - @events.each do |event|
+                  %li= link_to event.name, event_path(event), :rel => "bookmark", :title => "#{event.name}"
+          
         -# Speaker Bio
         %pre= @speaker.bio
 
