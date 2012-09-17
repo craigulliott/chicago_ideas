@@ -129,7 +129,7 @@ class Event < ActiveRecord::Base
 
   # Need to normalize the search attributes
   def search_attributes
-    {:title => self.name, :description => self.description[0..100], :image => ''}
+    {:title => self.name, :description => (!self.description.blank?) ? self.description[0..100] : "", :image => ''}
   end
 
 
