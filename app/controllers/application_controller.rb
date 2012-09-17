@@ -205,7 +205,7 @@ class ApplicationController < ActionController::Base
         @team << u
       end
       # these guys are part time
-      @team << User.find(7)
+      #@team << User.find(7)
       #@team << User.find(156)
       @team
     end
