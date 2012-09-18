@@ -1,0 +1,13 @@
+- if event_speakers.present?
+  .column_row#talks_speakers
+    .column.column_double
+      %span.column_header= title
+      %ul.preview_list.speaker_list.double_rows
+        - event_speakers.each do |es|
+          %li
+            .img_frame 
+              = link_to image_tag(es.speaker.portrait(:thumb)), speaker_path(es.speaker), :rel => "bookmark", :title => "#{es.speaker.name}"
+            = link_to es.speaker.name, speaker_path(es.speaker), :rel => "bookmark", :title => "#{es.speaker.name}"
+            %span= es.speaker.title_abbreviated
+          
+                

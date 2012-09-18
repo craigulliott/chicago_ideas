@@ -1,0 +1,12 @@
+- content_for :breadcrumbs do
+  = breadcrumbs @event_speaker
+  .crumb.end= section_title   
+
+- content_for :content_navigation do
+  %h2 Event Speakers
+  %ul
+    %li{:class => active_for('index')}= icon_link_to "Search", admin_event_speakers_path, 'search'
+  %h2 This Event Speaker
+  %ul
+    %li{:class => active_for('show')}= icon_link_to "Detail", admin_event_speaker_path(@event_speaker), 'circle-zoomin'
+    %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_event_speaker_path(@event_speaker), 'comment'

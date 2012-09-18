@@ -1,0 +1,15 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  = new_model_link EventSpeaker
+
+= ssp_search_form EventSpeaker
+
+.table_section
+  %h3 
+    Event Speakers
+    = new_model_link EventSpeaker
+  .table_wrapper
+    = render 'admin/event_speaker/table.html.haml', :event_speakers => @event_speakers
+  = paginate @event_speakers
+

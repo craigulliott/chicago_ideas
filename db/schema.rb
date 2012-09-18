@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120822133918) do
+ActiveRecord::Schema.define(:version => 20120911094132) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -284,6 +284,16 @@ ActiveRecord::Schema.define(:version => 20120822133918) do
   end
 
   add_index "event_photos", ["event_id"], :name => "index_event_photos_on_event_id"
+
+  create_table "event_speakers", :force => true do |t|
+    t.integer  "speaker_id", :null => false
+    t.integer  "event_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_speakers", ["event_id"], :name => "index_event_speakers_on_event_id"
+  add_index "event_speakers", ["speaker_id", "event_id"], :name => "index_event_speakers_on_speaker_id_and_event_id"
 
   create_table "events", :force => true do |t|
     t.string   "name",                  :limit => 150, :null => false
@@ -715,6 +725,9 @@ ActiveRecord::Schema.define(:version => 20120822133918) do
   add_foreign_key "days", "years", :name => "days_year_id_fk"
 
   add_foreign_key "event_photos", "events", :name => "event_photos_event_id_fk"
+
+  add_foreign_key "event_speakers", "events", :name => "event_speakers_event_id_fk"
+  add_foreign_key "event_speakers", "users", :name => "event_speakers_speaker_id_fk", :column => "speaker_id"
 
   add_foreign_key "events", "days", :name => "events_day_id_fk"
   add_foreign_key "events", "event_brands", :name => "events_event_brand_id_fk"

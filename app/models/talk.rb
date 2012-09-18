@@ -100,7 +100,7 @@ class Talk < ActiveRecord::Base
   
   # Need to normalize the search attributes
   def search_attributes
-    {:title => self.name, :description => self.description[0..100], :image => self.banner(:thumb)}
+    {:title => self.name, :description => (!self.description.blank?) ? self.description[0..100] : "", :image => self.banner(:thumb)}
   end
 
 

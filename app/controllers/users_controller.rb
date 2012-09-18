@@ -82,20 +82,6 @@ class UsersController < ApplicationController
     render "speakers/edison"
   end
   
-  # Project Youth speakers landing page
-  def list_project_youth_speakers
-    # If it's a year based list, then return all the speakers for that year
-    if params[:year_id].present?
-      @parent = Year.find(params[:year_id])
-      @speakers = @parent.users.speaker.not_deleted.order('name').all(:joins => {:chapters => :talk}, :conditions => {'talks.talk_brand_id' => 7}).uniq
-    else
-      # Else serve all Edison Speakers
-      @speakers = User.speaker.not_deleted.archived.order('name').all(:joins => {:chapters => :talk}, :conditions => {'talks.talk_brand_id' => 7}).uniq
-    end
-    @meta_data = {:page_title => "PROJECT YOU(th) Talks Speakers", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Project YOU(th) Speakers | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
-    render "speakers/project_youth"
-  end
-  
   def speakers_top_picks
     @meta_data = {:page_title => "Speaker Top Picks", :og_title => "Chicago Ideas Week Member Program", :og_type => "website", :og_image => "http://www.chicagoideas.com/assets/application/member_program_lightbulb.jpg"}
     render "speakers/top_picks"
@@ -111,6 +97,7 @@ class UsersController < ApplicationController
     end
     # Get all chapters that the speaker is part of that are archived
     @chapters = @speaker.chapters.all
+    @events = @speaker.events.all
     @meta_data = {:page_title => "#{@speaker.name}", :og_image => "#{@speaker.portrait(:thumb)}", :og_title => "#{@speaker.name} | Chicago Ideas Week", :og_type => "article", :og_desc => "#{@speaker.bio.present? ? @speaker.bio[0..200] : ""}"}
     render "speakers/show"
   end

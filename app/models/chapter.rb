@@ -144,7 +144,7 @@ class Chapter < ActiveRecord::Base
 
   # Need to normalize the search attributes
   def search_attributes
-    {:title => self.title, :description => self.description[0..100], :image => self.banner(:thumb)}
+    {:title => self.title, :description => (!self.description.blank?) ? self.description[0..100] : "", :image => self.banner(:thumb)}
   end
   
   

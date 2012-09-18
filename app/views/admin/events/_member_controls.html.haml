@@ -11,3 +11,4 @@
     %li{:class => active_for('show')}= icon_link_to "Detail", admin_event_path(@event), 'circle-zoomin'
     %li{:class => active_for('notes')}= icon_link_to "Notes", notes_admin_event_path(@event), 'comment'
     %li{:class => active_for('event_photos')}= icon_link_to "Photos", event_photos_admin_event_path(@event), 'image'
+    %li{:class => active_for('event_speakers')}= icon_link_to "Speakers", event_speakers_admin_event_path(@event), 'person'

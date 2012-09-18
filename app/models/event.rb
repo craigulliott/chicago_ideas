@@ -22,6 +22,10 @@ class Event < ActiveRecord::Base
   
   has_many :event_photos
   accepts_nested_attributes_for :event_photos, :allow_destroy => true
+  
+  has_many :event_speakers
+  has_many :speakers, :through => :event_speakers
+  accepts_nested_attributes_for :event_speakers, :allow_destroy => true
 
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
@@ -125,7 +129,7 @@ class Event < ActiveRecord::Base
 
   # Need to normalize the search attributes
   def search_attributes
-    {:title => self.name, :description => self.description[0..100], :image => ''}
+    {:title => self.name, :description => (!self.description.blank?) ? self.description[0..100] : "", :image => ''}
   end
 
 

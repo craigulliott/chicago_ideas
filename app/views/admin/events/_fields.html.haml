@@ -21,6 +21,11 @@
   = f.input :lab_host, :as => :file, :title => "Lab Host Photo", :hint => "a #{@model.lab_host_dimensions_string} photo for displaying on the site"
   = f.input :lab_host_url, :label => "Lab Host URL"
 
+= f.inputs :name => 'Speakers' do
+  = link_to_add_fields "Add Speaker", f, :event_speakers, :template => 'admin/event_speakers/nested_fields.html.haml'
+  = f.semantic_fields_for :event_speakers do |contact_form|
+    = render 'admin/event_speakers/nested_fields.html.haml', :f => contact_form
+
 - unless @model.id.present?
   = f.inputs :name => "Photos of this Event" do
     = link_to_add_fields "Add Photo", f, :event_photos, :template => 'admin/event_photos/nested_fields.html.haml'

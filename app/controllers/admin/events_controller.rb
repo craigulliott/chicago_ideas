@@ -33,6 +33,11 @@ class Admin::EventsController < Admin::AdminController
     @event_photos = @event.event_photos.search_sort_paginate(params, :parent => @event)
   end
 
+  # photos associated with this event
+  def event_speakers
+    @event = Event.find(params[:id])
+    @event_speakers = @event.event_speakers.search_sort_paginate(params, :parent => @event)
+  end
 
   # MEMBER ACTIONS
   # ---------------------------------------------------------------------------------------------------------

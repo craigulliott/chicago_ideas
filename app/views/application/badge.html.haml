@@ -1,0 +1,51 @@
+-#     Chicago Ideas Week
+-#     application/badge.html.haml
+-#     09/10/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span Build-a-Badge
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Build-a-Badge
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+    .column_row
+      .column.column_double
+        %p We'd love to hear your big ideas! Share your ideas here:
+        
+        = semantic_form_for(:badge, :url => badge_url) do |form|
+
+          = form.inputs do
+            = form.input 'first_name', :required => true, :label => 'First Name'
+            = form.input 'last_name', :required => true, :label => 'Last Name'
+            = form.input 'title', :required => true, :label => 'Title'
+            = form.input 'organization', :required => true, :label => 'Organization'
+            %p What inspires you? (limit 20 characters each)
+            = form.input :inspiration_1, :required => true, :label => "Inspiration 1"
+            = form.input :inspiration_2, :required => true, :label => "Inspiration 2"
+            = form.input :inspiration_3, :required => true, :label => "Inspiration 3"
+
+          = form.buttons do
+            = form.commit_button :label => "Submit"
+            
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/buy_tickets_now"
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

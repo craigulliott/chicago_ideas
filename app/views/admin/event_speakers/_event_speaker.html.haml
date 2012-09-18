@@ -1,0 +1,5 @@
+%tr{:event_speaker => event_speaker.id}
+  %td.speaker_id= link_to event_speaker.speaker.name, admin_user_path(event_speaker.speaker)
+  %td.options
+    = destroy_model_link event_speaker
+ 

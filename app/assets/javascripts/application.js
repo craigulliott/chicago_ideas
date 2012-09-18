@@ -2,6 +2,7 @@
 
 // =require application/newsletter
 // =require application/contact
+// =require application/badge
 
 // =require application/modernizr.min.js
 // =require application/global.js
