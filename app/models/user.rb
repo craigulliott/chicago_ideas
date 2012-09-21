@@ -56,6 +56,8 @@ class User < ActiveRecord::Base
   # this random password will be sent to the welcome email, so we can notify the user of it
   attr_accessor :temporary_password
   
+  attr_accessor :is_admin_created
+  
   # devise modules
   devise :database_authenticatable, :registerable, :token_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable 
@@ -102,9 +104,11 @@ class User < ActiveRecord::Base
   
   # send out the welcome email
   after_create {|user|
-    begin
-    ApplicationMailer.welcome(user).deliver unless Rails.env == 'test'
-    rescue
+    if not self.is_admin_created.present? or (self.is_admin_created.present? and not self.is_admin_created)
+      begin
+      ApplicationMailer.welcome(user).deliver unless Rails.env == 'test'
+      rescue
+      end
     end
   }
 
