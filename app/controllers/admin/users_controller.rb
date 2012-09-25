@@ -57,6 +57,7 @@ class Admin::UsersController < Admin::AdminController
     user.staff = params[:user][:staff]
     # when creating users, we assign them a temporary password and send it to them
     user.temporary_password = Devise.friendly_token[0,8]
+    user.is_admin_created = true
     user
   end
 
