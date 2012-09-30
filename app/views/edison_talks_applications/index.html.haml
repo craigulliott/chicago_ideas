@@ -1,0 +1,38 @@
+-#     Chicago Ideas Week
+-#     bhsi_applications/new.html.haml
+-#     02/17/2012
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li= link_to "Edison Talks", year_speakers_edison_path(@current_year)
+        %li
+          %span New Application
+    = render "partials/explore_dropdown"
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Edison Talks Application Form
+    = render "partials/share"
+    
+  -# Left column, main content:
+  .box.double.left
+
+    .column_row
+      %p The Edison Talks Application is closed.
+    
+      
+        
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
+

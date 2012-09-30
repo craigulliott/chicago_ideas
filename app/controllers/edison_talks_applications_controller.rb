@@ -6,7 +6,10 @@ class EdisonTalksApplicationsController < ApplicationController
   
   def new
     @meta_data = {:page_title => "Edison Talks Application Form", :og_image => "http://www.chicagoideas.com/assets/application/affilliate_events_banner.jpg", :og_title => "Edison Talks Application Form | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
-    @edison_talks_application = EdisonTalksApplication.new
+    #@edison_talks_application = EdisonTalksApplication.new
+    
+    render 'edison_talks_applications/index'
+    
   end
 
   def create
