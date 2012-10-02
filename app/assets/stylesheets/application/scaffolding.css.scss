@@ -605,7 +605,26 @@ body.faq {
     p {
 	  margin-bottom:5px;
     }
-	}
+  }
 }
 
+
+// Livestream CSS
+table.livestream {
+  th {
+    color:black;
+    font-weight:bold;
+    text-align:left;
+    padding:10px;  
+  }
+  
+  td {
+    padding:10px;
+    padding-top:0;
+  }
+  
+  td.time {
+    white-space:nowrap;
+  }
+}
 

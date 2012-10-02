@@ -162,6 +162,7 @@ CraigsAdmin::Application.routes.draw do
  
   
   # Static Pages
+  match 'livestream', :to => 'application#livestream'
   match 'about', :to => 'application#about'
   match 'member_program', :to => 'application#member_program'
   match 'artist', :to => 'application#artist'
