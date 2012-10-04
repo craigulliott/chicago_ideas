@@ -151,6 +151,7 @@ nav#global_nav {
   background-position: top left;
   background-repeat: repeat-x;
   @include box-shadow(0px,1px,4px,#000);
+  
 }
 ul#global_nav {
   display: block;
@@ -385,7 +386,14 @@ ul#global_nav {
 } // end #global_nav
 
 
-
+#social_media {
+  position:relative;
+  div {
+    position:absolute;
+  	right: -80px;
+    top: 12px;
+  }
+}
 
 
 
