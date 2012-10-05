@@ -195,10 +195,10 @@ $(document).ready(function() {
   
   $('#global_search').bind('blur', function(e) {
       $('#global_search_container').animate({
-        width : '106px',
+        width : '165px',
       });
       $(this).animate({
-        width : '65px', 
+        width : '130px', 
         left : '0px'
       });
   });
