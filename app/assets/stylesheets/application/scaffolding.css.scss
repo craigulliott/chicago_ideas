@@ -157,7 +157,7 @@ ul#global_nav {
   display: block;
   list-style: none;
   position: relative; 
-  width:1110px;
+  
   
   > li {
     display: inline;
@@ -243,7 +243,6 @@ ul#global_nav {
     width: 110px;;
     position:relative;
     padding: 12px 0 0 0;
-    margin-right:80px;
     float:right;
     
     #global_search_container {
@@ -251,7 +250,7 @@ ul#global_nav {
       padding: 5px;
       position:absolute;
       right:0px !important;
-      width: 165px;
+      width: 106px;
       height: 20px;
       background: #494445;
       @include rounded(4px);
@@ -260,7 +259,7 @@ ul#global_nav {
     
     input[type="search"], input[type="text"] {
       display:inline;
-      width: 130px;
+      width: 65px;
       padding:5px 0 5px 5px;
       background-color: #494445 !important;
       border:none;
@@ -390,10 +389,9 @@ ul#global_nav {
 
 #social_media {
   position:relative;
-  width:1110px;
   div {
     position:absolute;
-  	right:0;
+  	right:-80px;
     top: 12px;
   }
 }
