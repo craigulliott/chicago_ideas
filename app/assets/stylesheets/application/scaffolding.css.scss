@@ -151,11 +151,13 @@ nav#global_nav {
   background-position: top left;
   background-repeat: repeat-x;
   @include box-shadow(0px,1px,4px,#000);
+  
 }
 ul#global_nav {
   display: block;
   list-style: none;
   position: relative; 
+  
   
   > li {
     display: inline;
@@ -257,7 +259,7 @@ ul#global_nav {
     
     input[type="search"], input[type="text"] {
       display:inline;
-      width: 60px;
+      width: 65px;
       padding:5px 0 5px 5px;
       background-color: #494445 !important;
       border:none;
@@ -385,7 +387,14 @@ ul#global_nav {
 } // end #global_nav
 
 
-
+#social_media {
+  position:relative;
+  div {
+    position:absolute;
+  	right:-80px;
+    top: 12px;
+  }
+}
 
 
 
@@ -605,7 +614,26 @@ body.faq {
     p {
 	  margin-bottom:5px;
     }
-	}
+  }
 }
 
+
+// Livestream CSS
+table.livestream {
+  th {
+    color:black;
+    font-weight:bold;
+    text-align:left;
+    padding:10px;  
+  }
+  
+  td {
+    padding:10px;
+    padding-top:0;
+  }
+  
+  td.time {
+    white-space:nowrap;
+  }
+}
 
