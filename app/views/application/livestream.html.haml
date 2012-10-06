@@ -1,0 +1,163 @@
+-#     Chicago Ideas Week
+-#     application/livestream.html.haml
+-#     10/01/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span CIW Livestream
+       
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 CIW Livestream
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+
+    .column_row.divided_row
+      .column.column_double
+        <embed width="640" height="360" src="http://media.nbcchicago.com/assets/pdk449/pdk/swf/flvPlayer.swf?pid=Pde02xF1sdV3" flashvars="v=http%3A%2F%2Fwww.nbcchicago.com%2Fi%2Fembed_new%2F%3Fcid%3D150449995%26liveVidShell%3D151013085%26path=%2Fon-air%2Fas-seen-on"allowFullScreen="true" AllowScriptAccess="always" wmode="transparent" /> 
+        <p style="font-size:small;text-align:center;">View more videos at: <a href="http://nbcchicago.com/?__source=embedCode">http://nbcchicago.com</a>.</p>
+        
+        %h3 A big thanks to NBC 5 Chicago for live streaming select events throughout the week. Please check out the schedule below to find out when you can watch events as they are happening.
+        
+        
+        
+    .column_row.divided_row
+      .column.column_double
+        %h2 Monday, October 8
+        
+        %table.livestream
+          %tr
+            %th.time Time
+            %th.event Event
+          %tr
+            %td.time
+              %p 4:30 PM - 6:30 PM
+            %td.event
+              %p= link_to "Military: From the Front Lines to the Home Front, Presented by Chase and J.P. Morgan", "/talks/28"
+          %tr
+            %td.time
+              %p 7:00 PM - 8:30 PM
+            %td.event
+              %p= link_to "Democracy: State of Our Union, Presented by TIME", "/talks/25"
+     
+    .column_row.divided_row
+      .column.column_double
+        %h2 Tuesday, October 9
+        
+        %table.livestream
+          %tr
+            %th.time Time
+            %th.event Event
+          %tr
+            %td.time
+              %p 4:30 PM - 6:30 PM
+            %td.event
+              %p= link_to "Giving: One Matters, Presented by United Airlines", "/talks/31"
+          %tr
+            %td.time
+              %p 7:00 PM - 8:30 PM
+            %td.event
+              %p= link_to "Disruptive Innovation: Reinventing Our World, Presented by TIME", "/talks/34"
+
+    .column_row.divided_row
+      .column.column_double
+        %h2 Wednesday, October 10
+        
+        %table.livestream
+          %tr
+            %th.time Time
+            %th.event Event
+          %tr
+            %td.time
+              %p 12:00 PM - 1:30 PM
+            %td.event
+              %p= link_to "Future of News: What's the Story? Presented by TIME", "/talks/38"
+          %tr
+            %td.time
+              %p 4:30 PM - 6:00 PM
+            %td.event
+              %p= link_to "Sports: The Making of a Champion", "/talks/37"
+
+    .column_row.divided_row
+      .column.column_double
+        %h2 Thursday, October 11
+        
+        %table.livestream
+          %tr
+            %th.time Time
+            %th.event Event
+          %tr
+            %td.time
+              %p 9:00 AM - 11:00 AM
+            %td.event
+              %p= link_to "The #WhatIfChicago Experiment @ CIW: Crowdsourcing Solutions to Chicago’s Illegal Gun Problem", "/events/160"
+          %tr
+            %td.time
+              %p 4:30 PM - 6:00 PM
+            %td.event
+              %p= link_to "Work: No Longer Business as Usual, Presented by Ernst & Young", "/talks/54"
+      
+    .column_row.divided_row
+      .column.column_double
+        %h2 Friday, October 12
+        
+        %table.livestream
+          %tr
+            %th.time Time
+            %th.event Event
+          %tr
+            %td.time
+              %p 9:00 AM - 4:00 PM
+            %td.event
+              %p= link_to "Edison Talks", "/talks/56"
+          
+    .column_row.divided_row
+      .column.column_double
+        %h2 Saturday, October 13
+        
+        %table.livestream
+          %tr
+            %th.time Time
+            %th.event Event
+          %tr
+            %td.time
+              %p 4:30 PM - 6:00 PM
+            %td.event
+              %p= link_to "Fashion: Why Are You Wearing That? Presented by Chicago Magazine", "/talks/41"
+        
+    .column_row.divided_row
+      .column.column_double
+        %h2 Sunday, October 14
+        
+        %table.livestream
+          %tr
+            %th.time Time
+            %th.event Event
+          %tr
+            %td.time
+              %p 4:30 PM - 6:00 PM
+            %td.event
+              %p= link_to "Food: Returning to Our Roots", "/talks/48"
+    
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/buy_tickets_now"
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
