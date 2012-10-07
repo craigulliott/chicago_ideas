@@ -9,7 +9,7 @@
     #breadcrumbs
       %ul
         %li= link_to "Home", "/"
-        %li= link_to "Events", events_path
+        %li= link_to "2012 Events", year_events_path(@current_year)
         %li= link_to @event.name
     = render "partials/explore_dropdown"
 
