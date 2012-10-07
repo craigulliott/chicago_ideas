@@ -9,7 +9,7 @@
     #breadcrumbs
       %ul
         %li= link_to "Home", "/"
-        %li= link_to "CIW Talks", talks_path
+        %li= link_to "2012 CIW Talks", year_talks_path(@current_year)
         %li= link_to @talk.name
     = render "partials/explore_dropdown"
 
@@ -37,11 +37,18 @@
 
     .column_row.divided_row#talks_description
       .column.column_double
-        %span.column_header About this Talk
+        - if @talk.talk_brand
+          %span.column_header About this #{@talk.talk_brand.name}
+        - else
+          %span.column_header About this Talk
+          
         %pre= @talk.description
         
         - if @talk.is_current? && @talk.ticket_url.present?
           %a{:href => "#{@talk.ticket_url}", :class => "btn blue_btn buy_your_tickets", :target => "_blank"}Buy Your Tickets
+        
+        - if @talk.talk_brand && @talk.talk_brand.name == 'Megatalk'
+          %span.column_header * Some views may be obstructed
         
     .column_row.divided_row#talks_location
       .column
