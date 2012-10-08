@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120911094132) do
+ActiveRecord::Schema.define(:version => 20121008205831) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -243,19 +243,19 @@ ActiveRecord::Schema.define(:version => 20120911094132) do
   add_index "days", ["year_id"], :name => "index_days_on_year_id"
 
   create_table "edison_talks_applications", :force => true do |t|
-    t.string   "name",                                   :null => false
+    t.string   "name",                                 :null => false
     t.string   "organization"
     t.string   "title"
-    t.string   "email",                                  :null => false
-    t.string   "phone",                                  :null => false
-    t.text     "passions",         :limit => 2147483647, :null => false
-    t.text     "why_come",         :limit => 2147483647, :null => false
-    t.text     "recommendation",   :limit => 2147483647, :null => false
-    t.text     "invention",        :limit => 2147483647, :null => false
-    t.string   "inspiration_1",                          :null => false
-    t.string   "inspiration_2",                          :null => false
-    t.string   "inspiration_3",                          :null => false
-    t.text     "comments",         :limit => 2147483647
+    t.string   "email",                                :null => false
+    t.string   "phone",                                :null => false
+    t.text     "passions",         :limit => 16777215, :null => false
+    t.text     "why_come",         :limit => 16777215, :null => false
+    t.text     "recommendation",   :limit => 16777215, :null => false
+    t.text     "invention",        :limit => 16777215, :null => false
+    t.string   "inspiration_1",                        :null => false
+    t.string   "inspiration_2",                        :null => false
+    t.string   "inspiration_3",                        :null => false
+    t.text     "comments",         :limit => 16777215
     t.string   "pdf_file_name"
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
@@ -438,14 +438,6 @@ ActiveRecord::Schema.define(:version => 20120911094132) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
-  create_table "speaker_brands", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "speaker_brands", ["name"], :name => "index_speaker_brands_on_name"
-
   create_table "speakers", :force => true do |t|
     t.integer  "year_id"
     t.integer  "user_id"
@@ -511,19 +503,23 @@ ActiveRecord::Schema.define(:version => 20120911094132) do
   add_index "talk_photos", ["talk_id"], :name => "index_talk_photos_on_talk_id"
 
   create_table "talks", :force => true do |t|
-    t.string   "name",            :limit => 150, :null => false
+    t.string   "name",                    :limit => 150, :null => false
     t.text     "description"
-    t.integer  "day_id",                         :null => false
-    t.integer  "venue_id",                       :null => false
+    t.integer  "day_id",                                 :null => false
+    t.integer  "venue_id",                               :null => false
     t.integer  "track_id"
-    t.integer  "talk_brand_id",                  :null => false
-    t.time     "start_time",                     :null => false
-    t.time     "end_time",                       :null => false
+    t.integer  "talk_brand_id",                          :null => false
+    t.time     "start_time",                             :null => false
+    t.time     "end_time",                               :null => false
     t.integer  "sponsor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "twitter_hashtag"
     t.string   "ticket_url"
+    t.string   "transcript_file_name"
+    t.string   "transcript_content_type"
+    t.integer  "transcript_file_size"
+    t.datetime "transcript_updated_at"
   end
 
   add_index "talks", ["day_id"], :name => "index_talks_on_day_id"
@@ -554,9 +550,9 @@ ActiveRecord::Schema.define(:version => 20120911094132) do
     t.string   "expected_graduation_date",                                 :null => false
     t.string   "employment_interests",                                     :null => false
     t.string   "employment_interests_extra"
-    t.text     "honors_experience_activities",       :limit => 2147483647, :null => false
-    t.text     "qualities_attributes",               :limit => 2147483647, :null => false
-    t.text     "hope_to_gain",                       :limit => 2147483647, :null => false
+    t.text     "honors_experience_activities",       :limit => 16777215,   :null => false
+    t.text     "qualities_attributes",               :limit => 16777215,   :null => false
+    t.text     "hope_to_gain",                       :limit => 16777215,   :null => false
     t.string   "current_resume_file_name"
     t.string   "current_resume_content_type"
     t.integer  "current_resume_file_size"

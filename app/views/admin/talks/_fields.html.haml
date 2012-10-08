@@ -9,6 +9,7 @@
   = f.input :start_time, :input_html => {:class => 'timepicker', :value => @model.start_time.present? ? @model.start_time.to_s(:time) : nil}, :as => :string 
   = f.input :end_time, :input_html => {:class => 'timepicker', :value => @model.end_time.present? ? @model.end_time.to_s(:time) : nil}, :as => :string
   = f.input :ticket_url, :label => "Ticket URL" 
+  = f.input :transcript, :as => :file, :hint => "PDF transcript of this talk"
   = f.input :sponsor, :hint => "use this to assign this event with a specific sponsor", :as => :select, :collection => Sponsor.by_name.all
   
 - unless @model.id.present?
