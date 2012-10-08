@@ -169,7 +169,7 @@ class ApplicationController < ActionController::Base
     # appropriate headers to make our content cached - in heroku this gets cached by a squid like cache on top of our application servers
     # this makes for a very fast user experience
     def cache_rendered_page
-      expires_in(24.hours)
+      expires_in(1.hours)
     end
   
     # recursive call for deep cloning a hash in a way which doesnt keep non scalar types also doesnt modify the params array
