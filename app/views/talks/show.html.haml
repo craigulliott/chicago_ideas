@@ -47,9 +47,6 @@
         - if @talk.talk_brand && @talk.talk_brand.name == 'Megatalk'
           %span.column_header * Some views may be obstructed
         
-        - if @talk.is_current? && @talk.ticket_url.present?
-          %a{:href => "#{@talk.ticket_url}", :class => "btn blue_btn buy_your_tickets", :target => "_blank"}Buy Your Tickets
-        
         - if @talk.transcript?
           %a{:href => "#{@talk.transcript}", :class => "btn blue_btn download_transcript", :target => "_blank"} Download Talk Transcript
 
