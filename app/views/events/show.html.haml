@@ -48,9 +48,7 @@
         
         %pre= @event.description
         
-        - if @event.is_current? && @event.ticket_url.present?
-          %a{:href => "#{@event.ticket_url}", :class => "btn blue_btn buy_your_tickets", :target => "_blank"}Buy Your Tickets
-    
+        
           
         
     .column_row.divided_row#talks_location
@@ -85,7 +83,6 @@
     
   -# Include Sidebar Items
   #sidebar
-    = render "partials/buy_tickets_now"
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"
