@@ -21,7 +21,7 @@ body.member_program {
     }
     
     #member_program_header {
-      padding:130px 0 100px;
+      padding:130px 0 30px;
       background:transparent asset-url('application/member_program_lightbulb.jpg', image) top right no-repeat;
       
       h1 {
@@ -101,16 +101,10 @@ body.member_program {
       h2 {
         font-size:20px;
         text-transform:uppercase;
-        width:700px;
-        white-space:nowrap;
         text-align:center;
         padding:10px 15px;
-        background:#fff;
         margin:0 auto;
         
-        -moz-box-shadow: 2px 2px 2px #888;
-        -webkit-box-shadow: 2px 2px 2px #888;
-        box-shadow: 2px 2px 2px #888;
       }
       
       #member_program_levels {
