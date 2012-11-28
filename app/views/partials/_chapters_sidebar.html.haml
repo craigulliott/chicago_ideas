@@ -2,14 +2,14 @@
 -#     _chapters.html.haml
 -#     01/15/2012
 
-- if Chapter.archived.present?
+- if chapters.present? and chapters.any?{|c| c.vimeo_id.present?}
   .box.sidebar.right#chapters
     .box_header.yellow_header
       %span= title
     .column_row
       %ul.preview_list
         -chapters.each do |chapter|
-          - if chapter.present? and chapter != this_chapter and !chapter.is_current?
+          - if chapter.present? and chapter != this_chapter and chapter.vimeo_id.present?
             %li
               .img_frame
                 = link_to "play", "#", :class => "play_btn", :rel => "bookmark", :title => "#{chapter.title}"

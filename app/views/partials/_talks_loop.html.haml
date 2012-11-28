@@ -11,5 +11,10 @@
     = link_to talk.name, talk_path(talk), :rel => "bookmark", :title => "#{talk.name}"
     - if talk.track.present?
       %span= talk.track.name
-    - if talk.chapters.present?
-      %span= talk.chapters.count > 1 ? "#{talk.chapters.count} videos" : "#{talk.chapters.count} video"
+    - chapters = talk.chapters
+    - if chapters.present? and chapters.any?{|c| c.vimeo_id.present?}
+      - video_count = 0
+      - chapters.each do |c|
+        - if c.vimeo_id.present?
+          - video_count = video_count + 1
+      %span= video_count > 1 ? "#{video_count} videos" : "#{video_count} video"
