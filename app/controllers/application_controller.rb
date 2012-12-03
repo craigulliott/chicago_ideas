@@ -51,8 +51,13 @@ class ApplicationController < ActionController::Base
   
   def about
     get_team_members
-    @meta_data = {:page_title => "About the CIW Team", :og_title => "Chicago Ideas Week Team", :og_type => "website"}
+    @meta_data = {:page_title => "Who We Are", :og_title => "Chicago Ideas Week Who We Are", :og_type => "website"}
     render "application/about"
+  end
+  
+  def contact
+    @meta_data = {:page_title => "Contact Us", :og_title => "Chicago Ideas Week Contact", :og_type => "website"}
+    render "application/contact"
   end
   
   def member_program
@@ -192,26 +197,30 @@ class ApplicationController < ActionController::Base
     # get all staff members, sorted by priority
     def get_team_members
       # TODO:  add a sort column so we dont have to hard code these
+      # in the meantime, with discrepancies across databases, need to only try to add team members that actually exist in the database
       @team = []
-      @team << User.find(2)
-      @team << User.find(62)
-      @team << User.find(5)
-      @team << User.find(6)
-      @team << User.find(1)
-      #@team << User.find(9)
-      #@team << User.find(3)
-      @team << User.find(8)
-      @team << User.find(4)
-      @team << User.find(155)
-      #@team << User.find(159)
-      #User.staff.not_deleted.where("id not in (2,62,5,6,1,9,3,8,4,155,159,7,156)").all.each do |u|
-      #User.staff.not_deleted.where("id not in (2,62,5,6,1,9,3,8,4,155,7)").all.each do |u|
-      User.staff.not_deleted.where("id not in (2,62,5,6,1,3,8,4,155,7)").all.each do |u|
+      (User.where(:id => 2).length > 0) ? @team << User.find(2) : nil            # Brad Keywell
+      (User.where(:id => 62).length > 0) ? @team << User.find(62) : nil          # Eric Lefkofsky
+      (User.where(:id => 5).length > 0) ? @team << User.find(5) : nil            # Jessica Malkin
+      (User.where(:id => 6).length > 0) ? @team << User.find(6) : nil            # Carrie Kennedy
+      (User.where(:id => 1824).length > 0) ? @team << User.find(1824) : nil      # Leah Marshall
+      (User.where(:id => 155).length > 0) ? @team << User.find(155) : nil        # Brooke Scheyer
+      (User.where(:id => 8).length > 0) ? @team << User.find(8) : nil            # Amy Walsh
+      (User.where(:id => 1945).length > 0) ? @team << User.find(1945) : nil      # Tommy King
+      (User.where(:id => 1891).length > 0) ? @team << User.find(1891) : nil      # Jennifer Nelson
+      (User.where(:id => 2163).length > 0) ? @team << User.find(2163) : nil      # Metra Farrari
+      (User.where(:id => 1825).length > 0) ? @team << User.find(1825) : nil      # Becky Ahasic
+      (User.where(:id => 4).length > 0) ? @team << User.find(4) : nil            # Corey Nianick
+      (User.where(:id => 1271).length > 0) ? @team << User.find(1271) : nil      # Kelly Hagler
+      (User.where(:id => 1266).length > 0) ? @team << User.find(1266) : nil      # Prash Sabharwal
+      (User.where(:id => 2184).length > 0) ? @team << User.find(2184) : nil      # Mary McDonnell
+      (User.where(:id => 496).length > 0) ? @team << User.find(496) : nil        # Alicia Bassuk
+      (User.where(:id => 156).length > 0) ? @team << User.find(156) : nil        # Barbara Pollack
+      (User.where(:id => 1).length > 0) ? @team << User.find(1) : nil            # Craig Ulliott
+
+      User.staff.not_deleted.where("id not in (2,62,5,6,1824,155,8,1945,1891,2163,1825,4,1271,1266,2184,496,156,1)").all.each do |u|
         @team << u
       end
-      # these guys are part time
-      #@team << User.find(7)
-      #@team << User.find(156)
       @team
     end
 

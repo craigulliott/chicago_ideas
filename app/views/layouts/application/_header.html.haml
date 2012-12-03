@@ -11,58 +11,54 @@
     %li#gn_logo
       %h1= link_to "Chicago Ideas Week", root_path, :rel => "bookmark", :title => "Chicago Ideas Week Homepage"
     
-    %li#gn_schedule
-      = link_to "Schedule", year_schedule_path(@current_year), :rel => "bookmark", :title => "View the 2012 CIW Schedule"
-    
-    %li#gn_events.nav_parent
-      = link_to "Events", year_path(@current_year), :rel => "bookmark", :title => "2012 Events"
-      .dropdown
-        %ul
-          %li= link_to "Speaker Top Picks", year_speakers_top_picks_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Speaker Top Picks"
-          %li= link_to "Edison Talks", year_speakers_edison_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Edison Talks Speakers"
-          %li= link_to "CIW Megatalks", year_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Megatalks"
-          %li= link_to "CIW Talks", year_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Talks"
-          %li= link_to "CIW Labs", year_events_labs_path(@current_year), :rel => "bookmark", :title => "View all 2012 CIW Labs"
-          %li= link_to "PROJECT YOU(th)", project_youth_path, :rel => "bookmark", :title => "View the 2012 PROJECT YOU(th)"
-          %li= link_to "Partner Programs", year_events_partner_programs_path(@current_year), :rel => "bookmark", :title => "View all 2012 Partner Programs"
-          %li= link_to "Affiliate Events", year_events_affiliate_event_path(@current_year), :rel => "bookmark", :title => "View all 2012 Affiliate Events"
-    
-    %li#gn_speakers
-      = link_to "Speakers", year_speakers_path(@current_year), :rel => "bookmark", :title => "View 2012 Speakers"
-    
-    %li#gn_community.nav_parent
-      = link_to "Community", sponsors_path, :rel => "bookmark", :title => "View the CIW Community"
-      .dropdown
-        %ul
-          %li= link_to "Sponsors", sponsors_path, :rel => "bookmark", :title => "View Sponsors"
-          %li= link_to "Members", year_members_path(@current_year), :rel => "bookmark", :title => "View Sponsors"
-          %li= link_to "CIW Member Program", member_program_path, :rel => "bookmark", :title => "Become a member today!"
-          %li= link_to "Community Partners", partners_path, :rel => "bookmark", :title => "View Community Partners"
-          %li= link_to "Special Programs & Awards", special_programs_path, :rel => "bookmark", :title => "Special Programs & Awards"
-          %li= link_to "CIW Artist in Residence", artist_path, :rel => "bookmark", :title => "CIW Artist in Residence"
-          %li= link_to "News", press_clippings_path, :rel => "bookmark", :title => "View News Releases"
-          %li= link_to "Volunteer", new_volunteer_path, :rel => "bookmark", :title => "Voluneer Application"
-        
-    %li#gn_blog
-      = link_to "Blog", "http://blog.chicagoideas.com", :title => "CIW Blog", :target => "_blank"
-    
-    
     %li#gn_about.nav_parent
       = link_to "About", about_path
       .dropdown
         %ul
-          %li= link_to "Mission", about_path, :rel => "bookmark", :title => "About CIW"
+          %li= link_to "Who We Are", about_path, :rel => "bookmark", :title => "About CIW"
           %li= link_to "Team", team_members_path, :rel => "bookmark", :title => "CIW Team"
-          %li= link_to "Volunteer", new_volunteer_path, :rel => "bookmark", :title => "Volunteer Application"
           %li= link_to "Jobs", jobs_path, :rel => "bookmark", :title => "Jobs at CIW"
           %li= link_to "FAQ", faq_path, :rel => "bookmark", :title => "Frequently Asked Questions"
           %li= link_to "Contact Us", contact_path, :rel => "bookmark", :title => "Contact Us"
     
-    %li#gn_videos
-      = link_to "Videos", videos_path, :rel => "bookmark", :title => "View all Videos"
+    %li#gn_membership
+      = link_to "Membership", year_members_path(@current_year), :rel => "bookmark", :title => "View Members"
     
-    %li#gn_ciw_app.nav_section_end  
-      = link_to "CIW App", "http://getshortlist.com/ciw", :title => "Get the CIW App", :target => "_blank"
+    %li#gn_videos
+      = link_to "CIW Talks", videos_path, :rel => "bookmark", :title => "View all CIW Talks Videos"
+    
+    %li#gn_blog
+      = link_to "Blog", "http://blog.chicagoideas.com", :title => "CIW Blog", :target => "_blank"
+    
+    %li#gn_speakers
+      = link_to "Past Speakers", speakers_path, :rel => "bookmark", :title => "View Past Speakers"
+    
+    %li#gn_partners.nav_parent
+      = link_to "Partners", sponsors_path, :rel => "bookmark", :title => "View the CIW Partners"
+      .dropdown
+        %ul
+          %li= link_to "Sponsors", sponsors_path, :rel => "bookmark", :title => "View Sponsors"
+          %li= link_to "Community Partners", partners_path, :rel => "bookmark", :title => "View Community Partners"
+          %li= link_to "CIW Artist in Residence", artist_path, :rel => "bookmark", :title => "CIW Artist in Residence"
+          
+          
+    %li#gn_special_programs.nav_parent
+      = link_to "Special Programs & Awards", special_programs_path, :rel => "bookmark", :title => "Special Programs & Awards"
+      .dropdown
+        %ul      
+          %li= link_to "ThinkChicago", thinkchicago_path, :rel => "bookmark", :title => "ThinkChicago"
+          %li= link_to "Bluhm/Helfand Social Innovation Fellowship", blum_helfand_path, :rel => "bookmark", :title => "Bluhm/Helfand Social Innovation Fellowship"
+    
+    
+    
+    %li#gn_newsroom
+      = link_to link_to "Newsroom", press_clippings_path, :rel => "bookmark", :title => "View News Releases"
+      
+
+    
+    
+    
+    
     
     %li#nav_user.nav_parent{:style => 'display:none;'}
       = link_to "My Account", user_root_path, :id => 'users_full_name'
