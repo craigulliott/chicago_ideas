@@ -10,7 +10,7 @@
       %ul
         %li= link_to "Home", "/"
         %li= link_to "Events", events_path
-        - if @current_year.id == @year_id
+        - if !@year_id.present?
           %li
             %span CIW Labs
         - else
@@ -25,7 +25,7 @@
 
   #page_header
     #page_title.left
-      - if @current_year.id == @year_id
+      - if !@year_id.present?
         %h1 CIW Labs
       - else
         %h1 #{@year_id} CIW Labs
@@ -34,7 +34,7 @@
   -# Left column, main content
   .box.double.left
 
-    - if @current_year.id == @year_id
+    - if !@year_id.present?
       .talk_gallery
         - @event_photos.each do |photo|
           = image_tag(photo.photo(:album))
@@ -44,8 +44,13 @@
       .column_row#labs_intro
         .column.column_double
           %p Go Behind-the-Scenes in Chicago with Chicago Ideas Week Labs! 
-          %p CIW Labs offer opportunities for participants to experience and explore the best of Chicago like never before.  Exclusive, behind-the-scenes experiences give participants a unique glimpse into the inner workings of businesses and institutions that are otherwise unavailable to the public.  Small groups will explore what it’s like for business leaders in the boardroom, go behind the curtain at leading theaters and venues, and discover “how-it-works” in hands-on workshops.
-        
+          %p CIW Labs offer opportunities for participants to experience and explore the best of Chicago like never before. Exclusive, behind-the-scenes experiences give participants a unique glimpse into the inner workings of businesses and institutions that are otherwise unavailable to the public. Small groups will explore what it's like for business leaders in the boardroom, go behind the curtain at leading theaters and venues, and discover "how-it-works" in hands-on workshops.
+          %p 
+            Interested in hosting a CIW Lab in 2013? 
+            = link_to "Click here to apply!", "https://docs.google.com/spreadsheet/viewform?formkey=dFRadzR5dHp2ck9LSWVrTWxENS1YdVE6MQ", :target => "_blank"
+          %p
+            For questions and more information on CIW Labs, please email us 
+            =link_to "info@chicagoideas.com.", "mailto:info@chicagoideas.com"
     
     -# Labs List
     - if @labs.present?
@@ -60,10 +65,10 @@
                   %pre= lab.description
                   %a{:class => "back_top", :href => "javascript:scroll(0,0)"} back top
     
-    - if @current_year.id == @year_id
-      .column_row
-        .column.column_double
-          = link_to "Check out our lab hosts from CIW 2011", "/years/2011/events/labs"
+    .column_row
+      .column.column_double
+        %p= link_to "Check out our lab hosts from CIW 2012", "/years/2012/events/labs"
+        %p= link_to "Check out our lab hosts from CIW 2011", "/years/2011/events/labs"
 
 
   -# Include Sidebar Items
