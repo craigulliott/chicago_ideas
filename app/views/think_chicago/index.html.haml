@@ -29,7 +29,7 @@
   -# Left column, main content: About Us information
   .box.double.left
 
-    .column_row.divided_row
+    .column_row
       .column.column_double
         
         = image_tag('application/thinkchicago_logo.jpg', :class => "think_chicago_logo clearfix", :width => "200px", :height => "316px")
@@ -39,8 +39,19 @@
         
         %p Join us in Chicago for a chance to visit and meet with the leaders of some of today's most innovative tech companies October 11-12, 2012. 100 elite students will meet industry leaders and venture capitalists, visit business headquarters, gain free VIP admission to select programming at the second annual Chicago Ideas Week, and much more. 
         
-        
-        
+    .talk_gallery
+      = image_tag('application/2012_thinkchicago/thinkchicago_1.jpg')
+      = image_tag('application/2012_thinkchicago/thinkchicago_2.jpg')
+      = image_tag('application/2012_thinkchicago/thinkchicago_3.jpg')
+      = image_tag('application/2012_thinkchicago/thinkchicago_4.jpg')
+      = image_tag('application/2012_thinkchicago/thinkchicago_5.jpg')
+      = image_tag('application/2012_thinkchicago/thinkchicago_6.jpg')
+      = image_tag('application/2012_thinkchicago/thinkchicago_7.jpg')
+      = image_tag('application/2012_thinkchicago/thinkchicago_8.jpg')
+      
+    
+    .column_row.divided_row
+      .column.column_double    
         %ul#think_chicago_box.clearfix
           %li 
             %h2 What Will I Do?
@@ -62,9 +73,6 @@
               %li Some of last year's speakers included: Pandora founder Tim Westergren, President Bill Clinton, PayPal co-founder Peter Thiel, Redbox president Mitch Lowe, and inventor Dean Kamen.
               %li Attend CIW rock concert at Park West with other startup entrepreneurs. Last year's headliner was Weezer! 2012 concert details will be announced soon.
               %li Access to one session and closing reception of CIW's exclusive event: the Edison Talks—an invitation-only, daylong gathering for CEOs, Presidents and leaders from a cross section of industries to listen to provocative presentations and performances led by globally recognized visionaries. 
-        
-        = image_tag('application/thinkchicago_rahm.jpg', :class => "think_chicago_rahm clearfix", :width => "630px", :height => "409px")
-        
         
         %h2 Questions
         %p 
