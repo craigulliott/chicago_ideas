@@ -29,10 +29,7 @@
 
   -# Include Sidebar Items
   #sidebar
-    .box.right.yellow_box
-      .column_row
-        = link_to recommend_speaker_path, :class => "callout_link" do
-          %span.medium_callout Recommend a Speaker for CIW 2012!
+    = render "partials/recommend_speaker_callout"
     = render "partials/sponsors"
     = render "partials/newsletter_form"
     = render "partials/social"
