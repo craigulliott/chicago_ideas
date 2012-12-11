@@ -10,7 +10,7 @@
       %ul
         %li= link_to "Home", "/"
         %li
-          %span 2012 Speakers
+          %span= @title
     = render "partials/explore_dropdown"
 
 -# Begin Main Speaker content
@@ -18,12 +18,18 @@
   
   #page_header
     #page_title.left
-      %h1 Speakers
+      %h1= @title
     = render "partials/share"
       
   
   -# Left column: Speakers List
   .box.double.left
+    .column_row.divided_row
+      .column.column_double
+        %p= link_to "All Speakers", "/speakers"
+        %p= link_to "2012 Speakers", "/years/2012/speakers"
+        %p= link_to "2011 Speakers", "/years/2011/speakers"
+        
     = render "speakers/speakers", :speakers => @speakers
                 
 
