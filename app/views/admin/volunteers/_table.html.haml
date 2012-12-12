@@ -2,13 +2,11 @@
   %tr
     %th.user_id= ssp_sort_link :user_id
     %th.postcode= ssp_sort_link :postcode
-    %th.employed= ssp_sort_link :employed
+    %th.email= ssp_sort_link :email
+    %th.phone= ssp_sort_link :phone
+    %th.interests_volunteering= ssp_sort_link :interests_volunteering
+    %th.skills= ssp_sort_link :skills
     %th.why= ssp_sort_link :why
-    %th.what= ssp_sort_link :what
-    %th.availability= ssp_sort_link :availability
-    %th.street_team= ssp_sort_link :street_team
-    %th.available_days Available Days
-    %th.available_times Available Times
-    %th.hours= ssp_sort_link :hours
+    
     %th 
   = render :partial => 'admin/volunteers/volunteer.html.haml', :collection => volunteers

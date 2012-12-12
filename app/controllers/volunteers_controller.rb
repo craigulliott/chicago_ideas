@@ -10,7 +10,7 @@ class VolunteersController < ApplicationController
     elsif current_user
       @volunteer = current_user.build_volunteer
     else
-      redirect_to new_user_registration_path, :notice => 'To apply as a Volunteer, please first create an account or log in.' 
+      redirect_to new_user_session_path, :notice => 'Once you sign in, you will be able to submit a brief volunteer application form.'
     end
   end
   
