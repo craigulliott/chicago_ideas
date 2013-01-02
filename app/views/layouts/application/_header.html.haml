@@ -23,18 +23,8 @@
           %li= link_to "FAQ", faq_path, :rel => "bookmark", :title => "Frequently Asked Questions"
           %li= link_to "Contact", contact_path, :rel => "bookmark", :title => "Contact"
     
-    %li#gn_membership
-      = link_to "Attend", year_path(@current_year), :rel => "bookmark", :title => "View Members"
-    
     %li#gn_videos
-      = link_to "Watch", videos_path, :rel => "bookmark", :title => "View all CIW Talks Videos"
-    
-    %li#gn_speakers.nav_parent
-      = link_to "Past Events", speakers_path, :rel => "bookmark", :title => "View Past Events"
-      .dropdown
-        %ul
-          %li= link_to "Speakers", speakers_path, :rel => "bookmark", :title => "View All Speakers"
-          %li= link_to "CIW Labs", labs_events_path, :rel => "bookmark", :title => "View All Labs"
+      = link_to "Videos", videos_path, :rel => "bookmark", :title => "View all CIW Talks Videos"
     
     %li#gn_edison_talks
       = link_to "Edison Talks", edison_path, :title => "Edison Talks"

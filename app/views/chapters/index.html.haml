@@ -18,8 +18,16 @@
   -# Featured chapter slider
   = render "chapters/slider", :featured => @featured
   
-  -# Render the chapter list
-  = render "chapters/chapters", :chapters => @chapters, :top2 => @top2, :do_paginate => true
+  
+  .box.double.left
+    .column_row.divided_row
+      .column.column_double
+        %p= link_to "All Videos", "/videos"
+        %p= link_to "2012 Videos", "/years/2012/videos"
+        %p= link_to "2011 Videos", "/years/2011/videos"
+        
+    -# Render the chapter list
+    = render "chapters/chapters", :chapters => @chapters, :top2 => @top2, :do_paginate => true
 
 
   -# Include Sidebar Items
