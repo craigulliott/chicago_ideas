@@ -1,0 +1,48 @@
+-#     Chicago Ideas Week
+-#     application/about.html.haml
+-#     01/016/2012
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span Impact
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Impact
+    = render "partials/share"
+
+  -# Left column, main content: Impact
+  #impact.box.double.left
+
+    .column_row.divided_row
+      .column
+        
+        %h2 By the Numbers in 2012
+        %ul
+          %li.odd 25,000 Attendees
+          %li.even 235 Speakers
+          %li.odd 130 Events
+          %li.even Over 1 billion media impressions
+          %li.odd $2,800,000 in advertising revenue
+          %li.even 200 Community Partners
+          %li.odd 8,700 Twitter followers
+          %li.even 6,800 "likes" on Facebook
+    
+      .column
+        %p= image_tag("/assets/application/info_graphic_1.png")
+        %p= image_tag("/assets/application/info_graphic_2.png")
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

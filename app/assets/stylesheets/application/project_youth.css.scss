@@ -18,7 +18,7 @@ body.project_youth {
       margin:30px auto 50px auto;
       
       > div {
-        width:470px;
+        width:300px;
         float:left;
         
         ol, ul {
@@ -62,6 +62,7 @@ body.project_youth {
       }
       
       > div + div {
+        width:675px;
         float:right;
         margin-left:15px;
         
@@ -69,7 +70,7 @@ body.project_youth {
       
       #high_impact {
         padding:15px;
-        margin-top:15px;
+        margin-bottom:15px;
         background:#f7f5f6 asset-url('application/project_youth_paint_splash.png', image) left bottom no-repeat;
         border:1px solid #bfbfbf;
         border-top:0;
@@ -79,7 +80,7 @@ body.project_youth {
         
         p {
           float:left;
-          width:200px;
+          width:300px;
           font-style:italic;
           font-size:13px;
         }
@@ -92,6 +93,26 @@ body.project_youth {
           a {
             display:block;
           }
+        }
+      }
+      
+      .quote {
+        padding:15px;
+        margin-bottom:15px;
+        background:#f7f5f6;
+        border:1px solid #bfbfbf;
+        
+        p {
+        	margin-bottom:5px;
+        }
+        
+        span {
+        	display:block;
+        	text-align:right;
+        }
+        
+        span + p {
+          margin-top:20px;
         }
       }
     }

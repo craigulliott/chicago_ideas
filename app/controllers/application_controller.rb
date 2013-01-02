@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
   
   def get_header_models
-    @current_year = Year.find(2012)
+    @current_year = Year.find(2013)
   end
   def get_sponsors
     @sponsors = Sponsor.featured_sponsors.order('RAND()')
@@ -55,8 +55,23 @@ class ApplicationController < ActionController::Base
     render "application/about"
   end
   
+  def mission
+    @meta_data = {:page_title => "Mission", :og_title => "Chicago Ideas Week Mission", :og_type => "website"}
+    render "application/mission"
+  end
+  
+  def programs
+    @meta_data = {:page_title => "Programs", :og_title => "Chicago Ideas Week Programs", :og_type => "website"}
+    render "application/programs"
+  end
+  
+  def impact
+    @meta_data = {:page_title => "Impact", :og_title => "Chicago Ideas Week Impact", :og_type => "website"}
+    render "application/impact"
+  end
+  
   def contact
-    @meta_data = {:page_title => "Contact Us", :og_title => "Chicago Ideas Week Contact", :og_type => "website"}
+    @meta_data = {:page_title => "Contact", :og_title => "Chicago Ideas Week Contact", :og_type => "website"}
     render "application/contact"
   end
   
@@ -73,6 +88,11 @@ class ApplicationController < ActionController::Base
   def artist
     @meta_data = {:page_title => "CIW Artist in Residence", :og_title => "Chicago Ideas Week Artist in Residence", :og_type => "website"}
     render "application/artist_in_residence"
+  end
+  
+  def whatifchicago
+    @meta_data = {:page_title => "CIW #WhatIfChicago", :og_title => "Chicago Ideas Week Artist in Residence", :og_type => "website"}
+    render "application/whatifchicago"
   end
   
   def faq

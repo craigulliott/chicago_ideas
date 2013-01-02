@@ -19,6 +19,23 @@
         %li Experiences that are springboards to positive action
         %li Networking events that unite students with positive adults and role models
       
+      %p Throughout Chicago Ideas Week, PROJECT YOU(th) students will participate in:
+
+      %ul
+        %li
+          %strong= link_to "Edison Talks:", "/edison"
+          joining 900 of the country's top executives, philanthropists, scientists, entrepreneurs, artists and innovators for a daylong gathering of provocative presentations and interactive performances 
+        %li 
+          %strong Youth Labs:
+           behind-the-scenes workshops and all-access tours at Chicago hot-spots, including 
+          = link_to "1871", "/events/155"
+          and 
+          = link_to "Nokia", "/events/154"
+        %li 
+          %strong= link_to "Digital 'Zine:", "https://projeqt.com/youmediachicago", :target => "_blank" 
+          a youth-led and produced digital magazine of Chicago Ideas Week 2012, with behind-the-scenes featurettes and speakers interviews
+      
+    %div
       #high_impact.clearfix
         %p This year, Chicago Ideas Week has selected over 100 students for PROJECT YOU(th) from the following high-impact programs:
         %p
@@ -28,22 +45,23 @@
           %strong= link_to "Future Founders Foundation", "http://futurefounders.com/", :target => "_blank"
           %strong= link_to "YOUmedia Chicago", "http://youmediachicago.org/", :target => "_blank"
       
-    %div
-      %p Throughout Chicago Ideas Week, PROJECT YOU(th) students will participate in:
-
-      %ul
-        %li
-          %strong= link_to "Edison Talks:", "/edison"
-          joining 900 of the country’s top executives, philanthropists, scientists, entrepreneurs, artists and innovators for a daylong gathering of provocative presentations and interactive performances 
-        %li 
-          %strong Youth Labs:
-           behind-the-scenes workshops and all-access tours at Chicago hot-spots, including 
-          = link_to "1871", "/events/155"
-          and 
-          = link_to "Nokia", "/events/154"
-        %li 
-          %strong Digital 'Zine: 
-          a youth-led and produced digital magazine of Chicago Ideas Week 2012, with behind-the-scenes featurettes and speakers interviews
+    
+      .talk_gallery
+        = image_tag("/assets/application/2012_project_youth/py1.jpg")
+        = image_tag("/assets/application/2012_project_youth/py2.jpg")
+        = image_tag("/assets/application/2012_project_youth/py3.jpg")
+        = image_tag("/assets/application/2012_project_youth/py4.jpg")
+        = image_tag("/assets/application/2012_project_youth/py5.jpg")
+        = image_tag("/assets/application/2012_project_youth/py6.jpg")
+        = image_tag("/assets/application/2012_project_youth/py7.jpg")
+        = image_tag("/assets/application/2012_project_youth/py8.jpg")
+      
+      .quote
+        %p "I feel the love in the room... It's making me think, 'Alright, I'm a young kid, I have so much time to live, I have so many things to do, why don't I start right now to help the people around who need help?'"
+        %span -- Paul Ukaegbu, 17, Epic Academy
+        
+        %p "This was a no-brainer…Our kids have just soaked up all the incredible, innovative, amazing ideas from the speakers from around the world."  
+        %span -- Matthew King, executive director, Epic Academy
       
       %p
         %strong

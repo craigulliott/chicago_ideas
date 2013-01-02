@@ -1,0 +1,49 @@
+-#     Chicago Ideas Week
+-#     application/mission.html.haml
+-#     12/27/2012
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span Mission
+
+
+-# Main Talk content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Mission
+    = render "partials/share"
+
+  -# Left column, main content: Mission
+  .box.double.left
+
+    .column_row.divided_row
+      .column.column_double
+        %h3 What is Chicago Ideas Week?
+        %p 
+          Chicago Ideas Week is a premier annual gathering of global thought leaders created to provoke 
+          %strong new ideas
+          and 
+          %strong inspire
+          actionable results. Our goal is to stimulate new initiatives and ventures, create new 
+          %strong connections 
+          and collaborations, and establish a 
+          %strong community
+          of people who have the desire to 
+          %strong achieve great things.
+
+        %h3 How are we different?
+        %p Many ideas-based events across the globe are exclusive, invitation-only and costs thousands of dollars to attend. CIW events are just $15 per event, helping our community put their ideas into action.
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
