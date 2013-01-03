@@ -1269,6 +1269,20 @@ div.semi_finalist {
 }
 
 
+#press_clippings_page {
+  h1 {
+    color:#888;
+    font-weight:normal;
+  }
+  
+  #news_list > h1 {
+    padding-left:20px;
+  }
+  
+  h1 + .column_row {
+    padding-top:0;
+  }
+}
 
 #news_list {
   
