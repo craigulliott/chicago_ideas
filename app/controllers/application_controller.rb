@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
   
   def get_header_models
-    @current_year = Year.find(2013)
+    @current_year = Year.find(2012)
   end
   def get_sponsors
     @sponsors = Sponsor.featured_sponsors.order('RAND()')

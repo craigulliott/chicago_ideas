@@ -34,10 +34,10 @@
       .dropdown
         %ul
           %li= link_to "Sponsors", sponsors_path, :rel => "bookmark", :title => "View Sponsors"
+          %li= link_to "Media Partners", sponsors_media_partners_path, :rel => "bookmark", :title => "View Media Partners"
           %li= link_to "Members", "/years/2012/members/", :rel => "bookmark", :title => "View Members"
           %li= link_to "Community Partners", partners_path, :rel => "bookmark", :title => "View Community Partners"
           %li= link_to "Become a Volunteer", new_volunteer_path, :rel => "bookmark", :title => "Become a Volunteer"
-          
           
           
     %li#gn_special_programs.nav_parent
@@ -52,17 +52,13 @@
     
     
     %li#gn_newsroom.nav_parent
-      = link_to link_to "Newsroom", press_clippings_path, :rel => "bookmark", :title => "View News Releases"
+      = link_to link_to "Newsroom", newsroom_path, :rel => "bookmark", :title => "View Newsroom"
       .dropdown
         %ul 
           %li= link_to link_to "In the News", press_clippings_path, :rel => "bookmark", :title => "View News Releases"
+          %li= link_to link_to "Press Releases", press_releases_path, :rel => "bookmark", :title => "View Press Releases"
           %li= link_to "Blog", "http://blog.chicagoideas.com", :title => "CIW Blog", :target => "_blank"
       
-
-    
-    
-    
-    
     
     %li#nav_user.nav_parent{:style => 'display:none;'}
       = link_to "My Account", user_root_path, :id => 'users_full_name'

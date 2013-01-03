@@ -9,7 +9,7 @@
     #breadcrumbs
       %ul
         %li= link_to "Home", "/"
-        %li= link_to "In the News", press_clippings_path
+        %li= link_to "Newsroom", newsroom_path
     = render "partials/explore_dropdown"
 
 
@@ -18,10 +18,19 @@
 
   #page_header
     #page_title.left
-      %h1 In the News
+      %h1 Newsroom
     = render "partials/share"
     
   -# Left column, main content
+  .box.double.left
+    .column_row.divided_row
+      .column.column_double
+      
+        %h2 Press Releases
+        %p= link_to "2012", "/years/2012/press_releases"
+        %p= link_to "2011", "/years/2011/press_releases"
+  
+  
   .box.double.left
 
     - if @press_clippings.present?

@@ -62,13 +62,15 @@ CraigsAdmin::Application.routes.draw do
 
   # news about CIW
   resources :press_clippings, :only => [:index, :show]
-  
+  match 'press_releases', :to => 'press_clippings#releases'
+  match 'newsroom', :to => 'press_clippings#newsroom'
 
   # sponsors and partners
   # ----------------------------------------------------------------
   resources :sponsors, :only => [:index]
   resources :partners, :only => [:index, :apply]
   match 'partners/apply', :to => 'partners#apply', :as => 'partners_apply'
+  match 'sponsors/media_partners', :to => 'sponsors#media_partners'
 
   # users
   # ----------------------------------------------------------------
@@ -121,6 +123,8 @@ CraigsAdmin::Application.routes.draw do
     match 'events/partner_programs', :to => 'events#partner_programs'
     match 'events/affiliate_event', :to => 'events#affiliate_event'
     match 'videos', :to => 'chapters#index'
+    match 'press_clippings', :to => 'press_clippings#index'
+    match 'press_releases', :to => 'press_clippings#releases'
     match 'schedule', :to => 'schedule#index'
     match ':month_id/:day_id/schedule', :to => 'schedule#index'
     match 'members', :to => 'members#index'
