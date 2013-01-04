@@ -91,8 +91,13 @@ class ApplicationController < ActionController::Base
   end
   
   def whatifchicago
-    @meta_data = {:page_title => "CIW #WhatIfChicago", :og_title => "Chicago Ideas Week Artist in Residence", :og_type => "website"}
+    @meta_data = {:page_title => "CIW #WhatIfChicago", :og_title => "Chicago Ideas #WhatIfChicago", :og_type => "website"}
     render "application/whatifchicago"
+  end
+  
+  def support
+    @meta_data = {:page_title => "CIW Become a Supporter", :og_title => "Chicago Ideas Become a Supporter", :og_type => "website"}
+    render "application/support"
   end
   
   def faq

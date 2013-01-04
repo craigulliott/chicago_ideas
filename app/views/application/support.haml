@@ -1,0 +1,55 @@
+-#     Chicago Ideas Week
+-#     application/support.html.haml
+-#     01/04/2013
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span Become a Supporter
+       
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Become a Supporter
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+
+    .talk_gallery
+      = image_tag("/assets/application/support/support1.jpg")
+      = image_tag("/assets/application/support/support2.jpg")
+      = image_tag("/assets/application/support/support3.jpg")
+      = image_tag("/assets/application/support/support4.jpg")
+      = image_tag("/assets/application/support/support5.jpg")
+      = image_tag("/assets/application/support/support6.jpg")
+      = image_tag("/assets/application/support/support7.jpg")
+
+    -#  introduction
+    .column_row#labs_intro
+      .column.column_double
+        %p{:style => "text-align:center"}
+          %a.btn.blue_btn{:href => "/files/CIW_AnnualReport_FINAL.pdf", :target => "_blank"}
+            Download the 2012 Annual Report
+          
+        %p Thanks to the annual support of our sponsors, Chicago Ideas Week continues to deliver on our core mission of turning ideas into actionable results.  Sponsorship levels range from $50,000 - $2,000,000.
+        %p 
+          To learn more about sponsorship of Chicago Ideas Week, contact Leah Marshall, Director of Development, at 
+          = link_to "leah@chicagoideas.com.", "mailto:leah@chicagoideas.com"
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

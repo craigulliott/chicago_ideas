@@ -176,6 +176,7 @@ CraigsAdmin::Application.routes.draw do
   match 'artist', :to => 'application#artist'
   match 'faq', :to => 'application#faq'
   match 'whatifchicago', :to => 'application#whatifchicago'
+  match 'support', :to => 'application#support'
   #match 'badge', :to => 'application#badge'
   match 'speaker/recommend_speaker', :to => 'users#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
