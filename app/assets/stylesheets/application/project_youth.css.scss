@@ -1,123 +1,24 @@
 // Project You(th) CSS
 body.project_youth {
-  background:#fff;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   
-  p {
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size:18px;
-    color:#2c2829;
-  }
-  
-  #main_content {
-    margin-top:80px;
+  section.banner {
+    background:#fff;
     
-    #project_youth_info {
-      width:1000px;
-      height:440px;
-      margin:30px auto 50px auto;
-      
-      > div {
-        width:300px;
-        float:left;
-        
-        ol, ul {
-          margin-left:1.5em;
-        }
-        
-        p, li {
-          font-size:14px;
-          line-height:1.6em;
-          color:#2b2b2b;
-          
-          a {
-            color:#2e77de;
-          }
-        }
-        
-        ul {
-          list-style-type:disc;
-          
-          li {
-            margin-bottom:15px;
-          }
-        }
-        
-        #page_share {
-          float:none;
-          height:30px;
-          margin-left:180px;
-          
-          li {
-            display: inline;
-            float: left;
-            width: auto;
-          }
-          
-          li#twitter_ {
-            margin-right:10px;
-          }
-        }
-        
-      }
-      
-      > div + div {
-        width:675px;
-        float:right;
-        margin-left:15px;
-        
-      }
-      
-      #high_impact {
-        padding:15px;
-        margin-bottom:15px;
-        background:#f7f5f6 asset-url('application/project_youth_paint_splash.png', image) left bottom no-repeat;
-        border:1px solid #bfbfbf;
-        border-top:0;
-        -moz-box-shadow: 0 4px 2px -2px #555555;
-        -webkit-box-shadow: 0 4px 2px -2px #555555;
-        box-shadow: 0 4px 2px -2px #555555;
-        
-        p {
-          float:left;
-          width:300px;
-          font-style:italic;
-          font-size:13px;
-        }
-        
-        p + p {
-          margin-left:35px;
-          font-size:14px;
-          font-style:normal;
-          
-          a {
-            display:block;
-          }
-        }
-      }
-      
-      .quote {
-        padding:15px;
-        margin-bottom:15px;
-        background:#f7f5f6;
-        border:1px solid #bfbfbf;
-        
-        p {
-        	margin-bottom:5px;
-        }
-        
-        span {
-        	display:block;
-        	text-align:right;
-        }
-        
-        span + p {
-          margin-top:20px;
-        }
-      }
+    .banner_wrapper {
+      border-bottom:1px solid #21b8ef;
+    }
+  }
+
+  .quote {
+    p {
+      margin-bottom:0;
     }
     
+    .by_line + p {
+      margin-top:15px;
+    }
+  }
 
   
-  }
 }
+
