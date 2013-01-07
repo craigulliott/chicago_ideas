@@ -123,6 +123,7 @@ CraigsAdmin::Application.routes.draw do
     match 'events/partner_programs', :to => 'events#partner_programs'
     match 'events/affiliate_event', :to => 'events#affiliate_event'
     match 'videos', :to => 'chapters#index'
+    match 'videos/edison', :to => 'chapters#edison'
     match 'press_clippings', :to => 'press_clippings#index'
     match 'press_releases', :to => 'press_clippings#releases'
     match 'schedule', :to => 'schedule#index'
@@ -237,7 +238,6 @@ CraigsAdmin::Application.routes.draw do
 
   # all videos are of chapters, so pass to the chapter controller
   match 'videos', :to => 'chapters#index'
-  match 'videos/edison', :to => 'chapters#edison'
   match 'videos/:id', :to => 'chapters#show', :as => "video"
   
   

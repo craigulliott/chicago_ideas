@@ -35,8 +35,10 @@ class ChaptersController < ApplicationController
   end
   
   def edison
-    @chapters = Chapter.joins(:talk).where("talks.talk_brand_id = 3 AND chapters.vimeo_id IS NOT NULL").search_sort_paginate(params)
-    @featured = Chapter.joins(:talk).where("talks.talk_brand_id = 3 AND chapters.vimeo_id IS NOT NULL").find_all_by_featured_on_talk('1')
+    @year_id = params[:year_id].to_i
+    
+    @chapters = Chapter.joins(:talk => [:day]).where("days.year_id = :year_id AND talks.talk_brand_id = 3 AND vimeo_id IS NOT NULL", {:year_id => @year_id}).search_sort_paginate(params)
+    @featured = Chapter.joins(:talk => [:day]).where("days.year_id = :year_id AND talks.talk_brand_id = 3 AND vimeo_id IS NOT NULL", {:year_id => @year_id}).find_all_by_featured_on_talk('1')
     
     @top2 = []
     @meta_data = {:page_title => "Edison Talks Videos", :og_image => "/assets/images/application/logo.png", :og_title => "Videos | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
