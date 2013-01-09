@@ -16,24 +16,23 @@
 
   -# Left column, main content: Videos, speakers, etc.
   .box.double.left
-    .column_row.divided_row#talks
-    
-      -# Talk list
-      - if @talks.present?
-        .column.column_double#homepage_talks
-          %span.column_header CIW Talks
-          %ul.preview_list.double_rows
-            = render "partials/talks_loop", :talks => @talks
-          = link_to "view all talks →", year_path(@current_year), :class => "view_all blue", :rel => "bookmark", :title => "View all Talks"
-          
-          
-    -# List of speakers          
-    .column_row#speakers
+
+    .column_row.divided_row
       .column.column_double
-        %span.column_header Speakers
-        %ul.preview_list.speaker_list.double_rows
-          = render "partials/speakers_loop", :speakers => @speakers
-        = link_to "view all speakers →", year_speakers_path(@current_year), :class => "view_all blue", :rel => "bookmark", :title => "View all Speakers"
+        %h2= link_to "Talks", videos_path
+        %p CIW Talks are 90-minute sessions that feature 4-6 speakers giving short form talks on topics ranging from the creative process, to healthcare, the military to art, finance, and many others. With the intention to inspire, connect, and help turn attendee’s ideas into action, Talks are a cradle for creativity, originality and inspiration to extend beyond the boundaries of Chicago Ideas Week.
+    .column_row.divided_row
+      .column.column_double
+        %h2= link_to "Megatalks", videos_path
+        %p Megatalks are evening programs taking place during Chicago Ideas Week that feature distinguished and globally recognized speakers. These influential visionaries unite in order to share their genius and inspire Chicagoans and the world. Past topics included: "The Meaning of Life", "Disruptive Innovation", and "Democracy: The State of Our Union." 
+    .column_row.divided_row
+      .column.column_double
+        %h2= link_to "Edison Talks", edison_path
+        %p Edison Talks is an invitation-only, day-long gathering of provocative presentations, performances, and interactive installations held during CIW and led by globally recognized visionaries, created to connect and inspire hundreds of top leaders from across the globe.
+    .column_row.divided_row
+      .column.column_double
+        %h2= link_to "Labs", labs_events_path
+        %p CIW Labs offer exclusive, behind the scenes experiences that give participants a unique glimpse into the inner workings of businesses and institutions that are otherwise unavailable to the public. Small groups will explore what it’s like for business leaders in the boardroom, go behind the curtain at leading theatres and venues, and discover "how-it-works" in hands-on workshops.
 
     
   
