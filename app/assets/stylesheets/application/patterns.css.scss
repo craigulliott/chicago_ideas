@@ -253,6 +253,7 @@
     z-index:4001;
     position: relative;
     margin:0 auto;
+    top:430px;
     
     ul#banner_nav {
       height: 28px;
@@ -261,7 +262,7 @@
       list-style:none;
       padding:0;
       position:absolute;
-      bottom:-415px;
+      bottom:20px;
       right:0;
       
       > li {
