@@ -1,22 +1,27 @@
 = f.inputs do
   = f.input :user
-  = f.input :postcode 
-  = f.input :employed 
-  = f.input :why 
-  = f.input :what 
-  = f.input :availability 
-  = f.input :street_team 
-  = f.input :avail_mon 
-  = f.input :avail_tue 
-  = f.input :avail_wed 
-  = f.input :avail_thu 
-  = f.input :avail_fri 
-  = f.input :avail_sat 
-  = f.input :avail_sun 
-  = f.input :avail_time_1 
-  = f.input :avail_time_2 
-  = f.input :avail_time_3 
-  = f.input :avail_time_4 
-  = f.input :avail_time_5 
-  = f.input :avail_time_6 
-  = f.input :hours 
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :email
+  = f.input :phone
+  = f.input :postcode
+= f.inputs :name => "Student, Work, and Community Organiations that you belong to:", :class => "v_list" do
+  %table
+    %tr
+      %td= f.input :organization_name_1, :label => "Organization"
+      %td= f.input :organization_department_1, :label => "Department"
+      %td= f.input :organization_title_1, :label => "Title"
+    %tr
+      %td= f.input :organization_name_2, :label => "Organization"
+      %td= f.input :organization_department_2, :label => "Department"
+      %td= f.input :organization_title_2, :label => "Title"
+    %tr
+      %td= f.input :organization_name_3, :label => "Organization"
+      %td= f.input :organization_department_3, :label => "Department"
+      %td= f.input :organization_title_3, :label => "Title"
+
+= f.inputs do   
+  = f.input :interests_volunteering, :as => :check_boxes, :collection => ['Leading up to CIW (on projects that can be completed remotely)', 'Leading up to CIW (on projects that are completed in the CIW offices)', 'Leading up to CIW (as an Intern)', 'During Chicago Ideas Week (as an Event Volunteer)'], :label => "I am interested in volunteering (check all that apply):"
+  = f.input :skills, :as => :check_boxes, :collection => ['Copywriting', 'Customer Service', 'Editing', 'Event Planning/Production', 'Excel', 'Fundraising', 'Graphic Design', 'IT', 'Photoshop', 'PowerPoint', 'PR', 'Social Media/Management', 'Software Development', 'Web Design'], :label => "Special Skills (check all that apply):"
+  = f.input :why, :label => "Why are you interested in volunteering?" 
+  = f.input :anything_else, :label => "Is there anything else you would like us to know about?"

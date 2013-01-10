@@ -2,63 +2,80 @@
 -#     speakers/edison.html.haml
 -#     05/21/2012
 
+%section.banner.container-fluid
+  .banner_wrapper{:style => "background: url(#{asset_path "application/project_youth_logo.png"}) top center no-repeat;"}
 
 
--# Begin Main Speaker content
+-# Main Talk content
 %section.container#main_content
-  
-  %img{ :src => "/assets/application/project_youth_logo.png", :rel => "bookmark", :title => "", :width => "1000", :height => "480" }
-  %div#project_youth_info
-    %div
-      %p Chicago Ideas Week is proud to launch <strong>PROJECT YOU(th)</strong>, a platform designed to empower, encourage, and inspire the next generation of leaders.    
 
-      %p PROJECT YOU(th) was founded on the idea that action stems from knowing what's possible.  In connecting PROJECT YOU(th) students with Chicago Ideas Week, we aim to expose students from some of Chicago's most economically-challenged communities with:
+  #page_header
+    = render "partials/share"
 
-      %ol
-        %li Speakers and visionaries who communicate what's possible
-        %li Experiences that are springboards to positive action
-        %li Networking events that unite students with positive adults and role models
+  -# Left column, main content
+  .box.double.left
+
+    
       
-      #high_impact.clearfix
-        %p This year, Chicago Ideas Week has selected over 100 students for PROJECT YOU(th) from the following high-impact programs:
+    .talk_gallery
+      = image_tag("/assets/application/2012_project_youth/py1.jpg")
+      = image_tag("/assets/application/2012_project_youth/py2.jpg")
+      = image_tag("/assets/application/2012_project_youth/py3.jpg")
+      = image_tag("/assets/application/2012_project_youth/py4.jpg")
+      = image_tag("/assets/application/2012_project_youth/py5.jpg")
+      = image_tag("/assets/application/2012_project_youth/py6.jpg")
+      = image_tag("/assets/application/2012_project_youth/py7.jpg")
+      = image_tag("/assets/application/2012_project_youth/py8.jpg")
+    
+    .column_row.divided_row
+      .column.column_double  
+        %p 
+          %strong PROJECT YOU(th) 
+          is a platform designed to empower, encourage, and inspire the next generation of leaders. PROJECT YOU(th) was founded on the idea that action stems from knowing what's possible. In connecting PROJECT YOU(th) students with Chicago Ideas Week, we aim to expose students from some of Chicago's most economically-challenged communities with:
+        
+        %ol
+          %li Speakers and visionaries who communicate what's possible
+          %li Experiences that are springboards to positive action
+          %li Networking events that unite students with positive adults and role models
+      
+        
+    .column_row.divided_row
+      .column.column_double.quote
+        %span.column_header Student Testamonials
+        %p "I feel the love in the room... It's making me think, 'Alright, I'm a young kid, I have so much time to live, I have so many things to do, why don't I start right now to help the people around who need help?'"
+        %span.by_line -- Paul Ukaegbu, 17, Epic Academy
+        
+        %p "This was a no-brainer…Our kids have just soaked up all the incredible, innovative, amazing ideas from the speakers from around the world."  
+        %span.by_line -- Matthew King, executive director, Epic Academy
+        
+        
+    
+    .column_row.divided_row
+      .column.column_double
+        %span.column_header DIGITAL 'ZINE CREATED BY YOUMEDIA CHICAGO
+        
+        %p 
+          = link_to "Check out the Digital 'Zine,", "https://projeqt.com/youmediachicago/youlit-magazine-think-out-loud-edition/1/l", :target => "_blank"
+          a youth-led and produced digital magazine of Chicago Ideas Week 2012, with behind-the-scenes featurettes and speakers interviews. The digital 'zine was created by teens at YOUmedia Chicago @ Harold Washington Library Center. 
+        
+    .column_row.divided_row
+      .column.column_double    
+        %span.column_header Questions?
         %p
-          %strong= link_to "EPIC Academy", "http://www.epicacademy.org/", :target => "_blank"
-          %strong= link_to "Global Citizenship Experience", "http://www.globalcitizenshipexperience.com/", :target => "_blank"
-          %strong= link_to "EMBARC", "http://www.embarcchicago.org/", :target => "_blank"
-          %strong= link_to "Future Founders Foundation", "http://futurefounders.com/", :target => "_blank"
-          %strong= link_to "YOUmedia Chicago", "http://youmediachicago.org/", :target => "_blank"
-      
-    %div
-      %p Throughout Chicago Ideas Week, PROJECT YOU(th) students will participate in:
+          For more information on how to contribute to PROJECT YOU(th), please contact
+          = link_to "info@chicagoideas.com.", "mailto:info@chicagoideas.com"
+        
 
-      %ul
-        %li
-          %strong= link_to "Edison Talks:", "/edison"
-          joining 900 of the country’s top executives, philanthropists, scientists, entrepreneurs, artists and innovators for a daylong gathering of provocative presentations and interactive performances 
-        %li 
-          %strong Youth Labs:
-           behind-the-scenes workshops and all-access tours at Chicago hot-spots, including 
-          = link_to "1871", "/events/155"
-          and 
-          = link_to "Nokia", "/events/154"
-        %li 
-          %strong Digital 'Zine: 
-          a youth-led and produced digital magazine of Chicago Ideas Week 2012, with behind-the-scenes featurettes and speakers interviews
+    
       
-      %p
-        %strong
-          For more information on how to contribute to PROJECT YOU(th) or to apply, please contact 
-          = link_to "patricia@chicagoideas.com.", "mailto:patricia@chicagoideas.com"
-    
-    
-  %div.column_three.clearfix
-    %div.column
-      .box.right
-        = link_to image_tag("/assets/application/project_youth_sponsor.png"), "http://www.cct.org/", :width => "300", :height => "239", :target => "_blank"
-    %div.column
-      %div.column
-      = render "partials/sponsors"
-    
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"
+
+
         
 
     

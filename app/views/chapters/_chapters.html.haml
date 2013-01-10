@@ -4,18 +4,18 @@
 -#    this to set some extra details before looping over
 -#    all the items, including column width, paginate...
 
-.box.double.left
-  .column_row#chapters
-    .column.column_double
-      %span.column_header 
-        Videos
-        %a{:class => "model_search_btn expandable_search", :href => "#"} search videos
+
+.column_row#chapters
+  .column.column_double
+    %span.column_header 
+      Videos
+      %a{:class => "model_search_btn expandable_search", :href => "#"} search videos
       
-      = render "partials/search", :model => "videos"
+    = render "partials/search", :model => "videos"
       
-      %ul.preview_list.double_rows
-        -if params[:page].nil? || params[:page] == "1"
-          = render "partials/chapters_loop", :chapters => top2
-        = render "partials/chapters_loop", :chapters => chapters
-    -if do_paginate == true
-      = paginate chapters
+    %ul.preview_list.double_rows
+      -if params[:page].nil? || params[:page] == "1"
+        = render "partials/chapters_loop", :chapters => top2
+      = render "partials/chapters_loop", :chapters => chapters
+  -if do_paginate == true
+    = paginate chapters

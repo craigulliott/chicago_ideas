@@ -89,7 +89,8 @@ class User < ActiveRecord::Base
     record.twitter_screen_name = record.twitter_screen_name[1..9999] if record.twitter_screen_name.present? && record.twitter_screen_name[0] == '@'
     
     # generate an availiable and sensible permalink (unless one already exists)
-    unless record.permalink.present?
+    #unless record.permalink.present?
+    if not record.permalink.present? and name.present?
       permalink = name.gsub(' ', '_').gsub(/[^\w\d_]/, '').downcase
       # if it already exists, then add a number
       i = nil

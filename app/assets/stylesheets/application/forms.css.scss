@@ -366,6 +366,22 @@ li.s_links {
   }
 }
 
+#volunteer_form {
+  fieldset.v_list {
+    table {
+      td + td {
+        padding-left:1em;
+      }
+    }
+    li.choice {
+      margin-bottom:5px !important;
+      label {
+       font-weight:normal;
+      }
+    }
+  }
+}
+
 fieldset.buttons {
   margin: 20px 0 0 0; 
   display: block;

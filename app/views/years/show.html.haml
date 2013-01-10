@@ -4,36 +4,18 @@
 
 
 %section.banner.container-fluid
-  .banner_wrapper{:style => "background: url(#{asset_path "application/upcoming_ciw_banner.jpg"}) top center no-repeat;"}
+  .banner_wrapper{:style => "background: url(#{asset_path "application/temp/speaker_landing_banner.jpg"}) top center no-repeat;"}
 
 
 -# Main Talk content
 %section.container#main_content
 
   #intro
-    %h1 CIW 2012: October 8 - 14, 2012
+    %h1 CIW 2013: October 14 - 20, 2013
   
-  - if @speakers
-    #page_header.current_year_header
-      .down_arrow
-      %span.blue_header Meet the CIW 2012 Speakers (more to come!)
-      %ul.preview_list.speaker_list.horizontal_list
-        - @speakers.each do |speaker|
-          %li{:id => "speaker_#{speaker.id}", :class => "speaker_#{speaker.id}"}
-            .img_frame
-              = link_to image_tag(speaker.portrait(:thumb)), speaker_path(speaker), :rel => "bookmark", :title => "#{speaker.name}"
-            = link_to speaker.name, speaker_path(speaker), :rel => "bookmark", :title => "#{speaker.name}"
-            %span= speaker.title_abbreviated
-      .clearfix
-      %center
-        = link_to "view more speakers →", year_speakers_path(@current_year)
-        
-        
-  -# Left column, main content: About Us information
+  -# Left column, main content: 
   
-  .theme_arrow_container
-    %span.blue_header Check out all of this year’s themes!
-    .theme_arrow
+  
   .box.double.left
     .column_row.divided_row
       .column.column_double

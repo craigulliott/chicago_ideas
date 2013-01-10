@@ -29,8 +29,6 @@ class EventsController < ApplicationController
     if params[:year_id].present?
       @year_id = params[:year_id].to_i
       @labs = EventBrand.find_by_name("Lab").events.joins(:day).where("days.year_id = '#{@year_id}'").order('name ASC')
-    else
-      @labs = EventBrand.find_by_name("Lab").events.current.order('name ASC')
     end
     
     @event_photos = EventPhoto.joins(:event).where('events.event_brand_id = 1').order('RAND()').limit(10)
