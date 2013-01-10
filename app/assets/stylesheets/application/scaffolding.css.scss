@@ -178,16 +178,16 @@ ul#global_nav {
   } // end li
   
   li#gn_logo {
-    width: 160px;
-    height: 124px;
+    width: 162px;
+    height: 114px;
     padding: 0;
     
     > h1 a {
       display: block;
-      width: 160px;
-      height: 124px;
+      width: 162px;
+      height: 114px;
       background: asset-url('application/site_sprite.png', image) no-repeat !important;
-      background-position: -300px 0 !important;
+      background-position: -488px 0 !important;
       text-indent: -9999px;
     }
   } // end li#gn_logo
@@ -302,7 +302,7 @@ ul#global_nav {
     background: #1e1b1b asset-url('application/dropdown_gradient.png', image) top left repeat-x;
     width: 200px;
     padding: 30px;
-    margin-left: -19px;
+    margin-left: -15px;
     z-index: 3001 !important;
     border-bottom-right-radius: 5px;
     -webkit-border-bottom-right-radius: 5px;

@@ -1,0 +1,45 @@
+-#     Chicago Ideas Week
+-#     application/artist_in_residence.html.haml
+-#     01/02/2013
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span Media Partners
+       
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Media Partners
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+    .column_row#labs_intro
+      .column.column_double
+        - if @media_partners_level.sponsors.present?
+          %ul.sponsors_list
+            - @media_partners_level.sponsors.each do |s|
+              %li
+                - if s.url.present?
+                  = link_to image_tag(s.logo), s.url, :alt => s.name
+                - else
+                  = image_tag(s.logo, :alt => s.name)
+      
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

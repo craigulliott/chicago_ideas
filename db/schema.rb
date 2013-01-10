@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121008205831) do
+ActiveRecord::Schema.define(:version => 20121211135754) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -693,7 +693,7 @@ ActiveRecord::Schema.define(:version => 20121008205831) do
     t.string   "email",                       :null => false
     t.string   "zip_code"
     t.boolean  "interested_in_promoting"
-    t.string   "type_of_position",            :null => false
+    t.string   "type_of_position"
     t.string   "specific_event_interest"
     t.boolean  "interested_in_youth_program"
     t.text     "anything_else"
@@ -701,6 +701,17 @@ ActiveRecord::Schema.define(:version => 20121008205831) do
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
+    t.string   "organization_name_1"
+    t.string   "organization_department_1"
+    t.string   "organization_title_1"
+    t.string   "organization_name_2"
+    t.string   "organization_department_2"
+    t.string   "organization_title_2"
+    t.string   "organization_name_3"
+    t.string   "organization_department_3"
+    t.string   "organization_title_3"
+    t.text     "interests_volunteering"
+    t.text     "skills"
   end
 
   add_index "volunteers", ["user_id"], :name => "index_volunteers_on_user_id"

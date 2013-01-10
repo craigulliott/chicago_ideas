@@ -62,13 +62,15 @@ CraigsAdmin::Application.routes.draw do
 
   # news about CIW
   resources :press_clippings, :only => [:index, :show]
-  
+  match 'press_releases', :to => 'press_clippings#releases'
+  match 'newsroom', :to => 'press_clippings#newsroom'
 
   # sponsors and partners
   # ----------------------------------------------------------------
   resources :sponsors, :only => [:index]
   resources :partners, :only => [:index, :apply]
   match 'partners/apply', :to => 'partners#apply', :as => 'partners_apply'
+  match 'sponsors/media_partners', :to => 'sponsors#media_partners'
 
   # users
   # ----------------------------------------------------------------
@@ -120,6 +122,10 @@ CraigsAdmin::Application.routes.draw do
     match 'events/labs', :to => 'events#labs'
     match 'events/partner_programs', :to => 'events#partner_programs'
     match 'events/affiliate_event', :to => 'events#affiliate_event'
+    match 'videos', :to => 'chapters#index'
+    match 'videos/edison', :to => 'chapters#edison'
+    match 'press_clippings', :to => 'press_clippings#index'
+    match 'press_releases', :to => 'press_clippings#releases'
     match 'schedule', :to => 'schedule#index'
     match ':month_id/:day_id/schedule', :to => 'schedule#index'
     match 'members', :to => 'members#index'
@@ -164,9 +170,14 @@ CraigsAdmin::Application.routes.draw do
   # Static Pages
   match 'livestream', :to => 'application#livestream'
   match 'about', :to => 'application#about'
+  match 'mission', :to => 'application#mission'
+  match 'programs', :to => 'application#programs'
+  match 'impact', :to => 'application#impact'
   match 'member_program', :to => 'application#member_program'
   match 'artist', :to => 'application#artist'
   match 'faq', :to => 'application#faq'
+  match 'whatifchicago', :to => 'application#whatifchicago'
+  match 'support', :to => 'application#support'
   #match 'badge', :to => 'application#badge'
   match 'speaker/recommend_speaker', :to => 'users#recommend_speaker', :as => 'recommend_speaker'
   match 'special_programs', :to => 'application#special_programs_awards'
@@ -228,6 +239,7 @@ CraigsAdmin::Application.routes.draw do
   # all videos are of chapters, so pass to the chapter controller
   match 'videos', :to => 'chapters#index'
   match 'videos/:id', :to => 'chapters#show', :as => "video"
+  
   
   match 'events/partner_programs/:id', :to => 'events#partner_programs', :as => 'partner_program'
   

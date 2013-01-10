@@ -1,0 +1,88 @@
+-#     Chicago Ideas Week
+-#     application/support.html.haml
+-#     01/04/2013
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span Become a Supporter
+       
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 Become a Supporter
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+
+    .talk_gallery
+      = image_tag("/assets/application/support/support1.jpg")
+      = image_tag("/assets/application/support/support2.jpg")
+      = image_tag("/assets/application/support/support3.jpg")
+      = image_tag("/assets/application/support/support4.jpg")
+      = image_tag("/assets/application/support/support5.jpg")
+      = image_tag("/assets/application/support/support6.jpg")
+      = image_tag("/assets/application/support/support7.jpg")
+
+    -#  introduction
+    .column_row.divided_row
+      .column.column_double
+        %p{:style => "text-align:center"}
+          %a.btn.blue_btn{:style => "font-size:14px;", :href => "/files/CIW_AnnualReport_FINAL.pdf", :target => "_blank"}
+            View our 2012 Annual Report
+            
+        %p Thanks to the annual support of our sponsors, Chicago Ideas Week continues to deliver on our core mission of turning ideas into actionable results.  Sponsorship levels range from $50,000 - $2,000,000.
+    
+        %p Hear what our sponsors, speakers and attendees have to say about CIW:
+        
+        %iframe{:width => "640", :height => "360", :src => "http://www.youtube.com/embed/6W6Gsh809vM", :frameborder => "0", :allowfullscreen => true}
+        
+    .column_row.divided_row
+      .column.column_double      
+        %span.column_header 2012 Partner Testimonials
+        
+        %p 
+          "Chicago Ideas Week is a way to bring a lot of energy and ideas and discussion around major topics most affecting the city, the country and global issues. It brings people into the city and it keeps that conversation going."
+          %span{:style => "display:block;"} &mdash;Rahm Emanuel, Mayor, City of Chicago 
+
+        %p 
+          "They provoke a discussion around new solutions, new ideas, new horizons, for every sector of society all the way from the private sector to the public sector and everybody in between."
+          %span{:style => "display:block;"} &mdash;Glenn Tilton, Chairman of the Midwest, J.P. Morgan and Chase
+         
+        %p 
+          "My favorite part of Chicago Ideas Week is I get to meet really fascinating people and talk to them in a way that doesn't exist in a sort of normal environment.  It's a much more intensified environment...The power of Chicago Ideas Week and the most fun part for me is to interact with the people who are here."  
+          %span{:style => "display:block;"} &mdash;Rick Stengel, Managing Editor, TIME
+
+        %p 
+          "I think partnering with Chicago Ideas Week sends a very simple, but focused message, which is that creativity is the fuel for modern life. Human beings coming together to have an intelligent, creative discourse adds value and energy and inspiration to our world." 
+          %span{:style => "display:block;"} &mdash;Rich Stoddart, President, Leo Burnett North America  
+         
+        %p 
+          "It's an invaluable experience... We absolutely encourage employees to come here, because they are going to hear things and understand things and have conversations that are so far out of the realm of their daily existence. It makes them smarter, it makes them more experienced, better at what they do in theirday-to-day lives." 
+          %span{:style => "display:block;"} &mdash;Matt Maloney, CEO, GrubHub 
+    
+    .column_row.divided_row
+      .column.column_double      
+        %span.column_header Connect with Us
+      
+        %p 
+          To learn more about sponsorship of Chicago Ideas Week, contact Leah Marshall, Director of Development, at 
+          = link_to "leah@chicagoideas.com.", "mailto:leah@chicagoideas.com"
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

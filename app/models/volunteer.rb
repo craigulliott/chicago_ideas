@@ -10,17 +10,54 @@ class Volunteer < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   
-  validates :hours, :presence => true
   validates :user_id, :presence => true
   validates :first_name, :presence => true
   validates :last_name, :presence => true
-  validates :type_of_position, :presence => true
   validates :email, :presence => true
   validates :phone, :presence => true
-  validates :why, :presence => true
-  validates :what, :presence => true
-  validates :availability, :presence => true
+  validates :organization_name_1, :presence => true
+  validates :organization_department_1, :presence => true
+  validates :organization_title_1, :presence => true
+  validates :organization_name_2, :presence => true
+  validates :organization_department_2, :presence => true
+  validates :organization_title_2, :presence => true
+  validates :organization_name_3, :presence => true
+  validates :organization_department_3, :presence => true
+  validates :organization_title_3, :presence => true
+  validates :interests_volunteering, :presence => true
+  validates :skills, :presence => true
+  validates :why, :presence => true, :length => {
+    :maximum   => 500,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :anything_else, :length => {
+    :maximum   => 500,
+    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :too_long  => "must be less than %{count} words"
+  }
   
+  validate :validate_interests_volunteering
+  validate :validate_skills
+  
+  def validate_interests_volunteering
+    self.interests_volunteering.reject! { |et| et.empty? }  # need to remove empty string
+    if self.interests_volunteering.length < 1
+      self.errors.add('interests_volunteering', 'please select at least one')
+    end
+  end
+  
+  def validate_skills
+    self.skills.reject! { |et| et.empty? }  # need to remove empty string
+    if self.skills.length < 1
+      self.errors.add('skills', 'please select at least one')
+    end
+  end
+  
+  before_create {|record|
+    record.interests_volunteering = record.interests_volunteering.join(', ') # convert array to a string for saving
+    record.skills = record.skills.join(', ') # convert array to a string for saving
+  }
   
   # the hash representing this model that is returned by the api
   def api_attributes
@@ -52,11 +89,11 @@ class Volunteer < ActiveRecord::Base
   end
   
   def self.csv_columns   # class method
-    ['First Name', 'Last Name', 'Email', 'Phone', 'Post Code']
+    ['First Name', 'Last Name', 'Email', 'Phone', 'Post Code', 'Special Skills']
   end
   
   def csv_attributes
-    [get_first_name, get_last_name, get_email, get_phone, postcode]
+    [get_first_name, get_last_name, get_email, get_phone, postcode, skills]
   end
   
   def get_first_name

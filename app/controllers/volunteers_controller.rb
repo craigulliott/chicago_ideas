@@ -2,6 +2,10 @@ class VolunteersController < ApplicationController
 
   before_filter :authenticate_user!, :only => [:create]
 
+  def index
+    redirect_to new_volunteer_path
+  end
+
   def new
     @meta_data = {:page_title => "Volunteer for CIW", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Volunteer for CIW | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     if current_user and current_user.volunteer.present?
@@ -10,7 +14,7 @@ class VolunteersController < ApplicationController
     elsif current_user
       @volunteer = current_user.build_volunteer
     else
-      redirect_to new_user_registration_path, :notice => 'To apply as a Volunteer, please first create an account or log in.' 
+      redirect_to new_user_session_path, :notice => 'Once you sign in, you will be able to submit a brief volunteer application form.'
     end
   end
   

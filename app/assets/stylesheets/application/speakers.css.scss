@@ -166,6 +166,10 @@ body.list_edison_speakers {
 				p {
 					font-size:14px;
 				}
+				
+				p + p {
+				 	margin-top:1.3em;
+				}
 			}
 			
 			div#edison_talks_application {

@@ -1,0 +1,49 @@
+-#     Chicago Ideas Week
+-#     application/artist_in_residence.html.haml
+-#     01/02/2013
+
+
+-# Breadcrumbs and Explore button
+%section#header_toolbar.container-fluid
+  .container
+    #breadcrumbs
+      %ul
+        %li= link_to "Home", "/"
+        %li
+          %span #WhatIfChicago
+       
+
+
+
+-# Main content
+%section.container#main_content
+
+  #page_header
+    #page_title.left
+      %h1 #WhatIfChicago
+    = render "partials/share"
+
+  -# Left column, main content
+  .box.double.left
+
+    .talk_gallery
+      = image_tag("/assets/application/2012_whatifchicago/wic1.jpg")
+      = image_tag("/assets/application/2012_whatifchicago/wic2.jpg")
+      = image_tag("/assets/application/2012_whatifchicago/wic3.jpg")
+      = image_tag("/assets/application/2012_whatifchicago/wic4.jpg")
+      = image_tag("/assets/application/2012_whatifchicago/wic5.jpg")
+      = image_tag("/assets/application/2012_whatifchicago/wic6.jpg")
+
+    -# WhatIfChicago introduction
+    .column_row
+      .column.column_double
+        %p One of our 2012 landmark innovations was the #WhatIfChicago campaign, a collaboration between CIW and Leo Burnett to crows source solutions to get illegal guns off the streets after Chicago's homicide rate reached an all-time high. The Leo Burnett and Starcom teams spearheaded the venture's promotion throughout the city, working tirelessly on branding and raising awareness.
+        %p CIW's #WhatIfChicago culminated in an event of its own, consisting of a panel of individuals focused on the illegal gun issue. Several of the Twitter suggestions were discussed among the panelists, which included Chicago Police Superintendent Garry McCarthy. The sold-out event sparked deep conversations and connected the city both virtually and physically to improve the status quo.
+        %p The #WhatIfChicago campaign drew 187 articles and more than 407 million media impressions. Additionally, wire coverage like that of The Associated Press was picked up by publications across the country. Just two days after launching the #WhatIfChicago campaign, Philadelphia launched a similar movement: the “#phillypeaceplan.” As the weeks went on, celebrities ranging from Destiny's Child's Michelle Williams to Russell Simmons to Lupe Fiasco tweeted about the Chicago crowdsourcing project.
+
+
+  -# Include Sidebar Items
+  #sidebar
+    = render "partials/sponsors"
+    = render "partials/social"
+    = render "partials/newsletter_form"

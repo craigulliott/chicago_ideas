@@ -25,37 +25,36 @@
         
         .form_section.noborder
           = semantic_form_for(@volunteer) do |f|
-            = f.inputs :name => "#{current_user.name} volunteer application", :class => "v_list" do
+            = f.inputs :name => "", :class => "v_list" do
               = f.input :first_name, :label => "First Name"
               = f.input :last_name, :label => "Last Name"
               = f.input :email, :label => "Email Address"
               = f.input :phone, :label => "Phone Number"            
               = f.input :postcode 
-              = f.input :employed, :label => "Are you currently employed?" 
-              = f.input :why, :label => "Why are you interested in volunteering?" 
-              = f.input :what, :label => "What specific areas of expertise/experience do you have?" 
-              = f.input :availability, :label => "What is your availability leading up to CIW?" 
-              = f.input :street_team, :label => "Are you interested in volunteering on the CIW Event Promotion / Street Team?"
-            = f.inputs :name => "Which days during the week of CIW are you available?", :class => "c_list v_lists" do
-              = f.input :avail_mon, :label => "Monday"
-              = f.input :avail_tue, :label => "Tuesday"
-              = f.input :avail_wed, :label => "Wednesday"
-              = f.input :avail_thu, :label => "Thursday"
-              = f.input :avail_fri, :label => "Friday"
-              = f.input :avail_sat, :label => "Saturday"
-              = f.input :avail_sun, :label => "Sunday"
-            = f.inputs :name => "What times during the week of CIW are you available?", :class => "c_list v_lists" do
-              = f.input :avail_time_1, :label => "8am - 1pm"
-              = f.input :avail_time_2, :label => "10am - 3pm"
-              = f.input :avail_time_3, :label => "12am - 5pm"
-              = f.input :avail_time_4, :label => "2pm - 7pm"
-              = f.input :avail_time_5, :label => "4pm - 9pm"
-              = f.input :avail_time_6, :label => "6pm - 11pm"
-              = f.input :hours, :as => :select, :collection => ['1 - 3','2 - 5','5 - 10','10 - 25','25 - 40','I don\'t know'] 
+            
+            = f.inputs :name => "Student, Work, and Community Organiations that you belong to:", :class => "v_list" do
+              %table
+                %tr
+                  %td= f.input :organization_name_1, :label => "Organization"
+                  %td= f.input :organization_department_1, :label => "Department"
+                  %td= f.input :organization_title_1, :label => "Title"
+                %tr
+                  %td= f.input :organization_name_2, :label => "Organization"
+                  %td= f.input :organization_department_2, :label => "Department"
+                  %td= f.input :organization_title_2, :label => "Title"
+                %tr
+                  %td= f.input :organization_name_3, :label => "Organization"
+                  %td= f.input :organization_department_3, :label => "Department"
+                  %td= f.input :organization_title_3, :label => "Title"
+            
+            = f.inputs :name => "", :class => "v_list" do
+              = f.input :interests_volunteering, :as => :check_boxes, :collection => ['Leading up to CIW (on projects that can be completed remotely)', 'Leading up to CIW (on projects that are completed in the CIW offices)', 'Leading up to CIW (as an Intern)', 'During Chicago Ideas Week (as an Event Volunteer)'], :label => "I am interested in volunteering (check all that apply):"
+            
+            = f.inputs :name => "", :class => "v_list" do
+              = f.input :skills, :as => :check_boxes, :collection => ['Copywriting', 'Customer Service', 'Editing', 'Event Planning/Production', 'Excel', 'Fundraising', 'Graphic Design', 'IT', 'Photoshop', 'PowerPoint', 'PR', 'Social Media/Management', 'Software Development', 'Web Design'], :label => "Special Skills (check all that apply):"
+           
             = f.inputs :class => "v_lists" do 
-              = f.input :type_of_position, :label => "What type of position are you interested in?", :as => :select, :collection => ['Customer Service', 'Graphic Design', 'Logistics', 'Registration', 'Ushering', 'Other']
-              = f.input :specific_event_interest, :label => "Are you interested in specific events during the week?"
-              = f.input :interested_in_youth_program, :label => "Are you interested in volunteering for our CIW Youth program?"
+              = f.input :why, :label => "Why are you interested in volunteering?" 
               = f.input :anything_else, :label => "Is there anything else you would like us to know about?"
               
               = f.buttons do
