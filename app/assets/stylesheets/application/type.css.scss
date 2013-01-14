@@ -103,24 +103,46 @@ span.expired_date {
  *  Homepage Introduction
 ******************************************************/
 #intro {
-  display: block;
-  width: 100%;
-  margin: 0 0 35px 0;
-  text-align: center;
-  text-shadow: 1px 1px 1px #fff;
 
-  h1 {
-    font-size: 51px;
-    line-height: 55px;
-    color: $dark;
-    display: block;
-    margin-bottom: 15px;
+  .column {
+    width:320px;
   }
-  span {
-    font-size: 23px;
-    color: $grey;
-    display: block;
-    line-height: 31px;
+ 
+  .column_full {
+    width:960px;
+    img {
+	    float:left;
+	    padding-right:20px;
+	    padding-bottom:20px;
+    }
+    
+    .intro_content {
+	    width:440px;
+	    float:right;
+    }
+
+    h1 {
+	    font-size: 30px;
+	    line-height: 32px;
+	    color: $dark;
+	    display: block;
+	    margin-bottom: 15px;
+	    text-align:center;
+    }
+    span {
+	    font-size: 14px;
+	    color: $grey;
+	    display: block;
+	    line-height: 20px;
+    }
+    
+    span + span {
+    	margin-top:8px;
+    }
+  
+  
+  
+    
   }
 }
 
