@@ -106,15 +106,16 @@ span.expired_date {
 
   .column {
     width:320px;
+    
+    img {
+	  display: block;
+    }
+    
   }
  
   .column_full {
     width:960px;
-    img {
-	    float:left;
-	    padding-right:20px;
-	    padding-bottom:20px;
-    }
+    
     
     .intro_content {
 	    width:440px;
@@ -142,7 +143,25 @@ span.expired_date {
   
   
   
-    
+
+  }
+  
+  .column_left {
+    img {
+      float:left;
+    }
+  }
+  
+  .column_middle {
+    img {
+      margin:0 auto;
+    }
+  }
+  
+  .column_right {
+    img {
+      float:right;
+    }
   }
 }
 
