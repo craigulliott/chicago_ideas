@@ -24,7 +24,7 @@
           %li= link_to "Contact", contact_path, :rel => "bookmark", :title => "Contact"
     
     %li#gn_videos
-      = link_to "Videos", videos_path, :rel => "bookmark", :title => "View all CIW Talks Videos"
+      = link_to "Videos", year_videos_path(@current_year), :rel => "bookmark", :title => "View all CIW Talks Videos"
     
     %li#gn_edison_talks
       = link_to "Edison Talks", edison_path, :title => "Edison Talks"

@@ -6,21 +6,23 @@ class ChaptersController < ApplicationController
   def index
     # Nice little hack for the CIW girls b/c they wanted these two items featured a the very beginning of the list
     
+    @top2 = []
     if params[:year_id].present?
       @year_id = params[:year_id].to_i
       @chapters = Chapter.joins(:talk => [:day]).where("days.year_id = :year_id AND vimeo_id IS NOT NULL", {:year_id => @year_id}).search_sort_paginate(params)
       @featured = Chapter.joins(:talk => [:day]).where("days.year_id = :year_id AND vimeo_id IS NOT NULL", {:year_id => @year_id}).find_all_by_featured_on_talk('1')
+      
+      if @year_id == 2011
+        @top2 = Chapter.where("id=69 OR id=67");
+      end
     else
-      @chapters = Chapter.where("vimeo_id IS NOT NULL").search_sort_paginate(params)
-      @featured = Chapter.where("vimeo_id IS NOT NULL").find_all_by_featured_on_talk('1')
+      redirect_to year_videos_path(@current_year)
     end
-    @top2 = Chapter.where("id=69 OR id=67");
     @meta_data = {:page_title => "Videos", :og_image => "/assets/images/application/logo.png", :og_title => "Videos | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
   end
   
   def current
     # Nice little hack for the CIW girls b/c they wanted these two items featured a the very beginning of the list
-    #@top2 = Chapter.where("id=69 OR id=67");
     @chapters = Chapter.current.search_sort_paginate(params);
     @featured = Chapter.find_all_by_featured_on_talk('1')
     @meta_data = {:page_title => "Videos", :og_image => "/assets/images/application/logo.png", :og_title => "Videos | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
