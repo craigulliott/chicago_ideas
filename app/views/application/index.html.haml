@@ -14,25 +14,34 @@
   .box.full.left#intro
 
     .column_row.divided_row
-      .column.column_full
+      .column.column_full{:style => "position:relative;"}
         
         %h1 Welcome to Chicago Ideas Week
-        %p Chicago Ideas Week brings together hundreds of the world’s brightest thought leaders to inspire, connect and activate the city of Chicago and the world. Since 2010, CIW has become a global hub for new ideas, an ecosystem for innovation and a playground of intellectual recreation. Join us.
+        %h6 Chicago Ideas Week brings together hundreds of the world’s brightest thought leaders to inspire, connect and activate the city of Chicago and the world. Since 2010, CIW has become a global hub for new ideas, an ecosystem for innovation and a playground of intellectual recreation. Join us.
+        %h6 Chicago Ideas Week programming ranges from intimate, hands-on Labs to large-scale Talks featuring globally-recognized speakers.  Join us for:
         
-        %span
-          %strong= link_to "TALKS:", videos_path 
-          90-minute sessions focused on a single theme (ie: architecture, design, technology)
-        %span
-          %strong= link_to "LABS:", labs_events_path
-          Behind-the-scenes experiences at Chicago’s leading businesses and institutions
-        %span
-          %strong= link_to "EDISON TALKS:", edison_path 
-          Invitation-only daylong gathering of provocative presentations and performances
-        %span
-          %strong MASTERCLASS: 
-          Dynamic dialogues featuring two industry leaders exploring opposing perspectives
+        %table
+          %tr
+            %td
+              %p
+                %strong= link_to "TALKS:", videos_path 
+                90-minute sessions focused on a single theme (ie: architecture, design, technology)
+            
+            %td
+              %p
+                %strong= link_to "EDISON TALKS:", edison_path 
+                Invitation-only daylong gathering of provocative presentations and performances
+          %tr
+            %td
+              %p
+                %strong= link_to "LABS:", labs_events_path
+                Behind-the-scenes experiences at Chicago’s leading businesses and institutions
+            %td
+              %p
+                %strong MASTERCLASS: 
+                Dynamic dialogues featuring two industry leaders exploring opposing perspectives
         
-        %p{:style => "text-align:right;"}
+        %p{:style => "position:absolute;right:0;padding:4px 20px;background:#fff;bottom:-35px;"}
           = link_to "Learn more about our programs →", programs_path
         
         

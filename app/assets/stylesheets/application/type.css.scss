@@ -128,24 +128,42 @@ span.expired_date {
 	    color: $dark;
 	    display: block;
 	    margin-bottom: 15px;
+	    text-transform:uppercase;
+	    text-align:center;
 	   
     }
-    span {
-	    font-size: 14px;
-	    color: $grey;
-	    display: block;
-	    line-height: 20px;
-	    
-	    a {
-	      color:$grey;
-	      
-	    }
-	    
-	    a:hover {
-	      text-decoration:underline;
-	    }
+    
+    h6 {
+      font-weight:normal;
+      color:#000;
+      font-size:18px;
+      line-height:30px;
+      margin-bottom:15px;
     }
     
+    td {
+      padding-bottom:15px;
+      
+      p {
+	      font-size: 14px;
+	      color: #333;
+	      display: block;
+	      line-height: 22px;
+	      
+	      a {
+	        color:#000;
+	        
+	      }
+	      
+	      a:hover {
+	        text-decoration:underline;
+	      }
+      }
+    }
+    
+    td + td {
+      padding-left:20px;
+    }
     span + span {
     	margin-top:8px;
     }
