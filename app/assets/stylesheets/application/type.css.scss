@@ -177,6 +177,10 @@ span.expired_date {
     img {
       float:left;
     }
+    
+    p {
+      clear:left;
+    }
   }
   
   .column_middle {
@@ -188,6 +192,10 @@ span.expired_date {
   .column_right {
     img {
       float:right;
+    }
+    
+    p {
+      clear:right;
     }
   }
 }
