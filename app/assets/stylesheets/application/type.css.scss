@@ -135,6 +135,15 @@ span.expired_date {
 	    color: $grey;
 	    display: block;
 	    line-height: 20px;
+	    
+	    a {
+	      color:$grey;
+	      
+	    }
+	    
+	    a:hover {
+	      text-decoration:underline;
+	    }
     }
     
     span + span {

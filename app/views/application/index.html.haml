@@ -20,25 +20,22 @@
         %p Chicago Ideas Week brings together hundreds of the world’s brightest thought leaders to inspire, connect and activate the city of Chicago and the world. Since 2010, CIW has become a global hub for new ideas, an ecosystem for innovation and a playground of intellectual recreation. Join us.
         
         %span
-          %strong TALKS: 
+          %strong= link_to "TALKS:", videos_path 
           90-minute sessions focused on a single theme (ie: architecture, design, technology)
         %span
-          %strong LABS: 
+          %strong= link_to "LABS:", labs_events_path
           Behind-the-scenes experiences at Chicago’s leading businesses and institutions
         %span
-          %strong EDISON TALKS: 
-          Daylong gathering of provocative presentations for a highly curated audience
+          %strong= link_to "EDISON TALKS:", edison_path 
+          Invitation-only daylong gathering of provocative presentations and performances
         %span
           %strong MASTERCLASS: 
-          Dynamic dialogs featuring two industry leaders exploring opposing perspectives
-        %span
-          %strong RECEPTIONS: 
-          Intimate gatherings for speakers and attendees to engage and connect
+          Dynamic dialogues featuring two industry leaders exploring opposing perspectives
         
         %p{:style => "text-align:right;"}
           = link_to "Learn more about our programs →", programs_path
         
-        = image_tag('application/homepage/photo1.jpg', :width => "1000px", :height => "450px")
+        
             
     .column_row
       .column.column_left
