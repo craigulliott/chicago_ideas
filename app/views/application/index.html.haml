@@ -9,34 +9,69 @@
 
 %section.container#main_content
   
-  -# Introduction
-  #intro
-    %h1 Welcome to the Ideasphere
-    %span For one week each October, CIW transforms Chicago into the global hub for new ideas, an ecosystem of innovation and a playground of intellectual recreation
-
+  
   -# Left column, main content: Videos, speakers, etc.
-  .box.double.left
+  .box.full.left#intro
 
     .column_row.divided_row
-      .column.column_double
-        %h2= link_to "Talks", videos_path
-        %p CIW Talks are 90-minute sessions that feature 4-6 speakers giving short form talks on topics ranging from the creative process, to healthcare, the military to art, finance, and many others. With the intention to inspire, connect, and help turn attendee’s ideas into action, Talks are a cradle for creativity, originality and inspiration to extend beyond the boundaries of Chicago Ideas Week.
-    .column_row.divided_row
-      .column.column_double
-        %h2= link_to "Edison Talks", edison_path
-        %p Edison Talks is an invitation-only, day-long gathering of provocative presentations, performances, and interactive installations held during CIW and led by globally recognized visionaries, created to connect and inspire hundreds of top leaders from across the globe.
-    .column_row.divided_row
-      .column.column_double
-        %h2= link_to "Labs", labs_events_path
-        %p CIW Labs offer exclusive, behind the scenes experiences that give participants a unique glimpse into the inner workings of businesses and institutions that are otherwise unavailable to the public. Small groups will explore what it’s like for business leaders in the boardroom, go behind the curtain at leading theatres and venues, and discover "how-it-works" in hands-on workshops.
+      .column.column_full{:style => "position:relative;"}
+        
+        %h1 Welcome to Chicago Ideas Week
+        %h6 Chicago Ideas Week brings together hundreds of the world’s brightest thought leaders to inspire, connect and activate the city of Chicago and the world. With over 25,000 attendees in 2012, CIW is a global hub for new ideas, an ecosystem for innovation and a playground of intellectual recreation. Join us now!
+        
+        %table
+          %tr
+            %td
+              %p
+                %strong= link_to "TALKS:", videos_path 
+                90-minute sessions focused on a central theme featuring 3-5 speakers (ie: architecture, design, technology)
+            
+            %td
+              %p
+                %strong= link_to "EDISON TALKS:", edison_path 
+                Daylong program of provocative presentations and dynamic performances. Invitation-only.
+          %tr
+            %td
+              %p
+                %strong= link_to "LABS:", labs_events_path
+                Behind-the-scenes experiences at Chicago’s leading businesses and institutions
+            %td
+              %p
+                %strong MASTER CLASS: 
+                Intimate, hour-long sessions featuring a deeper conversation between two speakers on a popular theme, plus audience participation
+        
+        %p{:style => "position:absolute;right:0;padding:4px 20px;background:#fff;bottom:-35px;"}
+          = link_to "Learn more about our programs →", programs_path
+        
+        
+            
+    .column_row
+      .column.column_left
+        = image_tag('application/homepage/photo2.jpg', :width => "310px", :height => "192px")
+        %p{:style => "padding:15px 12px 4px 12px;height:145px;"}
+          %strong Get Priority Access as a CIW Member: 
+          Join our Member Program and connect with our growing community of leaders, innovators and game-changers – all while reserving your CIW priority tickets before the public. Tickets up to 65% off!
+        %p{:style => "padding:4px 12px;"}
+          = link_to "Become a Member →", member_program_path
+      
+      .column.column_middle
+        = image_tag('application/homepage/photo3.jpg', :width => "310px", :height => "192px")
+        %p{:style => "padding:15px 12px 4px 12px;height:145px;"}
+          %strong Become a Sponsor: 
+          Chicago Ideas Week would not be possible without the support of our partners. Our integrated partnerships offer a variety of benefits including promotion & branding, speaking opportunities, and media coverage.
+        %p{:style => "padding:4px 12px;"}
+          = link_to "Partner with us →", support_path
+      
+      .column.column_right
+        = image_tag('application/homepage/photo4.jpg', :width => "310px", :height => "192px")
+        %p{:style => "padding:15px 12px 4px 12px;height:145px;"}
+          %strong Get inspired by our CIW Talks: 
+          Missed a session at CIW? Don’t worry – watch all of the CIW Talks online on your time. Get inspired by the world-class leaders who’ve shared their ideas on the CIW stage.
+        
+        %p{:style => "padding:4px 12px;"}
+          = link_to "Watch CIW Talks →", year_videos_path(@current_year)
 
     
   
-  -# Include Sidebar Items
-  #sidebar
-    = render "partials/sponsors"
-    = render "partials/social"
-    = render "partials/newsletter_form"
-      
 
   

@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.3'
+gem 'rails', '3.1.10'
 
 # our database of choice for key constrained, transaction enforced critical business data
 gem 'mysql2'
